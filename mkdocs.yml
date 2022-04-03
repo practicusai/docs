@@ -1,0 +1,27 @@
+site_name: Practicus AI Documentation
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+  - scheme: default
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+  - scheme: slate
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  logo: img/practicus50.png
+  favicon: img/practicus50.png
+  language: en
+
+nav:
+  - Home: index.md
+  - Getting Started: start.md
+  - Common Use Cases:
+    - Data Preparation: data-prep.md
+    - Share AI Models: share-models.md
+  - API Reference: api-reference.md
+  - Advanced Features: advanced.md
+  - Feedback: feedback.md
