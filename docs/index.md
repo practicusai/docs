@@ -1,145 +1,53 @@
-**Practicus AI** is a free platform that allows **ML data preparation**, zero dependency **ML model deployment**, **model debugging** and **model explainability**. 
+<a href="https://practicus.ai/" target="_blank">Practicus AI</a> is a platform to make AI/ML for tabular data
+easier to use for both technical and non-technical users. The user experience is designed after Spreadsheets.
 
-**Data Scientists** can use Practicus AI to make their own lives easier, and also to **collaborate** with **Data Analysts**, **Business Analysts** and more. There are an estimated **1 billion+** Excel, Google Sheets, LibreOffice or similar Spreadsheet users in the World. Practicus AI aims to bridge the gap between Data Scientist / Python world and the billion+ Business / Excel users.  
+Certain functionality can be used directly from Spreadsheets such as Excel and Google Sheets. 
 
-There are two main use cases for Practicus AI. Data Preparation and model sharing. You can take a look at the below sections to get an idea and then download the <a href="https://practicusai.github.io/samples/" target="_blank">sample notebooks</a> to quickly get started. 
+## Big Picture
 
-Data preparation for ML consumes an estimated 80% to 90% of the time for a Data Scientist today. Practicus AI aims to help data preparation for ML by **closing the gap between Excel and Python code**. Both data scientists and other supporting personas like business analysts can take advantage of the below functionality, and work together to prepare the data for ML training. 
+![big_picture](img/big_picture.png)
 
-**Basic data preparation use case**
+## Architecture
 
-1) Export a Pandas DataFrame, NumPy array or a Python list to Excel
+![architecture](img/architecture.png)
 
-```python
-import practicus
-# export data to an Excel file
-practicus.export_data(my_df, "my_data.xlsx")
-```
+## What does Practicus AI do?
 
+<a href="https://practicus.ai/" target="_blank">Practicus AI</a> has 4 major elements. 
 
-2) Open the file in Excel, Google Sheets, LibreOffice or any other Spreadsheet platform to analyze and make changes as usual. 
+1) **GUI (visual) app:** Free and available for Windows, macOS and Linux. The app is the center of most 
+functionality such as EDA (Explorator Data Analysis), Data Preparation, AutoML, Prediction etc.  
 
-![exce_changes](img/excel_changes.png)
+2) **SDK:** Free Python library (3.6 - 3.10) providing programmatic access to most of the GUI app features. 
 
+3) **Spreadsheets:** Certain Data Preparation and Prediction functionality can be embedded inside any spreadsheet system
 
+4) **Cloud Node:** Running on AWS, optional cloud node offers advanced functionality. 
 
+## How can Practicus AI help me?
 
+Different user personas will benefit from <a href="https://practicus.ai/" target="_blank">Practicus AI</a> differently.
 
-3) After you are finished updating your data in Excel, you can apply all changes made to create a new data set. 
+The common benefit will be allowing better collaboration between both technical and non-technical users.    
 
-```python
-# import back from Excel, detect all the changes made, and apply to the Data Frame  
-my_df2 = practicus.apply_changes(my_df, "my_data.xlsx") 
+### Data Scientists
+- **Data preparation/transformation:** The most time-consuming part for most data science projects. 
+- **Improved model discoverability:** Another key issue. [Practicus AI](https://practicus.ai/) allows any user to easily 
+search and discover models from the GUI.   
+- **Point & click model inference:** [Practicus AI](https://practicus.ai/) allows to immediately predict 
+without the need for model hosting. 
+- **Export simpler models to pure spreadsheets:** Unique to [Practicus AI](https://practicus.ai/), data scientists can export
+relatively simple models to Excel, Google Sheets and others.
 
-# practicus auto-generates Python code for you, and applies the updates..
+### Data Engineers
+- **Easier and faster ETL:** Spreadsheet interface makes data transformation faster and more intuitive.
+- **Data engine freedom:** You can easily switch between Spark, Pandas, DASK, RAPIDS, RAPIDS+DASK (multi GPU)
+- **Code Export:** You can export processing steps into pure Python with the Airflow embedding code with one-click. 
+This allows you to take data processing code as-is or with minimal change and immediately go to production.  
 
-# display the result, which will be the same as what you see in Excel
-display(my_df2)
-```
+### Business Professionals
+- **Explore** various data sources to analyze raw or structured data
+- **Build AI models** with one-click and predict the future
+- **Easily join technical experts** for complex AI projects, where your expertise is needed the most
 
-![see_changes](img/see_changes.png)
 
-
-
-
-
-4) **(Optional)** Practicus AI will automatically create a **d**ata **p**rep (.dp) file containing all detected changes, before generating Python code. You can review this file, remove changes you don't like, or add new ones manually as you wish. Once done, you can apply the updates directly from the .dp file. 
-
-![df_file](img/dp_file.png)
-
-```python
-# apply changes, but this time directly from the .dp file that you reviewed / updated
-my_df2 = practicus.apply_changes(my_df, "my_data.dp")
-```
-
-
-
-5) **(Optional)** Rinse and repeat... You can continue the above steps, also working with others in a collaborative environment, to keep generating new versions of Excel files and auto-generated data sets. The detected changes (.dp files) can be updated and archived as needed. Outside of Jupyter notebooks, you can also chain multiple .dp files to create complex data preparation / ML pipelines and later embed these data pipelines to a data engineering platform for production purposes.  Any production grade data integration platform that can run Python code will easily run Practicus AI detected changes at scale.   
-
-
-## AI/ML Model Sharing
-
-Beyond data preparation, Practicus AI can also be used to export ML models to Excel, which can be used for different purposes. Below you can find some use cases to export your models to Excel. 
-
-- Practicus AI exported models can help with ML **deployment** and **testing** and increase your chances of getting them to production to be used by masses.   
-
-- The exported models have **zero dependency**, meaning they only use core Excel functionality and do not depend on 3rd party libraries, products, services, REST APIs etc. You can attach the exported ML model to an email, and the recipient would be able to predict / infer offline without any issues. 
-
-- You can use the exported Excel file to **debug** your models, since the model representation will be in a very simple form. 
-
-- **Model Explainability** can be a key blocker for getting ML models to production. Often times, data analysts, business analysts and other business leaders will not allow moving an ML model to production, simply because they do not understand how the model works. Practicus AI exported models in Excel will be significantly easier to consume and understand.
-
-**Basic model sharing use case**
-
-1) Build your ML model as usual. 
-
-```Python
-# sample Support Vector Machine model
-...
-my_svm_model.fit(X, Y)
-```
-
-
-
-2) Export to Excel 
-
-```Python
-import practicus    
-practicus.export_model(my_svm_model, output_path="iris_svm.xlsx",
-      columns=iris.feature_names, target_name="Species")
-```
-
-
-
-3) Open the file in Excel, Google Sheets, LibreOffice or others to make predictions, analyze how the model works and make changes as well.
-
-
-
-![model_predict](img/model_predict.png)
-
-
-
-![model_formula](img/model_formula.png)
-
-
-
-![model_vector](img/model_vector.png)
-
-
-
-
-
-4) (**Optional**) You can use pre-processing pipelines as well. Necessary calculations prior to model prediction will also be exported to Excel as pre-processing steps.   
-
-```python
-# create a pipeline with StandardScaler and LogisticRegression
-my_pipeline = make_pipeline(
-   StandardScaler(),
-   LogisticRegression())
-
-# train
-my_pipeline.fit(X, y)
-
-# Export the pre-processing and model calculation to Excel
-practicus.export_model(my_pipeline, output_path="model_with_pre_processing.xlsx",
-                   columns=iris.feature_names, target_name="Species")
-```
-
-5) (**Optional**) You can also export models with Practicus AI using PMML. If you are using R, KNIME, Alteryx or any other ML platform, you can export your models to a .pmml file first (optionally including pre-processing steps as well) and then use the .pmml file with Practicus AI in Python to export it to Excel. The final Excel file will not have any dependencies to your ML platform. 
-
-```python
-practicus.export_model("my_model_developed_on_R.pmml", output_path="R_model.xlsx",
-                   columns=['petal length', 'petal width'], target_name="Species")
-```
-
-
-
-------
-
-## Sample notebooks
-
-You can download sample Jupyter notebooks from the below link. 
-
-<a href="https://practicusai.github.io/samples/" target="_blank">https://practicusai.github.io/samples</a>
-
-------
