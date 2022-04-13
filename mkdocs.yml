@@ -32,6 +32,7 @@ nav:
     - Code Export: code-export.md
     - Airflow integration: airflow.md
     - AWS IAM policies: aws-iam.md
+    - Logging: logging.md
   - SDK docs:
     - SDK Home: sdk-start.md
     - Data Preparation use case: data-prep.md
