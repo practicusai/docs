@@ -1,7 +1,17 @@
-**Practicus AI** is a free platform that allows **ML data preparation**, zero dependency **ML model deployment**, **model debugging** and **model explainability**. 
+[Practicus AI](https://practicus.ai/) is an end-to-end Data Science platform, which works like a spreadsheet. It works for both technical and non-technical users. 
 
-**Data Scientists** can use Practicus AI to make their own lives easier, and also to **collaborate** with **Data Analysts**, **Business Analysts** and more. There are an estimated **1 billion+** Excel, Google Sheets, LibreOffice or similar Spreadsheet users in the World. Practicus AI aims to bridge the gap between Data Scientist / Python world and the billion+ Business / Excel users.  
+You can **explore and analyze** large amounts of raw data and find unique insights and patterns. 
 
-There are two main use cases for Practicus AI. Data Preparation and model sharing. You can take a look at the below sections to get an idea and then download the <a href="https://practicusai.github.io/samples/" target="_blank">sample notebooks</a> to quickly get started. 
+Practicus AI allows you to easily **transform and prepare** data, and extend with coding only if necessary. 
 
-Data preparation for ML consumes an estimated 80% to 90% of the time for a Data Scientist today. Practicus AI aims to help data preparation for ML by **closing the gap between Excel and Python code**. Both data scientists and other supporting personas like business analysts can take advantage of the below functionality, and work together to prepare the data for ML training. 
+You can create AI models using **AutoML** and **predict** the future with just a few clicks. When working with complex problems, 
+you can share your experiments exported code with the data science team, so they can take it further without starting from scratch.
+
+Several Practicus AI features work directly inside Spreadsheets, allowing you to bring more than 1 billion Spreadsheet 
+users into your Data Science projects. 
+
+If needed, you can click to generate the **data processing pipeline code**, and go to production with ease. 
+
+Practicus AI **app is forever free**, and the cloud platform offers a **forever free tier** as well. 
+If you need more cloud capacity, you can **pay as you go**, which shows as a line item in your cloud invoice. 
+No commitments or credit card is needed.

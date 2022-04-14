@@ -1,4 +1,4 @@
-<a href="https://practicus.ai/" target="_blank">Practicus AI</a> is an end-to-end Data Science platform, 
+[Practicus AI](https://practicus.ai/) is an end-to-end Data Science platform, 
 which works like a spreadsheet. It works for both technical and non-technical users. 
 
 You can **explore and analyze** large amounts of raw data and find unique insights and patterns. 
@@ -14,8 +14,8 @@ users into your Data Science projects.
 If needed, you can click to generate the **data processing pipeline code**, and go to production with ease. 
 
 Practicus AI **app is forever free**, and the cloud platform offers a **forever free tier** as well. 
-If you need more cloud capacity, you can **“pay as you go”**, which shows as a line item in your cloud invoice. 
-No commitments or credit card needed. 
+If you need more cloud capacity, you can **pay as you go**, which shows as a line item in your cloud invoice. 
+No commitments or credit card is needed. 
 
 ## Big Picture
 
