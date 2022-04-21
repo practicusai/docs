@@ -18,7 +18,7 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
+  - Get Started: get-started.md
   - SDK Help:
     - SDK Home: sdk-start.md
     - Data Preparation use case: data-prep.md
