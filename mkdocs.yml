@@ -17,8 +17,8 @@ theme:
   language: en
 
 nav:
-  - Home: index.md
-  - Get Started: get-started.md
+  - Documentation Home: index.md
+  - Setup Guide: setup-guide.md
   - SDK Help:
     - SDK Home: sdk-start.md
     - Data Preparation use case: data-prep.md
