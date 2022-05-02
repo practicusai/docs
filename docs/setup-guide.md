@@ -40,13 +40,14 @@ Please note that it can take a few minutes for the offering to be active. Once y
 - <a href="https://aws.amazon.com/marketplace/pp?sku=5imq5zmm3najdjy989wuoytjo" target="_blank">Practicus AI</a> - Most common enterprise offer
 - <a href="https://aws.amazon.com/marketplace/pp?sku=3o0d18rnipiqy9isz9aw1fsrv" target="_blank" rel="noopener">Practicus AI with GPUs</a> - Accelerated computing, enterprise offer
 
-
 <div style="text-align: center;">Sample view of our AWS marketplace page</div>
 ![AWS Marketplace](img/aws-mp.png)
 
 ### Registering AWS user 
 
-Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab and enter your AWS user credentials. The AWS account needs one or more of our [AWS marketplace](#enabling-aws-marketplace) offerings enabled. 
+Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab and enter your AWS user credentials. We **do not** access your AWS credentials, Practicus AI app   
+
+The AWS account needs one or more of our [AWS marketplace](#enabling-aws-marketplace) offerings enabled. 
 
 
 ## References
@@ -62,7 +63,7 @@ Please follow the below steps to create a **free** AWS account.
 4. Navigate to IAM (Identity and Access Management), click Users on the left menu and click _Add users_
 5. For User name enter **admin**, click Access key and Password check boxes (see below screenshot)
 6. In Set permissions section select _Attach existing policies directly_ and pick _AdministratorAccess_ (see below screenshot)
-7. In the last screen carefully save you **Access Key ID**, **Secret access key** and Password (see below screenshot)
+7. In the last screen carefully save your **Access Key ID**, **Secret access key** and Password (see below screenshot)
 8. All done! You can continue with the next step, [Enabling AWS marketplace](#enabling-aws-marketplace) 
 
 **Notes:**
@@ -71,7 +72,8 @@ Please follow the below steps to create a **free** AWS account.
 * If you plan on having multiple AWS users sharing the same AWS account, you can simply add new users to the appropriate practicus AWS IAM user group that our app creates for you. 
 * If you have a local AWS profile (i.e. to be used with AWS CLI) Practicus AI setup can use this directly. 
 
-_Screenshots_
+<div style="text-align: center;">AWS account creation screenshots</div>
+
 ![aws account creation step 1](img/add_aws_user_1.png)
 
 ![aws account creation step 2](img/add_aws_user_2.png)
