@@ -65,7 +65,11 @@ Please follow the below steps to create a **free** AWS account.
 7. In the last screen carefully save you **Access Key ID**, **Secret access key** and Password (see below screenshot)
 8. All done! You can continue with the next step, [Enabling AWS marketplace](#enabling-aws-marketplace) 
 
-**Note:** Although the admin AWS user will be sufficient for Practicus AI cloud nodes to run, as a security best practice we recommend you to create a least privileged AWS user for day to day usage. Practicus AI app cloud setup can create this user for you. If you rather prefer to create one manually please make sure the user has access for EC2 and S3 operations. If you will have multiple users sharing the same account, you can simply add new users to the practicus AWS user group that the app creates for you. 
+**Notes:**
+
+* Although the admin AWS user will be sufficient for Practicus AI cloud nodes to run, as a security best practice we recommend you to create a least privileged AWS user for day to day usage.  Practicus AI app cloud setup can create this user for you. If you rather prefer to create one manually please make sure the user has access for EC2 and S3 operations. 
+* If you plan on having multiple AWS users sharing the same AWS account, you can simply add new users to the appropriate practicus AWS IAM user group that our app creates for you. 
+* If you have a local AWS profile (i.e. to be used with AWS CLI) Practicus AI setup can use this directly. 
 
 _Screenshots_
 ![aws account creation step 1](img/add_aws_user_1.png)
