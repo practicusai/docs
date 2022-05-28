@@ -30,7 +30,7 @@ No commitments or credit card is needed.
 <a href="https://practicus.ai/" target="_blank">Practicus AI</a> has 4 major elements. 
 
 1) **GUI (Visual) App:** Free and available for Windows, macOS and Linux. The app is the center of most 
-functionality such as EDA (Explorator Data Analysis), Data Preparation, AutoML, Prediction etc.  
+functionality such as EDA (Exploratory Data Analysis), Data Preparation, AutoML, Prediction etc.  
 
 2) **SDK:** Free Python library (3.6 - 3.10) providing programmatic access to most of the GUI app features. 
 
