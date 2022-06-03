@@ -25,6 +25,7 @@ nav:
     - Sharing AI Models use case: share-models.md
     - API Reference: api-reference.md
     - Advanced Features: advanced.md
+  - Cloud: cloud.md
   - Explore: explore.md
   - Analyze: analyze.md
   - Prepare:
@@ -39,5 +40,5 @@ nav:
     - Airflow integration: airflow.md
     - AWS IAM policies: aws-iam.md
     - Logging: logging.md
-  - Frequently Asked Questions: faq.md
+  # - Frequently Asked Questions: faq.md
   - Feedback: feedback.md
