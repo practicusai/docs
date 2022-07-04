@@ -19,6 +19,7 @@ theme:
 nav:
   - Documentation Home: index.md
   - Setup Guide: setup-guide.md
+  - Demo Videos: https://practicus.ai/demo
   - SDK Help:
     - SDK Home: sdk-start.md
     - Data Preparation use case: data-prep.md

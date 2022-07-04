@@ -120,7 +120,7 @@ python -m venv %UserProfile%\practicus\venv
 practicus
 ```
 
-#### Macos or Linux QuickStart
+#### macOS or Linux QuickStart
 ```shell
 # install
 python3 -m venv ~/practicus/venv 
