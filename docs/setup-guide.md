@@ -45,9 +45,9 @@ Please note that it can take a few minutes for the offering to be active. Once y
 
 ### Registering AWS user 
 
-Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab and enter your AWS user credentials. We **do not** access your AWS credentials, Practicus AI app   
+Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab and enter your AWS user credentials. We **do not** access your AWS credentials, Practicus AI app running in your laptop uses it completely isolated.  
 
-The AWS account needs one or more of our [AWS marketplace](#enabling-aws-marketplace) offerings enabled. 
+Please note that your AWS account needs one or more of our [AWS marketplace](#enabling-aws-marketplace) offerings enabled. 
 
 
 ## References
