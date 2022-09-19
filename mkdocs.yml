@@ -32,6 +32,7 @@ nav:
   - Prepare:
     - Prepare with App: prepare.md
     - Prepare with Excel: excel-prep.md
+    - Join: join.md
   - Model: model.md
   - Predict:
     - Predict with App: predict.md
@@ -39,6 +40,7 @@ nav:
   - Operations:
     - Code Export: code-export.md
     - Airflow integration: airflow.md
+    - Modern Data Pipelines: modern-data-pipelines.md
     - AWS IAM policies: aws-iam.md
     - Logging: logging.md
   # - Frequently Asked Questions: faq.md

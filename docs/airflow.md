@@ -9,3 +9,5 @@ After Airflow Code export is completed, you can see, run and stop the DAGs creat
 You can see and edit your Airflow code exported with Jupyter Notebook and continue your operations programmatically.You can also work on the data pipelines you have created.
 
 ![predict](img/airflow_integration2.png)
+
+Please view the [Modern Data Pipelines](modern-data-pipelines.md) section to learn more about out how Practicus AI data pipelines work by default.

@@ -45,7 +45,7 @@ Please note that it can take a few minutes for the offering to be active. Once y
 
 ### Registering AWS user 
 
-Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab and enter your AWS user credentials. We **do not** access your AWS credentials, Practicus AI app running in your laptop uses it completely isolated.  
+Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab and enter your AWS user credentials. We **do not** access your AWS credentials, Practicus AI app running on your laptop uses it completely isolated.  
 
 Please note that your AWS account needs one or more of our [AWS marketplace](#enabling-aws-marketplace) offerings enabled. 
 
@@ -88,8 +88,7 @@ Any time you need to do AI in the cloud, you can just click a button in the Prac
 
 For our app to be able to start/stop cloud worker nodes you need to enable (subscribe to) the AWS marketplace offering of your choice. 
 
-If you use the free tier (t3.micro) with 2 vCPUs and 1 GB RAM, there won't be any charges. 
-AWS will charge you for larger capacity **per hour.** i.e. you start a cloud worker, use it for 2 hours and never use it again. Your cloud bill will have a line item for the 2 hours you use. Larger capacity is more expensive and the larger the capacity the bigger discount you will get. Please click below 
+If you use the free tier (t3.micro) with 2 vCPUs and 1 GB RAM, there won't be any software license charges. AWS also offers t3.micro free of charge for eligible customers and regions. For larger capacity, AWS will charge you **per hour.** i.e. you start a cloud worker, use it for 2 hours and never use it again. Your cloud bill will have a line item for the 2 hours you use. Larger capacity is more expensive and the larger the capacity the [bigger discount](https://practicus.ai/payg-discount/) you will get.  
 
 ### Linux Installation
 Since almost all Linux distros come with Python 3 installed, we do not offer a prepackaged installer. 
