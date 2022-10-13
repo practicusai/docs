@@ -45,3 +45,6 @@ nav:
     - Logging: logging.md
   # - Frequently Asked Questions: faq.md
   - Feedback: feedback.md
+
+plugins:
+    - with-pdf
