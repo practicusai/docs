@@ -16,7 +16,7 @@ practicus.export_data(my_df, "my_data.xlsx")
 
 2) Open the file in Excel, Google Sheets, LibreOffice or any other Spreadsheet platform to analyze and make changes as usual. 
 
-![exce_changes](img/excel_changes.png)
+![excel_changes](img/excel_changes.png)
 
 
 

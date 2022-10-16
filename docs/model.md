@@ -19,7 +19,7 @@ When the model creation process is finished, some options appear.
 
 You can load the model in Excel, register it in MLflow, see the details of the experiment with MLflow, you can see the code with Jupyter Notebook.
 
-![mflow](img/mlflow.png)
+![mlflow](img/mlflow.png)
 
 ![jupyter](img/jupyter.png)
 

@@ -3,7 +3,7 @@ In this section we will look at some advanced functionality of Practicus AI.
 
 ## Production Data Pipelines
 
-Typically, an ML workflow will depend on several cycles of data preparation steps before the final ML training can be done. This is rarely a one time task, since your ML model might eventually start drifting as time goes by (not predicting accurately anymore). When this happens, the first thing to try is usually re-training with new, fresh data. Which means you have to reload data from raw data sources, and apply data preparation steps again.  Instead of preparing data manually every time you train, some teams create automated data pipelines. These pipelines usually run on a schedule, for instance daily, creating clean and ready-to-train-on data sets. 
+Typically, an ML workflow will depend on several cycles of data preparation steps before the final ML training can be done. This is rarely a one time task, since your ML model might eventually start drifting as time goes by (not predicting accurately anymore). When this happens, the first thing to try is usually re-training with new, fresh data. Which means you have to reload data from raw data sources, and apply data preparation steps again.  Instead of preparing data manually every time you train, some teams create automated data pipelines. These pipelines typically run on a schedule, for instance daily, creating clean and ready-to-train-on data sets. 
 
 You can easily build data pipelines with Practicus AI, and embed them into existing data integration platforms.  All you need is a platform that can run Python. Please see some performance tips below in the example code 
 
@@ -16,7 +16,7 @@ import practicus
 # 1) create a Python .py file for the data pipeline
 # 2) place your data loading code as usual, from databases, S3 etc. 
 df = load_data_as_usual()
-# 3) excute changes in .dp files one after another
+# 3) execute changes in .dp files one after another
 practicus.apply_changes(df, "data_prep_1.dp", inplace=True)
 practicus.apply_changes(df, "data_prep_2.dp", inplace=True)
 # ...
@@ -34,7 +34,7 @@ save_to_final_dest_as_usual(df)
 
 **Deployment**
 
-Once the data pipeline Pyhton code (.py) is ready like the above, you can then "pip install practicus" in the data integration platform and run the .py file as usual. Please note that Practicus AI uses Java (>= v8.0) behind the scenes for some complex operations. Although it is unlikely, if there is no Java runtime (JRE) installed on the data integration platform, Practicus AI will download a local copy of the JRE, first time it runs. This local Java installation is purely a "file download" operation of a stripped down JRE, and will not need any root/admin privileges.  You can also manually trigger downloading the local JRE operation in advance by calling *practicus.install_jre()*, or install Java (>= v8.0) yourself. We recommend <a href="https://adoptopenjdk.net/" target="_blank">Open JDK</a>.  
+Once the data pipeline Python code (.py) is ready like the above, you can then "pip install practicus" in the data integration platform and run the .py file as usual. Please note that Practicus AI uses Java (>= v8.0) behind the scenes for some complex operations. Although it is unlikely, if there is no Java runtime (JRE) installed on the data integration platform, Practicus AI will download a local copy of the JRE, first time it runs. This local Java installation is purely a "file download" operation of a stripped down JRE, and will not need any root/admin privileges.  You can also manually trigger downloading the local JRE operation in advance by calling *practicus.install_jre()*, or install Java (>= v8.0) yourself. We recommend <a href="https://adoptopenjdk.net/" target="_blank">Open JDK</a>.  
 
 ## DP file structure
 
@@ -42,7 +42,7 @@ Practicus AI can detect changes made inside an Excel (.xlsx) file when you call 
 
 The .dp file is intended to be easily consumed by users that are **not** programmers or data scientists. The goal is to create a happy medium so that different user personas can view the changes detected in the .dp file and collaborate on a data science project.
 
-The .dp file does not necessarily need to only include changes that are detected by Practicus AI. As you can read below, you can freely add your own changes or remove existing ones, and then finally ask Practicus AI to run these data prep steps on your data sets to complete data preparatation. 
+The .dp file does not necessarily need to only include changes that are detected by Practicus AI. As you can read below, you can freely add your own changes or remove existing ones, and then finally ask Practicus AI to run these data prep steps on your data sets to complete data preparation. 
 
 The below is a simple .dp file example. 
 
@@ -54,7 +54,7 @@ The below is a simple .dp file example.
 Input_Columns = [Column Name 1], [Column Name 2], ..
 ```
 
-This is an *optional* section, but it is recommended to use for *data validation*. When Practicus AI starts analyzing an Excel (.xlsx) file, it will detect all of the visible column names and add them in the Input_Columns section.  When you execute apply_changes() with a new data set, Practicus AI will compare the column names of the inpot data set to Input_Columns and give you a warning if they are not the same. For example, let's assume you have a data set with Col_1, Col_2, Col_3 columns, export to .xlsx, make some changes and then run detect_changes(). You will see Input_Columns = [Col_1], [Col_2], [Col_3]. Let's assume you then go ahaed and delete  Col_2 in your data set, and apply the .dp file. You would get a warning that the input columns do not match with the input data set. 
+This is an *optional* section, but it is recommended to use for *data validation*. When Practicus AI starts analyzing an Excel (.xlsx) file, it will detect all the visible column names and add them in the Input_Columns section.  When you execute apply_changes() with a new data set, Practicus AI will compare the column names of the input data set to Input_Columns and give you a warning if they are not the same. For example, let's assume you have a data set with Col_1, Col_2, Col_3 columns, export to .xlsx, make some changes and then run detect_changes(). You will see Input_Columns = [Col_1], [Col_2], [Col_3]. Let's assume you then go ahead and delete  Col_2 in your data set, and apply the .dp file. You would get a warning that the input columns do not match with the input data set. 
 
 Example: 
 
@@ -82,7 +82,7 @@ Drop_Column(Col[ZN])
 Update(Col[name of the column to update] from_value to to_value)
 ```
 
-Updates **all** of the rows for a certain column from one value to another. For example, updating all missing values to 0. When a manual update of a cell is detected in the Excel file, an Update command is added to the .dp file. You do not need make the same update to all cells, just one ie enough to apply the change for that column. If the *same* value is updated to different values manually, only the first detected update will run. Other updates will be commented out. You can review these update commands and make changes on the .dp file as needed.
+Updates **all** the rows for a certain column from one value to another. For example, updating all missing values to 0. When a manual update of a cell is detected in the Excel file, an Update command is added to the .dp file. You do not need make the same update to all cells, just one ie enough to apply the change for that column. If the *same* value is updated to different values manually, only the first detected update will run. Other updates will be commented out. You can review these update commands and make changes on the .dp file as needed.
 
 Examples:
 
@@ -90,7 +90,7 @@ Examples:
 Update(Col[CHAS] blank to 1.0)
 Update(Col[text field] "abc" to "def")
 Update(Col[ZN] 5 to 10)
-# The below Update command is commented out by mlxl automatically,
+# The below Update command is commented out automatically,
 # since the same value (5) was updated to 10 in one Excel cell and to 11 in another
 # Update(Col[ZN] 5 to 11)
 ```
@@ -119,7 +119,7 @@ Rename_Column(Col[petal_width] to Col[petal width])
 Col[name of the column] = EXCEL_FUNCTION( .. EMBEDDED_FUNCTIONS(..) .. ) + OPERATORS
 ```
 
-Using functions to create formulas is probably one of the most powerful features of Excel. The same is true for Practicus AI data prep use case as well. Practicus AI currently interprets over **200+ Excel functions** and applies them with custom created Python code to your data set to perform the data transformation.  If Practicus AI ever encounters an Excel function that it doesn't understand, it will create a Python template for you to provide the missing functionality. Please read more about this in custom functions section below.   Practicus AI currently only supports functions and formulas to run on the same row.  For things like averages of all values for  a particular column, you can use seperate sheets or pivot tables to do yor analysis, and then finally perform the the data preparation steps on individual rows.  
+Using functions to create formulas is probably one of the most powerful features of Excel. The same is true for Practicus AI data prep use case as well. Practicus AI currently interprets over **200+ Excel functions** and applies them with custom created Python code to your data set to perform the data transformation.  If Practicus AI ever encounters an Excel function that it doesn't understand, it will create a Python template for you to provide the missing functionality. Please read more about this in custom functions section below.   Practicus AI currently only supports functions and formulas to run on the same row.  For things like averages of all values for  a particular column, you can use separate sheets or pivot tables to do yor analysis, and then finally perform the the data preparation steps on individual rows.  
 
 Examples:
 
@@ -149,7 +149,7 @@ Please note that columns with formulas are currently placed in the .dp file in o
 Remove_Except(Col[name of the column] criteria)
 ```
 
-Removes (filters) all of the rows that do **not** match the criteria. Citeria can be "is in [values]", logical operators like >, <, >=, <=, = and != and correspondign value, "and", "or".
+Removes (filters) all of the rows that do **not** match the criteria. Criteria can be "is in [values]", logical operators like >, <, >=, <=, = and != and corresponding value, "and", "or".
 
 Examples:
 
@@ -188,7 +188,7 @@ Sorts on column "AGE" from smallest to largest first, and then for the same AGE 
 Reorder_Columns([column name], [another column name], ..)
 ```
 
-All new columns are appended to the end of the data set by default.  Reorder_Columns command changes the order of the columns. Pelase note that since this command has to create a new data set internally, inplace=True updates for apply_changes() will not work. inplace=False is the default behaviour for apply_changes() function. 
+All new columns are appended to the end of the data set by default.  Reorder_Columns command changes the order of the columns. Please note that since this command has to create a new data set internally, inplace=True updates for apply_changes() will not work. inplace=False is the default behaviour for apply_changes() function. 
 
 Example:
 
@@ -233,7 +233,7 @@ def practicus_my_function(row, *args):
     
     # 'row' is a Pandas Data Frame row that you can access *any* column
     result = row['B'] + row['C'] + args[2] + args[3] + args[4]
-    # the below does the same, wihtout accessing row 
+    # the below does the same, without accessing row 
     result = args[0] + args[1] + args[2] + args[3] + args[4]
 
     return result

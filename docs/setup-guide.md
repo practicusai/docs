@@ -1,54 +1,112 @@
-Welcome! Overall, it should take **~5 minutes for you to set up everything** and be ready to go!
+Welcome! It should take **2-5 minutes for you to set up everything** and be ready to go!
 
 Some information in this guide is for advanced scenarios, and you can safely ignore them if you prefer to keep it simple. 
 
 ## Installing Practicus AI app
 
-If you haven't already, please install Practicus AI app for [Windows](https://www.microsoft.com/en-us/p/practicus-ai/9p9f4hvkvcqg), [macOS](https://github.com/practicusai/app/releases/download/latest/practicus.pkg) or [Linux](#linux-installation).  
+If you haven't already, please install Practicus AI forever free app for [Windows](https://www.microsoft.com/en-us/p/practicus-ai/9p9f4hvkvcqg), [macOS](https://github.com/practicusai/app/releases/download/latest/practicus.pkg) or [Linux](#linux-installation).  
 
 If you are a Python user and prefer to install Practicus AI as a library, please check our [Python Setup Guide](#python-setup-guide) section below. 
 
 ## Cloud Activation
 
-Some of our advanced features require cloud worker nodes. You can activate the cloud capacity in a few minutes and use the **forever free cloud tier** using **2 vCPUs and 1 GB RAM**. For larger capacity, you can **pay-as-you-go hourly** without giving us your credit card info or making any commitments. 
+![cloud_setup_summary](img/cloud_setup_summary.png)
 
-Your organization can also acquire an **unlimited license for multiple users and with a fixed fee**. Please contact [sales](mailto:sales@practicus.ai?subject=Enterprise License) to learn more about our enterprise support and licensing.
+### Before we begin
+Some of our advanced features require cloud capacity. 
 
-### Creating an AWS account
+Instead of asking for access to your data, **Practicus AI cloud runs 100% in your AWS account, fully isolated.** This allows us to offer **improved security and absolute privacy**.
+
+You can activate Practicus AI on your AWS account in a few minutes, and use up to a certain cloud capacity **free of charge**.  Let's get started.
+
+### 1) Select license
+
+Practicus AI cloud offers 3 different licenses. 
+
+#### Free License
+
+We offer a **forever free cloud tier using 2 vCPUs and 1 GB RAM** on AWS with **t3.micro** cloud instances.
+
+Please note that some AWS cloud regions charge roughly 1 cent / hour for t3.micro. If you need to make sure everything your use is absolutely free, please make sure you pick an appropriate AWS cloud region. AWS also offer free tiers for other potential charges like S3 storage and network traffic. To keep everything free, you must experiment responsibly and make sure you do not go beyond these AWS limits. Please view [AWS free tier details](https://aws.amazon.com/free/) to learn more. 
+
+#### Professional license
+
+When you need **larger Practicus AI cloud capacity**, you can simply **pay-as-you-go (PAYG) hourly** without sharing your credit card info, or making any commitments. **AWS will charge** for the Practicus AI cloud usage **hourly**, which will show as a separate **Practicus AI line item in your monthly AWS cloud invoice**. 
+
+Practicus AI cloud **works like electricity**, you switch it on when you need it, and only pay for the total number of hours that the lights are on. Our cloud nodes **auto shut down** after 90 minutes of inactivity by default, **preventing unexpected costs**. It works similar to this scenario: you leave your home and forget to turn the lights off. Your lights turn off automatically after 1.5 hours, since there is no motion detected in the house. 
+
+Please visit [practicus.ai/pricing](https://practicus.ai/pricing/) for more info, and example pricing scenarios.   
+
+#### Enterprise license
+
+We offer a **bring-your-own-license (BYOL)** model with benefits such as **unlimited use for multiple users, with a fixed fee.**  
+
+If you have an enterprise license, simply open Practicus AI app and go to settings (preferences in macOS), cloud tab, and enter your email to activate your license.
+
+Please feel free to [contact us](https://practicus.ai/contact/) to learn more about our enterprise support and licensing.
+
+Use your email to activate the enterprise license in app settings:
+![Cloud License](img/cloud_license.png)
+
+### 2) Ready your AWS cloud account
+
+This is a **one-time task for all users** sharing the same AWS account. 
 
 Please skip this step if you already have an AWS account. 
 
-This is a **one-time task for all users** sharing the same AWS Account. If you do not have an AWS account already, please <a href="https://aws.amazon.com/" target="_blank">click here</a> to create a one for **free**. 
+<a href="https://portal.aws.amazon.com/billing/signup" target="_blank">Create an Amazon Web Services (AWS) cloud account</a> for **free**. 
 
 Please make sure you have created an **admin user** as well. You can check our [AWS account creation guide below](#aws-account-creation) for help.
 
 
-### Enabling AWS marketplace
+### 3) Enable on AWS marketplace
 
-This is a **one-time task for all users** sharing the same AWS Account. New to AWS marketplace? Please click [here](#aws-marketplace) to learn more. 
+This is a **one-time task for all users** sharing the same AWS Account. 
 
-We have multiple offerings on AWS marketplace. Please click on each in the below list to view the marketplace page explaining the offering, and then click **Continue to Subscribe** button to enable (see screenshot below). If in doubt, you can pick the first regular offering and safely ignore the rest **or** enable them all in one go in case you ever need them.  
+New to AWS marketplace? [Learn more](#aws-marketplace). 
 
-Please note that it can take a few minutes for the offering to be active. Once your subscription is active please do **not** create a new EC2 instance using AWS cloud console. Continue with the below activation step instead.   
+We have multiple offerings on AWS marketplace. Please click on each in the below list to view the marketplace page explaining the offering, and then click **Continue to Subscribe** button to enable (see screenshot below). You need at least one AWS marketplace offering enabled to use Practicus AI cloud. 
 
-#### Regular PAYG (pay-as-you-go) 
+Please note that it can take a few minutes for the offering to be active. Once your subscription is active, please do **not** create a new EC2 instance using AWS cloud console. The next step will take care of configuration.
+
+#### Free / Professional pay-as-you-go (PAYG) 
 
 - <a href="https://aws.amazon.com/marketplace/pp?sku=92p0y3k5wuzzfhi71lmcigl5q" target="_blank">Practicus AI</a> - Most common, offers free tier, will give you all of the functionality.
 - <a href="https://aws.amazon.com/marketplace/pp?sku=84fu9xjxpikj0pw37w8zchum" target="_blank">Practicus AI with GPUs</a> - Accelerated computing for very large data **or** if you have limited time. Can be 500+ times faster for some operations. 
 
-#### Enterprise License BYOL (bring-your-own-license)
+#### Enterprise License bring-your-own-license (BYOL)
 - <a href="https://aws.amazon.com/marketplace/pp?sku=5imq5zmm3najdjy989wuoytjo" target="_blank">Practicus AI</a> - Most common enterprise offer
 - <a href="https://aws.amazon.com/marketplace/pp?sku=3o0d18rnipiqy9isz9aw1fsrv" target="_blank" rel="noopener">Practicus AI with GPUs</a> - Accelerated computing, enterprise offer
 
-<div style="text-align: center;">Sample view of our AWS marketplace page</div>
 ![AWS Marketplace](img/aws-mp.png)
+<div style="text-align: center;">Sample view of our AWS marketplace page</div>
 
-### Registering AWS user 
+Please carefully review software, hardware and total cost / hour on our AWS marketplace page. Sample professional license below: 
 
-Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab and enter your AWS user credentials. We **do not** access your AWS credentials, Practicus AI app running on your laptop uses it completely isolated.  
+![AWS Marketplace](img/aws_mp_pricing.png)
 
-Please note that your AWS account needs one or more of our [AWS marketplace](#enabling-aws-marketplace) offerings enabled. 
+### 4) Activate your AWS user in the app 
 
+You should now have an AWS user **Access key ID** and **Secret access key** ready, and the AWS account for this user has at least one Practicus AI AWS marketplace offer enabled.   
+
+Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab, click the **Activate your AWS user** button, choose a default cloud region (you can change this later) and enter your cloud credentials:
+![Activate User](img/cloud_activate_user.png)
+
+Please note that your cloud credentials are not shared with 3rd parties, including Practicus AI. The app only uses the credentials to communicate with AWS cloud.
+
+Before you finalize the cloud settings, we will verify your configuration to check if everything is configured correctly.    
+
+![MP verification](img/aws_mp_verification.png)
+<div style="text-align: center;">Sample AWS marketplace verification result. You need at least one verified</div>
+
+
+### Troubleshooting
+
+If you could not verify one of the AWS marketplace offers, please check the below as potential reasons:
+
+- AWS marketplace activation can take a few minutes. Please make sure you stay on the AWS marketplace page, confirm the activation is completed and go back to the app settings to verify again.  
+- If you use multiple AWS accounts, please make sure you  subscribe using the correct AWS account since it is very easy to mix them up. Simply log-off from your AWS account, click on one of the view buttons inside the app settings to view AWS marketplace page again, login using the correct user, click subscribe, wait for it to be completed, and finally go back to app settings and click verify again.
+- In rare cases, a company admin can disable AWS marketplace usage. If this is the case, please contact your admin, or create a new AWS account. 
 
 ## References
 

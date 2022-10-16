@@ -121,7 +121,7 @@ All steps completed.
 import pandas as pd
 df = pd.DataFrame(data=arr, columns=['x1', 'x2', 'x3'])
 
-# with inpalce=True, apply_changes() doesn't return anything 
+# with inplace=True, apply_changes() doesn't return anything 
 practicus.apply_changes(df, "basic_array.xlsx", inplace=True)
 # confirm x1 column is dropped
 display(df)
