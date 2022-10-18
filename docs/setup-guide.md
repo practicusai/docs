@@ -63,7 +63,7 @@ Please make sure you have created an **admin user** as well. You can check our [
 
 This is a **one-time task for all users** sharing the same AWS Account. 
 
-New to AWS marketplace? [Learn more](#aws-marketplace). 
+[Learn more about AWS marketplace](#aws-marketplace). 
 
 We have multiple offerings on AWS marketplace. Please click on each in the below list to view the marketplace page explaining the offering, and then click **Continue to Subscribe** button to enable (see screenshot below). You need at least one AWS marketplace offering enabled to use Practicus AI cloud. 
 
@@ -90,6 +90,7 @@ Please carefully review software, hardware and total cost / hour on our AWS mark
 You should now have an AWS user **Access key ID** and **Secret access key** ready, and the AWS account for this user has at least one Practicus AI AWS marketplace offer enabled.   
 
 Simply open the Practicus AI app, go to settings (preferences in macOS), cloud tab, click the **Activate your AWS user** button, choose a default cloud region (you can change this later) and enter your cloud credentials:
+
 ![Activate User](img/cloud_activate_user.png)
 
 Please note that your cloud credentials are not shared with 3rd parties, including Practicus AI. The app only uses the credentials to communicate with AWS cloud.
@@ -99,6 +100,7 @@ Before you finalize the cloud settings, we will verify your configuration to che
 ![MP verification](img/aws_mp_verification.png)
 <div style="text-align: center;">Sample AWS marketplace verification result. You need at least one verified</div>
 
+**Pro Tip:** You can save the cloud configuration info to a file and share with others, so they can open this file with Practicus AI app and automatically configure the cloud setup. Please check the [Setup for others](#setup-for-others) section below to learn more.  
 
 ### Troubleshooting
 
@@ -122,7 +124,7 @@ Please follow the below steps to create a **free** AWS account.
 5. For User name enter **admin**, click Access key and Password check boxes (see below screenshot)
 6. In Set permissions section select _Attach existing policies directly_ and pick _AdministratorAccess_ (see below screenshot)
 7. In the last screen carefully save your **Access Key ID**, **Secret access key** and Password (see below screenshot)
-8. All done! You can continue with the next step, [Enabling AWS marketplace](#enabling-aws-marketplace) 
+8. All done! You can continue with the next step, [Enabling on AWS marketplace](#3-enable-on-aws-marketplace) 
 
 **Notes:**
 
@@ -147,6 +149,30 @@ Any time you need to do AI in the cloud, you can just click a button in the Prac
 For our app to be able to start/stop cloud worker nodes you need to enable (subscribe to) the AWS marketplace offering of your choice. 
 
 If you use the free tier (t3.micro) with 2 vCPUs and 1 GB RAM, there won't be any software license charges. AWS also offers t3.micro free of charge for eligible customers and regions. For larger capacity, AWS will charge you **per hour.** i.e. you start a cloud worker, use it for 2 hours and never use it again. Your cloud bill will have a line item for the 2 hours you use. Larger capacity is more expensive and the larger the capacity the [bigger discount](https://practicus.ai/payg-discount/) you will get.  
+
+### Setup for others 
+
+You can save cloud setup information to a file and share with others, so they can simply open the file with Practicus AI app to complete the cloud setup. 
+
+Practicus AI uses .prt files to save worksheet data and steps. Since .prt files directly open with Practicus AI app, we use the same file extension to configure the app as well.
+
+You can simply create a text file, give it a name such as cloud_setup.prt and add setup information like the below:
+
+Sample **cloud_setup.prt** file:
+```
+[add_license]
+email = user@mycompany.com
+
+[add_cloud_config]
+cloud_region = us-west-1
+access_key = ...
+secret_key = ...
+```
+
+**[add_license]** section can be used if you have an enterprise license. 
+
+**[add_cloud_config]** section can be used to add an AWS cloud configuration. You can use the **cloud_region** key to set the default region (can be changed later), and it is optional. 
+**access_key** (Access Key ID) and **secret_key** (Secret access key) are mandatory, and can be obtained during AWS IAM user creation. 
 
 ### Linux Installation
 Since almost all Linux distros come with Python 3 installed, we do not offer a prepackaged installer. 
