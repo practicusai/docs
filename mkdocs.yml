@@ -17,8 +17,28 @@ theme:
   language: en
 
 nav:
-  - Documentation Home: index.md
+  - Home: index.md
   - Setup Guide: setup-guide.md
+  - Tutorial:
+      - 1) Start: tutorial/start.md
+      - 2) Intro to Data Analysis: tutorial/data-analysis-intro.md
+      - 3) Intro to Data Preparation: tutorial/data-prep-intro.md
+      - 4) Intro to Cloud Nodes : tutorial/cloud-intro.md
+      - 5) Explore Cloud Data Sources : tutorial/explore.md
+      - 6) Data Profiling : tutorial/data-profiling.md
+      - 7) Modeling with AutoML : tutorial/model.md
+      - 8) Making Predictions : tutorial/predict.md
+      - 9) Working with SQL : tutorial/sql.md
+#      - 10) Data Preparation : tutorial/data-prep.md
+#      - 11) Excel Prep : tutorial/excel-prep.md
+#      - 12) End of basic tutorial : tutorial/end-basic.md
+#      - 13) Collaboration : tutorial/collaboration.md
+#      - 14) Python Coding : tutorial/code.md
+#      - 15) Data Processing Engines : tutorial/engines.md
+#      - 16) GPU Acceleration : tutorial/gpu.md
+#      - 17) Deployment to Production : tutorial/deploy.md
+#      - 18) Observability : tutorial/observability.md
+#      - 19) End of advanced topics : tutorial/end-advanced.md
   - Demo Videos: https://practicus.ai/demo
   - SDK Help:
     - SDK Home: sdk-start.md

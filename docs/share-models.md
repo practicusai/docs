@@ -80,6 +80,6 @@ practicus.export_model("my_model_developed_on_R.pmml", output_path="R_model.xlsx
 
 You can download sample Jupyter notebooks from the below link. 
 
-<a href="https://practicusai.github.io/samples/" target="_blank">https://practicusai.github.io/samples</a>
+<a href="https://practicusai.github.io/samples/">https://practicusai.github.io/samples</a>
 
 ------

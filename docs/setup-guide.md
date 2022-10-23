@@ -54,7 +54,7 @@ This is a **one-time task for all users** sharing the same AWS account.
 
 Please skip this step if you already have an AWS account. 
 
-<a href="https://portal.aws.amazon.com/billing/signup" target="_blank">Create an Amazon Web Services (AWS) cloud account</a> for **free**. 
+<a href="https://portal.aws.amazon.com/billing/signup">Create an Amazon Web Services (AWS) cloud account</a> for **free**. 
 
 Please make sure you have created an **admin user** as well. You can check our [AWS account creation guide below](#aws-account-creation) for help.
 
@@ -71,12 +71,12 @@ Please note that it can take a few minutes for the offering to be active. Once y
 
 #### Free / Professional pay-as-you-go (PAYG) 
 
-- <a href="https://aws.amazon.com/marketplace/pp?sku=92p0y3k5wuzzfhi71lmcigl5q" target="_blank">Practicus AI</a> - Most common, offers free tier, will give you all of the functionality.
-- <a href="https://aws.amazon.com/marketplace/pp?sku=84fu9xjxpikj0pw37w8zchum" target="_blank">Practicus AI with GPUs</a> - Accelerated computing for very large data **or** if you have limited time. Can be 500+ times faster for some operations. 
+- <a href="https://aws.amazon.com/marketplace/pp?sku=92p0y3k5wuzzfhi71lmcigl5q">Practicus AI</a> - Most common, offers free tier, will give you all of the functionality.
+- <a href="https://aws.amazon.com/marketplace/pp?sku=84fu9xjxpikj0pw37w8zchum">Practicus AI with GPUs</a> - Accelerated computing for very large data **or** if you have limited time. Can be 500+ times faster for some operations. 
 
 #### Enterprise License bring-your-own-license (BYOL)
-- <a href="https://aws.amazon.com/marketplace/pp?sku=5imq5zmm3najdjy989wuoytjo" target="_blank">Practicus AI</a> - Most common enterprise offer
-- <a href="https://aws.amazon.com/marketplace/pp?sku=3o0d18rnipiqy9isz9aw1fsrv" target="_blank" rel="noopener">Practicus AI with GPUs</a> - Accelerated computing, enterprise offer
+- <a href="https://aws.amazon.com/marketplace/pp?sku=5imq5zmm3najdjy989wuoytjo">Practicus AI</a> - Most common enterprise offer
+- <a href="https://aws.amazon.com/marketplace/pp?sku=3o0d18rnipiqy9isz9aw1fsrv" rel="noopener">Practicus AI with GPUs</a> - Accelerated computing, enterprise offer
 
 ![AWS Marketplace](img/aws-mp.png)
 <div style="text-align: center;">Sample view of our AWS marketplace page</div>
@@ -117,9 +117,9 @@ Practicus AI cloud worker nodes can start and stop with a click using our app, a
 
 Please follow the below steps to create a **free** AWS account.
 
-1. Please <a href="https://aws.amazon.com/" target="_blank">click here</a> to visit AWS home page and click _Create an AWS account_
-2. Follow the steps to finish account creation. Please check the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank">AWS help page</a> if you need assistance on creating an account. After this step you will have a root account.
-3. Login to <a href="https://aws.amazon.com/console/" target="_blank">AWS management console</a> using your root account. 
+1. Please <a href="https://aws.amazon.com/">click here</a> to visit AWS home page and click _Create an AWS account_
+2. Follow the steps to finish account creation. Please check the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">AWS help page</a> if you need assistance on creating an account. After this step you will have a root account.
+3. Login to <a href="https://aws.amazon.com/console/">AWS management console</a> using your root account. 
 4. Navigate to IAM (Identity and Access Management), click Users on the left menu and click _Add users_
 5. For User name enter **admin**, click Access key and Password check boxes (see below screenshot)
 6. In Set permissions section select _Attach existing policies directly_ and pick _AdministratorAccess_ (see below screenshot)

@@ -1,3 +1,5 @@
+# Practicus AI Documentation
+
 [Practicus AI](https://practicus.ai/) is an end-to-end Data Science platform, 
 which works like a spreadsheet. It works for both technical and non-technical users. 
 
@@ -27,7 +29,7 @@ No commitments or credit card is needed.
 
 ## What does Practicus AI do?
 
-<a href="https://practicus.ai/" target="_blank">Practicus AI</a> has 4 major elements. 
+<a href="https://practicus.ai/">Practicus AI</a> has 4 major elements. 
 
 1) **GUI (Visual) App:** Free and available for Windows, macOS and Linux. The app is the center of most 
 functionality such as EDA (Exploratory Data Analysis), Data Preparation, AutoML, Prediction etc.  
@@ -40,7 +42,7 @@ functionality such as EDA (Exploratory Data Analysis), Data Preparation, AutoML,
 
 ## How can Practicus AI help me?
 
-Different user personas will benefit from <a href="https://practicus.ai/" target="_blank">Practicus AI</a> differently.
+Different user personas will benefit from <a href="https://practicus.ai/">Practicus AI</a> differently.
 
 The common benefit will be allowing better collaboration between both technical and non-technical users.    
 

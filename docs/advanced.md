@@ -34,7 +34,7 @@ save_to_final_dest_as_usual(df)
 
 **Deployment**
 
-Once the data pipeline Python code (.py) is ready like the above, you can then "pip install practicus" in the data integration platform and run the .py file as usual. Please note that Practicus AI uses Java (>= v8.0) behind the scenes for some complex operations. Although it is unlikely, if there is no Java runtime (JRE) installed on the data integration platform, Practicus AI will download a local copy of the JRE, first time it runs. This local Java installation is purely a "file download" operation of a stripped down JRE, and will not need any root/admin privileges.  You can also manually trigger downloading the local JRE operation in advance by calling *practicus.install_jre()*, or install Java (>= v8.0) yourself. We recommend <a href="https://adoptopenjdk.net/" target="_blank">Open JDK</a>.  
+Once the data pipeline Python code (.py) is ready like the above, you can then "pip install practicus" in the data integration platform and run the .py file as usual. Please note that Practicus AI uses Java (>= v8.0) behind the scenes for some complex operations. Although it is unlikely, if there is no Java runtime (JRE) installed on the data integration platform, Practicus AI will download a local copy of the JRE, first time it runs. This local Java installation is purely a "file download" operation of a stripped down JRE, and will not need any root/admin privileges.  You can also manually trigger downloading the local JRE operation in advance by calling *practicus.install_jre()*, or install Java (>= v8.0) yourself. We recommend <a href="https://adoptopenjdk.net/">Open JDK</a>.  
 
 ## DP file structure
 
