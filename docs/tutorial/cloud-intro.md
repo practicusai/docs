@@ -47,10 +47,31 @@ Practicus AI cloud nodes are designed to be disposable, also called ephemeral. Y
 
 Please be careful that if you choose to store data on the local disk of your cloud node, this will also get lost after termination. In this case you can prefer to copy your data manually, or simply click the _Replicate_ button before terminating a cloud node. 
 
+## (Optional) Using Jupyter Lab
+
+For technical users.
+
+Every cloud node comes with some external services preconfigures, such as Jupyter Lab, Mlflow, Airflow.  
+
+- Select a cloud node that is running and ready
+- Click on Jupyter button
+
+This will start the Jupyter Lab service and view inside the app. You can also right-click tab name and select _Open in browser_ to view the notebook on your default browser.
+
+![](img/cloud-intro/jupyter.png)
+
+Notes: 
+
+- If you shut down the app, the secure connection tunnel to the cloud node notebook service will be lost even if the cloud node continues to run.
+- There are two separate Conda kernels configured for your notebook server. Big data one will have common libraries and data engines such as DASK, RAPIDS (if you have GPUs) and Spark installed. The ML one, as the name suggests, will have ML related libraries such as scikit-learn, Xgboost, Pycaret ..
+
 ## (Optional) Using the Terminal
 
-If you are a technical user, you can choose a cloud node and click the _Terminal_ button to instantly open up the terminal. You have sudo (super-user) access and this can be a very powerful and flexible way to customize your cloud node.
+For technical users.
+
+You can choose a cloud node and click the _Terminal_ button to instantly open up the terminal. You have sudo (super-user) access and this can be a very powerful and flexible way to customize your cloud node.
 
 ![](img/cloud-intro/terminal.png)
 
-[< Previous](data-prep-intro.md) | [Next >](data-prep-intro.md)
+
+[< Previous](data-prep-intro.md) | [Next >](explore.md)
