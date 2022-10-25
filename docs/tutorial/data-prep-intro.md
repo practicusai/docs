@@ -81,7 +81,7 @@ You can use the designer to build the formula or type by hand. You can also crea
 
 ![](img/data-prep-intro/formula-2.png)
 
-# Advanced filter
+## Advanced filter
 
 - Click on _INDUS_ column name to select and then Prepare > Filter
 - Advanced filter designer will open and _INDUS_ column already selected 
@@ -106,7 +106,7 @@ You can view the columns we are working on listed together like the below
 ![](img/data-prep-intro/filter-adv-2.png)
 
 
-# Viewing and updating Steps
+## Viewing and updating Steps
 
 You can make mistakes while manipulating data and it is possible to fix these without starting from scratch.
 
