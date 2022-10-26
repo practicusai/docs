@@ -1,6 +1,6 @@
 # Data Profiling 
 
-_This section requires a Practicus cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
 
 Profiling your data is an extremely powerful way to get a good understanding of your data distribution and correlations.
 
@@ -18,7 +18,7 @@ After a few minutes you will see the data profile completed
 
 You will see several statistical calculations about this data. On the right, you will also see correlations.
 
-For instance, we can see that there is a very high correlation (0.79) between an individual smoking cigarettes and the insurance premium they pay.
+For instance, we can see that there is a very high correlation (0.79) between an individual smoking cigarettes and the insurance charges they pay.
 
 ![](img/data-profiling/profile-2.png)
 
@@ -46,4 +46,4 @@ You will now see all the statistics for the original nad current data and can co
 
 ![](img/data-profiling/profile-4.png)
 
-[< Previous](explore.md) | [Next >]()
+[< Previous](explore.md) | [Next >](model.md)

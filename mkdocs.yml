@@ -26,8 +26,8 @@ nav:
       - 4) Intro to Cloud Nodes : tutorial/cloud-intro.md
       - 5) Explore Cloud Data Sources : tutorial/explore.md
       - 6) Data Profiling : tutorial/data-profiling.md
-#      - 7) Modeling with AutoML : tutorial/model.md
-#      - 8) Making Predictions : tutorial/predict.md
+      - 7) Modeling with AutoML : tutorial/model.md
+      - 8) Making Predictions : tutorial/predict.md
 #      - 9) Working with SQL : tutorial/sql.md
 #      - 10) Data Preparation : tutorial/data-prep.md
 #      - 11) Excel Prep : tutorial/excel-prep.md

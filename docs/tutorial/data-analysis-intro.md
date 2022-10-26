@@ -39,7 +39,7 @@ Now let's use a more exciting data set:
 
 ![load insurance](img/data-analysis-intro/insurance-load.png)
 
-This dataset is about the insurance premium charges of U.S. individuals based on demographics such as, age, sex, [bmi](https://en.wikipedia.org/wiki/Body_mass_index) .. 
+This dataset is about the insurance charges of U.S. individuals based on demographics such as, age, sex, [bmi](https://en.wikipedia.org/wiki/Body_mass_index) .. 
 
 - Click on the _charges_ column name to select it 
 - You see a mini histogram upper right with basic quartile information
@@ -73,7 +73,7 @@ You will see the [boxplot graph](https://en.wikipedia.org/wiki/Box_plot) visuali
 
 ![insurance outlier 2](img/data-analysis-intro/insurance-outliers-2.png)
 
-The above tells us that some individuals pay significantly more insurance premium charges compared to the rest. E.g. $60,000 which is more than 5x the median (50%). 
+The above tells us that some individuals pay significantly more insurance  charges compared to the rest. E.g. $60,000 which is more than 5x the median (50%). 
 
 Please note: Since Q1 - 1.5 x IQR is -$10,768, overall sample minimum $1,121 is used as boxplot min. This is common in [skewed](https://en.wikipedia.org/wiki/Skewness) data.
 

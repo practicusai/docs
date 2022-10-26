@@ -1,6 +1,6 @@
 # Exploring Cloud Data Sources
 
-_This section requires a Practicus cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
 
 Once you have a Practicus AI cloud node running and ready, you can access and explore different data sources on the cloud. 
 
