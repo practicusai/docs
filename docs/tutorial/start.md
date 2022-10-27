@@ -31,14 +31,14 @@ You can use Practicus AI as a modern and interactive ETL tool. You will also get
 
 ## Big Picture Summary
 
-The below is a summary of what this tutorial will cover and for whom. Please check our documentation for other topics. 
+The below is a summary of what this tutorial will cover and for whom. Please check our [documentation](../index.md) for other topics. 
 
 ![](img/other/big-picture.png)
 
 
-## Before we begin
+### Before we begin
 
-Tip: If you are viewing this tutorial inside the app, you can **right-click the tutorial tab and open it inside your browser as well**. This can be useful if you would like to view the tutorial side-by-side with the app.  If you navigate to other pages, you can return to the tutorial by selecting back from the same menu as well.
+If you are viewing this tutorial inside the Practicus AI app, you can **right-click the tutorial tab and open it inside your browser as well**. This can be useful if you would like to view the tutorial side-by-side with the app.  
 
 ![open in browser](img/other/open-in-browser.png)
 
