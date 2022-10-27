@@ -1,12 +1,12 @@
 # Exploring Cloud Data Sources
 
-_This section requires a Practicus AI cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
 
 Once you have a Practicus AI cloud node running and ready, you can access and explore different data sources on the cloud. 
 
 ## Cloud Node Files
 
-Every cloud node has local some storage that you can use to quickly upload/download to use cloud-only features. 
+Every cloud node has some local storage that you can use to quickly upload/download to use cloud-only features. 
 
 - Click on _Explore_
 - Make sure your cloud node is already selected upper left
@@ -32,7 +32,7 @@ There are multiple ways to quickly upload your data to the cloud, so you can tak
 - Select _Cloud Node Files_
 - Click on _New Folder_
 - Enter a name, such as _my_data_
-- Select your newly created folder _my_data_ 
+- Select your newly created folder, _my_data_ 
 - Click on _Upload_ button
 
 ![](img/explore/upload-1.png)

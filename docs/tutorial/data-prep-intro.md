@@ -56,7 +56,7 @@ You will see that **ALL** cells with the value 12.5 in _ZN_ column will be updat
 
 ![](img/data-prep-intro/change-value-3.png)
 
-Please note that Practicus AI does not allow you to update the value of an individual cell only. All updates need to be rule based. The reason for this is to be able to create production data pipelines. E.g. what you _design_ can be used on fresh data every night, automatically. Individual cell updates do not work for this scenario.
+Please note that Practicus AI does not allow you to update the value of an individual cell only. All updates need to be rule-based. The reason for this is to be able to create production data pipelines. E.g. what you _design_ can be used on fresh data every night, automatically. Individual cell updates do not work for this scenario.
 
 ## Formulas 
 
@@ -74,10 +74,10 @@ You can use the designer to build the formula or type by hand. You can also crea
 
 ![](img/data-prep-intro/formula-1.png)
 
-- Leave the column name as suggested _ISODD_RAD_
+- Leave the column name as suggested: _ISODD_RAD_
 - Click ok to run the formula 
 - You will see a new column named _ISODD_RAD_ added to the dataset
-- Click on _ISODD_RAD_ column to select and hit Ctrl (Cmd in macOS) + left arrow key to move the column to left. Keep doing until it is next to _RAD_ column
+- Click on _ISODD_RAD_ column to select and hit Ctrl (Cmd in macOS) + left arrow key to move the column to left. Keep doing it until it is next to _RAD_ column
 
 ![](img/data-prep-intro/formula-2.png)
 
@@ -88,7 +88,7 @@ You can use the designer to build the formula or type by hand. You can also crea
 - Select _<= Less Than and Equal_ as criteria 
 - Click on ... and choose 6.91 select ok 
 - Click on _Add_
-- Now select our newly created column _ISODD_RAD_ instead of _INDUS_
+- Now, select our newly created column _ISODD_RAD_ instead of _INDUS_
 - Leave _Is True_ and click _Add_
 
 You will see a filter statement is getting created like the below. You can use brackets and keywords such as (, ), and, or, to build the filter you need.  
@@ -101,14 +101,14 @@ After applying your filter you will see the new data set.
 - Hit Ctrl (or Cmd) + up arrow to sort descending
 - Hit Ctrl (or Cmd) + right arrow to move the column next to _RAD_
 
-You can view the columns we are working on listed together like the below 
+You can view the columns we are working on listed together, like the below 
 
 ![](img/data-prep-intro/filter-adv-2.png)
 
 
 ## Viewing and updating Steps
 
-You can make mistakes while manipulating data and it is possible to fix these without starting from scratch.
+You can make mistakes while manipulating data, and it is possible to fix these without starting from scratch.
 
 - Click on _Steps_ button
 
@@ -142,6 +142,6 @@ Instead of opening the _Steps_ dialog you can quickly undo / redo as well:
 
 - Hit Ctrl (or Cmd) + Z to undo a step. 
 - Do it a few more times, you will see data is updated automatically 
-- Now hit Ctrl (or Cmd) + Y few times to redo the steps you undid
+- Now, hit Ctrl (or Cmd) + Y few times to redo the steps you undid
 
 [< Previous](data-analysis-intro.md) | [Next >](cloud-intro.md)

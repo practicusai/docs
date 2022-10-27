@@ -1,12 +1,12 @@
 # Working with SQL 
 
-_This section requires a Practicus AI cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
 
 ## Using SQL with a SQL database 
 
-This is quite straightforward, if the database you connect to support SQL, you can simpy _start_ by authoring a SQL statement. 
+This is quite straightforward, if the database you connect to support SQL, you can simply _start_ by authoring a SQL statement. 
 
-Practicus AI a cloud nodes come with a simple music artists database.
+Practicus AI cloud nodes come with a simple music artists database.
 
 - Open _Explore_ tab
 - Select a _Cloud Node_ upper right of screen (start new or reuse existing)
@@ -17,11 +17,11 @@ You will see the result of a sample SQL, feel free to experiment and rerun the S
 
 ![](img/sql/sqlite.png)
 
-As you will see later in this tutorial, Practicus AI also allow you to run SQL on the result of your previous SQL, as many times as you need. On a SQL database you would need to use temporary tables to do so, which is a relatively advanced topic.
+As you will see later in this tutorial, Practicus AI also allows you to run SQL on the result of your previous SQL, as many times as you need. On a SQL database you would need to use temporary tables to do so, which is a relatively advanced topic.
 
 ## Using SQL on any data
 
-Practicus AI allow you to use SQL _without_ a SQL database. Let's demonstrate using an Excel file. You can do the same on other non-SQL data, such as S3. 
+Practicus AI allows you to use SQL _without_ a SQL database. Let's demonstrate using an Excel file. You can do the same on other non-SQL data, such as S3. 
 
 - Open _Explore_ tab
 - Select _Local Files_
@@ -71,6 +71,6 @@ You will see the **estimated** total cost (Practicus AI license cost + Cloud inf
 
 ![](img/sql/sql-graph.png)
 
-Note: If you have Practicus AI Enterprise license your software is already paid for. So this graph would not make any sense.  This is only meaningful for the professional pay-as-you-go license type.
+Note: If you have Practicus AI Enterprise license, your software is already paid for. So this graph would not make any sense.  This is only meaningful for the professional pay-as-you-go license type.
 
 [< Previous](predict.md) | [Next >](next-steps.md)

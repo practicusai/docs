@@ -1,6 +1,6 @@
 # Making Predictions
 
-_This section requires a Practicus AI cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
 
 ## Loading Insurance dataset
 
@@ -41,7 +41,7 @@ Cannot find model? It is probably because you are not using a central MLflow dat
 
 - Select the model and click ok
 
-You will see the model location (URI) on screen. Although you can click ok to make the  predictions now, we strongly you load the model details (metadata) first. 
+You will see the model location (URI) on screen. Although you can click ok to make the  predictions now, we strongly suggest you load the model details (metadata) first. 
 
 - Click _Load_ to load model details
 
@@ -82,13 +82,13 @@ We used ABS() function to calculate absolute value E.g. |-1| = 1 so error is alw
 You will see the errors our model makes. 
 
 - Click on _Model Error_ column
-- Move you mouse over the mini-histogram
+- Move your mouse over the mini-histogram
 
 You will see that in ~75% of the cases, we _expect_ that our model will make an error less than ~$2200
 
 ![](img/predict/model-error-2.png)
 
-- Move your mouse to the right on the mini-histogram to see in what % of the cases our model makes pretty bad predictions
+- Move your mouse to the right on the mini-histogram to see in what % of the cases our model makes not so good predictions
 - Click on one of the _bad_ prediction bars on the mini-histogram, and select _Filter to Keep >= ..._
 
 ![](img/predict/model-error-3.png)
@@ -102,7 +102,7 @@ You will now see the worst predictions located at the top. When you select a col
 
 ![](img/predict/model-error-4.png)
 
-This might be a good time to analyze the individuals of the _not so good_ predictions, and see if there is anything we can do to get our data in a better shape. Often times, better data will lead to better models.
+This might be a good time to analyze the individuals of the _not so good_ predictions, and see if there is anything we can do to get our data in a better shape. Often, better data will lead to better models.
 
 You can use the same analytics tasks to visualize and profile this data to see if there is a _pattern_ you can detect. In some cases, your data will have errors, and fixing these will improve the model. In some other cases, you will find out that you are simply _missing key features_. E.g. for the insurance example, existing health problems could very well be a key indicator for the charges, and we miss this data. 
 
@@ -110,7 +110,7 @@ Sadly, there is no standard way to improve AI models. Sometimes a technical mach
 
 ## (Optional) Understanding Ground Truth
 
-In most real life scenarios, you will make predictions for unknown situations based on what wer already know, the ground truth. 
+In most real life scenarios, you will make predictions for unknown situations based on what we already know, the ground truth. 
 
 Then, "life will happen", and you will observe the real outcome. 
 
@@ -122,15 +122,15 @@ Practicus AI allows you to store your predictions in a database, so you can comp
 
 ## (Optional) Understanding Model Drift
 
-If you choose to store your prediction results regularly, and then compare these to the ground truth, AND you do this on a regular basis you will have a good feeling of how your models perform. In some cases, a model that was doing great a hilw back will start to perform not so good. This is called the model drift.
+If you choose to store your prediction results regularly, and then compare these to the ground truth, AND you do this on a regular basis you will have a good feeling of how your models perform. In some cases, a model that was doing great a while back will start to perform not so good. This is called the model drift.
 
-With Practicus AI, you can implement systems to automatically detect which of models star drifting. We will discuss this topic later. 
+With Practicus AI, you can implement systems to automatically detect which of models start drifting. We will discuss this topic later. 
 
 ## (Optional) Using a central MLflow Database
 
 In this tutorial we used a local MLflow database on a cloud node, which will disappear when you terminate it. This will be perfectly fine if you are just experimenting. For other cases, you can copy your models from the cloud node manually. Or even better, you can store them in a central database at first place. 
 
-To store models in a central database and share with others do the following: 
+To store models in a central database and share with others, do the following: 
 - Create or reuse a cloud database, such as MySQL or Postgresql 
 - Create an S3 bucket to store model artifacts. These are binary files, which can be very large, so it is not a good idea to store them in a relational database 
 - Open Practicus AI app, go to settings > MLflow

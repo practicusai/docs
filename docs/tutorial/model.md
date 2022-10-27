@@ -1,6 +1,6 @@
 # Modeling with AutoML
 
-_This section requires a Practicus AI cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
 
 ## Loading Insurance dataset
 
@@ -23,7 +23,7 @@ By default, models you build can be consumed using Practicus AI app or any other
 
 ## (Optional) Explaining Models
 
-If you would like to build graphics that explains how your model works, please do the following. Please note that the free tier cloud capacity can take a long time to build these visualizations.  
+If you would like to build graphics that explain how your model works, please do the following. Please note that the free tier cloud capacity can take a long time to build these visualizations.  
 
 - In the _Model_ dialog click on _Advanced Options_
 - Select _Explain_
@@ -57,7 +57,7 @@ We will make predictions in the next section using these models, or models that 
 
 If you chose to explain how the model works: 
 
-- Click on the _Mlflow_ tab
+- Click on the _MLflow_ tab
 - Select _explain_ folder at the left menu 
 - Navigate to relevant graphics, for instance _Feature Importance_
 
@@ -65,11 +65,11 @@ If you chose to explain how the model works:
 
 The above tells us that an individual not being a smoker (smoker = 0), their bmi, and age are the most defining features to predict the insurance charge they will pay.
 
-Note: You can always come back to this screen later by opening _CLoud Nodes_ tab, clicking on Mlflow button and finding the experiment you are interested with. 
+Note: You can always come back to this screen later by opening _CLoud Nodes_ tab, clicking on MLflow button and finding the experiment you are interested with. 
 
 ## (Optional) Downloading model experiment files
 
-You can always download model related files including Excel models, Python binary models, Jupyter notebooks, model build detailed logs, and other artifacts by going back to Explore tab and visiting Home > models
+You can always download model related files, including Excel models, Python binary models, Jupyter notebooks, model build detailed logs, and other artifacts by going back to Explore tab and visiting Home > models
 
 You can then select the model experiment you are interested, and click download  
 
@@ -77,7 +77,7 @@ You can then select the model experiment you are interested, and click download
 
 ## (Optional) Saving Models to a central database 
 
-In the above steps, the model we built are stored on a cloud node and will disappear if we delete the cloud node without downloading the model first. This is usually ok for an ad-hoc experimentation. A better alternative can be to configure a central Mlflow database, so your models are visible to others, and vice versa, you will be easily find theirs. We will visit this topic later.    
+In the above steps, the model we built are stored on a cloud node and will disappear if we delete the cloud node without downloading the model first. This is usually ok for an ad-hoc experimentation. A better alternative can be to configure a central MLflow database, so your models are visible to others, and vice versa, you will be easily find theirs. We will visit this topic later.    
 
 
 

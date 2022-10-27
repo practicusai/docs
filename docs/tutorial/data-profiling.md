@@ -1,18 +1,18 @@
 # Data Profiling 
 
-_This section requires a Practicus AI cloud node. Please visit [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
 
 Profiling your data is an extremely powerful way to get a good understanding of your data distribution and correlations.
 
 - Open _Explore_ tab 
 - Make sure a _Cloud Node_ is selected (upper right)
-- Select _Cloud Node Files_ and open the below file 
+- Select _Cloud Node Files_ and open the file below 
 - Home > samples > insurance.csv
 - Select Analyze > Profile 
 
 ![](img/data-profiling/profile-1.png)
 
-After a few minutes you will see the data profile completed
+After a few minutes, you will see the data profile completed.
 
 - Scroll down to find _charges_, and click its name to expand
 
@@ -36,13 +36,13 @@ In this example, all correlations are positive, so they are displayed with blue.
 
 You can make changes to your data and then create a profile to compare with the original.
 
-- Go back to _insurance_ dataset 
+- Go back to the _insurance_ dataset 
 - Under _smoker_ column click on a cell that has the _no_ value 
 - Select _Filter to keep cell value_
 - Select Analyze > Profile again
 - You will be asked if you would like to compare with the original data set, select yes
 
-You will now see all the statistics for the original nad current data and can compare them side-by-side. 
+You will now see all the statistics for the original and current data and can compare them side-by-side. 
 
 ![](img/data-profiling/profile-4.png)
 

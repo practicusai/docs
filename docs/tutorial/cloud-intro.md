@@ -4,7 +4,7 @@ Some Practicus AI features require to use the cloud. In this section we will lea
 
 ## Setup
 
-If you haven't already, please check the [Setup Guide](../setup-guide.md) to learn how to configure Practicus AI cloud. 
+If you haven't already, please check [Setup Guide](../setup-guide.md) to learn how to configure Practicus AI cloud. 
 
 You can use the free cloud tier for this tutorial, and it should take 2-5 minutes to complete the setup.
 
@@ -45,13 +45,13 @@ Tip: It is usually not a good idea to frequently stop / start instances. Please 
 
 Practicus AI cloud nodes are designed to be disposable, also called ephemeral. You can choose a cloud node and click _Terminate_ to simply delete everything related to it.
 
-Please be careful that if you choose to store data on the local disk of your cloud node, this will also get lost after termination. In this case you can prefer to copy your data manually, or simply click the _Replicate_ button before terminating a cloud node. 
+Please be careful that if you choose to store data on the local disk of your cloud node, this will also get lost after termination. In this case, you can prefer to copy your data manually, or simply click the _Replicate_ button before terminating a cloud node. 
 
 ## (Optional) Using Jupyter Lab
 
 For technical users.
 
-Every cloud node comes with some external services preconfigures, such as Jupyter Lab, Mlflow, Airflow.  
+Every cloud node comes with some external services preconfigured, such as Jupyter Lab, Mlflow, Airflow.  
 
 - Select a cloud node that is running and ready
 - Click on Jupyter button
@@ -63,7 +63,7 @@ This will start the Jupyter Lab service and view inside the app. You can also ri
 Notes: 
 
 - If you shut down the app, the secure connection tunnel to the cloud node notebook service will be lost even if the cloud node continues to run.
-- There are two separate Conda kernels configured for your notebook server. Big data one will have common libraries and data engines such as DASK, RAPIDS (if you have GPUs) and Spark installed. The ML one, as the name suggests, will have ML related libraries such as scikit-learn, Xgboost, Pycaret ..
+- There are two separate Conda kernels configured for your notebook server. Big data one will have common libraries and data engines, such as DASK, RAPIDS (if you have GPUs) and Spark installed. The ML one, as the name suggests, will have ML related libraries such as scikit-learn, Xgboost, Pycaret ..
 
 ## (Optional) Using the Terminal
 

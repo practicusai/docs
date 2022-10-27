@@ -12,7 +12,7 @@ _This section only requires Practicus AI app and can work offline._
 
 ![Load ice cream](img/data-analysis-intro/ice-cream-load.png)
 
-This simple dataset shows how much revenue an ice cream shop generates, base on the outside temperature (Celsius) 
+This simple dataset shows how much revenue an ice cream shop generates, based on the outside temperature (Celsius) 
 
 ## Visualizing Data
 
@@ -28,13 +28,13 @@ This simple dataset shows how much revenue an ice cream shop generates, base on 
 
 ![graph 3](img/data-analysis-intro/ice-cream-graph-3.png)
 
-- Move your mouse over the blue line, and you will see the coordinates changing at top right
+- Move your mouse over the blue line, and you will see the coordinates changing at the top right
 - Click on zoom, move your mouse to any spot, left-click and hold to draw a rectangle. You will zoom into that area
 - Click on Pan, left-click and hold a spot and move around
 
 Now let's use a more exciting data set:
 
-- Go back to _Explore_ tab and load the below file:
+- Go back to the _Explore_ tab and load the file below:
 - home > practicus > samples > data > insurance.csv
 
 ![load insurance](img/data-analysis-intro/insurance-load.png)
@@ -42,9 +42,9 @@ Now let's use a more exciting data set:
 This dataset is about the insurance charges of U.S. individuals based on demographics such as, age, sex, [bmi](https://en.wikipedia.org/wiki/Body_mass_index) .. 
 
 - Click on the _charges_ column name to select it 
-- You see a mini histogram upper right with basic quartile information
+- You see a mini-histogram on the upper right with basic quartile information
 - Min, 25%, 50% (median), Avg (Average / mean), 75%, and Max
-- Move your mouse over a distribution (showed as blue lines) on the histogram, and a small pop-up will show you the data range, how many samples are there, and total percent of the samples in that distribution. 
+- Move your mouse over a distribution (shown as blue lines) on the histogram, and a small pop-up will show you the data range, how many samples are there, and the total percent of the samples in that distribution. 
 
 ![insurance mini hist](img/data-analysis-intro/insurance-mini-hist.png)
 
@@ -81,19 +81,19 @@ Sometimes outliers are due to data errors, and we will see how to remove these i
 
 ## Group by to Summarize Data
 
-Since our insurance data also has demographics information such as region, we can summarize (aggregate) based on how we wish to break-down our data. 
+Since our insurance data also has demographic information such as region, we can summarize (aggregate) based on how we wish to break down our data. 
 
 - Select Analyze > Group By
 
 ![group by 1](img/data-analysis-intro/insurance-group-by-1.png)
 
-- Select _region_ and then _sex_ for the Group by section
+- Select _region_ and then _sex_ for the _Group by_ section
 - Select _charges - Mean (Average)_, _charges - Median (50%)_, _charges - Std. Dev (Standard Deviation)_ for the summarize section
 - Click ok 
 
 ![group by 2](img/data-analysis-intro/insurance-group-by-2.png)
 
-You will see the selected charges summaries for _region_ and _sex_ break-down. There is no limit, you can break-down for as many columns as you need.
+You will see the selected charges summaries for _region_ and _sex_ break-down. There is no limit, you can break down for as many columns as you need.
 
 ![group by 3](img/data-analysis-intro/insurance-group-by-3.png)
 
