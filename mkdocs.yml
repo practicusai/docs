@@ -28,8 +28,12 @@ nav:
       - 6) Data Profiling : tutorial/data-profiling.md
       - 7) Modeling with AutoML : tutorial/model.md
       - 8) Making Predictions : tutorial/predict.md
-#      - 9) Working with SQL : tutorial/sql.md
+      - 9) Working with SQL : tutorial/sql.md
+      - 10) Next Steps :  tutorial/next-steps.md
 #      - 10) Data Preparation : tutorial/data-prep.md
+# Using with Excel? i.e. copy/paste data between
+# Using with Google Drive?
+# Excel tip: leave first sheet untouched. refer to it from other sheets.
 #      - 11) Excel Prep : tutorial/excel-prep.md
 #      - 12) End of basic tutorial : tutorial/end-basic.md
 #      - 13) Collaboration : tutorial/collaboration.md

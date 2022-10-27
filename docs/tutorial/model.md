@@ -5,8 +5,8 @@ _This section requires a Practicus AI cloud node. Please visit [introduction to 
 ## Loading Insurance dataset
 
 - Open _Explore_ tab
-- Select _Cloud Node Files_ 
 - Select a _Cloud Node_ upper right of screen (start new or reuse existing)
+- Select _Cloud Node Files_ 
 - Navigate to Home > samples > insurance.csv and _Load_ 
 - Click _Model_ button
 
