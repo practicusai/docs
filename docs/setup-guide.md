@@ -5,7 +5,7 @@ Welcome! It should take **a few minutes to set up everything** and be ready to g
 You can see a simplified view of Practicus AI setup options below. 
 
 - **Practicus AI App is Forever Free** and include common analytics and data preparation features. 
-- **Worker Nodes with Forever Free Tier** are optional but highly recommended. They bring in [more functionality](#what-is-a-worker-node) such as AutoML. You can choose one or more Worker Node technology. 
+- **Worker Nodes with Forever Free Tier** are optional but highly recommended. They bring in [more functionality](#what-is-a-worker-node) such as AutoML. You can choose one or more Worker Node system. 
 
 ![](img/setup-summary.png)
 
@@ -30,7 +30,7 @@ Some Practicus AI features such as **AutoML**, making ** AI Predictions**, **Adv
 
 You have multiple Worker Node options to choose from, and you can find a quick summary on pros and cons of each option below.
 
-### AWS Cloud pro and cons
+### AWS Cloud pros and cons
 
 **Pros**
 
@@ -59,7 +59,7 @@ If this is the right option for you, please visit the [cloud activation](#cloud-
 - Lowest cost option and has forever free tier. 
 - No limitations on CPU/RAM available for the Free Tier. 
 - Most new generation laptops have high compute capacity. You can easily process 50 million+ row datasets and fairly complex AutoML problems.
-- You can switch back and forth to the cloud. E.g. You can use your computer for most use cases, switch to using the cloud with one click for very complex problems requiring GPUs (assuming your laptop doesn't have GPUs), and then switch back to continue on your computer when done.  
+- You can switch back and forth to the cloud. E.g. You can use your computer for most use cases, switch to using the cloud with one click for very complex problems requiring GPUs (assuming your computer doesn't have GPUs), and then switch back to continue on your computer when done.  
 - If you have a Practicus AI Enterprise license, all professional features are unlocked, and you get the same experience as the pro cloud option. 
 - Fairly simple installation and ready in 5-10 minutes.
 
