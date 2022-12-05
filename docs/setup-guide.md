@@ -2,7 +2,10 @@ Welcome! It should take **a few minutes to set up everything** and be ready to g
 
 ## Overview
 
-Below you can see a simplified view of Practicus AI setup options. One or more will be enough depending on your needs.    
+You can see a simplified view of Practicus AI setup options below. 
+
+- **Practicus AI App is Forever Free** and include common analytics and data preparation features. 
+- **Worker Nodes with Forever Free Tier** are optional but highly recommended. They bring in [more functionality](#what-is-a-worker-node) such as AutoML. You can choose one or more Worker Node technology. 
 
 ![](img/setup-summary.png)
 
@@ -10,9 +13,12 @@ Below you can see a simplified view of Practicus AI setup options. One or more w
 
 Practicus AI App works on your computer and contains the core functionality of our platform. 
 
-If you haven't already, please install Practicus AI forever free app for [Windows](https://www.microsoft.com/en-us/p/practicus-ai/9p9f4hvkvcqg), [macOS](https://github.com/practicusai/app/releases/download/latest/practicus.pkg) or [Linux](#linux-installation).  
+If you haven't already, please install **Practicus AI App** for [Windows](https://www.microsoft.com/en-us/p/practicus-ai/9p9f4hvkvcqg), [macOS](https://github.com/practicusai/app/releases/download/latest/practicus.pkg) or [Linux](#linux-installation).  
 
-If you are a Python user and prefer to install Practicus AI as a library, please check our [Python Setup Guide](#python-setup-guide) section below. 
+If you are a Python user and prefer to install Practicus AI App as a library, please check our [Python Setup Guide](#python-setup-guide) section below. 
+
+If you are a programmer and only interested in installing the lightweight **Practicus AI SDK** (5MB), please only install **practicuscore** library using the [Python Setup Guide](#python-setup-guide) section below.
+ 
 
 ## Choose a Worker Node System
 
@@ -33,8 +39,9 @@ You have multiple Worker Node options to choose from, and you can find a quick s
 - Scales-up. Has very large capacity options with up to 4TB RAM and hundreds of CPUs.
 - GPU Accelerated option with up to 50,000+ CUDA cores for complex AI/ML problems.
 - No need to manage software due to ephemeral nature. Start, use, and dispose when done. 
-- Has Free Tier for 2 vCPUs and 1GB RAM, and professional tier for larger capacity.
+- Has Forever Free Tier for 2 vCPUs and 1GB RAM, and professional tier for larger capacity.
 - For professional use, you can pay as you go hourly through [AWS marketplace](https://aws.amazon.com/marketplace/search?searchTerms=practicus+ai). 
+- Offers Enterprise license option with unlimited user and capacity as well. [Compare license options](https://practicus.ai/pricing/).
 
 **Cons**
 
@@ -49,16 +56,17 @@ If this is the right option for you, please visit the [cloud activation](#cloud-
 **Pros**
 
 - Runs 100% private and securely on your computer. 
-- Lowest cost option and has forever free tier.
+- Lowest cost option and has forever free tier. 
+- No limitations on CPU/RAM available for the Free Tier. 
 - Most new generation laptops have high compute capacity. You can easily process 50 million+ row datasets and fairly complex AutoML problems.
-- You can switch back and forth to the cloud. E.g. You can use your computer for most use cases, switch to using the cloud with one click for complex problems, and then switch back to continue on your computer when done.  
-- If yu have a Practicus AI enterprise license, all professional features are unlocked and you get the same experience as the pro cloud option.  
-- Fairly simple installation and ready in 5-10 minutes
+- You can switch back and forth to the cloud. E.g. You can use your computer for most use cases, switch to using the cloud with one click for very complex problems requiring GPUs (assuming your laptop doesn't have GPUs), and then switch back to continue on your computer when done.  
+- If you have a Practicus AI Enterprise license, all professional features are unlocked, and you get the same experience as the pro cloud option. 
+- Fairly simple installation and ready in 5-10 minutes.
 
 **Cons**
 
 - Although fairly straightforward, you still have to install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman Desktop](https://podman-desktop.io)
-- If you need to access **10 Million+ cloud data rows and 50+ times a day**, you should probably prefer a Worker Node on the cloud. Network traffic between the Practicus AI app and Worker Nodes are heavily compressed, and first time data access will feel slower with the local container.
+- If you need to access **~10 Million+ cloud data store rows and ~50+ times a day**, you should probably prefer a Worker Node on the cloud. Network traffic between the Practicus AI app and Worker Nodes are heavily compressed, and first time data access will feel slower with the local container.
 - If you use a **cloud data lake such as S3 and need to frequently scan large tables**, a cloud Worker Node in the same cloud region will be several orders of magnitude faster. In this scenario we recommend you to use cloud and local Worker Nodes together. Practicus AI App allows you to use multiple Worker Nodes at the same time, local or on the cloud. 
 
 If this is the right option for you, please visit the [local container](#local-container) section below to get started.
@@ -96,7 +104,9 @@ Practicus AI cloud offers 3 different licenses.
 
 We offer a **forever free cloud tier using 2 vCPUs and 1 GB RAM** on AWS with **t3.micro** cloud instances.
 
-Please note that some AWS cloud regions charge roughly 1 cent / hour for t3.micro. If you need to make sure everything your use is absolutely free, please make sure you pick an appropriate AWS cloud region. AWS also offer free tiers for other potential charges like S3 storage and network traffic. To keep everything free, you must experiment responsibly and make sure you do not go beyond these AWS limits. Please view [AWS free tier details](https://aws.amazon.com/free/) to learn more. 
+Please note that some AWS cloud regions charge roughly 1 cent / hour for t3.micro (see below). If you need to make sure everything your use is **absolutely free**, please make sure you pick an appropriate AWS cloud region. AWS also offer free tiers for other potential charges like S3 storage and network traffic. To keep everything free, you must experiment responsibly and make sure you do not go beyond these AWS limits. 
+
+- Please view [AWS free tier details](https://aws.amazon.com/free/) to learn more.
 
 #### Professional license
 
@@ -307,13 +317,13 @@ Please check the quick start guide [below](#macos-or-linux-quickstart) to see ho
 
 
 ### Python Setup Guide
-You can run **pip install practicus** (Windows/macOS: Python 3.7 – 3.10, Linux: 3.8 – 3.10) and then run **practicus** from the terminal. Or run, python -c “import practicus; practicus.run()”  (python3 for macOS or Linux).
+You can run **pip install practicus** (Windows/macOS: Python 3.8 – 3.10, Linux: 3.8 – 3.11) and then run **practicus** from the terminal. Or run, python -c “import practicus; practicus.run()”  (python3 for macOS or Linux).
 
 Installing using pip will give you the exact same end-to-end GUI application experience. Similarly, if you download the packaged app you can still code freely when you want to. So, please select any method of installation as you prefer. 
 
 As for any Python application, we strongly recommend you to use a virtual environment such as venv or conda. Please check the recommended QuickStart scripts on this page to create a virtual env, install Practicus AI and run with peace of mind and in one go.  
 
-For server environments or API only usage, you can **pip install practicuscore** to install the core library by itself without the GUI elements. (Linux: Python 3.6 – 3.10, Windows/macOS: Python 3.7 – 3.10) 
+For server environments or API only usage, you can **pip install practicuscore** to install the core library by itself without the GUI elements. (Linux: Python 3.6 – 3.11, Windows/macOS: Python 3.8 – 3.1) 
 
 This is a small library with fewer requirements and no version enforcement for any of its dependencies. It’s designed to run in existing virtual environments without overriding the version requirements of other libraries. Please check the documentation for more details. 
 
