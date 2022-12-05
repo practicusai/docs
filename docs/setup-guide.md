@@ -1,14 +1,83 @@
-Welcome! It should take **2-5 minutes for you to set up everything** and be ready to go!
+Welcome! It should take **a few minutes to set up everything** and be ready to go!
 
-Some information in this guide is for advanced scenarios, and you can safely ignore them if you prefer to keep it simple. 
+## Overview
 
-## Installing Practicus AI app
+Below you can see a simplified view of Practicus AI setup options. One or more will be enough depending on your needs.    
+
+![](img/setup-summary.png)
+
+## Install Practicus AI App
+
+Practicus AI App works on your computer and contains the core functionality of our platform. 
 
 If you haven't already, please install Practicus AI forever free app for [Windows](https://www.microsoft.com/en-us/p/practicus-ai/9p9f4hvkvcqg), [macOS](https://github.com/practicusai/app/releases/download/latest/practicus.pkg) or [Linux](#linux-installation).  
 
 If you are a Python user and prefer to install Practicus AI as a library, please check our [Python Setup Guide](#python-setup-guide) section below. 
 
+## Choose a Worker Node System
+
+If you prefer the **quickest option**, simply go to the [Cloud Activation](#cloud-activation) section below.  
+
+### What is a Worker Node?
+
+Some Practicus AI features such as **AutoML**, making ** AI Predictions**, **Advanced Profiling** and **production deployment** capabilities require a larger setup, so we moved these from the app to a backend (server) system.  
+
+You have multiple Worker Node options to choose from, and you can find a quick summary on pros and cons of each option below.
+
+### AWS Cloud pro and cons
+
+**Pros**
+
+- Runs Instantly, no installation required.
+- Runs 100% private and securely in your AWS account.   
+- Scales-up. Has very large capacity options with up to 4TB RAM and hundreds of CPUs.
+- GPU Accelerated option with up to 50,000+ CUDA cores for complex AI/ML problems.
+- No need to manage software due to ephemeral nature. Start, use, and dispose when done. 
+- Has Free Tier for 2 vCPUs and 1GB RAM, and professional tier for larger capacity.
+- For professional use, you can pay as you go hourly through [AWS marketplace](https://aws.amazon.com/marketplace/search?searchTerms=practicus+ai). 
+
+**Cons**
+
+- You need a credit card to create an AWS account. 
+- Cost control can be challenging (but possible) if you have many users that overuse large cloud capacity. 
+- Your data needs to enter / leave the public cloud, which might not be possible for some organizations with very strict data governance and regulation requirements.
+
+If this is the right option for you, please visit the [cloud activation](#cloud-activation) section below to get started.
+
+### Local container pros and cons
+
+**Pros**
+
+- Runs 100% private and securely on your computer. 
+- Lowest cost option and has forever free tier.
+- Most new generation laptops have high compute capacity. You can easily process 50 million+ row datasets and fairly complex AutoML problems.
+- You can switch back and forth to the cloud. E.g. You can use your computer for most use cases, switch to using the cloud with one click for complex problems, and then switch back to continue on your computer when done.  
+- If yu have a Practicus AI enterprise license, all professional features are unlocked and you get the same experience as the pro cloud option.  
+- Fairly simple installation and ready in 5-10 minutes
+
+**Cons**
+
+- Although fairly straightforward, you still have to install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman Desktop](https://podman-desktop.io)
+- If you need to access **10 Million+ cloud data rows and 50+ times a day**, you should probably prefer a Worker Node on the cloud. Network traffic between the Practicus AI app and Worker Nodes are heavily compressed, and first time data access will feel slower with the local container.
+- If you use a **cloud data lake such as S3 and need to frequently scan large tables**, a cloud Worker Node in the same cloud region will be several orders of magnitude faster. In this scenario we recommend you to use cloud and local Worker Nodes together. Practicus AI App allows you to use multiple Worker Nodes at the same time, local or on the cloud. 
+
+If this is the right option for you, please visit the [local container](#local-container) section below to get started.
+
+### SaaS pros and cons
+
+Our Saas offering is in **private preview** at the moment, and we expect to make it generally available by mid-2023. 
+
+Please [contact us](https://practicus.ai/contact/) to learn about the pros and cons of this option, and to get started in around 24 hours. 
+
+### Kubernetes pros and cons  
+
+Our Kubernetes offering is in **private preview** at the moment, and we expect to make it generally available by early-2023. 
+
+Please [contact us](https://practicus.ai/contact/) to learn about the pros and cons of this option, and to get started in around 1-2 days. 
+ 
 ## Cloud Activation
+
+This section explains setting up AWS cloud Worker Nodes. 
 
 ![cloud_setup_summary](img/cloud_setup_summary.png)
 
@@ -109,6 +178,63 @@ If you could not verify one of the AWS marketplace offers, please check the belo
 - AWS marketplace activation can take a few minutes. Please make sure you stay on the AWS marketplace page, confirm the activation is completed and go back to the app settings to verify again.  
 - If you use multiple AWS accounts, please make sure you  subscribe using the correct AWS account since it is very easy to mix them up. Simply log-off from your AWS account, click on one of the view buttons inside the app settings to view AWS marketplace page again, login using the correct user, click subscribe, wait for it to be completed, and finally go back to app settings and click verify again.
 - In rare cases, a company admin can disable AWS marketplace usage. If this is the case, please contact your admin, or create a new AWS account. 
+
+## Local Container
+
+This section explains setting up a local container Worker Node.
+
+### 1) Install a container engine
+
+In order to run a container on your computer you need to first install a container engine.
+
+Docker is the most popular option: [Install Docker Desktop](https://www.docker.com/products/docker-desktop/) 
+
+Although Docker Desktop is free, there has been some licensing changes in the recent years. 
+
+Podman is a great Docker alternative: [Install Podman Desktop](https://podman-desktop.io)
+
+Once the installation is completed, simply run Docker or Podman Desktop and confirm the container engine is running.
+
+
+**Active Docker Desktop** 
+
+![](img/docker-start.png)
+
+**Active Podman Desktop** 
+
+![](img/podman-start.png)
+
+### 2) Pull (download) Practicus AI container image
+
+Additional Practicus AI software is bundled inside a container image. You need to pull this package on your computer before using it. 
+
+- Open Practicus AI App settings (preferences in macOS) dialog and navigate to the Container section.
+- If you have a Practicus AI Enterprise license, enter your email to activate and unlock all features. If not, you can use the free tier. Please note that Professional pay-as-you-go license option is not available for local containers. [Compare license options](https://practicus.ai/pricing/).   
+- Choose a container engine, Docker or Podman, and confirm in the app the engine is running.   
+- Click the **Pull (download) Practicus AI container image** button
+
+![](img/container-setup-step-1.png)
+
+- A command prompt window (terminal in macOS) will open to start the pull. This one-time download task can take anywhere between 5 - 20 minutes depending on your internet speed. 
+
+![](img/container-setup-step-2.png)
+
+- Once the container pull is completed, go back to the app and click refresh to view active Practicus AI images on your computer. Confirm you successfully pulled the container image.
+- Click **New Worker Node** button to open Worker Nodes tab.
+- Click Save to close settings.
+
+![](img/container-setup-step-3.png)
+
+- In the Worker Nodes tab, select local container as Cloud Region.
+- Click **Launch New** button to start a Worker Node.
+
+![](img/container-setup-step-4.png)
+
+- When navigating cloud data sources in the Explore tab, you can switch between local and cloud Worker Nodes by using the drop-down list at the top right.
+- Practicus AI app also attaches (mounts) **container_shared** folder, so you can easily copy files back and forth between your file system and the container. Simply open Windows Explorer (Finder in macOS), navigate to: your home folder / practicus / container_shared and copy files. Then navigate to Worker Node Files in Explore tab, and the files you copied will be visible under container_shared folder. Click Reload button at the top if you recently copied files.  
+
+![](img/container-setup-step-5.png)
+
 
 ## References
 
