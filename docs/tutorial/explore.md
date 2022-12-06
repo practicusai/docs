@@ -1,6 +1,6 @@
 # Exploring Cloud Data Sources
 
-_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](cloud-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](worker-node-intro.md) section of this tutorial to learn more._
 
 Once you have a Practicus AI cloud node running and ready, you can access and explore different data sources on the cloud. 
 
@@ -99,4 +99,4 @@ Notes:
 - If you would like to experiment using public S3 buckets, please check this [registry](https://registry.opendata.aws/)
 
 
-[< Previous](cloud-intro.md) | [Next >](data-profiling.md)
+[< Previous](worker-node-intro.md) | [Next >](data-profiling.md)

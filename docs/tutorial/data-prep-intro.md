@@ -144,4 +144,4 @@ Instead of opening the _Steps_ dialog you can quickly undo / redo as well:
 - Do it a few more times, you will see data is updated automatically 
 - Now, hit Ctrl (or Cmd) + Y few times to redo the steps you undid
 
-[< Previous](data-analysis-intro.md) | [Next >](cloud-intro.md)
+[< Previous](data-analysis-intro.md) | [Next >](worker-node-intro.md)

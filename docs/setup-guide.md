@@ -245,6 +245,7 @@ Additional Practicus AI software is bundled inside a container image. You need t
 
 ![](img/container-setup-step-5.png)
 
+**Issues?** If you are facing any issues, please check the [container troubleshooting](#container-troubleshooting) section below.
 
 ## References
 
@@ -309,6 +310,62 @@ secret_key = ...
 
 **[add_cloud_config]** section can be used to add an AWS cloud configuration. You can use the **cloud_region** key to set the default region (can be changed later), and it is optional. 
 **access_key** (Access Key ID) and **secret_key** (Secret access key) are mandatory, and can be obtained during AWS IAM user creation. 
+
+### Container troubleshooting 
+
+If you face any issues using local containers on your computer, please follow the below steps.   
+
+**View Status on Container Engine**
+
+Open Docker Desktop or Podman Desktop, navigate to containers, and iew it's status. You can delete using these apps, which is the same thing as Terminate in Practicus AI, and create a new one using Launch New button inside Practicus AI App Worker Nodes tab.
+
+**Starting a Container manually**
+
+You can use the below command prompt (terminal) command to start a container from an image you downloaded.
+
+```shell
+docker run -p9000:9000 -p5500:5500 -p8585:8585 -p50000-50020:50000-50020 -d \
+  --mount type=bind,src=$HOME/practicus/container_shared/,dst=/home/ubuntu/container_shared \
+  --env MAX_PRACTICUS_WORKERS=21 \
+  --env DEBUG_MODE=False \
+  --name practicus ghcr.io/practicusai/practicus:22.11.0 \
+  --env PRACTICUS_ENT_LIC_EMAIL='your-name@your-company.com' \
+  --env PRACTICUS_ENT_LIC='abcd-1234-abcd-1234-abcd'
+```
+
+Notes:
+
+- Please do not forget to create container_shared folder under your home directory / practicus folder first.   
+- No Enterprise License? Please remove PRACTICUS_ENT_LIC_EMAIL and PRACTICUS_ENT_LIC lines.
+- To find your Enterprise license key (PRACTICUS_ENT_LIC), please view your home directory / .practicus / core.conf file and search for text 'license_key'. Please note that .practicus is a hidden folder.
+- Replace 'docker' with podman or another container engine if you are not using docker. 
+- Need less or more workers? change MAX_PRACTICUS_WORKERS and also the port range -p50000-50020:50000-50020. E.g. For 10 workers use  MAX_PRACTICUS_WORKERS=10 -p50000-50009:50000-50009
+- If you use network proxies, add them in the below format
+```shell
+# ...
+  --env PRACTICUS_ENT_LIC='abcd-1234-abcd-1234-abcd' \
+  --env HTTP_PROXY='http://192.168.0.1:9090' \
+  --env HTTPS_PROXY='http://192.168.0.1:9090'  
+```
+
+**Pulling a new container manually**
+
+- Please visit [https://github.com/practicusai/deploy/pkgs/container/practicus](https://github.com/practicusai/deploy/pkgs/container/practicus) and choose a version of Worker Node to pull. Use matching yy.mm versions between the App and the container. E.g. If your app is 22.11.2 you can use any 22.11.x Worker Node. Ideally use the latest e.g. 22.11.5 instead of 22.11.4. If you use Practicus AI App to pull, it already pulls the latest compatible image.
+- Pull using the command. Prefer to use version tags instead of 'latest'
+
+```shell
+docker pull ghcr.io/practicusai/practicus:22.11.0
+```
+
+**Hard reset**
+
+Sometimes previously downloaded images can linger in the cache even if you deleted them. In order to hard reset and delete everything, you can use the below command.
+
+```shell
+# Use with caution! This will delete all images and containers
+dcker image prune --force 
+```
+
 
 ### Linux Installation
 Since almost all Linux distros come with Python 3 installed, we do not offer a prepackaged installer. 
