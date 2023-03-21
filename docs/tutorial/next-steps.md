@@ -42,7 +42,7 @@ Please view [logging help page](../logging.md) to learn more.
 
 ## GPU Acceleration
 
-You can choose to use GPU powered cloud nodes by simply selecting _Accelerated Computing_ family while launching a cloud node. 
+You can choose to use GPU powered Cloud Workers by simply selecting _Accelerated Computing_ family while launching a Cloud Worker. 
 
 
 ## Data Processing Engines
@@ -51,7 +51,7 @@ If you are a technical user, you can choose an engine of your choice, including 
 
 ## Advanced Sampling
 
-If you work with very large data, you can load a different sample size on the cloud node. E.g. original data source can be 1 billion rows, you can read 200 million on the cloud and 1 million on the app. Simply click the _Advanced_ button before loading data.      
+If you work with very large data, you can load a different sample size on the Cloud Worker. E.g. original data source can be 1 billion rows, you can read 200 million on the cloud and 1 million on the app. Simply click the _Advanced_ button before loading data.      
 
 This concludes our tutorial. Thank you for reading!
 

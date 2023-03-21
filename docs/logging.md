@@ -2,11 +2,11 @@ You can log regular events or audit logs to additional log systems such as Cloud
 Sumo Logic etc. 
 
 All you need to do is add the necessary handlers to core.conf file on your local computer (rare) 
-or on Cloud Node (common). 
+or on Cloud Worker (common). 
 
 ## CloudWatch 
 
-For CloudWatch, watchtower Python library is already installed on cloud node. 
+For CloudWatch, watchtower Python library is already installed on Cloud Worker. 
 You can update core.conf like the below to start logging.  
 
 ```

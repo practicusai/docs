@@ -1,12 +1,12 @@
 # Making Predictions
 
-_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](worker-node-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 
 ## Loading Insurance dataset
 
 - Open _Explore_ tab
-- Select a _Cloud Node_ upper right of screen (start new or reuse existing)
-- Select _Cloud Node Files_ 
+- Select a _Cloud Worker_ upper right of screen (start new or reuse existing)
+- Select _Cloud Worker Files_ 
 - Navigate to Home > samples > insurance.csv and _Load_ 
 - Click _Predict_ button
 
@@ -35,7 +35,7 @@ In this tutorial we will show MLflow usage.
 
 - You will find the AI model you built in the previous section of this tutorial.
 
-Cannot find model? It is probably because you are not using a central MLflow database yet, and you built the AI model using a different cloud node. Please check the [using a central MLflow database](#optional-using-a-central-mlflow-database) section below to learn more. For now, please read insurance.csv using the same cloud node that you built the AI model with.  
+Cannot find model? It is probably because you are not using a central MLflow database yet, and you built the AI model using a different Cloud Worker. Please check the [using a central MLflow database](#optional-using-a-central-mlflow-database) section below to learn more. For now, please read insurance.csv using the same Cloud Worker that you built the AI model with.  
 
 ![](img/predict/mlflow-2.png)
 
@@ -128,7 +128,7 @@ With Practicus AI, you can implement systems to automatically detect which of mo
 
 ## (Optional) Using a central MLflow Database
 
-In this tutorial we used a local MLflow database on a cloud node, which will disappear when you terminate it. This will be perfectly fine if you are just experimenting. For other cases, you can copy your models from the cloud node manually. Or even better, you can store them in a central database at first place. 
+In this tutorial we used a local MLflow database on a Cloud Worker, which will disappear when you terminate it. This will be perfectly fine if you are just experimenting. For other cases, you can copy your models from the Cloud Worker manually. Or even better, you can store them in a central database at first place. 
 
 To store models in a central database and share with others, do the following: 
 - Create or reuse a cloud database, such as MySQL or Postgresql 
@@ -141,7 +141,7 @@ Sample MLflow setup
 
 ![](img/predict/mlflow-setup.png)
 
-When you have a central MLflow database configured, your cloud nodes will automatically switch to using this database, instead of the local ones. 
+When you have a central MLflow database configured, your Cloud Workers will automatically switch to using this database, instead of the local ones. 
 
 With a central model database you can:
 

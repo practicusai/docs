@@ -5,7 +5,7 @@ which will become live within seconds. With short startup time and ease of use, 
 This section of the documentation is work in progress..
 
 ## Prediction
-You need to have a cloud node ready for the prediction process and start the prediction process with our data on the cloud node.
+You need to have a Cloud Worker ready for the prediction process and start the prediction process with our data on the Cloud Worker.
 
 ![predict](img/predict.png)
 

@@ -7,7 +7,7 @@ You can export the operations performed when we do data preparation on the data 
 
 You can choose Pandas, DASK, RAPIDS, multi-GPU, Spark as data platform, and you can choose Jupyter Notebook, Python Library and Airflow Library as Code Template.
 
-Note : You need a ready cloud node for this operation.
+Note : You need a ready Cloud Worker for this operation.
 
 ![predict4](img/code_export.png)
 

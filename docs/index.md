@@ -38,7 +38,7 @@ functionality such as EDA (Exploratory Data Analysis), Data Preparation, AutoML,
 
 3) **Spreadsheets:** Certain Data Preparation and Prediction functionality can be embedded inside any spreadsheet system
 
-4) **Cloud Node:** Running on AWS, optional cloud node offers advanced functionality. 
+4) **Cloud Worker:** Running on AWS, optional Cloud Worker offers advanced functionality. 
 
 ## How can Practicus AI help me?
 

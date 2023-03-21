@@ -1,12 +1,12 @@
 # Data Profiling 
 
-_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](worker-node-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 
 Profiling your data is an extremely powerful way to get a good understanding of your data distribution and correlations.
 
 - Open _Explore_ tab 
-- Make sure a _Cloud Node_ is selected (upper right)
-- Select _Cloud Node Files_ and open the file below 
+- Make sure a _Cloud Worker_ is selected (upper right)
+- Select _Cloud Worker Files_ and open the file below 
 - Home > samples > insurance.csv
 - Select Analyze > Profile 
 

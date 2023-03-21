@@ -6,7 +6,7 @@ changes, so you can apply to any data locally or in the cloud, or export to Pyth
 
 With Export to Excel, you can save your data on which you have done preparation operations as excel anywhere on your local computer.
 
-Note : You need ready cloud node for this operation.
+Note : You need ready Cloud Worker for this operation.
 
 ![predict](img/export_excel.png)
 

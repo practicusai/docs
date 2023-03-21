@@ -24,9 +24,9 @@ A typical join with changes to the right worksheet could work like this:
 
 4) Export the right worksheet data, most likely to an intermediary destination i.e. to your data lake on S3
 
-5) Join left worksheet to the right, and the cloud node will use the exported data to read it from the intermediary S3 location. The original source on Snowflake will **not** be used. 
+5) Join left worksheet to the right, and the Cloud Worker will use the exported data to read it from the intermediary S3 location. The original source on Snowflake will **not** be used. 
 
-If you skip the export step #4, the cloud node would ignore your changes, and read original data directly from Snowflake. 
+If you skip the export step #4, the Cloud Worker would ignore your changes, and read original data directly from Snowflake. 
 
 To learn more about why Practicus AI joins works like the above, please check the below
 

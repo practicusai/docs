@@ -8,11 +8,11 @@ You can browse local files in the Explore tab and preview the data you want to w
 
 ![local_files](img/local_files.png)
 
-You can create a new file, copy and paste the files on Cloud Node or S3
+You can create a new file, copy and paste the files on Cloud Worker or S3
 
-## Cloud Node Files
+## Cloud Worker Files
 
-Firstly you have to launch a new node from the Cloud Tab. Then you can navigate the Cloud Node content. You can preview the file by clicking on it.
+Firstly you have to launch a new Cloud Worker from the Cloud Tab. Then you can navigate the Cloud Worker content. You can preview the file by clicking on it.
 
 ![cloud_node_files](img/cloud_node_files.png)
 
@@ -25,7 +25,7 @@ Let's create a new folder.
 
 A new folder has been created.
 
-You can also download and upload files on Cloud Node and run the necessary scripts for databases.
+You can also download and upload files on Cloud Worker and run the necessary scripts for databases.
 
 ### Upload
 A directory is selected for the upload process.
@@ -44,7 +44,7 @@ It starts the process with start transfer and you can close the tab when the pro
 
 ![file_transfer2](img/file_transfer2.png)
 
-You can see the uploaded file by navigating on Cloud Node.
+You can see the uploaded file by navigating on Cloud Worker.
 
 ![upload3](img/upload3.png)
 
@@ -63,7 +63,7 @@ After completing the download via the file transfer tab, you can navigate to loc
 ## Amazon S3
 
 After the required Cloud Config setup process is completed, you can load the buckets with Amazon S3, then select the bucket and navigate the files.
-Note : For this operation you need ready cloud node.
+Note : For this operation you need ready Cloud Worker.
 
 ![amazons3](img/amazons3.png)
 
@@ -75,7 +75,7 @@ You can connect to the database using relational databases, run SQL queries, and
 Amazon Redshift, Snowflake, PostgreSQL, MySQL, SQLite, Amazon Athena, Hive(Hadoop), SQLServer, Oracle, ElasticSearch, AWSOpenSearch, OtherDB connections are supported.
 Amazon Athena, Hive(Hadoop), SQLServer, Oracle, ElasticSearch, AWSOpenSearch databases need driver installation.
 
-Note: You need a ready cloud node to access Relational Databases.
+Note: You need a ready Cloud Worker to access Relational Databases.
 
 ![mysql](img/mysql.png)
 

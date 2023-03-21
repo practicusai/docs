@@ -1,22 +1,22 @@
 # Exploring Cloud Data Sources
 
-_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](worker-node-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 
-Once you have a Practicus AI cloud node running and ready, you can access and explore different data sources on the cloud. 
+Once you have a Practicus AI Cloud Worker running and ready, you can access and explore different data sources on the cloud. 
 
-## Cloud Node Files
+## Cloud Worker Files
 
-Every cloud node has some local storage that you can use to quickly upload/download to use cloud-only features. 
+Every Cloud Worker has some local storage that you can use to quickly upload/download to use cloud-only features. 
 
 - Click on _Explore_
-- Make sure your cloud node is already selected upper left
-- Click _Cloud Node Files_ to load content 
+- Make sure your Cloud Worker is already selected upper left
+- Click _Cloud Worker Files_ to load content 
 - Expand _samples_ folder and click on _boston.csv_
 - Click _Load_ 
 
 ![](img/explore/load-boston.png)
 
-Since this data is loaded using a cloud node, a copy of it is already on the cloud node. 
+Since this data is loaded using a Cloud Worker, a copy of it is already on the Cloud Worker. 
 
 Congrats, now you can use all the Practicus AI features, including advanced AI ones such as AutoML.
 
@@ -29,7 +29,7 @@ For curious minds: When you make changes to your data using the app, you will se
 There are multiple ways to quickly upload your data to the cloud, so you can take advantage of cloud-only Practicus AI features or use external services such as Jupyter. 
 
 - Click on _Explore_  
-- Select _Cloud Node Files_
+- Select _Cloud Worker Files_
 - Click on _New Folder_
 - Enter a name, such as _my_data_
 - Select your newly created folder, _my_data_ 
@@ -43,7 +43,7 @@ There are multiple ways to quickly upload your data to the cloud, so you can tak
 - Close after done 
 - Go back to _Explore_ tab, click _Reload_ 
 
-You will see that your data is now uploaded to the local disk of the Cloud Node
+You will see that your data is now uploaded to the local disk of the Cloud Worker
 
 ![](img/explore/upload-2.png)
 
@@ -71,7 +71,7 @@ You will see a note telling this is a cloud-only feature and asks if you would l
 
 ![](img/explore/quick-upload-1.png)
 
-- Select a cloud node, such as the one you created in the previous section
+- Select a Cloud Worker, such as the one you created in the previous section
 - Click Ok
 
 ![](img/explore/quick-upload-2.png)

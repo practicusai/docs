@@ -5,7 +5,7 @@ Welcome! It should take **a few minutes to set up everything** and be ready to g
 You can see a simplified view of Practicus AI setup options below. 
 
 - **Practicus AI App is Forever Free** and include common analytics and data preparation features. 
-- **Worker Nodes with Forever Free Tier** are optional but highly recommended. They bring in [more functionality](#what-is-a-worker-node) such as AutoML. You can choose one or more Worker Node system. 
+- **Cloud Workers with Forever Free Tier** are optional but highly recommended. They bring in [more functionality](#what-is-a-worker-node) such as AutoML. You can choose one or more Cloud Worker system. 
 
 ![](img/setup-summary.png)
 
@@ -20,15 +20,15 @@ If you are a Python user and prefer to install Practicus AI App as a library, pl
 If you are a programmer and only interested in installing the lightweight **Practicus AI SDK** (5MB), please only install **practicuscore** library using the [Python Setup Guide](#python-setup-guide) section below.
  
 
-## Choose a Worker Node System
+## Choose a Cloud Worker System
 
 If you prefer the **quickest option**, simply go to the [Cloud Activation](#cloud-activation) section below.  
 
-### What is a Worker Node?
+### What is a Cloud Worker?
 
 Some Practicus AI features such as **AutoML**, making ** AI Predictions**, **Advanced Profiling** and **production deployment** capabilities require a larger setup, so we moved these from the app to a backend (server) system.  
 
-You have multiple Worker Node options to choose from, and you can find a quick summary on pros and cons of each option below.
+You have multiple Cloud Worker options to choose from, and you can find a quick summary on pros and cons of each option below.
 
 ### AWS Cloud pros and cons
 
@@ -66,8 +66,8 @@ If this is the right option for you, please visit the [cloud activation](#cloud-
 **Cons**
 
 - Although fairly straightforward, you still have to install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman Desktop](https://podman-desktop.io)
-- If you need to access **~10 Million+ cloud data store rows and ~50+ times a day**, you should probably prefer a Worker Node on the cloud. Network traffic between the Practicus AI app and Worker Nodes are heavily compressed, and first time data access will feel slower with the local container.
-- If you use a **cloud data lake such as S3 and need to frequently scan large tables**, a cloud Worker Node in the same cloud region will be several orders of magnitude faster. In this scenario we recommend you to use cloud and local Worker Nodes together. Practicus AI App allows you to use multiple Worker Nodes at the same time, local or on the cloud. 
+- If you need to access **~10 Million+ cloud data store rows and ~50+ times a day**, you should probably prefer a Cloud Worker on the cloud. Network traffic between the Practicus AI app and Cloud Workers are heavily compressed, and first time data access will feel slower with the local container.
+- If you use a **cloud data lake such as S3 and need to frequently scan large tables**, a cloud Cloud Worker in the same cloud region will be several orders of magnitude faster. In this scenario we recommend you to use cloud and local Cloud Workers together. Practicus AI App allows you to use multiple Cloud Workers at the same time, local or on the cloud. 
 
 If this is the right option for you, please visit the [local container](#local-container) section below to get started.
 
@@ -85,7 +85,7 @@ Please [contact us](https://practicus.ai/contact/) to learn about the pros and c
  
 ## Cloud Activation
 
-This section explains setting up AWS cloud Worker Nodes. 
+This section explains setting up AWS cloud Cloud Workers. 
 
 ![cloud_setup_summary](img/cloud_setup_summary.png)
 
@@ -112,7 +112,7 @@ Please note that some AWS cloud regions charge roughly 1 cent / hour for t3.micr
 
 When you need **larger Practicus AI cloud capacity**, you can simply **pay-as-you-go (PAYG) hourly** without sharing your credit card info, or making any commitments. **AWS will charge** for the Practicus AI cloud usage **hourly**, which will show as a separate **Practicus AI line item in your monthly AWS cloud invoice**. 
 
-Practicus AI cloud **works like electricity**, you switch it on when you need it, and only pay for the total number of hours that the lights are on. Our cloud nodes **auto shut down** after 90 minutes of inactivity by default, **preventing unexpected costs**. It works similar to this scenario: you leave your home and forget to turn the lights off. Your lights turn off automatically after 1.5 hours, since there is no motion detected in the house. 
+Practicus AI cloud **works like electricity**, you switch it on when you need it, and only pay for the total number of hours that the lights are on. Our Cloud Workers **auto shut down** after 90 minutes of inactivity by default, **preventing unexpected costs**. It works similar to this scenario: you leave your home and forget to turn the lights off. Your lights turn off automatically after 1.5 hours, since there is no motion detected in the house. 
 
 Please visit [practicus.ai/pricing](https://practicus.ai/pricing/) for more info, and example pricing scenarios.   
 
@@ -191,7 +191,7 @@ If you could not verify one of the AWS marketplace offers, please check the belo
 
 ## Local Container
 
-This section explains setting up a local container Worker Node.
+This section explains setting up a local container Cloud Worker.
 
 ### 1) Install a container engine
 
@@ -230,18 +230,18 @@ Additional Practicus AI software is bundled inside a container image. You need t
 ![](img/container-setup-step-2.png)
 
 - Once the container pull is completed, go back to the app and click refresh to view active Practicus AI images on your computer. Confirm you successfully pulled the container image.
-- Click **New Worker Node** button to open Worker Nodes tab.
+- Click **New Cloud Worker** button to open Cloud Workers tab.
 - Click Save to close settings.
 
 ![](img/container-setup-step-3.png)
 
-- In the Worker Nodes tab, select local container as Cloud Region.
-- Click **Launch New** button to start a Worker Node.
+- In the Cloud Workers tab, select local container as Cloud Region.
+- Click **Launch New** button to start a Cloud Worker.
 
 ![](img/container-setup-step-4.png)
 
-- When navigating cloud data sources in the Explore tab, you can switch between local and cloud Worker Nodes by using the drop-down list at the top right.
-- Practicus AI app also attaches (mounts) **container_shared** folder, so you can easily copy files back and forth between your file system and the container. Simply open Windows Explorer (Finder in macOS), navigate to: your home folder / practicus / container_shared and copy files. Then navigate to Worker Node Files in Explore tab, and the files you copied will be visible under container_shared folder. Click Reload button at the top if you recently copied files.  
+- When navigating cloud data sources in the Explore tab, you can switch between local and cloud Cloud Workers by using the drop-down list at the top right.
+- Practicus AI app also attaches (mounts) **container_shared** folder, so you can easily copy files back and forth between your file system and the container. Simply open Windows Explorer (Finder in macOS), navigate to: your home folder / practicus / container_shared and copy files. Then navigate to Cloud Worker Files in Explore tab, and the files you copied will be visible under container_shared folder. Click Reload button at the top if you recently copied files.  
 
 ![](img/container-setup-step-5.png)
 
@@ -250,7 +250,7 @@ Additional Practicus AI software is bundled inside a container image. You need t
 ## References
 
 ### AWS Account Creation
-Practicus AI cloud worker nodes can start and stop with a click using our app, and they run in your Amazon Web Services (AWS) cloud account in a fully isolated fashion. This way we can offer you 100% privacy. 
+Practicus AI Cloud Workers can start and stop with a click using our app, and they run in your Amazon Web Services (AWS) cloud account in a fully isolated fashion. This way we can offer you 100% privacy. 
 
 Please follow the below steps to create a **free** AWS account.
 
@@ -265,7 +265,7 @@ Please follow the below steps to create a **free** AWS account.
 
 **Notes:**
 
-* Although the admin AWS user will be sufficient for Practicus AI cloud nodes to run, as a security best practice we recommend you to create a least privileged AWS user for day to day usage.  Practicus AI app cloud setup can create this user for you. If you rather prefer to create one manually please make sure the user has access for EC2 and S3 operations. 
+* Although the admin AWS user will be sufficient for Practicus AI Cloud Workers to run, as a security best practice we recommend you to create a least privileged AWS user for day to day usage.  Practicus AI app cloud setup can create this user for you. If you rather prefer to create one manually please make sure the user has access for EC2 and S3 operations. 
 * If you plan on having multiple AWS users sharing the same AWS account, you can simply add new users to the appropriate practicus AWS IAM user group that our app creates for you. 
 * If you have a local AWS profile (i.e. to be used with AWS CLI) Practicus AI setup can use this directly. 
 
@@ -279,11 +279,11 @@ Please follow the below steps to create a **free** AWS account.
 
 ### AWS Marketplace
 
-Similar to our Windows app being available on Microsoft app store, our cloud worker nodes are available on AWS marketplace. This gives our users "there's an app for that!" type experience, but for AI in the cloud. 
+Similar to our Windows app being available on Microsoft app store, our cloud workers are available on AWS marketplace. This gives our users "there's an app for that!" type experience, but for AI in the cloud. 
 
 Any time you need to do AI in the cloud, you can just click a button in the Practicus AI app, and we will create the cloud capacity of your choice. And also shut it down with a click when you no longer need it, saving on cost.,
 
-For our app to be able to start/stop cloud worker nodes you need to enable (subscribe to) the AWS marketplace offering of your choice. 
+For our app to be able to start/stop cloud worker you need to enable (subscribe to) the AWS marketplace offering of your choice. 
 
 If you use the free tier (t3.micro) with 2 vCPUs and 1 GB RAM, there won't be any software license charges. AWS also offers t3.micro free of charge for eligible customers and regions. For larger capacity, AWS will charge you **per hour.** i.e. you start a cloud worker, use it for 2 hours and never use it again. Your cloud bill will have a line item for the 2 hours you use. Larger capacity is more expensive and the larger the capacity the [bigger discount](https://practicus.ai/payg-discount/) you will get.  
 
@@ -317,7 +317,7 @@ If you face any issues using local containers on your computer, please follow th
 
 **View Status on Container Engine**
 
-Open Docker Desktop or Podman Desktop, navigate to containers, and iew it's status. You can delete using these apps, which is the same thing as Terminate in Practicus AI, and create a new one using Launch New button inside Practicus AI App Worker Nodes tab.
+Open Docker Desktop or Podman Desktop, navigate to containers, and iew it's status. You can delete using these apps, which is the same thing as Terminate in Practicus AI, and create a new one using Launch New button inside Practicus AI App Cloud Workers tab.
 
 **Starting a Container manually**
 
@@ -350,7 +350,7 @@ Notes:
 
 **Pulling a new container manually**
 
-- Please visit [https://github.com/practicusai/deploy/pkgs/container/practicus](https://github.com/practicusai/deploy/pkgs/container/practicus) and choose a version of Worker Node to pull. Use matching yy.mm versions between the App and the container. E.g. If your app is 22.11.2 you can use any 22.11.x Worker Node. Ideally use the latest e.g. 22.11.5 instead of 22.11.4. If you use Practicus AI App to pull, it already pulls the latest compatible image.
+- Please visit [https://github.com/practicusai/deploy/pkgs/container/practicus](https://github.com/practicusai/deploy/pkgs/container/practicus) and choose a version of Cloud Worker to pull. Use matching yy.mm versions between the App and the container. E.g. If your app is 22.11.2 you can use any 22.11.x Cloud Worker. Ideally use the latest e.g. 22.11.5 instead of 22.11.4. If you use Practicus AI App to pull, it already pulls the latest compatible image.
 - Pull using the command. Prefer to use version tags instead of 'latest'
 
 ```shell

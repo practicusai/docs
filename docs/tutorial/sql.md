@@ -1,15 +1,15 @@
 # Working with SQL 
 
-_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](worker-node-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 
 ## Using SQL with a SQL database 
 
 This is quite straightforward, if the database you connect to support SQL, you can simply _start_ by authoring a SQL statement. 
 
-Practicus AI cloud nodes come with a simple music artists database.
+Practicus AI Cloud Workers come with a simple music artists database.
 
 - Open _Explore_ tab
-- Select a _Cloud Node_ upper right of screen (start new or reuse existing)
+- Select a _Cloud Worker_ upper right of screen (start new or reuse existing)
 - Select _SQLite_ on the left menu 
 - Click _Run Query_
 
@@ -33,7 +33,7 @@ Practicus AI allows you to use SQL _without_ a SQL database. Let's demonstrate u
 
 ![](img/sql/sql-1.png)
 
-Since SQL is an advanced feature, it will require a cloud node to run. You will be asked if you would like to quickly upload to a cloud node. Click Yes, select a cloud node, and now your Excel file will be on the cloud. 
+Since SQL is an advanced feature, it will require a Cloud Worker to run. You will be asked if you would like to quickly upload to a Cloud Worker. Click Yes, select a Cloud Worker, and now your Excel file will be on the cloud. 
 
 Click on _SQL Query_ button again. This time the SQL query editor will be displayed.
 
@@ -50,7 +50,7 @@ Tip: double-clicking on a column name adds its name to the query editor, so you 
 
 - Click on _Test SQL_ button
 
-Note: Your first SQL on a particular cloud node (cold run) will take a little longer to run. Subsequent SQL queries will run instantly. 
+Note: Your first SQL on a particular Cloud Worker (cold run) will take a little longer to run. Subsequent SQL queries will run instantly. 
 
 ![](img/sql/sql-2.png)
 

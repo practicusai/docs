@@ -1,12 +1,12 @@
 # Modeling with AutoML
 
-_This section requires a Practicus AI cloud node. Please visit the [introduction to cloud nodes](worker-node-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 
 ## Loading Insurance dataset
 
 - Open _Explore_ tab
-- Select a _Cloud Node_ upper right of screen (start new or reuse existing)
-- Select _Cloud Node Files_ 
+- Select a _Cloud Worker_ upper right of screen (start new or reuse existing)
+- Select _Cloud Worker Files_ 
 - Navigate to Home > samples > insurance.csv and _Load_ 
 - Click _Model_ button
 
@@ -38,7 +38,7 @@ You should see a progress bar at the bottom building the model.
 
 ![](img/model/model-3.png)
 
-For a fresh cloud node with regular size (2 CPUs) the first time you build this model it should take 5-10 minutes to be completed. Subsequent model runs will take less time. Larger cloud nodes with more capacity build models faster and more accurately.  
+For a fresh Cloud Worker with regular size (2 CPUs) the first time you build this model it should take 5-10 minutes to be completed. Subsequent model runs will take less time. Larger Cloud Workers with more capacity build models faster and more accurately.  
 
 After the model build is completed you will see a dialog like the below.
 
@@ -65,7 +65,7 @@ If you chose to explain how the model works:
 
 The above tells us that an individual not being a smoker (smoker = 0), their bmi, and age are the most defining features to predict the insurance charge they will pay.
 
-Note: You can always come back to this screen later by opening _CLoud Nodes_ tab, clicking on MLflow button and finding the experiment you are interested with. 
+Note: You can always come back to this screen later by opening _Cloud Workers_ tab, clicking on MLflow button and finding the experiment you are interested with. 
 
 ## (Optional) Downloading model experiment files
 
@@ -77,7 +77,7 @@ You can then select the model experiment you are interested, and click download
 
 ## (Optional) Saving Models to a central database 
 
-In the above steps, the model we built are stored on a cloud node and will disappear if we delete the cloud node without downloading the model first. This is usually ok for an ad-hoc experimentation. A better alternative can be to configure a central MLflow database, so your models are visible to others, and vice versa, you will be easily find theirs. We will visit this topic later.    
+In the above steps, the model we built are stored on a Cloud Worker and will disappear if we delete the Cloud Worker without downloading the model first. This is usually ok for an ad-hoc experimentation. A better alternative can be to configure a central MLflow database, so your models are visible to others, and vice versa, you will be easily find theirs. We will visit this topic later.    
 
 
 

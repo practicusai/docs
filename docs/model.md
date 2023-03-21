@@ -4,7 +4,7 @@ details in a central database (MLflow). Your team will save significant amount o
 scratch and by collaborating better
 
 ## Create a Model
-You need to have a cloud node ready for the model creation process and start the model creation process with our data on the cloud node.
+You need to have a Cloud Worker ready for the model creation process and start the model creation process with our data on the Cloud Worker.
 
 ![model](img/model.png)
 
