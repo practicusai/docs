@@ -1,7 +1,8 @@
 # Practicus AI Documentation
 
-[Practicus AI](https://practicus.ai/) is an end-to-end Data Science platform, 
-which works like a spreadsheet. It works for both technical and non-technical users. 
+[Practicus AI](https://practicus.ai/) is a modern and open Data Science platform that combines ease of use with powerful features. 
+
+Under the user-friendly interface, Practicus AI offer you a scalable, flexible, and open-source data stack, helping you solve your most complex data problems.
 
 You can **explore and analyze** large amounts of raw data and find unique insights and patterns. 
 
@@ -19,13 +20,25 @@ Practicus AI **app is forever free**, and the cloud platform offers a **forever 
 If you need more cloud capacity, you can **pay as you go**, which shows as a line item in your cloud invoice. 
 No commitments or credit card is needed. 
 
-## Big Picture
+## Practicus AI Feature Overview
+
+![features](img/features.webp)
+
+## Practicus AI Open Data Mesh Features
+
+![data mesh](img/iceberg.webp)
+
+## Practicus AI Open Source Architecture
+
+![cloud architecture](img/cloud_architecture.webp)
+
+## Optional Cloud Worker (backend) Options 
+
+![deployment overview](img/deployment-overview.webp)
+
+## Summary View
 
 ![big_picture](img/big_picture.png)
-
-## Architecture
-
-![architecture](img/architecture.png)
 
 ## What does Practicus AI do?
 
@@ -34,11 +47,11 @@ No commitments or credit card is needed.
 1) **GUI (Visual) App:** Free and available for Windows, macOS and Linux. The app is the center of most 
 functionality such as EDA (Exploratory Data Analysis), Data Preparation, AutoML, Prediction etc.  
 
-2) **SDK:** Free Python library (3.6 - 3.10) providing programmatic access to most of the GUI app features. 
+2) **SDK:** Free Python library (3.6 - 3.11) providing programmatic access to most of the GUI app features. 
 
-3) **Spreadsheets:** Certain Data Preparation and Prediction functionality can be embedded inside any spreadsheet system
+3) **Spreadsheets:** Certain Data Preparation and Prediction functionality can be embedded inside spreadsheets.
 
-4) **Cloud Worker:** Running on AWS, optional Cloud Worker offers advanced functionality. 
+4) **Cloud Workers:** Running on your laptop, AWS, GCE, Azure or on-prem, optional Cloud Workers enable advanced functionality. 
 
 ## How can Practicus AI help me?
 
