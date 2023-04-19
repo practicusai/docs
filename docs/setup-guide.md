@@ -20,7 +20,7 @@ If you are a Python user and prefer to Install the Practicus AI App as a library
 If you are a programmer and only interested in installing the lightweight **Practicus AI SDK** (5MB), please only install **practicuscore** library using the [Python Setup Guide](#python-setup-guide) section below.
  
 
-## Choose a Cloud Worker System
+## Optional - Choose a Cloud Worker System (backend)
 
 If you prefer the **quickest option**, you can use our **Software as a Service (SaaS)**, which will be ready in less than a minute. [Click here to start Practicus AI SaaS trial](https://practicus.ai/cloud/#saas) 
 

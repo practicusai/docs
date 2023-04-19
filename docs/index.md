@@ -20,11 +20,11 @@ Practicus AI **app is forever free**, and the cloud platform offers a **forever 
 If you need more cloud capacity, you can **pay as you go**, which shows as a line item in your cloud invoice. 
 No commitments or credit card is needed. 
 
-## Practicus AI Feature Overview
+## Practicus AI Features Overview
 
 ![features](img/features.webp)
 
-## Practicus AI Open Data Mesh Features
+## Practicus AI Open Data Mesh
 
 ![data mesh](img/iceberg.webp)
 
@@ -32,7 +32,7 @@ No commitments or credit card is needed.
 
 ![cloud architecture](img/cloud_architecture.webp)
 
-## Optional Cloud Worker (backend) Options 
+## Optional Cloud Workers (backend) 
 
 ![deployment overview](img/deployment-overview.webp)
 
