@@ -91,7 +91,7 @@ arr = [[1,2,3],
 import practicus
 practicus.export_data(arr, "basic_array_2.xlsx", columns=['x1', 'x2', 'x3'])
 
-# now open the excel file and delete first column, x1
+# now open the Excel file and delete first column, x1
 ```
 
 ```python
@@ -162,7 +162,7 @@ This function detects changes a user makes inside the Excel (.xlsx) file and wri
 ```python
 # Example 1 
 
-# the below code detects all changes made in the excel file, 
+# the below code detects all changes made in the Excel file, 
 # and writes the result into basic_array.dp
 practicus.detect_changes("basic_array.xlsx")
 
@@ -203,7 +203,7 @@ export_model(model, output_path, columns="", target_name="", num_rows=1000)
 
 Exports a model to an Excel (.xlsx) file, so that users can understand how the model works, and make predictions by entering new values. 
 
-**model**: A Python model, pipeline, or the path of a .pmml file. If a model is passed, Practicus AI can read Linear Regression,  Logistic Regression, Decision Trees and Support Vector Machine models. If a pipeline is passed, Practicus AI can read several pre-processing steps like StandardScaler, MinMaxScaler etc, in addition to the model trained as part of the pipeline. Practicus AI can also read .pmml files, especially for models built outside of the Python environment like R, KNIME etc.   
+**model**: A Python model, pipeline, or the path of a .pmml file. If a model is passed, Practicus AI can read Linear Regression,  Logistic Regression, Decision Trees and Support Vector Machine models. If a pipeline is passed, Practicus AI can read several pre-processing steps like StandardScaler, MinMaxScaler etc., in addition to the model trained as part of the pipeline. Practicus AI can also read .pmml files, especially for models built outside the Python environment like R, KNIME etc.   
 
 **output_path**: The path of the Excel (.xlsx) file to export.
 
@@ -241,12 +241,12 @@ practicus.export_model(my_pipeline, output_path="some_model.xlsx",
 # let's also assume the .pmml file has column and target names in it
 practicus.export_model("some_R_model.pmml", output_path="some_R_model.xlsx", num_rows=150)
 
-# Please check the Samples section for more.. 
+# Please check the Samples' section for more.. 
 ```
 
 ### export_model limitations
 
-Practicus AI is new and we are looking forward to hearing your feedback on adding new features. some of our current limitations are: 
+Practicus AI is new, and we are looking forward to hearing your feedback on adding new features. some of our current limitations are: 
 
 - Exported models need to have fewer than 16,384 columns.  
 

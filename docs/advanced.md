@@ -82,7 +82,7 @@ Drop_Column(Col[ZN])
 Update(Col[name of the column to update] from_value to to_value)
 ```
 
-Updates **all** the rows for a certain column from one value to another. For example, updating all missing values to 0. When a manual update of a cell is detected in the Excel file, an Update command is added to the .dp file. You do not need make the same update to all cells, just one ie enough to apply the change for that column. If the *same* value is updated to different values manually, only the first detected update will run. Other updates will be commented out. You can review these update commands and make changes on the .dp file as needed.
+Updates **all** the rows for a certain column from one value to another. For example, updating all missing values to 0. When a manual update of a cell is detected in the Excel file, an Update command is added to the .dp file. You do not need to make the same update to all cells, just one ie enough to apply the change for that column. If the *same* value is updated to different values manually, only the first detected update will run. Other updates will be commented out. You can review these update commands and make changes on the .dp file as needed.
 
 Examples:
 
@@ -119,7 +119,7 @@ Rename_Column(Col[petal_width] to Col[petal width])
 Col[name of the column] = EXCEL_FUNCTION( .. EMBEDDED_FUNCTIONS(..) .. ) + OPERATORS
 ```
 
-Using functions to create formulas is probably one of the most powerful features of Excel. The same is true for Practicus AI data prep use case as well. Practicus AI currently interprets over **200+ Excel functions** and applies them with custom created Python code to your data set to perform the data transformation.  If Practicus AI ever encounters an Excel function that it doesn't understand, it will create a Python template for you to provide the missing functionality. Please read more about this in custom functions section below.   Practicus AI currently only supports functions and formulas to run on the same row.  For things like averages of all values for  a particular column, you can use separate sheets or pivot tables to do yor analysis, and then finally perform the the data preparation steps on individual rows.  
+Using functions to create formulas is probably one of the most powerful features of Excel. The same is true for Practicus AI data prep use case as well. Practicus AI currently interprets over **200+ Excel functions** and applies them with custom created Python code to your data set to perform the data transformation.  If Practicus AI ever encounters an Excel function that it doesn't understand, it will create a Python template for you to provide the missing functionality. Please read more about this in custom functions' section below.   Practicus AI currently only supports functions and formulas to run on the same row.  For things like averages of all values for  a particular column, you can use separate sheets or pivot tables to do yor analysis, and then finally perform the data preparation steps on individual rows.  
 
 Examples:
 
@@ -141,7 +141,7 @@ Col[first name] = LEFT(Col[full name], SEARCH(" ", Col[full name]) - 1)
 Col[last name] = RIGHT(Col[full name], LEN(Col[full name]) - SEARCH(" ", Col[full name])) 
 ```
 
-Please note that columns with formulas are currently placed in the .dp file in order that they appear in Excel. If a formula column depends on another, but appears prior in Excel you can face execution order issues. For instance, let's assume we have A = B + 1 formula that appears in the 2nd Excel column. And B = [some existing column] + 1 appears in 3rd Excel column. In the .dp file you will see A = B + 1 first and it's evaluation will fail since B is not defined yet.  To resolve this kind of issue, you can 1) change the order of columns in Excel so that it matches the execution order of formulas, or 2) change the order in .dp file manually.
+Please note that columns with formulas are currently placed in the .dp file in order that they appear in Excel. If a formula column depends on another, but appears prior in Excel you can face execution order issues. For instance, let's assume we have A = B + 1 formula that appears in the 2nd Excel column. And B = [some existing column] + 1 appears in 3rd Excel column. In the .dp file you will see A = B + 1 first, and it's evaluation will fail since B is not defined yet.  To resolve this kind of issue, you can 1) change the order of columns in Excel so that it matches the execution order of formulas, or 2) change the order in .dp file manually.
 
 ### Filtering with Remove_Except
 
@@ -149,7 +149,7 @@ Please note that columns with formulas are currently placed in the .dp file in o
 Remove_Except(Col[name of the column] criteria)
 ```
 
-Removes (filters) all of the rows that do **not** match the criteria. Criteria can be "is in [values]", logical operators like >, <, >=, <=, = and != and corresponding value, "and", "or".
+Removes (filters) all the rows that do **not** match the criteria. Criteria can be "is in [values]", logical operators like >, <, >=, <=, = and != and corresponding value, "and", "or".
 
 Examples:
 
@@ -172,7 +172,7 @@ Remove_Except(Col[RAD] = 5)
 Sort_Columns(Col[name of first column to sort], .., ascending[True|False, ..])
 ```
 
-Sorts values for column(s), ascending or descending. You can sort on as many columns as needed. 
+Sort values for column(s), ascending or descending. You can sort on as many columns as needed. 
 
 Example: 
 

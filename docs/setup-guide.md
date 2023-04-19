@@ -129,7 +129,7 @@ Please note that it can take a few minutes for the offering to be active. Once y
 
 #### Free / Professional pay-as-you-go (PAYG) 
 
-- <a href="https://aws.amazon.com/marketplace/pp?sku=92p0y3k5wuzzfhi71lmcigl5q">Practicus AI</a> - Most common, offers free tier, will give you all of the functionality.
+- <a href="https://aws.amazon.com/marketplace/pp?sku=92p0y3k5wuzzfhi71lmcigl5q">Practicus AI</a> - Most common, offers free tier, will give you all the functionality.
 - <a href="https://aws.amazon.com/marketplace/pp?sku=84fu9xjxpikj0pw37w8zchum">Practicus AI with GPUs</a> - Accelerated computing for very large data **or** if you have limited time. Can be 500+ times faster for some operations. 
 
 #### Enterprise License bring-your-own-license (BYOL)
