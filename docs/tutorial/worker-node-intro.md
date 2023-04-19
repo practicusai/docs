@@ -38,7 +38,7 @@ In a few seconds you will see your Cloud Worker is launching, and in 1-2 minutes
 
 If you use local container Cloud Workers you have less to worry about stopping them.  
 
-### Cloud Cloud Workers
+### Cloud Workers
 Similar to electricity, water, or other utilities, your cloud vendor (AWS) will charge you a fee for the hours your Cloud Worker is running. Although Practicus AI Cloud Workers automatically shut down after 90 minutes, it would be a practical approach to shut down your Cloud Workers manually when you are done for the day.
 
 For this, you can simply select a clod node and click on the _Stop_ button. The next day, you cna select the stopped Cloud Worker, click _Start_ and continue where you are left.

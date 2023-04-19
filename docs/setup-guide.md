@@ -67,7 +67,7 @@ If this is the right option for you, please visit the [cloud activation](#cloud-
 
 - Although fairly straightforward, you still have to install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman Desktop](https://podman-desktop.io)
 - If you need to access **~10 Million+ cloud data store rows and ~50+ times a day**, you should probably prefer a Cloud Worker on the cloud. Network traffic between the Practicus AI app and Cloud Workers are heavily compressed, and first time data access will feel slower with the local container.
-- If you use a **cloud data lake such as S3 and need to frequently scan large tables**, a cloud Cloud Worker in the same cloud region will be several orders of magnitude faster. In this scenario we recommend you to use cloud and local Cloud Workers together. Practicus AI App allows you to use multiple Cloud Workers at the same time, local or on the cloud. 
+- If you use a **cloud data lake such as S3 and need to frequently scan large tables**, a Cloud Worker in the same cloud region will be several orders of magnitude faster. In this scenario we recommend you to use cloud and local Cloud Workers together. Practicus AI App allows you to use multiple Cloud Workers at the same time, local or on the cloud. 
 
 If this is the right option for you, please visit the [local container](#local-container) section below to get started.
 
@@ -85,7 +85,7 @@ Please [contact us](https://practicus.ai/contact/) to learn about the pros and c
  
 ## Cloud Activation
 
-This section explains setting up AWS cloud Cloud Workers. 
+This section explains setting up AWS Cloud Workers. 
 
 ![cloud_setup_summary](img/cloud_setup_summary.png)
 
@@ -240,7 +240,7 @@ Additional Practicus AI software is bundled inside a container image. You need t
 
 ![](img/container-setup-step-4.png)
 
-- When navigating cloud data sources in the Explore tab, you can switch between local and cloud Cloud Workers by using the drop-down list at the top right.
+- When navigating cloud data sources in the Explore tab, you can switch between local and Cloud Workers by using the drop-down list at the top right.
 - Practicus AI app also attaches (mounts) **container_shared** folder, so you can easily copy files back and forth between your file system and the container. Simply open Windows Explorer (Finder in macOS), navigate to: your home folder / practicus / container_shared and copy files. Then navigate to Cloud Worker Files in Explore tab, and the files you copied will be visible under container_shared folder. Click Reload button at the top if you recently copied files.  
 
 ![](img/container-setup-step-5.png)
