@@ -5,24 +5,24 @@ Welcome! It should take **a few minutes to set up everything** and be ready to g
 You can see a simplified view of Practicus AI setup options below. 
 
 - **Practicus AI App is Forever Free** and include common analytics and data preparation features. 
-- **Cloud Workers with Forever Free Tier** are optional but highly recommended. They bring in [more functionality](#what-is-a-worker-node) such as AutoML. You can choose one or more Cloud Worker system. 
+- **Cloud Workers with Forever Free Tier** are optional but highly recommended. They bring in more functionality such as AutoML. You can choose one or more Cloud Worker system. 
 
 ![](img/setup-summary.png)
 
-## Install Practicus AI App
+## Install the Practicus AI App
 
 Practicus AI App works on your computer and contains the core functionality of our platform. 
 
 If you haven't already, please install **Practicus AI App** for [Windows](https://www.microsoft.com/en-us/p/practicus-ai/9p9f4hvkvcqg), [macOS](https://github.com/practicusai/app/releases/download/latest/practicus.pkg) or [Linux](#linux-installation).  
 
-If you are a Python user and prefer to install Practicus AI App as a library, please check our [Python Setup Guide](#python-setup-guide) section below. 
+If you are a Python user and prefer to Install the Practicus AI App as a library, please check our [Python Setup Guide](#python-setup-guide) section below. 
 
 If you are a programmer and only interested in installing the lightweight **Practicus AI SDK** (5MB), please only install **practicuscore** library using the [Python Setup Guide](#python-setup-guide) section below.
  
 
 ## Choose a Cloud Worker System
 
-If you prefer the **quickest option**, simply go to the [Cloud Activation](#cloud-activation) section below.  
+If you prefer the **quickest option**, you can use our **Software as a Service (SaaS)**, which will be ready in less than a minute. [Click here to start Practicus AI SaaS trial](https://practicus.ai/cloud/#saas) 
 
 ### What is a Cloud Worker?
 
@@ -30,60 +30,39 @@ Some Practicus AI features such as **AutoML**, making ** AI Predictions**, **Adv
 
 You have multiple Cloud Worker options to choose from, and you can find a quick summary on pros and cons of each option below.
 
-### AWS Cloud pros and cons
+Please [view the detailed comparison table](https://practicus.ai/cloud/#compare) for the pros and cons for each option. 
 
-**Pros**
+## Software as a Service
 
-- Runs Instantly, no installation required.
-- Runs 100% private and securely in your AWS account.   
-- Scales-up. Has very large capacity options with up to 4TB RAM and hundreds of CPUs.
-- GPU Accelerated option with up to 50,000+ CUDA cores for complex AI/ML problems.
-- No need to manage software due to ephemeral nature. Start, use, and dispose when done. 
-- Has Forever Free Tier for 2 vCPUs and 1GB RAM, and professional tier for larger capacity.
-- For professional use, you can pay as you go hourly through [AWS marketplace](https://aws.amazon.com/marketplace/search?searchTerms=practicus+ai). 
-- Offers Enterprise license option with unlimited user and capacity as well. [Compare license options](https://practicus.ai/pricing/).
+1) [Install the Practicus AI App](https://practicus.ai/get-started/)
 
-**Cons**
+2) Open App settings 
 
-- You need a credit card to create an AWS account. 
-- Cost control can be challenging (but possible) if you have many users that overuse large cloud capacity. 
-- Your data needs to enter / leave the public cloud, which might not be possible for some organizations with very strict data governance and regulation requirements.
+![Settings](img/settings.png)
 
-If this is the right option for you, please visit the [cloud activation](#cloud-activation) section below to get started.
+3) Login to service
 
-### Local container pros and cons
+- Click **Login** button  
 
-**Pros**
+![Saas login 1](img/saas-login-1.png)
 
-- Runs 100% private and securely on your computer. 
-- Lowest cost option and has forever free tier. 
-- No limitations on CPU/RAM available for the Free Tier. 
-- Most new generation laptops have high compute capacity. You can easily process 50 million+ row datasets and fairly complex AutoML problems.
-- You can switch back and forth to the cloud. E.g. You can use your computer for most use cases, switch to using the cloud with one click for very complex problems requiring GPUs (assuming your computer doesn't have GPUs), and then switch back to continue on your computer when done.  
-- If you have a Practicus AI Enterprise license, all professional features are unlocked, and you get the same experience as the pro cloud option. 
-- Fairly simple installation and ready in 5-10 minutes.
+- Enter your email and password and click **OK**
+- You should have received your password in email, please check your spam folder if you haven't
+- To reset your password, click **Forgot Password**
 
-**Cons**
-
-- Although fairly straightforward, you still have to install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman Desktop](https://podman-desktop.io)
-- If you need to access **~10 Million+ cloud data store rows and ~50+ times a day**, you should probably prefer a Cloud Worker on the cloud. Network traffic between the Practicus AI app and Cloud Workers are heavily compressed, and first time data access will feel slower with the local container.
-- If you use a **cloud data lake such as S3 and need to frequently scan large tables**, a Cloud Worker in the same cloud region will be several orders of magnitude faster. In this scenario we recommend you to use cloud and local Cloud Workers together. Practicus AI App allows you to use multiple Cloud Workers at the same time, local or on the cloud. 
-
-If this is the right option for you, please visit the [local container](#local-container) section below to get started.
-
-### SaaS pros and cons
-
-Our Saas offering is in **private preview** at the moment, and we expect to make it generally available by mid-2023. 
-
-Please [contact us](https://practicus.ai/contact/) to learn about the pros and cons of this option, and to get started in around 24 hours. 
-
-### Kubernetes pros and cons  
-
-Our Kubernetes offering is in **private preview** at the moment, and we expect to make it generally available by early-2023. 
-
-Please [contact us](https://practicus.ai/contact/) to learn about the pros and cons of this option, and to get started in around 1-2 days. 
+![Saas login 2](img/saas-login-2.png)
  
-## Cloud Activation
+## Enterprise Cloud
+
+You cna think of the Enterprise Cloud as a private Practicus AI SaaS that can run on any cloud, or your private data enter. 
+
+Configuration is exactly the same as [Software as a Service](#software-as-a-service). You only need to change your service address from https://**service.practicus.io** to your private address that your administrator provided, such as https://**practicus.your_company.com**
+
+Your password will be provided by your administrator. You can also click the **Forgot Password** button to reset your password. 
+
+![Enterprise login](img/ent-login.png)
+
+## AWS Marketplace
 
 This section explains setting up AWS Cloud Workers. 
 
@@ -142,7 +121,7 @@ Please make sure you have created an **admin user** as well. You can check our [
 
 This is a **one-time task for all users** sharing the same AWS Account. 
 
-[Learn more about AWS marketplace](#aws-marketplace). 
+[Learn more about AWS marketplace](#aws-marketplace-reference). 
 
 We have multiple offerings on AWS marketplace. Please click on each in the below list to view the marketplace page explaining the offering, and then click **Continue to Subscribe** button to enable (see screenshot below). You need at least one AWS marketplace offering enabled to use Practicus AI cloud. 
 
@@ -277,7 +256,7 @@ Please follow the below steps to create a **free** AWS account.
 
 ![aws account creation step 3](img/add_aws_user_3.png)
 
-### AWS Marketplace
+### AWS Marketplace Reference
 
 Similar to our Windows app being available on Microsoft app store, our cloud workers are available on AWS marketplace. This gives our users "there's an app for that!" type experience, but for AI in the cloud. 
 

@@ -2,7 +2,7 @@
 
 [Practicus AI](https://practicus.ai/) is a modern and open Data Science platform that combines ease of use with powerful features. 
 
-Under the user-friendly interface, Practicus AI offer you a scalable, flexible, and open-source data stack, helping you solve your most complex data problems.
+Under the user-friendly interface, Practicus AI offers you a scalable, flexible, and open-source data stack, helping you solve your most complex data problems.
 
 You can **explore and analyze** large amounts of raw data and find unique insights and patterns. 
 
