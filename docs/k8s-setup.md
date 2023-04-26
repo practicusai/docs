@@ -127,7 +127,7 @@ kubectl config use-context docker-desktop
 
 Practicus AI uses Istio to ingest, route traffic, secure and manage the modern data mesh microservices architecture.
 
-Istio can be installed on any Kubernetes cluster and designed to run side by side with any umber of other production workloads. Istio will not interfere with a namespace unless you ask Istio to do so.
+Istio can be installed on any Kubernetes cluster and designed to run side by side with any number of other production workloads. Istio will not interfere with a namespace unless you ask Istio to do so.
 
 [Learn more about Istio](https://istio.io/latest/about/service-mesh/) 
 
@@ -245,7 +245,6 @@ helm repo update
 
 echo "Viewing charts in practicusai repo"
 helm search repo practicusai
-
 ```
 
 ## Deploying Management Console 
@@ -503,9 +502,6 @@ kubectl -n prt-ns exec -it prt-pod-wn-... -- /bin/bash
 
 Practicus AI services can use the same values-x.yaml file as the management console deployment.
 
-If you obtained an OpenAI API key, please follow the below steps to enable GPT.    
-
-
 ### Installing optional services
 
 ```shell
@@ -568,7 +564,7 @@ Sample setup:
 * In optional settings section add the below 
 
 ```
-OpenAI-Organization=org-your_org_id_on_open_AI
+OpenAI-Organization=your_openai_organization_id
 model=gpt-4
 max_tokens=350
 ```
@@ -579,37 +575,28 @@ max_tokens=350
 
 ### Management console settings
 
-There are several settings on the management console that you cna easily change using the admin console page.
+There are several settings on the management console that you can easily change using the admin console page.
 
 These changes are stored in the management database, so we strongly suggest you to regularly back up your database.
 
-* Groups: We strongly suggest you to create groups before granting right.s e.g. power users, data scientists .. 
-* Users: You can create users and give fine-grained access to admin console elements.
-* Staff users can log in to admin console. Most users should not and only use Practicus AI App
-* **Central Configuration** Please visit "Cluster Definitions" to change your service name and location ASAP. E.g. "Practicus AI Service" "Seattle". When end users login through the App, this is the information they will see and this is cached for future use.    
-* **Cloud Worker Admin** It is crucial you visit every page on this section and adjust Cloud Worker (pod) capacity settings. 
-* **Connection Admin** Users can only use analytical database connections that they add to the system AND the connections you make visible to certain groups / users. 
-* **SaaS Admin** This section is only used if you activate self-service SaaS through a 3rd party payment gateway. We suggest only the super admin has access to it, and you make this section invisible to all other admin or staff users.
+* **Groups**: We strongly suggest you to create groups before granting rights. E.g.: power users, data scientists, data engineers, citizen data scientists .. 
+* **Users**: You can create users and give fine-grained access to admin console elements. Staff users can log in to admin console. Most users should not need this level access, and only use Practicus AI App.
+* **Central Configuration**: Please view "Cluster Definitions" to change your service name and location. E.g. to "Practicus AI Service" located in "Seattle". When end users login using the App, this is the information they will see while exploring data sources. This information is cached for future use, so the earlier you change the better. 
+* **Cloud Worker Admin**: It is crucial you visit every page on this section and adjust Cloud Worker (pod) capacity settings. You can adjust which group/user should have access to what kind of capacity.  
+* **Connection Admin**: Users can only use analytical database connections that they add to the system AND the connections you make visible to certain groups / users. 
+* **SaaS Admin**: This section is only used if you activate self-service SaaS through a 3rd party payment gateway. We suggest only the super admin has access to it, and you make this section invisible to all other admin or staff users.
 
 
 ### Advanced settings
 
 Practicus AI helm charts values.yaml files include many advanced settings and explanations as inline comments. Please navigate and alter these settings, upgrade your deployments and validate the state as you see fit.
 
-Please see below a sample values.yaml file where you can adjust replica count etc.: 
+Please see below a sample values.yaml file where you can adjust replica count of a deployment: 
 ```yaml
 ...
 capacity:
   # Console API service replica
   replicas: 1
-
-  # Cloud Worker ephemeral disk capacity proportional to RAM.
-  # E.g.: 0.5 means 500MB ephemeral disk for each 1GB Ram
-  diskToRamRatio: 1
-
-  # Max workers per Cloud Worker.
-  # Every time a user opens a worksheet on the app a worker process is created inside the Cloud Worker
-  maxWorkerToRamRatio: 10
 ...
 ```
 
