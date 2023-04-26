@@ -23,11 +23,11 @@ Practicus AI kubernetes backend have some mandatory and optional components.
 
 * **Optional Services Deployment**: Only required if you would like to enable OpenAI GPT and similar AI services.   
 * **Additional kubernetes clusters**: You can use multiple clusters in different geos to build a flexible data mesh architecture.
-* **Additional namespaces**: It is common practicus practice to deploy at least one more namespace as a test environment, usually named prt-ns2.  
+* **Additional namespaces**: You can also deploy a test environment, usually named prt-ns2 or more.  
 
 ### Dynamic components
 
-* **Cloud worker pods**: These are ephemeral (temporary) pods created and disposed by the management console service. E.g. When a user wants to process large data, perform AutoML etc., the management console creates worker pod(s) on the fly, and disposes after the user is done. The dynamic capacity offered to end users is highly governed by system admins.      
+* **Cloud worker pods**: These are ephemeral (temporary) pods created and disposed by the management console service. E.g. When a user wants to process large data, perform AutoML etc., the management console creates worker pod(s) on the fly, and disposes after the user is done. The dynamic capacity offered to end users is governed by system admins.      
 
 ### Big Picture
 
