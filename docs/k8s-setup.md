@@ -9,20 +9,20 @@ There are multiple backend options and Kubernetes is one of them. Please [view t
 
 ## Overview
 
-Practicus AI kubernetes backend have some mandatory and optional components.
+Practicus AI Kubernetes backend have some mandatory and optional components.
 
 ### Mandatory components
 
 * **Kubernetes cluster**
 * **Kubernetes namespace**: Usually named **prt-ns**
-* **Management database**: Low traffic database that holds users, connections, and other management components. Can be inside or outside the kubernetes cluster.
+* **Management database**: Low traffic database that holds users, connections, and other management components. Can be inside or outside the Kubernetes cluster.
 * **Console Deployment**: Management console and APIs that the Practicus AI App or SDK communicates with.
 * **Istio Service Mesh**: Secures, routes and load balances network traffic. You can think of it as an open source and modern NGINX Plus.   
 
 ### Optional components
 
 * **Optional Services Deployment**: Only required if you would like to enable OpenAI GPT and similar AI services.   
-* **Additional kubernetes clusters**: You can use multiple clusters in different geos to build a flexible data mesh architecture.
+* **Additional Kubernetes clusters**: You can use multiple clusters in different geos to build a flexible data mesh architecture.
 * **Additional namespaces**: You can also deploy a test environment, usually named prt-ns2 or more.  
 
 ### Dynamic components
@@ -53,7 +53,7 @@ Please create a new Kubernetes cluster if you do not already have one. For this 
 
 [View Docker Desktop memory settings](https://docs.docker.com/config/containers/resource_constraints/)
 
-[View Docker Desktop Kubernetes setup guide](https://docs.docker.com/desktop/kubernetes/)
+[View Docker Desktop Kubernetes setup guide](https://docs.docker.com/desktop/Kubernetes/)
 
 ### Create or reuse PostgreSQL Database
 
@@ -365,7 +365,7 @@ The below steps will create a temporary pod that will create or update the neces
 ```shell
 cd ~/practicus/helm
 
-# Confirm you are using the correct kubernetes environment
+# Confirm you are using the correct Kubernetes environment
 kubectl config current-context
 
 # Replace the below values-x.yaml file with dev/test/prod configurations
@@ -599,6 +599,132 @@ capacity:
   replicas: 1
 ...
 ```
+
+### (Recommended) Install persistent volume support
+
+Practicus AI Cloud Workers support 2 types of persistent volumes, personal and shared between users.
+
+#### Personal drives
+
+If enabled, every Cloud Worker gets a drive mounted under **~/my**. With the personal drive, a user can persist their files under ~/my folder, so the files are not lost after a Cloud Worker is terminated. This can have some benefits, e.g. persisting jupyter notebooks on Cloud Workers.
+
+By default, the personal drive is shared between Cloud Workers using Kubernetes ReadWrite**Many** (RWX) mode.
+
+Please be aware that if you enable personal drives **and** force ReadWrite**Once** (RWO), a user can only use one Cloud Worker at a time and this is **not** recommended.
+
+#### Shared drives between users
+
+If enabled, every Cloud Worker gets the shared folder(s) mounted in user home dir e.g. ~/shared/folder/..  
+
+You can control which group or individual user has access to which shared folder and the share name.
+
+#### Kubernetes StorageClass
+
+In order to dynamically create persistent volumes and to avoid administrative burden, Practicus AI uses Kubernetes storage classes. Please prefer StorageClass **read / write many** mode. 
+
+Please be aware that only some Kubernetes storage types, such as NFS, support read / write many mode. Common storage classes such as AWS EBS only allow one Kubernetes pod to mount a drive at a time (read / write once), which is not suitable for sharing use cases.
+
+If your storage class does not allow read / write many, you cannot implement shared drives between users. And for personal drives, implementing read / write once will cause users to be able to use one Cloud Worker at a time, which is **not** recommended.
+
+To summarize, please prefer to use **NFS** or similar style storage systems for Practicus AI persistent volumes.
+
+#### Supported NFS implementations 
+
+You can use any NFS system, inside or outside your Kubernetes cluster. You can also use NFS as a service, such as AWS EFS with Practicus AI. 
+
+#### Sample NFS server for your local computer
+
+Please find below a simple implementation to install a NFS pod on your computer to test it with Practicus AI.
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: nfs-service
+spec:
+  selector:
+    role: nfs
+  ports:
+    # Open the ports required by the NFS server
+    # Port 2049 for TCP
+    - name: tcp-2049
+      port: 2049
+      protocol: TCP
+    # Port 111 for UDP
+    - name: udp-111
+      port: 111
+      protocol: UDP
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nfs-server-pod
+  labels:
+    role: nfs
+spec:
+  containers:
+    - name: nfs-server-container
+      image: cpuguy83/nfs-server
+      securityContext:
+        privileged: true
+      args:
+        - /exports
+```
+
+You can save the above to nfs-server.yaml and run
+
+```shell
+kuectl apply -f nfs-server.yaml
+
+# To delete 
+kuectl delete -f nfs-server.yaml
+```
+
+After you create the NFS pod named nfs-server-pod, please run the below to get its IP address, e.g. 10.0.0.1. you will need this IP address in the below section.
+
+```shell
+kubectl get pod -o wide
+```
+
+ Please note that after you restart your computer, the NFS server IP address might change, and in this case you would have to re-install (or upgrade) the below helm chart to update the IP address.  
+
+#### Using NFS inside Kubernetes 
+
+The below will create a provisioner pod and a storage class named prt-sc-primary. You can create as many provisioners and storage classes. These can point to the same or different NFS systems. 
+
+```shell
+helm repo add nfs-subdir-external-provisioner \
+  https://Kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+helm repo update
+
+export NFS_DNS_NAME="add NFS server DNS or IP address here"
+
+helm install nfs-subdir-external-provisioner \
+  nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+  --set nfs.server="$NFS_DNS_NAME" \
+  --set nfs.path="/" \
+  --set storageClass.accessModes="ReadWriteMany" \
+  --set storageClass.pathPattern="practicus" \
+  --set storageClass.onDelete="retain" \
+  --set storageClass.name="prt-sc-primary"
+  
+# To uninstall
+helm uninstall nfs-subdir-external-provisioner
+```
+
+To learn more and customize the helm chart, please visit [provisioner GitHub page](https://github.com/Kubernetes-sigs/nfs-subdir-external-provisioner).
+
+By using the above helm chart and granting user access, NFS server will have directories such as /practicus/users/john-acme.com that gets mounted to ~/my for a user with email john@acme.com. Only John will have access to this folder.
+
+You can also define several shared folders between users E.g. shared/finance which would map to /practicus/shared/finance on the NFS server and gets mounted to ~/shared/finance on Cloud Workers.  
+
+The above path structure is an example and be customized flexibly through the NFS system itself, StorageClass provisioner setup, or simply by using the Practicus AI Management Console.
+
+Please view Cloud Worker Admin section to customize user or group based persistent drives.       
+
+#### Using AWS EFS
+
+If you are using AWS EFS, you can use the above provisioner, or as an **alternative**, you can also use a CSI specific for AWS EKS and AWS EFS. Please view the [AWS EFS CSI documentation](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) to learn more. Tip: Even if you decide to use the generic NFS provisioner with AWS EKS, you can still review the CSI page to learn more about security group settings, availability zone optimization etc.
 
 ## Support 
 
