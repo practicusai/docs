@@ -228,7 +228,7 @@ Practicus AI helm repository is a private repository that makes installing Pract
 Please make sure you have a GitHub personal access token which has not expired, and replace the below script with it. 
 
 ```shell
-eco "Setting private helm repo token"
+echo "Setting private helm repo token"
 PRT_HELM_TOKEN=github_pat_xyz
 
 echo "Adding private practicusai helm repo"
