@@ -742,13 +742,14 @@ docker run -p 9001:9001 -p 9002:9002 \
   quay.io/minio/minio server /data --console-address ":9002" --address ":9001"
 ```
 
-- Login to MinIO Console using http://127.0.0.1:9002 minio
+- Login to MinIO Console using http://127.0.0.1:9002 and credentials:
+- User: minioadmin password: minioadmin
 - Click Buckets > Create bucket and create **testbucket**
 - Click Identity > Users > Create User > select **readwrite** policy
-- Click Access Keys > Create > Note your access and secret key 
+- Click Access Keys > Create > Note your access and secret keys 
 - Click Object Browser > testbucket > upload a .csv file
 
-You should now see a .csv file in testbucket and created a user, access key. 
+You should now see a .csv file in testbucket and created a user, access/secret keys. 
 
 ![](img/minio-setup.png)
 
