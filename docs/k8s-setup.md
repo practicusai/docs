@@ -91,7 +91,7 @@ Install kubectl CLI tool to manage Kubernetes clusters
 echo "***"
 echo "Installing kubectl"
 echo "***"
-curl -LO "https://dl.k8s.io/release/v1.25.8/bin/darwin/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/v1.25.9/bin/darwin/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chown root: /usr/local/bin/kubectl
@@ -259,14 +259,13 @@ For all other settings, we suggest you to use values-x.yaml files
 mkdir ~/practicus 
 mkdir ~/practicus/helm
 cd ~/practicus/helm
-touch values-console-local.yaml
-touch values-console-prod.yaml
+touch values-console.yaml
 ```
 
-Sample **values-console-local.yaml** file contents for a **local test environment**
+Sample **values-console.yaml** file contents for a **local test environment**
 
 ```shell
-cat <<EOF >>values-console-local.yaml
+cat <<EOF >>values-console.yaml
 
 migrate:
   superUserEmail: "your_email@your_company.com"
@@ -293,10 +292,10 @@ notification:
 EOF
 ```
 
-Sample **values-console-prod.yaml** file contents for a **production environment**
+Sample **values-console.yaml** file contents for a **production environment** on AWS, GCE, Azure, OpenShift etc. 
 
 ```shell
-cat <<EOF >>values-console-prod.yaml
+cat <<EOF >>values-console.yaml
 
 main:
   # Dns accessible by app
@@ -334,7 +333,7 @@ This step is not required for a local test setup.
 
 For AWS, our helm charts automatically configure Application Load Balancer and SSL certificates. 
 
-You can simply add the below to values-console-prod.yaml file.
+You can simply add the below to values-console.yaml file.
 
 ```yaml
 aws:
@@ -375,7 +374,7 @@ kubectl config current-context
 helm install prt-migrate-console-db practicusai/practicus-migrate-console-db \
   --namespace prt-ns \
   --set advanced.imagePullPolicy=Always \
-  --values ./values-console-local.yaml
+  --values ./values-console.yaml
 
 # Step 2) View the db migration pod status and logs. 
 #   Run it multiple times if pulling the container takes some time.  
@@ -424,7 +423,7 @@ helm repo update
 
 helm install practicus-console practicusai/practicus-console \
   --namespace prt-ns \
-  --values values-console-local.yaml
+  --values values-console.yaml
 ```
 
 ### Logging in to management console
@@ -459,7 +458,7 @@ helm repo update
 
 helm upgrade practicus-console practicusai/practicus-console \
   --namespace prt-ns \
-  --values values-console-local.yaml
+  --values values-console.yaml
 ```
 
 ### Uninstalling management console 
@@ -512,7 +511,7 @@ helm repo update
 
 helm install practicus-services practicusai/practicus-services \
   --namespace prt-ns \
-  --values values-console-local.yaml
+  --values values-console.yaml
 ```
 
 ### Troubleshooting optional services deployment
@@ -541,7 +540,7 @@ helm repo update
 
 helm upgrade practicus-services practicusai/practicus-services \
   --namespace prt-ns \
-  --values values-console-local.yaml
+  --values values-console.yaml
 ```
 
 ### Uninstalling optional services deployment
