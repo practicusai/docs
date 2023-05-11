@@ -123,7 +123,9 @@ kubectl config current-context
 kubectl config use-context docker-desktop
 ```
 
-### Install Istio service mesh
+### Install Istio service mesh (if required)
+
+**Note:** Some Kubernetes systems such as OpeShift come with Istio pre-installed. Only install Istio if your cluster does not already have it, or if you would prefer to use the open source version.     
 
 Practicus AI uses Istio to ingest, route traffic, secure and manage the modern data mesh microservices architecture.
 
@@ -253,7 +255,7 @@ helm search repo practicusai
 
 Practicus AI helm chart's come with many default values that you can leave as-is, especially for local dev/test configurations. 
 
-For all other settings, we suggest you to use values-x.yaml files
+For all other settings, we suggest you to use values-console.yaml file
 
 ```shell
 mkdir ~/practicus 
@@ -367,8 +369,6 @@ cd ~/practicus/helm
 # Confirm you are using the correct Kubernetes environment
 kubectl config current-context
 
-# Replace the below values-x.yaml file with dev/test/prod configurations
-  
 # Step 1) Create a temporary pod that will create (or update) the database
 
 helm install prt-migrate-console-db practicusai/practicus-migrate-console-db \
@@ -419,8 +419,6 @@ If there are no updates to the database schema, the pod will not make any change
 cd ~/practicus/helm
 helm repo update 
 
-# Replace the below values-x.yaml file with dev/test/prod configurations
-
 helm install practicus-console practicusai/practicus-console \
   --namespace prt-ns \
   --values values-console.yaml
@@ -430,7 +428,7 @@ helm install practicus-console practicusai/practicus-console \
 
 You should be able to log in to Practicus AI management console using [http://127.0.0.1/console/admin](http://127.0.0.1/console/admin) or https://practicus.your_company.com/console/admin
 
-Your super admin username / password is at the top of your values-x.yaml file. 
+Your super admin username / password was defined at the top of your values-console.yaml file. (superUserEmail, superUserPassword)
 
 ### Troubleshooting
 
@@ -453,8 +451,6 @@ kubectl -n prt-ns exec -it prt-depl-console-... -- /bin/bash
 ```shell
 cd ~/practicus/helm
 helm repo update
-
-# Replace the below values-x.yaml file with dev/test/prod configurations
 
 helm upgrade practicus-console practicusai/practicus-console \
   --namespace prt-ns \
@@ -479,7 +475,9 @@ helm uninstall practicus-console --namespace=prt-ns
 * For Cloud: Select the newly added region (upper right)
 * Click "Start New", select a size (if on your laptop, select 1 or 2 GB RAM)
 
-This will start pulling the Cloud Worker image on first use, which can take a while. During this time the app will show the Cloud Worker (pod) status as pending. Once the pull is completed the app will notify you. Go to Explore tab, click on "Worker-x Files" (x is the counter) and view the local disk content of the pod. This verifies everything is deployed correctly. 
+This will start pulling the Cloud Worker image on first use, which can take a while since the Cloud Worker image is ~ 9GB in size. 
+
+During this time the app will show the Cloud Worker (pod) status as pending. Once the pull is completed the app will notify you. Go to Explore tab, click on "Worker-x Files" (x is the counter) and view the local disk content of the pod. This verifies everything is deployed correctly. 
 
 ### Troubleshooting Cloud Workers 
 
@@ -497,17 +495,17 @@ kubectl -n prt-ns logs --follow prt-pod-wn-...
 kubectl -n prt-ns exec -it prt-pod-wn-... -- /bin/bash  
 ```
 
+**Tip:** You can view the status of Cloud Workers for any user and terminate them if needed using the management console. Simply open http://127.0.0.1/console/admin > scroll to Cloud Worker Admin > click on Cloud Worker Consumption Logs. You will see all the active and terminated Cloud Workers. If you click on a log, you will see the Kubernetes pod conditions. 
+
 ### (Recommended) Installing Practicus AI services (GPT etc.)
 
-Practicus AI services can use the same values-x.yaml file as the management console deployment.
+Practicus AI services can use the same values-console.yaml file as the management console deployment.
 
 ### Installing optional services
 
 ```shell
 cd ~/practicus/helm
 helm repo update 
-
-# Replace the below values-x.yaml file with dev/test/prod configurations
 
 helm install practicus-services practicusai/practicus-services \
   --namespace prt-ns \
@@ -535,8 +533,6 @@ kubectl -n prt-ns exec -it prt-depl-services-... -- /bin/bash
 ```shell
 cd ~/practicus/helm
 helm repo update
-
-# Replace the below values-x.yaml file with dev/test/prod configurations
 
 helm upgrade practicus-services practicusai/practicus-services \
   --namespace prt-ns \
@@ -725,11 +721,11 @@ Please view Cloud Worker Admin section to customize user or group based persiste
 
 If you are using AWS EFS, you can use the above provisioner, or as an **alternative**, you can also use a CSI specific for AWS EKS and AWS EFS. Please view the [AWS EFS CSI documentation](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) to learn more. Tip: Even if you decide to use the generic NFS provisioner with AWS EKS, you can still review the CSI page to learn more about security group settings, availability zone optimization etc.
 
-### (Optional) Install demo object storage 
+## (Optional) Install demo object storage 
 
 Although it is optional, using object storage systems such as Amazon S3 for Machine Learning is very common. If you are testing Practicus AI locally and do not have access to S3 or a compatible store, you can simply use MinIO. 
 
-#### Sample Object Storage with MinIO
+### Sample Object Storage with MinIO
 
 You can install MinIO inside your Kubernetes cluster. For demo purposes, we will use a simple Docker container. We will also avoid using the default MinIO S3 port 9000, in case you are also using Practicus AI standalone docker deployment (not K8s). This type of test deployment already uses port 9000.   
 
@@ -760,6 +756,80 @@ To test MinIO or other S3 compatible storage with the app:
 - Enter your access / secret keys
 - Enter demo endpoint url http://host.docker.internal:9001
 - Use bucket: testbucket
+
+## (Optional) Install Kubernetes dashboard
+
+You can visualize and troubleshoot Kubernetes clusters using the dashboard. Please follow the below steps to install and view Kubernetes dashboard on your **local development** environment. Production setup and viewing will require some additional changes, which are beyond the scope of this document.  
+
+```shell
+echo "Installing Kubernetes Dashboard"
+
+kubectl apply -f \
+  https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
+echo "Setting dashboard permissions"
+
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dashboard-admin-user
+  namespace: kubernetes-dashboard
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dashboard-admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: dashboard-admin-user
+  namespace: kubernetes-dashboard
+EOF
+```
+
+After the dashboard is installed you can open it using the below commands. 
+
+Please do not forget to run **kubectl proxy** in a separate terminal window first, so the web interface is accessible from your browser. 
+
+```shell
+echo "Generating a dashboard access token for 90 days and copying to clipboard"
+kubectl -n kubernetes-dashboard create token dashboard-admin-user \
+  --duration=2160h > dashboard-token.txt
+
+echo "Generated token:"
+echo ""
+cat dashboard-token.txt
+echo ""
+echo ""
+pbcopy < dashboard-token.txt
+rm dashboard-token.txt
+
+echo "Opening dashboard at:"
+echo "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"
+
+echo ""
+open "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"
+echo "Paste the access token at login page."
+
+echo "No login page? Make sure you ran kubectl proxy first"
+```
+
+![](img/k8s-dashboard.png)
+
+Please note that the above steps installed Practicus AI elements to **prt-ns** namespace. You will have to switch the namespace in the dashboard
+
+## Troubleshooting issues
+
+Please follow the below steps to troubleshoot some common issues with Kubernetes Dashboard, or equivalent kubectl commands if you do not use the dashboard.
+
+- Did the prt-depl-console-... pod start? (Green) If not, view its details.
+- If the pod started, but is not accessible using http://127.0.0.1/console/admin view the pod logs. Click on the pod name > View Logs (upper right)
+- If the logs do not show any errors, Istio sidecar proxy might not be running. Click on the pod name, scroll down to containers and verify there are 2 containers running, prt-cnt-console and istio-proxy.
+- Analyze istio to see if there are any proxy issues detected **istioctl analyze -n prt-ns**
 
 ## Support 
 
