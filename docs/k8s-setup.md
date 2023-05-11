@@ -53,7 +53,7 @@ Please create a new Kubernetes cluster if you do not already have one. For this 
 
 [View Docker Desktop memory settings](https://docs.docker.com/config/containers/resource_constraints/)
 
-[View Docker Desktop Kubernetes setup guide](https://docs.docker.com/desktop/Kubernetes/)
+[View Docker Desktop Kubernetes setup guide](https://docs.docker.com/desktop/kubernetes/)
 
 ### Create or reuse PostgreSQL Database
 
@@ -725,6 +725,41 @@ Please view Cloud Worker Admin section to customize user or group based persiste
 #### Using AWS EFS
 
 If you are using AWS EFS, you can use the above provisioner, or as an **alternative**, you can also use a CSI specific for AWS EKS and AWS EFS. Please view the [AWS EFS CSI documentation](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) to learn more. Tip: Even if you decide to use the generic NFS provisioner with AWS EKS, you can still review the CSI page to learn more about security group settings, availability zone optimization etc.
+
+### (Optional) Install demo object storage 
+
+Although it is optional, using object storage systems such as Amazon S3 for Machine Learning is very common. If you are testing Practicus AI locally and do not have access to S3 or a compatible store, you can simply use MinIO. 
+
+#### Sample Object Storage with MinIO
+
+You can install MinIO inside your Kubernetes cluster. For demo purposes, we will use a simple Docker container. We will also avoid using the default MinIO S3 port 9000, in case you are also using Practicus AI standalone docker deployment (not K8s). This type of test deployment already uses port 9000.   
+
+```shell
+# Run MinIO in Docker
+# Use port 9001 for S3, port 9002 for admin console
+ 
+docker run -p 9001:9001 -p 9002:9002 \
+  quay.io/minio/minio server /data --console-address ":9002" --address ":9001"
+```
+
+- Login to MinIO Console using http://127.0.0.1:9002 minio
+- Click Buckets > Create bucket and create **testbucket**
+- Click Identity > Users > Create User > select **readwrite** policy
+- Click Access Keys > Create > Note your access and secret key 
+- Click Object Browser > testbucket > upload a .csv file
+
+You should now see a .csv file in testbucket and created a user, access key. 
+
+![](img/minio-setup.png)
+
+[View MinIO installation document](https://charts.min.io)
+
+To test MinIO or other S3 compatible storage with the app:
+
+- Open App > Explore tab > Click on New Connection > Amazon S3
+- Enter your access / secret keys
+- Enter demo endpoint url http://host.docker.internal:9001
+- Use bucket: testbucket
 
 ## Support 
 
