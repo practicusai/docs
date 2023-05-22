@@ -225,22 +225,11 @@ istioctl analyze -n prt-ns
 
 ## Add practicusai helm repository
 
-Practicus AI helm repository is a private repository that makes installing Practicus AI console backend easier.
-
-Please make sure you have a GitHub personal access token which has not expired, and replace the below script with it. 
+Practicus AI helm repository will make installing Practicus AI console backend easier.
 
 ```shell
-echo "Setting private helm repo token"
-PRT_HELM_TOKEN=github_pat_xyz
-
 echo "Adding private practicusai helm repo"
-helm repo add practicusai \
-  --username "$PRT_HELM_TOKEN" \
-  --password "$PRT_HELM_TOKEN" \
-  "https://raw.githubusercontent.com/practicusai/helm/master/"
-  
-echo "Private helm repo access tokens expire regularly. \
-      Please request request a new token if access is denied"
+helm repo add practicusai https://practicusai.github.io/helm
   
 echo "Updating all helm repos on your computer"
 helm repo update
