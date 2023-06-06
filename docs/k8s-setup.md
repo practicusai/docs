@@ -2,18 +2,21 @@
 title: Enterprise Cloud setup guide
 ---
 
+## Download Helper files (Recommended)
+
+Before you get started, please feel free to download the [practicus_setup.zip](https://practicusai.github.io/helm/practicus_setup.zip) file that includes sample configuration (.yaml) files for various cloud, on-prem, or local development environments, and helper scripts to accelerate your setup.    
+
+## Overview
+
 This document will guide you to install Practicus AI Enterprise Cloud Kubernetes backend. 
 
 There are multiple backend options and Kubernetes is one of them. Please [view the detailed comparison table](https://practicus.ai/cloud/#compare) to learn more. 
-
-
-## Overview
 
 Practicus AI Kubernetes backend have some mandatory and optional components.
 
 ### Mandatory components
 
-* **Kubernetes cluster**
+* **Kubernetes cluster**: Cloud (e.g. AWS), on-prem (e.g. OpenShift) or Local (e.g. Docker Desktop)  
 * **Kubernetes namespace**: Usually named **prt-ns**
 * **Management database**: Low traffic database that holds users, connections, and other management components. Can be inside or outside the Kubernetes cluster.
 * **Console Deployment**: Management console and APIs that the Practicus AI App or SDK communicates with.
@@ -32,14 +35,6 @@ Practicus AI Kubernetes backend have some mandatory and optional components.
 ### Big Picture
 
 ![k8s-setup-overview](img/k8s-setup-overview.png)
-
-## Before You start 
-
-Please make sure you have the following:
-
-- Practicus AI private helm repository access token.
-- (Optional) Practicus AI notification email system access key. Used for "forgot my password" type emails. You can also deploy your own email system.
-- (Optional) [OpenAI account and private API key](https://platform.openai.com/account/api-keys), if you would like to enable GPT.
 
 ## Prerequisites
 
@@ -62,17 +57,11 @@ Practicus AI management console uses PostgreSQL database to store some configura
 This is a management database with low transaction requirements even for production purposes.    
 
 ```shell
-echo "***"
 echo "Deleting existing development database"
-echo "***"
-
 docker container stop prt-db-console
 docker rm prt-db-console
 
-echo "***"
 echo "Creating new development database prt-db-console"
-echo "***"
-
 docker pull postgres:latest
 docker run \
     --name prt-db-console \
@@ -88,9 +77,7 @@ docker run \
 Install kubectl CLI tool to manage Kubernetes clusters 
 
 ```shell
-echo "***"
 echo "Installing kubectl"
-echo "***"
 curl -LO "https://dl.k8s.io/release/v1.25.9/bin/darwin/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
@@ -102,9 +89,7 @@ sudo chown root: /usr/local/bin/kubectl
 Practicus AI installation is easiest using helm charts. 
 
 ```shell
-echo "***"
 echo "Installing Helm"
-echo "***"
 curl -fsSL -o get_helm.sh \
   https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
@@ -123,9 +108,7 @@ kubectl config current-context
 kubectl config use-context docker-desktop
 ```
 
-### Install Istio service mesh (if required)
-
-**Note:** Some Kubernetes systems such as OpeShift come with Istio pre-installed. Only install Istio if your cluster does not already have it, or if you would prefer to use the open source version.     
+### Install Istio service mesh
 
 Practicus AI uses Istio to ingest, route traffic, secure and manage the modern data mesh microservices architecture.
 
@@ -133,15 +116,16 @@ Istio can be installed on any Kubernetes cluster and designed to run side by sid
 
 [Learn more about Istio](https://istio.io/latest/about/service-mesh/) 
 
+**Note:** Some Kubernetes systems come with Istio 'forks' pre-installed, such as Red Hat OpenShift Service Mesh. Practicus AI is designed and tested to work with the original istio only. Istio is designed to be installed and run side-by-side with the forked projects, so yuou can safely install it on any Kubernetes cluster.  
+
 The below script downloads the latest istoctl version, e.g. 1.17.2. 
 
 Please update the "mv istio-1.17.2 istio" section below to a newer version if required.   
 
 ```shell
 cd ~ || exit
-echo "***"
+
 echo "Downloading Istio"
-echo "***"
 rm -rf istio
 curl -L https://istio.io/downloadIstio | sh -
 mv istio-1.17.2 istio || \
@@ -150,42 +134,12 @@ mv istio-1.17.2 istio || \
 cd ~/istio || exit
 export PATH=$PWD/bin:$PATH
 
-echo "***"
 echo "Analyzing Kubernetes for Istio compatibility"
-echo "***"
 istioctl x precheck 
 
-echo "***"
-echo "Installing Istio"
-echo "***"
-istioctl install --set profile=default -y
-
-echo "***"
 echo "Recommended: Add istioctl to path"
-echo "***"
 # Add the below line to .zshrc or alike
 # export PATH=~/istio/bin:$PATH
-```
-
-### (Recommended) Install Practicus AI app and configure local docker
-
-This step is mandatory if you do not have your Enterprise license key. 
-
-By installing Practicus AI app you will be able to test connectivity to your newly created Kubernetes cluster. You will also have access to your Enterprise license key.
- 
-* [Install the app](https://practicus.ai/get-started/)
-* Go to settings > container section
-* Enter your email to activate your enterprise license 
-* [View Practicus AI local docker setup guide](trial-ent.md) if you need any help
-
-Once your enterprise license is activated, please open ~/.practicus/core.conf file on your computer, locate the **license** section, and copy **license_key** info.
-
-Sample license_key inside ~/.practicus/core.conf : 
-```
-[license]
-email = your_email@your_company.com
-license_key = abc12345-1234-1234-12ab-123456789012
-valid_until = Wed, 01 Jan 2022 00:00:00 GMT
 ```
 
 ## Preparing a Kubernetes namespace
@@ -201,9 +155,7 @@ You can use multiple namespaces for Practicus AI ,and we will use the name conve
 In this document we will only use one namespace, prt-ns.  
 
 ```shell
-echo "***"
-echo "Creating namespace prt-ns"
-echo "***"
+echo "Creating a Kubernetes namespace"
 kubectl create namespace prt-ns
 ```
 
@@ -211,15 +163,13 @@ kubectl create namespace prt-ns
 
 Enabling Istio will inject a sidecar to all Kubernetes pods for the **selected namespace** only.
 
+**Note:** Istio installation can be different on some Kubernetes platforms. Please check for the [platform specific setup](https://istio.io/latest/docs/setup/platform-setup/) before you continue. Helper files at the top of this document will also include sample scripts for various platforms.
+
 ```shell
-echo "***"
-echo "Enabling Istio for namespace prt-ns"
-echo "***"
+echo "Enabling Istio for the namespace"
 kubectl label namespace prt-ns istio-injection=enabled
 
-echo "***"
-echo "Analyzing Istio setup for namespace prt-ns"
-echo "***"
+echo "Analyzing Istio setup for the namespace"
 istioctl analyze -n prt-ns
 ```
 
@@ -228,7 +178,7 @@ istioctl analyze -n prt-ns
 Practicus AI helm repository will make installing Practicus AI console backend easier.
 
 ```shell
-echo "Adding private practicusai helm repo"
+echo "Adding practicusai helm repo"
 helm repo add practicusai https://practicusai.github.io/helm
   
 echo "Updating all helm repos on your computer"
@@ -244,19 +194,19 @@ helm search repo practicusai
 
 Practicus AI helm chart's come with many default values that you can leave as-is, especially for local dev/test configurations. 
 
-For all other settings, we suggest you to use values-console.yaml file
+For all other settings, we suggest you to use values.yaml file
 
 ```shell
 mkdir ~/practicus 
 mkdir ~/practicus/helm
 cd ~/practicus/helm
-touch values-console.yaml
+touch values.yaml
 ```
 
-Sample **values-console.yaml** file contents for a **local test environment**
+Sample **values.yaml** file contents for a **local test environment**
 
 ```shell
-cat <<EOF >>values-console.yaml
+cat <<EOF >>values.yaml
 
 migrate:
   superUserEmail: "your_email@your_company.com"
@@ -283,14 +233,15 @@ notification:
 EOF
 ```
 
-Sample **values-console.yaml** file contents for a **production environment** on AWS, GCE, Azure, OpenShift etc. 
+Sample **values.yaml** file contents for a **production environment** on AWS, GCE, Azure, OpenShift etc. 
 
 ```shell
-cat <<EOF >>values-console.yaml
+cat <<EOF >>values.yaml
 
 main:
   # Dns accessible by app
   host: practicus.your_company.com
+  # try ssl: false to troubleshoot issues
   ssl: true
 
 migrate:
@@ -324,7 +275,7 @@ This step is not required for a local test setup.
 
 For AWS, our helm charts automatically configure Application Load Balancer and SSL certificates. 
 
-You can simply add the below to values-console.yaml file.
+You can simply add the below to values.yaml file.
 
 ```yaml
 aws:
@@ -363,7 +314,7 @@ kubectl config current-context
 helm install prt-migrate-console-db practicusai/practicus-migrate-console-db \
   --namespace prt-ns \
   --set advanced.imagePullPolicy=Always \
-  --values ./values-console.yaml
+  --values ./values.yaml
 
 # Step 2) View the db migration pod status and logs. 
 #   Run it multiple times if pulling the container takes some time.  
@@ -410,14 +361,14 @@ helm repo update
 
 helm install practicus-console practicusai/practicus-console \
   --namespace prt-ns \
-  --values values-console.yaml
+  --values values.yaml
 ```
 
 ### Logging in to management console
 
 You should be able to log in to Practicus AI management console using [http://127.0.0.1/console/admin](http://127.0.0.1/console/admin) or https://practicus.your_company.com/console/admin
 
-Your super admin username / password was defined at the top of your values-console.yaml file. (superUserEmail, superUserPassword)
+Your super admin username / password was defined at the top of your values.yaml file. (superUserEmail, superUserPassword)
 
 ### Troubleshooting
 
@@ -443,7 +394,7 @@ helm repo update
 
 helm upgrade practicus-console practicusai/practicus-console \
   --namespace prt-ns \
-  --values values-console.yaml
+  --values values.yaml
 ```
 
 ### Uninstalling management console 
@@ -488,9 +439,11 @@ kubectl -n prt-ns exec -it prt-pod-wn-... -- /bin/bash
 
 ### (Recommended) Installing Practicus AI services (GPT etc.)
 
-Practicus AI services can use the same values-console.yaml file as the management console deployment.
+#### Before You start
 
-### Installing optional services
+Please obtain [OpenAI account and private API key](https://platform.openai.com/account/api-keys), if you would like to enable GPT.
+
+#### Installing optional services
 
 ```shell
 cd ~/practicus/helm
@@ -498,10 +451,10 @@ helm repo update
 
 helm install practicus-services practicusai/practicus-services \
   --namespace prt-ns \
-  --values values-console.yaml
+  --values values.yaml
 ```
 
-### Troubleshooting optional services deployment
+#### Troubleshooting optional services deployment
 
 ```shell
 # Find the pod name(s)
@@ -517,7 +470,7 @@ kubectl -n prt-ns logs --follow prt-depl-services-...
 kubectl -n prt-ns exec -it prt-depl-services-... -- /bin/bash
 ```  
 
-### Upgrading optional services deployment to a newer version
+#### Upgrading optional services deployment to a newer version
 
 ```shell
 cd ~/practicus/helm
@@ -525,16 +478,16 @@ helm repo update
 
 helm upgrade practicus-services practicusai/practicus-services \
   --namespace prt-ns \
-  --values values-console.yaml
+  --values values.yaml
 ```
 
-### Uninstalling optional services deployment
+#### Uninstalling optional services deployment
 
 ```shell
 helm uninstall practicus-services --namespace=prt-ns
 ```
 
-### Optional services additional settings 
+#### Optional services additional settings 
 
 Some optional services such as OpenAI GPT require additional setup.
 
@@ -752,12 +705,10 @@ You can visualize and troubleshoot Kubernetes clusters using the dashboard. Plea
 
 ```shell
 echo "Installing Kubernetes Dashboard"
-
 kubectl apply -f \
   https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 
 echo "Setting dashboard permissions"
-
 kubectl apply -f - <<EOF
 apiVersion: v1
 kind: ServiceAccount
@@ -819,6 +770,36 @@ Please follow the below steps to troubleshoot some common issues with Kubernetes
 - If the pod started, but is not accessible using http://127.0.0.1/console/admin view the pod logs. Click on the pod name > View Logs (upper right)
 - If the logs do not show any errors, Istio sidecar proxy might not be running. Click on the pod name, scroll down to containers and verify there are 2 containers running, prt-cnt-console and istio-proxy.
 - Analyze istio to see if there are any proxy issues detected **istioctl analyze -n prt-ns**
+
+### No enterprise key?
+
+This step is mandatory if you do not have your Enterprise license key. 
+
+By installing Practicus AI app you will be able to test connectivity to your newly created Kubernetes cluster. You will also have access to your Enterprise license key.
+ 
+* [Install the app](https://practicus.ai/get-started/)
+* Go to settings > container section
+* Enter your email to activate your enterprise license 
+* [View Practicus AI local docker setup guide](trial-ent.md) if you need any help
+
+Once your enterprise license is activated, please open ~/.practicus/core.conf file on your computer, locate the **license** section, and copy **license_key** info.
+
+Sample license_key inside ~/.practicus/core.conf : 
+```
+[license]
+email = your_email@your_company.com
+license_key = abc12345-1234-1234-12ab-123456789012
+valid_until = Wed, 01 Jan 2022 00:00:00 GMT
+```
+
+### No Connectivity?
+
+Most connectivity issues will be a result of mis-configured Istio. 
+To solve these issues we recommend you to create test namespace e.g. istio-test and install the sample Istio app using the below help page.
+
+[https://istio.io/latest/docs/setup/getting-started/](https://istio.io/latest/docs/setup/getting-started/)
+
+Once you pass this step, deploying Practicus AI will be very similar.    
 
 ## Support 
 
