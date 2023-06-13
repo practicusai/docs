@@ -52,9 +52,26 @@ Please create a new Kubernetes cluster if you do not already have one. For this 
 
 ### Create or reuse PostgreSQL Database
 
-Practicus AI management console uses PostgreSQL database to store some configuration info such user credentials, database connections and more.
+Practicus AI management console uses **PostgreSQL** database to store some configuration info such user credentials, database connections and more.
 
 This is a management database with low transaction requirements even for production purposes.    
+
+#### Creating a production database
+
+You can reuse an existing PostgreSQL Server or create a new one using one of the cloud vendors.
+
+Please make sure your kubernetes cluster will have access network access to the server.
+
+Once the PostgreSQL Server is ready, you can create a new database using a tool such as **PgAdmin** following the below steps:
+
+- Login to PostgreSQL Server 
+- Crate a new database, E.g. **console**
+- Create a new login, E.g. **console_user** and note its password
+- Right-click the database (console) and go to properties > Security > Privileges > hit + and add the login (console_user) as Grantee, "All" as Privileges.
+
+#### Creating a local development database using Docker 
+
+For test purposes, you can use Docker to create a PostgreSQL database on your laptop as well. 
 
 ```shell
 echo "Deleting existing development database"
