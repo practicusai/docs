@@ -689,9 +689,11 @@ Although it is optional, using object storage systems such as Amazon S3 for Mach
 You can install MinIO inside your Kubernetes cluster. For demo purposes, we will use a simple Docker container. We will also avoid using the default MinIO S3 port 9000, in case you are also using Practicus AI standalone docker deployment (not K8s). This type of test deployment already uses port 9000.   
 
 ```shell
-# Run MinIO in Docker
+# MinIO in Docker
+docker pull quay.io/minio/minio:latest
+
 # Use port 9001 for S3, port 9002 for admin console
- 
+
 docker run --name prt-minio-test -p 9001:9001 -p 9002:9002 \
   quay.io/minio/minio server /data --console-address ":9002" --address ":9001"
 ```
