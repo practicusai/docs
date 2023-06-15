@@ -692,7 +692,7 @@ You can install MinIO inside your Kubernetes cluster. For demo purposes, we will
 # Run MinIO in Docker
 # Use port 9001 for S3, port 9002 for admin console
  
-docker run -p 9001:9001 -p 9002:9002 \
+docker run --name prt-minio-test -p 9001:9001 -p 9002:9002 \
   quay.io/minio/minio server /data --console-address ":9002" --address ":9001"
 ```
 
