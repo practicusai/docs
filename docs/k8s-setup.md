@@ -210,7 +210,7 @@ SAMPLEDB_POD_NAME=$(kubectl -n prt-ns get pod -l \
 echo "Sample db pod name is: $SAMPLEDB_POD_NAME"
 
 echo "Starting temporary connection tunnel"
-kubectl -n prt-ns port-forward $SAMPLEDB_POD_NAME 5432:5432
+kubectl -n prt-ns port-forward "$SAMPLEDB_POD_NAME" 5432:5432
 ```
 
 ## Deploying Management Console 
