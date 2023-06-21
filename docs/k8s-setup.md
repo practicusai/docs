@@ -50,45 +50,6 @@ Please create a new Kubernetes cluster if you do not already have one. For this 
 
 [View Docker Desktop Kubernetes setup guide](https://docs.docker.com/desktop/kubernetes/)
 
-### Create or reuse PostgreSQL Database
-
-Practicus AI management console uses **PostgreSQL** database to store some configuration info such user credentials, database connections and more.
-
-This is a management database with low transaction requirements even for production purposes.    
-
-#### Creating a production database
-
-You can reuse an existing PostgreSQL Server or create a new one using one of the cloud vendors.
-
-Please make sure your kubernetes cluster will have access network access to the server.
-
-Once the PostgreSQL Server is ready, you can create a new database using a tool such as **PgAdmin** following the below steps:
-
-- Login to PostgreSQL Server 
-- Crate a new database, E.g. **console**
-- Create a new login, E.g. **console_user** and note its password
-- Right-click the database (console) and go to properties > Security > Privileges > hit + and add the login (console_user) as Grantee, "All" as Privileges.
-
-#### Creating a local development database using Docker 
-
-For test purposes, you can use Docker to create a PostgreSQL database on your laptop as well. 
-
-```shell
-echo "Deleting existing development database"
-docker container stop prt-db-console
-docker rm prt-db-console
-
-echo "Creating new development database prt-db-console"
-docker pull postgres:latest
-docker run \
-    --name prt-db-console \
-    -p 5432:5432 \
-    -e POSTGRES_USER=console \
-    -e POSTGRES_PASSWORD=console \
-    -e POSTGRES_DB=console \
-    -d postgres
-```
-
 ### Install kubectl 
 
 Install kubectl CLI tool to manage Kubernetes clusters 
@@ -204,6 +165,41 @@ helm repo update
 echo "Viewing charts in practicusai repo"
 helm search repo practicusai
 ```
+
+## Create or reuse PostgreSQL Database
+
+Practicus AI management console uses **PostgreSQL** database to store some configuration info such user credentials, database connections and more.
+
+This is a management database with low transaction requirements even for production purposes.    
+
+### Creating a production database
+
+You can reuse an existing PostgreSQL Server or create a new one using one of the cloud vendors.
+
+Please make sure your kubernetes cluster will have access network access to the server.
+
+Once the PostgreSQL Server is ready, you can create a new database using a tool such as **PgAdmin** following the below steps:
+
+- Login to PostgreSQL Server 
+- Crate a new database, E.g. **console**
+- Create a new login, E.g. **console_user** and note its password
+- Right-click the database (console) and go to properties > Security > Privileges > hit + and add the login (console_user) as Grantee, "All" as Privileges.
+
+### Creating a sample database for testing 
+
+For testing or PoC purposes, you can create a sample PostgreSQL database in your Kubernetes cluster. This database need to be in a separate test Kubernetes namespace, such as prt-test-ns. 
+
+** The sample database should not be used for production purposes ** 
+
+```shell
+echo "Creating a test namespace"
+kubectl create namespace prt-test-ns
+
+echo "Creating new development database prt-db-console"
+helm install practicus-sampledb practicusai/practicus-sampledb --namespace prt-test-ns
+```
+
+Please note that if you installed the sample database with the above defaults, the rest of the installation will aready have the sample database address and credentials set as the default for easier testing.    
 
 ## Deploying Management Console 
 
