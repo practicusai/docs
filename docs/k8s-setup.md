@@ -185,11 +185,11 @@ Once the PostgreSQL Server is ready, you can create a new database using a tool 
 - Create a new login, E.g. **console_user** and note its password
 - Right-click the database (console) and go to properties > Security > Privileges > hit + and add the login (console_user) as Grantee, "All" as Privileges.
 
-### Creating a sample database for testing 
+### Optional - Creating a sample database for testing 
 
 For testing or PoC purposes, you can create a sample PostgreSQL database in your Kubernetes cluster. 
 
-** The sample database should not be used for production purposes. ** 
+**Important**: _The sample database should not be used for production purposes._ 
 
 ```shell
 echo "Creating new development database prt-db-console"
@@ -197,7 +197,21 @@ helm install practicus-sampledb practicusai/practicus-sampledb \
   --namespace prt-ns
 ```
 
-Please note that if you installed the sample database with the above defaults, the rest of the installation will aready have the sample database address and credentials set as the default for easier testing.    
+Please note that if you installed the sample database with the above defaults, the rest of the installation will already have the sample database address and credentials set as the default for easier testing.    
+
+#### Connecting to the sample database from your laptop
+
+If you ever need to connect the sample database from your laptop using a tool such as **PgAdmin**, you can open a temporary connection tunnel using kubectl. 
+
+```shell
+# Get sample db pod name 
+SAMPLEDB_POD_NAME=$(kubectl -n prt-ns get pod -l \
+  app=postgresdb -o jsonpath="{.items[0].metadata.name}")
+echo "Sample db pod name is: $SAMPLEDB_POD_NAME"
+
+echo "Starting temporary connection tunnel"
+kubectl -n prt-ns port-forward $SAMPLEDB_POD_NAME 5432:5432
+```
 
 ## Deploying Management Console 
 
