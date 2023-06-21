@@ -189,14 +189,15 @@ Once the PostgreSQL Server is ready, you can create a new database using a tool 
 
 For testing or PoC purposes, you can create a sample PostgreSQL database in your Kubernetes cluster. This database need to be in a separate test Kubernetes namespace, such as prt-test-ns. 
 
-** The sample database should not be used for production purposes ** 
+** The sample database should not be used for production purposes. ** 
 
 ```shell
 echo "Creating a test namespace"
 kubectl create namespace prt-test-ns
 
 echo "Creating new development database prt-db-console"
-helm install practicus-sampledb practicusai/practicus-sampledb --namespace prt-test-ns
+helm install practicus-sampledb practicusai/practicus-sampledb \
+  --namespace prt-test-ns
 ```
 
 Please note that if you installed the sample database with the above defaults, the rest of the installation will aready have the sample database address and credentials set as the default for easier testing.    
