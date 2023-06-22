@@ -196,6 +196,9 @@ echo "Creating sample database"
 helm install practicus-sampledb practicusai/practicus-sampledb \
   --namespace prt-ns
 ```
+In order to connect to this database **inside the kubernetes cluster** you can use the below address: 
+
+* prt-svc-sampledb.prt-ns.svc.cluster.local
 
 Please note that if you installed the sample database with the above defaults, the rest of the installation will already have the sample database address and credentials set as the default for easier testing.    
 
@@ -730,7 +733,7 @@ To test MinIO or other S3 compatible storage with the Practicus AI app:
 
 - Open App > Explore tab > Click on New Connection > Amazon S3
 - Enter your access / secret keys
-- Enter sample object storage endpoint url http://prt-sampleobj.prt-ns.svc.cluster.local
+- Enter sample object storage endpoint url http://prt-svc-sampleobj.prt-ns.svc.cluster.local
 - Select the bucket you created: testbucket
 
 You can now connect to this object storage to upload/download objects using the Practicus AI app. You will **not** need to create a connection tunnel to the minio management console to test with the app. 
