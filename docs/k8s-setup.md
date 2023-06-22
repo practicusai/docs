@@ -185,14 +185,14 @@ Once the PostgreSQL Server is ready, you can create a new database using a tool 
 - Create a new login, E.g. **console_user** and note its password
 - Right-click the database (console) and go to properties > Security > Privileges > hit + and add the login (console_user) as Grantee, "All" as Privileges.
 
-### Optional - Creating a sample database for testing 
+### (Optional) Creating a sample test database  
 
 For testing or PoC purposes, you can create a sample PostgreSQL database in your Kubernetes cluster. 
 
 **Important**: _The sample database should not be used for production purposes._ 
 
 ```shell
-echo "Creating new development database prt-db-console"
+echo "Creating sample database"
 helm install practicus-sampledb practicusai/practicus-sampledb \
   --namespace prt-ns
 ```
@@ -688,25 +688,32 @@ Please view Cloud Worker Admin section to customize user or group based persiste
 
 If you are using AWS EFS, you can use the above provisioner, or as an **alternative**, you can also use a CSI specific for AWS EKS and AWS EFS. Please view the [AWS EFS CSI documentation](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) to learn more. Tip: Even if you decide to use the generic NFS provisioner with AWS EKS, you can still review the CSI page to learn more about security group settings, availability zone optimization etc.
 
-## (Optional) Install demo object storage 
+## (Optional) Creating sample object storage 
 
-Although it is optional, using object storage systems such as Amazon S3 for Machine Learning is very common. If you are testing Practicus AI locally and do not have access to S3 or a compatible store, you can simply use MinIO. 
+Although it is optional, using object storage systems such as Amazon S3 or compatible for Machine Learning is very common. If you are testing Practicus AI and do not have access to S3 or a compatible store, you can simply use MinIO. 
 
 ### Sample Object Storage with MinIO
 
 You can install MinIO inside your Kubernetes cluster. For demo purposes, we will use a simple Docker container. We will also avoid using the default MinIO S3 port 9000, in case you are also using Practicus AI standalone docker deployment (not K8s). This type of test deployment already uses port 9000.   
 
 ```shell
-# MinIO in Docker
-docker pull quay.io/minio/minio:latest
-
-# Use port 9001 for S3, port 9002 for admin console
-
-docker run --name prt-minio-test -p 9001:9001 -p 9002:9002 \
-  quay.io/minio/minio server /data --console-address ":9002" --address ":9001"
+echo "Creating sample object storage"
+helm install practicus-sampleobj practicusai/practicus-sampleobj \
+  --namespace prt-ns 
 ```
 
-- Login to MinIO Console using http://127.0.0.1:9002 and credentials:
+After the minio object storage is created, you can connect to minio management console to create buckets, access credentials etc. For these, you need to create a temporary connection tunnel to minio service.   
+
+```shell
+SAMPLEOBJ_POD_NAME=$(kubectl -n prt-ns get pod -l \
+  app=minio -o jsonpath="{.items[0].metadata.name}")
+echo "Sample object store pod name is: $SAMPLEOBJ_POD_NAME"
+
+echo "Starting temporary connection tunnel"
+kubectl -n prt-ns port-forward "$SAMPLEOBJ_POD_NAME" 9090:9090
+```
+
+- Login to MinIO Console using http://127.0.0.1:9090 and credentials:
 - User: minioadmin password: minioadmin
 - Click Buckets > Create bucket and create **testbucket**
 - Click Identity > Users > Create User > select **readwrite** policy
@@ -719,12 +726,14 @@ You should now see a .csv file in testbucket and created a user, access/secret k
 
 [View MinIO installation document](https://charts.min.io)
 
-To test MinIO or other S3 compatible storage with the app:
+To test MinIO or other S3 compatible storage with the Practicus AI app:
 
 - Open App > Explore tab > Click on New Connection > Amazon S3
 - Enter your access / secret keys
-- Enter demo endpoint url http://host.docker.internal:9001
-- Use bucket: testbucket
+- Enter sample object storage endpoint url http://prt-sampleobj.prt-ns.svc.cluster.local
+- Select the bucket you created: testbucket
+
+You can now connect to this object storage to upload/download objects using the Practicus AI app. You will **not** need to create a connection tunnel to the minio management console to test with the app. 
 
 ## (Optional) Install Kubernetes dashboard
 
