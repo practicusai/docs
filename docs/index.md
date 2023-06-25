@@ -47,7 +47,7 @@ No commitments or credit card is needed.
 1) **GUI (Visual) App:** Free and available for Windows, macOS and Linux. The app is the center of most 
 functionality such as EDA (Exploratory Data Analysis), Data Preparation, AutoML, Prediction etc.  
 
-2) **SDK:** Free Python library (3.6 - 3.11) providing programmatic access to most of the GUI app features. 
+2) **SDK:** Free Python library providing programmatic access to most of the GUI app features. 
 
 3) **Spreadsheets:** Certain Data Preparation and Prediction functionality can be embedded inside spreadsheets.
 
