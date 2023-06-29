@@ -80,4 +80,4 @@ You will see the **estimated** total cost (Practicus AI license cost + Cloud inf
 
 Note: If you have Practicus AI Enterprise license, your software is already paid for. So this graph would not make any sense.  This is only meaningful for the professional pay-as-you-go license type.
 
-[< Previous](predict.md) | [Next >](next-steps.md)
+[< Previous](predict.md) | [Next >](chatgpt.md)

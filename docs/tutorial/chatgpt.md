@@ -1,4 +1,4 @@
-# Generate Code with GPT
+# Analyzing and preparing data with GPT
 
 _This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 

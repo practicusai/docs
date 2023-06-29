@@ -55,4 +55,4 @@ If you work with very large data, you can load a different sample size on the Cl
 
 This concludes our tutorial. Thank you for reading!
 
-[< Previous](sql.md)
+[< Previous](chatgpt.md)
