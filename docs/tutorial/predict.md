@@ -19,6 +19,7 @@ The AI model you or some other person built can be found on a variety of locatio
 Practicus AI currently support predicting models in the below locations:
 
 - MLflow model database
+- Cloud Worker
 - Your computer
 - S3
 - An API endpoint (for programmers)

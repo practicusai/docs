@@ -25,13 +25,18 @@ Practicus AI allows you to use SQL _without_ a SQL database. Let's demonstrate u
 
 - Open _Explore_ tab
 - Select _Local Files_
-- Load Home > practicus > samples > data > node_types.xlsx
+- Load Home > practicus > samples > data > worker_aws.xlsx
 
 ![](img/sql/load.png)
 
 - Click on _SQL Query_ button
 
 ![](img/sql/sql-1.png)
+
+- After click on the Query tab, the dialog will open. Select Yes.
+
+![](img/sql/sql-2.png)
+
 
 Since SQL is an advanced feature, it will require a Cloud Worker to run. You will be asked if you would like to quickly upload to a Cloud Worker. Click Yes, select a Cloud Worker, and now your Excel file will be on the cloud. 
 
@@ -40,11 +45,14 @@ Click on _SQL Query_ button again. This time the SQL query editor will be displa
 - Type the below SQL 
 
 ```sql
-SELECT "Name", "Total price", "Bang for buck" 
+SELECT "name", "total_price", "bang_for_buck" 
 FROM "node_types" 
-WHERE "Total price" < 5
-ORDER BY "Bang for buck" DESC
+WHERE "total_price" < 5
+ORDER BY "bang_for_buck" DESC
 ```
+
+![](img/sql/sql-3.png)
+
 
 Tip: double-clicking on a column name adds its name to the query editor, so you can write SQL faster. If you select some text before double-clicking, your selected text is replaced with the column name.
 
@@ -52,7 +60,6 @@ Tip: double-clicking on a column name adds its name to the query editor, so you 
 
 Note: Your first SQL on a particular Cloud Worker (cold run) will take a little longer to run. Subsequent SQL queries will run instantly. 
 
-![](img/sql/sql-2.png)
 
 - (Optional) Experiment further with the SQL, click
 - When ready, click _Apply SQL_ button
@@ -62,10 +69,10 @@ You will get the result of the SQL back in the worksheet.
 ## (Optional) Visualize SQL result
 
 - Click Analyze > Graph
-- Select _Bang for buck_ for X and _Total Price_ for Y
+- Select _bang_for_buck_ for X and _total_price_ for Y
 - Click ok
 
-![](img/sql/sql-3.png)
+![](img/sql/sql-4.png)
 
 You will see the **estimated** total cost (Practicus AI license cost + Cloud infrastructure cost), and how much cloud capacity **value** you would expect to get (bang for buck) visualized. 
 
