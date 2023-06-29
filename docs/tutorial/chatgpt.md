@@ -41,7 +41,7 @@ Let's create a slightly more advanced query with GPT.
 
 ![](img/gpt/gpt-6.png)
 
-## (Optional)How can I generate the optimal chatgpt query?
+## (Optional)How can I generate the optimal GPT query?
 
 Prompt engineering is the process of crafting effective input prompts to elicit the desired output from large language models (LLMs). LLMs are trained on massive datasets of text and code, and can generate human-like text, translate languages, write different kinds of creative content, and answer your questions in an informative way. However, they need to be prompted correctly in order to produce the desired output.
 
@@ -51,7 +51,7 @@ Here is a brief overview of the steps involved in prompt engineering:
 
 2) Craft a prompt. 
 
-- The prompt should be written in plain language that is easy to understand. It should also be as specific as possible, so that the LLM knows what you want it to generate.
+- The prompt should be written in plain language that is easy to understand. It should also be as specific as possible, so that the LLMs knows what you want it to generate.
 
 3) Test the prompt.
 
@@ -59,7 +59,7 @@ Here is a brief overview of the steps involved in prompt engineering:
 
 4) Refine the prompt. 
 
-- If the LLM does not generate the desired output, you need to refine the prompt. This may involve making the prompt more specific, or providing more examples.
+- If the LLMs does not generate the desired output, you need to refine the prompt. This may involve making the prompt more specific, or providing more examples.
 
 
 [< Previous](sql.md) | [Next >](next-steps.md)
