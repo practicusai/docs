@@ -14,21 +14,25 @@ Profiling your data is an extremely powerful way to get a good understanding of 
 
 After a few minutes, you will see the data profile completed.
 
-- Scroll down to find _charges_, and click its name to expand
 
-You will see several statistical calculations about this data. On the right, you will also see correlations.
-
-For instance, we can see that there is a very high correlation (0.79) between an individual smoking cigarettes and the insurance charges they pay.
+You will see several statistical calculations about this data. 
 
 ![](img/data-profiling/profile-2.png)
 
-- Scroll up and click _Associations_
-
-You will see a matrix view of the correlations and how strong the correlation is. 
+When you click Alerts, you will see various alerts, such as high correlation.
 
 ![](img/data-profiling/profile-3.png)
 
-Categorical columns (e.g. male / female, smoker yes / no) are shown in squares and numerical columns (e.g. age, bmi) are displayed in circles.
+Click Variables on the up-right tab, and Select Variables as _Age_
+
+![](img/data-profiling/profile-4.png)
+
+When you click Correlations on the up-right tab, you will see a correlation heatmap.
+
+- If you want to see the correlation matrix, you can click Table.
+
+![](img/data-profiling/profile-5.png)
+
  
 In this example, all correlations are positive, so they are displayed with blue. Negative correlations are displayed in red. E.g. If we had a column about how fast someone can run, age column would probably have a negative correlation. I.e. if someone is younger, they would run faster.
 
@@ -42,8 +46,20 @@ You can make changes to your data and then create a profile to compare with the 
 - Select Analyze > Profile again
 - You will be asked if you would like to compare with the original data set, select yes
 
+![](img/data-profiling/compare-0.png)
+
 You will now see all the statistics for the original and current data and can compare them side-by-side. 
 
-![](img/data-profiling/profile-4.png)
+
+![](img/data-profiling/compare-1.png)
+
+Click Variables on the up-right tab, and Select Variables as _Age_
+
+- See the descriptive statistics of the comparison of the old version of the age variable with the new version. 
+- In addition, you can click More Details to see statistics, histograms, etc.
+- 
+![](img/data-profiling/compare-2.png)
+
+
 
 [< Previous](explore.md) | [Next >](model.md)

@@ -2,6 +2,10 @@
 
 _This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 
+- You can use Practicus AI for both supervised and unsupervised learning.
+- Hint: In supervised learning, your dataset is labeled, and you know what you want to predict. 
+In unsupervised learning, your dataset is unlabeled, and you don't know what to do. But with Practicus AI, you can switch from unsupervised to supervised learning.
+
 ## Loading Insurance dataset
 
 - Open _Explore_ tab
@@ -28,11 +32,13 @@ If you would like to build graphics that explain how your model works, please do
 - In the _Model_ dialog click on _Advanced Options_
 - Select _Explain_
 
-If you choose the optional sections, model dialog should look like the below:  
+- Click ok to start building the model
+
+- Hint: The _Select Top % features by importance_ setting only includes the most important variables in the model. If two variables are highly correlated, then the model can already predict the target variable with one variable, so the other variable is not included.
+
+If you choose the optional sections, model dialog should look like the below:
 
 ![](img/model/model-2.png)
-
-- Click ok to start building the model
 
 You should see a progress bar at the bottom building the model. 
 
@@ -42,10 +48,15 @@ For a fresh Cloud Worker with regular size (2 CPUs) the first time you build thi
 
 After the model build is completed you will see a dialog like the below.
 
-![](img/model/model-4.png)
-
 - Select all the options
 - Click ok
+
+![](img/model/model-4.png)
+
+If you select Predict on current data option in the dialog above, you can see the prediction results in the data set after the model is built.
+
+![](img/model/model-5.png)
+
 
 If you requested to build an Excel model, you will be asked if you want to download. 
 
@@ -79,7 +90,89 @@ You can then select the model experiment you are interested, and click download
 
 In the above steps, the model we built are stored on a Cloud Worker and will disappear if we delete the Cloud Worker without downloading the model first. This is usually ok for an ad-hoc experimentation. A better alternative can be to configure a central MLflow database, so your models are visible to others, and vice versa, you will be easily find theirs. We will visit this topic later.    
 
+## Modelling with Time Series
+- Open _Explore_ tab
+- Select a _Cloud Worker_ upper right of screen (start new or reuse existing)
+- Select _Cloud Worker Files_ 
+- Navigate to Home > samples > airline.csv and _Load_ 
+- Click _Model_ button
+- In the _Model_ dialog click on _Advanced Options_
+- Select _Explain_
+![](img/model/ts-model-1.png)
 
+After the model build is completed you will see a dialog like the below.
+
+- Select Predict on Current data and entry _Forecast Horizon_. It sets how many periods ahead you want to forecast in the forecast horizon.
+- Click ok
+  
+![](img/model/ts-model-2.png)
+
+Select Visualize after predicting and see below graph.
+
+- The orange color in the graph is the _12-month forecast_ result.
+
+![](img/model/ts-model-3.png)
+
+- If you select Predict on current data option in the dialog above, you can see the prediction results in the data set after the model is built.
+
+![](img/model/ts-model-4.png)
+
+## Modelling with Anomaly Detection
+
+- Open _Explore_ tab
+- Select a _Cloud Worker_ upper right of screen (start new or reuse existing)
+- Select _Cloud Worker Files_ 
+- Navigate to Home > samples > unusual.csv and _Load_ 
+- Click _Model_ button
+- In the _Model_ dialog click on _Advanced Options_
+- Select all the options
+- Click ok
+
+![](img/model/unusual-model-1.png)
+
+After the model build is completed you will see a dialog like the below.
+
+- Select all the options
+
+![](img/model/unusual-model-2.png)
+
+- If you select Predict on current data option in the dialog above, you can see the prediction results in the data set after the model is built.
+
+![](img/model/unusual-model-3.png)
+
+- Click on the _MLflow_ tab
+- Select _explain_ folder at the left menu 
+- Click _t-SNE(3d) Dimension Plot_
+
+You can hover over this 3D visualization and analyze the anomaly results.
+
+![](img/model/unusual-model-4.png)
+
+## Modelling with Segmentation(Clustering)
+
+- Open _Explore_ tab
+- Select a _Cloud Worker_ upper right of screen (start new or reuse existing)
+- Select _Cloud Worker Files_ 
+- Navigate to Home > samples > customer.csv and _Load_ 
+- Click _Model_ button
+- In the _Model_ dialog click on _Advanced Options_
+- Select all the options
+- Click ok
+
+![](img/model/clustering-model-1.png)
+
+- Click on the _MLflow_ tab
+- Select _explain_ folder at the left menu 
+- Click _Elbow Plot_
+- See the optimal number of clusters
+- Hint: The elbow method is a heuristic used to determine the optimum number of clusters in a dataset. 
+
+![](img/model/clustering-model-3.png)
+
+- Click _Distribution Plot_
+- You can hover over this _Bar chart_
+
+![](img/model/clustering-model-4.png)
 
 
 [< Previous](data-profiling.md) | [Next >](predict.md)

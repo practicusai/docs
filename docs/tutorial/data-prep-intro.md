@@ -6,7 +6,7 @@ Let's start by loading _boston.csv_. We will ignore the meaning of this dataset 
 
 ![](img/data-prep-intro/load.png)
 
-- Click on _Prepare_ button to view some common data preparation actions
+Click on _Prepare_ button to view some common data preparation actions
 
 ![](img/data-prep-intro/data-prep-menu-1.png)
 
@@ -34,10 +34,10 @@ There are several ways to filter data:
 
 ![](img/data-prep-intro/mini-hist-filter.png)
 
-- Click on a cell value in _INDUS_ column, e.g. 7.87
+- Click on a cell value in _INDUS_ column, e.g. 6.2
 - Select _Filter to keep <_
 
-This will remove all _INDUS_ values less than 7.87
+This will remove all _INDUS_ values greater than 6.2
 
 ![](img/data-prep-intro/filter-cell-menu.png)
 
@@ -46,13 +46,14 @@ This will remove all _INDUS_ values less than 7.87
 
 - Click on any cell with 12.5 in _ZN_ column  
 - Select _Change Values_
-- Enter 123, click on
 
 ![](img/data-prep-intro/change-value-1.png)
 
+- Enter 100, click ok
+
 ![](img/data-prep-intro/change-value-2.png)
 
-You will see that **ALL** cells with the value 12.5 in _ZN_ column will be updated to 123
+You will see that **ALL** cells with the value 12.5 in _ZN_ column will be updated to 100
 
 ![](img/data-prep-intro/change-value-3.png)
 
@@ -118,6 +119,8 @@ You will view the current steps so far
 
 - Select the filter step
 - Hit _Edit step_ button
+- Hint: Practicus AI detects the types of variables and does type conversion automatically. You can see this in steps 2 and 3.
+
 
 ![](img/data-prep-intro/steps-2.png)
 

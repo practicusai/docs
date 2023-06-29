@@ -88,7 +88,7 @@ Since our insurance data also has demographic information such as region, we can
 ![group by 1](img/data-analysis-intro/insurance-group-by-1.png)
 
 - Select _region_ and then _sex_ for the _Group by_ section
-- Select _charges - Mean (Average)_, _charges - Median (50%)_, _charges - Std. Dev (Standard Deviation)_ for the summarize section
+- Select _charges - Mean (Average)_, _charges - Median (50%)_, _charges - Std. Dev (Standard Deviation)_, _age - Mean(Average)_, _bmi - Variance_ for the summarize section
 - Click ok 
 
 ![group by 2](img/data-analysis-intro/insurance-group-by-2.png)

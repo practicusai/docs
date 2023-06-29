@@ -19,12 +19,12 @@ You can use the free cloud tier for this tutorial, or use containers on your com
 
 - Click on the _Cloud_ button to open the _Cloud Workers_ tab
 - Make sure the selected local for your computer, or the optimal _AWS Cloud Region_. The closest region geographically will usually give you the best internet network performance
-- Click _Launch New_ 
+- Click _Start New_ 
 
 ![](img/cloud-intro/cloud-tab.png)
 
-- Pick the type (size) of your Cloud Worker
-- Click ok to launch 
+- Pick the _Cloud Worker Size_ of your Cloud Worker
+- Click ok to _Start new Cloud Worker_ 
 
 The default size will be enough for most tasks. You can also choose the free cloud tier.
 
@@ -32,7 +32,7 @@ The default size will be enough for most tasks. You can also choose the free clo
 
 In a few seconds you will see your Cloud Worker is launching, and in 1-2 minutes you will get a message saying your Cloud Worker is ready.
 
-![](img/cloud-intro/launch-2.png)
+![](img/cloud-intro/launch-1.png)
 
 ## Stopping a Cloud Worker
 
@@ -41,7 +41,7 @@ If you use local container Cloud Workers you have less to worry about stopping t
 ### Cloud Workers
 Similar to electricity, water, or other utilities, your cloud vendor (AWS) will charge you a fee for the hours your Cloud Worker is running. Although Practicus AI Cloud Workers automatically shut down after 90 minutes, it would be a practical approach to shut down your Cloud Workers manually when you are done for the day.
 
-For this, you can simply select a clod node and click on the _Stop_ button. The next day, you cna select the stopped Cloud Worker, click _Start_ and continue where you are left.
+For this, you can simply select a clod node and click on the _Stop_ button. The next day, you can select the stopped Cloud Worker, click _Start_ and continue where you are left.
 
 Tip: It is usually not a good idea to frequently stop / start instances. Please prefer to stop if your break is at least a few hours for optimal cost and wait time.
 
