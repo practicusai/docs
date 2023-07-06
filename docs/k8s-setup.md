@@ -115,6 +115,9 @@ export PATH=$PWD/bin:$PATH
 echo "Analyzing Kubernetes for Istio compatibility"
 istioctl x precheck 
 
+echo "Install istio to your kubernetes cluster"
+istioctl install --set profile=default -y
+
 echo "Recommended: Add istioctl to path"
 # Add the below line to .zshrc or alike
 # export PATH=~/istio/bin:$PATH
