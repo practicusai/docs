@@ -642,10 +642,10 @@ spec:
 You can save the above to nfs-server.yaml and run
 
 ```shell
-kuectl apply -f nfs-server.yaml
+kubectl apply -f nfs-server.yaml
 
 # To delete 
-kuectl delete -f nfs-server.yaml
+kubectl delete -f nfs-server.yaml
 ```
 
 After you create the NFS pod named nfs-server-pod, please run the below to get its IP address, e.g. 10.0.0.1. you will need this IP address in the below section.
