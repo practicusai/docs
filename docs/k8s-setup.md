@@ -56,7 +56,7 @@ Install kubectl CLI tool to manage Kubernetes clusters
 
 ```shell
 echo "Installing kubectl"
-curl -LO "https://dl.k8s.io/release/v1.25.9/bin/darwin/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/v1.26.6/bin/darwin/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chown root: /usr/local/bin/kubectl
@@ -186,7 +186,8 @@ Once the PostgreSQL Server is ready, you can create a new database using a tool 
 - Login to PostgreSQL Server 
 - Crate a new database, E.g. **console**
 - Create a new login, E.g. **console_user** and note its password
-- Right-click the database (console) and go to properties > Security > Privileges > hit + and add the login (console_user) as Grantee, "All" as Privileges.
+- Right-click the database (console) and go to properties > Security > Privileges > hit + and add the login (e.g. console_user) as Grantee, "All" as Privileges.
+- Expand the database items, go to Schemas > public > right click > properties > Security > hit + and add the login (e.g. console_user) as Grantee, "All" as privileges. 
 
 ### (Optional) Creating a sample test database  
 
