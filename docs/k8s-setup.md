@@ -398,7 +398,9 @@ helm install practicus-console practicusai/practicus-console \
 
 ### Logging in to management console
 
-You should be able to log in to Practicus AI management console using [http://127.0.0.1/console/admin](http://127.0.0.1/console/admin) or https://practicus.your_company.com/console/admin
+You should be able to log in to Practicus AI management console using [http://local.practicus.io/console/admin](http://local.practicus.io/console/admin) or https://practicus.your_company.com/console/admin
+
+Note: local.practicus.io DNS entry points to localhost ip address (127.0.0.1) 
 
 Your super admin username / password was defined at the top of your values.yaml file. (superUserEmail, superUserPassword)
 
@@ -439,7 +441,7 @@ helm uninstall practicus-console --namespace=prt-ns
 
 * Open Practicus AI App
 * Go to settings > click login
-* Enter service address e.g. http://127.0.0.1 or https://practicus.your_company.com
+* Enter service address e.g. for local test http://local.practicus.io or https://practicus.your_company.com
 * You can use your super admin user / password
 * Click on either Explore or Cloud at the top bar
 * For Explore: You should see a new "Practicus AI Service" (can be renamed later)
@@ -467,7 +469,7 @@ kubectl -n prt-ns logs --follow prt-pod-wn-...
 kubectl -n prt-ns exec -it prt-pod-wn-... -- /bin/bash  
 ```
 
-**Tip:** You can view the status of Cloud Workers for any user and terminate them if needed using the management console. Simply open http://127.0.0.1/console/admin > scroll to Cloud Worker Admin > click on Cloud Worker Consumption Logs. You will see all the active and terminated Cloud Workers. If you click on a log, you will see the Kubernetes pod conditions. 
+**Tip:** You can view the status of Cloud Workers for any user and terminate them if needed using the management console. Simply open http://local.practicus.io/console/admin > scroll to Cloud Worker Admin > click on Cloud Worker Consumption Logs. You will see all the active and terminated Cloud Workers. If you click on a log, you will see the Kubernetes pod conditions. 
 
 ### (Recommended) Installing Practicus AI services (GPT etc.)
 
@@ -525,7 +527,7 @@ Some optional services such as OpenAI GPT require additional setup.
 
 Sample setup:
 
-* Open management console e.g. http://127.0.0.1/console/admin
+* Open management console e.g. http://local.practicus.io/console/admin
 * Go to "Machine Learning Services" > "API Configurations" page
 * Click "Add API Configuration"
 * Select OpenAI GPT
@@ -810,7 +812,7 @@ Please note that the above steps installed Practicus AI elements to **prt-ns** n
 Please follow the below steps to troubleshoot some common issues with Kubernetes Dashboard, or equivalent kubectl commands if you do not use the dashboard.
 
 - Did the prt-depl-console-... pod start? (Green) If not, view its details.
-- If the pod started, but is not accessible using http://127.0.0.1/console/admin view the pod logs. Click on the pod name > View Logs (upper right)
+- If the pod started, but is not accessible using http://local.practicus.io/console/admin view the pod logs. Click on the pod name > View Logs (upper right)
 - If the logs do not show any errors, Istio sidecar proxy might not be running. Click on the pod name, scroll down to containers and verify there are 2 containers running, prt-cnt-console and istio-proxy.
 - Analyze istio to see if there are any proxy issues detected **istioctl analyze -n prt-ns**
 
