@@ -65,7 +65,7 @@ If you want to have deeper knowledge for _Feature Engineering_, you can review t
 
 [If you want to have deeper knowledge for _Feature Engineering_, you can review this link](https://pycaret.gitbook.io/docs/get-started/preprocessing/feature-engineering)
 
-## Feature Selection:
+## Feature Selection
 
 In the _Feature Selection_ section, you can set which variables to include in the model and exclude some variables based on the relationships between the variables.
 
