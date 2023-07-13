@@ -1,4 +1,4 @@
-# Develop your Machine Learning Model with Jupyter Notebook
+# Develop Machine Learning Models with Jupyter Notebooks
 
 _This section requires a Practicus AI Cloud Worker. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
 
@@ -15,23 +15,6 @@ You have set up the model and everything is fine. You can either complete the mo
 - Click _OK_
 - After the model build is completed you will see a dialog
 - Select _Open Jupyter Notebook to experiment further_
-
-## Data Prepation
-
-In the _Data Prepation_ section, in addition to classical methods, you can fill in missing data with advanced methods, normalize outlier data within the desired range, and use methods such as SMOTE for imbalanced data.
-![processing.png](img%2Fimprove_ml_models%2Fprocessing.png)
-
-Parameters for Missing Values in shortly:
-
-- _imputation_type_ should be _simple_ or _iterative_
-- _numeric_imputation should_ be _drop_, _mean_, _median_, _mode_, _knn_, _int_ or _float_
-- _iterative_imputation_iters_ you can set iteration number(default=5)
-- _numeric_iterative_imputer_ as default uses _lightgbm_
-- categorical_iterative_imputer as default uses _lightgbm_
-
-![processing_final.png](img%2Fimprove_ml_models%2Fprocessing_final.png)
-
-[If you want to have deeper knowledge for _Data Processing_, you can review this link](https://pycaret.gitbook.io/docs/get-started/preprocessing/data-preparation)
 
 ## Scale and Transform
 
