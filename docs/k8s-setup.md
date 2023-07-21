@@ -94,7 +94,7 @@ Istio can be installed on any Kubernetes cluster and designed to run side by sid
 
 [Learn more about Istio](https://istio.io/latest/about/service-mesh/) 
 
-**Note:** Some Kubernetes systems come with Istio 'forks' pre-installed, such as Red Hat OpenShift Service Mesh. Practicus AI is designed and tested to work with the original istio only. Istio is designed to be installed and run side-by-side with the forked projects, so yuou can safely install it on any Kubernetes cluster.  
+**Note:** Some Kubernetes systems come with Istio 'forks' pre-installed, such as Red Hat OpenShift Service Mesh. Practicus AI is designed and tested to work with the original istio only. Istio is designed to be installed and run side-by-side with the forked projects, so you can safely install it on any Kubernetes cluster.  
 
 The below script downloads the latest istoctl version, e.g. 1.18.0. 
 
@@ -125,7 +125,7 @@ echo "Recommended: Add istioctl to path"
 
 ## Preparing a Kubernetes namespace
 
-Practicus AI Kubernetes backend is designed to run in a namespace and side-by-sde with other production workloads. 
+Practicus AI Kubernetes backend is designed to run in a namespace and side-by-side with other production workloads. 
 
 We strongly suggest you use namespaces, even for testing purposes.
 
