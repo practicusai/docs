@@ -313,9 +313,12 @@ You can simply add the below to values.yaml file.
 aws:
   albIngress: true
   # AWS Certificate Manager (ACM) certificate ARN for your desired host address
-  certificateArn: _add_your_ACM_cert_ARN_here_
-  # sharedAlb = true is required only if you need to share ALBs between gateways to save on ALB cost.
-  sharedAlb: false
+  certificateArn: "arn:aws:acm:__aws_region__:__acct_id___:certificate/___cert_id___"
+
+istio:
+  # In order to use ALB, Istio gateway host must be "*"
+  gatewayHosts:
+  - "*"
 ```
 
 ### Ingress and other settings for various Kubernetes systems
