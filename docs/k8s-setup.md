@@ -55,8 +55,8 @@ Please create a new Kubernetes cluster if you do not already have one. For this 
 Install kubectl CLI tool to manage Kubernetes clusters 
 
 ```shell
-echo "Installing kubectl"
-curl -LO "https://dl.k8s.io/release/v1.26.6/bin/darwin/amd64/kubectl"
+echo "Installing kubectl for macOS"
+curl -LO "https://dl.k8s.io/release/v1.27.6/bin/darwin/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chown root: /usr/local/bin/kubectl
@@ -106,7 +106,7 @@ cd ~ || exit
 echo "Downloading Istio"
 rm -rf istio
 curl -L https://istio.io/downloadIstio | sh -
-mv istio-1.18.2 istio || \
+mv istio-1.19.0 istio || \
   echo "*** Istio version is wrong in this script. \
         Please update to the version you just downloaded to your home dir ***"
 cd ~/istio || exit
