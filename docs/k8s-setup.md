@@ -106,7 +106,7 @@ cd ~ || exit
 echo "Downloading Istio"
 rm -rf istio
 curl -L https://istio.io/downloadIstio | sh -
-mv istio-1.19.0 istio || \
+mv istio-1.19.3 istio || \
   echo "*** Istio version is wrong in this script. \
         Please update to the version you just downloaded to your home dir ***"
 cd ~/istio || exit
