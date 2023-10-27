@@ -56,7 +56,7 @@ Install kubectl CLI tool to manage Kubernetes clusters
 
 ```shell
 echo "Installing kubectl for macOS"
-curl -LO "https://dl.k8s.io/release/v1.27.6/bin/darwin/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/v1.27.7/bin/darwin/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chown root: /usr/local/bin/kubectl
