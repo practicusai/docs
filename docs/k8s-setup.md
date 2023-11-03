@@ -94,7 +94,7 @@ Istio can be installed on any Kubernetes cluster and designed to run side by sid
 
 [Learn more about Istio](https://istio.io/latest/about/service-mesh/) 
 
-**Note:** Some Kubernetes systems come with Istio 'forks' pre-installed, such as Red Hat OpenShift Service Mesh. Practicus AI is designed and tested to work with the original istio only. Istio is designed to be installed and run side-by-side with the forked projects, so yuou can safely install it on any Kubernetes cluster.  
+**Note:** Some Kubernetes systems come with Istio 'forks' pre-installed, such as Red Hat OpenShift Service Mesh. Practicus AI is designed and tested to work with the original istio only. Istio is designed to be installed and run side-by-side with the forked projects, so you can safely install it on any Kubernetes cluster.  
 
 The below script downloads the latest istoctl version, e.g. 1.18. 
 
@@ -553,7 +553,7 @@ There are several settings on the management console that you can easily change 
 
 These changes are stored in the management database, so we strongly suggest you to regularly back up your database.
 
-* **Groups**: We strongly suggest you to create groups before granting rights. E.g.: power users, data scientists, data engineers, citizen data scientists .. 
+* **Groups**: We strongly suggest you to create groups before granting rights. E.g.: power users, data scientists, data engineers, citizen data scientists. 
 * **Users**: You can create users and give fine-grained access to admin console elements. Staff users can log in to admin console. Most users should not need this level access, and only use Practicus AI App.
 * **Central Configuration**: Please view "Cluster Definitions" to change your service name and location. E.g. to "Practicus AI Service" located in "Seattle". When end users login using the App, this is the information they will see while exploring data sources. This information is cached for future use, so the earlier you change the better. 
 * **Cloud Worker Admin**: It is crucial you visit every page on this section and adjust Cloud Worker (pod) capacity settings. You can adjust which group/user should have access to what kind of capacity.  
