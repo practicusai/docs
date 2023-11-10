@@ -1,31 +1,31 @@
 # Introduction to MLOps
 
-_This section requires a Practicus AI Cloud Worker, Object Storage, and Kubernetes Cluster. Please visit the [introduction to Cloud Workers](worker-node-intro.md) section of this tutorial to learn more._
+_This section requires a Practicus AI Cloud Worker, S3 compatible object storage, and a Kubernetes Cluster. Please visit the [introduction to Cloud Workers](tutorial/worker-node-intro.md) section of our tutorial to learn more._
 
 ### What is MLOps
 
-- MLOps is a set of practices that automates the machine learning lifecycle from development to deployment to monitoring and maintenance. It bridges the gap between ML engineers and DevOps teams to create a culture of continuous improvement for ML products.
+- MLOps, short for Machine Learning Operations, is a set of practices that automates the machine learning lifecycle from development to deployment to monitoring and maintenance. It bridges the gap between ML engineers and DevOps teams to create a culture of continuous improvement for ML products.
 
 ### Why is MLOps Important?
 - MLOps is a valuable tool for organizations that want to get more value from their ML investments. By automating and managing the ML lifecycle, MLOps can help organizations to deploy ML models to production faster, improve the quality and reliability of ML models, reduce the risk of ML failures, and increase the ROI of ML investments.
 
 ### What is Practicus AI's MLOps approach?
 
-Practicus AI MLOps Approach is a way to deploy and manage AI models more easily and effectively. It does this by providing a unified user experience, open-source Cloud Native technology, different deployment methods, dynamic service mesh, fine-grained access control, global APIs, and the ability to modernize legacy systems.
+Practicus AI MLOps offer a way to deploy and manage AI models effectively. It does this by providing a unified user experience, open-source Cloud Native technology, different deployment methods, dynamic service mesh, fine-grained access control, global APIs, and the ability to modernize legacy systems.
 
-1. Unified user experience and federated governance: Practicus AI provides a single interface for managing and consuming AI models, even if they are deployed in multiple locations using different cloud providers and data sources. This makes it easy for business users and developers to interact with your AI models, regardless of their technical expertise.
-2. Open-source Cloud Native technology: Practicus AI is built using open-source Cloud Native technology, so you can avoid vendor lock-in.
-3. Different deployment methods: Practicus AI offers a variety of deployment methods, so you can choose the one that best suits your needs. AutoML makes it easy to build and deploy models without writing any code. Jupyter Notebook allows you to experiment with models and deploy them to production with just a few clicks. And custom code gives you complete control over the deployment process.
-4. Dynamic service mesh: Practicus AI uses Kubernetes deployments to create a dynamic service mesh for your AI models. This makes it easy to scale your models up or down as needed, and to manage multiple model versions simultaneously.
-5. Fine-grained access control: Practicus AI provides fine-grained access control tokens that allow you to control who can deploy, consume, and manage your AI models. This helps you to protect your models from unauthorized access.
-6. Global APIs: Practicus AI allows you to enable global APIs that allow developers to use a single URL to automatically use the closest cloud. This makes it easy to deploy and consume your AI models globally, with high availability and performance.
-7. Modernize legacy systems: Practicus AI can be used to modernize legacy or proprietary AI systems by wrapping them with Practicus AI MLOps. This allows you to get the benefits of Practicus AI MLOps without having to make changes to your existing code.
+1. **Unified user experience and federated governance**: Practicus AI provides a single user interface for managing and consuming AI models, even if they are deployed in multiple locations using different cloud providers and data sources. This makes it easy for business users and developers to interact with your AI models, regardless of their technical expertise.
+2. **Open-source Cloud Native technology**: Practicus AI is built using open-source Cloud Native technology, so you can avoid vendor lock-in. To learn more about cloud native please visit [Cloud Native Computing Foundation website](https://www.cncf.io)
+3. **Different deployment methods**: Practicus AI offers a variety of deployment methods, so you can choose the one that best suits your needs. AutoML makes it easy to build and deploy models without writing any code. Jupyter Notebook allows you to experiment with models and deploy them to production with just a few clicks. And custom code gives you complete control over the deployment process.
+4. **Dynamic service mesh**: Practicus AI uses Kubernetes deployments and Istio technology to create a dynamic service mesh for your AI models. This makes it easy to scale your models up or down as needed, and to manage multiple model versions simultaneously.
+5. **Fine-grained access control**: Practicus AI provides fine-grained access control tokens that allow you to control who can deploy, consume, and manage your AI models. This helps you to protect your models from unauthorized access.
+6. **Global APIs**: Practicus AI allows you to enable global APIs that allow developers to use a single URL to automatically use the closest cloud region, edge location or on-premise deployment. This makes it easy to deploy and consume your AI models globally, with high availability and low latency.
+7. **Modernize legacy or proprietary models**: Practicus AI can be used to modernize legacy or proprietary AI systems by wrapping them with Practicus AI Open MLOps. This allows you to get the benefits of Practicus AI MLOps without having to make changes to your existing code.
 
-## Deploying AI Models 
+## Deploying AI Models using the app
 
-In this section we will learn how to deploy the models we created in Practicus AI.
+There are multiple ways to deploy AI models. In this section we will learn how to deploy the models we create with Practicus AI AutoML. You can also use the SDK or admin web UI to deploy models.
 
-- Firstly, open Practicus AI App.
+- Open Practicus AI App.
 - Click Start Exploring and see this screen.
 
 ![](img/mlops/mlops1.png)
@@ -165,7 +165,3 @@ Now you can access our MLOps video from the link below to try these operations a
 - Business users can easily explore individual systems with the interface and access data sources. Technical users can easily access the documentation of the models with Swagger, OpeAPI or Redoc.
 ![](img/mlops/mlops14.png)
 
-
-
-
-[< Previous](develop_ml_models.md) | [Next >](end-advanced.md)

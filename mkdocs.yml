@@ -46,29 +46,32 @@ nav:
 #      - 18) Observability : tutorial/observability.md
 #      - 19) End of advanced topics : tutorial/end-advanced.md
   - Demo Videos: https://practicus.ai/demo
-  - Cloud: cloud.md
-  - Explore: explore.md
-  - Analyze: analyze.md
-  - Prepare:
-    - Prepare with App: prepare.md
-    - Prepare with Excel: excel-prep.md
-    - Join: join.md
-  - Model: model.md
-  - Model APIs: model-api.md
-  - Predict:
-    - Predict with App: predict.md
-    - Predict with Excel: excel-predict.md
-  - Operations:
+  - Open MLOps:
+    - Home: mlops.md
+    - For developers: model-api.md
+  - Open DataOps:
+    - Modern Data Pipelines: modern-data-pipelines.md
     - Code Export: code-export.md
     - Airflow integration: airflow.md
-    - Modern Data Pipelines: modern-data-pipelines.md
+  - Other Docs:
+    - Explore: explore.md
+    - Cloud: cloud.md
+    - Analyze: analyze.md
+    - Model: model.md
+    - Prepare:
+      - Prepare with App: prepare.md
+      - Prepare with Excel: excel-prep.md
+      - Join: join.md
+    - Predict:
+      - Predict with App: predict.md
+      - Predict with Excel: excel-predict.md
     - AWS IAM policies: aws-iam.md
     - Logging: logging.md
-  - Spreadsheets SDK:
-    - Home: sdk-start.md
-    - Data Preparation use case: data-prep.md
-    - Sharing AI Models use case: share-models.md
-    - API Reference: api-reference.md
-    - Advanced Features: advanced.md
+    - Spreadsheets SDK:
+      - Home: sdk-start.md
+      - Data Preparation use case: data-prep.md
+      - Sharing AI Models use case: share-models.md
+      - API Reference: api-reference.md
+      - Advanced Features: advanced.md
   # - Frequently Asked Questions: faq.md
   - Feedback: feedback.md

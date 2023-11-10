@@ -124,14 +124,3 @@ practicus.export_model("my_model_developed_on_R.pmml", output_path="R_model.xlsx
                    columns=['petal length', 'petal width'], target_name="Species")
 ```
 
-
-
-------
-
-## Sample notebooks
-
-You can download sample Jupyter notebooks from the below link. 
-
-<a href="https://practicusai.github.io/samples/">https://practicusai.github.io/samples</a>
-
-------
