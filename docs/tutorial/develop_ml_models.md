@@ -35,8 +35,6 @@ Parameters for _Feature Transform_ in shortly:
 
 ![scale_and_transform_final.png](img%2Fimprove_ml_models%2Fscale_and_transform_final.png)
 
-If you want to have deeper knowledge for _Scale and Transform_, you can review the following link
-
 [If you want to have deeper knowledge for _Scale and Transform_, you can review this link](https://pycaret.gitbook.io/docs/get-started/preprocessing/scale-and-transform)
 
 ## Feature Engineering
@@ -61,8 +59,6 @@ Parameters for _Combine Rare Levels_ in shortly:
 
 ![feature_engineering_final.png](img%2Fimprove_ml_models%2Ffeature_engineering_final.png)
 
-If you want to have deeper knowledge for _Feature Engineering_, you can review the following link
-
 [If you want to have deeper knowledge for _Feature Engineering_, you can review this link](https://pycaret.gitbook.io/docs/get-started/preprocessing/feature-engineering)
 
 ## Feature Selection
@@ -86,7 +82,6 @@ Parameters for _Principal Component Analysis_ in shortly:
 Parameters for _Ignore Low Variance_ in shortly:
 
  - _low_variance_threshold_ should be float or None.
-
 
 [If you want to have deeper knowledge for _Feature Selection_, you can review this link](https://pycaret.gitbook.io/docs/get-started/preprocessing/feature-selection)
 
