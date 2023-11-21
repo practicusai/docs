@@ -54,8 +54,7 @@ Please create a new Kubernetes cluster if you do not already have one. For this 
 
 Install kubectl CLI tool to manage Kubernetes clusters 
 
-```shell
-echo "Installing kubectl for macOS"
+```shell title="Install kubectl for macOS"
 curl -LO "https://dl.k8s.io/release/v1.27.7/bin/darwin/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
@@ -66,8 +65,7 @@ sudo chown root: /usr/local/bin/kubectl
 
 Practicus AI installation is easiest using helm charts. 
 
-```shell
-echo "Installing Helm"
+```shell title="Install Helm"
 curl -fsSL -o get_helm.sh \
   https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
@@ -100,7 +98,7 @@ The below script downloads the latest istoctl version, e.g. 1.18.
 
 Please update the "mv istio-... istio" section below to a newer version if required.   
 
-```shell
+```shell title="Install Istio"
 cd ~ || exit
 
 echo "Downloading Istio"
@@ -140,31 +138,13 @@ echo "Creating a Kubernetes namespace"
 kubectl create namespace prt-ns
 ```
 
-### Enable Istio for selected Kubernetes namespace(s)
-
-Enabling Istio will inject a sidecar to all Kubernetes pods for the **selected namespace** only.
-
-**Note:** Istio installation can be different on some Kubernetes platforms. Please check for the [platform specific setup](https://istio.io/latest/docs/setup/platform-setup/) before you continue. Helper files at the top of this document will also include sample scripts for various platforms.
-
-```shell
-echo "Enabling Istio for the namespace"
-kubectl label namespace prt-ns istio-injection=enabled
-
-echo "Analyzing Istio setup for the namespace"
-istioctl analyze -n prt-ns
-```
-
 ## Add practicusai helm repository
 
 Practicus AI helm repository will make installing Practicus AI console backend easier.
 
-```shell
-echo "Adding practicusai helm repo"
+```shell title="Add practicusai helm repo"
 helm repo add practicusai https://practicusai.github.io/helm
-  
-echo "Updating all helm repos on your computer"
 helm repo update
-
 echo "Viewing charts in practicusai repo"
 helm search repo practicusai
 ```
@@ -235,11 +215,7 @@ cd ~/practicus/helm
 touch values.yaml
 ```
 
-Sample **values.yaml** file contents for a **local test environment**
-
-```shell
-cat <<EOF >>values.yaml
-
+```yaml title="Sample values.yaml file contents for a local test environment"
 migrate:
   superUserEmail: "your_email@your_company.com"
   superUserPassword: "first super admin password"
@@ -261,15 +237,9 @@ advanced:
 
 notification:
   api_auth_token: "(optional) _your_email_notification_api_key_"
-  
-EOF
 ```
 
-Sample **values.yaml** file contents for a **production environment** on AWS, GCE, Azure, OpenShift etc. 
-
-```shell
-cat <<EOF >>values.yaml
-
+```yaml title="Sample values.yaml file contents for a production environment on AWS, GCE, Azure, OpenShift etc."
 main:
   # Dns accessible by app
   host: practicus.your_company.com
@@ -297,8 +267,6 @@ jwt:
 
 notification:
   api_auth_token: "(optional) _your_email_notification_api_key_"
-  
-EOF
 ```
 
 ### Ingress for AWS EKS
@@ -309,7 +277,7 @@ For AWS, our helm charts automatically configure Application Load Balancer and S
 
 You can simply add the below to values.yaml file.
 
-```yaml
+```yaml title="Ingress for AWS EKS"
 aws:
   albIngress: true
   # AWS Certificate Manager (ACM) certificate ARN for your desired host address
@@ -390,7 +358,9 @@ If there are no updates to the database schema, the pod will not make any change
 
 ### Installing management console
 
-```shell
+Practicus AI management console will be the central place for several administrative tasks. 
+
+```shell title="Install management console"
 cd ~/practicus/helm
 helm repo update 
 
@@ -610,7 +580,7 @@ You can use any NFS system, inside or outside your Kubernetes cluster. You can a
 
 Please find below a simple implementation to install a NFS pod on your computer to test it with Practicus AI.
 
-```yaml
+```yaml title="Sample NFS server configuration"
 kind: Service
 apiVersion: v1
 metadata:
