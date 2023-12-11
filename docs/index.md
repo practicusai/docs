@@ -22,19 +22,19 @@ No commitments or credit card is needed.
 
 ## Practicus AI Features Overview
 
-![features](img/features.webp)
+![features](img/features.png)
 
 ## Practicus AI Open Data Mesh
 
-![data mesh](img/iceberg.webp)
+![data mesh](img/iceberg.png)
 
 ## Practicus AI Open Source Architecture
 
-![cloud architecture](img/cloud_architecture.webp)
+![cloud architecture](img/cloud_architecture.png)
 
 ## Optional Cloud Workers (backend) 
 
-![deployment overview](img/deployment-overview.webp)
+![deployment overview](img/deployment-overview.png)
 
 ## Summary View
 
