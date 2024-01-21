@@ -444,57 +444,9 @@ kubectl -n prt-ns exec -it prt-pod-wn-... -- /bin/bash
 
 **Tip:** You can view the status of Cloud Workers for any user and terminate them if needed using the management console. Simply open http://local.practicus.io/console/admin > scroll to Cloud Worker Admin > click on Cloud Worker Consumption Logs. You will see all the active and terminated Cloud Workers. If you click on a log, you will see the Kubernetes pod conditions. 
 
-### (Recommended) Installing Practicus AI services (GPT etc.)
 
-#### Before You start
 
-Please obtain [OpenAI account and private API key](https://platform.openai.com/account/api-keys), if you would like to enable GPT.
-
-#### Installing optional services
-
-```shell
-cd ~/practicus/helm
-helm repo update 
-
-helm install practicus-services practicusai/practicus-services \
-  --namespace prt-ns \
-  --values values.yaml
-```
-
-#### Troubleshooting optional services deployment
-
-```shell
-# Find the pod name(s)
-kubectl -n prt-ns get pod | grep prt-depl-services-
-
-# View status
-kubectl -n prt-ns describe pod prt-depl-services-...
-
-# View logs
-kubectl -n prt-ns logs --follow prt-depl-services-...
-
-# Analyze using the interactive terminal
-kubectl -n prt-ns exec -it prt-depl-services-... -- /bin/bash
-```  
-
-#### Upgrading optional services deployment to a newer version
-
-```shell
-cd ~/practicus/helm
-helm repo update
-
-helm upgrade practicus-services practicusai/practicus-services \
-  --namespace prt-ns \
-  --values values.yaml
-```
-
-#### Uninstalling optional services deployment
-
-```shell
-helm uninstall practicus-services --namespace=prt-ns
-```
-
-#### Optional services additional settings 
+### OpenAI GPT services additional settings 
 
 Some optional services such as OpenAI GPT require additional setup.
 
@@ -779,6 +731,67 @@ echo "No login page? Make sure you ran kubectl proxy first"
 ![](img/k8s-dashboard.png)
 
 Please note that the above steps installed Practicus AI elements to **prt-ns** namespace. You will have to switch the namespace in the dashboard
+
+## (Optional) Using a private image registry
+
+All Practicus AI container images are customizable, and you can use a private image registry to host your custom images. 
+In this case, your Kubernetes cluster needs to be able to access the private registry.
+The below is a step-by-step example for AWS ECR private registry. 
+
+- Create a practicus-private-test private registry repository 
+
+![](img/sample-ecr.png)
+
+- Sample Dockerfile
+
+```dockerfile
+FROM ghcr.io/practicusai/practicus:24.1.0
+
+RUN echo "this is a private repo" > /home/ubuntu/private.txt
+
+# Install additional packages, copy your own code.. 
+# RUN pip install ...
+# RUN apt-get ...
+```
+
+- Build and push the image to private repository
+
+```shell
+aws ecr get-login-password --region us-east-1 | docker login \
+  --username AWS --password-stdin _your_account_id_.dkr.ecr.us-east-1.amazonaws.com
+
+docker build -t practicus-private-test:24.1.0 .
+
+docker tag practicus-private-test:24.1.0 \
+  _your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test:24.1.0
+
+docker push _your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test:24.1.0
+```
+
+After this step you should see the image in the AWS ECR console. 
+
+- Create an access token for the repository, and add as a Kubernetes secret
+
+```shell
+TOKEN=`aws ecr get-login-password --region us-east-1 | cut -d' ' -f6`
+NAMESPACE=prt-ns
+
+kubectl create secret docker-registry practicus-private-test-secret \
+  --docker-server=_your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test \
+  --docker-username=AWS \
+  --docker-password=$TOKEN \
+  -n $NAMESPACE
+```
+ 
+- Open Practicus AI management console, create a new custom image and add the private registry secret.
+
+![](img/admin-console-private-registry.png)
+
+- The end users that you gave permission to the custom image will be able to launch workers from it.
+
+![](img/private-registry-in-app.png)
+
+**Note**: You can also define custom images for other workloads such as model hosting, workspaces, etc. 
 
 ## Troubleshooting issues
 
