@@ -742,18 +742,19 @@ The below is a step-by-step example for AWS ECR private registry.
 
 ![](img/sample-ecr.png)
 
-- Sample Dockerfile
+- Create your Dockerfile.
+
+**Important**: We strongly recommend you to use virtual environments for your custom python packages and avoid updating global packages.  
 
 ```dockerfile
 FROM ghcr.io/practicusai/practicus:24.1.0
 
 RUN echo "this is a private repo" > /home/ubuntu/private.txt
 
-RUN \
-    echo "**** Creating Virtual Env ****" && \
+RUN echo "**** Creating Virtual Env ****" && \
     python3 -m venv /home/ubuntu/.venv/practicus_test --system-site-packages && \
     echo "**** Installing packages ****" && \
-    /home/ubuntu/.venv/practicus_test/bin/python3 -m pip install some-package
+    /home/ubuntu/.venv/practicus_test/bin/python3 -m pip install some-package && \
     echo "**** Installing Jupyter Kernel ****" && \
     python3 -m ipykernel install --user --name practicus_test --display-name "My virtual environment"
 ```
