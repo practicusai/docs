@@ -773,7 +773,7 @@ docker tag practicus-private-test:24.1.0 \
 docker push _your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test:24.1.0
 ```
 
-After this step you should see the image in the AWS ECR console. 
+After this step, you should see the image in the AWS ECR console. 
 
 - Create an access token for the repository, and add as a Kubernetes secret
 
@@ -787,7 +787,10 @@ kubectl create secret docker-registry practicus-private-test-secret \
   --docker-password=$TOKEN \
   -n $NAMESPACE
 ```
- 
+
+**Note**: Some private registry tokens have short lifespans. E.g. AWS ECR default is 12 hours. 
+
+
 - Open Practicus AI management console, create a new custom image and add the private registry secret.
 
 ![](img/admin-console-private-registry.png)
