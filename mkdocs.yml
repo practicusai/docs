@@ -34,6 +34,7 @@ nav:
       - 1) Start: tutorial/start.md
       - 2) Intro to Data Analysis: tutorial/data-analysis-intro.md
       - 3) Intro to Data Preparation: tutorial/data-prep-intro.md
+      -  3.1) Workflow: tutorial/Workflow.md
       - 4) Intro to Cloud Workers : tutorial/worker-node-intro.md
       - 5) Explore Cloud Data Sources : tutorial/explore.md
       - 6) Data Profiling : tutorial/data-profiling.md
