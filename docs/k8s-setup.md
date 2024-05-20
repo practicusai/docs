@@ -61,6 +61,12 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chown root: /usr/local/bin/kubectl
 ```
 
+```shell title="Install kubectl for Linux (x86)"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+rm kubectl
+```
+
 ### Install Helm
 
 Practicus AI installation is easiest using helm charts. 
@@ -104,9 +110,8 @@ cd ~ || exit
 echo "Downloading Istio"
 rm -rf istio
 curl -L https://istio.io/downloadIstio | sh -
-mv istio-1.20.3 istio || \
-  echo "*** Istio version is wrong in this script. \
-        Please update to the version you just downloaded to your home dir ***"
+ISTIO_VERSION=$(echo istio*)
+mv $ISTIO_VERSION istio
 cd ~/istio || exit
 export PATH=$PWD/bin:$PATH
 
@@ -116,8 +121,8 @@ istioctl x precheck
 echo "Install istio to your kubernetes cluster"
 istioctl install --set profile=default -y
 
-echo "Recommended: Add istioctl to path"
-# Add the below line to .zshrc or alike
+echo "Recommended: Add istioctl to your path"
+# Add the below line to .zshrc .bashrc or alike
 # export PATH=~/istio/bin:$PATH
 ```
 

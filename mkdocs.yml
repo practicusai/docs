@@ -34,10 +34,12 @@ nav:
       - 1) Start: tutorial/start.md
       - 2) Intro to Data Analysis: tutorial/data-analysis-intro.md
       - 3) Intro to Data Preparation: tutorial/data-prep-intro.md
+      - 3.1) Intro to Workflow Services: tutorial/Workflow.md
       - 4) Intro to Cloud Workers : tutorial/worker-node-intro.md
       - 5) Explore Cloud Data Sources : tutorial/explore.md
       - 6) Data Profiling : tutorial/data-profiling.md
       - 7) Modeling with AutoML : tutorial/model.md
+      - 7.1) Models and Experiments: tutorial/Experiment-Service.md
       - 8) Making Predictions : tutorial/predict.md
       - 9) Working with SQL : tutorial/sql.md
       - 10) Analyzing and preparing data with GPT : tutorial/chatgpt.md
