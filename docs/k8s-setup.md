@@ -61,12 +61,6 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chown root: /usr/local/bin/kubectl
 ```
 
-```shell title="Install kubectl for Linux (x86)"
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-rm kubectl
-```
-
 ### Install Helm
 
 Practicus AI installation is easiest using helm charts. 
@@ -100,14 +94,19 @@ Istio can be installed on any Kubernetes cluster and designed to run side by sid
 
 **Note:** Some Kubernetes systems come with Istio 'forks' pre-installed, such as Red Hat OpenShift Service Mesh. Practicus AI is designed and tested to work with the original istio only. Istio is designed to be installed and run side-by-side with the forked projects, so you can safely install it on any Kubernetes cluster.  
 
+The below script downloads the latest istoctl version, e.g. 1.18. 
+
+Please update the "mv istio-... istio" section below to a newer version if required.   
+
 ```shell title="Install Istio"
 cd ~ || exit
 
 echo "Downloading Istio"
 rm -rf istio
 curl -L https://istio.io/downloadIstio | sh -
-ISTIO_VERSION=$(echo istio*)
-mv $ISTIO_VERSION istio
+mv istio-1.20.3 istio || \
+  echo "*** Istio version is wrong in this script. \
+        Please update to the version you just downloaded to your home dir ***"
 cd ~/istio || exit
 export PATH=$PWD/bin:$PATH
 
@@ -117,8 +116,8 @@ istioctl x precheck
 echo "Install istio to your kubernetes cluster"
 istioctl install --set profile=default -y
 
-echo "Recommended: Add istioctl to your path"
-# Add the below line to .zshrc .bashrc or alike
+echo "Recommended: Add istioctl to path"
+# Add the below line to .zshrc or alike
 # export PATH=~/istio/bin:$PATH
 ```
 
@@ -801,6 +800,59 @@ kubectl create secret docker-registry practicus-private-test-secret \
 ![](img/private-registry-in-app.png)
 
 **Note**: You can also define custom images for other workloads such as model hosting, workspaces, etc. 
+
+## (Optional) Forwarding DNS for local installations
+
+If you are deploying Practicus AI using a local DNS such as local.practicus.io (points to 127.0.0.1) traffic inside the Kubernetes cluster might work since each pod would search for the service locally. This might not be a problem for traffic outside Kubernetes since the local cluster such as Docker Desktop would be listening on 127.0.0.1
+
+To solve this problem, we can edit Kubernetes coreDNS setup, so that a local DNS queries would forward to the Istio load balancer. 
+
+_Tip_: You can use Kubernetes dashboard UI for the below steps 1-3. 
+
+1) Locate Istio ingress gateway cluster ip address. E.g. 10.106.28.249 by running the below.
+
+```shell
+kubectl get svc istio-ingressgateway -n istio-system
+```
+
+2) Edit coredns configmap to add the ip address.
+
+```shell
+kubectl edit configmap coredns -n kube-system
+```
+
+Sample coredns configmap forwarding local.practicus.io to an istio ingress gateway ip address
+```
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: coredns
+... 
+data:
+  Corefile: |
+    .:53 {
+        ...
+    }
+
+    local.practicus.io {
+      hosts {
+        10.106.28.249 local.practicus.io
+      }
+    }
+```
+
+3) Restart coredns for new changes to be active. 
+
+```shell
+kubectl rollout restart deployment/coredns -n kube-system
+```
+
+4) Test. Start a Practicus AI worker, open a jupyter notebook and run the below code. You should get the istio gateway id address.
+
+```python
+import socket
+print(socket.gethostbyname("local.practicus.io"))
+```
 
 ## Troubleshooting issues
 

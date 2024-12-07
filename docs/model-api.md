@@ -1,12 +1,12 @@
 Welcome to Practicus AI Model API documentation. You can use the [Practicus AI App](https://practicus.ai) or the SDK to build, distribute and deploy AI/ML models and then consume these models with the app or any other REST API compatible system.
 
-### Model prefix concept
+### Model prefixes
 
-Practicus AI models are **logically** grouped with the model prefix concept using the https:// [some.address.com] / [some/model/prefix] / [model-name] format. E.g. https://practicus.company.com/models/marketing/churn can be a model API address where _models/marketing_ is the prefix and _churn_ is the model.
+Practicus AI models are **logically** grouped with the model prefix concept using the https:// [some.address.com] / [some/model/prefix] / [model-name] / [optional-version] / format. E.g. https://practicus.company.com/models/marketing/churn/v6/ can be a model API address where _models/marketing_ is the prefix, _churn_ is the model, and _v6_ is the optional version.
 
 ### Model Documentation
 
-Models under a prefix can be viewed by using Practicus AI App. If your admin enabled them, you can also view the documentation by visiting _../prefix/redoc_ or _../prefix/docs_ or E.g. https://practicus.company.com/models/marketing/redoc
+Models under a prefix can be viewed by using Practicus AI App. If your admin enabled them, you can also view the documentation by visiting _../prefix/redoc/_ or _../prefix/docs/_ or E.g. https://practicus.company.com/models/marketing/redoc/
 
 ### Model Deployment concept
 
@@ -32,27 +32,24 @@ You can learn more about any AI model by simply requesting it's meta data using 
 
 ```python
 import requests
-headers = {'authorization': 'Bearer _your_access_token_'}
-api_url = 'https://practicus.company.com/models/marketing/churn/'
-r = requests.get(api_url + '?get_meta=true', headers=headers)
-print('Model details: ', r.text)
-r = requests.get(api_url, headers=headers, files={'data.csv': open('data.csv', 'rb')})
+headers = {
+    'authorization': 'Bearer _your_access_token_',
+    'content-type': 'text/csv'
+}
+r = requests.post('https://practicus.company.com/models/marketing/churn/', headers=headers, data=some_csv_data)
 print('Prediction result: ', r.text)
 ```
 
-### Streaming code
 
-By setting the necessary http request headers you can submit the data using as a stream. 
+### Getting session and access API tokens 
+
+Please prefer a 'short-lived' session API access token where you can get one programmatically like the below example.
+If you do not use Practicus AI SDK, you can request a 'long-lived' API access token from a Practicus AI admin as well. 
+Please note that session tokens will offer increased security due to their short lifetime.  
 
 ```python
-import requests
-headers = {'authorization': 'Bearer _your_access_token_',
-           'content-type': 'application/octet-stream',
-           'content-disposition': 'attachment; filename=data.csv',
-           'content-encoding': 'text/csv'}
-api_url = 'https://practicus.company.com/models/marketing/churn/'
-r = requests.get(api_url, headers=headers, data=open('data.csv', 'rb'), stream=True)
-print('Prediction result: ', r.text)
+import practicuscore as prt 
+token = prt.models.get_session_token('https://practicus.company.com/models/marketing/churn/')
 ```
 
 ### Compression code
@@ -60,39 +57,26 @@ print('Prediction result: ', r.text)
 With or without streaming, you can submit the data after compressing with lz4', 'zlib', 'deflate', 'gzip' algorithms. If you compress the request, the response will also arrive using the same compression algorithm. 
 
 ```python
-import lz4.frame
-import requests
+import lz4 
 
-headers = {'authorization': 'Bearer _your_access_token_',
-           'content-type': 'application/octet-stream',
-           'content-disposition': 'attachment; filename=data.lz4',
-           'content-encoding': 'lz4'}
-api_url = 'https://practicus.company.com/models/marketing/churn/'
-data = lz4.frame.compress(some_bytes)
-r = requests.get(api_url, headers=headers, data=data, stream=True)
-print('Prediction result: ', r.text)
-```
+headers = {
+    'authorization': f'Bearer {token}',
+    'content-type': 'text/csv',
+    'content-encoding': 'lz4'
+}
+data_csv = df.to_csv(index=False)
+compressed = lz4.frame.compress(data_csv.encode())
+print(f"DataFrame compressed from {len(data_csv)} bytes to {len(compressed)} bytes")
 
+r = requests.post(api_url, headers=headers, data=compressed)
+if not r.ok:
+    raise ConnectionError(f"{r.status_code} - {r.text}")
 
-### Pandas and compression code
+decompressed = lz4.frame.decompress(r.content)
+print(f"Result de-compressed from {len(r.content)} bytes to {len(decompressed)} bytes")
 
-It is a very common scenario to submit a pandas dataframe and add the response back to the original dataframe as a new column.
+pred_df = pd.read_csv(BytesIO(decompressed))
 
-
-```python
-import pandas as pd 
-import requests
-import lz4.frame
-
-my_df = pd.read_csv('some_data.csv')
-
-headers = {'authorization': 'Bearer _your_access_token_',
-           'content-type': 'application/octet-stream',
-           'content-disposition': 'attachment; filename=data.lz4',
-           'content-encoding': 'lz4'}
-
-api_url = 'https://practicus.company.com/models/marketing/churn/'
-data = lz4.frame.compress(my_df.to_string().encode())
-r = requests.get(api_url, headers=headers, data=data, stream=True)
-...
+print("Prediction Result:")
+pred_df.head()
 ```
