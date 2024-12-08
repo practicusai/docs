@@ -256,3 +256,8 @@ async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFra
     return predictions_pd
 
 ```
+
+
+---
+
+**Previous**: [Shap Analysis](../03_shap_analysis.md) | **Next**: [Experiment Tracking Logging](../model_tracking/experiment_tracking/01_experiment_tracking_logging.md)

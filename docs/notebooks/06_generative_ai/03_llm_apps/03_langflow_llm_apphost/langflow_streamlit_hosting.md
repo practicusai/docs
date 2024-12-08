@@ -189,3 +189,8 @@ if __name__ == "__main__":
     main()
 
 ```
+
+
+---
+
+**Previous**: [Sdk Streamlit Hosting](../02_sdk_llm_apphost/non-stream/sdk_streamlit_hosting.md) | **Next**: [Milvus](../../04_vector_databases/milvus.md)

@@ -113,3 +113,8 @@ with st.form("my_form"): # Define our question
     if submitted:
         generate_response(text, endpoint, api) # Return the response
 ```
+
+
+---
+
+**Previous**: [Sdk Streamlit Hosting](../stream/sdk_streamlit_hosting.md) | **Next**: [Langflow Streamlit Hosting](../../03_langflow_llm_apphost/langflow_streamlit_hosting.md)

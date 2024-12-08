@@ -161,3 +161,8 @@ prt.notebooks.execute_notebook(
 print("Notebook completed running without issues.")
 
 ```
+
+
+---
+
+**Previous**: [Build And Deploy](02_airflow/build_and_deploy.md) | **Next**: [Build](../06_generative_ai/01_app_building/build.md)

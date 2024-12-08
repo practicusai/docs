@@ -60,3 +60,8 @@ by opening the newxt notebook in this directory
 #  which will also terminate the cluster.
 coordinator_worker.terminate()
 ```
+
+
+---
+
+**Previous**: [Milvus](../../../06_generative_ai/04_vector_databases/milvus.md) | **Next**: [Use Cluster](02_use_cluster.md)

@@ -200,3 +200,8 @@ utility.drop_collection("hello_milvus")
 ```python
 
 ```
+
+
+---
+
+**Previous**: [Langflow Streamlit Hosting](../03_llm_apps/03_langflow_llm_apphost/langflow_streamlit_hosting.md) | **Next**: [Start Cluster](../../07_distributed_computing/01_spark/01_interactive/01_start_cluster.md)

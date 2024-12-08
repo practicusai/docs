@@ -90,3 +90,8 @@ You can run the below command to execute a notebook from the terminal or an .sh 
 ```shell
 prtcli execute-notebook -p notebook=my-notebook.ipynb 
 ```  
+
+
+---
+
+**Previous**: [Sample Notebook](sample_notebook.md) | **Next**: [Prep](../deploy_llm/01_Prep.md)

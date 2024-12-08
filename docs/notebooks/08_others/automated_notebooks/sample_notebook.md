@@ -52,3 +52,8 @@ if some_param <= 0:
 ```python editable=true slideshow={"slide_type": ""}
 print("Finished running sample notebook")
 ```
+
+
+---
+
+**Previous**: [Git Integration](../setup_git/git_integration.md) | **Next**: [Run Sample Notebook](run_sample_notebook.md)

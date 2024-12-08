@@ -225,3 +225,8 @@ def run(payload: ModelRequest, **kwargs):
     # Return the parsed response dictionary
     return parsed
 ```
+
+
+---
+
+**Previous**: [Langchain Basics](../../02_langchain/langchain_basics.md) | **Next**: [Sdk Streamlit Hosting](../02_sdk_llm_apphost/stream/sdk_streamlit_hosting.md)

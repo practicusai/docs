@@ -160,3 +160,8 @@ with st.container():
 
 
 ```
+
+
+---
+
+**Previous**: [Build](../../01_api_llm_apphost/build.md) | **Next**: [Sdk Streamlit Hosting](../non-stream/sdk_streamlit_hosting.md)

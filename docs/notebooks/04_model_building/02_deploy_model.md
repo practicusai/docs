@@ -325,3 +325,8 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
     return predictions_df
 
 ```
+
+
+---
+
+**Previous**: [Automl](01_AutoML.md) | **Next**: [Shap Analysis](03_shap_analysis.md)

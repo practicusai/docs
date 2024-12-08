@@ -312,3 +312,8 @@ def suppress_outliers(
     return df
 
 ```
+
+
+---
+
+**Previous**: [Open Vscode](open_vscode.md) | **Next**: [Test Core Features](tests/test_core_features.md)

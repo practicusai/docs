@@ -73,3 +73,8 @@ After cloning a git repo and saving credentials, you can use both the terminal a
 ```python
 
 ```
+
+
+---
+
+**Previous**: [Model Tokens](../model_tokens.md) | **Next**: [Sample Notebook](../automated_notebooks/sample_notebook.md)

@@ -468,3 +468,8 @@ def suppress_outliers(
     return df
 
 ```
+
+
+---
+
+**Previous**: [Test Core Features](tests/test_core_features.md) | **Next**: [Model Foundation](model_foundation.md)

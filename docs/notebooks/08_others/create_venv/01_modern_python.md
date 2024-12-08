@@ -57,3 +57,8 @@ On Jupyter click File > New > Notebook. And your new virtual environment should 
 ```python
 
 ```
+
+
+---
+
+**Previous**: [Code Quality](../code_quality/code_quality.md) | **Next**: [Legacy Python](02_legacy_python.md)

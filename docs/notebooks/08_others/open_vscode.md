@@ -314,3 +314,8 @@ def suppress_outliers(
     return df
 
 ```
+
+
+---
+
+**Previous**: [Workspaces](workspaces.md) | **Next**: [Open Notebook](open_notebook.md)

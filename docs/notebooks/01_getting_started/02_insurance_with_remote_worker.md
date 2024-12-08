@@ -112,3 +112,8 @@ with prt.create_worker(worker_conf) as worker:
         proc.wait_until_done(timeout_min=600)
         proc.show_logs()
 ```
+
+
+---
+
+**Previous**: [Insurance](01_insurance.md) | **Next**: [Dynamic Size Color](../02_data_exploration/02_01_Plot/Dynamic_Size_Color/Dynamic_Size_Color.md)

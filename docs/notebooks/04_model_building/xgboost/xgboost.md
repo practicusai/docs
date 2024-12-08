@@ -397,3 +397,8 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
     return predictions_df
 
 ```
+
+
+---
+
+**Previous**: [Model Drift](../model_tracking/model_drifts/Model_Drift.md) | **Next**: [Bank Marketing](../bank_marketing/bank_marketing.md)

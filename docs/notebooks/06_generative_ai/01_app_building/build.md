@@ -447,3 +447,8 @@ def some_function():
     return "And, this text is from a shared function."
 
 ```
+
+
+---
+
+**Previous**: [AI Studio](../../05_workflows/03_ai_studio.md) | **Next**: [Langchain With Streaming](../02_langchain/langchain_with_streaming.md)

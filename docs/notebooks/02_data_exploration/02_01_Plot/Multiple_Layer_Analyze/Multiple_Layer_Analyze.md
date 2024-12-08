@@ -232,3 +232,8 @@ That was the end. You can always checkout our other notebooks about plotting or 
 ```python
 proc.kill()
 ```
+
+
+---
+
+**Previous**: [Dynamic Size Color](../Dynamic_Size_Color/Dynamic_Size_Color.md) | **Next**: [Eda](../../eda.md)

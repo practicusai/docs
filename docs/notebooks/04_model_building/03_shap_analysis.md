@@ -592,3 +592,8 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
     return predictions_df
 
 ```
+
+
+---
+
+**Previous**: [Deploy Model](02_deploy_model.md) | **Next**: [Sparkml Ice Cream](sparkml/sparkml_ice_cream.md)

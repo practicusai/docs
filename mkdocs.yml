@@ -25,7 +25,9 @@ markdown_extensions:
 - pymdownx.snippets
 - pymdownx.superfences
 nav:
-- Home: index.md
+- Welcome: index.md
+- Getting Started: getting-started.md
+- Tutorials: tutorials.md
 - Technical Tutorial:
   - Getting Started:
     - Insurance: notebooks/01_getting_started/01_insurance.md
@@ -74,7 +76,7 @@ nav:
       - Langchain With Streaming: notebooks/06_generative_ai/02_langchain/langchain_with_streaming.md
       - Langchain Basics: notebooks/06_generative_ai/02_langchain/langchain_basics.md
     - LLM Apps:
-      - Api LLM Apphost:
+      - API LLM Apphost:
         - Build: notebooks/06_generative_ai/03_llm_apps/01_api_llm_apphost/build.md
       - Sdk LLM Apphost:
         - Stream:
@@ -132,22 +134,22 @@ nav:
     - Addons: notebooks/08_others/addons.md
     - Connections: notebooks/08_others/connections.md
 - AI Studio Tutorial:
-  - 1) Start: tutorial/start.md
-  - 2) Intro to Data Analysis: tutorial/data-analysis-intro.md
-  - 2.1) Intro to Plot: tutorial/plot.md
-  - 3) Intro to Data Preparation: tutorial/data-prep-intro.md
-  - 3.1) Snippets: tutorial/snippets.md
-  - 3.2) Intro to Workflow Services: tutorial/Workflow.md
-  - 4) Intro to Cloud Workers: tutorial/worker-node-intro.md
-  - 5) Explore Cloud Data Sources: tutorial/explore.md
-  - 6) Data Profiling: tutorial/data-profiling.md
-  - 7) Modeling with AutoML: tutorial/model.md
-  - 7.1) Models and Experiments: tutorial/Experiment-Service.md
-  - 8) Making Predictions: tutorial/predict.md
-  - 9) Working with SQL: tutorial/sql.md
-  - 10) Analyzing and preparing data with GPT: tutorial/chatgpt.md
-  - 11) Custom ML Models: tutorial/develop_ml_models.md
-  - 12) Next Steps: tutorial/next-steps.md
+  - Getting Started: tutorial/start.md
+  - Intro to Data Analysis: tutorial/data-analysis-intro.md
+  - Intro to Plot: tutorial/plot.md
+  - Intro to Data Preparation: tutorial/data-prep-intro.md
+  - Snippets: tutorial/snippets.md
+  - Intro to Workflow Services: tutorial/Workflow.md
+  - Intro to Cloud Workers: tutorial/worker-node-intro.md
+  - Explore Cloud Data Sources: tutorial/explore.md
+  - Data Profiling: tutorial/data-profiling.md
+  - Modeling with AutoML: tutorial/model.md
+  - Models and Experiments: tutorial/Experiment-Service.md
+  - Making Predictions: tutorial/predict.md
+  - Working with SQL: tutorial/sql.md
+  - Analyzing and preparing data with GPT: tutorial/chatgpt.md
+  - Custom ML Models: tutorial/develop_ml_models.md
+  - Next Steps: tutorial/next-steps.md
 - SDK Reference:
   - Home: sdk/index.html
   - Workflows: sdk/practicuscore.html#workflows

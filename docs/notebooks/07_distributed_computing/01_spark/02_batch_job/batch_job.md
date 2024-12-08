@@ -88,3 +88,8 @@ print("Writing to csv")
 df_filtered.write.csv("/home/ubuntu/my/spark/result.csv", header=True, mode="overwrite")
 
 ```
+
+
+---
+
+**Previous**: [Use Cluster](../01_interactive/02_use_cluster.md) | **Next**: [Start Cluster](../03_auto_scaled/01_start_cluster.md)

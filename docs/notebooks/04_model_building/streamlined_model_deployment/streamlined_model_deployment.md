@@ -299,3 +299,8 @@ async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwar
  
     return predictions_df
 ```
+
+
+---
+
+**Previous**: [Bank Marketing](../bank_marketing/bank_marketing.md) | **Next**: [Task With Notebook](../../05_workflows/01_tasks/task_with_notebook.md)

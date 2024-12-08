@@ -64,3 +64,8 @@ with mlflow.start_run(run_name=run_name):
 # Explicitly close the active MLflow run, if you are not using the above with keyword
 # mlflow.end_run()
 ```
+
+
+---
+
+**Previous**: [Sparkml Ice Cream](../../sparkml/sparkml_ice_cream.md) | **Next**: [Experiment Tracking Model Training](02_experiment_tracking_model_training.md)

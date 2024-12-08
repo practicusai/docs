@@ -114,3 +114,8 @@ Einstein's work laid the foundation for much of modern physics and he received t
 ```python
 
 ```
+
+
+---
+
+**Previous**: [Langchain With Streaming](langchain_with_streaming.md) | **Next**: [Build](../03_llm_apps/01_api_llm_apphost/build.md)

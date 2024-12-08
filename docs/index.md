@@ -1,82 +1,60 @@
-# Practicus AI Documentation
+# Welcome to Practicus AI Documentation
 
-[Practicus AI](https://practicus.ai/) is a modern and open Data Science platform that combines ease of use with powerful features. 
+## About Practicus AI
 
-Under the user-friendly interface, Practicus AI offers you a scalable, flexible, and open-source data stack, helping you solve your most complex data problems.
+Practicus AI is a unified platform for Generative AI and Data Intelligence, designed to guide you smoothly from initial concept to production-ready solutions. Whether you’re a seasoned engineer or just beginning to explore the world of data and AI, we’ve built our platform to be both robust and intuitive.
 
-You can **explore and analyze** large amounts of raw data and find unique insights and patterns. 
+## Select Benefits 
 
-Practicus AI allows you to easily **transform and prepare** data, and extend with coding only if necessary. 
+Practicus AI unifies generative AI, self-service tools, MLOps, orchestration, Kubernetes, and observability in one powerful platform, empowering everyone to innovate with confidence.
 
-You can create AI models using **AutoML** and **predict** the future with just a few clicks. When working with complex problems, 
-you can share your experiments exported code with the data science team, so they can take it further without starting from scratch.
+![Select Benefits](img/select-benefits.png)
 
-Several Practicus AI features work directly inside Spreadsheets, allowing you to bring more than 1 billion Spreadsheet 
-users into your Data Science projects. 
+## Platform Components
+The Practicus AI Platform is built on a secure, enterprise-grade core foundation, supplemented by a variety of ever increasing and specialized add-ons. This integrated approach ensures seamless deployment, governance, and scalability—empowering you to orchestrate applications, manage runtimes, and leverage advanced analytics tools, all within a unified environment.
 
-If needed, you can click to generate the **data processing pipeline code**, and go to production with ease. 
+![Platform Components](img/platform-components.png)
 
-Practicus AI **app is forever free**, and the cloud platform offers a **forever free tier** as well. 
-If you need more cloud capacity, you can **pay as you go**, which shows as a line item in your cloud invoice. 
-No commitments or credit card is needed. 
+## Core Components
 
-## Practicus AI Features Overview
+The Practicus AI Platform’s core is structured into four integrated layers—Applications, Mesh, Runtime, and Infrastructure. This documentation primarily focuses on these fundamental building blocks. Each layer provides distinct capabilities, from rapidly building and sharing GenAI applications, to hosting advanced models and microservices, managing service meshes for resilient operations, and ensuring optimized utilization of GPUs and other resources. Together, these core components form the backbone of a secure, scalable, and versatile AI ecosystem.
 
-![features](img/features.png)
+![Core Components](img/core-components.png)
 
-## Practicus AI Open Data Mesh
+## Core Principles
 
-![data mesh](img/iceberg.png)
+At Practicus AI, our priorities shape every feature we offer:
 
-## Practicus AI Open Source Architecture
+1. **Security & Compliance First:**  
+   We prioritize protecting your data and ensuring compliance. With enterprise-level SSO, MFA/OTP, and stringent data governance policies, your AI initiatives are always secured by design.
 
-![cloud architecture](img/cloud_architecture.png)
+2. **Cloud-Native & Vendor-Agnostic Flexibility:**  
+   We believe in freedom of choice. Our platform leverages open-source and CNCF standards, letting you deploy anywhere—on-premises, in the cloud, or within air-gapped environments—without vendor lock-in.
 
-## Optional Cloud Workers (backend) 
+3. **Ease of Use & Extensibility:**  
+   Our unified interface streamlines setup and configuration, enabling rapid deployment and flexible adaptation to evolving needs. Start small and scale gracefully as your projects grow.
 
-![deployment overview](img/deployment-overview.png)
+4. **Operational Simplicity for Technical Teams:**  
+   Simplify the complexity of managing data pipelines, ML workflows, and model lifecycles. Practicus AI abstracts operational overhead, so you can focus on delivering impactful AI solutions.
 
-## Summary View
+5. **Real-Time Observability & Scalability:**  
+   Keep a close eye on performance metrics, model accuracy, and system health as your operations expand. Automatic scaling and optimized GPU utilization ensure that efficiency scales with your ambitions.
 
-![big_picture](img/big_picture.png)
+6. **Empowering Non-Technical Users:**  
+   With a self-service AI Studio and no-code/low-code tools, data exploration and insight generation are no longer exclusive to specialists. Everyone can participate in the AI journey.
 
-## What does Practicus AI do?
+7. **Comprehensive Analytics & Generative AI:**  
+   Move beyond basic analysis. Our integrated suite of analytics, advanced analytics, and generative AI capabilities help you turn data into informed decisions and innovative solutions.
 
-<a href="https://practicus.ai/">Practicus AI</a> has 4 major elements. 
+## Who Benefits
 
-1) **GUI (Visual) App:** Free and available for Windows, macOS and Linux. The app is the center of most 
-functionality such as EDA (Exploratory Data Analysis), Data Preparation, AutoML, Prediction etc.  
+Practicus AI doesn’t target just one type of user—it supports a broad range of professionals, from technical experts refining complex models to business stakeholders discovering the strategic value in their data. Our platform is here to help you navigate the entire AI landscape, no matter your background or expertise.
 
-2) **SDK:** Free Python library providing programmatic access to most of the GUI app features. 
+## Next Steps
 
-3) **Spreadsheets:** Certain Data Preparation and Prediction functionality can be embedded inside spreadsheets.
-
-4) **Cloud Workers:** Running on your laptop, AWS, GCE, Azure or on-prem, optional Cloud Workers enable advanced functionality. 
-
-## How can Practicus AI help me?
-
-Different user personas will benefit from <a href="https://practicus.ai/">Practicus AI</a> differently.
-
-The common benefit will be allowing better collaboration between both technical and non-technical users.    
-
-### Data Scientists
-- **Data preparation/transformation:** The most time-consuming part for most data science projects. 
-- **Improved model discoverability:** Another key issue. [Practicus AI](https://practicus.ai/) allows any user to easily 
-search and discover models from the GUI.   
-- **Point & click model inference:** [Practicus AI](https://practicus.ai/) allows to immediately predict 
-without the need for model hosting. 
-- **Export simpler models to pure spreadsheets:** Unique to [Practicus AI](https://practicus.ai/), data scientists can export
-relatively simple models to Excel, Google Sheets and others.
-
-### Data Engineers
-- **Easier and faster ETL:** Spreadsheet interface makes data transformation faster and more intuitive.
-- **Data engine freedom:** You can easily switch between Spark, Pandas, DASK, RAPIDS, RAPIDS+DASK (multi GPU)
-- **Code Export:** You can export processing steps into pure Python with the Airflow embedding code with one-click. 
-This allows you to take data processing code as-is or with minimal change and immediately go to production.  
-
-### Business Professionals
-- **Explore** various data sources to analyze raw or structured data
-- **Build AI models** with one-click and predict the future
-- **Easily join technical experts** for complex AI projects, where your expertise is needed the most
+As you explore this documentation, you’ll find sections tailored to different personas—technical teams can dive into operational details, while newcomers can learn the fundamentals of AI-driven insights. For now, consider this your home base: a welcoming starting point to understand what Practicus AI can do and how it can transform the way you harness data for innovation.
 
 
+---
+
+**Next**: [Getting Started](getting-started.md)

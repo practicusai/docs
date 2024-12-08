@@ -404,3 +404,8 @@ def suppress_outliers(
     return df
 
 ```
+
+
+---
+
+**Previous**: [Legacy Python](create_venv/02_legacy_python.md) | **Next**: [Git Integration](setup_git/git_integration.md)

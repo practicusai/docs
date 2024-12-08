@@ -468,3 +468,8 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
     return predictions_df
 
 ```
+
+
+---
+
+**Previous**: [Spark Object Storage](../03_data_processing/spark_object_storage.md) | **Next**: [Deploy Model](02_deploy_model.md)

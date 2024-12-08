@@ -195,3 +195,8 @@ That was the end. You can always checkout our other notebooks about plotting or 
 ```python
 proc.kill()
 ```
+
+
+---
+
+**Previous**: [Insurance With Remote Worker](../../../01_getting_started/02_insurance_with_remote_worker.md) | **Next**: [Multiple Layer Analyze](../Multiple_Layer_Analyze/Multiple_Layer_Analyze.md)
