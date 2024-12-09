@@ -895,6 +895,6 @@ Once you pass this step, deploying Practicus AI will be very similar.
 
 ## Support 
 
-Need help? Please visit [https://practicus.ai/support/](https://practicus.ai/support/) to open a support ticket.
+Need help? Please visit [https://helpdesk.practicus.io/](https://helpdesk.practicus.io/) to open a support ticket.
 
 Thank you!

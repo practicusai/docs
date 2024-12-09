@@ -108,6 +108,6 @@ If you prefer to use our SaaS unlimited, please [click here to start Practicus A
 ![Saas login 2](img/saas-login-2.png)
 
 
-If you need any, help please [view the detailed setup guide](setup-guide.md) or [contact support](https://practicus.ai/support/).
+If you need any, help please [view the detailed setup guide](setup-guide.md) or [contact support](https://helpdesk.practicus.io/).
 
 Thank you!

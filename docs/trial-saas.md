@@ -26,6 +26,6 @@ Cloud Workers also offer a **free tier**, but with some limitations. Your SaaS a
 
 ![Saas login 2](img/saas-login-2.png)
 
-If you need any, help please [view the detailed setup guide](setup-guide.md) or [contact support](https://practicus.ai/support/).
+If you need any, help please [view the detailed setup guide](setup-guide.md) or [contact support](https://helpdesk.practicus.io/).
 
 Thank you!

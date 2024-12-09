@@ -88,6 +88,6 @@ If you prefer to use local containers on your laptop offline, or your personal A
 
 
 
-If you need any, help please [view the detailed setup guide](setup-guide.md) or [contact support](https://practicus.ai/support/).
+If you need any, help please [view the detailed setup guide](setup-guide.md) or [contact support](https://helpdesk.practicus.io/).
 
 Thank you!
