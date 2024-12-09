@@ -68,4 +68,4 @@ with mlflow.start_run(run_name=run_name):
 
 ---
 
-**Previous**: [Sparkml Ice Cream](../../sparkml/sparkml_ice_cream.md) | **Next**: [Experiment Tracking Model Training](02_experiment_tracking_model_training.md)
+**Previous**: [SparkML Ice Cream](../../sparkml/sparkml_ice_cream.md) | **Next**: [Experiment Tracking Model Training](02_experiment_tracking_model_training.md)

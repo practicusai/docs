@@ -1,1 +1,1 @@
-This page has moved to [setup-guide](setup-guide.md)
+This page has moved to [getting-started](getting-started.md)

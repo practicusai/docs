@@ -45,19 +45,19 @@ nav:
     - Deploy Workflow: notebooks/03_data_processing/deploy_workflow.md
     - Spark Object Storage: notebooks/03_data_processing/spark_object_storage.md
   - Model Building:
-    - Automl: notebooks/04_model_building/01_AutoML.md
+    - AutoML: notebooks/04_model_building/01_AutoML.md
     - Deploy Model: notebooks/04_model_building/02_deploy_model.md
     - Shap Analysis: notebooks/04_model_building/03_shap_analysis.md
-    - Sparkml:
-      - Sparkml Ice Cream: notebooks/04_model_building/sparkml/sparkml_ice_cream.md
+    - SparkML:
+      - SparkML Ice Cream: notebooks/04_model_building/sparkml/sparkml_ice_cream.md
     - Model Tracking:
       - Experiment Tracking:
         - Experiment Tracking Logging: notebooks/04_model_building/model_tracking/experiment_tracking/01_experiment_tracking_logging.md
         - Experiment Tracking Model Training: notebooks/04_model_building/model_tracking/experiment_tracking/02_experiment_tracking_model_training.md
       - Model Drifts:
         - Model Drift: notebooks/04_model_building/model_tracking/model_drifts/Model_Drift.md
-    - Xgboost:
-      - Xgboost: notebooks/04_model_building/xgboost/xgboost.md
+    - XGBoost:
+      - XGBoost: notebooks/04_model_building/xgboost/xgboost.md
     - Bank Marketing:
       - Bank Marketing: notebooks/04_model_building/bank_marketing/bank_marketing.md
     - Streamlined Model Deployment:

@@ -1,48 +1,41 @@
 # Getting Started with Practicus AI
 
-Practicus AI platform provides multiple tools for you to engage with its capabilities, ensuring that no matter your role, experience level, or objectives, there’s a suitable path forward. 
+The Practicus AI platform offers multiple tools for working with AI and data intelligence. Regardless of your role, experience level, or objectives, you can choose an entry point that fits your needs.
 
-## Find the right tool for you
+## Personas, Practicus AI Tools & Tasks
 
-Let’s identify the best entry point for you, considering your goal, role, and technical skillset.
+The diagram below illustrates various user roles, the tools available to them, and the tasks they support:
+
+![Personas Tools Tasks](img/personas-tools-tasks.png)
+
+## Finding the Right Tool for the Job
+
+Your choice of tool depends on your goals, role, and technical skill level:
 
 ![Finding The Right Tool](img/finding-the-right-tool.png)
 
-## Available tools to connect Practicus AI
+### Where to Start
 
-Let's begin with listing the common Practicus AI tools.
+Most users begin at **Practicus AI Home**, typically accessed at an address like `https://practicus.your-company.com`. If you do not have access, consult your system administrator. If you are not an existing enterprise user, you can experiment offline with the free [Practicus AI Studio](https://practicus.ai/download/), or contact your IT team for enterprise installation options.
 
-1. **Practicus AI Home:**  
-Typically accessed via an address like https://practicus.your-company.com, **Practicus AI Home is your primary gateway into the ecosystem**. If you don’t have access, contact your system administrator. Not a Practicus AI customer yet? You can begin with our forever-free Practicus AI Studio to get started.
+Next, decide whether you prefer to work with code or not.
 
-2. **Practicus AI Studio:**  
-A desktop application (available for Windows, macOS and Linux) that enables more hands-on work with data and models, without requiring deep coding knowledge. [Download now](https://practicus.ai/download/)
+### If You Code
 
-3. **Practicus AI Workspaces:**  
-A web-based remote desktop environment accessible directly from Practicus AI Home. Inside this secure browser-based workspace, you can use Practicus AI Studio, productivity tools like OpenOffice, and integrated development environments—all without any local setup.
+1. **Create a Worker:**  
+   From Practicus AI Home, create one or more Workers—isolated Kubernetes pods configured with the container image, CPU/RAM, GPU, and other resources you need.
 
-4. **Practicus AI SDK and CLI:**  
-Tools designed for technical users who prefer to code. Integrate AI capabilities directly into your projects, automate workflows, and manage deployments programmatically.
+2. **Use Jupyter Lab or VS Code:**  
+   After selecting a Worker, launch Jupyter Lab or VS Code. You can write code, train and deploy ML models, and interact with data. Sample jupyter notebooks are provided in each Worker's home directory for quick exploration.
 
-### Do You Code?
+### If You Do Not Code
 
-Before diving deeper, consider your comfort level with coding.
+1. **Access Practicus AI Studio or Workspaces:**  
+   From Practicus AI Home, open a browser-based Workspace or [download AI Studio](https://practicus.ai/download/), for a no-code/low-code experience. If local installation isn’t possible, online Workspaces already include Practicus AI Studio, office productivity tools, and other useful applications.
 
-#### If You Code
+2. **Explore & Build with No-Code Tools:**  
+   Use visual interfaces and guided workflows to analyze data, generate insights, and create AI solutions—no programming required.
 
-1. **Access Practicus AI Home:**  
-   Begin by navigating to the Practicus AI Home (e.g., `https://practicus.your-company.com`).
+---
 
-2. **Create a New Worker:**  
-   Spin up a Worker by selecting your desired container image, resource configurations (CPU, memory, GPU), and any additional features you need.
-
-3. **Open Jupyter Lab or VS Code:**  
-   Once the Worker is ready, you can directly launch Jupyter Lab or VS Code within Practicus AI. This environment gives you the flexibility to write and run code, train models, and work closely with your data.
-
-#### If You Do Not Code
-
-1. **Download AI Studio or Access Workspaces:**  
-   If coding isn’t your focus, simply [download AI Studio](https://practicus.ai/download/), or access the browser-based Workspaces environment by navigating to the Practicus AI Home (e.g., `https://practicus.your-company.com`).
-
-2. **No-Code / Low-Code Tools:**  
-   With these interfaces, you can explore data, generate insights, and build AI solutions using intuitive no-code or low-code tools—no technical expertise required.
+**Next**: [Tutorials](tutorials.md)

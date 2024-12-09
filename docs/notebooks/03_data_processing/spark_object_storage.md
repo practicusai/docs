@@ -59,4 +59,4 @@ prt.engines.delete_spark_session(spark)
 
 ---
 
-**Previous**: [Deploy Workflow](deploy_workflow.md) | **Next**: [Automl](../04_model_building/01_AutoML.md)
+**Previous**: [Deploy Workflow](deploy_workflow.md) | **Next**: [AutoML](../04_model_building/01_AutoML.md)

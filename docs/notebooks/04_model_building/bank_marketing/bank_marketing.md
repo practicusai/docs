@@ -317,4 +317,4 @@ def one_hot(df, text_col_list: list[str] | None,
 
 ---
 
-**Previous**: [Xgboost](../xgboost/xgboost.md) | **Next**: [Streamlined Model Deployment](../streamlined_model_deployment/streamlined_model_deployment.md)
+**Previous**: [XGBoost](../xgboost/xgboost.md) | **Next**: [Streamlined Model Deployment](../streamlined_model_deployment/streamlined_model_deployment.md)
