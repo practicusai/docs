@@ -1,6 +1,6 @@
-# Practicus AI tutorial 
+# Practicus AI Studio tutorial
 
-Welcome to Practicus AI hands-on tutorial. 
+Welcome to Practicus AI Studio hands-on tutorial. 
 
 ## Topics covered in this tutorial
 
