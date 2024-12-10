@@ -16,21 +16,40 @@ jupyter:
 
 - This notebook demonstrates how to create, and connect to a Practicus AI Spark auto-scaled cluster, and execute simple Spark operations. 
 
+### Important note on worker container image
+
+- Unlike standard Spark cluster, auto-scaled Spark cluster executors have a separate type of container image ghcr.io/practicusai/practicus-spark
+- This means packages accessible to coordinator worker might not be accessible to the executors.
+- To install packages please install to both the coordinator and the executor images and create custom container images.
+- While creating the spark client, you can then pass arguments to specify which executor image to use.
+
 ### Important note on privileged access
 
 - For auto-scaled Spark to work, `you will need additional privileges` on the Kubernetes cluster.
 - Please ask your admin to grant you access to worker size definitions with privileged access before you continue with this notebook.
 
-### Important note on worker container image
+### Finding an auto-scaled (privileged) worker size
 
-- Unlike standard Spark cluster, auto-scaled Spark cluster executors have a separate type of container image ghcr.io/practicusai/practicus-spark
-- This means packages acceesible to coordinator worker might not be accessible to the executors.
-- To install packages please install to both the coordinator and the executor images and create custom container images.
-- While creating the spark client, you can then pass arguments to specify which executor image to use.
+Let's find a worker size with auto-scaled (privileged) capabilities
 
 ```python
 import practicuscore as prt
 
+region = prt.get_default_region()
+
+auto_dist_worker_size = None
+
+for worker_size in region.worker_size_list:
+    if worker_size.auto_distributed:
+        auto_dist_worker_size = worker_size.name 
+        break
+
+assert auto_dist_worker_size, "You do not have access to any auto-distributed (privileged) worker sizes"
+
+print("Located an auto-distributed (privileged) worker size:", auto_dist_worker_size)
+```
+
+```python
 # Let's define the distributed features
 distributed_config = prt.distributed.JobConfig(
     job_type = prt.distributed.JobType.spark,
@@ -47,8 +66,9 @@ distributed_config = prt.distributed.JobConfig(
 
 # Let's define worker features of the cluster 
 worker_config = prt.WorkerConfig(
-    # ** Set a worker size config with privileged access **
-    worker_size="X-Small-Privileged",
+    # Please make sure to use a worker size with
+    #   privileged access.
+    worker_size=auto_dist_worker_size,
     distributed_config=distributed_config,
 )
 

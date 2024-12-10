@@ -784,7 +784,7 @@
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">deploy_model</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">deployment_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">model_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+        <span class="name">deploy_model</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">deployment_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">model_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -800,6 +800,12 @@
 <li><strong>model_name</strong>:  Model name</li>
 <li><strong>model_dir</strong>:  Model files directory, or None for current dir</li>
 </ul>
+
+<h6 id="returns">Returns</h6>
+
+<blockquote>
+  <p>tuple[API URL for dynamic version routing, API URL for the uploaded version, API URL to read metadata]</p>
+</blockquote>
 </div>
 
 

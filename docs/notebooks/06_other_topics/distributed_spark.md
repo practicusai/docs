@@ -540,4 +540,4 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
 
 ---
 
-**Previous**: [Security Tokens](security_tokens.md) | **Next**: [Workspaces](workspaces.md)
+**Previous**: [Security Tokens](security_tokens.md) | **Next**: [Sharing Workers](sharing_workers.md)

@@ -25,10 +25,11 @@ By the end of this example, you will have a clear understanding of how to:
 
 This approach can be extended and adapted to more complex models and larger systems, giving you a foundation for building scalable machine learning services.
 
+### Sample XGBoost model 
+
+Let's build a simple XGBoost model
 
 ```python
-# Let's build a simple XGBoost model
-
 import pandas as pd
 from xgboost import XGBRegressor
 
@@ -49,55 +50,85 @@ model.save_model("model.ubj")
 print("Model saved as model.ubj")
 ```
 
+<!-- #region -->
+### How to Query for Deployments and Prefixes
+
+If you are unsure about which model deployment (the underlying infrastructure) or which logical address group (prefix) to use, you can run the code below to dynamically query the available options.
+
+If you already have the required information, you can define it directly as shown here and skip the query step:
+
 ```python
-# Now let's decide where to deploy our model.
-import practicuscore as prt 
+deployment_key = "some-deployment"
+prefix = "models"
+```
+
+The code below demonstrates how to programmatically identify the first available model deployment system and model prefix. These values are then used to construct a URL for deploying and accessing a model’s REST API.
+<!-- #endregion -->
+
+```python
+import practicuscore as prt
 
 region = prt.get_default_region()
 
-# Let's locate the first available model deployment to deploy our model
+# Identify the first available model deployment system
 if len(region.model_deployment_list) == 0:
-    raise SystemError("You do not have any model deployment systems. "
-                      "Please contact your system admin.")
+    raise SystemError(
+        "No model deployment systems are available. "
+        "Please contact your system administrator."
+    )
 elif len(region.model_deployment_list) > 1:
-    print("You have more than one model deployment systems. "
-          "Will use the first one")
+    print("Multiple model deployment systems found. Using the first one.")
+
 model_deployment = region.model_deployment_list[0]
 deployment_key = model_deployment.key
 
-# Let's locate the first available model prefix to deploy our model
+# Identify the first available model prefix
 if len(region.model_prefix_list) == 0:
-    raise SystemError("You do not have any model deployment systems. "
-                      "Please contact your system admin.")
+    raise SystemError(
+        "No model prefixes are available. "
+        "Please contact your system administrator."
+    )
 elif len(region.model_prefix_list) > 1:
-    print("You have more than one model deployment systems. "
-          "Will use the first one")
+    print("Multiple model prefixes found. Using the first one.")
 
 prefix = region.model_prefix_list[0].key
 
-model_name = 'my-xgboost-model'
-model_dir = None  # Current dir
+model_name = "my-xgboost-model"
+model_dir = None  # Use the current directory by default
 
-# *All* Practicus AI model APIs follow the below url convention
-api_url = f"{region.url}/{prefix}/{model_name}/"
-# Important: For effective traffic routing, always terminate the url with / at the end.
-print("Model REST API Url will be:", api_url)
+# All Practicus AI model APIs follow this URL convention:
+expected_api_url = f"{region.url}/{prefix}/{model_name}/"
+# Note: Ensure the URL ends with a slash (/) to support correct routing.
 
-print("We will deploy model the model using", deployment_key, "model deployment.")
+print("Expected Model REST API URL:", expected_api_url)
+print("Using model deployment:", deployment_key)
 ```
 
 ### model.py
-Now please review `model.py` file to see how the XGBoost model is consumed.
+
+Review the `model.py` file to see how the XGBoost model is integrated and consumed within the environment.
+
+### Deploy the model
 
 ```python
-# Time to deploy..
-# You can call the below multiple times to deploy multiple versions
-prt.models.deploy(
+# This function can be called multiple times to deploy additional versions.
+api_url, api_version_url, api_meta_url = prt.models.deploy(
     deployment_key=deployment_key,
     prefix=prefix,
     model_name=model_name,
     model_dir=model_dir
 )
+```
+
+```python
+print("Which model API URL to use:")
+print("If you prefer the system admin dynamically route")
+print("  between model versions (recommended), use the below:")
+print(api_url)
+print("If you prefer to use exactly this version, use the below:")
+print(api_version_url)
+print("If you prefer to get the metadata of this version, use the below:")
+print(api_meta_url)
 ```
 
 ```python

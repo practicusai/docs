@@ -128,6 +128,7 @@ nav:
     - Processes: notebooks/06_other_topics/processes.md
     - Security Tokens: notebooks/06_other_topics/security_tokens.md
     - Distributed Spark: notebooks/06_other_topics/distributed_spark.md
+    - Sharing Workers: notebooks/06_other_topics/sharing_workers.md
     - Workspaces: notebooks/06_other_topics/workspaces.md
     - Open Vscode: notebooks/06_other_topics/open_vscode.md
     - Open Notebook: notebooks/06_other_topics/open_notebook.md
