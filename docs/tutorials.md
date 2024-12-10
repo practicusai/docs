@@ -31,6 +31,7 @@ If coding isn’t your focus, the [AI Studio tutorial](tutorial/start.md) is ide
 
 ---
 
-**Next**: Choose one of, 
+**Next**: Choose one of,
+
 -  [Technical Tutorial](notebooks/01_getting_started/01_introduction.md) If you code
 -  [AI Studio tutorial](tutorial/start.md) If you do not code 
