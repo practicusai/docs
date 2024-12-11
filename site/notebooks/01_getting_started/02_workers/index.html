@@ -1844,8 +1844,43 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_1_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5_1_3_1" id="__nav_4_5_1_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Interactive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_5_1_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_1_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Interactive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../05_distributed_computing/01_spark/03_auto_scaled/01_start_cluster/" class="md-nav__link">
+      <a href="../../05_distributed_computing/01_spark/03_auto_scaled/01_interactive/01_start_cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1866,7 +1901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05_distributed_computing/01_spark/03_auto_scaled/02_use_cluster/" class="md-nav__link">
+      <a href="../../05_distributed_computing/01_spark/03_auto_scaled/01_interactive/02_use_cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1875,6 +1910,78 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_1_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5_1_3_2" id="__nav_4_5_1_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Batch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_5_1_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_1_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Batch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_distributed_computing/01_spark/03_auto_scaled/02_batch/batch_job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Batch Job
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -5009,8 +5116,7 @@
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Select a region (assuming a single-region setup)</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">get_default_region</span><span class="p">()</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">create_worker</span><span class="p">()</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">create_worker</span><span class="p">()</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Start JupyterLab on the worker and open it in a new tab</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">worker</span><span class="o">.</span><span class="n">open_notebook</span><span class="p">()</span>

@@ -69,4 +69,4 @@ prt.get_local_worker().terminate()
 
 ---
 
-**Previous**: [Start Cluster](01_start_cluster.md) | **Next**: [Code Quality](../../../06_other_topics/01_code_quality/code_quality.md)
+**Previous**: [Start Cluster](01_start_cluster.md) | **Next**: [Batch Job](../02_batch/batch_job.md)

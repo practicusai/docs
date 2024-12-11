@@ -75,8 +75,11 @@ nav:
       - Batch Job:
         - Batch Job: notebooks/05_distributed_computing/01_spark/02_batch_job/batch_job.md
       - Auto Scaled:
-        - Start Cluster: notebooks/05_distributed_computing/01_spark/03_auto_scaled/01_start_cluster.md
-        - Use Cluster: notebooks/05_distributed_computing/01_spark/03_auto_scaled/02_use_cluster.md
+        - Interactive:
+          - Start Cluster: notebooks/05_distributed_computing/01_spark/03_auto_scaled/01_interactive/01_start_cluster.md
+          - Use Cluster: notebooks/05_distributed_computing/01_spark/03_auto_scaled/01_interactive/02_use_cluster.md
+        - Batch:
+          - Batch Job: notebooks/05_distributed_computing/01_spark/03_auto_scaled/02_batch/batch_job.md
   - Other Topics:
     - Code Quality:
       - Code Quality: notebooks/06_other_topics/01_code_quality/code_quality.md

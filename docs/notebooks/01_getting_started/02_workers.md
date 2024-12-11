@@ -51,7 +51,6 @@ import practicuscore as prt
 # Select a region (assuming a single-region setup)
 region = prt.get_default_region()
 
-
 worker = region.create_worker()
 ```
 

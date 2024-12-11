@@ -14,7 +14,7 @@ jupyter:
 
 # Starting an auto-scaled Spark Cluster
 
-- This notebook demonstrates how to create, and connect to a Practicus AI Spark auto-scaled cluster, and execute simple Spark operations. 
+- This example demonstrates how to create, and connect to a Practicus AI Spark auto-scaled cluster, and execute simple Spark operations. 
 
 ### Important note on worker container image
 
@@ -28,9 +28,9 @@ jupyter:
 - For auto-scaled Spark to work, `you will need additional privileges` on the Kubernetes cluster.
 - Please ask your admin to grant you access to worker size definitions with privileged access before you continue with this notebook.
 
-### Finding an auto-scaled (privileged) worker size
+### Finding an Auto-Scaled (Privileged) Worker Size
 
-Let's find a worker size with auto-scaled (privileged) capabilities
+Let's identify a worker size that supports auto-scaling and includes the required privileged capabilities for running batch jobs.
 
 ```python
 import practicuscore as prt
@@ -102,4 +102,4 @@ coordinator_worker.terminate()
 
 ---
 
-**Previous**: [Batch Job](../02_batch_job/batch_job.md) | **Next**: [Use Cluster](02_use_cluster.md)
+**Previous**: [Batch Job](../../02_batch_job/batch_job.md) | **Next**: [Use Cluster](02_use_cluster.md)

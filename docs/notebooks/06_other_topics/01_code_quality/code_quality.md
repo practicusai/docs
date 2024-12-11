@@ -72,4 +72,4 @@ print("Too many blank lines, which is code formatting issue.")
 
 ---
 
-**Previous**: [Use Cluster](../../05_distributed_computing/01_spark/03_auto_scaled/02_use_cluster.md) | **Next**: [Sample Notebook](../02_automated_notebooks/sample_notebook.md)
+**Previous**: [Batch Job](../../05_distributed_computing/01_spark/03_auto_scaled/02_batch/batch_job.md) | **Next**: [Sample Notebook](../02_automated_notebooks/sample_notebook.md)
