@@ -4,7 +4,7 @@ Practicus AI offers two primary types of tutorials—one designed for technical 
 
 ## Technical Tutorial (if you code)
 
-You can start by reading the technical tutorial right here in the documentation—simply open the [Technical Tutorial](notebooks/01_getting_started/01_introduction.md)
+You can start by reading the technical tutorial right here in the documentation—simply open the [Technical Tutorial](technical-tutorial/getting-started/introduction.md)
 
 ### For a hands-on coding experience (recommended)
 
@@ -21,17 +21,17 @@ If you’d like a hands-on experience, follow these steps to run the tutorial no
 
 ## AI Studio Tutorial (if you do not code)
 
-If coding isn’t your focus, the [AI Studio tutorial](tutorial/start.md) is ideal:
+If coding isn’t your focus, the [AI Studio tutorial](ai-studio-tutorial/start.md) is ideal:
 
 1. **Access Practicus AI Studio or Workspaces:**  
    From Practicus AI Home, open a browser-based Workspace or [download AI Studio](https://practicus.ai/download/). 
 
 2. **Follow the tutorial steps**  
-   Open [AI Studio tutorial](tutorial/start.md) and start following the tutorial steps.
+   Open [AI Studio tutorial](ai-studio-tutorial/start.md) and start following the tutorial steps.
 
 ---
 
 **Next**: Choose one of,
 
--  [Technical Tutorial](notebooks/01_getting_started/01_introduction.md) If you code
--  [AI Studio tutorial](tutorial/start.md) If you do not code 
+-  [Technical Tutorial](technical-tutorial/getting-started/introduction.md) If you code
+-  [AI Studio tutorial](ai-studio-tutorial/start.md) If you do not code 

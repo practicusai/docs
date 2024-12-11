@@ -30,138 +30,140 @@ nav:
 - Tutorials: tutorials.md
 - Technical Tutorial:
   - Getting Started:
-    - Introduction: notebooks/01_getting_started/01_introduction.md
-    - Workers: notebooks/01_getting_started/02_workers.md
+    - Introduction: technical-tutorial/getting-started/introduction.md
+    - Workers: technical-tutorial/getting-started/workers.md
   - Modeling:
     - Basics:
-      - Modeling Basics: notebooks/02_modeling/01_basics/modeling_basics.md
+      - Modeling Basics: technical-tutorial/modeling/basics/modeling-basics.md
   - Workflows:
     - Tasks:
-      - Tasks: notebooks/03_workflows/01_tasks/01_tasks.md
+      - Tasks: technical-tutorial/workflows/tasks/tasks.md
     - Airflow:
-      - Airflow: notebooks/03_workflows/02_airflow/airflow.md
+      - Airflow: technical-tutorial/workflows/airflow/airflow.md
     - AI Studio:
-      - AI Studio: notebooks/03_workflows/03_AI_Studio/AI_Studio.md
+      - AI Studio: technical-tutorial/workflows/AI-Studio/AI-Studio.md
   - Generative AI:
     - App Building:
-      - Build: notebooks/04_generative_ai/01_app_building/build.md
+      - Build: technical-tutorial/generative-ai/app-building/build.md
     - Langchain:
-      - Langchain With Streaming: notebooks/04_generative_ai/02_langchain/langchain_with_streaming.md
-      - Langchain Basics: notebooks/04_generative_ai/02_langchain/langchain_basics.md
+      - Langchain With Streaming: technical-tutorial/generative-ai/langchain/langchain-with-streaming.md
+      - Langchain Basics: technical-tutorial/generative-ai/langchain/langchain-basics.md
     - LLM Apps:
       - API LLM Apphost:
-        - Build: notebooks/04_generative_ai/03_llm_apps/01_api_llm_apphost/build.md
+        - Build: technical-tutorial/generative-ai/llm-apps/api-llm-apphost/build.md
       - Sdk LLM Apphost:
         - Stream:
-          - Sdk Streamlit Hosting: notebooks/04_generative_ai/03_llm_apps/02_sdk_llm_apphost/stream/sdk_streamlit_hosting.md
+          - Sdk Streamlit Hosting: technical-tutorial/generative-ai/llm-apps/sdk-llm-apphost/stream/sdk-streamlit-hosting.md
         - Non-Stream:
-          - Sdk Streamlit Hosting: notebooks/04_generative_ai/03_llm_apps/02_sdk_llm_apphost/non-stream/sdk_streamlit_hosting.md
+          - Sdk Streamlit Hosting: technical-tutorial/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md
       - Langflow LLM Apphost:
-        - Langflow Streamlit Hosting: notebooks/04_generative_ai/03_llm_apps/03_langflow_llm_apphost/langflow_streamlit_hosting.md
+        - Langflow Streamlit Hosting: technical-tutorial/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
     - Vector Databases:
-      - Milvus: notebooks/04_generative_ai/04_vector_databases/milvus.md
+      - Milvus: technical-tutorial/generative-ai/vector-databases/milvus.md
     - Deploying LLM:
-      - Prep: notebooks/04_generative_ai/05_deploying_llm/01_Prep.md
-      - Upload Download: notebooks/04_generative_ai/05_deploying_llm/02_upload_download.md
-      - Model: notebooks/04_generative_ai/05_deploying_llm/03_model.md
-      - Model Json: notebooks/04_generative_ai/05_deploying_llm/04_model_json.md
-      - Deploy: notebooks/04_generative_ai/05_deploying_llm/05_deploy.md
-      - Consume Parallel: notebooks/04_generative_ai/05_deploying_llm/06_consume_parallel.md
+      - Prep: technical-tutorial/generative-ai/deploying-llm/Prep.md
+      - Upload Download: technical-tutorial/generative-ai/deploying-llm/upload-download.md
+      - Model: technical-tutorial/generative-ai/deploying-llm/model.md
+      - Model Json: technical-tutorial/generative-ai/deploying-llm/model-json.md
+      - Deploy: technical-tutorial/generative-ai/deploying-llm/deploy.md
+      - Consume Parallel: technical-tutorial/generative-ai/deploying-llm/consume-parallel.md
   - Distributed Computing:
     - Spark:
       - Interactive:
-        - Start Cluster: notebooks/05_distributed_computing/01_spark/01_interactive/01_start_cluster.md
-        - Use Cluster: notebooks/05_distributed_computing/01_spark/01_interactive/02_use_cluster.md
+        - Start Cluster: technical-tutorial/distributed-computing/spark/interactive/start-cluster.md
+        - Use Cluster: technical-tutorial/distributed-computing/spark/interactive/use-cluster.md
       - Batch Job:
-        - Batch Job: notebooks/05_distributed_computing/01_spark/02_batch_job/batch_job.md
+        - Batch Job: technical-tutorial/distributed-computing/spark/batch-job/batch-job.md
       - Auto Scaled:
         - Interactive:
-          - Start Cluster: notebooks/05_distributed_computing/01_spark/03_auto_scaled/01_interactive/01_start_cluster.md
-          - Use Cluster: notebooks/05_distributed_computing/01_spark/03_auto_scaled/01_interactive/02_use_cluster.md
+          - Start Cluster: technical-tutorial/distributed-computing/spark/auto-scaled/interactive/start-cluster.md
+          - Use Cluster: technical-tutorial/distributed-computing/spark/auto-scaled/interactive/use-cluster.md
         - Batch:
-          - Batch Job: notebooks/05_distributed_computing/01_spark/03_auto_scaled/02_batch/batch_job.md
+          - Batch Job: technical-tutorial/distributed-computing/spark/auto-scaled/batch/batch-job.md
   - Other Topics:
     - Code Quality:
-      - Code Quality: notebooks/06_other_topics/01_code_quality/code_quality.md
+      - Code Quality: technical-tutorial/other-topics/code-quality/code-quality.md
     - Automated Notebooks:
-      - Sample Notebook: notebooks/06_other_topics/02_automated_notebooks/sample_notebook.md
-      - Run Sample Notebook: notebooks/06_other_topics/02_automated_notebooks/run_sample_notebook.md
+      - Sample Notebook: technical-tutorial/other-topics/automated-notebooks/sample-notebook.md
+      - Run Sample Notebook: technical-tutorial/other-topics/automated-notebooks/run-sample-notebook.md
     - Automated Tests:
-      - Test Core Features: notebooks/06_other_topics/03_automated_tests/test_core_features.md
+      - Test Core Features: technical-tutorial/other-topics/automated-tests/test-core-features.md
     - Setting Up Git:
-      - Git Integration: notebooks/06_other_topics/04_setting_up_git/git_integration.md
+      - Git Integration: technical-tutorial/other-topics/setting-up-git/git-integration.md
     - Virtual Environments:
-      - Modern Python: notebooks/06_other_topics/04_virtual_environments/01_modern_python.md
-      - Legacy Python: notebooks/06_other_topics/04_virtual_environments/02_legacy_python.md
+      - Modern Python: technical-tutorial/other-topics/virtual-environments/modern-python.md
+      - Legacy Python: technical-tutorial/other-topics/virtual-environments/legacy-python.md
     - Data Exploration:
       - 01 Plot:
         - Dynamic Size Color:
-          - Dynamic Size Color: notebooks/06_other_topics/05_data_exploration/02_01_Plot/Dynamic_Size_Color/Dynamic_Size_Color.md
+          - Dynamic Size Color: technical-tutorial/other-topics/data-exploration/01-Plot/Dynamic-Size-Color/Dynamic-Size-Color.md
         - Multiple Layer Analyze:
-          - Multiple Layer Analyze: notebooks/06_other_topics/05_data_exploration/02_01_Plot/Multiple_Layer_Analyze/Multiple_Layer_Analyze.md
-      - Eda: notebooks/06_other_topics/05_data_exploration/eda.md
+          - Multiple Layer Analyze: technical-tutorial/other-topics/data-exploration/01-Plot/Multiple-Layer-Analyze/Multiple-Layer-Analyze.md
+      - Eda: technical-tutorial/other-topics/data-exploration/eda.md
     - Data Processing:
-      - Insurance: notebooks/06_other_topics/06_data_processing/01_insurance.md
-      - Insurance With Remote Worker: notebooks/06_other_topics/06_data_processing/02_insurance_with_remote_worker.md
-      - Spark Custom Config: notebooks/06_other_topics/06_data_processing/spark_custom_config.md
-      - Polars: notebooks/06_other_topics/06_data_processing/polars.md
-      - Deploy Workflow: notebooks/06_other_topics/06_data_processing/deploy_workflow.md
-      - Spark Object Storage: notebooks/06_other_topics/06_data_processing/spark_object_storage.md
+      - Insurance: technical-tutorial/other-topics/data-processing/insurance.md
+      - Insurance With Remote Worker: technical-tutorial/other-topics/data-processing/insurance-with-remote-worker.md
+      - Spark Custom Config: technical-tutorial/other-topics/data-processing/spark-custom-config.md
+      - Polars: technical-tutorial/other-topics/data-processing/polars.md
+      - Deploy Workflow: technical-tutorial/other-topics/data-processing/deploy-workflow.md
+      - Spark Object Storage: technical-tutorial/other-topics/data-processing/spark-object-storage.md
     - Sdk Preprocessing:
-      - Preprocess Tut: notebooks/06_other_topics/07_sdk_preprocessing/preprocess_tut.md
+      - Preprocess Tut: technical-tutorial/other-topics/sdk-preprocessing/preprocess-tut.md
     - Additional Modeling:
-      - AutoML: notebooks/06_other_topics/08_additional_modeling/01_AutoML.md
-      - Deploy Model: notebooks/06_other_topics/08_additional_modeling/02_deploy_model.md
-      - Shap Analysis: notebooks/06_other_topics/08_additional_modeling/03_shap_analysis.md
+      - AutoML: technical-tutorial/other-topics/additional-modeling/AutoML.md
+      - Deploy Model: technical-tutorial/other-topics/additional-modeling/deploy-model.md
+      - Shap Analysis: technical-tutorial/other-topics/additional-modeling/shap-analysis.md
       - SparkML:
-        - SparkML Ice Cream: notebooks/06_other_topics/08_additional_modeling/sparkml/sparkml_ice_cream.md
+        - SparkML Ice Cream: technical-tutorial/other-topics/additional-modeling/sparkml/sparkml-ice-cream.md
       - Model Tracking:
         - Experiment Tracking:
-          - Experiment Tracking Logging: notebooks/06_other_topics/08_additional_modeling/model_tracking/experiment_tracking/01_experiment_tracking_logging.md
-          - Experiment Tracking Model Training: notebooks/06_other_topics/08_additional_modeling/model_tracking/experiment_tracking/02_experiment_tracking_model_training.md
+          - Experiment Tracking Logging: technical-tutorial/other-topics/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md
+          - Experiment Tracking Model Training: technical-tutorial/other-topics/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-model-training.md
         - Model Drifts:
-          - Model Drift: notebooks/06_other_topics/08_additional_modeling/model_tracking/model_drifts/Model_Drift.md
+          - Model Drift: technical-tutorial/other-topics/additional-modeling/model-tracking/model-drifts/Model-Drift.md
       - XGBoost:
-        - XGBoost: notebooks/06_other_topics/08_additional_modeling/xgboost/xgboost.md
+        - XGBoost: technical-tutorial/other-topics/additional-modeling/xgboost/xgboost.md
       - Bank Marketing:
-        - Bank Marketing: notebooks/06_other_topics/08_additional_modeling/bank_marketing/bank_marketing.md
+        - Bank Marketing: technical-tutorial/other-topics/additional-modeling/bank-marketing/bank-marketing.md
       - Streamlined Model Deployment:
-        - Streamlined Model Deployment: notebooks/06_other_topics/08_additional_modeling/streamlined_model_deployment/streamlined_model_deployment.md
-    - Advanced Gpu: notebooks/06_other_topics/advanced_gpu.md
-    - Processes: notebooks/06_other_topics/processes.md
-    - Security Tokens: notebooks/06_other_topics/security_tokens.md
-    - Distributed Spark: notebooks/06_other_topics/distributed_spark.md
-    - Sharing Workers: notebooks/06_other_topics/sharing_workers.md
-    - Workspaces: notebooks/06_other_topics/workspaces.md
-    - Open Vscode: notebooks/06_other_topics/open_vscode.md
-    - Open Notebook: notebooks/06_other_topics/open_notebook.md
-    - Workers: notebooks/06_other_topics/workers.md
-    - Model Foundation: notebooks/06_other_topics/model_foundation.md
-    - Data Catalog: notebooks/06_other_topics/data_catalog.md
-    - Model Tokens: notebooks/06_other_topics/model_tokens.md
-    - Customizing Templates: notebooks/06_other_topics/customizing_templates.md
-    - Addons: notebooks/06_other_topics/addons.md
-    - Connections: notebooks/06_other_topics/connections.md
+        - Streamlined Model Deployment: technical-tutorial/other-topics/additional-modeling/streamlined-model-deployment/streamlined-model-deployment.md
+    - Not Categorized:
+      - Advanced Gpu: technical-tutorial/other-topics/not-categorized/advanced-gpu.md
+      - Processes: technical-tutorial/other-topics/not-categorized/processes.md
+      - Security Tokens: technical-tutorial/other-topics/not-categorized/security-tokens.md
+      - Distributed Spark: technical-tutorial/other-topics/not-categorized/distributed-spark.md
+      - Sharing Workers: technical-tutorial/other-topics/not-categorized/sharing-workers.md
+      - Workspaces: technical-tutorial/other-topics/not-categorized/workspaces.md
+      - Open Vscode: technical-tutorial/other-topics/not-categorized/open-vscode.md
+      - Open Notebook: technical-tutorial/other-topics/not-categorized/open-notebook.md
+      - Workers: technical-tutorial/other-topics/not-categorized/workers.md
+      - Model Foundation: technical-tutorial/other-topics/not-categorized/model-foundation.md
+      - Data Catalog: technical-tutorial/other-topics/not-categorized/data-catalog.md
+      - Model Tokens: technical-tutorial/other-topics/not-categorized/model-tokens.md
+      - Customizing Templates: technical-tutorial/other-topics/not-categorized/customizing-templates.md
+      - Addons: technical-tutorial/other-topics/not-categorized/addons.md
+      - Connections: technical-tutorial/other-topics/not-categorized/connections.md
 - AI Studio Tutorial:
-  - Getting Started: tutorial/start.md
-  - Intro to Data Analysis: tutorial/data-analysis-intro.md
-  - Intro to Plot: tutorial/plot.md
-  - Intro to Data Preparation: tutorial/data-prep-intro.md
-  - Snippets: tutorial/snippets.md
-  - Intro to Workflow Services: tutorial/Workflow.md
-  - Intro to Cloud Workers: tutorial/worker-node-intro.md
-  - Explore Cloud Data Sources: tutorial/explore.md
-  - Data Profiling: tutorial/data-profiling.md
-  - Modeling with AutoML: tutorial/model.md
-  - Models and Experiments: tutorial/Experiment-Service.md
-  - Making Predictions: tutorial/predict.md
-  - Working with SQL: tutorial/sql.md
-  - Analyzing and preparing data with GPT: tutorial/chatgpt.md
-  - Custom ML Models: tutorial/develop_ml_models.md
-  - Next Steps: tutorial/next-steps.md
+  - Getting Started: ai-studio-tutorial/start.md
+  - Intro to Data Analysis: ai-studio-tutorial/data-analysis-intro.md
+  - Intro to Plot: ai-studio-tutorial/plot.md
+  - Intro to Data Preparation: ai-studio-tutorial/data-prep-intro.md
+  - Snippets: ai-studio-tutorial/snippets.md
+  - Intro to Workflow Services: ai-studio-tutorial/Workflow.md
+  - Intro to Cloud Workers: ai-studio-tutorial/worker-node-intro.md
+  - Explore Cloud Data Sources: ai-studio-tutorial/explore.md
+  - Data Profiling: ai-studio-tutorial/data-profiling.md
+  - Modeling with AutoML: ai-studio-tutorial/model.md
+  - Models and Experiments: ai-studio-tutorial/Experiment-Service.md
+  - Making Predictions: ai-studio-tutorial/predict.md
+  - Working with SQL: ai-studio-tutorial/sql.md
+  - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
+  - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
+  - Next Steps: ai-studio-tutorial/next-steps.md
 - SDK Reference:
   - Home: sdk/index.html
-  - Workflows: sdk/practicuscore.html#workflows
+# todo: add sub sections here e.g.
+#   - Workflows: sdk/practicuscore.html#workflows
   - Region: sdk/practicuscore/region_manager.html
 - Legacy:
   - Setup Guide: setup-guide.md
