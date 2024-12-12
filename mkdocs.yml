@@ -80,6 +80,21 @@ nav:
           - Use Cluster: technical-tutorial/distributed-computing/spark/auto-scaled/interactive/use-cluster.md
         - Batch:
           - Batch Job: technical-tutorial/distributed-computing/spark/auto-scaled/batch/batch-job.md
+    - Dask:
+      - Interactive:
+        - Start Cluster: technical-tutorial/distributed-computing/dask/interactive/start-cluster.md
+        - Use Cluster: technical-tutorial/distributed-computing/dask/interactive/use-cluster.md
+      - Batch Job:
+        - Batch Job: technical-tutorial/distributed-computing/dask/batch-job/batch-job.md
+      - Distributed Training:
+        - XGBoost: technical-tutorial/distributed-computing/dask/distributed-training/xgboost.md
+    - Deepspeed:
+      - Basics:
+        - Build: technical-tutorial/distributed-computing/deepspeed/basics/build.md
+      - LLM Fine Tuning:
+        - Download Data Model: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/download-data-model.md
+        - Build: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/build.md
+        - Test: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/test.md
   - Other Topics:
     - Code Quality:
       - Code Quality: technical-tutorial/other-topics/code-quality/code-quality.md
@@ -162,8 +177,6 @@ nav:
   - Next Steps: ai-studio-tutorial/next-steps.md
 - SDK Reference:
   - Home: sdk/index.html
-# todo: add sub sections here e.g.
-#   - Workflows: sdk/practicuscore.html#workflows
   - Region: sdk/practicuscore/region_manager.html
 - Legacy:
   - Setup Guide: setup-guide.md

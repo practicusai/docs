@@ -28,7 +28,7 @@ This example demonstrates how to set up and run an auto-scaled batch job in Prac
 ### Important note on privileged access
 
 - For auto-scaled Spark to work, `you will need additional privileges` on the Kubernetes cluster.
-- Please ask your admin to grant you access to worker size definitions with privileged access before you continue with this notebook.
+- Please ask your admin to grant you access to worker size definitions with privileged access before you continue with this example.
 
 ### Finding an Auto-Scaled (Privileged) Worker Size
 
@@ -132,4 +132,4 @@ df_filtered.show()
 
 ---
 
-**Previous**: [Use Cluster](../interactive/use-cluster.md) | **Next**: [Code Quality](../../../../other-topics/code-quality/code-quality.md)
+**Previous**: [Use Cluster](../interactive/use-cluster.md) | **Next**: [Start Cluster](../../../dask/interactive/start-cluster.md)

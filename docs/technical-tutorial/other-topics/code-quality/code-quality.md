@@ -72,4 +72,4 @@ print("Too many blank lines, which is code formatting issue.")
 
 ---
 
-**Previous**: [Batch Job](../../distributed-computing/spark/auto-scaled/batch/batch-job.md) | **Next**: [Sample Notebook](../automated-notebooks/sample-notebook.md)
+**Previous**: [Test](../../distributed-computing/deepspeed/llm-fine-tuning/test.md) | **Next**: [Sample Notebook](../automated-notebooks/sample-notebook.md)

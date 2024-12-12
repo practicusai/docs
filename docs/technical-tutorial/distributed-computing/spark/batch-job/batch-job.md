@@ -53,8 +53,21 @@ prt.distributed.live_view(
 )
 ```
 
+```python
+# You can view the logs during or after the job is completed
+# To view coordinator (master) set rank = 0
+rank = 0
+# To view other workers set rank = 1,2, ..
+
+prt.distributed.view_log(
+    job_dir=job_dir,
+    job_id=coordinator_worker.job_id,
+    rank=rank
+)
+```
+
 ### Wrapping up
-- Once the job is completed, you can view the resuls in `~/my/spark/result.csv/`
+- Once the job is completed, you can view the results in `~/my/spark/result.csv/`
 - Please note that result.csv is a folder that contains `parts of the processed file` by each worker (Spark executors)
 - Also note that you do not need to terminate the cluster since it has a 'py_file' to execute, which defaults `terminate_on_completion` parameter to True.
 - You can change terminate_on_completion to False to keep the cluster running after the job is completed to troubleshoot issues.

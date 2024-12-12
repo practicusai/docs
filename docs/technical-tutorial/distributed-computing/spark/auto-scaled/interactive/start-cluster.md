@@ -26,7 +26,7 @@ jupyter:
 ### Important note on privileged access
 
 - For auto-scaled Spark to work, `you will need additional privileges` on the Kubernetes cluster.
-- Please ask your admin to grant you access to worker size definitions with privileged access before you continue with this notebook.
+- Please ask your admin to grant you access to worker size definitions with privileged access before you continue with this example.
 
 ### Finding an Auto-Scaled (Privileged) Worker Size
 

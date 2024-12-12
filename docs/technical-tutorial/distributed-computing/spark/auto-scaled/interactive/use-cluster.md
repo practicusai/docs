@@ -14,8 +14,8 @@ jupyter:
 
 # Using the interactive Spark Cluster Client
 
-- This notebook demonstrates how to connect to the Practicus AI Spark cluster we created, and execute simple Spark operations.
-- Please run this notebook on the `Spark Coordinator (master)`.
+- This example demonstrates how to connect to the Practicus AI Spark cluster we created, and execute simple Spark operations.
+- Please run this example on the `Spark Coordinator (master)`.
 
 ```python
 import practicuscore as prt 

@@ -666,7 +666,7 @@ Wraps and simplifies <a href="practicuscore/region_manager.html#Region">practicu
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">logout</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">region_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">all_regions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+        <span class="name">logout</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">region_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">all_regions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -1157,7 +1157,7 @@ E.g. 'alice@practicus.wonderland.com' or 'practicus.wonderland.com' if there's o
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">logout</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">region_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">all_regions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+        <span class="name">logout</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">region_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">all_regions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -1421,7 +1421,7 @@ Wraps and simplifies functionality of experiment_helper.py classes</p>
                             <div id="workflows.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.airflow (DEBUG)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.airflow (INFO)&gt;</span>
 
         
     </div>
@@ -1605,7 +1605,7 @@ define by passing a list of tuples E.g.  [ ('task_name', worker_config), ... ]</
                             <div id="models.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.sdk (DEBUG)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.sdk (INFO)&gt;</span>
 
         
     </div>
@@ -1823,7 +1823,7 @@ Deletes existing zip file.</p>
                             <div id="apps.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.apps (DEBUG)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.apps (INFO)&gt;</span>
 
         
     </div>
@@ -2240,7 +2240,7 @@ To deploy on another region, please create a region instance and call region.dep
                             <div id="notebooks.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.notebooks (DEBUG)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.notebooks (INFO)&gt;</span>
 
         
     </div>

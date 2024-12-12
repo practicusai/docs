@@ -14,12 +14,12 @@ jupyter:
 
 # Starting an interactive Spark Cluster
 
-- This notebook demonstrates how to create, and connect to a Practicus AI Spark cluster, and execute simple Spark operations. 
+- This example demonstrates how to create, and connect to a Practicus AI Spark cluster, and execute simple Spark operations.
 
 #### Note on shared drives
 
-- Practicus AI distributed clusters require a shared drive accsible by multiple workers, such as Practicus AI `my/shared` olders.
-- If you do not have access to my/shared folders, please check the auto-scaled sample notebook which does not need such drives, but are limited in functionality.
+- Practicus AI distributed clusters require a shared drive accessible by multiple workers, such as Practicus AI `~/my` or `~/shared` folders.
+- If you do not have access to ~/my or ~/shared folders, please check the auto-scaled examples which does not need such drives, but are limited in functionality.
 
 ```python
 import practicuscore as prt
@@ -53,7 +53,7 @@ print("Page did not open? You can open this url manually:", notebook_url)
 ```
 
 ### Please continue experimenting on the new browser tab
-by opening the newxt notebook in this directory
+by opening the next notebook in this directory
 
 ```python
 # Done experimenting? Let's terminate the coordinator 
