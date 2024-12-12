@@ -208,4 +208,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [XGBoost](../../dask/distributed-training/xgboost.md) | **Next**: [Download Data Model](../llm-fine-tuning/download-data-model.md)
+**Previous**: [XGBoost](../../dask/distributed-training/xgboost.md) | **Next**: [Download Sample Data](../llm-fine-tuning/download-sample-data.md)

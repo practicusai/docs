@@ -308,4 +308,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Download Data Model](download-data-model.md) | **Next**: [Test](test.md)
+**Previous**: [Download Sample Data](download-sample-data.md) | **Next**: [Test](test.md)
