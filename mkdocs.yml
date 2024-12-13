@@ -95,81 +95,82 @@ nav:
         - Download Sample Data: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/download-sample-data.md
         - Build: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/build.md
         - Test: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/test.md
-  - Other Topics:
-    - Code Quality:
-      - Code Quality: technical-tutorial/other-topics/code-quality/code-quality.md
-    - Automated Notebooks:
-      - Sample Notebook: technical-tutorial/other-topics/automated-notebooks/sample-notebook.md
-      - Run Sample Notebook: technical-tutorial/other-topics/automated-notebooks/run-sample-notebook.md
-    - Automated Tests:
-      - Test Core Features: technical-tutorial/other-topics/automated-tests/test-core-features.md
-    - Setting Up Git:
-      - Git Integration: technical-tutorial/other-topics/setting-up-git/git-integration.md
-    - Virtual Environments:
-      - Modern Python: technical-tutorial/other-topics/virtual-environments/modern-python.md
-      - Legacy Python: technical-tutorial/other-topics/virtual-environments/legacy-python.md
-    - Data Exploration:
+  - How To:
+    - Improve Code Quality:
+      - Code Quality: technical-tutorial/how-to/improve-code-quality/code-quality.md
+    - Automate Notebooks:
+      - Sample Notebook: technical-tutorial/how-to/automate-notebooks/sample-notebook.md
+      - Run Sample Notebook: technical-tutorial/how-to/automate-notebooks/run-sample-notebook.md
+    - Automate Tests:
+      - Test Core Features: technical-tutorial/how-to/automate-tests/test-core-features.md
+    - Configure Git:
+      - Git Integration: technical-tutorial/how-to/configure-git/git-integration.md
+    - Create Virtual Envs:
+      - Modern Python: technical-tutorial/how-to/create-virtual-envs/modern-python.md
+      - Legacy Python: technical-tutorial/how-to/create-virtual-envs/legacy-python.md
+    - Explore Data:
       - 01 Plot:
         - Dynamic Size Color:
-          - Dynamic Size Color: technical-tutorial/other-topics/data-exploration/01-Plot/Dynamic-Size-Color/Dynamic-Size-Color.md
+          - Dynamic Size Color: technical-tutorial/how-to/explore-data/01-Plot/Dynamic-Size-Color/Dynamic-Size-Color.md
         - Multiple Layer Analyze:
-          - Multiple Layer Analyze: technical-tutorial/other-topics/data-exploration/01-Plot/Multiple-Layer-Analyze/Multiple-Layer-Analyze.md
-      - Eda: technical-tutorial/other-topics/data-exploration/eda.md
-    - Data Processing:
-      - Insurance: technical-tutorial/other-topics/data-processing/insurance.md
-      - Insurance With Remote Worker: technical-tutorial/other-topics/data-processing/insurance-with-remote-worker.md
-      - Spark Custom Config: technical-tutorial/other-topics/data-processing/spark-custom-config.md
-      - Polars: technical-tutorial/other-topics/data-processing/polars.md
-      - Deploy Workflow: technical-tutorial/other-topics/data-processing/deploy-workflow.md
-      - Spark Object Storage: technical-tutorial/other-topics/data-processing/spark-object-storage.md
-    - Sdk Preprocessing:
-      - Preprocess Tut: technical-tutorial/other-topics/sdk-preprocessing/preprocess-tut.md
+          - Multiple Layer Analyze: technical-tutorial/how-to/explore-data/01-Plot/Multiple-Layer-Analyze/Multiple-Layer-Analyze.md
+      - Eda: technical-tutorial/how-to/explore-data/eda.md
+    - Process Data:
+      - Insurance: technical-tutorial/how-to/process-data/insurance.md
+      - Insurance With Remote Worker: technical-tutorial/how-to/process-data/insurance-with-remote-worker.md
+      - Spark Custom Config: technical-tutorial/how-to/process-data/spark-custom-config.md
+      - Polars: technical-tutorial/how-to/process-data/polars.md
+      - Deploy Workflow: technical-tutorial/how-to/process-data/deploy-workflow.md
+      - Spark Object Storage: technical-tutorial/how-to/process-data/spark-object-storage.md
+    - Pre Process Data:
+      - Preprocess Tut: technical-tutorial/how-to/pre-process-data/preprocess-tut.md
     - Additional Modeling:
-      - AutoML: technical-tutorial/other-topics/additional-modeling/AutoML.md
-      - Deploy Model: technical-tutorial/other-topics/additional-modeling/deploy-model.md
-      - Shap Analysis: technical-tutorial/other-topics/additional-modeling/shap-analysis.md
+      - AutoML: technical-tutorial/how-to/additional-modeling/AutoML.md
+      - Deploy Model: technical-tutorial/how-to/additional-modeling/deploy-model.md
+      - Shap Analysis: technical-tutorial/how-to/additional-modeling/shap-analysis.md
       - SparkML:
-        - SparkML Ice Cream: technical-tutorial/other-topics/additional-modeling/sparkml/sparkml-ice-cream.md
+        - SparkML Ice Cream: technical-tutorial/how-to/additional-modeling/sparkml/sparkml-ice-cream.md
       - Model Tracking:
         - Experiment Tracking:
-          - Experiment Tracking Logging: technical-tutorial/other-topics/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md
-          - Experiment Tracking Model Training: technical-tutorial/other-topics/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-model-training.md
+          - Experiment Tracking Logging: technical-tutorial/how-to/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md
+          - Experiment Tracking Model Training: technical-tutorial/how-to/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-model-training.md
         - Model Drifts:
-          - Model Drift: technical-tutorial/other-topics/additional-modeling/model-tracking/model-drifts/Model-Drift.md
+          - Model Drift: technical-tutorial/how-to/additional-modeling/model-tracking/model-drifts/Model-Drift.md
       - XGBoost:
-        - XGBoost: technical-tutorial/other-topics/additional-modeling/xgboost/xgboost.md
+        - XGBoost: technical-tutorial/how-to/additional-modeling/xgboost/xgboost.md
       - Bank Marketing:
-        - Bank Marketing: technical-tutorial/other-topics/additional-modeling/bank-marketing/bank-marketing.md
+        - Bank Marketing: technical-tutorial/how-to/additional-modeling/bank-marketing/bank-marketing.md
       - Streamlined Model Deployment:
-        - Streamlined Model Deployment: technical-tutorial/other-topics/additional-modeling/streamlined-model-deployment/streamlined-model-deployment.md
-    - Not Categorized:
-      - Advanced Gpu: technical-tutorial/other-topics/not-categorized/advanced-gpu.md
-      - Processes: technical-tutorial/other-topics/not-categorized/processes.md
-      - Security Tokens: technical-tutorial/other-topics/not-categorized/security-tokens.md
-      - Distributed Spark: technical-tutorial/other-topics/not-categorized/distributed-spark.md
-      - Sharing Workers: technical-tutorial/other-topics/not-categorized/sharing-workers.md
-      - Workspaces: technical-tutorial/other-topics/not-categorized/workspaces.md
-      - Open Vscode: technical-tutorial/other-topics/not-categorized/open-vscode.md
-      - Open Notebook: technical-tutorial/other-topics/not-categorized/open-notebook.md
-      - Workers: technical-tutorial/other-topics/not-categorized/workers.md
-      - Model Foundation: technical-tutorial/other-topics/not-categorized/model-foundation.md
-      - Data Catalog: technical-tutorial/other-topics/not-categorized/data-catalog.md
-      - Model Tokens: technical-tutorial/other-topics/not-categorized/model-tokens.md
-      - Customizing Templates: technical-tutorial/other-topics/not-categorized/customizing-templates.md
-      - Addons: technical-tutorial/other-topics/not-categorized/addons.md
-      - Connections: technical-tutorial/other-topics/not-categorized/connections.md
+        - Streamlined Model Deployment: technical-tutorial/how-to/additional-modeling/streamlined-model-deployment/streamlined-model-deployment.md
+    - More:
+      - Use Workers: technical-tutorial/how-to/more/use-workers.md
+      - Use Workspaces: technical-tutorial/how-to/more/use-workspaces.md
+      - Use Addons: technical-tutorial/how-to/more/use-addons.md
+      - Work With Connections: technical-tutorial/how-to/more/work-with-connections.md
+      - Configure Advanced Gpu: technical-tutorial/how-to/more/configure-advanced-gpu.md
+      - Customize Templates: technical-tutorial/how-to/more/customize-templates.md
+      - Work With Models: technical-tutorial/how-to/more/work-with-models.md
+      - Work With Model Tokens: technical-tutorial/how-to/more/work-with-model-tokens.md
+      - Work With Notebooks: technical-tutorial/how-to/more/work-with-notebooks.md
+      - Work With Vscode: technical-tutorial/how-to/more/work-with-vscode.md
+      - Work With Processes: technical-tutorial/how-to/more/work-with-processes.md
+      - Use Security Tokens: technical-tutorial/how-to/more/use-security-tokens.md
+      - Share Workers: technical-tutorial/how-to/more/share-workers.md
+      - Work With Data Catalog: technical-tutorial/how-to/more/work-with-data-catalog.md
+      - Work With Distributed Spark: technical-tutorial/how-to/more/work-with-distributed-spark.md
+  - More Examples:
     - Advanced Langchain:
-      - Prepare Data: technical-tutorial/other-topics/advanced-langchain/prepare-data.md
-      - Lang Chain LLM Model: technical-tutorial/other-topics/advanced-langchain/lang-chain-llm-model.md
+      - Prepare Data: technical-tutorial/more-examples/advanced-langchain/prepare-data.md
+      - Lang Chain LLM Model: technical-tutorial/more-examples/advanced-langchain/lang-chain-llm-model.md
     - Milvus Embedding And Langchain:
-      - Milvus Chain: technical-tutorial/other-topics/milvus-embedding-and-langchain/milvus-chain.md
+      - Milvus Chain: technical-tutorial/more-examples/milvus-embedding-and-langchain/milvus-chain.md
     - Genai Demos:
       - Cv Asistant:
-        - Prepare Data: technical-tutorial/other-topics/genai-demos/cv-asistant/prepare-data.md
-        - Cv Asistant: technical-tutorial/other-topics/genai-demos/cv-asistant/cv-asistant.md
+        - Prepare Data: technical-tutorial/more-examples/genai-demos/cv-asistant/prepare-data.md
+        - Cv Asistant: technical-tutorial/more-examples/genai-demos/cv-asistant/cv-asistant.md
       - Email E Asistant:
-        - Prepare Data: technical-tutorial/other-topics/genai-demos/email-e-asistant/prepare-data.md
-        - Mail E-Assistant: technical-tutorial/other-topics/genai-demos/email-e-asistant/mail-e-assistant.md
+        - Prepare Data: technical-tutorial/more-examples/genai-demos/email-e-asistant/prepare-data.md
+        - Mail E-Assistant: technical-tutorial/more-examples/genai-demos/email-e-asistant/mail-e-assistant.md
 - AI Studio Tutorial:
   - Getting Started: ai-studio-tutorial/start.md
   - Intro to Data Analysis: ai-studio-tutorial/data-analysis-intro.md
