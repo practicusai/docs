@@ -187,9 +187,7 @@ nav:
   - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
   - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
   - Next Steps: ai-studio-tutorial/next-steps.md
-- SDK Reference:
-  - Home: sdk/index.html
-  - Region: sdk/practicuscore/region_manager.html
+- Practicus AI SDK: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:
