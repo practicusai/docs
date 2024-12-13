@@ -72,4 +72,4 @@ conda deactivate
 
 ---
 
-**Previous**: [Modern Python](modern-python.md) | **Next**: [Dynamic Size Color](../explore-data/01-Plot/Dynamic-Size-Color/Dynamic-Size-Color.md)
+**Previous**: [Modern Python](modern-python.md) | **Next**: [Analyze](../explore-data/plot/dynamic-size-color/analyze.md)

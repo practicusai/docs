@@ -38,8 +38,8 @@ connections = region.connection_list
 
 if len(connections) == 0:
     raise ConnectionError(
-        "You or an admin has not defined any conenctions yet. "
-        "This notebook will not be meanignful..")
+        "You or an admin has not defined any connections yet. "
+        "This notebook will not be meaningful..")
 ```
 
 ```python
@@ -156,7 +156,7 @@ os.remove("my_conn_conf.json")
 from practicuscore.api_base import OracleConnConf, PRTValidator
 
 oracle_conn_conf = OracleConnConf(
-    db_host="my.orcle.db.address",
+    db_host="my.oracle.db.address",
     service_name="my_service",
     sid="my_sid",
     user="alice",
@@ -186,15 +186,15 @@ print("Oracle conn dict:", oracle_conn_conf.model_dump())
 
 ```python
 # Or to json
-oracle_conn_conf_json = oracle_conn_conf.to_json()
+oracle_conn_conf_json = oracle_conn_conf.model_dump_json()
 print("Oracle conn json:", oracle_conn_conf_json)
 ```
 
 ```python
 # And, vice versa. from a dict or json back to class the instance
-# This can be very conventient, e.g. save to a file, including the SQL Query, 
+# This can be very convenient, e.g. save to a file, including the SQL Query,
 # and reuse later, e.g. scheduled every night in Airflow.
-reloaded_oracle_conn_conf = OracleConnConf.from_json(oracle_conn_conf_json)
+reloaded_oracle_conn_conf = OracleConnConf.model_validate_json(oracle_conn_conf_json)
 type(reloaded_oracle_conn_conf)
 ```
 
@@ -224,7 +224,7 @@ For relational DBs, you can just supply a SQL query and you're good to go. Pract
 ```python
 # The conn_conf is actually a child class of ConnConf
 type(conn_conf_object)
-# e.g. OracleConnconf
+# e.g. OracleConnConf
 ```
 
 ```python
@@ -244,7 +244,7 @@ conn_conf_object.sql_query = "Select * from Table"
 ```
 
 ```python
-# In additon to a dict, json or json file, we can also use a conn conf object to read data
+# In addition to a dict, json or json file, we can also use a conn conf object to read data
 # proc = worker.load(conn_conf_object)
 ```
 

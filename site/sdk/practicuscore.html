@@ -24,7 +24,7 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#practicus-ai-sdk">Practicus AI SDK</a>
+  <li><a href="#practicus-ai-sdk-v2482">Practicus AI SDK v24.8.2</a>
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#key-functionality">Key Functionality</a></li>
@@ -233,6 +233,9 @@
                         </li>
                         <li>
                                 <a class="class" href="#connections.ConnConfFactory">connections.ConnConfFactory</a>
+                        </li>
+                        <li>
+                                <a class="class" href="#connections.ConnConf">connections.ConnConf</a>
                         </li>
                         <li>
                                 <a class="class" href="#connections.S3ConnConf">connections.S3ConnConf</a>
@@ -799,6 +802,183 @@
 
             </li>
             <li>
+                    <a class="class" href="#Process">Process</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#Process.__init__">Process</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.logger">logger</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.worker">worker</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.ws">ws</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.wsm">wsm</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.async_op_issue_list">async_op_issue_list</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.alive">alive</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.get_csv_header">get_csv_header</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.proc_id">proc_id</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.os_pid">os_pid</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.conn_conf">conn_conf</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.conn_info">conn_info</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.worker_name">worker_name</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.run_step">run_step</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.get_eng">get_eng</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.show_recorded_steps">show_recorded_steps</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.delete_recorded_steps">delete_recorded_steps</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.reset_recorded_steps">reset_recorded_steps</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.run_recorded_steps">run_recorded_steps</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.save_ws">save_ws</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.get_ws_activity_log">get_ws_activity_log</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.show_logs">show_logs</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.show_issues">show_issues</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.is_local_practicus_svc_active">is_local_practicus_svc_active</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.my_k8s_worker">my_k8s_worker</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Process.my_k8s_region">my_k8s_region</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.get_model_api_session_token">get_model_api_session_token</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.get_file_path_in_caller_stack">get_file_path_in_caller_stack</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.show_head">show_head</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.load">load</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.save">save</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.delete_columns">delete_columns</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.rename_column">rename_column</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.rename_columns">rename_columns</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.change_column_type">change_column_type</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.filter">filter</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.one_hot">one_hot</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.categorical_map">categorical_map</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.split_column">split_column</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.handle_missing">handle_missing</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.sort_column">sort_column</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.group_by_column">group_by_column</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.time_sample">time_sample</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.update_values">update_values</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.run_formula">run_formula</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.run_custom_code">run_custom_code</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.run_snippet">run_snippet</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.run_custom_sql">run_custom_sql</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.build_model">build_model</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.register_model">register_model</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.find_model">find_model</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.predict">predict</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.predict_with_offline_model">predict_with_offline_model</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.join">join</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.wait_until_done">wait_until_done</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.get_df_copy">get_df_copy</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Process.kill">kill</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="function" href="#get_logger">get_logger</a>
             </li>
             <li>
@@ -809,6 +989,15 @@
                         </li>
                         <li>
                                 <a class="variable" href="#Log.SDK">SDK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Log.REGION">REGION</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Log.WORKER">WORKER</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Log.PROCESS">PROCESS</a>
                         </li>
                         <li>
                                 <a class="variable" href="#Log.CLI">CLI</a>
@@ -1054,6 +1243,24 @@
 
             </li>
             <li>
+                    <a class="class" href="#PrtList">PrtList</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#PrtList.read_only">read_only</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#PrtList.to_pandas">to_pandas</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#PrtList.to_json">to_json</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#PrtList.to_dict_list">to_dict_list</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="function" href="#get_default_region">get_default_region</a>
             </li>
             <li>
@@ -1105,7 +1312,7 @@
                     <h1 class="modulename">
 practicuscore    </h1>
 
-                        <div class="docstring"><h1 id="practicus-ai-sdk">Practicus AI SDK</h1>
+                        <div class="docstring"><h1 id="practicus-ai-sdk-v2482">Practicus AI SDK v24.8.2</h1>
 
 <h2 id="overview">Overview</h2>
 
@@ -1152,6 +1359,8 @@ allowing you to work with Practicus AI resources efficiently:</p>
 <ul>
 <li><code><a href="#Region">Region</a></code>: Represents a Practicus AI Region (control plane) where you can manage workers, models, apps, and connections.</li>
 <li><code><a href="#Worker">Worker</a></code>: Represents a compute resource (pod) in the Region where you can run tasks, load data, open notebooks, and more.</li>
+<li><code><a href="#Process">Process</a></code>: Represents an OS-level process running on a Worker that can load and manipulate data, run transformations,
+execute code snippets, build models, and perform predictions—all directly on the Worker.</li>
 </ul>
 
 <h3 id="sample-usage">Sample Usage</h3>
@@ -1381,7 +1590,7 @@ no action will be taken.</li>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_region_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">PrtList</span><span class="p">[</span><span class="n"><a href="#Region">Region</a></span><span class="p">]</span>:</span></span>
+        <span class="name">get_region_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n"><a href="#Region">Region</a></span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -1394,7 +1603,7 @@ no action will be taken.</li>
 <h6 id="returns">Returns</h6>
 
 <blockquote>
-  <p>A read-only PrtList of <code><a href="#Region">Region</a></code> objects.</p>
+  <p>A read-only <code><a href="#PrtList">PrtList</a></code> of <code><a href="#Region">Region</a></code> objects.</p>
 </blockquote>
 </div>
 
@@ -3464,7 +3673,7 @@ None. Raises an exception if the upload fails.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_all</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">PrtList</span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">conn_helper</span><span class="o">.</span><span class="n">Connection</span><span class="p">]</span>:</span></span>
+        <span class="name">get_all</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">conn_helper</span><span class="o">.</span><span class="n">Connection</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -3554,7 +3763,7 @@ the provided identifier, returns None.</p>
     
             <div class="docstring"><p>Creates a new connection in the currently active Practicus AI region.</p>
 
-<p>By providing a name and a <code>ConnConf</code> object representing the configuration details,
+<p>By providing a name and a <code><a href="#connections.ConnConf">ConnConf</a></code> object representing the configuration details,
 this method registers a new connection that can later be retrieved and used.
 The optional <code>tree_path</code> parameter can organize connections into a logical hierarchy.</p>
 
@@ -3680,6 +3889,21 @@ It can also handle cutting part of the source path to simplify the uploaded key 
     <a class="headerlink" href="#connections.ConnConfFactory"></a>
     
             <div class="docstring"><p>Factory class to generate connection configuration classes using a dictionary, json or an instance of the subject class</p>
+</div>
+
+
+                </section>
+                <section id="connections.ConnConf">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">connections.ConnConf</span><wbr>(<span class="base">practicuscore.api_base.PrtBaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#connections.ConnConf"></a>
+    
+            <div class="docstring"><p>Base connection configuration class</p>
 </div>
 
 
@@ -5620,7 +5844,7 @@ and configurations do not conflict across environments.</li>
                             <div id="Region.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.sdk (INFO)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.region (INFO)&gt;</span>
 
         
     </div>
@@ -5777,7 +6001,7 @@ and configurations do not conflict across environments.</li>
                             </div>
                             <div id="Region.worker_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">worker_list</span><span class="annotation">: practicuscore.util.PrtList[<a href="#Worker">Worker</a>]</span>
+            <span class="name">worker_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[<a href="#Worker">Worker</a>]</span>
 
         
     </div>
@@ -6051,7 +6275,7 @@ If None, default settings are used.</li>
                             </div>
                             <div id="Region.model_prefix_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">model_prefix_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.api_k8s.ModelPrefix]</span>
+            <span class="name">model_prefix_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.api_k8s.ModelPrefix]</span>
 
         
     </div>
@@ -6081,7 +6305,7 @@ deployments under a logical namespace.</p>
                             </div>
                             <div id="Region.model_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">model_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.api_k8s.ModelMeta]</span>
+            <span class="name">model_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.api_k8s.ModelMeta]</span>
 
         
     </div>
@@ -6110,7 +6334,7 @@ deployments under a logical namespace.</p>
                             </div>
                             <div id="Region.app_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">app_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.api_k8s.AppMeta]</span>
+            <span class="name">app_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.api_k8s.AppMeta]</span>
 
         
     </div>
@@ -6139,7 +6363,7 @@ deployments under a logical namespace.</p>
                             </div>
                             <div id="Region.app_prefix_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">app_prefix_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.api_k8s.AppPrefix]</span>
+            <span class="name">app_prefix_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.api_k8s.AppPrefix]</span>
 
         
     </div>
@@ -6262,7 +6486,7 @@ deployments under a logical namespace.</p>
                             </div>
                             <div id="Region.model_deployment_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">model_deployment_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.api_k8s.ModelDeployment]</span>
+            <span class="name">model_deployment_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.api_k8s.ModelDeployment]</span>
 
         
     </div>
@@ -6291,7 +6515,7 @@ deployments under a logical namespace.</p>
                             </div>
                             <div id="Region.app_deployment_setting_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">app_deployment_setting_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.api_k8s.AppDeploymentSetting]</span>
+            <span class="name">app_deployment_setting_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.api_k8s.AppDeploymentSetting]</span>
 
         
     </div>
@@ -6704,7 +6928,7 @@ If <code>terminate_on_completion</code> is True, the worker is terminated after 
                             </div>
                             <div id="Region.addon_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">addon_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.addon_helper.AddOn]</span>
+            <span class="name">addon_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.addon_helper.AddOn]</span>
 
         
     </div>
@@ -7016,7 +7240,7 @@ If <code>terminate_on_completion</code> is True, the worker is terminated after 
                             </div>
                             <div id="Region.connection_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">connection_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.conn_helper.Connection]</span>
+            <span class="name">connection_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.conn_helper.Connection]</span>
 
         
     </div>
@@ -7151,7 +7375,7 @@ how connections are stored (via <code>tree_path</code>).</p>
                             </div>
                             <div id="Region.worker_size_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">worker_size_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.worker_manager.WorkerSize]</span>
+            <span class="name">worker_size_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.worker_manager.WorkerSize]</span>
 
         
     </div>
@@ -7204,7 +7428,7 @@ how connections are stored (via <code>tree_path</code>).</p>
                             </div>
                             <div id="Region.worker_image_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">worker_image_list</span><span class="annotation">: practicuscore.util.PrtList[practicuscore.worker_manager.WorkerImage]</span>
+            <span class="name">worker_image_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.worker_manager.WorkerImage]</span>
 
         
     </div>
@@ -7474,7 +7698,7 @@ like <code>region.create_worker()</code> or <code>region.get_local_worker()</cod
                             <div id="Worker.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.sdk (INFO)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.worker (INFO)&gt;</span>
 
         
     </div>
@@ -7940,7 +8164,7 @@ like <code>region.create_worker()</code> or <code>region.get_local_worker()</cod
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">load</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">conn_conf</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">ConnConf</span>,</span><span class="param">	<span class="n">engine</span><span class="o">=</span><span class="s1">&#39;AUTO&#39;</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">proc_manager</span><span class="o">.</span><span class="n">Process</span>:</span></span>
+        <span class="name">load</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">conn_conf</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">ConnConf</span>,</span><span class="param">	<span class="n">engine</span><span class="o">=</span><span class="s1">&#39;AUTO&#39;</span></span><span class="return-annotation">) -> <span class="n"><a href="#Process">Process</a></span>:</span></span>
 
         
     </div>
@@ -8108,18 +8332,18 @@ to interact with data from a given connection configuration.</p>
                             </div>
                             <div id="Worker.proc_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">proc_list</span><span class="annotation">: list[practicuscore.proc_manager.Process]</span>
+            <span class="name">proc_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[<a href="#Process">Process</a>]</span>
 
         
     </div>
     <a class="headerlink" href="#Worker.proc_list"></a>
     
-            <div class="docstring"><p>Retrieves a list of Process objects created on this worker.</p>
+            <div class="docstring"><p>Retrieves a read-only list of Process objects created on this worker.</p>
 
 <p><strong>Returns:</strong></p>
 
 <ul>
-<li>list[Process]: A list of active processes on this worker.</li>
+<li>PrtList[Process]: A list of active processes on this worker.</li>
 </ul>
 </div>
 
@@ -8471,6 +8695,1063 @@ to interact with data from a given connection configuration.</p>
 
                             </div>
                 </section>
+                <section id="Process">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">Process</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#Process"></a>
+    
+            <div class="docstring"><p>Represents a process running on a Practicus AI Worker. A <code><a href="#Process">Process</a></code> corresponds to an actual OS-level process
+in the worker’s environment. It can load and manipulate data, run transformations, execute code snippets,
+and integrate with machine learning model building and prediction tasks.</p>
+
+<p><strong>Key Capabilities:</strong></p>
+
+<ul>
+<li><strong>Data Loading &amp; Processing:</strong> Load data from various sources (Data Lakes, S3, databases, local files) into the worker’s environment,
+and perform transformations such as filtering, sorting, grouping, and type changes.</li>
+<li><strong>Running Code &amp; Snippets:</strong> Execute custom Python code blocks, SQL queries, and pre-defined snippets directly on the worker.</li>
+<li><strong>Model Operations:</strong> Build, register, and search ML models. Integrate model predictions into your data pipeline.</li>
+<li><strong>Workflow Integration:</strong> Run recorded steps, save and restore workflows, and apply transformations in sequence.</li>
+<li><strong>Lifecycle Management:</strong> Automatically kills itself when going out of scope if used as a context manager, and
+provides methods to terminate, wait until current operations are complete, and manage logs.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">with</span> <span class="n">worker</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">s3_connection</span><span class="p">)</span> <span class="k">as</span> <span class="n">proc</span><span class="p">:</span>
+    <span class="c1"># Perform data transformations</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;price &gt; 100&quot;</span><span class="p">)</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">sort_column</span><span class="p">([</span><span class="s2">&quot;price&quot;</span><span class="p">])</span>
+    <span class="c1"># Retrieve updated DataFrame</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">get_df_copy</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="c1"># Process is automatically killed at the end of the &#39;with&#39; block</span>
+</code></pre>
+</div>
+
+<p>After the process finishes, you can also run model predictions or save the processed data to another destination.</p>
+</div>
+
+
+                            <div id="Process.__init__" class="classattr">
+                                <div class="attr function">
+            
+        <span class="name">Process</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">node</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">cloud_def</span><span class="o">.</span><span class="n">CloudNode</span>,</span><span class="param">	<span class="n">worker</span><span class="p">:</span> <span class="n"><a href="#Worker">Worker</a></span></span>)</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.__init__"></a>
+    
+            <div class="docstring"><p>Initializes a new Process associated with a given Worker.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>node (CloudNode): The underlying cloud node (e.g., Kubernetes pod) representing the worker.</li>
+<li>worker (Worker): The parent Worker instance that this process runs on.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.logger" class="classattr">
+                                <div class="attr variable">
+            <span class="name">logger</span>        =
+<span class="default_value">&lt;Logger practicus.core.process (INFO)&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.logger"></a>
+    
+            <div class="docstring"><p>Logger specific for</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.worker" class="classattr">
+                                <div class="attr variable">
+            <span class="name">worker</span><span class="annotation">: <a href="#Worker">Worker</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.worker"></a>
+    
+            <div class="docstring"><p>The parent <code><a href="#Worker">Worker</a></code> instance for this process.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.ws" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ws</span><span class="annotation">: practicuscore.ws.Worksheet | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.ws"></a>
+    
+            <div class="docstring"><p>Manages the internal data (worksheet) and steps executed by this process.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.wsm" class="classattr">
+                                <div class="attr variable">
+            <span class="name">wsm</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.wsm"></a>
+    
+            <div class="docstring"><p>Manages the internal data (worksheet) state manage by this process.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.async_op_issue_list" class="classattr">
+                                <div class="attr variable">
+            <span class="name">async_op_issue_list</span><span class="annotation">: list[practicuscore.core_def.OPResult]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.async_op_issue_list"></a>
+    
+            <div class="docstring"><p>Tracks issues or asynchronous operation results that occur during process execution.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.alive" class="classattr">
+                                <div class="attr variable">
+            <span class="name">alive</span><span class="annotation">: bool</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.alive"></a>
+    
+            <div class="docstring"><p>Indicates if the process is currently alive (running) on the worker.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.get_csv_header" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_csv_header</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.get_csv_header"></a>
+    
+            <div class="docstring"><p>Returns a CSV header line representing the columns used in the <code>__str__</code> method.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>str: CSV-formatted header line for process attributes.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.proc_id" class="classattr">
+                                <div class="attr variable">
+            <span class="name">proc_id</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.proc_id"></a>
+    
+            <div class="docstring"><p>The internal process ID assigned by Practicus AI.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>int: The process ID, or -1 if not available.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.os_pid" class="classattr">
+                                <div class="attr variable">
+            <span class="name">os_pid</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.os_pid"></a>
+    
+            <div class="docstring"><p>The underlying OS-level PID of the process running on the worker.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>int: The OS PID, or -1 if not available.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.conn_conf" class="classattr">
+                                <div class="attr variable">
+            <span class="name">conn_conf</span><span class="annotation">: practicuscore.api_base.ConnConf | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.conn_conf"></a>
+    
+            <div class="docstring"><p>The connection configuration used by this process to load data.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>ConnConf | None: The connection configuration, or None if not set.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.conn_info" class="classattr">
+                                <div class="attr variable">
+            <span class="name">conn_info</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.conn_info"></a>
+    
+            <div class="docstring"><p>A friendly, human-readable description of the current connection configuration.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>str: The connection's long description, or an empty string if unavailable.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.worker_name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">worker_name</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.worker_name"></a>
+    
+            <div class="docstring"><p>The name of the worker hosting this process.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>str: The worker name, or an empty string if unavailable.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.run_step" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">run_step</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">step</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">steps</span><span class="o">.</span><span class="n">Step</span>, </span><span class="param"><span class="n">record_step</span><span class="o">=</span><span class="kc">True</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.run_step"></a>
+    
+            <div class="docstring"><p>Executes a single transformation or action (a <code>Step</code>) on the process.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>step (Step): The step to run, representing a data transformation or action.</li>
+<li>record_step (bool): If True, records the step in the worksheet history.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.get_eng" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_eng</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">core_def</span><span class="o">.</span><span class="n">PRTEng</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.get_eng"></a>
+    
+            <div class="docstring"><p>Returns the internal dataengine representation enum</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.show_recorded_steps" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">show_recorded_steps</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.show_recorded_steps"></a>
+    
+            <div class="docstring"><p>Lists all recorded steps currently stored in the internal worksheet.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.delete_recorded_steps" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">delete_recorded_steps</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="o">*</span><span class="n">args</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.delete_recorded_steps"></a>
+    
+            <div class="docstring"><p>Deletes one or more recorded steps from the internal worksheet by their step numbers.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.reset_recorded_steps" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">reset_recorded_steps</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.reset_recorded_steps"></a>
+    
+            <div class="docstring"><p>Clears all recorded steps from the internal worksheet.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.run_recorded_steps" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">run_recorded_steps</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.run_recorded_steps"></a>
+    
+            <div class="docstring"><p>Executes all previously recorded steps in sequence.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.save_ws" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">save_ws</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">sampling_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;TOP&#39;</span>,</span><span class="param">	<span class="n">sample_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1000</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.save_ws"></a>
+    
+            <div class="docstring"><p>Saves the current worksheet, including steps and data sampling settings, to a specified file path.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.get_ws_activity_log" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_ws_activity_log</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.get_ws_activity_log"></a>
+    
+            <div class="docstring"><p>Retrieves the activity log of all operations performed in the worksheet.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.show_logs" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">show_logs</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">raise_error_on_issues</span><span class="o">=</span><span class="kc">True</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.show_logs"></a>
+    
+            <div class="docstring"><p>Displays the recorded activity logs and issues from the worker.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>raise_error_on_issues (bool): If True, raises an error if any issues are found.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.show_issues" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">show_issues</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">raise_error_on_issues</span><span class="o">=</span><span class="kc">True</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.show_issues"></a>
+    
+            <div class="docstring"><p>Displays any captured asynchronous operation issues from the worker.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>raise_error_on_issues (bool): If True, raises an error if issues are present.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.is_local_practicus_svc_active" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">is_local_practicus_svc_active</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.is_local_practicus_svc_active"></a>
+    
+            <div class="docstring"><p>Checks if the local worker control plane is active</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.my_k8s_worker" class="classattr">
+                                <div class="attr variable">
+            <span class="name">my_k8s_worker</span><span class="annotation">: practicuscore.cloud_def.K8sCloudNode</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.my_k8s_worker"></a>
+    
+            <div class="docstring"><p>Returns the internal Worker representation object</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.my_k8s_region" class="classattr">
+                                <div class="attr variable">
+            <span class="name">my_k8s_region</span><span class="annotation">: practicuscore.cloud_def.K8sRegion</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.my_k8s_region"></a>
+    
+            <div class="docstring"><p>Returns the internal Region representation object</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.get_model_api_session_token" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_model_api_session_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>, </span><span class="param"><span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.get_model_api_session_token"></a>
+    
+            <div class="docstring"><p>View documentation of <code><a href="#Region">Region</a></code>.<code><a href="#Process.get_model_api_session_token">get_model_api_session_token</a></code></p>
+</div>
+
+
+                            </div>
+                            <div id="Process.get_file_path_in_caller_stack" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_file_path_in_caller_stack</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">file_name_or_sub_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.get_file_path_in_caller_stack"></a>
+    
+            <div class="docstring"><p>Finds E.g., file.json or some/sub/path/file.py up in the caller stack</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.show_head" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">show_head</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.show_head"></a>
+    
+            <div class="docstring"><p>Prints the first few rows of the DataFrame currently managed by this process.</p>
+
+<p><strong>Note:</strong> The client SDK might have limited or no data depending on previous steps and sampling configurations.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.load" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">load</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">conn_conf</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">ConnConf</span>,</span><span class="param">	<span class="n">engine</span><span class="o">=</span><span class="s1">&#39;AUTO&#39;</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.load"></a>
+    
+            <div class="docstring"><p>Loads data into the process from the specified connection and engine configuration.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>conn_conf (dict | str | ConnConf): Connection information, can be a JSON/dict or a ConnConf instance.</li>
+<li>engine (str): The data processing engine, e.g. "AUTO", "PANDAS", "SPARK".</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.save" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">save</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">connection</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span>, </span><span class="param"><span class="n">timeout_min</span><span class="o">=</span><span class="mi">600</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.save"></a>
+    
+            <div class="docstring"><p>Saves the current data state to another destination, defined by the given connection configuration.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>connection (dict | str): The destination connection configuration.</li>
+<li>timeout_min (int): The maximum number of minutes to wait for completion.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.delete_columns" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">delete_columns</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">column_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.delete_columns"></a>
+    
+            <div class="docstring"><p>Deletes column(s) using the provided list</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.rename_column" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">rename_column</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">from_column_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">to_column_name</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.rename_column"></a>
+    
+            <div class="docstring"><p>Renames a single column from one name to another.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.rename_columns" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">rename_columns</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">columns_dict</span><span class="p">:</span> <span class="nb">dict</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.rename_columns"></a>
+    
+            <div class="docstring"><p>Renames multiple columns at once using a dictionary mapping old names to new names.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.change_column_type" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">change_column_type</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">column_type</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.change_column_type"></a>
+    
+            <div class="docstring"><p>Changes the data type of a specified column.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.filter" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">filter</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">filter_expression</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.filter"></a>
+    
+            <div class="docstring"><p>Filters the DataFrame rows based on a provided conditional expression.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.one_hot" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">one_hot</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">column_prefix</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.one_hot"></a>
+    
+            <div class="docstring"><p>Converts a categorical column into multiple one-hot encoded columns.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.categorical_map" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">categorical_map</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">column_suffix</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.categorical_map"></a>
+    
+            <div class="docstring"><p>Maps categorical values of a specified column into numeric or string representations.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.split_column" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">split_column</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">split_using</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.split_column"></a>
+    
+            <div class="docstring"><p>Splits the values of a column into multiple parts using a specified delimiter.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.handle_missing" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">handle_missing</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">technique</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">custom_value</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">column_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.handle_missing"></a>
+    
+            <div class="docstring"><p>Handles missing values in the specified columns using a given technique or a custom value.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.sort_column" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">sort_column</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">column_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>, </span><span class="param"><span class="n">ascending</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.sort_column"></a>
+    
+            <div class="docstring"><p>Sorts the DataFrame by specified columns in ascending or descending order.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.group_by_column" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">group_by_column</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">columns</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>, </span><span class="param"><span class="n">aggregation</span><span class="p">:</span> <span class="nb">dict</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.group_by_column"></a>
+    
+            <div class="docstring"><p>Groups the DataFrame by specified columns and applies aggregation functions.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.time_sample" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">time_sample</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">date_column</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">summary_column</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">summary_method</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">frequency</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.time_sample"></a>
+    
+            <div class="docstring"><p>Performs time-based sampling or aggregation of the data using a date column and specified frequency.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.update_values" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">update_values</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">old_value</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">new_value</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.update_values"></a>
+    
+            <div class="docstring"><p>Replaces occurrences of an old value with a new value in a specified column.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.run_formula" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">run_formula</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">new_column_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">formula_expression</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.run_formula"></a>
+    
+            <div class="docstring"><p>Creates a new column by evaluating a formula expression involving existing columns.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.run_custom_code" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">run_custom_code</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">custom_function</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.run_custom_code"></a>
+    
+            <div class="docstring"><p>Runs a custom Python function's code on the worker.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>custom_function: A Python function object whose source code is executed remotely.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.run_snippet" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">run_snippet</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">snippet_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.run_snippet"></a>
+    
+            <div class="docstring"><p>Runs a predefined snippet (a .py file) from the caller's directory stack.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>snippet_name (str): The snippet's name (without <code>.py</code> extension).</li>
+<li>**kwargs: Parameters passed to the snippet's code.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.run_custom_sql" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">run_custom_sql</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">custom_sql</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">sql_table_name</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.run_custom_sql"></a>
+    
+            <div class="docstring"><p>Executes a custom SQL query against the current data, treating it as a table with a given name.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.build_model" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">build_model</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">model_config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">timeout_min</span><span class="o">=</span><span class="mi">300</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_def</span><span class="o">.</span><span class="n">ModelConfig</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.build_model"></a>
+    
+            <div class="docstring"><p>Builds a machine learning model on the worker using the provided configuration.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>model_config (dict | str): The model configuration as a dictionary or JSON string.</li>
+<li>timeout_min (int): Maximum minutes to wait for model build completion.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>ModelConfig | None: The finalized model configuration if successful, else None.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.register_model" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">register_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.register_model"></a>
+    
+            <div class="docstring"><p>Registers the last built AI model, making it available in MLFlow or related model registries.</p>
+</div>
+
+
+                            </div>
+                            <div id="Process.find_model" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">find_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">model_text</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_def</span><span class="o">.</span><span class="n">ModelSearchResults</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.find_model"></a>
+    
+            <div class="docstring"><p>Searches for models that match a given text query using MlFlow.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>model_text (str): The search string or query.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>ModelSearchResults | None: The search results, or None if none found.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.predict" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">predict</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">api_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">column_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">new_column_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ground_truth_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">model_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">compression_algo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.predict"></a>
+    
+            <div class="docstring"><p>Runs predictions against a deployed model API endpoint.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>api_url (str): The model API URL.</li>
+<li>api_token (str | None): The access token for the model API. If None, attempts to get one automatically.</li>
+<li>column_names (list[str] | None): The columns to include as input features.</li>
+<li>new_column_name (str | None): The name for the new prediction column.</li>
+<li>ground_truth_col (str | None): If provided, compares predictions against a ground truth column.</li>
+<li>model_id (int | None): Specific model ID to query if multiple versions exist.</li>
+<li>batch_size (int | None): Batch size for prediction requests.</li>
+<li>compression_algo (str | None): Optional compression for data transfer.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.predict_with_offline_model" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">predict_with_offline_model</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">column_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">new_column_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">future_horizon</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">mlflow_model_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">model_conf_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">model_conf</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">problem_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.predict_with_offline_model"></a>
+    
+            <div class="docstring"><p>Makes predictions using an offline model available locally (e.g., MLflow model URI).</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>column_names (list[str] | None): Input feature columns.</li>
+<li>new_column_name (str | None): Column name for predictions.</li>
+<li>future_horizon (int | None): For forecasting, how many steps into the future to predict.</li>
+<li>mlflow_model_uri (str | None): URI for the MLflow model.</li>
+<li>model_conf_path (str | None): Path to a model configuration file.</li>
+<li>model_conf (str | None): Model configuration in JSON/dict form.</li>
+<li>problem_type (str | None): Type of problem (e.g., classification, regression, forecasting).</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.join" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">join</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">conn_conf</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">dict</span>,</span><span class="param">	<span class="n">left_key_col_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">right_key_col_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">right_ws_name</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">join_technique</span><span class="o">=</span><span class="s1">&#39;Left&#39;</span>,</span><span class="param">	<span class="n">suffix_for_overlap</span><span class="o">=</span><span class="s1">&#39;_right&#39;</span>,</span><span class="param">	<span class="n">summary_column</span><span class="o">=</span><span class="kc">False</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.join"></a>
+    
+            <div class="docstring"><p>Joins the current DataFrame with another dataset from a specified connection.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>conn_conf (str | dict): The connection configuration of the data source to join.</li>
+<li>left_key_col_name (str): The key column in the current DataFrame.</li>
+<li>right_key_col_name (str): The key column in the target dataset.</li>
+<li>right_ws_name (str | None): Optional name for the right worksheet.</li>
+<li>join_technique (str): The join type ("Left", "Right", "Inner", "Outer").</li>
+<li>suffix_for_overlap (str): Suffix added to overlapping columns.</li>
+<li>summary_column (bool): If True, adds a summary column of join results.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.wait_until_done" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">wait_until_done</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">timeout_min</span><span class="o">=</span><span class="mi">600</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.wait_until_done"></a>
+    
+            <div class="docstring"><p>Waits until all operations and steps have finished executing on the worker,
+or until the given timeout elapses.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>timeout_min (int): Maximum number of minutes to wait.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.get_df_copy" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_df_copy</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">timeout_min</span><span class="o">=</span><span class="mi">600</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.get_df_copy"></a>
+    
+            <div class="docstring"><p>Retrieves a copy of the DataFrame currently held by the process after ensuring all operations are done.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>timeout_min (int): Maximum number of minutes to wait until done.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>pd.DataFrame: A pandas DataFrame representing the processed data.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="Process.kill" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">kill</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">kill_async</span><span class="o">=</span><span class="kc">False</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Process.kill"></a>
+    
+            <div class="docstring"><p>Terminates the process on the worker, freeing resources.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>kill_async (bool): If True, attempts an asynchronous kill without waiting for confirmation.</li>
+</ul>
+
+<p><strong>Note:</strong> Once killed, the process cannot be reused and a new one must be started for further operations.</p>
+</div>
+
+
+                            </div>
+                </section>
                 <section id="get_logger">
                     <div class="attr function">
             
@@ -8546,6 +9827,42 @@ configure their levels and outputs independently.</p>
         
     </div>
     <a class="headerlink" href="#Log.SDK"></a>
+    
+    
+
+                            </div>
+                            <div id="Log.REGION" class="classattr">
+                                <div class="attr variable">
+            <span class="name">REGION</span>        =
+<span class="default_value">&lt;<a href="#Log.REGION">Log.REGION</a>: &#39;practicus.core.region&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.REGION"></a>
+    
+    
+
+                            </div>
+                            <div id="Log.WORKER" class="classattr">
+                                <div class="attr variable">
+            <span class="name">WORKER</span>        =
+<span class="default_value">&lt;<a href="#Log.WORKER">Log.WORKER</a>: &#39;practicus.core.worker&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.WORKER"></a>
+    
+    
+
+                            </div>
+                            <div id="Log.PROCESS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PROCESS</span>        =
+<span class="default_value">&lt;<a href="#Log.PROCESS">Log.PROCESS</a>: &#39;practicus.core.process&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.PROCESS"></a>
     
     
 
@@ -8856,13 +10173,13 @@ If omitted, defaults to a region-level or system default.</p>
                             </div>
                             <div id="WorkerConfig.bypass_ssl_verification" class="classattr">
                                 <div class="attr variable">
-            <span class="name">bypass_ssl_verification</span><span class="annotation">: str | None</span>
+            <span class="name">bypass_ssl_verification</span><span class="annotation">: bool | None</span>
 
         
     </div>
     <a class="headerlink" href="#WorkerConfig.bypass_ssl_verification"></a>
     
-            <div class="docstring"><p>Set this to "true" if you need to bypass SSL certificate verification. 
+            <div class="docstring"><p>Set this to "True" if you need to bypass SSL certificate verification. 
 Generally not recommended unless working with trusted but self-signed certs.</p>
 </div>
 
@@ -9137,7 +10454,7 @@ If omitted, a suitable default is used.</p>
                                 <div class="attr variable">
             <span class="name">model_fields</span><span class="annotation">: ClassVar[Dict[str, pydantic.fields.FieldInfo]]</span>        =
 <input id="WorkerConfig.model_fields-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="WorkerConfig.model_fields-view-value"></label><span class="default_value">{&#39;worker_image&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;worker_size&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;service_type&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;network_protocol&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;distributed_config&#39;: FieldInfo(annotation=Union[DistJobConfig, NoneType], required=False, default=None, exclude=True), &#39;startup_script&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;modules_log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;bypass_ssl_verification&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;image_pull_policy&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;interactive&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None, exclude=True), &#39;service_url&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;email&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;refresh_token&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None)}</span>
+            <label class="view-value-button pdoc-button" for="WorkerConfig.model_fields-view-value"></label><span class="default_value">{&#39;worker_image&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;worker_size&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;service_type&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;network_protocol&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;distributed_config&#39;: FieldInfo(annotation=Union[DistJobConfig, NoneType], required=False, default=None, exclude=True), &#39;startup_script&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;modules_log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;bypass_ssl_verification&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None, exclude=True), &#39;image_pull_policy&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;interactive&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None, exclude=True), &#39;service_url&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;email&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;refresh_token&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None)}</span>
 
         
     </div>
@@ -9748,6 +11065,124 @@ mapping of field names to [<code>FieldInfo</code>][pydantic.fields.FieldInfo] ob
 
                             </div>
                 </section>
+                <section id="PrtList">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">PrtList</span><wbr>(<span class="base">list[~T]</span>, <span class="base">typing.Generic[~T]</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#PrtList"></a>
+    
+            <div class="docstring"><p>A specialized list that can be toggled as read-only.
+It also provides utilities for converting its items into CSV,
+pandas DataFrames, and JSON formats.</p>
+
+<p><strong>Key Features</strong>:</p>
+
+<ul>
+<li>Inherits all behavior from the built-in <code>list</code>, but adds a read-only flag.</li>
+<li>If <code><a href="#PrtList.read_only">read_only</a></code> is set to <code>True</code>, any attempt to modify the list
+will raise a <code>ValueError</code>.</li>
+<li>Supports easy data exporting to CSV (via <code>__str__</code>), pandas DataFrame
+(via <code><a href="#PrtList.to_pandas">to_pandas</a></code>), and JSON (via <code><a href="#PrtList.to_json">to_json</a></code>).</li>
+<li>Can convert its contents into a list of dictionaries (via <code><a href="#PrtList.to_dict_list">to_dict_list</a></code>),
+making it easier to manipulate or serialize.</li>
+</ul>
+</div>
+
+
+                            <div id="PrtList.read_only" class="classattr">
+                                <div class="attr variable">
+            <span class="name">read_only</span><span class="annotation">: bool</span>
+
+        
+    </div>
+    <a class="headerlink" href="#PrtList.read_only"></a>
+    
+            <div class="docstring"><p>Check if the list is currently read-only.</p>
+
+<h6 id="returns">Returns</h6>
+
+<blockquote>
+  <p><code>True</code> if read-only, <code>False</code> otherwise.</p>
+</blockquote>
+</div>
+
+
+                            </div>
+                            <div id="PrtList.to_pandas" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">to_pandas</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#PrtList.to_pandas"></a>
+    
+            <div class="docstring"><p>Convert the list to a pandas DataFrame by reading the CSV representation.</p>
+
+<h6 id="returns">Returns</h6>
+
+<blockquote>
+  <p>A <code>pandas.DataFrame</code> containing the list's data.</p>
+</blockquote>
+</div>
+
+
+                            </div>
+                            <div id="PrtList.to_json" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">to_json</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">prettify</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#PrtList.to_json"></a>
+    
+            <div class="docstring"><p>Convert the list to a JSON string, using the CSV data as the source.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>prettify</strong>:  If <code>True</code>, the JSON is formatted with indentation.
+If <code>False</code>, the JSON is compact.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<blockquote>
+  <p>A JSON string of the list's data.</p>
+</blockquote>
+</div>
+
+
+                            </div>
+                            <div id="PrtList.to_dict_list" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">to_dict_list</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#PrtList.to_dict_list"></a>
+    
+            <div class="docstring"><p>Convert the list to a list of dictionaries by parsing the CSV representation.</p>
+
+<h6 id="returns">Returns</h6>
+
+<blockquote>
+  <p>A list of dictionaries representing each row/item in the list.</p>
+</blockquote>
+</div>
+
+
+                            </div>
+                </section>
                 <section id="get_default_region">
                     <div class="attr function">
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
@@ -9947,7 +11382,7 @@ A <code><a href="#Region">Region</a></code> object.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_region_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">PrtList</span><span class="p">[</span><span class="n"><a href="#Region">Region</a></span><span class="p">]</span>:</span></span>
+        <span class="name">get_region_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n"><a href="#Region">Region</a></span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -9960,7 +11395,7 @@ A <code><a href="#Region">Region</a></code> object.</p>
 <h6 id="returns">Returns</h6>
 
 <blockquote>
-  <p>A read-only PrtList of <code><a href="#Region">Region</a></code> objects.</p>
+  <p>A read-only <code><a href="#PrtList">PrtList</a></code> of <code><a href="#Region">Region</a></code> objects.</p>
 </blockquote>
 </div>
 

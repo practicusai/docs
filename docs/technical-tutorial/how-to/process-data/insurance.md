@@ -109,4 +109,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Eda](../explore-data/eda.md) | **Next**: [Insurance With Remote Worker](insurance-with-remote-worker.md)
+**Previous**: [Analyze](../explore-data/eda/analyze.md) | **Next**: [Insurance With Remote Worker](insurance-with-remote-worker.md)

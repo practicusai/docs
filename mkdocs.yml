@@ -109,12 +109,13 @@ nav:
       - Modern Python: technical-tutorial/how-to/create-virtual-envs/modern-python.md
       - Legacy Python: technical-tutorial/how-to/create-virtual-envs/legacy-python.md
     - Explore Data:
-      - 01 Plot:
+      - Plot:
         - Dynamic Size Color:
-          - Dynamic Size Color: technical-tutorial/how-to/explore-data/01-Plot/Dynamic-Size-Color/Dynamic-Size-Color.md
-        - Multiple Layer Analyze:
-          - Multiple Layer Analyze: technical-tutorial/how-to/explore-data/01-Plot/Multiple-Layer-Analyze/Multiple-Layer-Analyze.md
-      - Eda: technical-tutorial/how-to/explore-data/eda.md
+          - Analyze: technical-tutorial/how-to/explore-data/plot/dynamic-size-color/analyze.md
+        - Multiple Layers:
+          - Analyze: technical-tutorial/how-to/explore-data/plot/multiple-layers/analyze.md
+      - Eda:
+        - Analyze: technical-tutorial/how-to/explore-data/eda/analyze.md
     - Process Data:
       - Insurance: technical-tutorial/how-to/process-data/insurance.md
       - Insurance With Remote Worker: technical-tutorial/how-to/process-data/insurance-with-remote-worker.md

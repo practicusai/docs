@@ -14,7 +14,6 @@ jupyter:
 
 # Analyze Over Multiple Layer
 
-
 In this notebook we are going to give you a brief tuttorial of how to use mutiple graphics on one figure by using bokeh.
 
 We are going to cover these topics:
@@ -23,6 +22,11 @@ We are going to cover these topics:
 - How to add dynamic explanations over glyphs
 - How to create _Bar_ and _Line_ plot
 
+## Before you begin
+
+At the time of this writing, Bokeh only support `Jupyter Lab` and not `VS Code` [View issue details](https://github.com/bokeh/bokeh/issues/10765) Please make sure you run this example in Jupyter Lab, or verify on Bokeh repo that the issue is resolved.
+
+
 
 Let's begin by importing our libraries
 
@@ -30,8 +34,6 @@ Let's begin by importing our libraries
 from bokeh.plotting import figure, show, output_notebook
 from bokeh.models import ColumnDataSource, HoverTool
 import practicuscore as prt
-import pandas as pd
-import numpy as np
 ```
 
 Here's a breakdown of each bokeh function we've imported:
@@ -236,4 +238,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Dynamic Size Color](../Dynamic-Size-Color/Dynamic-Size-Color.md) | **Next**: [Eda](../../eda.md)
+**Previous**: [Analyze](../dynamic-size-color/analyze.md) | **Next**: [Analyze](../../eda/analyze.md)

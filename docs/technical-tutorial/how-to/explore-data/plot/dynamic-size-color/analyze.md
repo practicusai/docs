@@ -12,22 +12,26 @@ jupyter:
     name: practicus
 ---
 
+
 # Dynamic Size & Color
 
-
-In this notebook we are going to give you a brief tutorial on how to use color and size feature of glyphs (a.k.a graphs and plots) dynamically by assigning features of dataset to color and size parameters.
+In this example we are going to give you a brief tutorial on how to use color and size feature of glyphs (a.k.a graphs and plots) dynamically by assigning features of dataset to color and size parameters.
 
 - How to create figure
 - How to create and edit _circle_ plots 
 - How to add dynamic explanations over glyphs
+
+## Before you begin
+
+- At the time of this writing, Bokeh only support `Jupyter Lab` and not `VS Code`
+- [View issue details](https://github.com/bokeh/bokeh/issues/10765)
+- Please make sure you run this example in Jupyter Lab, or verify on Bokeh repo that the issue is resolved.
 
 ```python
 from bokeh.plotting import figure, show, output_notebook
 from bokeh.models import LinearColorMapper, ColumnDataSource, ColorBar, HoverTool
 from bokeh.transform import transform
 import practicuscore as prt
-import pandas as pd
-import numpy as np
 ```
 
 Here's a breakdown of each bokeh function we've imported:
@@ -199,4 +203,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Legacy Python](../../../create-virtual-envs/legacy-python.md) | **Next**: [Multiple Layer Analyze](../Multiple-Layer-Analyze/Multiple-Layer-Analyze.md)
+**Previous**: [Legacy Python](../../../create-virtual-envs/legacy-python.md) | **Next**: [Analyze](../multiple-layers/analyze.md)

@@ -1,5 +1,7 @@
 # Welcome to Practicus AI Documentation
 
+This document covers Practicus AI platform v24.8.2
+
 ## About Practicus AI
 
 [Practicus AI](https://practicus.ai) is a **unified platform for Generative AI and Data Intelligence**. It helps you move from initial concepts to **production-grade AI and Data solutions**. Whether you are an experienced engineer or new to Data and AI, the platform is designed to be both **reliable and easy to navigate**.
