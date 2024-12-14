@@ -48,10 +48,8 @@ import practicuscore as prt
 ```
 
 ```python
-# Select a region (assuming a single-region setup)
-region = prt.get_default_region()
-
-worker = region.create_worker()
+# Create the worker
+worker = prt.create_worker()
 ```
 
 ```python
@@ -81,23 +79,23 @@ worker_config = prt.WorkerConfig(
     worker_image="practicus-genai",
     # Worker sizes are defined by your admin, more on this later.
     worker_size="X-Small",
-    
+    # Adding a startup script
     startup_script="""
     echo "Hello Practicus AI" > ~/hello.txt
     """,
 )
 
 # And create the worker with the custom configuration
-second_worker = prt.create_worker(worker_config)
+worker = prt.create_worker(worker_config)
 ```
 
 ```python
 # Verify you have hello.txt in home directory
-second_worker.open_notebook()
+worker.open_notebook()
 ```
 
 ```python
-second_worker.terminate()
+worker.terminate()
 ```
 
 

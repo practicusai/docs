@@ -1,4 +1,4 @@
-site_name: Docs | Practicus AI
+site_name: Docs v24.8.2 | Practicus AI
 theme:
   name: material
   custom_dir: overrides
@@ -24,6 +24,10 @@ markdown_extensions:
 - pymdownx.inlinehilite
 - pymdownx.snippets
 - pymdownx.superfences
+extra:
+  analytics:
+    provider: google
+    property: G-XHY4LGW10Y
 nav:
 - Welcome: index.md
 - Getting Started: getting-started.md
@@ -188,7 +192,7 @@ nav:
   - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
   - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
   - Next Steps: ai-studio-tutorial/next-steps.md
-- Practicus AI SDK: sdk/practicuscore.html
+- SDK & API Reference: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

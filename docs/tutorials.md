@@ -19,6 +19,10 @@ If you’d like a hands-on experience, follow these steps to run the tutorial no
 3. **View the `samples/notebooks` Directory:**  
    Here you’ll find the tutorial notebooks that **match** exactly to what you read in the technical tutorial.
 
+4. **View the SDK Docs:**  
+   Check out the [SDK documentation](https://docs.practicus.ai/sdk/) for additional reference and guidance.
+
+
 ## AI Studio Tutorial (if you do not code)
 
 If coding isn’t your focus, the [AI Studio tutorial](ai-studio-tutorial/start.md) is ideal:

@@ -20,7 +20,7 @@
     
     
       
-        <title>Workers - Docs | Practicus AI</title>
+        <title>Workers - Docs v24.8.2 | Practicus AI</title>
       
     
     
@@ -49,6 +49,16 @@
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XHY4LGW10Y"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XHY4LGW10Y",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XHY4LGW10Y",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -88,7 +98,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Docs | Practicus AI" class="md-header__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../.." title="Docs v24.8.2 | Practicus AI" class="md-header__button md-logo" aria-label="Docs v24.8.2 | Practicus AI" data-md-component="logo">
       
   <img src="../../../img/practicus50.png" alt="logo">
 
@@ -101,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Docs | Practicus AI
+            Docs v24.8.2 | Practicus AI
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -208,12 +218,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Docs | Practicus AI" class="md-nav__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../.." title="Docs v24.8.2 | Practicus AI" class="md-nav__button md-logo" aria-label="Docs v24.8.2 | Practicus AI" data-md-component="logo">
       
   <img src="../../../img/practicus50.png" alt="logo">
 
     </a>
-    Docs | Practicus AI
+    Docs v24.8.2 | Practicus AI
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -5088,7 +5098,7 @@
         
   
   <span class="md-ellipsis">
-    Practicus AI SDK
+    SDK & API Reference
   </span>
   
 
@@ -5967,10 +5977,8 @@
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Import the Practicus AI SDK</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">practicuscore</span> <span class="k">as</span> <span class="nn">prt</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Select a region (assuming a single-region setup)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">get_default_region</span><span class="p">()</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">create_worker</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create the worker</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">create_worker</span><span class="p">()</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Start JupyterLab on the worker and open it in a new tab</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">worker</span><span class="o">.</span><span class="n">open_notebook</span><span class="p">()</span>
@@ -5992,19 +6000,19 @@
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">worker_image</span><span class="o">=</span><span class="s2">&quot;practicus-genai&quot;</span><span class="p">,</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="c1"># Worker sizes are defined by your admin, more on this later.</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;X-Small&quot;</span><span class="p">,</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="c1"># Adding a startup script</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">startup_script</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s2">    echo &quot;Hello Practicus AI&quot; &gt; ~/hello.txt</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">)</span>
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># And create the worker with the custom configuration</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">second_worker</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">create_worker</span><span class="p">(</span><span class="n">worker_config</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">create_worker</span><span class="p">(</span><span class="n">worker_config</span><span class="p">)</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Verify you have hello.txt in home directory</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">second_worker</span><span class="o">.</span><span class="n">open_notebook</span><span class="p">()</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">worker</span><span class="o">.</span><span class="n">open_notebook</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">second_worker</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">worker</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
 </span></code></pre></div>
 <hr />
 <p><strong>Previous</strong>: <a href="../introduction/">Introduction</a> | <strong>Next</strong>: <a href="../../modeling/basics/modeling-basics/">Modeling Basics</a></p>
@@ -6019,6 +6027,8 @@
   
 
 
+
+  
 
 
 

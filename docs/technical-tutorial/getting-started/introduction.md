@@ -16,7 +16,7 @@ jupyter:
 
 Getting started with Practicus AI is straightforward.
 
-## Common Usage Patterns
+## Most common Practicus AI usage
 
 The following steps outline a typical workflow for users who write code:
 
@@ -29,6 +29,40 @@ The following steps outline a typical workflow for users who write code:
 
 ![Common usage](img/common-usage.png)
 
+---
+
+## Leveraging Documentation and Developer Tooling
+
+**1. Access the SDK Documentation:**  
+   Experienced coders understand that having immediate access to detailed SDK references accelerates the development lifecycle. You can refer to the [Practicus AI SDK Documentation](https://docs.practicus.ai/sdk/) to understand package structures, classes, methods, and parameters. This robust, searchable reference ensures you can quickly find the API calls needed to interact with Practicus AI resources programmatically.
+
+**2. Utilize IntelliSense and Contextual Help in JupyterLab or VS Code:**  
+   When working within JupyterLab or VS Code, take advantage of built-in IntelliSense (auto-completion) capabilities. As you type, your IDE will surface method signatures, docstrings, and parameter hints—especially helpful for complex ML pipelines or when invoking intricate model-serving APIs.  
+
+### Contextual Help with Jupyter Lab
+
+- **Contextual Tooltips:** Hover over classes and methods to see in-line docstrings and parameter descriptions. This “just-in-time” help enables you to craft pipelines, preprocess data, or orchestrate model inference steps without constantly switching between your IDE and external docs.  
+
+- **Shift-Tab:** Inside a Jupyter notebook, pressing `Shift+Tab` while your cursor is within a function call will reveal type hints, default values, and docstrings. This immediate feedback reduces trial-and-error and makes coding more efficient and error-free.
+
+![Jupyter help](img/jupyter-help-1.png)
+
+Combining direct SDK reference materials with IntelliSense-driven guidance ensures data scientists spend more time crafting robust models and less time hunting down syntax or function definitions.
+
+- **Contextual Help Tab:** You can also right-click on a cell, select "Show Conextual Help" to leave the help tab always open.
+
+![Jupyter help](img/jupyter-help-2.png)
+
+### Contextual Help with VS Code
+
+- **Ctrl+Space for Inline Help:** In VS Code, pressing `Ctrl+Space` triggers IntelliSense to display inline suggestions, completion items, and parameter hints. This built-in guidance makes it easy to discover available functions, understand their expected parameters, and review docstrings—all without leaving your editor window.
+
+![VS Code help](img/vscode-help-1.png)
+
+- **Jupyter Panel:** You can also keep the Jupyter panel open in VS Code for continuous, context-sensitive help as you work. This panel remains visible as you code, providing an always-on reference for classes, methods, and type hints.
+
+![VS Code help](img/vscode-help-2.png)
+  
 ---
 
 ## Practicus AI Platform Components
