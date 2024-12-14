@@ -72,4 +72,4 @@ print("Too many blank lines, which is code formatting issue.")
 
 ---
 
-**Previous**: [Test](../../distributed-computing/deepspeed/llm-fine-tuning/test.md) | **Next**: [Sample Notebook](../automate-notebooks/sample-notebook.md)
+**Previous**: [Test](../../distributed-computing/deepspeed/llm-fine-tuning/test.md) | **Next**: [Executing Notebooks](../automate-notebooks/executing-notebooks.md)

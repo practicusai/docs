@@ -25,6 +25,7 @@ The following steps outline a typical workflow for users who write code:
 3. Start an IDE, such as JupyterLab or VS Code, within a worker.
 4. Develop models, applications, and process data as usual.
 5. Deploy models, applications, or use add-ons (e.g., create Airflow workflows).
+6. Observe metrics, logs, events, errors. Create alerts.
 
 ![Common usage](img/common-usage.png)
 

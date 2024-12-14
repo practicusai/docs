@@ -60,4 +60,4 @@ prt.notebooks.validate_history()
 
 ---
 
-**Previous**: [Run Sample Notebook](../automate-notebooks/run-sample-notebook.md) | **Next**: [Git Integration](../configure-git/git-integration.md)
+**Previous**: [Executing Notebooks](../automate-notebooks/executing-notebooks.md) | **Next**: [Git Integration](../configure-git/git-integration.md)

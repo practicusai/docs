@@ -99,8 +99,7 @@ nav:
     - Improve Code Quality:
       - Code Quality: technical-tutorial/how-to/improve-code-quality/code-quality.md
     - Automate Notebooks:
-      - Sample Notebook: technical-tutorial/how-to/automate-notebooks/sample-notebook.md
-      - Run Sample Notebook: technical-tutorial/how-to/automate-notebooks/run-sample-notebook.md
+      - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
     - Automate Tests:
       - Test Core Features: technical-tutorial/how-to/automate-tests/test-core-features.md
     - Configure Git:
