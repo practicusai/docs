@@ -14,7 +14,7 @@ jupyter:
 
 # Executing batch jobs in Dask Cluster
 
-In this notebook we will:
+In this example we will:
 - Create a Dask cluster
 - Submit a job python file
 - Terminate the cluster after job is completed.
@@ -72,10 +72,6 @@ prt.distributed.view_log(
 - Also note that you do **not** need to terminate the cluster since it has a 'py_file' to execute, which defaults `terminate_on_completion` parameter to True.
 - You can change terminate_on_completion to False to keep the cluster running after the job is completed to troubleshoot issues.
 - You can view other `prt.distributed.JobConfig` properties to customize the cluster
-
-```python
-
-```
 
 
 ## Supplementary Files

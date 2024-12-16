@@ -62,10 +62,6 @@ by opening the next example in this directory
 coordinator_worker.terminate()
 ```
 
-```python
-
-```
-
 
 ---
 

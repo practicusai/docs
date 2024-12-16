@@ -1,4 +1,0 @@
-{
-    "download_files_from": "cache/ice_cream_sparkml_model/",
-    "_comment": "you can also define download_files_to otherwise, /var/practicus/cache is used"
-}

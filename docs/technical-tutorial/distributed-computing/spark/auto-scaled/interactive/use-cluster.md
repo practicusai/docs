@@ -58,12 +58,12 @@ prt.engines.delete_spark_session()
 ```python
 coordinator_worker.terminate()
 ```
+
 - Or, terminate "self" and children workers with the below:
 
 ```python
 prt.get_local_worker().terminate()
 ```
-
 <!-- #endregion -->
 
 

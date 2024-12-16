@@ -12,7 +12,7 @@ jupyter:
     name: practicus
 ---
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["blah"] -->
+<!-- #region -->
 # Automating Notebook Execution
 
 Practicus AI allows you to execute notebooks in an automated fashion, which can be particularly useful for `testing` and  `automated workflows`.
@@ -64,17 +64,15 @@ print("Finished running sample notebook")
 Once you’ve set up the notebook and its parameters, you can execute it using Practicus AI’s automated run capabilities.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""}
+```python
 import practicuscore as prt
-```
 
-```python editable=true slideshow={"slide_type": ""}
 # This will run just fine, 
 # and save the resulting output to sample_notebook_output.ipynb
 prt.notebooks.execute_notebook("sample_notebook")
 ```
 
-```python editable=true slideshow={"slide_type": ""}
+```python
 # The below *will FAIL* since some_param cannot be 0
 prt.notebooks.execute_notebook(
     "sample_notebook",
@@ -84,17 +82,13 @@ prt.notebooks.execute_notebook(
 )
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
 ## Advanced features
-<!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["parameters"]
+```python
 # Advanced Notebook automation parameters
 default_output_folder="~/tests"  # If none, writes notebook output to same folder as notebook
 default_failed_output_folder="~/tests_failed"  # If not none, collects failed notebook results 
-```
 
-```python editable=true slideshow={"slide_type": ""}
 # By calling configure you can save notebook results to central location
 # Please note that you can do this to a shared/ folder daily where all of our members have access to
 prt.notebooks.configure(
@@ -102,14 +96,10 @@ prt.notebooks.configure(
     default_failed_output_folder=default_failed_output_folder,
     add_time_stamp_to_output=True,
 )
-```
 
-```python editable=true slideshow={"slide_type": ""}
 # This will work
 prt.notebooks.execute_notebook("sample_notebook")
-```
 
-```python editable=true slideshow={"slide_type": ""}
 # This will fail but does not stop the execution of the notebook
 prt.notebooks.execute_notebook(
     "sample_notebook",
@@ -117,9 +107,7 @@ prt.notebooks.execute_notebook(
         "some_param": 0 
     }
 )
-```
 
-```python editable=true slideshow={"slide_type": ""}
 # Calling validate_history() will raise an exception IF any of the previous notebooks failed
 # This is useful to have a primary "orchestration" notebook that executes other child notebooks,
 # And then finally fails itself if there was a mistake. 
@@ -141,4 +129,4 @@ prtcli execute-notebook -p notebook=my-notebook.ipynb
 
 ---
 
-**Previous**: [Code Quality](../improve-code-quality/code-quality.md) | **Next**: [Test Core Features](../automate-tests/test-core-features.md)
+**Previous**: [Automated Code Quality](../improve-code-quality/automated-code-quality.md) | **Next**: [Work With Connections](../work-with-connections.md)

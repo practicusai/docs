@@ -1,4 +1,4 @@
-site_name: Docs v24.8.2 | Practicus AI
+site_name: Docs | Practicus AI
 theme:
   name: material
   custom_dir: overrides
@@ -36,42 +36,31 @@ nav:
   - Getting Started:
     - Introduction: technical-tutorial/getting-started/introduction.md
     - Workers: technical-tutorial/getting-started/workers.md
+    - Workspaces: technical-tutorial/getting-started/workspaces.md
+    - Add-Ons: technical-tutorial/getting-started/add-ons.md
   - Modeling:
-    - Basics:
-      - Modeling Basics: technical-tutorial/modeling/basics/modeling-basics.md
+    - Introduction: technical-tutorial/modeling/introduction.md
+    - Sample Modeling:
+      - Build And Deploy: technical-tutorial/modeling/sample-modeling/build-and-deploy.md
   - Workflows:
+    - Introduction: technical-tutorial/workflows/introduction.md
     - Tasks:
-      - Tasks: technical-tutorial/workflows/tasks/tasks.md
+      - Task Basics: technical-tutorial/workflows/tasks/task-basics.md
     - Airflow:
-      - Airflow: technical-tutorial/workflows/airflow/airflow.md
+      - Deploying On Airflow: technical-tutorial/workflows/airflow/deploying-on-airflow.md
     - AI Studio:
-      - AI Studio: technical-tutorial/workflows/AI-Studio/AI-Studio.md
+      - Generating Wokflows: technical-tutorial/workflows/AI-Studio/generating-wokflows.md
   - Generative AI:
-    - App Building:
-      - Build: technical-tutorial/generative-ai/app-building/build.md
-    - Langchain:
-      - Langchain With Streaming: technical-tutorial/generative-ai/langchain/langchain-with-streaming.md
-      - Langchain Basics: technical-tutorial/generative-ai/langchain/langchain-basics.md
-    - LLM Apps:
-      - API LLM Apphost:
-        - Build: technical-tutorial/generative-ai/llm-apps/api-llm-apphost/build.md
-      - Sdk LLM Apphost:
-        - Stream:
-          - Sdk Streamlit Hosting: technical-tutorial/generative-ai/llm-apps/sdk-llm-apphost/stream/sdk-streamlit-hosting.md
-        - Non-Stream:
-          - Sdk Streamlit Hosting: technical-tutorial/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md
-      - Langflow LLM Apphost:
-        - Langflow Streamlit Hosting: technical-tutorial/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
+    - Introduction: technical-tutorial/generative-ai/introduction.md
+    - Apps:
+      - Building Visual Apps: technical-tutorial/generative-ai/apps/building-visual-apps.md
+    - LangChain:
+      - LangChain Basics: technical-tutorial/generative-ai/langchain/langchain-basics.md
+      - Streaming: technical-tutorial/generative-ai/langchain/streaming.md
     - Vector Databases:
-      - Milvus: technical-tutorial/generative-ai/vector-databases/milvus.md
-    - Deploying LLM:
-      - Prep: technical-tutorial/generative-ai/deploying-llm/Prep.md
-      - Upload Download: technical-tutorial/generative-ai/deploying-llm/upload-download.md
-      - Model: technical-tutorial/generative-ai/deploying-llm/model.md
-      - Model Json: technical-tutorial/generative-ai/deploying-llm/model-json.md
-      - Deploy: technical-tutorial/generative-ai/deploying-llm/deploy.md
-      - Consume Parallel: technical-tutorial/generative-ai/deploying-llm/consume-parallel.md
+      - Sample Vector Db: technical-tutorial/generative-ai/vector-databases/sample-vector-db.md
   - Distributed Computing:
+    - Introduction: technical-tutorial/distributed-computing/introduction.md
     - Spark:
       - Interactive:
         - Start Cluster: technical-tutorial/distributed-computing/spark/interactive/start-cluster.md
@@ -92,89 +81,86 @@ nav:
         - Batch Job: technical-tutorial/distributed-computing/dask/batch-job/batch-job.md
       - Distributed Training:
         - XGBoost: technical-tutorial/distributed-computing/dask/distributed-training/xgboost.md
-    - Deepspeed:
+    - DeepSpeed:
       - Basics:
-        - Build: technical-tutorial/distributed-computing/deepspeed/basics/build.md
+        - Intro To DeepSpeed: technical-tutorial/distributed-computing/deepspeed/basics/intro-to-deepspeed.md
       - LLM Fine Tuning:
-        - Download Sample Data: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/download-sample-data.md
-        - Build: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/build.md
-        - Test: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/test.md
+        - Llms With DeepSpeed: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md
   - How To:
     - Improve Code Quality:
-      - Code Quality: technical-tutorial/how-to/improve-code-quality/code-quality.md
+      - Automated Code Quality: technical-tutorial/how-to/improve-code-quality/automated-code-quality.md
     - Automate Notebooks:
       - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
-    - Automate Tests:
-      - Test Core Features: technical-tutorial/how-to/automate-tests/test-core-features.md
-    - Configure Git:
-      - Git Integration: technical-tutorial/how-to/configure-git/git-integration.md
-    - Create Virtual Envs:
-      - Modern Python: technical-tutorial/how-to/create-virtual-envs/modern-python.md
-      - Legacy Python: technical-tutorial/how-to/create-virtual-envs/legacy-python.md
-    - Explore Data:
+    - Work With Connections: technical-tutorial/how-to/work-with-connections.md
+    - Integrate Git: technical-tutorial/how-to/integrate-git.md
+    - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
+    - Work With Processes: technical-tutorial/how-to/work-with-processes.md
+    - Work With Data Catalog: technical-tutorial/how-to/work-with-data-catalog.md
+    - Customize Templates: technical-tutorial/how-to/customize-templates.md
+    - Configure Advanced Gpu: technical-tutorial/how-to/configure-advanced-gpu.md
+    - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md
+    - Share Workers: technical-tutorial/how-to/share-workers.md
+    - Create Virtual Envs: technical-tutorial/how-to/create-virtual-envs.md
+    - Model Tokens: technical-tutorial/how-to/model-tokens.md
+    - Use Polars: technical-tutorial/how-to/use-polars.md
+  - Extras:
+    - Data Analysis:
       - Plot:
-        - Dynamic Size Color:
-          - Analyze: technical-tutorial/how-to/explore-data/plot/dynamic-size-color/analyze.md
-        - Multiple Layers:
-          - Analyze: technical-tutorial/how-to/explore-data/plot/multiple-layers/analyze.md
+        - Into To Plot: technical-tutorial/extras/data-analysis/plot/into-to-plot.md
+        - Multiple Layers: technical-tutorial/extras/data-analysis/plot/multiple-layers.md
       - Eda:
-        - Analyze: technical-tutorial/how-to/explore-data/eda/analyze.md
-    - Process Data:
-      - Insurance: technical-tutorial/how-to/process-data/insurance.md
-      - Insurance With Remote Worker: technical-tutorial/how-to/process-data/insurance-with-remote-worker.md
-      - Spark Custom Config: technical-tutorial/how-to/process-data/spark-custom-config.md
-      - Polars: technical-tutorial/how-to/process-data/polars.md
-      - Deploy Workflow: technical-tutorial/how-to/process-data/deploy-workflow.md
-      - Spark Object Storage: technical-tutorial/how-to/process-data/spark-object-storage.md
-    - Pre Process Data:
-      - Preprocess Tut: technical-tutorial/how-to/pre-process-data/preprocess-tut.md
-    - Additional Modeling:
-      - AutoML: technical-tutorial/how-to/additional-modeling/AutoML.md
-      - Deploy Model: technical-tutorial/how-to/additional-modeling/deploy-model.md
-      - Shap Analysis: technical-tutorial/how-to/additional-modeling/shap-analysis.md
+        - Analyze: technical-tutorial/extras/data-analysis/eda/analyze.md
+    - Data Processing:
+      - Pre Process Data:
+        - Preprocess: technical-tutorial/extras/data-processing/pre-process-data/preprocess.md
+      - Process Data:
+        - Insurance: technical-tutorial/extras/data-processing/process-data/insurance.md
+        - Insurance With Remote Worker: technical-tutorial/extras/data-processing/process-data/insurance-with-remote-worker.md
+        - Spark Custom Config: technical-tutorial/extras/data-processing/process-data/spark-custom-config.md
+        - Spark Object Storage: technical-tutorial/extras/data-processing/process-data/spark-object-storage.md
+    - Modeling:
       - SparkML:
-        - SparkML Ice Cream: technical-tutorial/how-to/additional-modeling/sparkml/sparkml-ice-cream.md
+        - SparkML Ice Cream: technical-tutorial/extras/modeling/sparkml/sparkml-ice-cream.md
       - Model Tracking:
         - Experiment Tracking:
-          - Experiment Tracking Logging: technical-tutorial/how-to/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md
-          - Experiment Tracking Model Training: technical-tutorial/how-to/additional-modeling/model-tracking/experiment-tracking/experiment-tracking-model-training.md
-        - Model Drifts:
-          - Model Drift: technical-tutorial/how-to/additional-modeling/model-tracking/model-drifts/Model-Drift.md
+          - Experiment Tracking Logging: technical-tutorial/extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md
+          - Experiment Tracking Model Training: technical-tutorial/extras/modeling/model-tracking/experiment-tracking/experiment-tracking-model-training.md
+        - Model Drift:
+          - Model Drift: technical-tutorial/extras/modeling/model-tracking/model-drift/model-drift.md
+      - Model Observability:
+        - Model Observability: technical-tutorial/extras/modeling/model-observability/model-observability.md
       - XGBoost:
-        - XGBoost: technical-tutorial/how-to/additional-modeling/xgboost/xgboost.md
+        - XGBoost: technical-tutorial/extras/modeling/xgboost/xgboost.md
+      - AutoML: technical-tutorial/extras/modeling/AutoML.md
+      - Shap Analysis: technical-tutorial/extras/modeling/shap-analysis.md
       - Bank Marketing:
-        - Bank Marketing: technical-tutorial/how-to/additional-modeling/bank-marketing/bank-marketing.md
-      - Streamlined Model Deployment:
-        - Streamlined Model Deployment: technical-tutorial/how-to/additional-modeling/streamlined-model-deployment/streamlined-model-deployment.md
-    - More:
-      - Use Workers: technical-tutorial/how-to/more/use-workers.md
-      - Use Workspaces: technical-tutorial/how-to/more/use-workspaces.md
-      - Use Addons: technical-tutorial/how-to/more/use-addons.md
-      - Work With Connections: technical-tutorial/how-to/more/work-with-connections.md
-      - Configure Advanced Gpu: technical-tutorial/how-to/more/configure-advanced-gpu.md
-      - Customize Templates: technical-tutorial/how-to/more/customize-templates.md
-      - Work With Models: technical-tutorial/how-to/more/work-with-models.md
-      - Work With Model Tokens: technical-tutorial/how-to/more/work-with-model-tokens.md
-      - Work With Notebooks: technical-tutorial/how-to/more/work-with-notebooks.md
-      - Work With Vscode: technical-tutorial/how-to/more/work-with-vscode.md
-      - Work With Processes: technical-tutorial/how-to/more/work-with-processes.md
-      - Use Security Tokens: technical-tutorial/how-to/more/use-security-tokens.md
-      - Share Workers: technical-tutorial/how-to/more/share-workers.md
-      - Work With Data Catalog: technical-tutorial/how-to/more/work-with-data-catalog.md
-      - Work With Distributed Spark: technical-tutorial/how-to/more/work-with-distributed-spark.md
-  - More Examples:
-    - Advanced Langchain:
-      - Prepare Data: technical-tutorial/more-examples/advanced-langchain/prepare-data.md
-      - Lang Chain LLM Model: technical-tutorial/more-examples/advanced-langchain/lang-chain-llm-model.md
-    - Milvus Embedding And Langchain:
-      - Milvus Chain: technical-tutorial/more-examples/milvus-embedding-and-langchain/milvus-chain.md
-    - Genai Demos:
-      - Cv Asistant:
-        - Prepare Data: technical-tutorial/more-examples/genai-demos/cv-asistant/prepare-data.md
-        - Cv Asistant: technical-tutorial/more-examples/genai-demos/cv-asistant/cv-asistant.md
+        - Bank Marketing: technical-tutorial/extras/modeling/bank-marketing/bank-marketing.md
+    - Generative AI:
       - Email E Asistant:
-        - Prepare Data: technical-tutorial/more-examples/genai-demos/email-e-asistant/prepare-data.md
-        - Mail E-Assistant: technical-tutorial/more-examples/genai-demos/email-e-asistant/mail-e-assistant.md
+        - Mail E-Assistant: technical-tutorial/extras/generative-ai/email-e-asistant/mail-e-assistant.md
+      - Advanced LangChain:
+        - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
+      - LLM Apps:
+        - API LLM Apphost:
+          - Build: technical-tutorial/extras/generative-ai/llm-apps/api-llm-apphost/build.md
+        - Sdk LLM Apphost:
+          - Non-Stream:
+            - Sdk Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md
+          - Stream:
+            - Sdk Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/sdk-llm-apphost/stream/sdk-streamlit-hosting.md
+        - Langflow LLM Apphost:
+          - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
+      - Milvus Embedding And LangChain:
+        - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
+      - Deploying LLM:
+        - Prep: technical-tutorial/extras/generative-ai/deploying-llm/Prep.md
+        - Upload Download: technical-tutorial/extras/generative-ai/deploying-llm/upload-download.md
+        - Model: technical-tutorial/extras/generative-ai/deploying-llm/model.md
+        - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/model-json.md
+        - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/deploy.md
+        - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/consume-parallel.md
+      - Cv Asistant:
+        - Cv Asistant: technical-tutorial/extras/generative-ai/cv-asistant/cv-asistant.md
 - AI Studio Tutorial:
   - Getting Started: ai-studio-tutorial/start.md
   - Intro to Data Analysis: ai-studio-tutorial/data-analysis-intro.md
@@ -192,7 +178,7 @@ nav:
   - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
   - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
   - Next Steps: ai-studio-tutorial/next-steps.md
-- SDK & API Reference: sdk/practicuscore.html
+- SDK v24.8.2: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

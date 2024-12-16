@@ -60,10 +60,6 @@ prt.get_local_worker().terminate()
 
 <!-- #endregion -->
 
-```python
-
-```
-
 
 ---
 

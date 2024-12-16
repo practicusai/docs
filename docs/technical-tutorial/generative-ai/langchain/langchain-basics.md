@@ -12,19 +12,19 @@ jupyter:
     name: practicus
 ---
 
-# Langchain pipeline development
+# LangChain Pipeline Development
 
+The `ChatPracticus` library seamlessly integrates Practicus AI’s hosted private LLM models into the [LangChain](https://github.com/langchain-ai/langchain) framework. This allows you to easily interact with language models that are privately hosted and secured within the Practicus AI environment.
 
-By using 'ChatPracticus' it is possible to create llm models which can be used in langchains.
+To get started with `ChatPracticus`, you will need the following parameters:
 
-ChatPracticus method could take the variables down below:
-- endpoint_url: the api url of llm modelhost
-- api_token: the secret key to reach llm modelhost api
-- model_id: the model id of the model which is intended to use
+- **endpoint_url:** The API endpoint for the LLM model host.
+- **api_token:** A secret key required to authenticate with the model host API.
+- **model_id:** The identifier of the target LLM model.
 
-After defining a 'chat' by using 'ChatPracticus', the chat can be invoked with desired prompts.
+Once these parameters are set, you can define a `chat` instance using `ChatPracticus` and invoke it with any prompt of your choice.
 
-Now, let's write a function which will use 'ChatPracticus' method.
+Below is an example of how to create and use a `ChatPracticus` instance in your code.
 
 ```python
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -34,7 +34,7 @@ def test_langchain_practicus(api_url, token, inputs):
     chat = ChatPracticus(
         endpoint_url=api_url,
         api_token=token,
-        model_id="current models ignore this",
+        model_id="some models will ignore this",
         stream = True
     )
     
@@ -44,16 +44,22 @@ def test_langchain_practicus(api_url, token, inputs):
     print("\n\nReceived Content:\n", response.content)
 ```
 
-Async also works, but not on jupyter,
+<!-- #region -->
+Async calls also work using the below (but not on jupyter)
 
-```
+```python
 import asyncio
 asyncio.run(llm.ainvoke([sys_input, human_input1, human_input2]))
 print(response)
 ```
+<!-- #endregion -->
 
+After defining your token and API URL, you can easily incorporate prompts into your workflow. By using the `langchain` library, you can structure your messages as follows:
 
-After defining token and api url, we could insert our desired prompts. We could send our messages within 'HumanMessage' while sending our system message by wraping them with 'SystemMessage' methods of 'langchain' library.
+- **System Messages:** Use `SystemMessage` to provide overarching instructions or context that guide the LLM’s behavior.
+- **Human Messages:** Wrap user prompts and queries with `HumanMessage` to represent the user’s input.
+
+This structured approach ensures that the model receives clear, role-specific instructions, enhancing the quality and relevance of its responses.
 
 ```python
 import practicuscore as prt
@@ -100,22 +106,17 @@ inputs = [human_input1, human_input2, system_message]
 test_langchain_practicus(api_url, token, ['who is einstein'])
 ```
 
-<!-- #region -->
-#### Received response:
- content="Albert Einstein was a theoretical physicist born on March 14, 1879, in Ulm, in the Kingdom of Württemberg in the German Empire. He is best known for developing the theory of relativity, which revolutionized the understanding of space, time, and energy. His most famous equation, E=mc², expresses the equivalence of mass and energy.\n\nEinstein's work laid the foundation for much of modern physics and he received the Nobel Prize in Physics in 1921 for his explanation of the photoelectric effect, which was pivotal in the development of quantum theory. Beyond his scientific contributions, Einstein was also known for his philosophical views, advocacy for civil rights, and his involvement in political and humanitarian causes. He passed away on April 18, 1955, in Princeton, New Jersey, USA." response_metadata={'model_id': 'current models ignore this'} id='run-12ae83b4-ec3e-4f5f-a9e2-3577fd4a2ff9-0' usage_metadata={'input_tokens': 0, 'output_tokens': 0, 'total_tokens': 0}
+#### Received json response:
 
+```text
+{
+    content="Albert Einstein was a theoretical physicist born on March 14, 1879, in Ulm, in the Kingdom of Württemberg in the German Empire. He is best known for developing the theory of relativity, which revolutionized the understanding of space, time, and energy. His most famous equation, E=mc², expresses the equivalence of mass and energy.\n\nEinstein's work laid the foundation for much of modern physics and he received the Nobel Prize in Physics in 1921 for his explanation of the photoelectric effect, which was pivotal in the development of quantum theory. Beyond his scientific contributions, Einstein was also known for his philosophical views, advocacy for civil rights, and his involvement in political and humanitarian causes. He passed away on April 18, 1955, in Princeton, New Jersey, USA." 
 
-#### Content:
- Albert Einstein was a theoretical physicist born on March 14, 1879, in Ulm, in the Kingdom of Württemberg in the German Empire. He is best known for developing the theory of relativity, which revolutionized the understanding of space, time, and energy. His most famous equation, E=mc², expresses the equivalence of mass and energy.
-
-Einstein's work laid the foundation for much of modern physics and he received the Nobel Prize in Physics in 1921 for his explanation of the photoelectric effect, which was pivotal in the development of quantum theory. Beyond his scientific contributions, Einstein was also known for his philosophical views, advocacy for civil rights, and his involvement in political and humanitarian causes. He passed away on April 18, 1955, in Princeton, New Jersey, USA.
-<!-- #endregion -->
-
-```python
-
+    ... with additional metadata 
+}       
 ```
 
 
 ---
 
-**Previous**: [Langchain With Streaming](langchain-with-streaming.md) | **Next**: [Build](../llm-apps/api-llm-apphost/build.md)
+**Previous**: [Building Visual Apps](../apps/building-visual-apps.md) | **Next**: [Streaming](streaming.md)

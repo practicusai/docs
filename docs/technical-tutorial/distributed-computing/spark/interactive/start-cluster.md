@@ -64,4 +64,4 @@ coordinator_worker.terminate()
 
 ---
 
-**Previous**: [Consume Parallel](../../../generative-ai/deploying-llm/consume-parallel.md) | **Next**: [Use Cluster](use-cluster.md)
+**Previous**: [Introduction](../../introduction.md) | **Next**: [Use Cluster](use-cluster.md)

@@ -1,4 +1,0 @@
-{
-"download_files_from": "cache/codellama-01/",
-"_comment": "you can also define download_files_to otherwise, /var/practicus/cache is used"
-}

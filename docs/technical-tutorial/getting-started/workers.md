@@ -12,35 +12,35 @@ jupyter:
     name: practicus
 ---
 
-<!-- #region -->
-# Using Workers
+# Practicus AI Workers
 
-This example illustrates the basic workflow of creating a worker, accessing it through JupyterLab, performing tasks, and then terminating the environment when finished.
+This example demonstrates a typical workflow for using Practicus AI Workers:
 
-## Steps
+**Create a Worker**:  
 
-1. **Create a Worker**:  
-   From the Practicus AI interface, request a new worker with the required specifications (e.g., CPU, RAM, GPU). This process typically takes a few seconds.
+Request a new worker with the required resources (CPU, RAM, GPU) from Practicus AI. This usually takes a few seconds.
 
-2. **Access JupyterLab or VS Code**:  
-   Once the worker is ready, start a JupyterLab session directly on it. Here you can:
-   - Develop and run code
-   - Explore and process data
-   - Train and evaluate models
+**Open JupyterLab or VS Code**:
 
-3. **Perform Tasks**:  
-   Within the JupyterLab environment, you can execute standard Python notebooks, run scripts, or use a variety of integrated tools and libraries.
+Once the worker is ready, launch JupyterLab or VS Code directly on it. Within this environment, you can:
 
-4. **Terminate the Worker**:  
-   After completing your work, simply stop or delete the worker. A new worker can be created at any time, providing a clean environment without leftover state.
+- Develop and run code interactively
+- Explore and process data
+- Train and evaluate machine learning models
 
-This workflow ensures you have an isolated, on-demand environment for efficient development and testing, while preserving the flexibility to scale resources and maintain a clean slate for subsequent tasks.
+**Perform Tasks**:  
 
+Inside JupyterLab or VS Code, run Python notebooks, scripts, or leverage integrated libraries and frameworks.
 
-### Worker with default settings
+**Terminate the Worker**:  
 
-Let's create a worker with default settings.
-<!-- #endregion -->
+After finishing your tasks, stop or delete the worker. You can always start a new one later, ensuring a clean environment each time.
+
+This approach provides an isolated, on-demand environment for efficient development, scaling, and maintaining a clean slate for each new task.
+
+### Creating a Worker with Default Settings
+
+Let's start by creating a worker with the default configuration.
 
 ```python
 # Import the Practicus AI SDK
@@ -48,12 +48,12 @@ import practicuscore as prt
 ```
 
 ```python
-# Create the worker
+# Create a worker using default settings
 worker = prt.create_worker()
 ```
 
 ```python
-# Start JupyterLab on the worker and open it in a new tab
+# Start JupyterLab on the worker and open it in a new browser tab
 worker.open_notebook()
 
 # To use VS Code instead of JupyterLab, uncomment the line below:
@@ -61,36 +61,33 @@ worker.open_notebook()
 ```
 
 ```python
-# After using the worker, you can terminate it:
+# After using the worker, terminate it:
 worker.terminate()
 
-# Alternatively, if you're inside the worker environment, you can 'self-terminate' by running:
+# If you're inside a worker environment, you can self-terminate by running:
 # prt.get_local_worker().terminate()
 ```
 
-### Customized Worker
+### Creating a Customized Worker
 
-Now let's create a worker with additional settings.
+Now let's create a worker with a custom configuration, specifying a custom image, size, and a startup script.
 
 ```python
-# First step is to define what we need
+# Define a custom worker configuration
 worker_config = prt.WorkerConfig(
-    # The below image has GenAI related features
     worker_image="practicus-genai",
-    # Worker sizes are defined by your admin, more on this later.
     worker_size="X-Small",
-    # Adding a startup script
     startup_script="""
     echo "Hello Practicus AI" > ~/hello.txt
     """,
 )
 
-# And create the worker with the custom configuration
+# Create the worker with the custom configuration
 worker = prt.create_worker(worker_config)
 ```
 
 ```python
-# Verify you have hello.txt in home directory
+# Verify that hello.txt exists in the home directory:
 worker.open_notebook()
 ```
 
@@ -98,7 +95,86 @@ worker.open_notebook()
 worker.terminate()
 ```
 
+### Working with the Region Class
+
+- You can interact with multiple regions and perform most operations by using the [Region](https://docs.practicus.ai/sdk/practicuscore.html#Region) class.
+- If running inside a worker, you can easily access the current region and perform actions directly.
+
+```python
+# Get the current region
+region = prt.current_region()
+
+# You could also connect to a different region
+# region = prt.get_region("username@some-other-region.com")
+```
+
+```python
+print("Current region:")
+region
+```
+
+It will print something like:
+
+```
+key: my-user-name@practicus.your-company.com
+url: https://practicus.your-company.com
+username: my-user-name
+email: my-user-name@your-company.com
+is_default: True
+```
+
+
+### Worker Sizes
+
+Worker sizes define the CPU, RAM, GPU, and other resources allocated to a worker.
+
+```python
+# List available worker sizes
+for worker_size in region.worker_size_list:
+    print(worker_size.name)
+```
+
+### Smart Listing with PrtList
+
+[PrtList](https://docs.practicus.ai/sdk/practicuscore.html#PrtList) is a specialized list type that can be toggled as read-only and easily converted to CSV, DataFrame, or JSON. Many results returned by the SDK are `PrtList` objects.
+
+```python
+# Convert worker sizes to a pandas DataFrame
+df = region.worker_size_list.to_pandas()
+display(df)
+```
+
+### Worker Images
+
+Worker images define the base container image and features available on the worker.
+
+```python
+df = region.worker_image_list.to_pandas()
+print("Available worker images:")
+display(df)
+```
+
+### Worker Logs
+
+You can view the logs of a worker to debug issues or review activities.
+
+```python
+if prt.running_on_a_worker():
+    print("Code is running on a worker, will use 'self' (local worker).")
+    worker = prt.get_local_worker()
+else:
+    print("Code not running on a worker, creating a new one.")
+    worker = prt.create_worker()
+
+print("Worker logs:")
+worker.view_logs()
+
+worker_logs = worker.get_logs()
+if "some error" in worker_logs:
+    print("Found 'some error' in logs")
+```
+
 
 ---
 
-**Previous**: [Introduction](introduction.md) | **Next**: [Modeling Basics](../modeling/basics/modeling-basics.md)
+**Previous**: [Introduction](introduction.md) | **Next**: [Workspaces](workspaces.md)

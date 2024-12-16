@@ -16,9 +16,9 @@ jupyter:
 
 Getting started with Practicus AI is straightforward.
 
-## Most common Practicus AI usage
+## Typical Practicus AI usage
 
-The following steps outline a typical workflow for users who write code:
+The following steps outline a typical scenario for users who write code:
 
 1. Log in to your chosen region (e.g., `https://practicus.your-company.com`).
 2. Create one or more workers with the desired features and resource capacities.
@@ -49,7 +49,7 @@ The following steps outline a typical workflow for users who write code:
 
 Combining direct SDK reference materials with IntelliSense-driven guidance ensures data scientists spend more time crafting robust models and less time hunting down syntax or function definitions.
 
-- **Contextual Help Tab:** You can also right-click on a cell, select "Show Conextual Help" to leave the help tab always open.
+- **Contextual Help Tab:** You can also right-click on a cell, select "Show Contextual Help" to leave the help tab always open.
 
 ![Jupyter help](img/jupyter-help-2.png)
 
