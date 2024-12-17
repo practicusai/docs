@@ -329,4 +329,4 @@ print(answer)
 
 ---
 
-**Previous**: [Mail E-Assistant](../email-e-asistant/mail-e-assistant.md) | **Next**: [Build](../llm-apps/api-llm-apphost/build.md)
+**Previous**: [Mail E-Assistant](../email-e-asistant/mail-e-assistant.md) | **Next**: [LLM Apps > API LLM Apphost > Build](../llm-apps/api-llm-apphost/build.md)

@@ -63,4 +63,4 @@ Practicus AI enables you to deploy custom fine-tuned LLMs tailored to your speci
 
 ---
 
-**Previous**: [Generating Wokflows](../workflows/AI-Studio/generating-wokflows.md) | **Next**: [Building Visual Apps](apps/building-visual-apps.md)
+**Previous**: [Generating Wokflows](../workflows/AI-Studio/generating-wokflows.md) | **Next**: [Apps > Building Visual Apps](apps/building-visual-apps.md)

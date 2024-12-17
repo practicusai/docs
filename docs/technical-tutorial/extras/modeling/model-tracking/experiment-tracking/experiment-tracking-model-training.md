@@ -112,4 +112,4 @@ mlflow.end_run()
 
 ---
 
-**Previous**: [Experiment Tracking Logging](experiment-tracking-logging.md) | **Next**: [Model Drift](../model-drift/model-drift.md)
+**Previous**: [Experiment Tracking Logging](experiment-tracking-logging.md) | **Next**: [Model Drift > Model Drift](../model-drift/model-drift.md)

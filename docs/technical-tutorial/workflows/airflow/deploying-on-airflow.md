@@ -199,4 +199,4 @@ prt.workflows.deploy(
 
 ---
 
-**Previous**: [Task Basics](../tasks/task-basics.md) | **Next**: [Generating Wokflows](../AI-Studio/generating-wokflows.md)
+**Previous**: [Task Basics](../tasks/task-basics.md) | **Next**: [AI Studio > Generating Wokflows](../AI-Studio/generating-wokflows.md)

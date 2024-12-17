@@ -69,4 +69,4 @@ prt.get_local_worker().terminate()
 
 ---
 
-**Previous**: [Start Cluster](start-cluster.md) | **Next**: [Batch Job](../batch/batch-job.md)
+**Previous**: [Start Cluster](start-cluster.md) | **Next**: [Batch > Batch Job](../batch/batch-job.md)

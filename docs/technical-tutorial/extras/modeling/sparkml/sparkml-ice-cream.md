@@ -268,4 +268,4 @@ async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFra
 
 ---
 
-**Previous**: [Spark Object Storage](../../data-processing/process-data/spark-object-storage.md) | **Next**: [Experiment Tracking Logging](../model-tracking/experiment-tracking/experiment-tracking-logging.md)
+**Previous**: [Spark Object Storage](../../data-processing/process-data/spark-object-storage.md) | **Next**: [Model Tracking > Experiment Tracking > Experiment Tracking Logging](../model-tracking/experiment-tracking/experiment-tracking-logging.md)

@@ -34,7 +34,7 @@ region = prt.regions.get_default_region()
 # Get tokens for the current region.
 refresh_token, access_token = region.get_refresh_and_access_token()
 
-# Will print long strings like eyJhbG...
+# Will print long strings like eyJ...
 print("Refresh token:", refresh_token)
 print("Access token:", access_token)
 ```

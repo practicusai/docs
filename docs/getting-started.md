@@ -38,4 +38,4 @@ Next, decide whether you prefer to work with code or not.
 
 ---
 
-**Next**: [Tutorials](tutorials.md)
+**Previous**: [Welcome](index.md) | **Next**: [Tutorials](tutorials.md)

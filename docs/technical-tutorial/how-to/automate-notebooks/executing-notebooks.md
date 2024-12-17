@@ -118,7 +118,7 @@ prt.notebooks.validate_history()
 # ~/tests and ~/tests_failed with a time stamp (optional)
 ```
 
- ### Executing notebooks from terminal
+### Executing notebooks from terminal
  
 You can run the below command to execute a notebook from the terminal or an .sh script.
 

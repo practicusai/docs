@@ -77,4 +77,4 @@ region.recreate_model_deployment(model_deployment_key)
 
 ---
 
-**Previous**: [Add-Ons](../getting-started/add-ons.md) | **Next**: [Build And Deploy](sample-modeling/build-and-deploy.md)
+**Previous**: [Add-Ons](../getting-started/add-ons.md) | **Next**: [Sample Modeling > Build And Deploy](sample-modeling/build-and-deploy.md)

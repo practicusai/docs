@@ -107,4 +107,4 @@ with st.form("my_form"): # Define our question
 
 ---
 
-**Previous**: [Build](../../api-llm-apphost/build.md) | **Next**: [Sdk Streamlit Hosting](../stream/sdk-streamlit-hosting.md)
+**Previous**: [Build](../../api-llm-apphost/build.md) | **Next**: [Stream > Sdk Streamlit Hosting](../stream/sdk-streamlit-hosting.md)

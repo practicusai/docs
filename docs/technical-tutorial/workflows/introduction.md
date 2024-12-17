@@ -98,4 +98,4 @@ In short, Practicus AI’s model of defining workflows as collections of indepen
 
 ---
 
-**Previous**: [Build And Deploy](../modeling/sample-modeling/build-and-deploy.md) | **Next**: [Task Basics](tasks/task-basics.md)
+**Previous**: [Build And Deploy](../modeling/sample-modeling/build-and-deploy.md) | **Next**: [Tasks > Task Basics](tasks/task-basics.md)

@@ -405,4 +405,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Intro To DeepSpeed](../basics/intro-to-deepspeed.md) | **Next**: [Automated Code Quality](../../../how-to/improve-code-quality/automated-code-quality.md)
+**Previous**: [Intro To DeepSpeed](../basics/intro-to-deepspeed.md) | **Next**: [How To > Improve Code Quality > Automated Code Quality](../../../how-to/improve-code-quality/automated-code-quality.md)

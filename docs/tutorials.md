@@ -35,7 +35,7 @@ If coding isn’t your focus, the [AI Studio tutorial](ai-studio-tutorial/start.
 
 ---
 
-**Next**: Choose one of,
+**Previous**: [Tutorials](tutorials.md) | **Next**: Choose one of the below.
 
--  [Technical Tutorial](technical-tutorial/getting-started/introduction.md) If you code
--  [AI Studio tutorial](ai-studio-tutorial/start.md) If you do not code 
+- [Technical Tutorial (if you code)](technical-tutorial/getting-started/introduction.md)
+- [AI Studio tutorial (if you do not code)](ai-studio-tutorial/start.md) 

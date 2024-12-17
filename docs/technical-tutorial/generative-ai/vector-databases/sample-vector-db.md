@@ -208,4 +208,4 @@ utility.drop_collection("hello_milvus")
 
 ---
 
-**Previous**: [Streaming](../langchain/streaming.md) | **Next**: [Introduction](../../distributed-computing/introduction.md)
+**Previous**: [Streaming](../langchain/streaming.md) | **Next**: [Distributed Computing > Introduction](../../distributed-computing/introduction.md)

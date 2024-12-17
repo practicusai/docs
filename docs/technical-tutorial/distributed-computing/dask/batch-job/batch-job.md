@@ -105,4 +105,4 @@ df.to_csv('/home/ubuntu/my/dask/result.csv')
 
 ---
 
-**Previous**: [Use Cluster](../interactive/use-cluster.md) | **Next**: [XGBoost](../distributed-training/xgboost.md)
+**Previous**: [Use Cluster](../interactive/use-cluster.md) | **Next**: [Distributed Training > XGBoost](../distributed-training/xgboost.md)

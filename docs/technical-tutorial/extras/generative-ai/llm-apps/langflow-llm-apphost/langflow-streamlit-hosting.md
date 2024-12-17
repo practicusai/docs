@@ -193,4 +193,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Sdk Streamlit Hosting](../sdk-llm-apphost/stream/sdk-streamlit-hosting.md) | **Next**: [Milvus Chain](../../milvus-embedding-and-langchain/milvus-chain.md)
+**Previous**: [Sdk Streamlit Hosting](../sdk-llm-apphost/stream/sdk-streamlit-hosting.md) | **Next**: [Milvus Embedding And LangChain > Milvus Chain](../../milvus-embedding-and-langchain/milvus-chain.md)

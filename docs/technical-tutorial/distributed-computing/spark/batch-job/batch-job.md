@@ -101,4 +101,4 @@ df_filtered.write.csv("/home/ubuntu/my/spark/result.csv", header=True, mode="ove
 
 ---
 
-**Previous**: [Use Cluster](../interactive/use-cluster.md) | **Next**: [Start Cluster](../auto-scaled/interactive/start-cluster.md)
+**Previous**: [Use Cluster](../interactive/use-cluster.md) | **Next**: [Auto Scaled > Interactive > Start Cluster](../auto-scaled/interactive/start-cluster.md)

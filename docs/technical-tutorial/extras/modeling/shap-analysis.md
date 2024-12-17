@@ -604,4 +604,4 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
 
 ---
 
-**Previous**: [AutoML](AutoML.md) | **Next**: [Bank Marketing](bank-marketing/bank-marketing.md)
+**Previous**: [AutoML](AutoML.md) | **Next**: [Bank Marketing > Bank Marketing](bank-marketing/bank-marketing.md)

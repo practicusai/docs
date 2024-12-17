@@ -154,4 +154,4 @@ with st.container():
 
 ---
 
-**Previous**: [Sdk Streamlit Hosting](../non-stream/sdk-streamlit-hosting.md) | **Next**: [Langflow Streamlit Hosting](../../langflow-llm-apphost/langflow-streamlit-hosting.md)
+**Previous**: [Sdk Streamlit Hosting](../non-stream/sdk-streamlit-hosting.md) | **Next**: [Langflow LLM Apphost > Langflow Streamlit Hosting](../../langflow-llm-apphost/langflow-streamlit-hosting.md)

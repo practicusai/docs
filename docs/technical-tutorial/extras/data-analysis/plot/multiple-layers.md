@@ -236,4 +236,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Into To Plot](into-to-plot.md) | **Next**: [Analyze](../eda/analyze.md)
+**Previous**: [Introduction](introduction.md) | **Next**: [Eda > Analyze](../eda/analyze.md)

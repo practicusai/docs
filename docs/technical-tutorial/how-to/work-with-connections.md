@@ -14,17 +14,102 @@ jupyter:
 
 # Practicus AI Connections
 
-## Data Upload to S3-Compatible Storage with the Practicus SDK
 
-This notebook demonstrates how to securely and efficiently upload local data from a specified folder to an S3-compatible storage solution—such as Amazon S3, MinIO, or other similar services—using the Practicus SDK. As a data scientist, you can integrate this step into your data pipelines to simplify dataset management.
 
-By providing your AWS credentials or compatible credentials, as well as optional parameters for regions, endpoints, and prefixes, you can:
+## Displaying Available Connections
 
-- Automatically upload large datasets to remote object storage
-- Maintain versioned data repositories for improved reproducibility
-- Effortlessly share data and results with collaborators or production services
+Below is a quick way to list all available connections you have. Run the code
+to view your configured data sources, storage endpoints, and other services.
 
-Simply fill in the required parameters below and run the notebook to transfer files from this worker or your local machine to the target object storage.
+```python
+import practicuscore as prt
+
+prt.connections.get_all().to_pandas()
+```
+
+## Creating a New Connection
+
+The `conn_conf` parameter takes a configuration object from a base class that 
+supports many data sources, including:
+
+- S3ConnConf
+- SqLiteConnConf
+- MYSQLConnConf
+- PostgreSQLConnConf
+- RedshiftConnConf
+- SnowflakeConnConf
+- MSSQLConnConf
+- OracleConnConf
+- HiveConnConf
+- ClouderaConnConf
+- AthenaConnConf
+- ElasticSearchConnConf
+- OpenSearchConnConf
+- TrinoConnConf
+- DremioConnConf
+- HanaConnConf
+- TeradataConnConf
+- Db2ConnConf
+- DynamoDBConnConf
+- CockroachDBConnConf
+- CustomDBConnConf
+
+Here we use `SqLiteConnConf` to create a new SQLite connection by providing
+the database file path.
+
+```python
+import practicuscore as prt
+
+_name = "New SQLite Connection"
+_conn_conf = prt.connections.SqLiteConnConf(file_path="/home/ubuntu/samples/chinook.db")
+
+new_conn_uuid = prt.connections.create(name=_name, conn_conf=_conn_conf)
+print(new_conn_uuid)
+
+```
+
+## Retrieving a Specific Connection
+
+Retrieve an existing connection by UUID or name to reuse previously configured
+settings without reconfiguring them each time.
+
+```python
+import practicuscore as prt
+
+_conn_id_or_name = None
+assert _conn_id_or_name is not None
+
+conn = prt.connections.get(_conn_id_or_name)
+print(conn)
+```
+
+## Updating an Existing Connection
+
+After retrieving a connection, you can update its configuration—changing 
+file paths, credentials, endpoints, or its name. Provide `_new_conn_conf` 
+and `_updated_name` to apply the changes.
+
+```python
+import practicuscore as prt
+
+_conn_id_or_name = None
+assert _conn_id_or_name is not None
+conn = prt.connections.get(_conn_id_or_name)
+
+_new_conn_conf = None  # prt.connections.SqLiteConnConf(file_path="/home/ubuntu/samples/chinook.db")
+_updated_name = None
+assert _new_conn_conf and _updated_name
+
+prt.connections.update(conn_uuid=conn.uuid, name=_updated_name, conn_conf=_new_conn_conf)
+```
+
+## Data Upload to S3-Compatible Storage
+
+Upload local data to S3-compatible storage (e.g., Amazon S3, MinIO) using the Practicus SDK.
+Provide your credentials, region, endpoints, and prefixes as needed. This approach simplifies
+managing datasets remotely, ensures reproducibility, and makes sharing data easier.
+
+Set the parameters below and run the code to transfer files.
 
 ```python
 import practicuscore as prt
@@ -36,20 +121,13 @@ _bucket = None  # The name of your target bucket, e.g. "my-data-bucket"
 # Ensure that essential parameters are provided
 assert _aws_access_key_id and _aws_secret_access_key and _bucket
 
-_aws_session_token = None  # (Optional) AWS session token for temporary credentials
-_aws_region = None         # (Optional) Your AWS region. If unknown, you may leave it as None.
-_endpoint_url = None       # (Optional) Endpoint URL for S3-compatible services (e.g., MinIO API URL)
+_aws_session_token = None  # (Optional) AWS session token
+_aws_region = None         # (Optional) AWS region
+_endpoint_url = None       # (Optional) S3-compatible endpoint (e.g., MinIO)
 
-_prefix = None  # (Optional) Prefix for organizing objects within the bucket. 
-                 # Use None or "" for root-level placement, or specify something 
-                 # like "folder" or "folder/subfolder" for nested directories.
-
-_folder_path = None  # The local path containing files to upload.
-                     # Example: "/home/ubuntu/your/folder/path/"
-
-_source_path_to_cut = None  # (Optional) A prefix within the local folder path 
-                            # that you want to remove from the uploaded object keys.
-                            # Leave as None to default to the entire folder path.
+_prefix = None  # (Optional) Prefix for organizing objects within the bucket
+_folder_path = None  # The local folder path with files to upload
+_source_path_to_cut = None  # (Optional) Remove a leading folder path portion from object keys
 
 # Ensure the folder path is provided
 assert _folder_path
@@ -62,6 +140,8 @@ _upload_conf = prt.connections.UploadS3Conf(
     aws_access_key_id=_aws_access_key_id,
     aws_secret_access_key=_aws_secret_access_key
 )
+
+prt.connections.upload_to_s3(_upload_conf)
 ```
 
 

@@ -78,4 +78,4 @@ print(polars_df.head())
 
 ---
 
-**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Into To Plot](../extras/data-analysis/plot/into-to-plot.md)
+**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Extras > Data Analysis > Plot > Introduction](../extras/data-analysis/plot/introduction.md)

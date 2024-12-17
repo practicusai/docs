@@ -60,3 +60,5 @@ As you continue through this documentation, you will find sections tailored to d
 ---
 
 **Next**: [Getting Started](getting-started.md)
+
+<sup><sup>Practicus AI docs for v24.8.2 (Built on 2024-12-17 20:53)</sup></sup>

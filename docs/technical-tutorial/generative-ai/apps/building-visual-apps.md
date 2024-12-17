@@ -494,4 +494,4 @@ def some_function():
 
 ---
 
-**Previous**: [Introduction](../introduction.md) | **Next**: [LangChain Basics](../langchain/langchain-basics.md)
+**Previous**: [Introduction](../introduction.md) | **Next**: [LangChain > LangChain Basics](../langchain/langchain-basics.md)

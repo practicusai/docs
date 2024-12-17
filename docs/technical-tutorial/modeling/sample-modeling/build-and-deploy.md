@@ -203,4 +203,4 @@ async def predict(df, *args, **kwargs):
 
 ---
 
-**Previous**: [Introduction](../introduction.md) | **Next**: [Introduction](../../workflows/introduction.md)
+**Previous**: [Introduction](../introduction.md) | **Next**: [Workflows > Introduction](../../workflows/introduction.md)

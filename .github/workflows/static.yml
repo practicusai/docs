@@ -2,9 +2,10 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+# Disabling automated build. For daily updates, docs.practicus.io will be to date.
+# docs.practicus.io needs to be manually published
+#  push:
+#    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

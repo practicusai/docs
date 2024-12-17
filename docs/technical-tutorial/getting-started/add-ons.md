@@ -80,4 +80,4 @@ found_addon.open()
 
 ---
 
-**Previous**: [Workspaces](workspaces.md) | **Next**: [Introduction](../modeling/introduction.md)
+**Previous**: [Workspaces](workspaces.md) | **Next**: [Modeling > Introduction](../modeling/introduction.md)

@@ -377,4 +377,4 @@ def suppress_outliers(
 
 ---
 
-**Previous**: [Analyze](../../data-analysis/eda/analyze.md) | **Next**: [Insurance](../process-data/insurance.md)
+**Previous**: [Analyze](../../data-analysis/eda/analyze.md) | **Next**: [Process Data > Insurance](../process-data/insurance.md)

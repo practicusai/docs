@@ -239,4 +239,4 @@ async def predict(http_request, model_meta=None, payload_dict=None, *args, **kwa
 
 ---
 
-**Previous**: [Deploy](deploy.md) | **Next**: [Cv Asistant](../cv-asistant/cv-asistant.md)
+**Previous**: [Deploy](deploy.md) | **Next**: [Cv Asistant > Cv Asistant](../cv-asistant/cv-asistant.md)

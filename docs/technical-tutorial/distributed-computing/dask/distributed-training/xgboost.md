@@ -157,4 +157,4 @@ except:
 
 ---
 
-**Previous**: [Batch Job](../batch-job/batch-job.md) | **Next**: [Intro To DeepSpeed](../../deepspeed/basics/intro-to-deepspeed.md)
+**Previous**: [Batch Job](../batch-job/batch-job.md) | **Next**: [DeepSpeed > Basics > Intro To DeepSpeed](../../deepspeed/basics/intro-to-deepspeed.md)

@@ -122,4 +122,4 @@ Albert Einstein was a theoretical physicist born in 1879 in Germany. He is best 
 
 ---
 
-**Previous**: [LangChain Basics](langchain-basics.md) | **Next**: [Sample Vector Db](../vector-databases/sample-vector-db.md)
+**Previous**: [LangChain Basics](langchain-basics.md) | **Next**: [Vector Databases > Sample Vector Db](../vector-databases/sample-vector-db.md)
