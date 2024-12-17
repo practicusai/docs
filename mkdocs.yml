@@ -1,4 +1,5 @@
 site_name: Docs | Practicus AI
+site_url: https://docs.practicus.ai
 theme:
   name: material
   custom_dir: overrides
