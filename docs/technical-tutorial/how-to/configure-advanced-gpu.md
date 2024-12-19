@@ -72,7 +72,7 @@ This document provides an overview of how to configure partial NVIDIA GPUs (MIG)
 Practicus AI simplifies advanced GPU management through the intuitive management UI:
 
 **Open Practicus AI Management Console**:
-- Access the platform's web console for infrustructure management.
+- Access the platform's web console for infrastructure management.
 
 **Select Worker Sizes**:
 - Choose from predefined worker sizes or create a new one to include GPU capacity :

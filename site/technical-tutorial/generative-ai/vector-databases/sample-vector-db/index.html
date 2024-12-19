@@ -2671,6 +2671,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../extras/data-analysis/plot/into-to-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Into To Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../extras/data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
@@ -5671,7 +5692,7 @@
 </span></code></pre></div>
 <h2 id="1-connect-to-milvus">1. connect to Milvus</h2>
 <p>Add a new connection alias <code>default</code> for Milvus server in <code>localhost:19530</code>. </p>
-<p>Actually the <code>default</code> alias is a buildin in PyMilvus. If the address of Milvus is the same as <code>localhost:19530</code>, you can omit all parameters and call the method as: <code>connections.connect()</code>.</p>
+<p>Actually the <code>default</code> alias is a built-in in PyMilvus. If the address of Milvus is the same as <code>localhost:19530</code>, you can omit all parameters and call the method as: <code>connections.connect()</code>.</p>
 <p>Note: the <code>using</code> parameter of the following methods is default to "default".</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">connections</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;practicus-milvus.prt-ns-milvus.svc.cluster.local&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;19530&quot;</span><span class="p">)</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -5739,7 +5760,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">insert_result</span> <span class="o">=</span> <span class="n">hello_milvus</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">entities</span><span class="p">)</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of entities in Milvus: </span><span class="si">{</span><span class="n">hello_milvus</span><span class="o">.</span><span class="n">num_entities</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># check the num_entites</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of entities in Milvus: </span><span class="si">{</span><span class="n">hello_milvus</span><span class="o">.</span><span class="n">num_entities</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># check the num_entities</span>
 </span></code></pre></div>
 <h2 id="4-create-index">4. create index</h2>
 <p>We are going to create an IVF_FLAT index for hello_milvus collection.</p>

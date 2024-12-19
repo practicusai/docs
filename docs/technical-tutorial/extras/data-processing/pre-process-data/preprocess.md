@@ -7,12 +7,17 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: Python 3 (ipykernel)
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
+<!-- #region -->
 # Data Processing
+
+## Before Start
+If you will see run_snippet() function. first parameter of this function -> 'suppress_outliers' must be a script in a file named snippets where the ipynb file is located. You can see snippets of this tutorial under the Supplementary Files.
+
 
 ## _Scenario:_ Pre-process steps by using SDK
 
@@ -30,7 +35,7 @@ In this example, we'll showcase how to apply pre-process steps by using our SDK,
     - Deleting columns
     - Applying standardization by using snippets
 
-
+<!-- #endregion -->
 
 ### Step-1: Loading the Dataset
 
@@ -81,7 +86,7 @@ The 'handle_missing' method of the SDK can be utilized to fill or drop missing v
 - technique: The method which used in handling missing value. It could take the values down below:
     - 'delete': drops the rows with missing values
     - 'custom': filling the missing values with a custom value
-    - 'minimum': filling the missing values with minunmum value of column
+    - 'minimum': filling the missing values with minimum value of column
     - 'maximum': filling the missing values with maximum value of column
     - 'average': filling the missing values with average value of column
 - column_list: List of targeted columns (columns with missing values)
@@ -94,13 +99,13 @@ proc.handle_missing(technique='custom', column_list=['native-country'], custom_v
 
 #### 3.2: Suppressing of outliers by using snippets
 
-Snippets are built-in python functions prepared by Practicus AI but, also you can build your own snippets for your company (for more information please visit https://docs.practicus.ai/tutorial)
+Snippets are built-in python functions prepared by Practicus AI but, also you can build your own snippets for your company (for more information please visit the tutorial)
 
 To utilize snippets effectively, ensure that you create and open a folder named 'snippets' within your working directory. Then, place the snippet files into this designated folder.
 
 Every snippets has parameters which are optional or mandatory to run. You can checkout the parameters within the snippet code.
 
-E.g. the paramaters within 'suppress_outliers' can be listed as:
+E.g. the parameters within 'suppress_outliers' can be listed as:
 - outlier_float_col_list: list[str] | None (List of numeric columns to check for outliers. If left empty, applies to all numeric columns.),
 - q1_percentile: float = 0.25 (Custom percentile for Q1, takes 0.25 as default value),
 - q3_percentile: float = 0.75 (Custom percentile for Q3, takes 0.75 as default value),
@@ -213,7 +218,7 @@ proc.show_logs()
 
 #### 3.9: Exporting the data set into pandas dataframe
 
-The 'get_df_copy' methods of the SDK can be utilized to export the dataset as pandas dataframe to continue working with dataset on diffrent aspect of Data Science.
+The 'get_df_copy' methods of the SDK can be utilized to export the dataset as pandas dataframe to continue working with dataset on different aspect of Data Science.
 
 ```python
 df_processed = proc.get_df_copy()

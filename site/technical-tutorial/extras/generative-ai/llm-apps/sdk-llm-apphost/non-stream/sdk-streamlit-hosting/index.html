@@ -2548,6 +2548,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../data-analysis/plot/into-to-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Into To Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
@@ -5531,6 +5552,7 @@
 
 
 <h1 id="hosting-of-llm-which-is-built-by-using-sdk">Hosting of LLM which is built by using SDK</h1>
+<p>In this example we will be using the streamlit. Streamlit script should be in same folder with this notebook. If you inspect streamlit code look under 'Supplementary Files'.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">practicuscore</span> <span class="k">as</span> <span class="nn">prt</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># When you finish test, stop this cell. If you dont stop cell always be open.</span>
@@ -5541,6 +5563,7 @@
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">get_region</span><span class="p">()</span>
 </span></code></pre></div>
+<p>We receive the necessary information for deploy from the region</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">my_app_prefixes</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">app_prefix_list</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">display</span><span class="p">(</span><span class="n">my_app_prefixes</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">app_prefix</span> <span class="o">=</span> <span class="n">my_app_prefixes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">prefix</span> <span class="c1">#Select your app with my_app_prefixes[index]</span>

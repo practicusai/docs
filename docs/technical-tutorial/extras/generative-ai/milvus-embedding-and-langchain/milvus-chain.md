@@ -38,10 +38,10 @@ assert host, "Please enter your host url"
 embedding_model_path = None
 assert embedding_model_path, "Please enter your embedding model path."
 
-milvus_uri = None # Mivus connection url, E.g. 'company.practicus.milvus.com'
+milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
 assert 'milvus_uri', "Please enter your milvus connection uri"
 
-milvus_port = None # Mivus port, E.g. '19530'
+milvus_port = None # Milvus port, E.g. '19530'
 assert 'milvus_port', "Please enter your milvus connection port"
 ```
 
@@ -178,7 +178,7 @@ from pymilvus import (
 
 Add a new connection alias `default` for Milvus server in `localhost:19530`. 
 
-Actually the `default` alias is a buildin in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
+Actually the `default` alias is a built-in in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
 
 Note: the `using` parameter of the following methods is default to "default".
 
@@ -188,7 +188,7 @@ connections.connect("default", host=milvus_uri, port=milvus_port)
 
 ### 2. create collection 
 
-We need to create collection with desired feilds, in this example our collection will be like down below:
+We need to create collection with desired fields, in this example our collection will be like down below:
 
 |   |field name   |field type |other attributes                  |  field description      |
 |---|:-----------:|:---------:|:--------------------------------:|:-----------------------:|
@@ -264,7 +264,7 @@ dummy_company_collection.load()
 ```
 
 ```python
-# The querry down below retuns 'companyInfo' field of entities that has any 'pk' information, which means, all of the entites.
+# The query down below returns 'companyInfo' field of entities that has any 'pk' information, which means, all of the entities.
 entities = dummy_company_collection.query(expr="pk != ''", output_fields=['companyInfo'], limit=100)
 
 # Print out the retrieved entities
@@ -273,7 +273,7 @@ for entity in entities:
 ```
 
 ```python
-# Now we can embed a text and querry it on our collection
+# Now we can embed a text and query it on our collection
 vector_to_search = embedding_model.embed_documents(['What is the company name?'])
 ```
 

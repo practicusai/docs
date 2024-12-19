@@ -116,7 +116,7 @@ This setup ensures that all necessary configurations are in place for the system
 
 
 ```python
-host = None # Example url -> 'company.practicus.com'
+uhost = None # Example url -> 'company.practicus.com'
 assert host, "Please enter your host url" 
 
 embedding_model_path = None
@@ -127,12 +127,10 @@ vector_store = None
 assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
 
 if vector_store == 'MilvusDB':
-    milvus_uri = None # Mivus connection url, E.g. 'company.practicus.milvus.com'
+    milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
     assert 'milvus_uri', "Please enter your milvus connection uri"
-```
-
 ## Define llm api function and call ChatPracticus in this function
-
+```
 
 ### Function: `call_llm_api`
 

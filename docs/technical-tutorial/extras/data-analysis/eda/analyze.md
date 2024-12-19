@@ -14,6 +14,24 @@ jupyter:
 
 # EDA Sample
 
+
+## Example: End-to-End Exploratory Data Analysis (EDA)
+
+In this example, we will perform a complete EDA process, covering the following topics:
+
+- **Column Separation**: 
+  - We will separate the columns in the dataset according to their types.
+  
+- **Column Exploration**: 
+  - Explore the separated columns to understand their characteristics.
+  
+- **Outlier Detection and Handling**: 
+  - Identify outliers using thresholds and replace them with suitable values.
+  
+- **Correlation Analysis**: 
+  - Analyze the correlation between numerical features to uncover relationships.
+
+
 ```python
 import pandas as pd
 import numpy as np
@@ -30,12 +48,16 @@ pd.set_option('display.float_format', lambda x: '%.5f' % x)
 warnings.simplefilter(action = "ignore")
 ```
 
+Get connection for dataset
+
 ```python
 data_set_conn = {
     "connection_type": "WORKER_FILE",
     "file_path": "/home/ubuntu/samples/insurance.csv"
 }
 ```
+
+Create worker and start process
 
 ```python
 import practicuscore as prt
@@ -51,6 +73,27 @@ display(df)
 ```python
 df.info()
 ```
+
+Separate columns according to column types
+
+
+
+### **Objective**
+The `grab_col_names` function aims to identify and classify columns in a given DataFrame into different types based on their data characteristics.
+
+### **Functionality**
+- **Date Columns (`date_cols`)**:
+  - Identifies columns with a `datetime64[ns]` data type.
+- **Categorical Columns (`cat_cols`)**:
+  - Includes columns of type `object` or `category`.
+  - Includes numeric columns with a number of unique values below the `cat_th` threshold (default is 10), classifying them as categorical.
+- **Numerical Columns (`num_cols`)**:
+  - Columns with `float` or `integer` types that are not classified as `num_but_cat`.
+- **Categorical but Cardinal Columns (`cat_but_car`)**:
+  - Categorical columns with unique values exceeding the `car_th` threshold (default is 25).
+- **Numerical but Categorical Columns (`num_but_cat`)**:
+  - Numeric columns with fewer unique values than the `cat_th` threshold, treating them as categorical.
+
 
 ```python
 def grab_col_names(dataframe, cat_th=10, car_th=25, show_date=False):
@@ -79,24 +122,30 @@ def grab_col_names(dataframe, cat_th=10, car_th=25, show_date=False):
 ```
 
 ```python
-grab_col_names(df)
-```
-
-```python
 cat_cols, cat_but_car, num_cols, num_but_cat = grab_col_names(df)
-```
-
-```python
-df.head()
-```
-
-```python
-df[(df["region"]==3)]
 ```
 
 ```python
 print(cat_cols)
 ```
+
+## Target Variable None (`target=None`)
+
+For a categorical column:
+- **COUNT**: The number of times each category occurs.
+- **RATIO**: The percentage of the total data.
+- Displays these as a table.
+
+---
+
+## If Target Variable Exists (`target!=None`)
+
+In addition to the above, it shows the relationship between the target variable and the categorical variable:
+- **TARGET_COUNT**: The total number of the target variable in the categorical variable.
+- **TARGET_MEAN**: The average of the target variable for each category.
+- **TARGET_MEDIAN**: The median of the target variable for each category.
+- **TARGET_STD**: The standard deviation of the target variable for each category.
+
 
 ```python
 def cat_analyzer(dataframe, variable, target = None):
@@ -128,7 +177,35 @@ df[num_cols].hist(figsize = (25,20), bins=15);
 df[num_cols].describe([0.01, 0.05, 0.10, 0.25, 0.50, 0.75, 0.95, 0.99]).T.drop(['count'], axis=1)
 ```
 
+## Purpose of the Given Functions
+
+### 1. **`outliers_threshold`**
+- **Purpose**: Calculates the threshold values for detecting outliers in a numerical column.
+- **How it Works**:
+  - Uses the interquartile range (IQR) method based on the 5th and 95th percentiles.
+  - Defines outliers as values below `Q1 - 1.5 * IQR` or above `Q3 + 1.5 * IQR`.
+
+---
+
+### 2. **`grab_outlier`**
+- **Purpose**: Identifies outliers in a specified column and optionally returns their indices.
+- **How it Works**:
+  - Detects outliers using the thresholds calculated by `outliers_threshold`.
+  - Prints the rows containing outliers. 
+  - If the `index` parameter is set to `True`, it returns the indices of the outliers.
+
+---
+
+### 3. **`replace_with_thresholds`**
+- **Purpose**: Replaces outliers in a numerical column with the calculated threshold values.
+- **How it Works**:
+  - Detects outliers using `outliers_threshold`.
+  - If an outlier is below the lower threshold, it is replaced with the lower threshold value.
+  - If an outlier is above the upper threshold, it is replaced with the upper threshold value.
+
+
 ```python
+# This function calculates the threshold values to be used to detect outliers of a column.
 def outliers_threshold(dataframe, column):
     q1 = dataframe[column].quantile(0.05)
     q3 = dataframe[column].quantile(0.95)
@@ -137,6 +214,7 @@ def outliers_threshold(dataframe, column):
     up = q3 + 1.5 * inter_quartile_range
     return low, up
 
+# This function detects outliers in a column and optionally returns their index.
 def grab_outlier(dataframe, column, index=False):
     low, up = outliers_threshold(dataframe, column)
     if dataframe[(dataframe[column] < low) |
@@ -149,7 +227,7 @@ def grab_outlier(dataframe, column, index=False):
         outlier_index = dataframe[(dataframe[column] < low) |
                                   (dataframe[column] > up)].index.tolist()
         return outlier_index
-    
+# This function replaces outliers with threshold values.
 def replace_with_thresholds(dataframe, col_name):
     low_limit, up_limit = outliers_threshold(dataframe, col_name)
     if low_limit > 0:
@@ -163,6 +241,8 @@ def replace_with_thresholds(dataframe, col_name):
 df[df['age'] <= 64]['age'].plot(kind='box')
 ```
 
+Perform the outlier operation
+
 ```python
 for col in num_cols:
         print('********************************************************************* {} *****************************************************************************'.format(col.upper()))
@@ -171,20 +251,10 @@ for col in num_cols:
         print('****************************************************************************************************************************************************************', end='\n\n\n\n\n')
 ```
 
+This code snippet visualizes the correlations between numerical columns in a dataset using a heatmap. Correlation measures the statistical relationship between two variables. The heatmap provides a visual representation, showing how strongly each column is related to others.
+
 ```python
 import matplotlib.pyplot as plt
-```
-
-```python
-df.columns
-```
-
-```python
-cat_cols
-```
-
-```python
-df.head()
 ```
 
 ```python
@@ -194,6 +264,22 @@ sns.heatmap(corr_matrix, annot=True, cmap='Reds')
 plt.title('Correlation Heatmap')
 
 ```
+
+## Summarizing a Categorical Column
+
+### 1. Frequency and Ratio Table
+For each category in the column:
+- **Frequency (Count)**: The number of times each category is repeated.
+- **Percentage (Ratio)**: The proportion of the category in the total data.
+- Displays these metrics in a table format.
+
+---
+
+### 2. Plotting (Optional)
+If the argument `plot=True` is provided:
+- Visualizes the frequencies of the categories in the column using a **bar chart**.
+- Each bar is labeled with the percentage of the category in the total dataset.
+
 
 ```python
 def cat_summary(dataframe, x_col, plot=False, rotation=45):
@@ -228,6 +314,8 @@ def cat_summary(dataframe, x_col, plot=False, rotation=45):
 for col in cat_cols:
     cat_summary(df, col, plot=True)
 ```
+
+Kill proc when your process is finished.
 
 ```python
 proc.kill()

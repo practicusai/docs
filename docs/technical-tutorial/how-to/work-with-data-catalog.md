@@ -14,7 +14,7 @@ jupyter:
 
 # Practicus AI Data Catalog
 
-Practicus AI provides a Data Catalog where you, or an admininstrator can save data source connection information. 
+Practicus AI provides a Data Catalog where you, or an administrator can save data source connection information.
 
 Data sources can be Data Lakes, Object Storage (E.g. S3), Data Warehouses (E.g. Snowflake), Databases (e.g. Oracle) ...
 
@@ -23,7 +23,7 @@ Data catalog info does **not** include details like the actual SQL queries to ru
 
 # Practicus AI Data Catalog
 
-Practicus AI provides a Data Catalog where you, or an admininstrator can save data source connection information. 
+Practicus AI provides a Data Catalog where you, or an administrator can save data source connection information.
 
 Data sources can be Data Lakes, Object Storage (E.g. S3), Data Warehouses (E.g. Snowflake), Databases (e.g. Oracle) ...
 
@@ -223,7 +223,7 @@ conn_conf_object = first_connection.conn_conf
 conn_conf_object
 ```
 
-In most cases, accesing the "conn_conf" of a connection that you load from the Data Catalog will just have:
+In most cases, accessing the "conn_conf" of a connection that you load from the Data Catalog will just have:
 
 - Connection type, e.g. Oracle
 - And the unique reference uuid

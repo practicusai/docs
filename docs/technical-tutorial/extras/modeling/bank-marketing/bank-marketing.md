@@ -15,6 +15,9 @@ jupyter:
 # Bank marketing Sample
 A banking company wants to develop a model to predict the customers who will subscribe to time deposits and also wants to reach customers who are likely to subscribe to time deposits by using the call center resource correctly.
 
+## Before Start
+If you will see run_snippet() function. first parameter of this function -> 'suppress_outliers' must be a script in a file named snippets where the ipynb file is located. You can see snippets of this tutorial under the Supplementary Files.
+
 In the data set to be studied, variables such as demographic information, balance information and previous campaign information of the customers will be used to predict whether they will subscribe to time deposits.
 
 **Using the App**
@@ -87,6 +90,17 @@ col[pdays] != -1
 proc.filter(filter_expression) 
 ```
 
+### Code Explanation
+
+#### 1. `proc.wait_until_done()`
+- **Purpose:** Waits for the process to complete.
+- **Usage:** Useful for tracking asynchronous or long-running tasks.
+
+#### 2. `proc.show_logs()`
+- **Purpose:** Displays logs generated during the process.
+- **Usage:** Used for debugging or monitoring process progress.
+
+
 ```python
 proc.wait_until_done()
 proc.show_logs()
@@ -99,7 +113,7 @@ display(df)
 
 #### Building a model using AutoML
 
-The below code is generated. You can update the code to fit your needs, or re-create it by building a model with Practicus AI app first and then view it's jupter notebook oncethe model building is completed.
+The below code is generated. You can update the code to fit your needs, or re-create it by building a model with Practicus AI app first and then view it's jupter notebook once the model building is completed.
 
 ```python
 from pycaret.classification import ClassificationExperiment, load_model, predict_model
@@ -155,6 +169,19 @@ predictions = predict_model(loaded_model, data=df)
 display(predictions)
 ```
 
+#### **`prt.models.deploy()`**
+- **Purpose:** Deploys a model with the given configuration details to the Practicus AI platform.
+- **Key Parameters:**
+  1. **`deployment_key`**
+     - A secure key required for authentication during the deployment process.
+  2. **`prefix`**
+     - Specifies a category or folder for organizing models (e.g., `models`).
+  3. **`model_name`**
+     - The name of the model being deployed (e.g., `'my-bank-marketing-model'`).
+  4. **`model_dir`**
+     - The directory containing the model files to be deployed. Defaults to the current working directory if `None`.
+
+
 ```python
 deployment_key = None
 assert deployment_key, "Please select a deployment key"
@@ -173,7 +200,49 @@ prt.models.deploy(
 )
 ```
 
-#### Prediction by using model API
+### Prediction by using model API
+
+
+### Code Explanation
+
+This code sets up a REST API call to a Practicus AI model, sends data for prediction, and retrieves the results. Below is a detailed breakdown:
+
+---
+
+#### 1. **`region = prt.current_region()`**
+- **Purpose:** Gets the current region for API routing.
+
+#### 2. **`api_url`**
+- **Definition:** Constructs the model's REST API URL.
+- **Key Note:** The URL must end with `/` for effective traffic routing.
+
+---
+
+#### 3. **`token = prt.models.get_session_token(api_url)`**
+- **Purpose:** Retrieves a session token for authenticating API requests.
+- **SDK Dependency:** Uses Practicus AI SDK; for manual methods, refer to sample notebooks.
+
+---
+
+#### 4. **`headers`**
+- **Definition:** Includes authorization (`Bearer token`) and content type (`text/csv`) for API communication.
+
+---
+
+#### 5. **`requests.post()`**
+- **Purpose:** Sends data to the model API.
+- **Parameters:**
+  - `api_url`: API endpoint.
+  - `headers`: Authentication and data type.
+  - `data`: The CSV data generated from `df.to_csv(index=False)`.
+
+- **Error Handling:** Raises an error if the response is not successful (`r.ok`).
+
+---
+
+#### 6. **`pd.read_csv(BytesIO(r.content))`**
+- **Purpose:** Converts the API's response (in CSV format) into a pandas DataFrame for analysis.
+
 
 ```python
 region = prt.current_region()

@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: Python 3 (ipykernel)
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 # Predicting Insurance Charges with Automated Machine Learning (AutoML)

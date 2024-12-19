@@ -2548,6 +2548,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../data-analysis/plot/into-to-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Into To Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
@@ -2767,6 +2788,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before Start
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#scenario-pre-process-steps-by-using-sdk" class="md-nav__link">
@@ -5635,6 +5665,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#before-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before Start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenario-pre-process-steps-by-using-sdk" class="md-nav__link">
     <span class="md-ellipsis">
       Scenario: Pre-process steps by using SDK
@@ -5820,7 +5859,10 @@
                   
 
 
+<!-- #region -->
 <h1 id="data-processing">Data Processing</h1>
+<h2 id="before-start">Before Start</h2>
+<p>If you will see run_snippet() function. first parameter of this function -&gt; 'suppress_outliers' must be a script in a file named snippets where the ipynb file is located. You can see snippets of this tutorial under the Supplementary Files.</p>
 <h2 id="scenario-pre-process-steps-by-using-sdk"><em>Scenario:</em> Pre-process steps by using SDK</h2>
 <p>In this example, we'll showcase how to apply pre-process steps by using our SDK, practicuscore.</p>
 <ol>
@@ -5842,6 +5884,8 @@
 </ul>
 </li>
 </ol>
+<!-- #endregion -->
+
 <h3 id="step-1-loading-the-dataset">Step-1: Loading the Dataset</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">dataset_conn</span> <span class="o">=</span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;connection_type&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKER_FILE&quot;</span><span class="p">,</span>
@@ -5872,7 +5916,7 @@
 <li>technique: The method which used in handling missing value. It could take the values down below:<ul>
 <li>'delete': drops the rows with missing values</li>
 <li>'custom': filling the missing values with a custom value</li>
-<li>'minimum': filling the missing values with minunmum value of column</li>
+<li>'minimum': filling the missing values with minimum value of column</li>
 <li>'maximum': filling the missing values with maximum value of column</li>
 <li>'average': filling the missing values with average value of column</li>
 </ul>
@@ -5884,10 +5928,10 @@
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">proc</span><span class="o">.</span><span class="n">handle_missing</span><span class="p">(</span><span class="n">technique</span><span class="o">=</span><span class="s1">&#39;custom&#39;</span><span class="p">,</span> <span class="n">column_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;native-country&#39;</span><span class="p">],</span> <span class="n">custom_value</span><span class="o">=</span><span class="s1">&#39;unknown&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="32-suppressing-of-outliers-by-using-snippets">3.2: Suppressing of outliers by using snippets</h4>
-<p>Snippets are built-in python functions prepared by Practicus AI but, also you can build your own snippets for your company (for more information please visit https://docs.practicus.ai/tutorial)</p>
+<p>Snippets are built-in python functions prepared by Practicus AI but, also you can build your own snippets for your company (for more information please visit the tutorial)</p>
 <p>To utilize snippets effectively, ensure that you create and open a folder named 'snippets' within your working directory. Then, place the snippet files into this designated folder.</p>
 <p>Every snippets has parameters which are optional or mandatory to run. You can checkout the parameters within the snippet code.</p>
-<p>E.g. the paramaters within 'suppress_outliers' can be listed as:
+<p>E.g. the parameters within 'suppress_outliers' can be listed as:
 - outlier_float_col_list: list[str] | None (List of numeric columns to check for outliers. If left empty, applies to all numeric columns.),
 - q1_percentile: float = 0.25 (Custom percentile for Q1, takes 0.25 as default value),
 - q3_percentile: float = 0.75 (Custom percentile for Q3, takes 0.75 as default value),
@@ -5963,7 +6007,7 @@
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">proc</span><span class="o">.</span><span class="n">show_logs</span><span class="p">()</span>
 </span></code></pre></div>
 <h4 id="39-exporting-the-data-set-into-pandas-dataframe">3.9: Exporting the data set into pandas dataframe</h4>
-<p>The 'get_df_copy' methods of the SDK can be utilized to export the dataset as pandas dataframe to continue working with dataset on diffrent aspect of Data Science.</p>
+<p>The 'get_df_copy' methods of the SDK can be utilized to export the dataset as pandas dataframe to continue working with dataset on different aspect of Data Science.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">df_processed</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">get_df_copy</span><span class="p">()</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">df_processed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>

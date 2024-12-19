@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: Python 3 (ipykernel)
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 ```python
@@ -17,6 +17,40 @@ import practicuscore as prt
 import os
 import mlflow
 ```
+
+### Code Explanation
+
+This code sets up and configures a Practicus AI experiment service using the `practicuscore` library. It connects to an external experiment tracking service, such as MLflow, and optionally creates a new experiment.
+
+---
+
+#### **Code Breakdown**
+
+1. **`import practicuscore as prt`**
+   - Imports the Practicus AI core library for managing experiments and deployments.
+
+2. **`import os`**
+   - Standard library module for interacting with the operating system (not used directly in this snippet).
+
+3. **`import mlflow`**
+   - Imports the MLflow library, which is commonly used for experiment tracking.
+
+4. **`service_name = "My Mlflow Service"`**
+   - Sets the name of the experiment tracking service. For example, MLflow is identified here as `"My Mlflow Service"`.
+
+5. **`service_key = ""`**
+   - A secure key required to authenticate with the Practicus AI service. This key can be obtained from the **Practicus AI Admin Console**.
+
+6. **`experiment_name = None`**
+   - (Optional) Specifies a name for a new experiment. If `None`, no new experiment is created during configuration.
+
+7. **`prt.experiments.configure()`**
+   - **Purpose:** Configures the experiment service with the provided parameters.
+   - **Parameters:**
+     - `service_name`: The name of the service being configured.
+     - `service_key`: Authentication key for accessing the service.
+     - `experiment_name`: Optional name for a new experiment.
+
 
 ```python
 service_name = "My Mlflow Service"

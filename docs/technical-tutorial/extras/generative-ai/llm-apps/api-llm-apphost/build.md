@@ -25,12 +25,15 @@ import json
 
 #### API Python script
 
-First of all we need to create a Python scripts which will be invoked by using requests. For this instance we should create an 'apis' folder which will contain the Python scripts. Then we can create our scripts within the folder.
+First, we need to create a Python script that will be called using requests. For this example, we need to create an 'apis' folder that will contain Python scripts. We can then create our scripts inside this folder.
 
-You can check-out sample api script [simple_api.py](apis/simple_api.py)
+Look under 'Supplementary Files' to see the scripts inside the 'apis' folder
 
 
-## Define params from region
+#### Required parameters
+- host -> Practicus domain where you work.
+- lang_model -> Name of the model you deployed into practicus and want to use.
+- app_name -> You can give it any name you want.
 
 ```python
 host = 'preview.practicus.io' # Example url -> 'company.practicus.com'
@@ -42,6 +45,11 @@ assert lang_model, "Please select a model"
 app_name = 'api-chatbot'
 assert app_name, "Please enter application name"
 ```
+
+## Define params from region
+
+
+Information about the user is kept in the region. Below we get the necessary parameters to deploy the app.
 
 ```python
 region = prt.get_region()
@@ -85,14 +93,17 @@ app_prefix = my_app_prefix_list[0].prefix
 print("Using first app prefix", app_prefix)
 ```
 
-#### Testing scripts
-
-We can call our api scripts withIn this example and test them
+#### Get model
+Get your model and token with api
 
 ```python
 api_url = f"https://{host}/{model_prefix}/{model_name}/"
 token = prt.models.get_session_token(api_url=api_url)
 ```
+
+#### Testing scripts
+
+We can call our api scripts withIn this example and test them. You can find the apis.simple_api file under Supplementary Files
 
 ```python
 from apis.simple_api import Messages, ModelRequest, run

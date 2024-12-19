@@ -2548,6 +2548,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../data-analysis/plot/into-to-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Into To Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
@@ -4274,16 +4295,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#define-llm-api-function-and-call-chatpracticus-in-this-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      Define llm api function and call ChatPracticus in this function
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Define llm api function and call ChatPracticus in this function">
+    <nav class="md-nav" aria-label="Import Libraries">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5761,16 +5773,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#define-llm-api-function-and-call-chatpracticus-in-this-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      Define llm api function and call ChatPracticus in this function
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Define llm api function and call ChatPracticus in this function">
+    <nav class="md-nav" aria-label="Import Libraries">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6110,7 +6113,7 @@
 <li>An error is raised if the <code>milvus_uri</code> is not defined.</li>
 </ol>
 <p>This setup ensures that all necessary configurations are in place for the system to initialize and function correctly.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">host</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Example url -&gt; &#39;company.practicus.com&#39;</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">uhost</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Example url -&gt; &#39;company.practicus.com&#39;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">assert</span> <span class="n">host</span><span class="p">,</span> <span class="s2">&quot;Please enter your host url&quot;</span> 
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">embedding_model_path</span> <span class="o">=</span> <span class="kc">None</span>
@@ -6121,10 +6124,10 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">assert</span> <span class="n">vector_store</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ChromaDB&#39;</span><span class="p">,</span> <span class="s1">&#39;MilvusDB&#39;</span><span class="p">],</span> <span class="s2">&quot;Vector store must be &#39;ChromaDB&#39; or &#39;MilvusDB&#39;.&quot;</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">if</span> <span class="n">vector_store</span> <span class="o">==</span> <span class="s1">&#39;MilvusDB&#39;</span><span class="p">:</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">milvus_uri</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Mivus connection url, E.g. &#39;company.practicus.milvus.com&#39;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">milvus_uri</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Milvus connection url, E.g. &#39;company.practicus.milvus.com&#39;</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">assert</span> <span class="s1">&#39;milvus_uri&#39;</span><span class="p">,</span> <span class="s2">&quot;Please enter your milvus connection uri&quot;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">## Define llm api function and call ChatPracticus in this function</span>
 </span></code></pre></div>
-<h2 id="define-llm-api-function-and-call-chatpracticus-in-this-function">Define llm api function and call ChatPracticus in this function</h2>
 <h3 id="function-call_llm_api">Function: <code>call_llm_api</code></h3>
 <h4 id="description">Description</h4>
 <p>This function interacts with the ChatPracticus API to invoke a response from a language model using the provided inputs, API URL, and API token. The function is designed to send data to the API and retrieve the response content.</p>

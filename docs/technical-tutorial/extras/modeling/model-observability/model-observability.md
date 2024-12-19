@@ -7,16 +7,16 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: Python 3 (ipykernel)
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 # Model Observability and Monitoring
 
 ## _Scenario:_ Model Drift
 
-In this example, we'll deploy a model on an income dataset. Our main goal withIn this example is deploying pre-proceses into the "model.pkl".
+In this example, we'll deploy a model on an income dataset. Our main goal withIn this example is deploying pre-processes into the "model.pkl".
 
 1. _Open_ *Jupyter Notebook*
 
@@ -64,14 +64,6 @@ def add_features(df):
     return df
 
 add_features_transformer = FunctionTransformer(add_features, validate=False)
-```
-
-```python
-df.columns
-```
-
-```python
-df.dtypes
 ```
 
 Defining categorical and numerical features
@@ -160,6 +152,20 @@ predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
 
 # Deployment of the model
 
+
+#### **`prt.models.deploy()`**
+- **Purpose:** Deploys a model with the given configuration details to the Practicus AI platform.
+- **Key Parameters:**
+  1. **`deployment_key`**
+     - A secure key required for authentication during the deployment process.
+  2. **`prefix`**
+     - Specifies a category or folder for organizing models (e.g., `models`).
+  3. **`model_name`**
+     - The name of the model being deployed (e.g., `'my-bank-marketing-model'`).
+  4. **`model_dir`**
+     - The directory containing the model files to be deployed. Defaults to the current working directory if `None`.
+
+
 ```python
 # Please ask for a deployment key from your admin.
 deployment_key = ""
@@ -179,6 +185,48 @@ prt.models.deploy(
 ```
 
 # Prediction
+
+
+### Code Explanation
+
+This code sets up a REST API call to a Practicus AI model, sends data for prediction, and retrieves the results. Below is a detailed breakdown:
+
+---
+
+#### 1. **`region = prt.current_region()`**
+- **Purpose:** Gets the current region for API routing.
+
+#### 2. **`api_url`**
+- **Definition:** Constructs the model's REST API URL.
+- **Key Note:** The URL must end with `/` for effective traffic routing.
+
+---
+
+#### 3. **`token = prt.models.get_session_token(api_url)`**
+- **Purpose:** Retrieves a session token for authenticating API requests.
+- **SDK Dependency:** Uses Practicus AI SDK; for manual methods, refer to sample notebooks.
+
+---
+
+#### 4. **`headers`**
+- **Definition:** Includes authorization (`Bearer token`) and content type (`text/csv`) for API communication.
+
+---
+
+#### 5. **`requests.post()`**
+- **Purpose:** Sends data to the model API.
+- **Parameters:**
+  - `api_url`: API endpoint.
+  - `headers`: Authentication and data type.
+  - `data`: The CSV data generated from `df.to_csv(index=False)`.
+
+- **Error Handling:** Raises an error if the response is not successful (`r.ok`).
+
+---
+
+#### 6. **`pd.read_csv(BytesIO(r.content))`**
+- **Purpose:** Converts the API's response (in CSV format) into a pandas DataFrame for analysis.
+
 
 ```python
 import practicuscore as prt

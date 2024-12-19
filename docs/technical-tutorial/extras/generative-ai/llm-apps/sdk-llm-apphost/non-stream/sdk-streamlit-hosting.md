@@ -14,6 +14,9 @@ jupyter:
 
 # Hosting of LLM which is built by using SDK
 
+
+In this example we will be using the streamlit. Streamlit script should be in same folder with this notebook. If you inspect streamlit code look under 'Supplementary Files'.
+
 ```python
 import practicuscore as prt
 ```
@@ -32,6 +35,8 @@ import practicuscore as prt
 ```python
 region = prt.get_region()
 ```
+
+We receive the necessary information for deploy from the region
 
 ```python
 my_app_prefixes = region.app_prefix_list

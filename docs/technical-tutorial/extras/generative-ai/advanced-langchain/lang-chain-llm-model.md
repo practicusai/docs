@@ -71,7 +71,7 @@ vector_store = None
 assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
 
 if vector_store == 'MilvusDB':
-    milvus_uri = None # Mivus connection url, E.g. 'company.practicus.milvus.com'
+    milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
     assert 'milvus_uri', "Please enter your milvus connection uri"
 ```
 

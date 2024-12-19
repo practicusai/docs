@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: Python 3 (ipykernel)
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 ```python
@@ -82,7 +82,7 @@ This graphical analysis is instrumental for data-driven decision-making, ensurin
 importances = rf_clf.feature_importances_
 indices = np.argsort(importances)
 features = df.columns
-plt.title('Feature Importances')
+plt.title("Feature Importance's")
 plt.barh(range(len(indices)), importances[indices], color='y', align='center')
 plt.yticks(range(len(indices)), [features[i] for i in indices])
 plt.xlabel('Relative Importance')

@@ -12,9 +12,25 @@ jupyter:
     name: practicus
 ---
 
-### End-to-end SparkML Model development and deployment 
+# End-to-end SparkML Model development and deployment 
 
 This sample notebook outlines the process of deploying a SparkML model on the Practicus AI platform and making predictions from the deployed model using various methods.
+
+
+## Converting Pandas DataFrame to Spark DataFrame with Explicit Schema
+This code performs the following tasks:
+1. **Read CSV with Pandas**:
+   - Reads a CSV file (`ice_cream.csv`) containing data into a Pandas DataFrame for initial processing.
+2. **Initialize Spark Session**:
+   - Creates a Spark session named "IceCreamRevenuePrediction" to enable distributed data processing.
+3. **Define Explicit Schema**:
+   - Creates a schema for the Spark DataFrame with two fields:
+     - `label`: A `DoubleType` field representing the target variable (`Revenue`).
+     - `features`: A `DoubleType` field containing feature vectors.
+4. **Convert Pandas DataFrame to Spark DataFrame**:
+   - Applies a transformation to convert each row of the Pandas DataFrame into a tuple containing the label and feature vector.
+   - Uses the defined schema to create a Spark DataFrame for further processing.
+
 
 ```python
 import pandas as pd
@@ -43,6 +59,20 @@ spark_data = spark.createDataFrame(
 )
 ```
 
+# Training and Saving a Spark ML Linear Regression Model
+This code demonstrates the following steps:
+1. **Train Linear Regression Model**:
+   - Initializes a `LinearRegression` model from Spark MLlib, specifying `featuresCol` and `labelCol`.
+   - Fits the model to the prepared Spark DataFrame (`spark_data`).
+2. **Make Predictions**:
+   - Uses the trained model to predict the target variable (`Revenue`) based on the features (`Temperature`).
+   - Displays the features, actual labels, and predictions in a Spark DataFrame.
+3. **Save Model**:
+   - Saves the trained model to disk using the specified `model_name` (`ice_cream_sparkml_model`) for reuse.
+4. **Stop Spark Session**:
+   - Optionally stops the Spark session to free resources after completing the tasks.
+
+
 ```python
 from pyspark.ml.regression import LinearRegression
 
@@ -68,6 +98,27 @@ model.save(model_name)
 # Optional: Stop Spark session when done
 spark.stop()
 ```
+
+# Predicting Revenue Using a Saved Spark ML Model
+This function allows you to load a pre-trained Spark ML model and make predictions on new data:
+1. **Spark Session Initialization**:
+   - Creates a Spark session to enable Spark ML operations.
+2. **Load the Saved Model**:
+   - Loads the `LinearRegressionModel` previously saved using the specified `model_name`.
+3. **Input Schema Definition**:
+   - Defines a schema for the Spark DataFrame, containing a single column `features` of type `DoubleType`.
+4. **Convert Pandas DataFrame to Spark DataFrame**:
+   - Converts the input Pandas DataFrame (`df`) into a Spark DataFrame compatible with the model.
+   - The `Temperature` column is transformed into feature vectors using `Vectors.dense`.
+5. **Make Predictions**:
+   - Passes the Spark DataFrame through the model to generate predictions.
+   - The output Spark DataFrame includes `features` and `prediction` columns.
+6. **Format Predictions**:
+   - Converts the Spark DataFrame back to a Pandas DataFrame for easier handling.
+   - Extracts and formats the `Temperature` and `predicted_Revenue` columns for a user-friendly output.
+7. **Return Results**:
+   - The resulting Pandas DataFrame contains the predicted revenue for the provided temperature values.
+
 
 ```python
 # Prediction, you can run this in another notebook 
@@ -178,6 +229,26 @@ print("Model REST API Url:", api_url)
 token = prt.models.get_session_token(api_url)
 print("API session token:", token)
 ```
+
+# Making Predictions with Deployed Model via REST API
+This code illustrates how to send data to a deployed model's REST API for predictions and retrieve the results:
+1. **Dataset Loading**:
+   - Reads the dataset from a CSV file (`ice_cream.csv`) into a Pandas DataFrame.
+2. **Set Up API Request**:
+   - Defines HTTP headers, including:
+     - Authorization token (`Bearer {token}`) for access.
+     - Content type as `text/csv`.
+   - Converts the DataFrame to CSV format for compatibility with the API.
+3. **Send Data to REST API**:
+   - Makes a `POST` request to the deployed model's REST API endpoint (`api_url`), passing the data and headers.
+   - Raises a `ConnectionError` if the request fails.
+4. **Process API Response**:
+   - Reads the response content from the API and converts it into a Pandas DataFrame.
+5. **Display Prediction Results**:
+   - Outputs the prediction results as a Pandas DataFrame for review.
+6. **Note on Performance**:
+   - The initial prediction may be slower due to the Spark session startup process, especially if it's not yet initialized.
+
 
 ```python
 # Caution: Due to initial Spark session creation process, first prediction can be quite slow.

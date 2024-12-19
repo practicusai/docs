@@ -2548,6 +2548,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../data-analysis/plot/into-to-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Into To Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
@@ -5549,6 +5570,8 @@
 <h1 id="flow-hosting-of-langflow-by-using-streamlit">Flow hosting of Langflow by using Streamlit</h1>
 <p>First of all we need to create a "Basic Prompting (Hello, World)" flow at langflow and export the json of it.</p>
 <h2 id="define-params-from-region">Define params from region</h2>
+<p>Information about the user is kept in the region.
+Below we get the necessary parameters to deploy the app.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">practicuscore</span> <span class="k">as</span> <span class="nn">prt</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">get_region</span><span class="p">()</span>
 </span></code></pre></div>
@@ -5567,7 +5590,9 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">deployment_setting_key</span> <span class="o">=</span> <span class="n">my_app_settings</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">key</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using first setting with key:&quot;</span><span class="p">,</span> <span class="n">deployment_setting_key</span><span class="p">)</span>
 </span></code></pre></div>
-<p>After exporting the json and save it within current directory of this tutorial, you should test it if it's working.</p>
+<p>STEPS
+- We put our flow.json file that we exported from langflow in the directory where the ipynb file is located (the directory we are currently working in).
+- After exporting the json and save it within current directory of this tutorial, you should test it if it's working.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">langflow.load</span> <span class="kn">import</span> <span class="n">run_flow_from_json</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">result</span> <span class="o">=</span> <span class="n">run_flow_from_json</span><span class="p">(</span>
@@ -5582,12 +5607,12 @@
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">message_text</span>
 </span></code></pre></div>
+<p>Unless you stop it, the following cell will remain open and will give a url to this notebook owner can access and test the application</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># When you finish test, stop this cell. If you dont stop cell always be open.</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">test_app</span><span class="p">()</span>
 </span></code></pre></div>
-<p>Now we can creat our own stream-lit app and use api url of our flow within stream-lit's front-end. You can check-out our streamlit_app.py:</p>
-<p><a href="../streamlit_app.py">View streamlit_app.py</a></p>
-<p>After creating/editing stream_app.py we could test it by hosting it as test by using our SDK:</p>
+<p>We can now create our own stream-lit application and use the api url of our stream in the frontend of stream-lit. streamlit_app.py is available under Supplementary Files.</p>
+<p>After creating/editing streamlit_app.py we could test it by hosting it as test by using our SDK:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">practicuscore</span> <span class="k">as</span> <span class="nn">prt</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span>
@@ -5597,7 +5622,7 @@
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">app_dir</span><span class="o">=</span><span class="kc">None</span> <span class="c1"># Current dir</span>
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>After the deployment process completed we could enter UI url (e.g. https://dev.practicus.io/apps/langflow-json-test/v1/) to show-case our app.</p>
+<p>After the deployment process completed we could enter UI url (e.g. https://practicus.your-company.com/apps/chatbot/v1/) to show-case our app.</p>
 <h2 id="supplementary-files">Supplementary Files</h2>
 <h3 id="streamlit_apppy">streamlit_app.py</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">practicuscore</span> <span class="k">as</span> <span class="nn">prt</span>

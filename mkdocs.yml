@@ -108,6 +108,7 @@ nav:
     - Data Analysis:
       - Plot:
         - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md
+        - Into To Plot: technical-tutorial/extras/data-analysis/plot/into-to-plot.md
         - Multiple Layers: technical-tutorial/extras/data-analysis/plot/multiple-layers.md
       - Eda:
         - Analyze: technical-tutorial/extras/data-analysis/eda/analyze.md

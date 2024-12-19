@@ -2548,6 +2548,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../data-analysis/plot/into-to-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Into To Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
@@ -5768,10 +5789,10 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">embedding_model_path</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">assert</span> <span class="n">embedding_model_path</span><span class="p">,</span> <span class="s2">&quot;Please enter your embedding model path.&quot;</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">milvus_uri</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Mivus connection url, E.g. &#39;company.practicus.milvus.com&#39;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">milvus_uri</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Milvus connection url, E.g. &#39;company.practicus.milvus.com&#39;</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">assert</span> <span class="s1">&#39;milvus_uri&#39;</span><span class="p">,</span> <span class="s2">&quot;Please enter your milvus connection uri&quot;</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">milvus_port</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Mivus port, E.g. &#39;19530&#39;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">milvus_port</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Milvus port, E.g. &#39;19530&#39;</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">assert</span> <span class="s1">&#39;milvus_port&#39;</span><span class="p">,</span> <span class="s2">&quot;Please enter your milvus connection port&quot;</span>
 </span></code></pre></div>
 <h2 id="prepare-test-document">Prepare test document</h2>
@@ -5883,12 +5904,12 @@
 </span></code></pre></div>
 <h3 id="1-connect-to-milvus">1. connect to Milvus</h3>
 <p>Add a new connection alias <code>default</code> for Milvus server in <code>localhost:19530</code>. </p>
-<p>Actually the <code>default</code> alias is a buildin in PyMilvus. If the address of Milvus is the same as <code>localhost:19530</code>, you can omit all parameters and call the method as: <code>connections.connect()</code>.</p>
+<p>Actually the <code>default</code> alias is a built-in in PyMilvus. If the address of Milvus is the same as <code>localhost:19530</code>, you can omit all parameters and call the method as: <code>connections.connect()</code>.</p>
 <p>Note: the <code>using</code> parameter of the following methods is default to "default".</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">connections</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">milvus_uri</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">milvus_port</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="2-create-collection">2. create collection</h3>
-<p>We need to create collection with desired feilds, in this example our collection will be like down below:</p>
+<p>We need to create collection with desired fields, in this example our collection will be like down below:</p>
 <table>
 <thead>
 <tr>
@@ -5970,14 +5991,14 @@
 <p>Before conducting a search or a query, you need to load the data in <code>dummy_info</code> into memory.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">dummy_company_collection</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># The querry down below retuns &#39;companyInfo&#39; field of entities that has any &#39;pk&#39; information, which means, all of the entites.</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># The query down below returns &#39;companyInfo&#39; field of entities that has any &#39;pk&#39; information, which means, all of the entities.</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">entities</span> <span class="o">=</span> <span class="n">dummy_company_collection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">expr</span><span class="o">=</span><span class="s2">&quot;pk != &#39;&#39;&quot;</span><span class="p">,</span> <span class="n">output_fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;companyInfo&#39;</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Print out the retrieved entities</span>
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entities</span><span class="p">:</span>
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Now we can embed a text and querry it on our collection</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Now we can embed a text and query it on our collection</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">vector_to_search</span> <span class="o">=</span> <span class="n">embedding_model</span><span class="o">.</span><span class="n">embed_documents</span><span class="p">([</span><span class="s1">&#39;What is the company name?&#39;</span><span class="p">])</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span> <span class="nn">time</span>

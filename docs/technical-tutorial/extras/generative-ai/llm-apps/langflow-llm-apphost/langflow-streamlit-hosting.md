@@ -21,6 +21,10 @@ First of all we need to create a "Basic Prompting (Hello, World)" flow at langfl
 
 ## Define params from region
 
+
+Information about the user is kept in the region.
+Below we get the necessary parameters to deploy the app.
+
 ```python
 import practicuscore as prt
 region = prt.get_region()
@@ -47,7 +51,9 @@ deployment_setting_key = my_app_settings[1].key
 print("Using first setting with key:", deployment_setting_key)
 ```
 
-After exporting the json and save it within current directory of this tutorial, you should test it if it's working.
+STEPS
+- We put our flow.json file that we exported from langflow in the directory where the ipynb file is located (the directory we are currently working in).
+- After exporting the json and save it within current directory of this tutorial, you should test it if it's working.
 
 ```python
 from langflow.load import run_flow_from_json
@@ -65,17 +71,17 @@ message_text = message_obj.data['text']
 message_text
 ```
 
+Unless you stop it, the following cell will remain open and will give a url to this notebook owner can access and test the application
+
 ```python
 # When you finish test, stop this cell. If you dont stop cell always be open.
 prt.apps.test_app()
 ```
 
-Now we can creat our own stream-lit app and use api url of our flow within stream-lit's front-end. You can check-out our streamlit_app.py:
-
-[View streamlit_app.py](streamlit_app.py)
+We can now create our own stream-lit application and use the api url of our stream in the frontend of stream-lit. streamlit_app.py is available under Supplementary Files.
 
 
-After creating/editing stream_app.py we could test it by hosting it as test by using our SDK:
+After creating/editing streamlit_app.py we could test it by hosting it as test by using our SDK:
 
 ```python
 import practicuscore as prt
@@ -88,7 +94,7 @@ prt.apps.deploy(
 )
 ```
 
-After the deployment process completed we could enter UI url (e.g. https://dev.practicus.io/apps/langflow-json-test/v1/) to show-case our app.
+After the deployment process completed we could enter UI url (e.g. https://practicus.your-company.com/apps/chatbot/v1/) to show-case our app.
 
 
 ## Supplementary Files

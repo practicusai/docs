@@ -14,7 +14,7 @@ jupyter:
 
 # Plotting with Multiple Layers
 
-In this example we are going to give you a brief tutorial of how to use mutiple graphics on one figure by using bokeh.
+In this example we are going to give you a brief tutorial of how to use multiple graphics on one figure by using bokeh.
 
 We are going to cover these topics:
 - How to create and edit a figure
@@ -50,7 +50,7 @@ Here's a breakdown of each bokeh function we've imported:
 worker = prt.get_local_worker()
 ```
 
-One of the most illustrative datasets for demonstrating multiple layer anlyze is the Iris dataset.
+One of the most illustrative datasets for demonstrating multiple layer analyze is the Iris dataset.
 
 The Iris dataset is a popular dataset in machine learning and statistics, often used for classification tasks. It consists of 150 samples of iris flowers, each belonging to one of three species: Setosa, Versicolor, or Virginica. Within this data set we will use both Bar and Circle graphic style from Plot. The dataset comprises four features, each representing measurements of the length and width of both the petals and sepals of flowers.
 
@@ -236,4 +236,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Introduction](introduction.md) | **Next**: [Eda > Analyze](../eda/analyze.md)
+**Previous**: [Into To Plot](into-to-plot.md) | **Next**: [Eda > Analyze](../eda/analyze.md)

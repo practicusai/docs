@@ -2548,6 +2548,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../data-analysis/plot/into-to-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Into To Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
@@ -3194,66 +3215,6 @@
       Scenario: Model Drift
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model-development" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Development
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Deployment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prediction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prediction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hand-made-model-drift" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hand-Made Model Drift
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supplementary-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supplementary Files
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supplementary Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modelpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      model.py
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5543,66 +5504,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#model-development" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Development
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Deployment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prediction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prediction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hand-made-model-drift" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hand-Made Model Drift
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supplementary-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supplementary Files
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supplementary Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modelpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      model.py
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -5638,8 +5539,24 @@
 <p>Observing the model drift plots</p>
 </li>
 </ol>
-<h2 id="model-development">Model Development</h2>
-<p>Loading and preparing the dataset</p>
+<h1 id="data-loading-and-pre-processing-with-practicus-core">Data Loading and Pre-Processing with Practicus Core</h1>
+<p>This code demonstrates how to load, preprocess, and prepare a dataset for machine learning:
+1. <strong>Dataset Connection</strong>: 
+   - Specifies the connection type (<code>WORKER_FILE</code>) and the path to the dataset file (<code>insurance.csv</code>).
+2. <strong>Load Dataset</strong>: 
+   - Imports the Practicus Core library.
+   - Retrieves or creates a worker in the current region.
+   - Loads the dataset into the worker.
+   - Displays the first few rows of the dataset using <code>proc.show_head()</code>.
+3. <strong>Pre-processing</strong>:
+   - Applies categorical mapping to columns (<code>sex</code>, <code>smoker</code>, <code>region</code>) to create new categorical columns.
+   - Deletes the original columns (<code>region</code>, <code>smoker</code>, <code>sex</code>) after mapping.
+4. <strong>Export Dataset</strong>:
+   - Retrieves a copy of the preprocessed dataset as a DataFrame.
+   - Displays the first few rows of the modified dataset.
+5. <strong>Feature-Target Separation</strong>:
+   - Defines <code>X</code> as the feature set by dropping the <code>charges</code> column.
+   - Defines <code>y</code> as the target variable (<code>charges</code>).</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">data_set_conn</span> <span class="o">=</span> <span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;connection_type&quot;</span><span class="p">:</span> <span class="s2">&quot;WORKER_FILE&quot;</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/ubuntu/samples/insurance.csv&quot;</span>
@@ -5667,7 +5584,17 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">get_df_copy</span><span class="p">()</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </span></code></pre></div>
-<p>Model Training</p>
+<h1 id="train-test-split-model-training-and-export">Train-Test Split, Model Training, and Export</h1>
+<p>This code handles the following tasks:
+1. <strong>Train-Test Split</strong>:
+   - The dataset is divided into training and testing subsets using an 80-20 split.
+2. <strong>Pipeline Creation</strong>:
+   - Creates a machine learning pipeline using <code>Pipeline</code> from <code>sklearn</code>.
+   - Includes an <code>XGBRegressor</code> model configured for regression with the <code>reg:squarederror</code> objective and 100 estimators.
+3. <strong>Model Training</strong>:
+   - Fits the pipeline to the training data (<code>X_train</code>, <code>y_train</code>).
+4. <strong>Model Export</strong>:
+   - Serializes and saves the trained pipeline using <code>cloudpickle</code> to a file named <code>model.pkl</code>, enabling reuse of the trained model for future predictions.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;charges&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;charges&#39;</span><span class="p">]</span>
 </span></code></pre></div>
@@ -5690,7 +5617,17 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">cloudpickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="model-deployment">Model Deployment</h2>
+<h1 id="model-deployment-with-practicus">Model Deployment with Practicus</h1>
+<p>This code demonstrates how to deploy a trained model using Practicus:
+1. <strong>Deployment Key</strong>:
+   - A <code>deployment_key</code> is required for authorization. It must be obtained from the administrator.
+   - An assertion ensures that the <code>deployment_key</code> is set; otherwise, an error is raised.
+2. <strong>Model Deployment Configuration</strong>:
+   - <code>prefix</code>: Specifies the prefix for organizing the deployed models.
+   - <code>model_name</code>: Sets a custom name for the deployed model (<code>custom-insurance-test</code>).
+   - <code>model_dir</code>: Optionally specifies the directory of the model. If <code>None</code>, the current directory is used.
+3. <strong>Deploy Model</strong>:
+   - The <code>prt.models.deploy()</code> function is used to deploy the model with the provided parameters.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Please ask for a deployment key from your admin.</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">deployment_key</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">assert</span> <span class="n">deployment_key</span><span class="p">,</span> <span class="s2">&quot;Please select a deployment_key&quot;</span>
@@ -5705,7 +5642,27 @@
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">model_dir</span><span class="o">=</span><span class="n">model_dir</span>
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="prediction">Prediction</h2>
+<h1 id="dataset-preparation-model-api-construction-and-prediction">Dataset Preparation, Model API Construction, and Prediction</h1>
+<p>This code performs the following tasks:
+1. <strong>Load and Preprocess Dataset</strong>:
+   - Imports the Practicus Core library and initializes the worker.
+   - Loads the dataset and applies categorical mappings to specific columns (<code>sex</code>, <code>smoker</code>, <code>region</code>).
+   - Deletes the original columns post-mapping to avoid redundancy.
+   - Retrieves the preprocessed dataset as a DataFrame.
+2. <strong>Construct the REST API URL</strong>:
+   - Constructs the REST API URL for the deployed model. 
+   - Requires the <code>practicus_url</code> (base URL of the Practicus AI platform) and other parameters (<code>prefix</code>, <code>model_name</code>).
+   - Ensures the URL ends with a <code>/</code> for proper routing.
+3. <strong>Get Session Token</strong>:
+   - Retrieves an API session token using the Practicus AI SDK.
+   - Prints the token for reference.
+4. <strong>Send Data for Prediction</strong>:
+   - Sends the preprocessed dataset to the model REST API in CSV format using a <code>POST</code> request.
+   - Includes necessary headers, such as authorization (<code>Bearer</code> token) and content type (<code>text/csv</code>).
+   - Handles any connection errors that may occur.
+5. <strong>Receive and Display Predictions</strong>:
+   - Reads the response from the API and converts it into a DataFrame.
+   - Prints the first few rows of the prediction results for review.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Loading the dataset to worker</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">import</span> <span class="nn">practicuscore</span> <span class="k">as</span> <span class="nn">prt</span>
@@ -5760,7 +5717,21 @@
 <li>After you make the first prediction, please wait for 5 minutes to see a clearer picture on the drift plot</li>
 <li>When we look at Model Drifts Dashboard at Grafana we will see plots with the model drift visible</li>
 </ul>
-<h2 id="hand-made-model-drift">Hand-Made Model Drift</h2>
+<h1 id="simulating-model-drift-and-analyzing">Simulating Model Drift and Analyzing</h1>
+<p>This section of the code introduces artificial model drift and demonstrates how to evaluate its effects:
+1. <strong>Hand-Made Model Drift</strong>:
+   - Artificially modifies the dataset by altering the <code>age</code> and <code>bmi</code> columns (multiplying by 2 and 3, respectively).
+   - Displays the modified dataset for verification.
+2. <strong>Send Modified Data for Prediction</strong>:
+   - Prepares the modified dataset as a CSV file.
+   - Sends it to the deployed model API using a <code>POST</code> request with proper authorization headers.
+   - Checks for errors during the request.
+3. <strong>Analyze Predictions</strong>:
+   - Reads the API's prediction response into a DataFrame.
+   - Displays the prediction results to analyze the impact of drift on the model's outputs.
+4. <strong>Monitor Drift on Grafana</strong>:
+   - After the second prediction, wait for 2 minutes to allow for drift detection updates.
+   - View the <strong>Model Drifts Dashboard</strong> in Grafana to observe visual plots indicating the extent of model drift.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bmi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bmi&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
@@ -5786,6 +5757,7 @@
 <li>After you make the second prediction, please wait for 2 minutes to see a clearer picture on the drift plot</li>
 <li>When we look at Model Drifts Dashboard at Grafana we will see plots with the model drift visible</li>
 </ul>
+<h1 id="add-drifted-img-with-img-folder">ADD DRIFTED IMG WITH IMG FOLDER</h1>
 <h2 id="supplementary-files">Supplementary Files</h2>
 <h3 id="modelpy">model.py</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span> <span class="nn">os</span>

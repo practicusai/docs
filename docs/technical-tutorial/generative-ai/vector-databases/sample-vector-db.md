@@ -53,7 +53,7 @@ num_entities, dim = 3000, 8
 
 Add a new connection alias `default` for Milvus server in `localhost:19530`. 
 
-Actually the `default` alias is a buildin in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
+Actually the `default` alias is a built-in in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
 
 Note: the `using` parameter of the following methods is default to "default".
 
@@ -104,7 +104,7 @@ entities = [
 
 insert_result = hello_milvus.insert(entities)
 
-print(f"Number of entities in Milvus: {hello_milvus.num_entities}")  # check the num_entites
+print(f"Number of entities in Milvus: {hello_milvus.num_entities}")  # check the num_entities
 ```
 
 ## 4. create index
