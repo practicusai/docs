@@ -7,57 +7,41 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3 (for ML)
     language: python
-    name: python3
+    name: practicus_ml
 ---
 
 ```python
 import practicuscore as prt
 import os
 import mlflow
+
+region = prt.current_region()
 ```
 
-### Code Explanation
-
-This code sets up and configures a Practicus AI experiment service using the `practicuscore` library. It connects to an external experiment tracking service, such as MLflow, and optionally creates a new experiment.
-
----
-
-#### **Code Breakdown**
-
-1. **`import practicuscore as prt`**
-   - Imports the Practicus AI core library for managing experiments and deployments.
-
-2. **`import os`**
-   - Standard library module for interacting with the operating system (not used directly in this snippet).
-
-3. **`import mlflow`**
-   - Imports the MLflow library, which is commonly used for experiment tracking.
-
-4. **`service_name = "My Mlflow Service"`**
-   - Sets the name of the experiment tracking service. For example, MLflow is identified here as `"My Mlflow Service"`.
-
-5. **`service_key = ""`**
-   - A secure key required to authenticate with the Practicus AI service. This key can be obtained from the **Practicus AI Admin Console**.
-
-6. **`experiment_name = None`**
-   - (Optional) Specifies a name for a new experiment. If `None`, no new experiment is created during configuration.
-
-7. **`prt.experiments.configure()`**
-   - **Purpose:** Configures the experiment service with the provided parameters.
-   - **Parameters:**
-     - `service_name`: The name of the service being configured.
-     - `service_key`: Authentication key for accessing the service.
-     - `experiment_name`: Optional name for a new experiment.
-
-
 ```python
-service_name = "My Mlflow Service"
-# You need to configure using the service unique key, you can find your key on the "Practicus AI Admin Console" 
-service_key =  ""
+# Defining parameters
+
+# You need to configure using the service unique key and name
+service_name = None
+service_key =  None
+
 # Optionally, you can provide experiment name to create a new experiment while configuring
 experiment_name = None
+```
+
+```python
+# If you don't know service key and name you can checkout down below
+
+addon_list = region.addon_list
+display(addon_list.to_pandas())
+```
+
+```python
+assert service_name, "Please select a service_name"
+assert service_key, "Please select a service_key"
+assert experiment_name, "Please enter a experiment_name"
 ```
 
 ```python

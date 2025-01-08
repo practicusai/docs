@@ -13,7 +13,7 @@ def one_hot(df, text_col_list: list[str] | None,
     Applies one-hot encoding to specified columns in the DataFrame. If no columns are specified,
     one-hot encoding is applied to all categorical columns that have a number of unique categories
     less than or equal to the specified max_categories. It provides an option to either drop the
-    first dummy column to avoid multicollinearity or keep all dummy columns.
+    first dummy column to avoid multi collinearity or keep all dummy columns.
 
     :param text_col_list: List of column names to apply one-hot encoding. If None, applies to all
                           suitable categorical columns.

@@ -15,9 +15,6 @@ jupyter:
 # Bank marketing Sample
 A banking company wants to develop a model to predict the customers who will subscribe to time deposits and also wants to reach customers who are likely to subscribe to time deposits by using the call center resource correctly.
 
-## Before Start
-If you will see run_snippet() function. first parameter of this function -> 'suppress_outliers' must be a script in a file named snippets where the ipynb file is located. You can see snippets of this tutorial under the Supplementary Files.
-
 In the data set to be studied, variables such as demographic information, balance information and previous campaign information of the customers will be used to predict whether they will subscribe to time deposits.
 
 **Using the App**
@@ -35,6 +32,42 @@ In the data set to be studied, variables such as demographic information, balanc
 
 ```python
 import practicuscore as prt
+region = prt.get_region()
+```
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+
+```python
+deployment_key = None
+prefix = None
+model_name = None
+experiment_tracking_service = None
+```
+
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+# Let's list our models and select one of them.
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
+```
+
+```python
+assert deployment_key, "Please select a deployment key"
+assert prefix, "Please select a prefix"
+assert model_name, "Please select a model_name"
+assert experiment_tracking_service, "Please select an experiment tracking service, or skip this cell"
+```
+
+```python
+import practicuscore as prt
 
 worker = prt.get_local_worker()
 ```
@@ -42,7 +75,7 @@ worker = prt.get_local_worker()
 ```python
 data_conn = {
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/bank_marketing.csv"
+    "file_path": "/home/ubuntu/samples/insurance.csv"
 }
 
 proc = worker.load(data_conn) 
@@ -90,17 +123,6 @@ col[pdays] != -1
 proc.filter(filter_expression) 
 ```
 
-### Code Explanation
-
-#### 1. `proc.wait_until_done()`
-- **Purpose:** Waits for the process to complete.
-- **Usage:** Useful for tracking asynchronous or long-running tasks.
-
-#### 2. `proc.show_logs()`
-- **Purpose:** Displays logs generated during the process.
-- **Usage:** Used for debugging or monitoring process progress.
-
-
 ```python
 proc.wait_until_done()
 proc.show_logs()
@@ -113,7 +135,7 @@ display(df)
 
 #### Building a model using AutoML
 
-The below code is generated. You can update the code to fit your needs, or re-create it by building a model with Practicus AI app first and then view it's jupter notebook once the model building is completed.
+The below code is generated. You can update the code to fit your needs, or re-create it by building a model with Practicus AI app first and then view it's jupter notebook oncethe model building is completed.
 
 ```python
 from pycaret.classification import ClassificationExperiment, load_model, predict_model
@@ -123,8 +145,6 @@ exp = ClassificationExperiment()
 
 ```python
 experiment_name = 'Bank-marketing'
-experiment_tracking_service = None
-assert experiment_tracking_service, "Please select an experiment tracking service, or skip this cell"
 prt.experiments.configure(service_name=experiment_tracking_service, experiment_name=experiment_name)
 ```
 
@@ -169,80 +189,17 @@ predictions = predict_model(loaded_model, data=df)
 display(predictions)
 ```
 
-#### **`prt.models.deploy()`**
-- **Purpose:** Deploys a model with the given configuration details to the Practicus AI platform.
-- **Key Parameters:**
-  1. **`deployment_key`**
-     - A secure key required for authentication during the deployment process.
-  2. **`prefix`**
-     - Specifies a category or folder for organizing models (e.g., `models`).
-  3. **`model_name`**
-     - The name of the model being deployed (e.g., `'my-bank-marketing-model'`).
-  4. **`model_dir`**
-     - The directory containing the model files to be deployed. Defaults to the current working directory if `None`.
-
-
-```python
-deployment_key = None
-assert deployment_key, "Please select a deployment key"
-prefix = 'models'
-model_name = 'my-bank-marketing-model'
-model_dir = None  # Current dir
-```
-
 ```python
 # Deploy to current Practicus AI region
 prt.models.deploy(
     deployment_key=deployment_key,
     prefix=prefix,
     model_name=model_name,
-    model_dir=model_dir
+    model_dir=None # Current dir
 )
 ```
 
-### Prediction by using model API
-
-
-### Code Explanation
-
-This code sets up a REST API call to a Practicus AI model, sends data for prediction, and retrieves the results. Below is a detailed breakdown:
-
----
-
-#### 1. **`region = prt.current_region()`**
-- **Purpose:** Gets the current region for API routing.
-
-#### 2. **`api_url`**
-- **Definition:** Constructs the model's REST API URL.
-- **Key Note:** The URL must end with `/` for effective traffic routing.
-
----
-
-#### 3. **`token = prt.models.get_session_token(api_url)`**
-- **Purpose:** Retrieves a session token for authenticating API requests.
-- **SDK Dependency:** Uses Practicus AI SDK; for manual methods, refer to sample notebooks.
-
----
-
-#### 4. **`headers`**
-- **Definition:** Includes authorization (`Bearer token`) and content type (`text/csv`) for API communication.
-
----
-
-#### 5. **`requests.post()`**
-- **Purpose:** Sends data to the model API.
-- **Parameters:**
-  - `api_url`: API endpoint.
-  - `headers`: Authentication and data type.
-  - `data`: The CSV data generated from `df.to_csv(index=False)`.
-
-- **Error Handling:** Raises an error if the response is not successful (`r.ok`).
-
----
-
-#### 6. **`pd.read_csv(BytesIO(r.content))`**
-- **Purpose:** Converts the API's response (in CSV format) into a pandas DataFrame for analysis.
-
+#### Prediction by using model API
 
 ```python
 region = prt.current_region()
@@ -285,7 +242,7 @@ pred_df.head()
 
 ```python
 proc.predict( 
-    api_url='https://dev.practicus.io/models/my-bank-marketing-model/', 
+    api_url=f"{region.url}/{prefix}/{model_name}/", 
     column_names=['age', 'job', 'education', 'balance', 'contact', 'day', 'month',
         'duration', 'campaign', 'pdays', 'previous','marital_married', 
         'marital_single', 'default_yes', 'housing_yes','loan_yes'], 
@@ -357,7 +314,7 @@ def one_hot(df, text_col_list: list[str] | None,
     Applies one-hot encoding to specified columns in the DataFrame. If no columns are specified,
     one-hot encoding is applied to all categorical columns that have a number of unique categories
     less than or equal to the specified max_categories. It provides an option to either drop the
-    first dummy column to avoid multicollinearity or keep all dummy columns.
+    first dummy column to avoid multi collinearity or keep all dummy columns.
 
     :param text_col_list: List of column names to apply one-hot encoding. If None, applies to all
                           suitable categorical columns.

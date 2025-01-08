@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3 (for ML)
     language: python
-    name: python3
+    name: practicus_ml
 ---
 
 # Model Observability and Monitoring
@@ -27,6 +27,41 @@ In this example, we'll deploy a model on an income dataset. Our main goal withIn
 5. Making predictions with deployed model without making any pre-process
 
 
+```python
+import practicuscore as prt
+region = prt.get_region()
+```
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+
+```python
+deployment_key = None
+prefix = None
+model_name = None
+practicus_url = None # e.g. http://practicus.company.com
+```
+
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+# Let's list our models and select one of them.
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
+```
+
+```python
+assert deployment_key, "Please select a deployment key"
+assert prefix, "Please select a prefix"
+assert model_name, "Please select a model_name"
+assert practicus_url, "Please select practicus_url"
+```
 
 # Creating Preprocess and the Pipeline
 
@@ -64,6 +99,14 @@ def add_features(df):
     return df
 
 add_features_transformer = FunctionTransformer(add_features, validate=False)
+```
+
+```python
+df.columns
+```
+
+```python
+df.dtypes
 ```
 
 Defining categorical and numerical features
@@ -152,81 +195,16 @@ predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
 
 # Deployment of the model
 
-
-#### **`prt.models.deploy()`**
-- **Purpose:** Deploys a model with the given configuration details to the Practicus AI platform.
-- **Key Parameters:**
-  1. **`deployment_key`**
-     - A secure key required for authentication during the deployment process.
-  2. **`prefix`**
-     - Specifies a category or folder for organizing models (e.g., `models`).
-  3. **`model_name`**
-     - The name of the model being deployed (e.g., `'my-bank-marketing-model'`).
-  4. **`model_dir`**
-     - The directory containing the model files to be deployed. Defaults to the current working directory if `None`.
-
-
-```python
-# Please ask for a deployment key from your admin.
-deployment_key = ""
-assert deployment_key, "Please select a deployment_key"
-prefix = "models"
-model_name = "custom-income-test"
-model_dir= None  # Current dir 
-```
-
 ```python
 prt.models.deploy(
     deployment_key=deployment_key, 
     prefix=prefix, 
     model_name=model_name, 
-    model_dir=model_dir
+    model_dir=None # Current dir
 )
 ```
 
 # Prediction
-
-
-### Code Explanation
-
-This code sets up a REST API call to a Practicus AI model, sends data for prediction, and retrieves the results. Below is a detailed breakdown:
-
----
-
-#### 1. **`region = prt.current_region()`**
-- **Purpose:** Gets the current region for API routing.
-
-#### 2. **`api_url`**
-- **Definition:** Constructs the model's REST API URL.
-- **Key Note:** The URL must end with `/` for effective traffic routing.
-
----
-
-#### 3. **`token = prt.models.get_session_token(api_url)`**
-- **Purpose:** Retrieves a session token for authenticating API requests.
-- **SDK Dependency:** Uses Practicus AI SDK; for manual methods, refer to sample notebooks.
-
----
-
-#### 4. **`headers`**
-- **Definition:** Includes authorization (`Bearer token`) and content type (`text/csv`) for API communication.
-
----
-
-#### 5. **`requests.post()`**
-- **Purpose:** Sends data to the model API.
-- **Parameters:**
-  - `api_url`: API endpoint.
-  - `headers`: Authentication and data type.
-  - `data`: The CSV data generated from `df.to_csv(index=False)`.
-
-- **Error Handling:** Raises an error if the response is not successful (`r.ok`).
-
----
-
-#### 6. **`pd.read_csv(BytesIO(r.content))`**
-- **Purpose:** Converts the API's response (in CSV format) into a pandas DataFrame for analysis.
-
 
 ```python
 import practicuscore as prt
@@ -241,9 +219,7 @@ proc.show_head()
 ```python
 # Let's construct the REST API url.
 # Please replace the below url with your current Practicus AI address
-# e.g. http://practicus.company.com
-practicus_url = ""  
-assert practicus_url, "Please select practicus_url"
+
 # *All* Practicus AI model APIs follow the below url convention
 api_url = f"https://{practicus_url}/{prefix}/{model_name}/"
 # Important: For effective traffic routing, always terminate the url with / at the end.

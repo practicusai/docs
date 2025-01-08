@@ -25,11 +25,28 @@ jupyter:
 ```python
 import practicuscore as prt 
 import getpass
+
+region = prt.regions.get_default_region()
+```
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+practicus_url = None # E.g."https://practicus.your-company.com" 
+email = None # E.g. "your-email@your-company.com"
+```
+
+```python
+assert practicus_url, "Please enter your practicus_url "
+assert email, "Please enter your email."
 ```
 
 ```python
 # Method 1) If you are already logged in, or if you are running this code on a Practicus AI Worker.
-region = prt.regions.get_default_region()
+
 
 # Get tokens for the current region.
 refresh_token, access_token = region.get_refresh_and_access_token()
@@ -46,10 +63,10 @@ print("Access token:", access_token)
 # Optionally, you can log-out first
 # prt.auth.logout(all_regions=True)
 
-practicus_url = "https://practicus.your-company.com"
+
 # Tip: region.url shows the current Practicus AI service URL that you are logged-in to.
 
-email = "your-email@your-company.com"
+
 
 print(f"Please enter the password for {email} to login {practicus_url}")
 password = getpass.getpass()

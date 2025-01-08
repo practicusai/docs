@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3
     language: python
     name: python3
 ---
@@ -16,6 +16,55 @@ jupyter:
 This notebook demonstrates the development of a **Retrieval-Augmented Generation (RAG)** model for banking-related queries. 
 The RAG model retrieves relevant contextual data and generates meaningful answers using a language model. 
 We utilize **LangChain**, **Transformers**, and other related libraries to build the model.
+
+```python
+import practicuscore as prt
+region = prt.get_region()
+```
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+host = None # Example url -> 'company.practicus.com'
+embedding_model_path = None
+model_name = None
+model_prefix = None
+
+vector_store = None
+
+if vector_store == 'MilvusDB':
+    milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
+    
+```
+
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+# Let's list our models and select one of them.
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
+```
+
+```python
+assert host, "Please enter your host url" 
+assert embedding_model_path, "Please enter your embedding model path."
+assert model_name, "Please enter your embedding model_name."
+
+# You can use one of ChromaDB or MilvusDB as vector store
+assert model_prefix, "Please enter your embedding model_prefix."
+
+assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
+if vector_store == 'MilvusDB':
+    assert 'milvus_uri', "Please enter your milvus connection uri"
+```
 
 ### Preparing Data
 
@@ -50,30 +99,14 @@ else:
 
 ## Libraries Installation
 Ensure the necessary libraries are installed using the following commands:
-```shell
-pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb pypdf
-pip install torch --index-url https://download.pytorch.org/whl/cpu
-```
 
+```python
+! pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb pypdf
+! pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
 
 ## Importing Required Libraries
 The notebook imports libraries such as Transformers for text processing, LangChain for building components like text splitters and vector stores, and additional utilities for embedding generation and document processing.
-
-```python
-host = None # Example url -> 'company.practicus.com'
-assert host, "Please enter your host url" 
-
-embedding_model_path = None
-assert embedding_model_path, "Please enter your embedding model path."
-
-# You can use one of ChromaDB or MilvusDB as vector store
-vector_store = None
-assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
-
-if vector_store == 'MilvusDB':
-    milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
-    assert 'milvus_uri', "Please enter your milvus connection uri"
-```
 
 ```python
 from transformers import pipeline
@@ -282,28 +315,6 @@ Imports the Practicus library, which is used for managing API configurations and
 
 ```python
 import practicuscore as prt
-```
-
-```python
-region = prt.get_region()
-
-# Let's list our models and select one of them.
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
-
-# We will select first model
-model_name = my_model_list[0].name
-print("Using first model name:", model_name)
-```
-
-```python
-# Let's list our prefixes and select one of them.
-my_model_prefixes = region.model_prefix_list
-display(my_model_prefixes.to_pandas())
-
-# We will select first prefix
-model_prefix = my_model_prefixes[0].key
-print("Using first prefix:", model_prefix)
 ```
 
 ```python

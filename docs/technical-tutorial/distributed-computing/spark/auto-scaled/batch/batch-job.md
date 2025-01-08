@@ -39,17 +39,21 @@ Let's identify a worker size that supports auto-scaling and includes the require
 import practicuscore as prt
 
 region = prt.get_default_region()
+```
 
+```python
 auto_dist_worker_size = None
+```
 
-for worker_size in region.worker_size_list:
-    if worker_size.auto_distributed:
-        auto_dist_worker_size = worker_size.name 
-        break
+If you don't know your auto-distributed (privileged) workers you can check them out by using the SDK like down below:
 
-assert auto_dist_worker_size, "You do not have access to any auto-distributed (privileged) worker sizes"
+```python
+worker_size_list = region.worker_size_list
+display(worker_size_list.to_pandas()) # Check auto_distributed col.
+```
 
-print("Located an auto-distributed (privileged) worker size:", auto_dist_worker_size)
+```python
+assert auto_dist_worker_size, "Please select an auto-distributed (privileged) worker sizes."
 ```
 
 ```python

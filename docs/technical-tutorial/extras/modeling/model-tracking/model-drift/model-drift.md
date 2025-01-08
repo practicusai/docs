@@ -28,25 +28,28 @@ In this example, we'll deploy a model on an insurance dataset to make two predic
 5. Observing the model drift plots
 
 
-# Data Loading and Pre-Processing with Practicus Core
-This code demonstrates how to load, preprocess, and prepare a dataset for machine learning:
-1. **Dataset Connection**: 
-   - Specifies the connection type (`WORKER_FILE`) and the path to the dataset file (`insurance.csv`).
-2. **Load Dataset**: 
-   - Imports the Practicus Core library.
-   - Retrieves or creates a worker in the current region.
-   - Loads the dataset into the worker.
-   - Displays the first few rows of the dataset using `proc.show_head()`.
-3. **Pre-processing**:
-   - Applies categorical mapping to columns (`sex`, `smoker`, `region`) to create new categorical columns.
-   - Deletes the original columns (`region`, `smoker`, `sex`) after mapping.
-4. **Export Dataset**:
-   - Retrieves a copy of the preprocessed dataset as a DataFrame.
-   - Displays the first few rows of the modified dataset.
-5. **Feature-Target Separation**:
-   - Defines `X` as the feature set by dropping the `charges` column.
-   - Defines `y` as the target variable (`charges`).
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
 
+```python
+deployment_key = None
+prefix = None
+model_name = None
+practicus_url = None # Example http://company.practicus.com
+```
+
+```python
+assert deployment_key, "Please select a deployment key"
+assert prefix, "Please select a prefix"
+assert model_name, "Please enter a model_name"
+assert practicus_url, "Please enter practicus_url" 
+```
+
+## Model Development
+
+
+Loading and preparing the dataset
 
 ```python
 data_set_conn = {
@@ -83,18 +86,7 @@ df = proc.get_df_copy()
 df.head()
 ```
 
-# Train-Test Split, Model Training, and Export
-This code handles the following tasks:
-1. **Train-Test Split**:
-   - The dataset is divided into training and testing subsets using an 80-20 split.
-2. **Pipeline Creation**:
-   - Creates a machine learning pipeline using `Pipeline` from `sklearn`.
-   - Includes an `XGBRegressor` model configured for regression with the `reg:squarederror` objective and 100 estimators.
-3. **Model Training**:
-   - Fits the pipeline to the training data (`X_train`, `y_train`).
-4. **Model Export**:
-   - Serializes and saves the trained pipeline using `cloudpickle` to a file named `model.pkl`, enabling reuse of the trained model for future predictions.
-
+Model Training
 
 ```python
 X = df.drop('charges', axis=1)
@@ -126,59 +118,18 @@ with open('model.pkl', 'wb') as f:
     cloudpickle.dump(pipeline, f)
 ```
 
-# Model Deployment with Practicus
-This code demonstrates how to deploy a trained model using Practicus:
-1. **Deployment Key**:
-   - A `deployment_key` is required for authorization. It must be obtained from the administrator.
-   - An assertion ensures that the `deployment_key` is set; otherwise, an error is raised.
-2. **Model Deployment Configuration**:
-   - `prefix`: Specifies the prefix for organizing the deployed models.
-   - `model_name`: Sets a custom name for the deployed model (`custom-insurance-test`).
-   - `model_dir`: Optionally specifies the directory of the model. If `None`, the current directory is used.
-3. **Deploy Model**:
-   - The `prt.models.deploy()` function is used to deploy the model with the provided parameters.
-
-
-```python
-# Please ask for a deployment key from your admin.
-deployment_key = ""
-assert deployment_key, "Please select a deployment_key"
-prefix = "models"
-model_name = "custom-insurance-test"
-model_dir= None  # Current dir 
-```
+## Model Deployment
 
 ```python
 prt.models.deploy(
     deployment_key=deployment_key, 
     prefix=prefix, 
     model_name=model_name, 
-    model_dir=model_dir
+    model_dir=None # Current Dir
 )
 ```
 
-# Dataset Preparation, Model API Construction, and Prediction
-This code performs the following tasks:
-1. **Load and Preprocess Dataset**:
-   - Imports the Practicus Core library and initializes the worker.
-   - Loads the dataset and applies categorical mappings to specific columns (`sex`, `smoker`, `region`).
-   - Deletes the original columns post-mapping to avoid redundancy.
-   - Retrieves the preprocessed dataset as a DataFrame.
-2. **Construct the REST API URL**:
-   - Constructs the REST API URL for the deployed model. 
-   - Requires the `practicus_url` (base URL of the Practicus AI platform) and other parameters (`prefix`, `model_name`).
-   - Ensures the URL ends with a `/` for proper routing.
-3. **Get Session Token**:
-   - Retrieves an API session token using the Practicus AI SDK.
-   - Prints the token for reference.
-4. **Send Data for Prediction**:
-   - Sends the preprocessed dataset to the model REST API in CSV format using a `POST` request.
-   - Includes necessary headers, such as authorization (`Bearer` token) and content type (`text/csv`).
-   - Handles any connection errors that may occur.
-5. **Receive and Display Predictions**:
-   - Reads the response from the API and converts it into a DataFrame.
-   - Prints the first few rows of the prediction results for review.
-
+## Prediction
 
 ```python
 # Loading the dataset to worker
@@ -202,8 +153,7 @@ df.head()
 # Let's construct the REST API url.
 # Please replace the below url with your current Practicus AI address
 # e.g. http://practicus.company.com
-practicus_url = ""  
-assert practicus_url, "Please select practicus_url"
+
 # *All* Practicus AI model APIs follow the below url convention
 api_url = f"https://{practicus_url}/{prefix}/{model_name}/"
 # Important: For effective traffic routing, always terminate the url with / at the end.
@@ -242,22 +192,7 @@ pred_df.head()
 - When we look at Model Drifts Dashboard at Grafana we will see plots with the model drift visible
 
 
-# Simulating Model Drift and Analyzing
-This section of the code introduces artificial model drift and demonstrates how to evaluate its effects:
-1. **Hand-Made Model Drift**:
-   - Artificially modifies the dataset by altering the `age` and `bmi` columns (multiplying by 2 and 3, respectively).
-   - Displays the modified dataset for verification.
-2. **Send Modified Data for Prediction**:
-   - Prepares the modified dataset as a CSV file.
-   - Sends it to the deployed model API using a `POST` request with proper authorization headers.
-   - Checks for errors during the request.
-3. **Analyze Predictions**:
-   - Reads the API's prediction response into a DataFrame.
-   - Displays the prediction results to analyze the impact of drift on the model's outputs.
-4. **Monitor Drift on Grafana**:
-   - After the second prediction, wait for 2 minutes to allow for drift detection updates.
-   - View the **Model Drifts Dashboard** in Grafana to observe visual plots indicating the extent of model drift.
-
+## Hand-Made Model Drift
 
 ```python
 df['age'] = df['age'] * 2
@@ -290,9 +225,6 @@ pred_df.head()
 
 - After you make the second prediction, please wait for 2 minutes to see a clearer picture on the drift plot
 - When we look at Model Drifts Dashboard at Grafana we will see plots with the model drift visible
-
-
-# ADD DRIFTED IMG WITH IMG FOLDER
 
 
 ## Supplementary Files

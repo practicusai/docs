@@ -68,4 +68,4 @@ print("Too many blank lines, which is a code formatting issue.")
 
 ---
 
-**Previous**: [Llms With DeepSpeed](../../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md) | **Next**: [Automate Notebooks > Executing Notebooks](../automate-notebooks/executing-notebooks.md)
+**Previous**: [Executing Notebooks](../automate-notebooks/executing-notebooks.md) | **Next**: [Work With Connections](../work-with-connections.md)

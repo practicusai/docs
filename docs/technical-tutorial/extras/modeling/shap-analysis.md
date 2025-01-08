@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3 (for ML)
     language: python
-    name: python3
+    name: practicus_ml
 ---
 
 ```python
@@ -82,7 +82,7 @@ This graphical analysis is instrumental for data-driven decision-making, ensurin
 importances = rf_clf.feature_importances_
 indices = np.argsort(importances)
 features = df.columns
-plt.title("Feature Importance's")
+plt.title('Feature Importances')
 plt.barh(range(len(indices)), importances[indices], color='y', align='center')
 plt.yticks(range(len(indices)), [features[i] for i in indices])
 plt.xlabel('Relative Importance')
@@ -141,7 +141,7 @@ _ = plot_tree(tree_to_plot,
 # SHAP Value Summary: Feature Importance for Iris Classification
 
 ## Overview
-This graph utilizes SHAP (SHapley Additive exPlanations) values to provide a summary of feature importance within our Iris species classification model. The length of the bars represents the average impact of each feature on the model's predictions, across all instances in the dataset.
+This graph utilizes SHAP (SHapley Additive explanations) values to provide a summary of feature importance within our Iris species classification model. The length of the bars represents the average impact of each feature on the model's predictions, across all instances in the dataset.
 
 ## Detailed Feature Contributions
 - **Petal Width (petal_width):** Stands out as the feature with the most significant positive impact on model output, particularly for Iris-virginica predictions. The prominence of this bar suggests that petal width is a critical factor in the classification.
@@ -350,7 +350,7 @@ def one_hot(df, text_col_list: list[str] | None,
     Applies one-hot encoding to specified columns in the DataFrame. If no columns are specified,
     one-hot encoding is applied to all categorical columns that have a number of unique categories
     less than or equal to the specified max_categories. It provides an option to either drop the
-    first dummy column to avoid multicollinearity or keep all dummy columns.
+    first dummy column to avoid multi collinearity or keep all dummy columns.
 
     :param text_col_list: List of column names to apply one-hot encoding. If None, applies to all
                           suitable categorical columns.

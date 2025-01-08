@@ -24,7 +24,7 @@ def generate_response(messages, model):
         messages=messages, # Our contest
         lang_model= model, #"gpt-4o", # Select model
         streaming=True, # Streaming mode
-        llm_kwargs={"kw1": 123, "kw2": "k2"} # If we have a extra parameters at model.py we can add them here 
+        llm_kwargs={"kw1": 123, "kw2": "k2"} # If we have an extra parameters at model.py we can add them here
     )
     
     headers = {

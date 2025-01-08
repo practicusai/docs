@@ -24,6 +24,43 @@ To get started with `ChatPracticus`, you will need the following parameters:
 
 Once these parameters are set, you can define a `chat` instance using `ChatPracticus` and invoke it with any prompt of your choice.
 
+```python
+import practicuscore as prt
+
+region = prt.get_region()
+```
+
+```python
+model_name = None
+model_prefix = None
+host = None # e.g. 'company.practicus.io'
+```
+
+If you don't know your prefixes and models you can check them out by using the SDK like down below:
+
+```python
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
+```
+
+```python
+assert model_name, "Please select an LLM model."
+assert model_prefix, "Please select the prefix LLM deployed."
+assert host, "Please enter your host"
+```
+
+Now we can define our API url and it's token.
+
+```python
+api_url = f"https://{host}/{model_prefix}/{model_name}/"
+token = prt.models.get_session_token(api_url=api_url)
+```
+
 Below is an example of how to create and use a `ChatPracticus` instance in your code.
 
 ```python
@@ -60,39 +97,6 @@ After defining your token and API URL, you can easily incorporate prompts into y
 - **Human Messages:** Wrap user prompts and queries with `HumanMessage` to represent the user’s input.
 
 This structured approach ensures that the model receives clear, role-specific instructions, enhancing the quality and relevance of its responses.
-
-```python
-import practicuscore as prt
-```
-
-```python
-region = prt.get_region()
-
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
-model_name = my_model_list[0].name
-print("Using first model name:", model_name)
-```
-
-```python
-my_app_list = region.app_list
-display(my_app_list.to_pandas())
-app_name = my_app_list[0].name
-print("Using first app name:", app_name)
-```
-
-```python
-my_model_prefixes = region.model_prefix_list
-display(my_model_prefixes.to_pandas())
-model_prefix = my_model_prefixes[0].key
-print("Using first prefix:", model_prefix)
-```
-
-```python
-host = 'company.practicus.io' # Example url -> 'company.practicus.io'
-api_url = f"https://{host}/{model_prefix}/{model_name}/"
-token = prt.models.get_session_token(api_url=api_url)
-```
 
 ```python
 human_input1 = HumanMessage("Capital of United Kingdom?")

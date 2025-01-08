@@ -31,6 +31,16 @@ import practicuscore as prt
 region = prt.regions.get_default_region()
 ```
 
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+model_name = None # E.g. "diamond-price"
+model_prefix = None #  E.g. 'models/practicus'
+```
+
 ```python
 # Let's get model prefixes dataframe
 # We can also use the list form with: region.model_prefix_list 
@@ -55,25 +65,24 @@ display(df)
 # E.g. let's search for models with a particular model prefix, 
 # and remove all models that are not deployed (hs no version)
 
-model_prefix = 'models/practicus'
+
 filtered_df = df[(df['prefix'] == model_prefix) & (df['versions'].notna())]
 display(filtered_df)
 ```
 
 ```python
-model = "diamond-price"
+assert model_name, "Please enter your model_name"
+assert model_prefix, "Please enter your model_prefix"
+```
 
-api_url = f"{region.url}/{model_prefix}/{model}/"
+```python
+api_url = f"{region.url}/{model_prefix}/{model_name}/"
 
 print("Getting Model API session token for:", api_url)
 token = prt.models.get_session_token(api_url)
 
 print("Model access token with a short life:")
 print(token)
-```
-
-```python
-
 ```
 
 ### Getting Model API session token using REST API calls
@@ -118,7 +127,7 @@ print("Console API access token:", console_access_token)
 # Locating model id
 print("Getting model id.")
 print("Note: you can also view model id using Open API documentation (E.g. https://../models/redoc/), or using Practicus AI App.")
-r = requests.get(model_api_url + "?get_meta=true", headers=headers, data=data)
+r = requests.get(api_url + "?get_meta=true", headers=headers, data=data)
 if not r.ok:
     raise ConnectionError(r.status_code)
 model_id = int(r.headers["x-prt-model-id"])

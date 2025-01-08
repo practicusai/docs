@@ -129,4 +129,4 @@ prtcli execute-notebook -p notebook=my-notebook.ipynb
 
 ---
 
-**Previous**: [Automated Code Quality](../improve-code-quality/automated-code-quality.md) | **Next**: [Work With Connections](../work-with-connections.md)
+**Previous**: [Build Custom Images](../build-custom-images.md) | **Next**: [Improve Code Quality > Automated Code Quality](../improve-code-quality/automated-code-quality.md)

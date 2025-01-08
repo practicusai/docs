@@ -49,4 +49,4 @@ print("VS Code token    :", token)
 
 ---
 
-**Previous**: [Configure Workspaces](configure-workspaces.md) | **Next**: [Create Virtual Envs](create-virtual-envs.md)
+**Previous**: [Configure Workspaces](configure-workspaces.md) | **Next**: [View Stats](view-stats.md)

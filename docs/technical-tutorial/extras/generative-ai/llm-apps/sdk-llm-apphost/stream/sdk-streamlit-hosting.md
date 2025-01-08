@@ -14,9 +14,6 @@ jupyter:
 
 # Hosting LLM APIs and Apps
 
-
-In this example we will be using the streamlit. Streamlit script should be in same folder with this notebook. If you inspect streamlit code look under 'Supplementary Files'.
-
 ```python
 import practicuscore as prt
 ```
@@ -28,37 +25,54 @@ prt.apps.test_app()
 
 After testing our application we can set our configurations and start the deployment process.
 
-
-## Define params from region
-
 ```python
 import practicuscore as prt
 region = prt.get_region()
-
 ```
 
-We receive the necessary information for deploy from the region
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+app_name = None # E.g. 'api-chatbot'
+deployment_setting_key = None
+app_prefix = None
+app_dir = None
+```
+
+##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+ 
 
 ```python
 my_app_list = region.app_list
 display(my_app_list.to_pandas())
-app_name = my_app_list[0].name
+
 print("Using first app name:", app_name)
 ```
 
 ```python
 my_app_prefix_list = region.app_prefix_list
 display(my_app_prefix_list.to_pandas())
-app_prefix = my_app_prefix_list[0].prefix
+
 print("Using first app prefix", app_prefix)
 ```
 
 ```python
 my_app_settings = region.app_deployment_setting_list
 display(my_app_settings.to_pandas())
-deployment_setting_key = my_app_settings[0].key
+
 print("Using first setting with key:", deployment_setting_key)
 ```
+
+```python
+assert app_name, "Please enter application name"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+```
+
+### Deploying app
 
 ```python
 prt.apps.deploy(
@@ -100,7 +114,7 @@ def generate_response(messages, model):
         messages=messages, # Our contest
         lang_model= model, #"gpt-4o", # Select model
         streaming=True, # Streaming mode
-        llm_kwargs={"kw1": 123, "kw2": "k2"} # If we have a extra parameters at model.py we can add them here 
+        llm_kwargs={"kw1": 123, "kw2": "k2"} # If we have an extra parameters at model.py we can add them here
     )
     
     headers = {

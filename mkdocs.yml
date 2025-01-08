@@ -88,10 +88,11 @@ nav:
       - LLM Fine Tuning:
         - Llms With DeepSpeed: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md
   - How To:
-    - Improve Code Quality:
-      - Automated Code Quality: technical-tutorial/how-to/improve-code-quality/automated-code-quality.md
+    - Build Custom Images: technical-tutorial/how-to/build-custom-images.md
     - Automate Notebooks:
       - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
+    - Improve Code Quality:
+      - Automated Code Quality: technical-tutorial/how-to/improve-code-quality/automated-code-quality.md
     - Work With Connections: technical-tutorial/how-to/work-with-connections.md
     - Integrate Git: technical-tutorial/how-to/integrate-git.md
     - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
@@ -101,6 +102,7 @@ nav:
     - Configure Advanced Gpu: technical-tutorial/how-to/configure-advanced-gpu.md
     - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md
     - Share Workers: technical-tutorial/how-to/share-workers.md
+    - View Stats: technical-tutorial/how-to/view-stats.md
     - Create Virtual Envs: technical-tutorial/how-to/create-virtual-envs.md
     - Model Tokens: technical-tutorial/how-to/model-tokens.md
     - Use Polars: technical-tutorial/how-to/use-polars.md
@@ -108,7 +110,6 @@ nav:
     - Data Analysis:
       - Plot:
         - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md
-        - Into To Plot: technical-tutorial/extras/data-analysis/plot/into-to-plot.md
         - Multiple Layers: technical-tutorial/extras/data-analysis/plot/multiple-layers.md
       - Eda:
         - Analyze: technical-tutorial/extras/data-analysis/eda/analyze.md
@@ -155,12 +156,25 @@ nav:
       - Milvus Embedding And LangChain:
         - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
       - Deploying LLM:
-        - Prep: technical-tutorial/extras/generative-ai/deploying-llm/Prep.md
-        - Upload Download: technical-tutorial/extras/generative-ai/deploying-llm/upload-download.md
-        - Model: technical-tutorial/extras/generative-ai/deploying-llm/model.md
-        - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/model-json.md
-        - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/deploy.md
-        - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/consume-parallel.md
+        - Introduction: technical-tutorial/extras/generative-ai/deploying-llm/Introduction.md
+        - Preparation:
+          - Model Download: technical-tutorial/extras/generative-ai/deploying-llm/Preparation/Model-Download.md
+          - Upload LLM: technical-tutorial/extras/generative-ai/deploying-llm/Preparation/Upload-LLM.md
+        - Basic Deployment:
+          - Model: technical-tutorial/extras/generative-ai/deploying-llm/basic-deployment/model.md
+          - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/basic-deployment/model-json.md
+          - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/basic-deployment/deploy.md
+          - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/basic-deployment/consume-parallel.md
+        - LangChain Deployment:
+          - Model: technical-tutorial/extras/generative-ai/deploying-llm/langchain-deployment/model.md
+          - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/langchain-deployment/model-json.md
+          - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/langchain-deployment/deploy.md
+          - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/langchain-deployment/consume-parallel.md
+        - Combined Method:
+          - Model: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/model.md
+          - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/model-json.md
+          - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/deploy.md
+          - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/consume-parallel.md
       - Cv Asistant:
         - Cv Asistant: technical-tutorial/extras/generative-ai/cv-asistant/cv-asistant.md
 - AI Studio Tutorial:
@@ -180,7 +194,7 @@ nav:
   - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
   - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
   - Next Steps: ai-studio-tutorial/next-steps.md
-- SDK v24.8.2: sdk/practicuscore.html
+- SDK v24.8.3: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

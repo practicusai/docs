@@ -83,7 +83,7 @@ Practicus AI simplifies advanced GPU management through the intuitive management
 - Specify the custom GPU type you need:
     - Specify for Nvidia MIG (e.g. `nvidia.com/mig-1g.5gb`) you defined in the above step.
     - Specify for other vendors (e.g., `amd.com/gpu` or `intel.com/gpu`).
-    - Leave empty for the default, which will use entire NVDIA GPUs without fractions.
+    - Leave empty for the default, which will use entire NVIDIA GPUs without fractions.
 
 **Deploy workloads as usual**:
 - Deploy end user workers, model hosts, app hosts etc. as usual with the worker size you defined above.

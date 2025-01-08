@@ -21,56 +21,45 @@ In this example we will try to host an LLM application which only used by API re
 import practicuscore as prt
 import requests 
 import json
+
+region = prt.get_region()
 ```
 
 #### API Python script
 
-First, we need to create a Python script that will be called using requests. For this example, we need to create an 'apis' folder that will contain Python scripts. We can then create our scripts inside this folder.
+First of all we need to create a Python scripts which will be invoked by using requests. For this instance we should create an 'apis' folder which will contain the Python scripts. Then we can create our scripts within the folder.
 
-Look under 'Supplementary Files' to see the scripts inside the 'apis' folder
+You can check-out sample api script [simple_api.py](apis/simple_api.py)
 
 
-#### Required parameters
-- host -> Practicus domain where you work.
-- lang_model -> Name of the model you deployed into practicus and want to use.
-- app_name -> You can give it any name you want.
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
 
 ```python
-host = 'preview.practicus.io' # Example url -> 'company.practicus.com'
-assert host, "Please enter your host url" 
-
-lang_model= 'LLAMA-3-70b'
-assert lang_model, "Please select a model"
-
-app_name = 'api-chatbot'
-assert app_name, "Please enter application name"
+host = None # E.g. 'company.practicus.com'
+lang_model=  None # E.g. 'LLAMA-3-70b'
+app_name = None # E.g. 'api-chatbot'
+model_name = None
+model_prefix = None
+deployment_setting_key = None
+app_prefix = None
 ```
 
-## Define params from region
-
-
-Information about the user is kept in the region. Below we get the necessary parameters to deploy the app.
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+ 
 
 ```python
-region = prt.get_region()
-
 # Let's list our models and select one of them.
 my_model_list = region.model_list
 display(my_model_list.to_pandas())
-
-# We will select second model
-model_name = my_model_list[1].name
-print("Using second model name:", model_name)
 ```
 
 ```python
 # Let's list our model prefixes and select one of them.
 my_model_prefixes = region.model_prefix_list
 display(my_model_prefixes.to_pandas())
-
-# We will select first prefix
-model_prefix = my_model_prefixes[0].key
-print("Using first prefix:", model_prefix)
 ```
 
 ```python
@@ -78,32 +67,32 @@ print("Using first prefix:", model_prefix)
 my_app_settings = region.app_deployment_setting_list
 display(my_app_settings.to_pandas())
 
-# We will select the first deployment
-deployment_setting_key = my_app_settings[0].key
-print("Using first setting with key:", deployment_setting_key)
 ```
 
 ```python
 # Let's list our app prefixes and select one of them.
 my_app_prefix_list = region.app_prefix_list
 display(my_app_prefix_list.to_pandas())
-
-# We will select first prefix
-app_prefix = my_app_prefix_list[0].prefix
-print("Using first app prefix", app_prefix)
 ```
 
-#### Get model
-Get your model and token with api
+```python
+assert host, "Please enter your host url"
+assert lang_model, "Please select a model"
+assert app_name, "Please enter application name"
+assert model_name, "Please enter model_name"
+assert model_prefix, "Please enter model_prefix"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+```
+
+#### Testing scripts
+
+We can call our api scripts withIn this example and test them
 
 ```python
 api_url = f"https://{host}/{model_prefix}/{model_name}/"
 token = prt.models.get_session_token(api_url=api_url)
 ```
-
-#### Testing scripts
-
-We can call our api scripts withIn this example and test them. You can find the apis.simple_api file under Supplementary Files
 
 ```python
 from apis.simple_api import Messages, ModelRequest, run

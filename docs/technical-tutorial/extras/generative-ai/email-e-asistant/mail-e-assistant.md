@@ -7,18 +7,40 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3
     language: python
     name: python3
 ---
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+host = None # 'E.g. company.practicus.com'
+embedding_model_path = None
+vector_store = None 
+milvus_uri = None # E.g. 'company.practicus.milvus.com'
+```
+
+```python
+assert host, "Please enter your host url" 
+assert embedding_model_path, "Please enter your embedding model path."
+assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
+if vector_store == 'MilvusDB': 
+    assert 'milvus_uri', "Please enter your milvus connection uri"
+```
 
 ## Firstly we need install transformers and torch
 
 
 Run at terminal:
-- pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb
-- pip install torch --index-url https://download.pytorch.org/whl/cpu
 
+```python
+! pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb
+! pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
 
 ### pip install transformers sentence-transformers langchain langchain-community chromadb 
 - Transformers: It allows you to easily use Transformer-based models (such as BERT, GPT, etc.).-
@@ -123,21 +145,6 @@ This code initializes and validates the required variables for setting up the en
    - `assert 'milvus_uri', "Please enter your milvus connection uri"`:
      - Ensures that a valid `milvus_uri` is provided when `MilvusDB` is used.
 
-```python
-host = None # Example url -> 'company.practicus.com'
-assert host, "Please enter your host url" 
-
-embedding_model_path = None
-assert embedding_model_path, "Please enter your embedding model path."
-
-# You can use one of ChromaDB or MilvusDB as vector store
-vector_store = None
-assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
-
-if vector_store == 'MilvusDB':
-    milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
-    assert 'milvus_uri', "Please enter your milvus connection uri"
-```
 
 ## Define llm api function and call ChatPracticus in this function
 

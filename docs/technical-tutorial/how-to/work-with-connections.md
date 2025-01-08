@@ -147,4 +147,4 @@ prt.connections.upload_to_s3(_upload_conf)
 
 ---
 
-**Previous**: [Executing Notebooks](automate-notebooks/executing-notebooks.md) | **Next**: [Integrate Git](integrate-git.md)
+**Previous**: [Automated Code Quality](improve-code-quality/automated-code-quality.md) | **Next**: [Integrate Git](integrate-git.md)

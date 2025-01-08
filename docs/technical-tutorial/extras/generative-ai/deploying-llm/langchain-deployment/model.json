@@ -1,0 +1,4 @@
+{
+"download_files_from": "cache/llama-1b-instruct/",
+"_comment": "you can also define download_files_to otherwise, /var/practicus/cache is used"
+}

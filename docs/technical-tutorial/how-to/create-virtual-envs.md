@@ -27,7 +27,7 @@ python3 -m venv $HOME/.venv/new_venv --system-site-packages --symlinks
 source $HOME/.venv/new_venv/bin/activate
 # Add to Jupyter 
 python3 -m ipykernel install --user --name new_venv --display-name "My new Python"
-# Install packages, these will 'overide' parent python package versions
+# Install packages, these will 'override' parent python package versions
 python3 -m pip install some_package
 ```
 
@@ -88,4 +88,4 @@ uv pip install pandas
 
 ---
 
-**Previous**: [Share Workers](share-workers.md) | **Next**: [Model Tokens](model-tokens.md)
+**Previous**: [View Stats](view-stats.md) | **Next**: [Model Tokens](model-tokens.md)

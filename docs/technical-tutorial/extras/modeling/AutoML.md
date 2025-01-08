@@ -7,12 +7,12 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3 (for ML)
     language: python
-    name: python3
+    name: practicus_ml
 ---
 
-# Predicting Insurance Charges with Automated Machine Learning (AutoML)
+# Predicting Insurance Charges with Automated Machine Learning (AutoML)
 
 In the insurance sector, accurately forecasting the costs associated with policyholders is crucial for pricing policies competitively while ensuring profitability. For insurance companies, the ability to predict these costs helps in tailoring individual policies, identifying key drivers of insurance costs, and ultimately enhancing customer satisfaction by offering policies that reflect a customer's specific risk profile and needs.
 
@@ -27,6 +27,32 @@ The primary goal of this notebook is to showcase how Practicus AI users can leve
 - Assess the model's performance accurately
 
 Let's embark on this journey!
+
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+# You need to configure using the service unique key, you can find your key on the "Practicus AI Admin Console" 
+service_key = None
+
+# Optionally, you can provide experiment name to create a new experiment while configuring
+experiment_name = None
+```
+
+```python
+# If you don't know service key and name you can checkout down below
+
+addon_list = region.addon_list
+display(addon_list.to_pandas())
+```
+
+```python
+assert service_key, "Please select a service_key"
+assert experiment_name, "Please select a experiment_name"
+```
 
 <!-- #region -->
 ### Step 1: Setting Up the Environment
@@ -55,6 +81,7 @@ warnings.filterwarnings("ignore")
 data_set_conn = {
     "connection_type": "WORKER_FILE",
     "file_path": "/home/ubuntu/samples/insurance.csv"
+ 
 }
 ```
 
@@ -87,11 +114,6 @@ exp = RegressionExperiment()
 ##### We'll configure our experiment with a specific name, making it easier to manage and reference.
 
 ```python
-# You need to configure using the service unique key, you can find your key on the "Practicus AI Admin Console" 
-service_key = 'mlflow-primary'  
-# Optionally, you can provide experiment name to create a new experiment while configuring
-experiment_name = 'insuranceCharges'
-
 prt.experiments.configure(service_key=service_key, experiment_name=experiment_name)
 # No experiment service selected, will use MlFlow inside the Worker. To configure manually:
 # configure_experiment(experiment_name=experiment_name, service_name='Experiment service name')
@@ -226,7 +248,7 @@ def one_hot(df, text_col_list: list[str] | None,
     Applies one-hot encoding to specified columns in the DataFrame. If no columns are specified,
     one-hot encoding is applied to all categorical columns that have a number of unique categories
     less than or equal to the specified max_categories. It provides an option to either drop the
-    first dummy column to avoid multicollinearity or keep all dummy columns.
+    first dummy column to avoid multi collinearity or keep all dummy columns.
 
     :param text_col_list: List of column names to apply one-hot encoding. If None, applies to all
                           suitable categorical columns.

@@ -12,13 +12,64 @@ jupyter:
     name: python3
 ---
 
+```python
+import practicuscore as prt
+region = prt.get_region()
+```
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+host = None # E.g. 'company.practicus.com'
+embedding_model_path = None
+model_name = None
+model_prefix = None
+
+vector_store = None # ChromaDB or MilvusDB
+
+if vector_store == 'MilvusDB':
+    milvus_uri = None # E.g. 'company.practicus.milvus.com'
+    
+```
+
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+# Let's list our models and select one of them.
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
+```
+
+```python
+assert host, "Please enter your host url" 
+assert embedding_model_path, "Please enter your embedding model path."
+assert model_name, "Please enter your embedding model_name."
+assert model_prefix, "Please enter your embedding model_prefix."
+
+# You can use one of ChromaDB or MilvusDB as vector store
+assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
+
+if vector_store == 'MilvusDB':
+    assert 'milvus_uri', "Please enter your milvus connection uri"
+```
+
 ## Firstly we need install transformers and torch
 
 
 Run at terminal:
-- pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb
-- pip install torch --index-url https://download.pytorch.org/whl/cpu
 
+```python
+! pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb
+! pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
 
 ### pip install transformers sentence-transformers langchain langchain-community chromadb 
 - Transformers: It allows you to easily use Transformer-based models (such as BERT, GPT, etc.).-
@@ -96,41 +147,8 @@ import warnings
 warnings.filterwarnings('ignore')
 ```
 
-1. **Server URL Validation:**
-   - Defines the `host` URL where the application will connect.
-   - If `host` is not provided, an error message is raised.
-
-2. **Embedding Model Path Validation:**
-   - Validates the path for the embedding model used to generate embeddings.
-   - Raises an error if the path is not specified.
-
-3. **Vector Store Selection:**
-   - The user is required to specify one of the two options: `ChromaDB` or `MilvusDB`.
-   - An error message is raised if an invalid value is provided.
-
-4. **Milvus Connection URI:**
-   - If `MilvusDB` is selected, a connection URI for Milvus must be provided.
-   - An error is raised if the `milvus_uri` is not defined.
-
-This setup ensures that all necessary configurations are in place for the system to initialize and function correctly.
-
-
-```python
-uhost = None # Example url -> 'company.practicus.com'
-assert host, "Please enter your host url" 
-
-embedding_model_path = None
-assert embedding_model_path, "Please enter your embedding model path."
-
-# You can use one of ChromaDB or MilvusDB as vector store
-vector_store = None
-assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
-
-if vector_store == 'MilvusDB':
-    milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
-    assert 'milvus_uri', "Please enter your milvus connection uri"
 ## Define llm api function and call ChatPracticus in this function
-```
+
 
 ### Function: `call_llm_api`
 
@@ -477,70 +495,6 @@ import practicuscore as prt
 region = prt.get_region()
 ```
 
-#### Workflow
-
-1. **Retrieve Model List**:
-   - `my_model_list = region.model_list`:
-     - Accesses the `model_list` attribute of the `region` object.
-     - This attribute is expected to contain a list of models available in the current region.
-
-2. **Display Model List**:
-   - `display(my_model_list.to_pandas())`:
-     - Converts the model list to a pandas DataFrame using `.to_pandas()` for better readability.
-     - Displays the DataFrame, which provides a tabular view of the available models.
-
-3. **Select the First Model**:
-   - `model_name = my_model_list[0].name`:
-     - Selects the first model in the list by accessing the first element of `my_model_list` using index `0`.
-     - Extracts the name of the model using the `.name` attribute.
-
-4. **Print the Selected Model**:
-   - `print("Using first model name:", model_name)`:
-     - Outputs the name of the selected model for verification.
-
-
-```python
-#Let's list our model and select one of them.
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
-
-#We will select first model 
-model_name = my_model_list[0].name
-print("Using first model name:", model_name)
-```
-
-#### Workflow
-
-1. **Retrieve Model Prefix List**:
-   - `my_model_prefixes = region.model_prefix_list`:
-     - Accesses the `model_prefix_list` attribute of the `region` object.
-     - This attribute is expected to contain a list of model prefixes available in the current region.
-
-2. **Display Model Prefixes**:
-   - `display(my_model_prefixes.to_pandas())`:
-     - Converts the model prefix list to a pandas DataFrame using `.to_pandas()` for better readability.
-     - Displays the DataFrame, which provides a tabular view of the available prefixes.
-
-3. **Select the First Prefix**:
-   - `model_prefix = my_model_prefixes[0].key`:
-     - Selects the first prefix in the list by accessing the first element of `my_model_prefixes` using index `0`.
-     - Extracts the key of the prefix using the `.key` attribute.
-
-4. **Print the Selected Prefix**:
-   - `print("Using first prefix:", model_prefix)`:
-     - Outputs the selected prefix key for verification.
-
-
-```python
-#Let's list our model prefixes and select one of them.
-my_model_prefixes = region.model_prefix_list
-display(my_model_prefixes.to_pandas())
-
-#We will select first prefix
-model_prefix = my_model_prefixes[0].key
-print("Using first prefix:", model_prefix)
-```
-
 1. **Construct the API URL**:
    - `api_url = f"https://{host}/{model_prefix}/{model_name}/"`:
      - Uses string formatting to dynamically create the API URL based on:
@@ -574,4 +528,4 @@ print(answer)
 
 ---
 
-**Previous**: [Consume Parallel](../deploying-llm/consume-parallel.md)
+**Previous**: [Consume Parallel](../deploying-llm/combined-method/consume-parallel.md)

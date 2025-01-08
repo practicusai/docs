@@ -15,20 +15,26 @@ jupyter:
 # Flow hosting of Langflow by using Streamlit
 
 
-First of all we need to create a "Basic Prompting (Hello, World)" flow at langflow and export the json of it.
-
-
-
-## Define params from region
-
-
-Information about the user is kept in the region.
-Below we get the necessary parameters to deploy the app.
+### Defining parameters from region.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
 
 ```python
 import practicuscore as prt
 region = prt.get_region()
 ```
+
+```python
+app_name = None # E.g. 'api-chatbot'
+deployment_setting_key = None
+app_prefix = None
+app_dir = None
+
+```
+
+##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+ 
 
 ```python
 my_app_prefix_list = region.app_prefix_list
@@ -51,9 +57,19 @@ deployment_setting_key = my_app_settings[1].key
 print("Using first setting with key:", deployment_setting_key)
 ```
 
-STEPS
-- We put our flow.json file that we exported from langflow in the directory where the ipynb file is located (the directory we are currently working in).
-- After exporting the json and save it within current directory of this tutorial, you should test it if it's working.
+```python
+assert app_name, "Please enter application name"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+```
+
+## Testing App
+
+
+First of all we need to create a "Basic Prompting (Hello, World)" flow at langflow and export the json of it.
+
+
+After exporting the json and save it within current directory of this tutorial, you should test it if it's working.
 
 ```python
 from langflow.load import run_flow_from_json
@@ -71,17 +87,19 @@ message_text = message_obj.data['text']
 message_text
 ```
 
-Unless you stop it, the following cell will remain open and will give a url to this notebook owner can access and test the application
+Now we can create our own stream-lit app and use json of our flow within stream-lit's front-end. You can check-out our streamlit_app.py:
+
+[View streamlit_app.py](streamlit_app.py)
+
+
+After creating/editing stream_app.py we could test it by hosting it as test by using our SDK:
 
 ```python
 # When you finish test, stop this cell. If you dont stop cell always be open.
 prt.apps.test_app()
 ```
 
-We can now create our own stream-lit application and use the api url of our stream in the frontend of stream-lit. streamlit_app.py is available under Supplementary Files.
-
-
-After creating/editing streamlit_app.py we could test it by hosting it as test by using our SDK:
+### Deploying App
 
 ```python
 import practicuscore as prt
@@ -89,12 +107,12 @@ import practicuscore as prt
 prt.apps.deploy(
     deployment_setting_key=deployment_setting_key,
     prefix=app_prefix,
-    app_name="chatbot",
+    app_name=app_name,
     app_dir=None # Current dir
 )
 ```
 
-After the deployment process completed we could enter UI url (e.g. https://practicus.your-company.com/apps/chatbot/v1/) to show-case our app.
+After the deployment process completed we could enter UI url (e.g. https://dev.practicus.io/apps/langflow-json-test/v1/) to show-case our app.
 
 
 ## Supplementary Files

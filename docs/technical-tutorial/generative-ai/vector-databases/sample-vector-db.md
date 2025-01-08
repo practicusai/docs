@@ -22,6 +22,19 @@ This example demonstrates the basic operations of PyMilvus, a Python SDK of Milv
 
 Please make sure that you have a running Milvus instance.
 
+
+<!-- #endregion -->
+
+```python
+milvus_host = None
+milvus_port = None
+```
+
+```python
+assert milvus_host, "Please enter your Milvus connection uri."
+assert milvus_port, "Please enter your Milvus port."
+```
+
 ## Steps 
 
 1. connect to Milvus
@@ -31,7 +44,6 @@ Please make sure that you have a running Milvus instance.
 5. search, query, and hybrid search on entities
 6. delete entities by PK
 7. drop collection
-<!-- #endregion -->
 
 ```python
 import numpy as np
@@ -53,12 +65,12 @@ num_entities, dim = 3000, 8
 
 Add a new connection alias `default` for Milvus server in `localhost:19530`. 
 
-Actually the `default` alias is a built-in in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
+Actually the `default` alias is a building in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
 
 Note: the `using` parameter of the following methods is default to "default".
 
 ```python
-connections.connect("default", host="practicus-milvus.prt-ns-milvus.svc.cluster.local", port="19530")
+connections.connect("default", host=milvus_host, port=milvus_port)
 
 has = utility.has_collection("hello_milvus")
 print(f"Does collection hello_milvus exist in Milvus: {has}")
@@ -104,7 +116,7 @@ entities = [
 
 insert_result = hello_milvus.insert(entities)
 
-print(f"Number of entities in Milvus: {hello_milvus.num_entities}")  # check the num_entities
+print(f"Number of entities in Milvus: {hello_milvus.num_entities}")  # check the num_entites
 ```
 
 ## 4. create index

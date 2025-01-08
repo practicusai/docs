@@ -25,43 +25,76 @@ This example demonstrates how to provide human and system messages to a language
 
 The `PrtLangMessage` object stores content and associated roles within a dictionary. This structure serves as your conversation context. To interact with the chat model, you simply create messages—both system-level and user-level—and assign the appropriate role to each.
 
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+
 ```python
 import practicuscore as prt
 region = prt.get_region()
 ```
 
 ```python
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
-model_name = my_model_list[0].name
-print("Using first model name:", model_name)
+method = None
+
+# For model APIs
+if method == 'llm_model':
+    model_name = None
+    model_prefix = None
+   
+# For App APIs
+elif method == 'llm_app':
+    app_name = None
+    app_prefix = None
+
+host = None # e.g. 'company.practicus.io'
 ```
 
+If you don't know your prefixes and models or apps you can check them out by using the SDK like down below:
+
 ```python
-my_app_list = region.app_list
-display(my_app_list.to_pandas())
-app_name = my_app_list[0].name
-print("Using first app name:", app_name)
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
 ```
 
 ```python
 my_model_prefixes = region.model_prefix_list
 display(my_model_prefixes.to_pandas())
-model_prefix = my_model_prefixes[0].key
-print("Using first prefix:", model_prefix)
+```
+
+```python
+my_app_list = region.app_list
+display(my_app_list.to_pandas())
 ```
 
 ```python
 my_app_prefix_list = region.app_prefix_list
 display(my_app_prefix_list.to_pandas())
-app_prefix = my_app_prefix_list[0].prefix
-print("Using first app prefix", app_prefix)
 ```
 
 ```python
-host = 'company.practicus.io' # Example url -> 'company.practicus.io'
-api_url = f"https://{host}/{model_prefix}/{model_name}/"
-#api_url = f"https://{host}/{app_prefix}/{app_name}/api/"
+assert model_name in ('llm_app', 'llm_model'), "Please select a valid method ('llm_app' or 'llm_model')."
+
+if method == 'llm_model':
+    assert model_name, "Please select an LLM."
+    assert model_prefix, "Please select the prefix LLM  deployed."
+
+elif method == 'llm_app':
+    assert app_name, "Please select an LLM app."
+    assert app_prefix, "Please select the prefix LLM app deployed."
+
+assert host, "Please enter your host"
+```
+
+Now we can define our API url and it's token.
+
+```python
+if method == 'llm_model':
+    api_url = f"https://{host}/{model_prefix}/{model_name}/"
+elif method == 'llm_app':
+    api_url = f"https://{host}/{app_prefix}/{app_name}/api/"
+
 token = prt.models.get_session_token(api_url=api_url)
 ```
 

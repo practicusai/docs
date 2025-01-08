@@ -52,7 +52,11 @@ To download models from Hugging Face, you need to authenticate using your API to
 
 ```python
 from huggingface_hub.hf_api import HfFolder
-HfFolder.save_token('...')  # Replace with your Hugging Face API token
+try:
+    HfFolder.save_token('...')  # Replace with your Hugging Face API token
+
+except:
+    print('Hugging face token is wrong.')
 ```
 
 ### Download Pre-Trained Model
@@ -62,10 +66,14 @@ The pre-trained LLM is downloaded to a local directory for fine-tuning. Replace 
 ```python
 from huggingface_hub import snapshot_download
 
-local_dir = "..."  # Example: /home/ubuntu/my/llm_fine_tune/llama-3B-instruct
-REPO_ID = "..."  # Example: meta-llama/Llama-3.2-3B-Instruct
+try:
+    local_dir = "..."  # Example: /home/ubuntu/my/llm_fine_tune/llama-3B-instruct
+    REPO_ID = "..."  # Example: meta-llama/Llama-3.2-3B-Instruct
 
-snapshot_download(repo_id=REPO_ID, local_dir=local_dir)
+    snapshot_download(repo_id=REPO_ID, local_dir=local_dir)
+
+except:
+    print("Snapshot didn't found.")
 ```
 
 ## Building Workers for Distributed LLM Fine-Tuning
@@ -405,4 +413,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Intro To DeepSpeed](../basics/intro-to-deepspeed.md) | **Next**: [How To > Improve Code Quality > Automated Code Quality](../../../how-to/improve-code-quality/automated-code-quality.md)
+**Previous**: [Intro To DeepSpeed](../basics/intro-to-deepspeed.md) | **Next**: [How To > Build Custom Images](../../../how-to/build-custom-images.md)

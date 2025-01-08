@@ -47,6 +47,39 @@ This sample Streamlit application demonstrates a variety of features and best pr
 **shared/helper.py:** Contains reusable helper functions for shared logic.
 
 This sample code serves as a reference for building, testing, and deploying secure, multi-page Streamlit apps on Practicus AI, with integrated authentication, logging, and developer-focused features.
+<!-- #endregion -->
+
+### Defining parameters.
+
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+
+```python
+import practicuscore as prt
+
+region = prt.get_region()
+```
+
+```python
+my_app_settings = None
+my_app_prefixes = None
+```
+
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+print("Application deployment settings I have access to:")
+display(my_app_settings.to_pandas())
+```
+
+```python
+print("Application prefixes (groups) I have access to:")
+display(my_app_prefixes.to_pandas())
+```
+
+```python
+assert my_app_settings, "Please select an app deployment setting."
+assert my_app_prefixes, "Please select an app prefix."
+```
 
 ### Before You Continue
 
@@ -63,11 +96,8 @@ If you are using VS Code, click on the printed URL to view the application.
 #### Testing on Jupyter
 
 If you are using Jupyter, we recommend using Practicus AI Studio, which has built-in GenAI app visualization. After running the code below, navigate to **Explore**, right-click on the worker, and select **GenAI App**.
-<!-- #endregion -->
 
 ```python
-import practicuscore as prt
-
 prt.apps.test_app()
 ```
 
@@ -91,29 +121,6 @@ print("Email:", response.for_person.email)
 ## Deploying the App
 
 Once our development and tests are over, we can deploy the app as a new version.
-
-```python
-region = prt.get_region()
-my_app_settings = region.app_deployment_setting_list
-assert len(my_app_settings) > 0, "I don't have access to any app deployment settings!"
-
-print("Application deployment settings I have access to:")
-display(my_app_settings.to_pandas())
-
-deployment_setting_key = my_app_settings[0].key
-print("Using first setting with key:", deployment_setting_key)
-```
-
-```python
-my_app_prefixes = region.app_prefix_list
-assert len(my_app_prefixes) > 0, "I don't have access to any app prefix!"
-
-print("Application prefixes (groups) I have access to:")
-display(my_app_prefixes.to_pandas())
-
-prefix = my_app_prefixes[0].prefix
-print("Using first app prefix with key:", prefix)
-```
 
 ```python
 app_name="my-first-app"
@@ -240,7 +247,7 @@ if increment:
     current = st.session_state.counter
     new = current + 1
     st.session_state.counter = new
-    prt.apps.logger.info(f"Increased counter from {current} to {new}")
+    prt.logger.info(f"Increased counter from {current} to {new}")
 
 st.write('Counter = ', st.session_state.counter)
 

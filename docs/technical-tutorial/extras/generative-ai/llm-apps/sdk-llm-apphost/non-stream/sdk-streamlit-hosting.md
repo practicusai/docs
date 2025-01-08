@@ -14,53 +14,60 @@ jupyter:
 
 # Hosting of LLM which is built by using SDK
 
-
-In this example we will be using the streamlit. Streamlit script should be in same folder with this notebook. If you inspect streamlit code look under 'Supplementary Files'.
-
 ```python
 import practicuscore as prt
+region = prt.get_region()
 ```
+
+### Test App
 
 ```python
 # When you finish test, stop this cell. If you dont stop cell always be open.
 prt.apps.test_app()
 ```
 
-After testing our application we can set our configurations and start the deployment process.
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
 
 ```python
-import practicuscore as prt
+app_name = None #E.g. 'api-chatbot'
+deployment_setting_key = None
+app_prefix = None
+app_dir = None
 ```
 
-```python
-region = prt.get_region()
-```
-
-We receive the necessary information for deploy from the region
+##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+ 
 
 ```python
 my_app_prefixes = region.app_prefix_list
 display(my_app_prefixes.to_pandas())
-app_prefix = my_app_prefixes[0].prefix #Select your app with my_app_prefixes[index]
 ```
 
 ```python
 my_app_settings = region.app_deployment_setting_list
 display(my_app_settings.to_pandas())
-deployment_setting_key = my_app_settings[1].key
 ```
+
+```python
+assert app_name, "Please enter application name"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+```
+
+### Deploying App
 
 ```python
 prt.apps.deploy(
     deployment_setting_key=deployment_setting_key, # Deployment Key, ask admin for deployment key
     prefix=app_prefix, # Apphost deployment extension
-    app_name='test', 
+    app_name=app_name, 
     app_dir=None # Directory of files that will be deployed ('None' for current directory)
 )
-```
-
-```python
-
 ```
 
 

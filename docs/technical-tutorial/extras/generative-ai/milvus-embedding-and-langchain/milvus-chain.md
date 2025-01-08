@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3
     language: python
     name: python3
 ---
@@ -26,23 +26,69 @@ Focuses:
 
 Necessary libraries:
 
-```shell
-pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb pypdf
-pip install torch --index-url https://download.pytorch.org/whl/cpu
+```python
+! pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb pypdf
+! pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
 ```python
-host = None # Example url -> 'company.practicus.com'
-assert host, "Please enter your host url" 
+import practicuscore as prt
+from transformers import pipeline
+from langchain.prompts import PromptTemplate
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.text_splitter import CharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
+from langchain.docstore.document import Document
+from langchain_community.vectorstores import Chroma
 
+from langchain_practicus import ChatPracticus
+
+import chromadb
+import random
+
+import warnings
+warnings.filterwarnings('ignore')
+
+region = prt.get_region()
+```
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+host = None # E.g. company.practicus.com'
 embedding_model_path = None
+milvus_uri = None # E.g. 'company.practicus.milvus.com'
+milvus_port = None # E.g. '19530'
+model_name = None
+model_prefix = None
+```
+
+##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+ 
+
+```python
+# Let's list our models and select one of them.
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+
+print("Using first model name:", model_name)
+# Let's list our prefixes and select one of them.
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
+
+print("Using first prefix:", model_prefix)
+```
+
+```python
+assert host, "Please enter your host url"
 assert embedding_model_path, "Please enter your embedding model path."
-
-milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
-assert 'milvus_uri', "Please enter your milvus connection uri"
-
-milvus_port = None # Milvus port, E.g. '19530'
-assert 'milvus_port', "Please enter your milvus connection port"
+assert milvus_uri, "Please enter your milvus connection uri"
+assert milvus_port, "Please enter your milvus connection port"
+assert model_name, "Please enter your model_name"
+assert model_prefix, "Please enter your model_prefix"
 ```
 
 ## Prepare test document
@@ -65,24 +111,6 @@ if response.status_code == 200:
     print(f"File downloaded successfully and saved as {output_file}")
 else:
     print(f"Failed to download file. HTTP status code: {response.status_code}")
-```
-
-```python
-from transformers import pipeline
-from langchain.prompts import PromptTemplate
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
-from langchain.docstore.document import Document
-from langchain_community.vectorstores import Chroma
-
-from langchain_practicus import ChatPracticus
-
-import chromadb
-import random
-
-import warnings
-warnings.filterwarnings('ignore')
 ```
 
 ## Define llm api function and call ChatPracticus in this function
@@ -178,7 +206,7 @@ from pymilvus import (
 
 Add a new connection alias `default` for Milvus server in `localhost:19530`. 
 
-Actually the `default` alias is a built-in in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
+Actually the `default` alias is a building in PyMilvus. If the address of Milvus is the same as `localhost:19530`, you can omit all parameters and call the method as: `connections.connect()`.
 
 Note: the `using` parameter of the following methods is default to "default".
 
@@ -273,7 +301,7 @@ for entity in entities:
 ```
 
 ```python
-# Now we can embed a text and query it on our collection
+# Now we can embed a text and querry it on our collection
 vector_to_search = embedding_model.embed_documents(['What is the company name?'])
 ```
 
@@ -355,32 +383,6 @@ def query_pdf(retriever, question, api_url, api_token):
 ## Chat Example
 
 ```python
-import practicuscore as prt
-```
-
-```python
-region = prt.get_region()
-
-# Let's list our models and select one of them.
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
-
-# We will select first model
-model_name = my_model_list[0].name
-print("Using first model name:", model_name)
-```
-
-```python
-# Let's list our prefixes and select one of them.
-my_model_prefixes = region.model_prefix_list
-display(my_model_prefixes.to_pandas())
-
-# We will select first prefix
-model_prefix = my_model_prefixes[0].key
-print("Using first prefix:", model_prefix)
-```
-
-```python
 api_url = f"https://{host}/{model_prefix}/{model_name}/"
 token = prt.models.get_session_token(api_url=api_url)
 ```
@@ -402,4 +404,4 @@ utility.drop_collection("dummy_info")
 
 ---
 
-**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Deploying LLM > Prep](../deploying-llm/Prep.md)
+**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Deploying LLM > Introduction](../deploying-llm/Introduction.md)

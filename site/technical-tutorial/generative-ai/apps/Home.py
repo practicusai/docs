@@ -27,6 +27,6 @@ if increment:
     current = st.session_state.counter
     new = current + 1
     st.session_state.counter = new
-    prt.apps.logger.info(f"Increased counter from {current} to {new}")
+    prt.logger.info(f"Increased counter from {current} to {new}")
 
 st.write('Counter = ', st.session_state.counter)

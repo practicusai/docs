@@ -24,7 +24,7 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#practicus-ai-sdk-v2482">Practicus AI SDK v24.8.2</a>
+  <li><a href="#practicus-ai-sdk-v2483">Practicus AI SDK v24.8.3</a>
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#key-functionality">Key Functionality</a></li>
@@ -472,6 +472,15 @@
 
             </li>
             <li>
+                    <a class="class" href="#containers">containers</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#containers.build_image">build_image</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#Region">Region</a>
                             <ul class="memberlist">
                         <li>
@@ -731,6 +740,9 @@
                         </li>
                         <li>
                                 <a class="variable" href="#Worker.status">status</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Worker.ready">ready</a>
                         </li>
                         <li>
                                 <a class="variable" href="#Worker.job_id">job_id</a>
@@ -1026,6 +1038,9 @@
                         <li>
                                 <a class="variable" href="#Log.DISTRIBUTED">DISTRIBUTED</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#Log.CONTAINERS">CONTAINERS</a>
+                        </li>
                 </ul>
 
             </li>
@@ -1051,6 +1066,9 @@
                                 <a class="variable" href="#WorkerConfig.distributed_config">distributed_config</a>
                         </li>
                         <li>
+                                <a class="variable" href="#WorkerConfig.image_config">image_config</a>
+                        </li>
+                        <li>
                                 <a class="variable" href="#WorkerConfig.startup_script">startup_script</a>
                         </li>
                         <li>
@@ -1061,9 +1079,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#WorkerConfig.bypass_ssl_verification">bypass_ssl_verification</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#WorkerConfig.image_pull_policy">image_pull_policy</a>
                         </li>
                         <li>
                                 <a class="variable" href="#WorkerConfig.interactive">interactive</a>
@@ -1082,9 +1097,6 @@
                         </li>
                         <li>
                                 <a class="function" href="#WorkerConfig.validate_network_protocol">validate_network_protocol</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#WorkerConfig.validate_image_pull_policy">validate_image_pull_policy</a>
                         </li>
                         <li>
                                 <a class="function" href="#WorkerConfig.validate_model">validate_model</a>
@@ -1243,6 +1255,54 @@
 
             </li>
             <li>
+                    <a class="class" href="#ImageConfig">ImageConfig</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#ImageConfig.repo_username">repo_username</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.repo_password">repo_password</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.repo_secret_name">repo_secret_name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.pull_policy">pull_policy</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.builder">builder</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.builder_capacity">builder_capacity</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.insecure_registries">insecure_registries</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.custom_builder_url">custom_builder_url</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ImageConfig.validate_pull_policy">validate_pull_policy</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ImageConfig.validate_builder_capacity">validate_builder_capacity</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ImageConfig.validate_model">validate_model</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.model_config">model_config</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.model_fields">model_fields</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.model_computed_fields">model_computed_fields</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#PrtList">PrtList</a>
                             <ul class="memberlist">
                         <li>
@@ -1312,7 +1372,7 @@
                     <h1 class="modulename">
 practicuscore    </h1>
 
-                        <div class="docstring"><h1 id="practicus-ai-sdk-v2482">Practicus AI SDK v24.8.2</h1>
+                        <div class="docstring"><h1 id="practicus-ai-sdk-v2483">Practicus AI SDK v24.8.3</h1>
 
 <h2 id="overview">Overview</h2>
 
@@ -1345,6 +1405,7 @@ allowing you to work with Practicus AI resources efficiently:</p>
 <li><code><a href="#workflows">workflows</a></code>: Deploy and manage workflows (e.g., Airflow DAGs).</li>
 <li><code><a href="#connections">connections</a></code>: Manage and create data source connections (e.g., S3, SQL).</li>
 <li><code><a href="#distributed">distributed</a></code>: Work with distributed job clusters and frameworks.</li>
+<li><code><a href="#containers">containers</a></code>: Build and use custom container images.</li>
 <li><code><a href="#auth">auth</a></code>: Authentication helpers for logging in and out of regions.</li>
 <li><code><a href="#engines">engines</a></code>: Interact with data processing engines like Spark.</li>
 <li><code><a href="#experiments">experiments</a></code>: Manage experiment tracking services, such as MLFlow.</li>
@@ -5585,7 +5646,7 @@ If True, clears the record of previously executed notebooks, resetting <code><a 
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">execute_notebook</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">input_path</span>,</span><span class="param">	<span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">failed_output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+        <span class="name">execute_notebook</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">input_path</span>,</span><span class="param">	<span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">kernel_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">failed_output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -5598,6 +5659,8 @@ If True, clears the record of previously executed notebooks, resetting <code><a 
 <ul>
 <li>input_path (str): The path to the input <code>.ipynb</code> notebook file. <code>~</code> will be expanded to home dir. If no <code>.ipynb</code> suffix, it is appended.</li>
 <li>parameters (dict | None): A dictionary of parameters to pass to the notebook.</li>
+<li>cwd: (str | Path | None) Working directory to use when executing the notebook</li>
+<li>kernel_name (str | None): Name of kernel to execute the notebook against</li>
 <li>output_path (str | None): The path to save the executed notebook.
 If None, uses <code><a href="#notebooks.default_output_folder">default_output_folder</a></code> or modifies <code>input_path</code> to create an <code>_output.ipynb</code>.</li>
 <li>failed_output_path (str | None): Custom directory to store failed notebook outputs.
@@ -5747,6 +5810,117 @@ It does not fix all issues but can apply automatic formatting improvements.</p>
 <span class="n"><a href="#quality.format">quality.format</a></span><span class="p">(</span><span class="n">paths</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;src/&quot;</span><span class="p">])</span>
 </code></pre>
 </div>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="containers">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">containers</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#containers"></a>
+    
+            <div class="docstring"><p>Provides easy access to container-related functionality within the Practicus AI platform.</p>
+
+<p><strong>Features</strong>:</p>
+
+<ul>
+<li><code><a href="#ImageConfig">ImageConfig</a></code>: A Pydantic model that encapsulates all necessary configurations
+(e.g., credentials, pull policies, builder parameters) for working with
+container images in Kubernetes.</li>
+<li><code><a href="#containers.build_image">build_image</a></code>: A method for building and optionally pushing container images.
+This can be used for tasks such as deploying custom images to private registries
+or automated CI/CD workflows.</li>
+</ul>
+
+<p><strong>Use Cases</strong>:</p>
+
+<ul>
+<li><strong>Private Registry Access</strong>: Set up private registry credentials via
+<code><a href="#ImageConfig">ImageConfig</a></code> or registry credentials in <code><a href="#containers.build_image">build_image</a></code> parameters.</li>
+<li><strong>Building Custom Images</strong>: Call <code><a href="#containers.build_image">build_image</a></code> to compile a Dockerfile
+into a runnable image and push it to a registry if needed.</li>
+<li><strong>Advanced Builds</strong>: Leverage additional build arguments or an entirely
+custom command for specialized configurations.</li>
+</ul>
+</div>
+
+
+                            <div id="containers.build_image" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">build_image</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">push_image</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">build_args</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">registry_credentials</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">insecure_registry</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">additional_build_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">custom_build_command</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#containers.build_image"></a>
+    
+            <div class="docstring"><p>Build a container image in a Practicus AI Worker.</p>
+
+<p>This method allows you to optionally provide Dockerfile build arguments, registry credentials,
+and additional build parameters. It supports pushing the resulting image to a registry if
+desired. If a custom build command is specified, the normal build command
+is skipped in favor of the custom one.</p>
+
+<p>Concurrency:
+    Only one image build can be active at a time on the same Worker.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>name (str | None): Name of the image to build. Required if
+<code>custom_build_command</code> is not provided.</li>
+<li>tag (str | None): Tag for the image, e.g., "24.8.3". Required
+if <code>custom_build_command</code> is not provided.</li>
+<li>push_image (bool): If True, pushes the built image to its registry
+after successful build. Defaults to True.</li>
+<li>build_args (dict | None): Key-value pairs corresponding to Dockerfile
+arguments. For example, <code>{"ENV_VAR": "value"}</code>.</li>
+<li>registry_credentials (list[tuple[str, str, str]] | None): Optional
+list of tuples in the form <code>(registry_host, username, password)</code>.
+If you are using Practicus AI container registry, please only use robot
+accounts for improved security.</li>
+<li>insecure_registry (bool): If True, uses HTTP connections to
+the registry. Defaults to False.</li>
+<li>additional_build_params (str | None): String of extra build parameters.
+Useful for advanced settings or experimental features.
+Intended to be used with the help of Practicus AI professionals.</li>
+<li>custom_build_command (str | None): If provided, overrides the default
+build command entirely. Intended to be used with the help of Practicus AI professionals.</li>
+</ul>
+
+<p>Returns:
+    bool:
+        - <code>True</code> if the image build completed successfully.
+        - <code>False</code> if the build encountered an error.</p>
+
+<p><strong>Example</strong>:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code>    <span class="n">ContainerHelper</span><span class="o">.</span><span class="n">build_image</span><span class="p">(</span>
+         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-registry.my-company.com/myproject/my-app&quot;</span><span class="p">,</span>
+         <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;24.8.3&quot;</span><span class="p">,</span>
+         <span class="n">push_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+         <span class="n">build_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;MY_ARG&quot;</span><span class="p">:</span> <span class="s2">&quot;my_value&quot;</span><span class="p">},</span>
+         <span class="n">registry_credentials</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;my-registry.my-company.com&quot;</span><span class="p">,</span> <span class="s2">&quot; robot$myproject+my-robot&quot;</span><span class="p">,</span> <span class="s2">&quot;some-token&quot;</span><span class="p">)],</span>
+         <span class="n">insecure_registry</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre>
+</div>
+
+<p><strong>Note</strong>:</p>
+
+<ul>
+<li>Logs for this build process are written to the log file/home/ubuntu/build/build.log, which you can
+view to debug issues.</li>
+</ul>
 </div>
 
 
@@ -8040,6 +8214,25 @@ like <code>region.create_worker()</code> or <code>region.get_local_worker()</cod
 
 
                             </div>
+                            <div id="Worker.ready" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ready</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Worker.ready"></a>
+    
+            <div class="docstring"><p>The current ready state of this worker</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>bool | None: The worker's ready status, True if ready, False if readiness failed. None if ready status not knwown.</li>
+</ul>
+</div>
+
+
+                            </div>
                             <div id="Worker.job_id" class="classattr">
                                 <div class="attr variable">
             <span class="name">job_id</span><span class="annotation">: str | None</span>
@@ -9975,6 +10168,18 @@ configure their levels and outputs independently.</p>
     
 
                             </div>
+                            <div id="Log.CONTAINERS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CONTAINERS</span>        =
+<span class="default_value">&lt;<a href="#Log.CONTAINERS">Log.CONTAINERS</a>: &#39;practicus.core.containers&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.CONTAINERS"></a>
+    
+    
+
+                            </div>
                 </section>
                 <section id="set_logging_level">
                     <div class="attr function">
@@ -10130,6 +10335,20 @@ If omitted, the worker will choose a suitable default.</p>
 
 
                             </div>
+                            <div id="WorkerConfig.image_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">image_config</span><span class="annotation">: <a href="#ImageConfig">ImageConfig</a> | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#WorkerConfig.image_config"></a>
+    
+            <div class="docstring"><p>Configuration for using or building custom container images. Set this to an <code><a href="#ImageConfig">ImageConfig</a></code> instance when you need 
+to provide registry credentials or enable image-building capabilities.</p>
+</div>
+
+
+                            </div>
                             <div id="WorkerConfig.startup_script" class="classattr">
                                 <div class="attr variable">
             <span class="name">startup_script</span><span class="annotation">: str | None</span>
@@ -10139,7 +10358,8 @@ If omitted, the worker will choose a suitable default.</p>
     <a class="headerlink" href="#WorkerConfig.startup_script"></a>
     
             <div class="docstring"><p>An optional startup script (shell commands) to be run when the worker starts. 
-This should be a small script encoded as plain text.</p>
+This should be a small script and should complete around ~5 minutes to avoid time-outs.
+For scripts that need to run longer (e.g. for complex installations) please create a custom container image.</p>
 </div>
 
 
@@ -10181,20 +10401,6 @@ If omitted, defaults to a region-level or system default.</p>
     
             <div class="docstring"><p>Set this to "True" if you need to bypass SSL certificate verification. 
 Generally not recommended unless working with trusted but self-signed certs.</p>
-</div>
-
-
-                            </div>
-                            <div id="WorkerConfig.image_pull_policy" class="classattr">
-                                <div class="attr variable">
-            <span class="name">image_pull_policy</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#WorkerConfig.image_pull_policy"></a>
-    
-            <div class="docstring"><p>Policy for pulling the container image. Valid values: "Always", "IfNotPresent", "Never".
-If omitted, a suitable default is used.</p>
 </div>
 
 
@@ -10278,20 +10484,6 @@ If omitted, a suitable default is used.</p>
         
     </div>
     <a class="headerlink" href="#WorkerConfig.validate_network_protocol"></a>
-    
-    
-
-                            </div>
-                            <div id="WorkerConfig.validate_image_pull_policy" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-field_validator">@field_validator(&#39;image_pull_policy&#39;)</div>
-
-        <span class="def">def</span>
-        <span class="name">validate_image_pull_policy</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#WorkerConfig.validate_image_pull_policy"></a>
     
     
 
@@ -10454,7 +10646,7 @@ If omitted, a suitable default is used.</p>
                                 <div class="attr variable">
             <span class="name">model_fields</span><span class="annotation">: ClassVar[Dict[str, pydantic.fields.FieldInfo]]</span>        =
 <input id="WorkerConfig.model_fields-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="WorkerConfig.model_fields-view-value"></label><span class="default_value">{&#39;worker_image&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;worker_size&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;service_type&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;network_protocol&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;distributed_config&#39;: FieldInfo(annotation=Union[DistJobConfig, NoneType], required=False, default=None, exclude=True), &#39;startup_script&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;modules_log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;bypass_ssl_verification&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None, exclude=True), &#39;image_pull_policy&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;interactive&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None, exclude=True), &#39;service_url&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;email&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;refresh_token&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None)}</span>
+            <label class="view-value-button pdoc-button" for="WorkerConfig.model_fields-view-value"></label><span class="default_value">{&#39;worker_image&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;worker_size&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;service_type&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;network_protocol&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;distributed_config&#39;: FieldInfo(annotation=Union[DistJobConfig, NoneType], required=False, default=None, exclude=True), &#39;image_config&#39;: FieldInfo(annotation=Union[ImageConfig, NoneType], required=False, default=None, exclude=True), &#39;startup_script&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;modules_log_level&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None, exclude=True), &#39;bypass_ssl_verification&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None, exclude=True), &#39;interactive&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None, exclude=True), &#39;service_url&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;email&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;refresh_token&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None)}</span>
 
         
     </div>
@@ -11058,6 +11250,260 @@ mapping of field names to [<code>FieldInfo</code>][pydantic.fields.FieldInfo] ob
         
     </div>
     <a class="headerlink" href="#DistJobConfig.model_computed_fields"></a>
+    
+            <div class="docstring"><p>A dictionary of computed field names and their corresponding <code>ComputedFieldInfo</code> objects.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="ImageConfig">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">ImageConfig</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig"></a>
+    
+            <div class="docstring"><p>ImageConfig is used within the Practicus AI platform to configure how
+container images are built, pulled, and managed. This configuration
+can be used to:</p>
+
+<ul>
+<li>Provide registry credentials (username/password or use an existing
+Kubernetes secret).</li>
+<li>Control Kubernetes pull policies.</li>
+<li>Enable/disable container-building capabilities.</li>
+<li>Specify builder configuration (capacity, insecure registries, custom builder URL).</li>
+</ul>
+
+<p>For example, you might want to create an <code><a href="#ImageConfig">ImageConfig</a></code> to build or pull
+images from a private registry. You can set a username/password pair, or
+refer to an existing <code><a href="#ImageConfig.repo_secret_name">repo_secret_name</a></code> in your Kubernetes environment.
+If you enable a builder (<code>builder=True</code>), you can fine-tune how much of
+the Worker capacity is used for building images (<code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>) and
+define insecure registries or custom builder URLs.</p>
+</div>
+
+
+                            <div id="ImageConfig.repo_username" class="classattr">
+                                <div class="attr variable">
+            <span class="name">repo_username</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.repo_username"></a>
+    
+            <div class="docstring"><p>Username for the container registry. Leave blank if not needed or if using repo_secret_name.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.repo_password" class="classattr">
+                                <div class="attr variable">
+            <span class="name">repo_password</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.repo_password"></a>
+    
+            <div class="docstring"><p>Password or token for the container registry. Leave blank if not needed or if using repo_secret_name.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.repo_secret_name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">repo_secret_name</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.repo_secret_name"></a>
+    
+            <div class="docstring"><p>Kubernetes secret name for the container registry.
+If this is set, you must not set <code><a href="#ImageConfig.repo_username">repo_username</a></code> or <code><a href="#ImageConfig.repo_password">repo_password</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.pull_policy" class="classattr">
+                                <div class="attr variable">
+            <span class="name">pull_policy</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.pull_policy"></a>
+    
+            <div class="docstring"><p>Kubernetes pull policy for the container. Valid values:</p>
+
+<ul>
+<li>Always</li>
+<li>IfNotPresent</li>
+<li>Never
+Leave empty to use the default setting.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.builder" class="classattr">
+                                <div class="attr variable">
+            <span class="name">builder</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.builder"></a>
+    
+            <div class="docstring"><p>If True, enables container-building functionality for custom images.
+Must be set to True in order to configure builder-specific fields.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.builder_capacity" class="classattr">
+                                <div class="attr variable">
+            <span class="name">builder_capacity</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.builder_capacity"></a>
+    
+            <div class="docstring"><p>Defines the percentage (1–99) of Worker capacity allocated for building images.
+Can only be set if <code>builder=True</code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.insecure_registries" class="classattr">
+                                <div class="attr variable">
+            <span class="name">insecure_registries</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.insecure_registries"></a>
+    
+            <div class="docstring"><p>Comma-separated list of container registries to treat as insecure (HTTP instead of HTTPS).
+This may be needed if you host or pull images from registries without TLS/SSL.
+Can only be set if <code>builder=True</code>.</p>
+
+<p>Note: If you only need to push insecurely (rather than pull), you can
+skip this and select "insecure push" at run/build time instead.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.custom_builder_url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">custom_builder_url</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.custom_builder_url"></a>
+    
+            <div class="docstring"><p>Optional custom image builder URL that extends or inherits from:</p>
+
+<ul>
+<li>ghcr.io/practicusai/practicus-builder</li>
+<li>or ../practicus-builder-privileged
+Can only be set if <code>builder=True</code>.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.validate_pull_policy" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_validator">@field_validator(&#39;pull_policy&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_pull_policy</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.validate_pull_policy"></a>
+    
+    
+
+                            </div>
+                            <div id="ImageConfig.validate_builder_capacity" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_validator">@field_validator(&#39;builder_capacity&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_builder_capacity</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span></span><span class="return-annotation">) -> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.validate_builder_capacity"></a>
+    
+    
+
+                            </div>
+                            <div id="ImageConfig.validate_model" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;before&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">values</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.validate_model"></a>
+    
+            <div class="docstring"><p>Cross-field validation:</p>
+
+<ul>
+<li><code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>, <code><a href="#ImageConfig.insecure_registries">insecure_registries</a></code>, and <code><a href="#ImageConfig.custom_builder_url">custom_builder_url</a></code>
+can only be set if <code>builder=True</code>.</li>
+<li>If <code><a href="#ImageConfig.repo_secret_name">repo_secret_name</a></code> is set, neither <code><a href="#ImageConfig.repo_username">repo_username</a></code> nor <code><a href="#ImageConfig.repo_password">repo_password</a></code>
+can be specified.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.model_fields" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_fields</span><span class="annotation">: ClassVar[Dict[str, pydantic.fields.FieldInfo]]</span>        =
+<input id="ImageConfig.model_fields-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+            <label class="view-value-button pdoc-button" for="ImageConfig.model_fields-view-value"></label><span class="default_value">{&#39;repo_username&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;repo_password&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;repo_secret_name&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;pull_policy&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;builder&#39;: FieldInfo(annotation=Union[bool, NoneType], required=False, default=None), &#39;builder_capacity&#39;: FieldInfo(annotation=Union[int, NoneType], required=False, default=None), &#39;insecure_registries&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None), &#39;custom_builder_url&#39;: FieldInfo(annotation=Union[str, NoneType], required=False, default=None)}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.model_fields"></a>
+    
+            <div class="docstring"><p>Metadata about the fields defined on the model,
+mapping of field names to [<code>FieldInfo</code>][pydantic.fields.FieldInfo] objects.</p>
+
+<p>This replaces <code>Model.__fields__</code> from Pydantic V1.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.model_computed_fields" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_computed_fields</span><span class="annotation">: ClassVar[Dict[str, pydantic.fields.ComputedFieldInfo]]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.model_computed_fields"></a>
     
             <div class="docstring"><p>A dictionary of computed field names and their corresponding <code>ComputedFieldInfo</code> objects.</p>
 </div>
