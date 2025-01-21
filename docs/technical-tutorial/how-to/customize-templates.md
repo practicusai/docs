@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Practicus Core
     language: python
@@ -62,4 +62,4 @@ print(rendered_code)
 
 ---
 
-**Previous**: [Work With Data Catalog](work-with-data-catalog.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)
+**Previous**: [Use Custom Metrics](use-custom-metrics.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)

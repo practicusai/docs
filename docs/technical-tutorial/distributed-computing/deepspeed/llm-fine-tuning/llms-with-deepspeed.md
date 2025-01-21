@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -413,4 +413,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Intro To DeepSpeed](../basics/intro-to-deepspeed.md) | **Next**: [How To > Build Custom Images](../../../how-to/build-custom-images.md)
+**Previous**: [Intro To DeepSpeed](../basics/intro-to-deepspeed.md) | **Next**: [Unified Devops > Introduction](../../../unified-devops/introduction.md)

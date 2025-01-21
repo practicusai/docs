@@ -5,11 +5,11 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: Python 3
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 # Data Processing

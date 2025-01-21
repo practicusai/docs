@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -18,6 +18,7 @@ aws_region = None
 aws_access_key_id = None
 aws_secret_access_key= None
 endpoint_url = None # example "http://prt-svc-sampleobj.prt-ns.svc.cluster.local",
+s3_bucket_uri = None # E.g "s3a://sample-bucket/boston.csv"
 
 ```
 
@@ -26,6 +27,7 @@ assert aws_region, "Please enter a aws_region"
 assert aws_access_key_id, "Please enter a aws_access_key_id"
 assert aws_secret_access_key, "Please enter a aws_secret_access_key"
 assert endpoint_url, "Please enter a endpoint_url"
+assert s3_bucket_uri, "Please enter s3 bucket uri"
 ```
 
 ```python
@@ -60,7 +62,7 @@ spark = prt.engines.get_spark_session(connection)
 ```
 
 ```python
-df = spark.read.csv("s3a://sample/boston.csv")
+df = spark.read.csv(s3_bucket_uri)
 df.head()
 ```
 
@@ -75,4 +77,4 @@ prt.engines.delete_spark_session(spark)
 
 ---
 
-**Previous**: [Spark Custom Config](spark-custom-config.md) | **Next**: [Modeling > SparkML > SparkML Ice Cream](../../modeling/sparkml/sparkml-ice-cream.md)
+**Previous**: [Spark Custom Config](spark-custom-config.md) | **Next**: [Modeling > SparkML > Ice Cream > SparkML Ice Cream](../../modeling/sparkml/ice-cream/sparkml-ice-cream.md)

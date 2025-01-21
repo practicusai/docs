@@ -5,11 +5,11 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: practicus_ml
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 # Predicting Insurance Charges with Automated Machine Learning (AutoML)
@@ -28,6 +28,11 @@ The primary goal of this notebook is to showcase how Practicus AI users can leve
 
 Let's embark on this journey!
 
+```python
+import practicuscore as prt
+
+region = prt.current_region()
+```
 
 ### Defining parameters.
  
@@ -35,15 +40,12 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-# You need to configure using the service unique key, you can find your key on the "Practicus AI Admin Console" 
-service_key = None
-
-# Optionally, you can provide experiment name to create a new experiment while configuring
-experiment_name = None
+service_key = None # Eg. Mlflow
+experiment_name = None # Eg. automl-experiment-test
 ```
 
 ```python
-# If you don't know service key and name you can checkout down below
+# If you don't know experiment service key and name you can checkout down below
 
 addon_list = region.addon_list
 display(addon_list.to_pandas())
@@ -364,7 +366,7 @@ async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwar
 
 ```
 
-### sparkml/model.json
+### sparkml/ice_cream/model.json
 ```json
 {
     "download_files_from": "cache/ice_cream_sparkml_model/",
@@ -372,7 +374,7 @@ async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwar
 }
 ```
 
-### sparkml/model.py
+### sparkml/ice_cream/model.py
 ```python
 import pandas as pd
 from pyspark.sql import SparkSession
@@ -420,6 +422,62 @@ async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFra
     
     return predictions_pd
 
+```
+
+### sparkml/spark_with_job/job.py
+```python
+import practicuscore as prt 
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, count, when, lit, max, min, stddev, corr
+from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler, StandardScaler
+from pyspark.ml import Pipeline
+
+spark = SparkSession.builder \
+    .appName("Advanced Data Processing") \
+    .getOrCreate()
+
+file_path = "/home/ubuntu/samples/insurance.csv"
+data = spark.read.csv(file_path, header=True, inferSchema=True)
+missing_data = data.select([count(when(col(c).isNull(), c)).alias(c) for c in data.columns])
+
+categorical_columns = ['sex', 'smoker', 'region']
+indexers = [StringIndexer(inputCol=col, outputCol=col + "_index") for col in categorical_columns]
+encoders = [OneHotEncoder(inputCol=col + "_index", outputCol=col + "_encoded") for col in categorical_columns]
+
+data = data.withColumn("bmi_category", 
+                       when(col("bmi") < 18.5, lit("underweight"))
+                       .when((col("bmi") >= 18.5) & (col("bmi") < 25), lit("normal"))
+                       .when((col("bmi") >= 25) & (col("bmi") < 30), lit("overweight"))
+                       .otherwise(lit("obese")))
+
+feature_columns = ['age', 'bmi', 'children', 'sex_encoded', 'smoker_encoded', 'region_encoded']
+assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
+
+scaler = StandardScaler(inputCol="features", outputCol="scaled_features", withStd=True, withMean=False)
+
+pipeline = Pipeline(stages=indexers + encoders + [assembler, scaler])
+data = pipeline.fit(data).transform(data)
+
+output_path = "/home/ubuntu/my/processed_insurance_data.parquet/"
+
+data.write.parquet(output_path, mode="overwrite")
+
+spark.stop()
+```
+
+### sparkml/spark_with_job/run/2c741e/prt_dist_job.json
+```json
+{"job_type":"spark","job_dir":"~/my/02_batch_job/","initial_count":2,"coordinator_port":7077,"additional_ports":[4040,7078,7079],"terminate_on_completion":false,"py_file":"job.py","executors":[{"rank":0,"instance_id":"5cf16b71"},{"rank":1,"instance_id":"63e80dc8"}]}
+```
+
+### sparkml/spark_with_job/run/2c741e/rank_0.json
+```json
+{"rank":0,"instance_id":"5cf16b71","state":"completed","used_ram":1187,"peak_ram":1187,"total_ram":3200,"gpus":0,"used_vram":0,"peak_vram":0,"reserved_vram":0,"total_vram":0}
+```
+
+### sparkml/spark_with_job/run/2c741e/rank_1.json
+```json
+{"rank":1,"instance_id":"63e80dc8","state":"running","used_ram":284,"peak_ram":293,"total_ram":3200,"gpus":0,"used_vram":0,"peak_vram":0,"reserved_vram":0,"total_vram":0}
 ```
 
 ### xgboost/model.py

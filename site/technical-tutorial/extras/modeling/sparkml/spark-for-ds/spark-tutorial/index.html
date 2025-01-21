@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/extras/modeling/sparkml/sparkml-ice-cream/">
+        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/extras/modeling/sparkml/spark-for-ds/spark-tutorial/">
       
       
-        <link rel="prev" href="../../../data-processing/process-data/spark-object-storage/">
+        <link rel="prev" href="../../spark-with-job/batch-job/">
       
       
-        <link rel="next" href="../../model-tracking/experiment-tracking/experiment-tracking-logging/">
+        <link rel="next" href="../../../model-tracking/experiment-tracking/experiment-tracking-logging/">
       
       
-      <link rel="icon" href="../../../../../img/practicus50.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+      <link rel="icon" href="../../../../../../img/practicus50.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
       
-        <title>SparkML Ice Cream - Docs | Practicus AI</title>
+        <title>Spark Tutorial - Docs | Practicus AI</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#end-to-end-sparkml-model-development-and-deployment" class="md-skip">
+        <a href="#sparksession-creation" class="md-skip">
           Skip to content
         </a>
       
@@ -100,9 +100,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="Docs | Practicus AI" class="md-header__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../../../../.." title="Docs | Practicus AI" class="md-header__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
       
-  <img src="../../../../../img/practicus50.png" alt="logo">
+  <img src="../../../../../../img/practicus50.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SparkML Ice Cream
+              Spark Tutorial
             
           </span>
         </div>
@@ -220,9 +220,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="Docs | Practicus AI" class="md-nav__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../../../../.." title="Docs | Practicus AI" class="md-nav__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
       
-  <img src="../../../../../img/practicus50.png" alt="logo">
+  <img src="../../../../../../img/practicus50.png" alt="logo">
 
     </a>
     Docs | Practicus AI
@@ -237,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -257,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../getting-started/" class="md-nav__link">
+      <a href="../../../../../../getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -277,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../tutorials/" class="md-nav__link">
+      <a href="../../../../../../tutorials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -369,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/introduction/" class="md-nav__link">
+      <a href="../../../../../getting-started/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -390,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/workers/" class="md-nav__link">
+      <a href="../../../../../getting-started/workers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/workspaces/" class="md-nav__link">
+      <a href="../../../../../getting-started/workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/add-ons/" class="md-nav__link">
+      <a href="../../../../../getting-started/add-ons/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -496,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../modeling/introduction/" class="md-nav__link">
+      <a href="../../../../../modeling/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../modeling/sample-modeling/build-and-deploy/" class="md-nav__link">
+      <a href="../../../../../modeling/sample-modeling/build-and-deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -624,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/introduction/" class="md-nav__link">
+      <a href="../../../../../workflows/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -680,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/tasks/task-basics/" class="md-nav__link">
+      <a href="../../../../../workflows/tasks/task-basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -744,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/airflow/deploying-on-airflow/" class="md-nav__link">
+      <a href="../../../../../workflows/airflow/deploying-on-airflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/AI-Studio/generating-wokflows/" class="md-nav__link">
+      <a href="../../../../../workflows/AI-Studio/generating-wokflows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generative-ai/introduction/" class="md-nav__link">
+      <a href="../../../../../generative-ai/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -936,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generative-ai/apps/building-visual-apps/" class="md-nav__link">
+      <a href="../../../../../generative-ai/apps/building-visual-apps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1000,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generative-ai/langchain/langchain-basics/" class="md-nav__link">
+      <a href="../../../../../generative-ai/langchain/langchain-basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1021,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generative-ai/langchain/streaming/" class="md-nav__link">
+      <a href="../../../../../generative-ai/langchain/streaming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1085,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generative-ai/vector-databases/sample-vector-db/" class="md-nav__link">
+      <a href="../../../../../generative-ai/vector-databases/sample-vector-db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/introduction/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1248,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/interactive/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1269,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/interactive/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1333,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/batch-job/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1432,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/auto-scaled/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/auto-scaled/interactive/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1453,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/auto-scaled/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/auto-scaled/interactive/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1517,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/auto-scaled/batch/batch-job/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/auto-scaled/batch/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1632,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/interactive/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1653,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/interactive/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1717,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/batch-job/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1781,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/distributed-training/xgboost/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/distributed-training/xgboost/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1888,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/deepspeed/basics/intro-to-deepspeed/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/deepspeed/basics/intro-to-deepspeed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1952,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2011,7 +2011,7 @@
             
   
   <span class="md-ellipsis">
-    How To
+    Unified Devops
   </span>
   
 
@@ -2021,7 +2021,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
-            How To
+            Unified Devops
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2032,7 +2032,112 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/build-custom-images/" class="md-nav__link">
+      <a href="../../../../../unified-devops/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../unified-devops/secrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../unified-devops/worker-startup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Worker Startup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../unified-devops/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../unified-devops/cicd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cicd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../unified-devops/build-custom-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2041,6 +2146,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2060,10 +2173,45 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_6_2" id="__nav_4_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    How To
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            How To
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_1" id="__nav_4_7_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2074,8 +2222,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_1">
             <span class="md-nav__icon md-icon"></span>
             Automate Notebooks
           </label>
@@ -2088,7 +2236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/automate-notebooks/executing-notebooks/" class="md-nav__link">
+      <a href="../../../../../how-to/automate-notebooks/executing-notebooks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2124,10 +2272,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_6_3" id="__nav_4_6_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_7_2" id="__nav_4_7_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2138,8 +2286,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_6_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_2">
             <span class="md-nav__icon md-icon"></span>
             Improve Code Quality
           </label>
@@ -2152,7 +2300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/improve-code-quality/automated-code-quality/" class="md-nav__link">
+      <a href="../../../../../how-to/improve-code-quality/automated-code-quality/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2181,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/work-with-connections/" class="md-nav__link">
+      <a href="../../../../../how-to/work-with-connections/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2202,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/integrate-git/" class="md-nav__link">
+      <a href="../../../../../how-to/integrate-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2223,7 +2371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/use-security-tokens/" class="md-nav__link">
+      <a href="../../../../../how-to/use-security-tokens/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2244,7 +2392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/work-with-processes/" class="md-nav__link">
+      <a href="../../../../../how-to/work-with-processes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2265,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/work-with-data-catalog/" class="md-nav__link">
+      <a href="../../../../../how-to/work-with-data-catalog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2286,7 +2434,28 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/customize-templates/" class="md-nav__link">
+      <a href="../../../../../how-to/use-custom-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use Custom Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-to/customize-templates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2307,7 +2476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/configure-advanced-gpu/" class="md-nav__link">
+      <a href="../../../../../how-to/configure-advanced-gpu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2328,7 +2497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/configure-workspaces/" class="md-nav__link">
+      <a href="../../../../../how-to/configure-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2349,7 +2518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/share-workers/" class="md-nav__link">
+      <a href="../../../../../how-to/share-workers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2370,7 +2539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/view-stats/" class="md-nav__link">
+      <a href="../../../../../how-to/view-stats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2391,7 +2560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/create-virtual-envs/" class="md-nav__link">
+      <a href="../../../../../how-to/create-virtual-envs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2412,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/model-tokens/" class="md-nav__link">
+      <a href="../../../../../how-to/model-tokens/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2433,7 +2602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/use-polars/" class="md-nav__link">
+      <a href="../../../../../how-to/use-polars/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2471,10 +2640,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2485,8 +2654,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             Extras
           </label>
@@ -2506,10 +2675,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_1" id="__nav_4_7_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_1" id="__nav_4_8_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2520,8 +2689,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_1">
             <span class="md-nav__icon md-icon"></span>
             Data Analysis
           </label>
@@ -2541,10 +2710,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_1_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_1_1" id="__nav_4_7_1_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_1_1" id="__nav_4_8_1_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2555,8 +2724,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_1_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_1_1">
             <span class="md-nav__icon md-icon"></span>
             Plot
           </label>
@@ -2569,7 +2738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-analysis/plot/introduction/" class="md-nav__link">
+      <a href="../../../../data-analysis/plot/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2590,7 +2759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
+      <a href="../../../../data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2626,10 +2795,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_1_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_1_2" id="__nav_4_7_1_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_1_2" id="__nav_4_8_1_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2640,8 +2809,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_1_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_1_2">
             <span class="md-nav__icon md-icon"></span>
             Eda
           </label>
@@ -2654,7 +2823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-analysis/eda/analyze/" class="md-nav__link">
+      <a href="../../../../data-analysis/eda/analyze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2698,10 +2867,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_2" id="__nav_4_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_2" id="__nav_4_8_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2712,8 +2881,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_2">
             <span class="md-nav__icon md-icon"></span>
             Data Processing
           </label>
@@ -2733,10 +2902,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_2_1" id="__nav_4_7_2_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_2_1" id="__nav_4_8_2_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2747,8 +2916,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_2_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_2_1">
             <span class="md-nav__icon md-icon"></span>
             Pre Process Data
           </label>
@@ -2761,7 +2930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-processing/pre-process-data/preprocess/" class="md-nav__link">
+      <a href="../../../../data-processing/pre-process-data/preprocess/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2797,10 +2966,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_2_2" id="__nav_4_7_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_2_2" id="__nav_4_8_2_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2811,8 +2980,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_2_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_2_2">
             <span class="md-nav__icon md-icon"></span>
             Process Data
           </label>
@@ -2825,7 +2994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-processing/process-data/insurance/" class="md-nav__link">
+      <a href="../../../../data-processing/process-data/insurance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2846,7 +3015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-processing/process-data/insurance-with-remote-worker/" class="md-nav__link">
+      <a href="../../../../data-processing/process-data/insurance-with-remote-worker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2867,7 +3036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-processing/process-data/spark-custom-config/" class="md-nav__link">
+      <a href="../../../../data-processing/process-data/spark-custom-config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2888,7 +3057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data-processing/process-data/spark-object-storage/" class="md-nav__link">
+      <a href="../../../../data-processing/process-data/spark-object-storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2934,10 +3103,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_7_3" id="__nav_4_7_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3" id="__nav_4_8_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2948,8 +3117,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_7_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_8_3">
             <span class="md-nav__icon md-icon"></span>
             Modeling
           </label>
@@ -2971,10 +3140,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_7_3_1" id="__nav_4_7_3_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3_1" id="__nav_4_8_3_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2985,10 +3154,175 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_3_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_7_3_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_8_3_1">
             <span class="md-nav__icon md-icon"></span>
             SparkML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_3_1_1" id="__nav_4_8_3_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ice Cream
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Ice Cream
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ice-cream/sparkml-ice-cream/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SparkML Ice Cream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_3_1_2" id="__nav_4_8_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spark With Job
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spark With Job
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spark-with-job/batch-job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Batch Job
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_3_1_3" id="__nav_4_8_3_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spark For Ds
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_3_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_8_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spark For Ds
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3010,7 +3344,7 @@
           
   
   <span class="md-ellipsis">
-    SparkML Ice Cream
+    Spark Tutorial
   </span>
   
 
@@ -3021,7 +3355,7 @@
         
   
   <span class="md-ellipsis">
-    SparkML Ice Cream
+    Spark Tutorial
   </span>
   
 
@@ -3041,122 +3375,97 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#end-to-end-sparkml-model-development-and-deployment" class="md-nav__link">
+  <a href="#sparksession-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      End-to-end SparkML Model development and deployment
+      SparkSession Creation
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="End-to-end SparkML Model development and deployment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defining-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining parameters.
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploying-the-sparkml-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploying the SparkML Model
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deploying the SparkML Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-upload-to-object-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1) Upload to object storage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 1) Upload to object storage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-object-storage-cache-folder" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample object storage cache folder
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-verify-you-practicus-ai-model-host-is-sparkml-compatible" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2) Verify you Practicus AI model host is SparkML compatible
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-deploy-the-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3) Deploy the model
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#supplementary-files" class="md-nav__link">
+  <a href="#reading-a-csv-file-with-spark" class="md-nav__link">
     <span class="md-ellipsis">
-      Supplementary Files
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supplementary Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modeljson" class="md-nav__link">
-    <span class="md-ellipsis">
-      model.json
+      Reading a CSV File with Spark
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#modelpy" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#checking-for-null-values-in-a-spark-dataframe" class="md-nav__link">
     <span class="md-ellipsis">
-      model.py
+      Checking for Null Values in a Spark DataFrame
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#data-summary-and-statistical-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Summary and Statistical Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-categorical-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Categorical Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bmi-categorization-and-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      BMI Categorization and Grouping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-vector-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Vector Assembly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-features-and-applying-a-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Features and Applying a Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-processed-data-to-a-parquet-file-and-stopping-spark-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Processed Data to a Parquet File and Stopping Spark Session
+    </span>
+  </a>
   
 </li>
       
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -3185,10 +3494,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_3_2" id="__nav_4_7_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3_2" id="__nav_4_8_3_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3199,8 +3508,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_3_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_2">
             <span class="md-nav__icon md-icon"></span>
             Model Tracking
           </label>
@@ -3220,10 +3529,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_3_2_1" id="__nav_4_7_3_2_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3_2_1" id="__nav_4_8_3_2_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3234,8 +3543,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_3_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_3_2_1">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_2_1">
             <span class="md-nav__icon md-icon"></span>
             Experiment Tracking
           </label>
@@ -3248,7 +3557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-tracking/experiment-tracking/experiment-tracking-logging/" class="md-nav__link">
+      <a href="../../../model-tracking/experiment-tracking/experiment-tracking-logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3269,7 +3578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-tracking/experiment-tracking/experiment-tracking-model-training/" class="md-nav__link">
+      <a href="../../../model-tracking/experiment-tracking/experiment-tracking-model-training/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3305,10 +3614,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_3_2_2" id="__nav_4_7_3_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3_2_2" id="__nav_4_8_3_2_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3319,8 +3628,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_3_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_3_2_2">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_2_2">
             <span class="md-nav__icon md-icon"></span>
             Model Drift
           </label>
@@ -3333,7 +3642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-tracking/model-drift/model-drift/" class="md-nav__link">
+      <a href="../../../model-tracking/model-drift/model-drift/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3377,10 +3686,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_3_3" id="__nav_4_7_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3_3" id="__nav_4_8_3_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3391,8 +3700,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_3_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_3">
             <span class="md-nav__icon md-icon"></span>
             Model Observability
           </label>
@@ -3405,7 +3714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-observability/model-observability/" class="md-nav__link">
+      <a href="../../../model-observability/model-observability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3441,10 +3750,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_3_4" id="__nav_4_7_3_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3_4" id="__nav_4_8_3_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3455,8 +3764,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_3_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_4">
             <span class="md-nav__icon md-icon"></span>
             XGBoost
           </label>
@@ -3469,7 +3778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../xgboost/xgboost/" class="md-nav__link">
+      <a href="../../../xgboost/xgboost/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3498,7 +3807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AutoML/" class="md-nav__link">
+      <a href="../../../AutoML/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3519,7 +3828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../shap-analysis/" class="md-nav__link">
+      <a href="../../../shap-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3547,10 +3856,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_3_7" id="__nav_4_7_3_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_3_7" id="__nav_4_8_3_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3561,8 +3870,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_3_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_3_7">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3_7">
             <span class="md-nav__icon md-icon"></span>
             Bank Marketing
           </label>
@@ -3575,7 +3884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bank-marketing/bank-marketing/" class="md-nav__link">
+      <a href="../../../bank-marketing/bank-marketing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3619,10 +3928,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4" id="__nav_4_7_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4" id="__nav_4_8_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3633,8 +3942,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4">
             <span class="md-nav__icon md-icon"></span>
             Generative AI
           </label>
@@ -3654,10 +3963,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_1" id="__nav_4_7_4_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_1" id="__nav_4_8_4_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3668,8 +3977,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_1">
             <span class="md-nav__icon md-icon"></span>
             Email E Asistant
           </label>
@@ -3682,7 +3991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/email-e-asistant/mail-e-assistant/" class="md-nav__link">
+      <a href="../../../../generative-ai/email-e-asistant/mail-e-assistant/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3718,10 +4027,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_2" id="__nav_4_7_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_2" id="__nav_4_8_4_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3732,8 +4041,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_2">
             <span class="md-nav__icon md-icon"></span>
             Advanced LangChain
           </label>
@@ -3746,7 +4055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/advanced-langchain/lang-chain-llm-model/" class="md-nav__link">
+      <a href="../../../../generative-ai/advanced-langchain/lang-chain-llm-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3782,10 +4091,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_3" id="__nav_4_7_4_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_3" id="__nav_4_8_4_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3796,8 +4105,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_3">
             <span class="md-nav__icon md-icon"></span>
             LLM Apps
           </label>
@@ -3817,10 +4126,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_3_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_3_1" id="__nav_4_7_4_3_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_3_1" id="__nav_4_8_4_3_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3831,8 +4140,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_4_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_3_1">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_3_1">
             <span class="md-nav__icon md-icon"></span>
             API LLM Apphost
           </label>
@@ -3845,7 +4154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/llm-apps/api-llm-apphost/build/" class="md-nav__link">
+      <a href="../../../../generative-ai/llm-apps/api-llm-apphost/build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3881,10 +4190,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_3_2" id="__nav_4_7_4_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_3_2" id="__nav_4_8_4_3_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3895,8 +4204,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_4_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_3_2">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_3_2">
             <span class="md-nav__icon md-icon"></span>
             Sdk LLM Apphost
           </label>
@@ -3916,10 +4225,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_3_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_3_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_3_2_1" id="__nav_4_7_4_3_2_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_3_2_1" id="__nav_4_8_4_3_2_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3930,8 +4239,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_7_4_3_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_3_2_1">
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_8_4_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_3_2_1">
             <span class="md-nav__icon md-icon"></span>
             Non-Stream
           </label>
@@ -3944,7 +4253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting/" class="md-nav__link">
+      <a href="../../../../generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3980,10 +4289,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_3_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_3_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_3_2_2" id="__nav_4_7_4_3_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_3_2_2" id="__nav_4_8_4_3_2_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3994,8 +4303,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_7_4_3_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_3_2_2">
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_8_4_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_3_2_2">
             <span class="md-nav__icon md-icon"></span>
             Stream
           </label>
@@ -4008,7 +4317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/llm-apps/sdk-llm-apphost/stream/sdk-streamlit-hosting/" class="md-nav__link">
+      <a href="../../../../generative-ai/llm-apps/sdk-llm-apphost/stream/sdk-streamlit-hosting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4052,10 +4361,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_3_3" id="__nav_4_7_4_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_3_3" id="__nav_4_8_4_3_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4066,8 +4375,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_4_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_3_3">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_4_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_3_3">
             <span class="md-nav__icon md-icon"></span>
             Langflow LLM Apphost
           </label>
@@ -4080,7 +4389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting/" class="md-nav__link">
+      <a href="../../../../generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4124,10 +4433,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_4" id="__nav_4_7_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_4" id="__nav_4_8_4_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4138,8 +4447,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_4">
             <span class="md-nav__icon md-icon"></span>
             Milvus Embedding And LangChain
           </label>
@@ -4152,7 +4461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/milvus-embedding-and-langchain/milvus-chain/" class="md-nav__link">
+      <a href="../../../../generative-ai/milvus-embedding-and-langchain/milvus-chain/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4188,10 +4497,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_5" id="__nav_4_7_4_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_5" id="__nav_4_8_4_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4202,8 +4511,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_5">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_5">
             <span class="md-nav__icon md-icon"></span>
             Deploying LLM
           </label>
@@ -4216,7 +4525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/Introduction/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/Introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4244,10 +4553,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_5_2" id="__nav_4_7_4_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_5_2" id="__nav_4_8_4_5_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4258,8 +4567,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_4_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_5_2">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_4_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_5_2">
             <span class="md-nav__icon md-icon"></span>
             Preparation
           </label>
@@ -4272,7 +4581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/Preparation/Model-Download/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/Preparation/Model-Download/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4293,7 +4602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/Preparation/Upload-LLM/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/Preparation/Upload-LLM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4329,10 +4638,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_5_3" id="__nav_4_7_4_5_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_5_3" id="__nav_4_8_4_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4343,8 +4652,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_4_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_5_3">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_4_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_5_3">
             <span class="md-nav__icon md-icon"></span>
             Basic Deployment
           </label>
@@ -4357,7 +4666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/basic-deployment/model/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/basic-deployment/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4378,7 +4687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/basic-deployment/model-json/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/basic-deployment/model-json/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4399,7 +4708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/basic-deployment/deploy/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/basic-deployment/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4420,7 +4729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/basic-deployment/consume-parallel/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/basic-deployment/consume-parallel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4456,10 +4765,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_5_4" id="__nav_4_7_4_5_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_5_4" id="__nav_4_8_4_5_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4470,8 +4779,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_4_5_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_5_4">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_4_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_5_4">
             <span class="md-nav__icon md-icon"></span>
             LangChain Deployment
           </label>
@@ -4484,7 +4793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/langchain-deployment/model/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/langchain-deployment/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4505,7 +4814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/langchain-deployment/model-json/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/langchain-deployment/model-json/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4526,7 +4835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/langchain-deployment/deploy/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/langchain-deployment/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4547,7 +4856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/langchain-deployment/consume-parallel/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/langchain-deployment/consume-parallel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4583,10 +4892,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_5_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_5_5" id="__nav_4_7_4_5_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_5_5" id="__nav_4_8_4_5_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4597,8 +4906,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_7_4_5_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_5_5">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_8_4_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_5_5">
             <span class="md-nav__icon md-icon"></span>
             Combined Method
           </label>
@@ -4611,7 +4920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/combined-method/model/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/combined-method/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4632,7 +4941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/combined-method/model-json/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/combined-method/model-json/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4653,7 +4962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/combined-method/deploy/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/combined-method/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4674,7 +4983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/deploying-llm/combined-method/consume-parallel/" class="md-nav__link">
+      <a href="../../../../generative-ai/deploying-llm/combined-method/consume-parallel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4718,10 +5027,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4_6" >
         
           
-          <label class="md-nav__link" for="__nav_4_7_4_6" id="__nav_4_7_4_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_8_4_6" id="__nav_4_8_4_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -4732,8 +5041,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_7_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7_4_6">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_8_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4_6">
             <span class="md-nav__icon md-icon"></span>
             Cv Asistant
           </label>
@@ -4746,7 +5055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generative-ai/cv-asistant/cv-asistant/" class="md-nav__link">
+      <a href="../../../../generative-ai/cv-asistant/cv-asistant/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4833,7 +5142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/start/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4854,7 +5163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/data-analysis-intro/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/data-analysis-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4875,7 +5184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/plot/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/plot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4896,7 +5205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/data-prep-intro/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/data-prep-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4917,7 +5226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/snippets/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/snippets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4938,7 +5247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/Workflow/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/Workflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4959,7 +5268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/worker-node-intro/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/worker-node-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4980,7 +5289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/explore/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/explore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5001,7 +5310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/data-profiling/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/data-profiling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5022,7 +5331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/model/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5043,7 +5352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/Experiment-Service/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/Experiment-Service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5064,7 +5373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/predict/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/predict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5085,7 +5394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/sql/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/sql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5106,7 +5415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/chatgpt/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/chatgpt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5127,7 +5436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/develop_ml_models/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/develop_ml_models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5148,7 +5457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/next-steps/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/next-steps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5176,7 +5485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../sdk/practicuscore.html" class="md-nav__link">
+      <a href="../../../../../../sdk/practicuscore.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5231,7 +5540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../setup-guide/" class="md-nav__link">
+      <a href="../../../../../../setup-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5287,7 +5596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../mlops/" class="md-nav__link">
+      <a href="../../../../../../mlops/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5308,7 +5617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../model-api/" class="md-nav__link">
+      <a href="../../../../../../model-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5372,7 +5681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../modern-data-pipelines/" class="md-nav__link">
+      <a href="../../../../../../modern-data-pipelines/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5393,7 +5702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../code-export/" class="md-nav__link">
+      <a href="../../../../../../code-export/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5414,7 +5723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../airflow/" class="md-nav__link">
+      <a href="../../../../../../airflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5443,7 +5752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../explore/" class="md-nav__link">
+      <a href="../../../../../../explore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5464,7 +5773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../cloud/" class="md-nav__link">
+      <a href="../../../../../../cloud/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5485,7 +5794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../analyze/" class="md-nav__link">
+      <a href="../../../../../../analyze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5506,7 +5815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../model/" class="md-nav__link">
+      <a href="../../../../../../model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5562,7 +5871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../prepare/" class="md-nav__link">
+      <a href="../../../../../../prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5583,7 +5892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../excel-prep/" class="md-nav__link">
+      <a href="../../../../../../excel-prep/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5604,7 +5913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../join/" class="md-nav__link">
+      <a href="../../../../../../join/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5668,7 +5977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../predict/" class="md-nav__link">
+      <a href="../../../../../../predict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5689,7 +5998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../excel-predict/" class="md-nav__link">
+      <a href="../../../../../../excel-predict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5718,7 +6027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../aws-iam/" class="md-nav__link">
+      <a href="../../../../../../aws-iam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5739,7 +6048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../logging/" class="md-nav__link">
+      <a href="../../../../../../logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5795,7 +6104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../sdk-start/" class="md-nav__link">
+      <a href="../../../../../../sdk-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5816,7 +6125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../data-prep/" class="md-nav__link">
+      <a href="../../../../../../data-prep/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5837,7 +6146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../share-models/" class="md-nav__link">
+      <a href="../../../../../../share-models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5858,7 +6167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../api-reference/" class="md-nav__link">
+      <a href="../../../../../../api-reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5879,7 +6188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../advanced/" class="md-nav__link">
+      <a href="../../../../../../advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5929,7 +6238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../feedback/" class="md-nav__link">
+      <a href="../../../../../../feedback/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5975,116 +6284,83 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#end-to-end-sparkml-model-development-and-deployment" class="md-nav__link">
+  <a href="#sparksession-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      End-to-end SparkML Model development and deployment
+      SparkSession Creation
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="End-to-end SparkML Model development and deployment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defining-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining parameters.
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploying-the-sparkml-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploying the SparkML Model
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deploying the SparkML Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-upload-to-object-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1) Upload to object storage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 1) Upload to object storage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-object-storage-cache-folder" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample object storage cache folder
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-verify-you-practicus-ai-model-host-is-sparkml-compatible" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2) Verify you Practicus AI model host is SparkML compatible
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-deploy-the-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3) Deploy the model
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#supplementary-files" class="md-nav__link">
+  <a href="#reading-a-csv-file-with-spark" class="md-nav__link">
     <span class="md-ellipsis">
-      Supplementary Files
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supplementary Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modeljson" class="md-nav__link">
-    <span class="md-ellipsis">
-      model.json
+      Reading a CSV File with Spark
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#modelpy" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#checking-for-null-values-in-a-spark-dataframe" class="md-nav__link">
     <span class="md-ellipsis">
-      model.py
+      Checking for Null Values in a Spark DataFrame
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#data-summary-and-statistical-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Summary and Statistical Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-categorical-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Categorical Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bmi-categorization-and-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      BMI Categorization and Grouping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-vector-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Vector Assembly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-features-and-applying-a-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Features and Applying a Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-processed-data-to-a-parquet-file-and-stopping-spark-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Processed Data to a Parquet File and Stopping Spark Session
+    </span>
+  </a>
   
 </li>
       
@@ -6103,234 +6379,91 @@
                   
 
 
-  <h1>SparkML Ice Cream</h1>
+  <h1>Spark Tutorial</h1>
 
-<h2 id="end-to-end-sparkml-model-development-and-deployment">End-to-end SparkML Model development and deployment</h2>
-<p>This sample notebook outlines the process of deploying a SparkML model on the Practicus AI platform and making predictions from the deployed model using various methods.</p>
-<h3 id="defining-parameters">Defining parameters.</h3>
-<p>This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">deployment_key</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">prefix</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">model_name</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">practicus_url</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># E.g. http://company.practicus.com</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparkSession</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql.functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">col</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">lit</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="n">stddev</span><span class="p">,</span> <span class="n">corr</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.ml.feature</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIndexer</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">VectorAssembler</span><span class="p">,</span> <span class="n">StandardScaler</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.ml</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">assert</span> <span class="n">deployment_key</span><span class="p">,</span> <span class="s2">&quot;Please select a deployment key&quot;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">assert</span> <span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;Please select a prefix&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">assert</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;Please enter a model_name&quot;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">assert</span> <span class="n">practicus_url</span><span class="p">,</span> <span class="s2">&quot;Please enter practicus_url&quot;</span>
+<h2 id="sparksession-creation">SparkSession Creation</h2>
+<p>This code creates a <code>SparkSession</code> object, which is the entry point for any Spark application. It is used to configure and initialize a Spark application for data processing and analysis.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;Advanced Data Processing&quot;</span><span class="p">)</span> \
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Step 1: Read CSV with Pandas</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/home/ubuntu/samples/insurance.csv&quot;</span><span class="p">)</span>
+<h2 id="reading-a-csv-file-with-spark">Reading a CSV File with Spark</h2>
+<p>A CSV file is loaded into a Spark DataFrame using Spark's <code>read.csv()</code> method. This allows the data to be processed and analyzed efficiently within the Spark environment.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/home/ubuntu/samples/insurance.csv&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inferSchema</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="kn">import</span> <span class="n">StructType</span><span class="p">,</span> <span class="n">StructField</span><span class="p">,</span> <span class="n">DoubleType</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">pyspark.ml.linalg</span> <span class="kn">import</span> <span class="n">Vectors</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Step 2: Convert to Spark DataFrame with Explicit Schema</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;IceCreamRevenuePrediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Define schema for Spark DataFrame</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">schema</span> <span class="o">=</span> <span class="n">StructType</span><span class="p">([</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">),</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">])</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">spark_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Revenue&#39;</span><span class="p">]),</span> <span class="n">Vectors</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Temperature&#39;</span><span class="p">]))),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="n">schema</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="s2">&quot;features&quot;</span><span class="p">]</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First rows:&quot;</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">data</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">pyspark.ml.regression</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Step 3: Train Linear Regression Model</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">featuresCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">)</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">spark_data</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Schema:&quot;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">data</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Step 4: Make Predictions</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">spark_data</span><span class="p">)</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">predictions</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<h2 id="checking-for-null-values-in-a-spark-dataframe">Checking for Null Values in a Spark DataFrame</h2>
+<p>Null values in a DataFrame are counted for each column, and the results are displayed to assess data completeness.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Check Nulls:&quot;</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">missing_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">count</span><span class="p">(</span><span class="n">when</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">isNull</span><span class="p">(),</span> <span class="n">c</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">missing_data</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Step 5: Save Model</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;ice_cream_sparkml_model&quot;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<h2 id="data-summary-and-statistical-analysis">Data Summary and Statistical Analysis</h2>
+<p>Statistical measures such as descriptive statistics, minimum, maximum, standard deviation, and correlation are computed to analyze the data.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Min, Max and Std:&quot;</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">_min&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dataType</span> <span class="o">!=</span> <span class="s2">&quot;StringType&quot;</span><span class="p">]</span> <span class="o">+</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">_max&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dataType</span> <span class="o">!=</span> <span class="s2">&quot;StringType&quot;</span><span class="p">]</span> <span class="o">+</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="p">[</span><span class="n">stddev</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">_stddev&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dataType</span> <span class="o">!=</span> <span class="s2">&quot;StringType&quot;</span><span class="p">]</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correlation Analysis:&quot;</span><span class="p">)</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">corr</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;charges&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;age_charges_corr&quot;</span><span class="p">),</span> 
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>            <span class="n">corr</span><span class="p">(</span><span class="s2">&quot;bmi&quot;</span><span class="p">,</span> <span class="s2">&quot;charges&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;bmi_charges_corr&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Optional: Stop Spark session when done</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">spark</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<h2 id="handling-categorical-variables">Handling Categorical Variables</h2>
+<p>This code transforms categorical variables into numerical representations, preparing the data for machine learning algorithms.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">categorical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">]</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">indexers</span> <span class="o">=</span> <span class="p">[</span><span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="n">col</span> <span class="o">+</span> <span class="s2">&quot;_index&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">categorical_columns</span><span class="p">]</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">encoders</span> <span class="o">=</span> <span class="p">[</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="n">col</span> <span class="o">+</span> <span class="s2">&quot;_index&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="n">col</span> <span class="o">+</span> <span class="s2">&quot;_encoded&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">categorical_columns</span><span class="p">]</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Prediction, you can run this in another notebook </span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kn">from</span> <span class="nn">pyspark.ml.linalg</span> <span class="kn">import</span> <span class="n">Vectors</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="kn">import</span> <span class="n">StructType</span><span class="p">,</span> <span class="n">StructField</span><span class="p">,</span> <span class="n">DoubleType</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="kn">from</span> <span class="nn">pyspark.ml.regression</span> <span class="kn">import</span> <span class="n">LinearRegressionModel</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;IceCreamRevenuePrediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegressionModel</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="c1"># Define schema for Spark DataFrame</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="n">schema</span> <span class="o">=</span> <span class="n">StructType</span><span class="p">([</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="p">])</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="c1"># Convert input Pandas DataFrame to Spark DataFrame</span>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="n">spark_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>        <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="p">(</span><span class="n">Vectors</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Temperature&#39;</span><span class="p">])),),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>        <span class="n">schema</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    <span class="p">)</span>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>    <span class="c1"># Make predictions using the Spark model</span>
-</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>    <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">spark_data</span><span class="p">)</span>
-</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>
-</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>    <span class="c1"># Select the relevant columns and convert to Pandas DataFrame</span>
-</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>    <span class="n">predictions_pd</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
-</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>
-</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>    <span class="c1"># Extract the Temperature and predicted Revenue for readability</span>
-</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>    <span class="n">predictions_pd</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_pd</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>    <span class="n">predictions_pd</span> <span class="o">=</span> <span class="n">predictions_pd</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;prediction&quot;</span><span class="p">:</span> <span class="s2">&quot;predicted_Revenue&quot;</span><span class="p">})</span>
-</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>    <span class="n">predictions_pd</span> <span class="o">=</span> <span class="n">predictions_pd</span><span class="p">[[</span><span class="s2">&quot;predicted_Revenue&quot;</span><span class="p">]]</span>
-</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>
-</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>    <span class="k">return</span> <span class="n">predictions_pd</span>
+<h2 id="bmi-categorization-and-grouping">BMI Categorization and Grouping</h2>
+<p>BMI values are categorized into specific groups, and the data is grouped to count the number of entries in each category.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;bmi_category&quot;</span><span class="p">,</span> 
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>                       <span class="n">when</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;bmi&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">18.5</span><span class="p">,</span> <span class="n">lit</span><span class="p">(</span><span class="s2">&quot;underweight&quot;</span><span class="p">))</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>                       <span class="o">.</span><span class="n">when</span><span class="p">((</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;bmi&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">18.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;bmi&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">),</span> <span class="n">lit</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">))</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>                       <span class="o">.</span><span class="n">when</span><span class="p">((</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;bmi&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;bmi&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">),</span> <span class="n">lit</span><span class="p">(</span><span class="s2">&quot;overweight&quot;</span><span class="p">))</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                       <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">lit</span><span class="p">(</span><span class="s2">&quot;obese&quot;</span><span class="p">)))</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">data</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&quot;bmi_category&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/home/ubuntu/samples/insurance.csv&quot;</span><span class="p">)</span>
+<h2 id="feature-vector-assembly">Feature Vector Assembly</h2>
+<p>The specified numerical and encoded categorical columns are combined into a single feature vector column, which is essential for machine learning models.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">feature_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;bmi&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;sex_encoded&#39;</span><span class="p">,</span> <span class="s1">&#39;smoker_encoded&#39;</span><span class="p">,</span> <span class="s1">&#39;region_encoded&#39;</span><span class="p">]</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">assembler</span> <span class="o">=</span> <span class="n">VectorAssembler</span><span class="p">(</span><span class="n">inputCols</span><span class="o">=</span><span class="n">feature_columns</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">prediction</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<h2 id="scaling-features-and-applying-a-pipeline">Scaling Features and Applying a Pipeline</h2>
+<p>A pipeline is created to process data by combining categorical encoding, feature vector assembly, and feature scaling into a sequential workflow. This ensures a clean and efficient transformation of raw data into a format suitable for machine learning.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;scaled_features&quot;</span><span class="p">,</span> <span class="n">withStd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">withMean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">prediction</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="n">indexers</span> <span class="o">+</span> <span class="n">encoders</span> <span class="o">+</span> <span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">])</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="s2">&quot;scaled_features&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Optional: Stop Spark session when done</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">spark</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</span></code></pre></div>
-<h3 id="deploying-the-sparkml-model">Deploying the SparkML Model</h3>
-<h4 id="step-1-upload-to-object-storage">Step 1) Upload to object storage</h4>
-<ul>
-<li>Before you start deploying the model, please upload SparkML model files to the object storage that your Practicus AI model deployment is using.</li>
-<li>Why? Unlike scikit-learn, XGBoost etc., Spark ML model files are not a file such as model.pkl, but a folder. </li>
-</ul>
-<h5 id="sample-object-storage-cache-folder">Sample object storage cache folder</h5>
-<ul>
-<li>E.g. s3://my-models-bucket/cache/ice_cream_sparkml_model/ice_cream_sparkml_model/ [ add your model folders here ] </li>
-<li>Why use same folder name twice? ice_cream_sparkml_model/ice_cream_sparkml_model </li>
-<li>Practicus AI will download all cache files defined in model.json.</li>
-<li>If you select cache/ice_cream_sparkml_model and don't use the second folder, all of your model files will be downloaded under /var/practicus/cache/</li>
-<li>If you are caching one model only this would work fine, but if you deploy multiple models their files can override each other.</li>
-</ul>
-<h4 id="step-2-verify-you-practicus-ai-model-host-is-sparkml-compatible">Step 2) Verify you Practicus AI model host is SparkML compatible</h4>
-<ul>
-<li>Please make sure you are using a Practicus AI model deployment image with SparkML support.</li>
-<li>You can use the default SparkML image: ghcr.io/practicusai/practicus-modelhost-sparkml:{add-version-here}</li>
-<li>Not sure how? Please consult your admin and ask for the deployment key with SparkML.</li>
-</ul>
-<h4 id="step-3-deploy-the-model">Step 3) Deploy the model</h4>
-<ul>
-<li>Please follow the below steps to deploy the model as usual</li>
-</ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span> <span class="nn">practicuscore</span> <span class="k">as</span> <span class="nn">prt</span> 
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># Deploying model as an API</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Please review model.py and model.json files</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="n">deployment_key</span><span class="o">=</span><span class="n">deployment_key</span><span class="p">,</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="n">model_dir</span><span class="o">=</span><span class="kc">None</span> <span class="c1"># Current dir  </span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">current_region</span><span class="p">()</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># *All* Practicus AI model APIs follow the below url convention</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">region</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">/&quot;</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Important: For effective traffic routing, always terminate the url with / at the end.</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model REST API Url:&quot;</span><span class="p">,</span> <span class="n">api_url</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">token</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get_session_token</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;API session token:&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Caution: Due to initial Spark session creation process, first prediction can be quite slow.</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kn">import</span> <span class="nn">requests</span> 
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/home/ubuntu/samples/insurance.csv&quot;</span><span class="p">)</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    <span class="s1">&#39;authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/csv&#39;</span>
-</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="p">}</span>
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="n">data_csv</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
-</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data_csv</span><span class="p">)</span>
-</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>    <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
-</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
-</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="n">pred_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
-</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
-</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediction Result:&quot;</span><span class="p">)</span>
-</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="n">pred_df</span>
-</span></code></pre></div>
-<h2 id="supplementary-files">Supplementary Files</h2>
-<h3 id="modeljson">model.json</h3>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="nt">&quot;download_files_from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cache/ice_cream_sparkml_model/&quot;</span><span class="p">,</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nt">&quot;_comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;you can also define download_files_to otherwise, /var/practicus/cache is used&quot;</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="modelpy">model.py</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kn">from</span> <span class="nn">pyspark.ml.linalg</span> <span class="kn">import</span> <span class="n">Vectors</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="kn">import</span> <span class="n">StructType</span><span class="p">,</span> <span class="n">StructField</span><span class="p">,</span> <span class="n">DoubleType</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="kn">from</span> <span class="nn">pyspark.ml.regression</span> <span class="kn">import</span> <span class="n">LinearRegressionModel</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="n">spark</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
-</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="c1"># Make sure you downloaded the SparkML model files to the correct cache folder</span>
-</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="n">MODEL_PATH</span> <span class="o">=</span> <span class="s2">&quot;/var/practicus/cache/ice_cream_sparkml_model&quot;</span>
-</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
-</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
-</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>    <span class="k">global</span> <span class="n">spark</span><span class="p">,</span> <span class="n">model</span>
-</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>    <span class="k">if</span> <span class="n">spark</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>        <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;IceCreamRevenuePrediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
-</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegressionModel</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="p">)</span>
-</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
-</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>
-</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>    <span class="c1"># Define schema for Spark DataFrame</span>
-</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>    <span class="n">schema</span> <span class="o">=</span> <span class="n">StructType</span><span class="p">([</span>
-</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>        <span class="n">StructField</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="n">DoubleType</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>    <span class="p">])</span>
-</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>
-</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>    <span class="c1"># Convert input Pandas DataFrame to Spark DataFrame</span>
-</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>    <span class="n">spark_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span>
-</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>        <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="p">(</span><span class="n">Vectors</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Temperature&#39;</span><span class="p">])),),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>        <span class="n">schema</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
-</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>    <span class="p">)</span>
-</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>
-</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>    <span class="c1"># Make predictions using the Spark model</span>
-</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a>    <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">spark_data</span><span class="p">)</span>
-</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>
-</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a>    <span class="c1"># Select the relevant columns and convert to Pandas DataFrame</span>
-</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a>    <span class="n">predictions_pd</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
-</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a>
-</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a>    <span class="c1"># Extract the Temperature and predicted Revenue for readability</span>
-</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a>    <span class="n">predictions_pd</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions_pd</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a>    <span class="n">predictions_pd</span> <span class="o">=</span> <span class="n">predictions_pd</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;prediction&quot;</span><span class="p">:</span> <span class="s2">&quot;predicted_Revenue&quot;</span><span class="p">})</span>
-</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>    <span class="n">predictions_pd</span> <span class="o">=</span> <span class="n">predictions_pd</span><span class="p">[[</span><span class="s2">&quot;predicted_Revenue&quot;</span><span class="p">]]</span>
-</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>
-</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a>    <span class="k">return</span> <span class="n">predictions_pd</span>
+<h2 id="writing-processed-data-to-a-parquet-file-and-stopping-spark-session">Writing Processed Data to a Parquet File and Stopping Spark Session</h2>
+<p>The processed DataFrame is saved in a Parquet format, and the Spark session is gracefully terminated to release resources.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;/home/ubuntu/my/processed_insurance_data.parquet&quot;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">data</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">spark</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </span></code></pre></div>
 <hr />
-<p><strong>Previous</strong>: <a href="../../../data-processing/process-data/spark-object-storage/">Spark Object Storage</a> | <strong>Next</strong>: <a href="../../model-tracking/experiment-tracking/experiment-tracking-logging/">Model Tracking &gt; Experiment Tracking &gt; Experiment Tracking Logging</a></p>
+<p><strong>Previous</strong>: <a href="../../spark-with-job/batch-job/">Batch Job</a> | <strong>Next</strong>: <a href="../../../model-tracking/experiment-tracking/experiment-tracking-logging/">Model Tracking &gt; Experiment Tracking &gt; Experiment Tracking Logging</a></p>
 
 
 
@@ -6366,10 +6499,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
   </body>

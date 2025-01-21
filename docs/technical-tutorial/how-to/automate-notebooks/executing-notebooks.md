@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Practicus Core
     language: python
@@ -129,4 +129,4 @@ prtcli execute-notebook -p notebook=my-notebook.ipynb
 
 ---
 
-**Previous**: [Build Custom Images](../build-custom-images.md) | **Next**: [Improve Code Quality > Automated Code Quality](../improve-code-quality/automated-code-quality.md)
+**Previous**: [Build Custom Images](../../unified-devops/build-custom-images.md) | **Next**: [Improve Code Quality > Automated Code Quality](../improve-code-quality/automated-code-quality.md)

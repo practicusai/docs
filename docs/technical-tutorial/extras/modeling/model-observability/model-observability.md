@@ -5,11 +5,11 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3 (for ML)
+    display_name: Python 3
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 # Model Observability and Monitoring
@@ -39,16 +39,15 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 deployment_key = None
 prefix = None
-model_name = None
-practicus_url = None # e.g. http://practicus.company.com
+model_name = None # Eg. bank_test_1
+practicus_url = None # Eg. http://practicus.company.com
 ```
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
 
 ```python
-# Let's list our models and select one of them.
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
+my_model_deployment_list = region.model_deployment_list
+display(my_model_deployment_list.to_pandas())
 ```
 
 ```python
@@ -205,16 +204,6 @@ prt.models.deploy(
 ```
 
 # Prediction
-
-```python
-import practicuscore as prt
-
-region = prt.current_region()
-worker = region.get_or_create_worker()
-proc = worker.load(dataset_conn) 
-
-proc.show_head()
-```
 
 ```python
 # Let's construct the REST API url.

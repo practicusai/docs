@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Practicus Core
     language: python
@@ -37,11 +37,13 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 practicus_url = None # E.g."https://practicus.your-company.com" 
 email = None # E.g. "your-email@your-company.com"
+password = None
 ```
 
 ```python
 assert practicus_url, "Please enter your practicus_url "
 assert email, "Please enter your email."
+assert password, "Plese enter your password"
 ```
 
 ```python
@@ -69,7 +71,8 @@ print("Access token:", access_token)
 
 
 print(f"Please enter the password for {email} to login {practicus_url}")
-password = getpass.getpass()
+if not password:
+    password = getpass.getpass()
 
 some_practicus_region = prt.auth.login(
     url=practicus_url,

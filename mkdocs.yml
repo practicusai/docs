@@ -87,8 +87,14 @@ nav:
         - Intro To DeepSpeed: technical-tutorial/distributed-computing/deepspeed/basics/intro-to-deepspeed.md
       - LLM Fine Tuning:
         - Llms With DeepSpeed: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md
+  - Unified Devops:
+    - Introduction: technical-tutorial/unified-devops/introduction.md
+    - Secrets: technical-tutorial/unified-devops/secrets.md
+    - Worker Startup: technical-tutorial/unified-devops/worker-startup.md
+    - Git: technical-tutorial/unified-devops/git.md
+    - Cicd: technical-tutorial/unified-devops/cicd.md
+    - Build Custom Images: technical-tutorial/unified-devops/build-custom-images.md
   - How To:
-    - Build Custom Images: technical-tutorial/how-to/build-custom-images.md
     - Automate Notebooks:
       - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
     - Improve Code Quality:
@@ -98,6 +104,7 @@ nav:
     - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
     - Work With Processes: technical-tutorial/how-to/work-with-processes.md
     - Work With Data Catalog: technical-tutorial/how-to/work-with-data-catalog.md
+    - Use Custom Metrics: technical-tutorial/how-to/use-custom-metrics.md
     - Customize Templates: technical-tutorial/how-to/customize-templates.md
     - Configure Advanced Gpu: technical-tutorial/how-to/configure-advanced-gpu.md
     - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md
@@ -123,7 +130,12 @@ nav:
         - Spark Object Storage: technical-tutorial/extras/data-processing/process-data/spark-object-storage.md
     - Modeling:
       - SparkML:
-        - SparkML Ice Cream: technical-tutorial/extras/modeling/sparkml/sparkml-ice-cream.md
+        - Ice Cream:
+          - SparkML Ice Cream: technical-tutorial/extras/modeling/sparkml/ice-cream/sparkml-ice-cream.md
+        - Spark With Job:
+          - Batch Job: technical-tutorial/extras/modeling/sparkml/spark-with-job/batch-job.md
+        - Spark For Ds:
+          - Spark Tutorial: technical-tutorial/extras/modeling/sparkml/spark-for-ds/spark-tutorial.md
       - Model Tracking:
         - Experiment Tracking:
           - Experiment Tracking Logging: technical-tutorial/extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md

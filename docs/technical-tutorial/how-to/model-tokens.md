@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Practicus Core
     language: python
@@ -39,6 +39,11 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 model_name = None # E.g. "diamond-price"
 model_prefix = None #  E.g. 'models/practicus'
+```
+
+```python
+assert model_name, "Please enter your model_name "
+assert model_prefix, "Please enter your model_prefix."
 ```
 
 ```python
@@ -93,56 +98,59 @@ If your end users do not have access to Practicus AI SDK, they can simply make t
 
 import requests
 
-console_api_url = "http://local.practicus.io/console/api/"
+try :
+    console_api_url = "http://local.practicus.io/console/api/"
 
-# Option 1 - Use password auth every time you need tokens
-print("[Not Recommended] Getting console API access token using password.")
-email = "admin@admin.com"
-password = "admin"
+    # Option 1 - Use password auth every time you need tokens
+    print("[Not Recommended] Getting console API access token using password.")
+    email = "admin@admin.com"
+    password = "admin"
 
-data = {"email": email, "password": password}
-console_login_api_url = f"{console_api_url}auth/"
-r = requests.post(console_login_api_url, headers=headers, json=data)
-if not r.ok:
-    raise ConnectionError(r.status_code)
-body = r.json()
-refresh_token = body["refresh"]  # Keep refresh tokens safe!
-console_access_token = body["access"] 
+    data = {"email": email, "password": password}
+    console_login_api_url = f"{console_api_url}auth/"
+    r = requests.post(console_login_api_url, headers=headers, json=data)
+    if not r.ok:
+        raise ConnectionError(r.status_code)
+    body = r.json()
+    refresh_token = body["refresh"]  # Keep refresh tokens safe!
+    console_access_token = body["access"] 
 
-# Option 2 - Get a refresh token once, and only use that until it expires in ~3 months
-print("[Recommended] Getting console API access token using refresh token")
-console_access_api_url = f"{console_api_url}auth/refresh/"
-headers = {"authorization": f"Bearer {refresh_token}"}
-data = {"refresh": refresh_token}
-r = requests.post(console_access_api_url, headers=headers, json=data)
-if not r.ok:
-    raise ConnectionError(r.status_code)
-body = r.json()
-console_access_token = body["access"]
-headers = {"authorization": f"Bearer {console_access_token}"}
+    # Option 2 - Get a refresh token once, and only use that until it expires in ~3 months
+    print("[Recommended] Getting console API access token using refresh token")
+    console_access_api_url = f"{console_api_url}auth/refresh/"
+    headers = {"authorization": f"Bearer {refresh_token}"}
+    data = {"refresh": refresh_token}
+    r = requests.post(console_access_api_url, headers=headers, json=data)
+    if not r.ok:
+        raise ConnectionError(r.status_code)
+    body = r.json()
+    console_access_token = body["access"]
+    headers = {"authorization": f"Bearer {console_access_token}"}
 
-# Console API access tokens expire in ~30 minutes
-print("Console API access token:", console_access_token)
+    # Console API access tokens expire in ~30 minutes
+    print("Console API access token:", console_access_token)
 
-# Locating model id
-print("Getting model id.")
-print("Note: you can also view model id using Open API documentation (E.g. https://../models/redoc/), or using Practicus AI App.")
-r = requests.get(api_url + "?get_meta=true", headers=headers, data=data)
-if not r.ok:
-    raise ConnectionError(r.status_code)
-model_id = int(r.headers["x-prt-model-id"])
-print("Model id:", model_id)
+    # Locating model id
+    print("Getting model id.")
+    print("Note: you can also view model id using Open API documentation (E.g. https://../models/redoc/), or using Practicus AI App.")
+    r = requests.get(api_url + "?get_meta=true", headers=headers, data=data)
+    if not r.ok:
+        raise ConnectionError(r.status_code)
+    model_id = int(r.headers["x-prt-model-id"])
+    print("Model id:", model_id)
 
-# Getting model access token, expires in ~4 hours
-print("Getting a model API session token using the console API access token") 
-console_model_token_api_url = f"{console_api_url}modelhost/model-auth/"
-data = {"model_id": model_id}
-r = requests.get(console_model_token_api_url, headers=headers, data=data)
-if not r.ok:
-    raise ConnectionError(r.status_code)
-body = r.json()
-model_api_token = body["token"]
-print("Model API session token:", model_api_token) 
+    # Getting model access token, expires in ~4 hours
+    print("Getting a model API session token using the console API access token") 
+    console_model_token_api_url = f"{console_api_url}modelhost/model-auth/"
+    data = {"model_id": model_id}
+    r = requests.get(console_model_token_api_url, headers=headers, data=data)
+    if not r.ok:
+        raise ConnectionError(r.status_code)
+    body = r.json()
+    model_api_token = body["token"]
+    print("Model API session token:", model_api_token) 
+except:
+    pass
 ```
 
 

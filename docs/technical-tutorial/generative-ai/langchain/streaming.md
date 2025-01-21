@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -74,7 +74,7 @@ display(my_app_prefix_list.to_pandas())
 ```
 
 ```python
-assert model_name in ('llm_app', 'llm_model'), "Please select a valid method ('llm_app' or 'llm_model')."
+assert method in ('llm_app', 'llm_model'), "Please select a valid method ('llm_app' or 'llm_model')."
 
 if method == 'llm_model':
     assert model_name, "Please select an LLM."

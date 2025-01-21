@@ -5,17 +5,22 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: Practicus Core
+    display_name: Python 3
     language: python
-    name: practicus
+    name: python3
 ---
 
 ## End-to-end SparkML Model development and deployment 
 
 This sample notebook outlines the process of deploying a SparkML model on the Practicus AI platform and making predictions from the deployed model using various methods.
 
+```python
+import practicuscore as prt
+
+region = prt.current_region()
+```
 
 ### Defining parameters.
  
@@ -29,6 +34,18 @@ model_name = None
 practicus_url = None # E.g. http://company.practicus.com
 ```
 
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+my_model_deployment_list = region.model_deployment_list
+display(my_model_deployment_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
+```
+
 ```python
 assert deployment_key, "Please select a deployment key"
 assert prefix, "Please select a prefix"
@@ -40,7 +57,7 @@ assert practicus_url, "Please enter practicus_url"
 import pandas as pd
 
 # Step 1: Read CSV with Pandas
-data = pd.read_csv("/home/ubuntu/samples/insurance.csv")
+data = pd.read_csv("/home/ubuntu/samples/ice_cream.csv")
 ```
 
 ```python
@@ -80,7 +97,6 @@ predictions.select("features", "label", "prediction").show()
 
 ```python
 # Step 5: Save Model
-model_name = "ice_cream_sparkml_model"
 model.save(model_name)
 ```
 
@@ -129,7 +145,7 @@ def predict(df: pd.DataFrame) -> pd.DataFrame:
 ```python
 import pandas as pd
 
-data = pd.read_csv("/home/ubuntu/samples/insurance.csv")
+data = pd.read_csv("/home/ubuntu/samples/ice_cream.csv")
 ```
 
 ```python
@@ -200,7 +216,7 @@ print("API session token:", token)
 import pandas as pd
 import requests 
 
-df = pd.read_csv("/home/ubuntu/samples/insurance.csv")
+df = pd.read_csv("/home/ubuntu/samples/ice_cream.csv")
 
 headers = {
     'authorization': f'Bearer {token}',
@@ -283,4 +299,4 @@ async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFra
 
 ---
 
-**Previous**: [Spark Object Storage](../../data-processing/process-data/spark-object-storage.md) | **Next**: [Model Tracking > Experiment Tracking > Experiment Tracking Logging](../model-tracking/experiment-tracking/experiment-tracking-logging.md)
+**Previous**: [Spark Object Storage](../../../data-processing/process-data/spark-object-storage.md) | **Next**: [Spark With Job > Batch Job](../spark-with-job/batch-job.md)

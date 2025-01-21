@@ -5,9 +5,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3
     language: python
     name: python3
 ---
@@ -16,11 +16,13 @@ jupyter:
 # Defining Parameters
 s3_access = None
 s3_secret = None
+s3_bucket_uri = None # E.g "s3a://sample-bucket/boston.csv"
 ```
 
 ```python
 assert s3_access, "Please enter an access key"
 assert s3_secret, "Please enter an secret key"
+assert s3_bucket_uri, "Please enter s3 bucket uri"
 ```
 
 ```python
@@ -42,7 +44,7 @@ import practicuscore as prt
 
 spark = prt.engines.get_spark_session(extra_spark_conf=extra_spark_conf)
 
-df = spark.read.csv("s3a://sample-bucket/boston.csv")
+df = spark.read.csv(s3_bucket_uri)
 df.head()
 ```
 

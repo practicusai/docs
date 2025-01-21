@@ -5,11 +5,11 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: Practicus GenAI
+    display_name: practicus_genai
     language: python
-    name: practicus_genai
+    name: python3
 ---
 
 <!-- #region -->
@@ -60,25 +60,31 @@ region = prt.get_region()
 ```
 
 ```python
-my_app_settings = None
-my_app_prefixes = None
+app_deployment_key = None
+app_prefix = None
+
+test_app = True
 ```
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
 
 ```python
+my_app_settings = region.app_deployment_setting_list
+
 print("Application deployment settings I have access to:")
 display(my_app_settings.to_pandas())
 ```
 
 ```python
+my_app_prefixes = region.app_prefix_list
+
 print("Application prefixes (groups) I have access to:")
 display(my_app_prefixes.to_pandas())
 ```
 
 ```python
-assert my_app_settings, "Please select an app deployment setting."
-assert my_app_prefixes, "Please select an app prefix."
+assert app_deployment_key, "Please select an app deployment setting."
+assert app_prefix, "Please select an app prefix."
 ```
 
 ### Before You Continue
@@ -98,7 +104,8 @@ If you are using VS Code, click on the printed URL to view the application.
 If you are using Jupyter, we recommend using Practicus AI Studio, which has built-in GenAI app visualization. After running the code below, navigate to **Explore**, right-click on the worker, and select **GenAI App**.
 
 ```python
-prt.apps.test_app()
+if test_app:
+    prt.apps.test_app()
 ```
 
 ### Testing APIs in design time
@@ -129,8 +136,8 @@ description = "A very useful app.."
 icon = "rocket"
 
 app_url, api_url = prt.apps.deploy(
-    deployment_setting_key=deployment_setting_key,
-    prefix=prefix,
+    deployment_setting_key=app_deployment_key,
+    prefix=app_prefix,
     app_name=app_name,
     app_dir=None,
     visible_name=visible_name,
@@ -200,17 +207,25 @@ region.app_list.to_pandas()
 ```
 
 ```python
-# Deleting an app and all it's versions
-region.delete_app(app_id=123)
 # If you don't know the app_id you can use prefix and app_name
 region.delete_app(prefix="apps", app_name="my-first-app")
+
+try:
+    # Deleting an app and all it's versions
+    region.delete_app(app_id=123)
+except:
+    pass
 ```
 
 ```python
-# Deleting a particular version of an app
-region.delete_app_version(app_id=123, version=4)
-# If you don't know the app_id you can use prefix and app_name
-region.delete_app_version(prefix="apps", app_name="my-first-app", version=4)
+try:
+    # Deleting a particular version of an app
+    region.delete_app_version(app_id=123, version=4)
+
+    # If you don't know the app_id you can use prefix and app_name
+    region.delete_app_version(prefix="apps", app_name="my-first-app", version=4)
+except:
+    pass
 ```
 
 

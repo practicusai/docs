@@ -5,9 +5,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus_ml
     language: python
     name: python3
 ---
@@ -42,21 +42,25 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 deployment_key = None
 prefix = None
-model_name = None
-experiment_tracking_service = None
+model_name = None # Eg. bank_test_1
+experiment_tracking_service = None # Eg. MlFlow
 ```
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
 
 ```python
-# Let's list our models and select one of them.
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
+my_deployment_list = region.model_deployment_list
+display(my_deployment_list.to_pandas())
 ```
 
 ```python
 my_model_prefixes = region.model_prefix_list
 display(my_model_prefixes.to_pandas())
+```
+
+```python
+my_addon_list = region.addon_list
+display(my_addon_list.to_pandas())
 ```
 
 ```python
@@ -75,7 +79,7 @@ worker = prt.get_local_worker()
 ```python
 data_conn = {
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/insurance.csv"
+    "file_path": "/home/ubuntu/samples/bank_marketing.csv"
 }
 
 proc = worker.load(data_conn) 
@@ -218,6 +222,10 @@ print("API session token:", token)
 ```
 
 ```python
+df.columns
+```
+
+```python
 import requests 
 import pandas as pd
 
@@ -243,15 +251,30 @@ pred_df.head()
 ```python
 proc.predict( 
     api_url=f"{region.url}/{prefix}/{model_name}/", 
-    column_names=['age', 'job', 'education', 'balance', 'contact', 'day', 'month',
-        'duration', 'campaign', 'pdays', 'previous','marital_married', 
-        'marital_single', 'default_yes', 'housing_yes','loan_yes'], 
+    column_names=['Buildgnage', 'job', 'education', 'balance', 'contact', 'day', 'month',
+       'duration', 'campaign', 'pdays', 'previous', 'deposit',
+       'marital_married', 'marital_single', 'default_yes', 'housing_yes',
+       'loan_yes'], 
     new_column_name='predicted_deposit' 
 ) 
 ```
 
 ```python
+df = proc.get_df_copy()
+df.columns
+```
+
+```python
+proc.wait_until_done()
+proc.show_logs()
+```
+
+```python
 df_predicted = proc.get_df_copy()
+```
+
+```python
+df_predicted
 ```
 
 ```python
