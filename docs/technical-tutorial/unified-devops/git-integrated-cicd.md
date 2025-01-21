@@ -272,4 +272,4 @@ You can track the status of each workflow run in your repository’s “Actions�
 
 ---
 
-**Previous**: [Git](git.md) | **Next**: [Build Custom Images](build-custom-images.md)
+**Previous**: [Automated Git Sync](automated-git-sync.md) | **Next**: [Build Custom Images](build-custom-images.md)

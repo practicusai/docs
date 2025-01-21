@@ -565,15 +565,19 @@
          <lastmod>2025-01-21</lastmod>
     </url>
     <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/automated-git-sync/</loc>
+         <lastmod>2025-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/automated-worker-init/</loc>
+         <lastmod>2025-01-21</lastmod>
+    </url>
+    <url>
          <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/build-custom-images/</loc>
          <lastmod>2025-01-21</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/cicd/</loc>
-         <lastmod>2025-01-21</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/git/</loc>
+         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/git-integrated-cicd/</loc>
          <lastmod>2025-01-21</lastmod>
     </url>
     <url>
@@ -581,11 +585,7 @@
          <lastmod>2025-01-21</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/secrets/</loc>
-         <lastmod>2025-01-21</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/worker-startup/</loc>
+         <loc>https://docs.practicus.ai/technical-tutorial/unified-devops/secrets-with-vault/</loc>
          <lastmod>2025-01-21</lastmod>
     </url>
     <url>

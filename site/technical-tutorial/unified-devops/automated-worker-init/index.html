@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/unified-devops/cicd/">
+        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/unified-devops/automated-worker-init/">
       
       
-        <link rel="prev" href="../git/">
+        <link rel="prev" href="../secrets-with-vault/">
       
       
-        <link rel="next" href="../build-custom-images/">
+        <link rel="next" href="../automated-git-sync/">
       
       
       <link rel="icon" href="../../../img/practicus50.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Cicd - Docs | Practicus AI</title>
+        <title>Automated Worker Init - Docs | Practicus AI</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-integrated-cicd" class="md-skip">
+        <a href="#automated-worker-initialization-with-secrets" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cicd
+              Automated Worker Init
             
           </span>
         </div>
@@ -2013,7 +2013,7 @@
             
   
   <span class="md-ellipsis">
-    Unified Devops
+    Unified DevOps
   </span>
   
 
@@ -2023,7 +2023,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
-            Unified Devops
+            Unified DevOps
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2055,53 +2055,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../secrets/" class="md-nav__link">
+      <a href="../secrets-with-vault/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Secrets
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../worker-startup/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Worker Startup
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Git
+    Secrets With Vault
   </span>
   
 
@@ -2131,7 +2089,7 @@
           
   
   <span class="md-ellipsis">
-    Cicd
+    Automated Worker Init
   </span>
   
 
@@ -2142,7 +2100,7 @@
         
   
   <span class="md-ellipsis">
-    Cicd
+    Automated Worker Init
   </span>
   
 
@@ -2173,102 +2131,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-workflow-example" class="md-nav__link">
+  <a href="#verifying-environment-variables-and-secrets" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Workflow Example
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-practicus-ai-in-a-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using Practicus AI in a Workflow
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Using Practicus AI in a Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-obtain-a-practicus-ai-refresh-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Obtain a Practicus AI Refresh Token
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-save-the-token-as-a-repository-secret" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Save the Token as a Repository Secret
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-create-a-task-file-in-the-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Create a Task File in the Repository
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-reference-the-task-file-in-your-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Reference the Task File in Your Workflow
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-complex-task-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      More Complex Task Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="More Complex Task Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-upload-and-execute-a-task-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example 1: Upload and Execute a Task File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-use-git-instead-of-uploading-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example 2: Use Git Instead of Uploading Files
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
+      Verifying Environment Variables and Secrets
     </span>
   </a>
   
@@ -2278,6 +2143,48 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automated-git-sync/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Git Sync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-integrated-cicd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Integrated CICD
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6323,102 +6230,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-workflow-example" class="md-nav__link">
+  <a href="#verifying-environment-variables-and-secrets" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Workflow Example
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-practicus-ai-in-a-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using Practicus AI in a Workflow
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Using Practicus AI in a Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-obtain-a-practicus-ai-refresh-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Obtain a Practicus AI Refresh Token
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-save-the-token-as-a-repository-secret" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Save the Token as a Repository Secret
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-create-a-task-file-in-the-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Create a Task File in the Repository
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-reference-the-task-file-in-your-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Reference the Task File in Your Workflow
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-complex-task-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      More Complex Task Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="More Complex Task Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-upload-and-execute-a-task-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example 1: Upload and Execute a Task File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-use-git-instead-of-uploading-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example 2: Use Git Instead of Uploading Files
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
+      Verifying Environment Variables and Secrets
     </span>
   </a>
   
@@ -6439,216 +6253,52 @@
                   
 
 
-<h1 id="git-integrated-cicd">Git-Integrated CI/CD</h1>
-<p>Practicus AI offers CI/CD runners that are <strong>compatible with GitHub Actions</strong> workflows. These runners let you integrate code pushes, tests, and automated tasks seamlessly with Practicus AI’s infrastructure—even in <strong>air-gapped</strong> or private deployments.</p>
+<h1 id="automated-worker-initialization-with-secrets">Automated Worker Initialization with Secrets</h1>
+<p>In this example, we'll show how to pass both standard environment variables and secure secrets from Practicus AI vault (personal and shared) to a Practicus AI Worker. This is especially useful for setting up required configurations during job startup without hardcoding sensitive information.</p>
 <h2 id="overview">Overview</h2>
-<ol>
-<li><strong>Add a Workflow Configuration:</strong> Create a <code>.github/workflows/</code> directory in your repository and add a YAML configuration to define your workflows.</li>
-<li><strong>Specify a Runner:</strong> Use <code>runs-on: practicus-XX.X.X</code> to leverage Practicus AI runners.</li>
-<li><strong>Add Secrets:</strong> Store Practicus AI credentials (like a refresh token) or other required secrets in your Git repository settings.</li>
-<li><strong>Create CI/CD Task Scripts:</strong> Use Python scripts (or the Practicus AI CLI) to launch tasks (like spinning up workers or building containers) on Practicus AI.</li>
-</ol>
-<p>Below are some examples of how to set up and run these workflows.</p>
-<h2 id="basic-workflow-example">Basic Workflow Example</h2>
-<p>Create a workflow file (for example, <code>test.yaml</code>) inside <code>.github/workflows/</code> in your repository:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># .github/workflows/test.yaml</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test CICD actions</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">on</span><span class="p">:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">jobs</span><span class="p">:</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">Sample-Job</span><span class="p">:</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">practicus-24.8.3</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Say Hello</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Hello&quot;</span>
+<ul>
+<li><strong>Environment Variables:</strong> Set standard OS-level environment variables to be available inside the worker.</li>
+<li><strong>Personal Secrets:</strong> These secrets are private to you and will be injected as environment variables.</li>
+<li><strong>Shared Secrets:</strong> These secrets can be shared across projects or team members and also appear as environment variables in the worker.</li>
+<li><strong>Worker Interaction:</strong> We’ll launch a worker and open a notebook on that worker. Within the worker’s terminal, we can verify that the environment variables and secrets are set correctly (though remember never to log actual secret values in production scenarios!).</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Configure the worker</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">worker_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">WorkerConfig</span><span class="p">(</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;X-Small&quot;</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">env_values</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="s2">&quot;MY_FIRST_ENV&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>       <span class="c1"># Regular environment variable</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="s2">&quot;MY_SECOND_ENV&quot;</span><span class="p">:</span> <span class="mi">123</span>          <span class="c1"># Another environment variable</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="p">},</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># Personal and shared secrets to be passed as environment variables</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">personal_secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MY_PERSONAL_SECRET_1&quot;</span><span class="p">],</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">shared_secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SHARED_SECRET_1&quot;</span><span class="p">],</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Create and start the worker</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">create_worker</span><span class="p">(</span><span class="n">worker_config</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Open a Jupyter notebook on the new worker</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">worker</span><span class="o">.</span><span class="n">open_notebook</span><span class="p">()</span>
 </span></code></pre></div>
-<p>Whenever you push code, this workflow will run on the Practicus AI runner. You can view logs and status on the repository’s <strong>Actions</strong> page.</p>
-<h2 id="using-practicus-ai-in-a-workflow">Using Practicus AI in a Workflow</h2>
-<p>You can trigger Practicus AI workers, tasks, or container builds directly in your workflow. Let’s walk through an example.</p>
-<h3 id="step-1-obtain-a-practicus-ai-refresh-token">Step 1: Obtain a Practicus AI Refresh Token</h3>
-<p>In Practicus AI, generate a refresh token for your account, then store it privately.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Retrieve your personal refresh token</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_refresh_token</span><span class="p">()</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your refresh token is:&quot;</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">)</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keep this token private and clear the cell/terminal output immediately!&quot;</span><span class="p">)</span>
+<!-- #region -->
+<h2 id="verifying-environment-variables-and-secrets">Verifying Environment Variables and Secrets</h2>
+<p>Inside the worker’s terminal (not here), you can run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MY_FIRST_ENV is: </span><span class="nv">$MY_FIRST_ENV</span><span class="s2">&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MY_SECOND_ENV is: </span><span class="nv">$MY_SECOND_ENV</span><span class="s2">&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Avoid printing actual secrets in plaintext!</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MY_PERSONAL_SECRET_1 length:&quot;</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MY_PERSONAL_SECRET_1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-m<span class="k">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;SHARED_SECRET_1 length:&quot;</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$SHARED_SECRET_1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-m<span class="k">)</span>
+</span></code></pre></div></p>
+<p>The above commands will help confirm that the environment variables and secrets have been successfully injected into the worker's environment. Note that we never display the actual secret values directly.</p>
+<!-- #endregion -->
+
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Terminate the worker when you&#39;re finished.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">worker</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
 </span></code></pre></div>
-<h3 id="step-2-save-the-token-as-a-repository-secret">Step 2: Save the Token as a Repository Secret</h3>
-<p>Go to your Git repository settings (e.g., Settings &gt; Secrets &gt; Actions on GitHub) and add a new secret named <code>PRT_TOKEN</code>. Paste the refresh token you obtained above.</p>
-<blockquote>
-<p><strong>Note:</strong> Do not store a short-lived access token. It will expire quickly, causing your CI/CD workflows to fail. Use the refresh token instead.</p>
-</blockquote>
-<h3 id="step-3-create-a-task-file-in-the-repository">Step 3: Create a Task File in the Repository</h3>
-<p>Below is a simple Python script (<code>cicd/start_worker.py</code>) that spins up a Practicus AI worker, runs a command, and terminates it.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># cicd/start_worker.py</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">worker_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">WorkerConfig</span><span class="p">(</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;X-Small&quot;</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">startup_script</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s2">    echo &quot;Hello from Practicus AI unified DevOps&quot;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s2">    &quot;&quot;&quot;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">)</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting worker...&quot;</span><span class="p">)</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">create_worker</span><span class="p">(</span><span class="n">worker_config</span><span class="p">)</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Terminating worker...&quot;</span><span class="p">)</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">worker</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
-</span></code></pre></div>
-<h3 id="step-4-reference-the-task-file-in-your-workflow">Step 4: Reference the Task File in Your Workflow</h3>
-<p>Add a workflow file (e.g., <code>.github/workflows/using_workers.yaml</code>) that sets the appropriate environment variables and runs your script.</p>
-<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># .github/workflows/using_workers.yaml</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Using Practicus AI Workers</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># This action will run each time code is pushed to the repository</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nt">on</span><span class="p">:</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nt">env</span><span class="p">:</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="c1"># Update with your Practicus AI URL</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nt">PRT_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://practicus.my-company.com</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="nt">PRT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PRT_TOKEN }}</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nt">jobs</span><span class="p">:</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="nt">Explore-PracticusAI-Actions</span><span class="p">:</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">practicus-24.8.3</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Perform some task on a Practicus AI Worker</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python cicd/start_worker.py</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">View Practicus AI CLI help</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prtcli --help</span>
-</span></code></pre></div>
-After saving and pushing these changes, the Practicus AI runner will automatically execute your workflow.</p>
-<h2 id="more-complex-task-examples">More Complex Task Examples</h2>
-<h3 id="example-1-upload-and-execute-a-task-file">Example 1: Upload and Execute a Task File</h3>
-<p>Use <code>prt.run_task(...)</code> to start a worker, upload specified files, and run them automatically. This requires that all the files your task depends on are in the directory you provide.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># cicd/task.py</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from a simple task&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># cicd/run_task.py</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">worker_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">WorkerConfig</span><span class="p">(</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;X-Small&quot;</span><span class="p">,</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">)</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">task_file</span> <span class="o">=</span> <span class="s2">&quot;task.py&quot;</span>  <span class="c1"># The file to run</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting </span><span class="si">{</span><span class="n">task_file</span><span class="si">}</span><span class="s2"> on a new worker.&quot;</span><span class="p">)</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">worker</span><span class="p">,</span> <span class="n">success</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">run_task</span><span class="p">(</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">file_name</span><span class="o">=</span><span class="n">task_file</span><span class="p">,</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">files_path</span><span class="o">=</span><span class="s2">&quot;cicd&quot;</span><span class="p">,</span>       <span class="c1"># Local folder containing task.py</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">worker_config</span><span class="o">=</span><span class="n">worker_config</span><span class="p">,</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">)</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task execution finished successfully.&quot;</span><span class="p">)</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task_file</span><span class="si">}</span><span class="s2"> failed.&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<p>You can tie this script to a workflow file, for example:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># .github/workflows/run_task.yaml</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run a task on Practicus AI Worker</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># This action will run each time code is pushed to the repository</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">on</span><span class="p">:</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nt">env</span><span class="p">:</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="c1"># Update the below url</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="nt">PRT_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://practicus.my-company.com</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="nt">PRT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PRT_TOKEN }}</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nt">jobs</span><span class="p">:</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="nt">Explore-PracticusAI-Actions</span><span class="p">:</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">practicus-24.8.3</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run task.py on a Practicus AI Worker</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python cicd/run_task.py</span>
-</span></code></pre></div>
-<h3 id="example-2-use-git-instead-of-uploading-files">Example 2: Use Git Instead of Uploading Files</h3>
-<p>If your code exists in a Git repository, you can clone or pull the repo on the worker automatically and then execute a file directly from the cloned repo. First, ensure you have a Git personal access token saved in the Practicus AI Vault.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">personal_secret_name</span> <span class="o">=</span> <span class="s2">&quot;MY_GIT_SECRET&quot;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Enter key for </span><span class="si">{</span><span class="n">personal_secret_name</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">prt</span><span class="o">.</span><span class="n">vault</span><span class="o">.</span><span class="n">create_or_update_secret</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">personal_secret_name</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Git access token saved as secret &#39;</span><span class="si">{</span><span class="n">personal_secret_name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># cicd/run_from_git_repo.py</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">remote_git_url</span> <span class="o">=</span> <span class="s2">&quot;http://git.practicus.my-company.com/myuser/myproject&quot;</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">git_secret_name</span> <span class="o">=</span> <span class="s2">&quot;MY_GIT_SECRET&quot;</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">local_path_for_git</span> <span class="o">=</span> <span class="s2">&quot;~/myproject&quot;</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Configure the Git repository and secret</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">git_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">GitConfig</span><span class="p">(</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">remote_url</span><span class="o">=</span><span class="n">remote_git_url</span><span class="p">,</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="n">secret_name</span><span class="o">=</span><span class="n">git_secret_name</span><span class="p">,</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="n">local_path</span><span class="o">=</span><span class="n">local_path_for_git</span><span class="p">,</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="p">)</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1"># Create a WorkerConfig that auto-clones the repo</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="n">worker_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">WorkerConfig</span><span class="p">(</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;X-Small&quot;</span><span class="p">,</span>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="n">personal_secrets</span><span class="o">=</span><span class="p">[</span><span class="n">git_secret_name</span><span class="p">],</span>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    <span class="n">git_configs</span><span class="o">=</span><span class="p">[</span><span class="n">git_config</span><span class="p">],</span>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">)</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="c1"># Path to the script we want to run inside the worker, will be cloned from Git.</span>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="n">task_file_on_worker</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">local_path_for_git</span><span class="si">}</span><span class="s2">/cicd/task.py&quot;</span>
-</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
-</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting </span><span class="si">{</span><span class="n">task_file_on_worker</span><span class="si">}</span><span class="s2"> on a new worker.&quot;</span><span class="p">)</span>
-</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="n">worker</span><span class="p">,</span> <span class="n">success</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">run_task</span><span class="p">(</span>
-</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>    <span class="n">upload_files</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>              <span class="c1"># We&#39;ll rely on Git instead of uploading files</span>
-</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>    <span class="n">file_path_on_worker</span><span class="o">=</span><span class="n">task_file_on_worker</span><span class="p">,</span>
-</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>    <span class="n">worker_config</span><span class="o">=</span><span class="n">worker_config</span><span class="p">,</span>
-</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="p">)</span>
-</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>
-</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task finished successfully.&quot;</span><span class="p">)</span>
-</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>    <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task_file_on_worker</span><span class="si">}</span><span class="s2"> failed.&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<p>And reference it in a workflow file, for example:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># .github/workflows/run_from_git_repo.yaml</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Running tasks from Git Repo</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># This action will run each time code is pushed to the repository</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nt">on</span><span class="p">:</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nt">env</span><span class="p">:</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="c1"># Update the below url</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nt">PRT_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://practicus.my-company.com</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="nt">PRT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PRT_TOKEN }}</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="nt">jobs</span><span class="p">:</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span><span class="nt">Explore-PracticusAI-Actions</span><span class="p">:</span>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">practicus-24.8.3</span>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run a file from Git on a Practicus AI Worker</span>
-</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python cicd/run_from_git_repo.py</span>
-</span></code></pre></div>
-<h2 id="conclusion">Conclusion</h2>
-<p>By combining Practicus AI’s worker orchestration with your Git repository’s CI/CD configuration, you can automate virtually any workflow—ranging from running tests and building containers to complex data processing jobs. Just push your changes, and Practicus AI takes care of the rest.</p>
-<p>You can track the status of each workflow run in your repository’s “Actions” tab (or equivalent, depending on your Git service).</p>
 <hr />
-<p><strong>Previous</strong>: <a href="../git/">Git</a> | <strong>Next</strong>: <a href="../build-custom-images/">Build Custom Images</a></p>
+<p><strong>Previous</strong>: <a href="../secrets-with-vault/">Secrets With Vault</a> | <strong>Next</strong>: <a href="../automated-git-sync/">Automated Git Sync</a></p>
 
 
 

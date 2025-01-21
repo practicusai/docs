@@ -87,12 +87,12 @@ nav:
         - Intro To DeepSpeed: technical-tutorial/distributed-computing/deepspeed/basics/intro-to-deepspeed.md
       - LLM Fine Tuning:
         - Llms With DeepSpeed: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md
-  - Unified Devops:
+  - Unified DevOps:
     - Introduction: technical-tutorial/unified-devops/introduction.md
-    - Secrets: technical-tutorial/unified-devops/secrets.md
-    - Worker Startup: technical-tutorial/unified-devops/worker-startup.md
-    - Git: technical-tutorial/unified-devops/git.md
-    - Cicd: technical-tutorial/unified-devops/cicd.md
+    - Secrets With Vault: technical-tutorial/unified-devops/secrets-with-vault.md
+    - Automated Worker Init: technical-tutorial/unified-devops/automated-worker-init.md
+    - Automated Git Sync: technical-tutorial/unified-devops/automated-git-sync.md
+    - Git Integrated CICD: technical-tutorial/unified-devops/git-integrated-cicd.md
     - Build Custom Images: technical-tutorial/unified-devops/build-custom-images.md
   - How To:
     - Automate Notebooks:

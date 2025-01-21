@@ -65,4 +65,4 @@ print(f"Deleted personal secret: {personal_secret_name}")
 
 ---
 
-**Previous**: [Introduction](introduction.md) | **Next**: [Worker Startup](worker-startup.md)
+**Previous**: [Introduction](introduction.md) | **Next**: [Automated Worker Init](automated-worker-init.md)

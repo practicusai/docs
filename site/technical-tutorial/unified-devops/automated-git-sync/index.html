@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/unified-devops/worker-startup/">
+        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/unified-devops/automated-git-sync/">
       
       
-        <link rel="prev" href="../secrets/">
+        <link rel="prev" href="../automated-worker-init/">
       
       
-        <link rel="next" href="../git/">
+        <link rel="next" href="../git-integrated-cicd/">
       
       
       <link rel="icon" href="../../../img/practicus50.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Worker Startup - Docs | Practicus AI</title>
+        <title>Automated Git Sync - Docs | Practicus AI</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuring-environment-variables-and-secrets-at-worker-startup" class="md-skip">
+        <a href="#automated-git-sync-for-workers" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Worker Startup
+              Automated Git Sync
             
           </span>
         </div>
@@ -2013,7 +2013,7 @@
             
   
   <span class="md-ellipsis">
-    Unified Devops
+    Unified DevOps
   </span>
   
 
@@ -2023,7 +2023,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
-            Unified Devops
+            Unified DevOps
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2055,11 +2055,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../secrets/" class="md-nav__link">
+      <a href="../secrets-with-vault/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Secrets
+    Secrets With Vault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automated-worker-init/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Worker Init
   </span>
   
 
@@ -2089,7 +2110,7 @@
           
   
   <span class="md-ellipsis">
-    Worker Startup
+    Automated Git Sync
   </span>
   
 
@@ -2100,7 +2121,7 @@
         
   
   <span class="md-ellipsis">
-    Worker Startup
+    Automated Git Sync
   </span>
   
 
@@ -2128,12 +2149,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-personal-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a Personal Access Token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-store-the-token-as-a-personal-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Store the Token as a Personal Secret
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-git-and-synchronize-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure Git and Synchronize the Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-auto-clone-or-pull-the-repo-on-worker-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Auto-Clone or Pull the Repo on Worker Startup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifying-environment-variables-and-secrets" class="md-nav__link">
+  <a href="#cleanup" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifying Environment Variables and Secrets
+      Cleanup
     </span>
   </a>
   
@@ -2155,32 +2218,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
+      <a href="../git-integrated-cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Git
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cicd/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cicd
+    Git Integrated CICD
   </span>
   
 
@@ -6227,12 +6269,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-personal-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a Personal Access Token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-store-the-token-as-a-personal-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Store the Token as a Personal Secret
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-git-and-synchronize-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure Git and Synchronize the Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-auto-clone-or-pull-the-repo-on-worker-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Auto-Clone or Pull the Repo on Worker Startup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifying-environment-variables-and-secrets" class="md-nav__link">
+  <a href="#cleanup" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifying Environment Variables and Secrets
+      Cleanup
     </span>
   </a>
   
@@ -6253,52 +6337,81 @@
                   
 
 
-<h1 id="configuring-environment-variables-and-secrets-at-worker-startup">Configuring Environment Variables and Secrets at Worker Startup</h1>
-<p>In this example, we'll show how to pass both standard environment variables and secure secrets from Practicus AI vault (personal and shared) to a Practicus AI Worker. This is especially useful for setting up required configurations during job startup without hardcoding sensitive information.</p>
+<h1 id="automated-git-sync-for-workers">Automated Git Sync for Workers</h1>
+<p>This example demonstrates how to securely configure Git in Practicus AI, ensuring you can clone or pull a repository both locally (within a running notebook) and automatically when a worker starts.</p>
 <h2 id="overview">Overview</h2>
-<ul>
-<li><strong>Environment Variables:</strong> Set standard OS-level environment variables to be available inside the worker.</li>
-<li><strong>Personal Secrets:</strong> These secrets are private to you and will be injected as environment variables.</li>
-<li><strong>Shared Secrets:</strong> These secrets can be shared across projects or team members and also appear as environment variables in the worker.</li>
-<li><strong>Worker Interaction:</strong> We’ll launch a worker and open a notebook on that worker. Within the worker’s terminal, we can verify that the environment variables and secrets are set correctly (though remember never to log actual secret values in production scenarios!).</li>
-</ul>
+<ol>
+<li><strong>Create a Personal Access Token (PAT)</strong> on your chosen Git platform.</li>
+<li><strong>Store the PAT as a Personal Secret</strong> in the Practicus AI Vault.</li>
+<li><strong>Configure and Sync the Repository</strong> via the Practicus AI Git Helper.</li>
+<li><strong>Auto-Clone a Repo on Worker Startup</strong> to have your code ready immediately when the worker launches.</li>
+</ol>
+<h3 id="step-1-create-a-personal-access-token">Step 1: Create a Personal Access Token</h3>
+<p>Log into your Git system (e.g., Practicus AI Git, GitHub, GitLab, ..) and generate a personal access token.
+Make sure to include any necessary permissions (e.g., read/write to repositories if needed).</p>
+<h3 id="step-2-store-the-token-as-a-personal-secret">Step 2: Store the Token as a Personal Secret</h3>
+<p>Store the new token in the Practicus AI Vault to keep it secure and avoid hardcoding credentials in your code.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Configure the worker</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">worker_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">WorkerConfig</span><span class="p">(</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;X-Small&quot;</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">env_values</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="s2">&quot;MY_FIRST_ENV&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>       <span class="c1"># Regular environment variable</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="s2">&quot;MY_SECOND_ENV&quot;</span><span class="p">:</span> <span class="mi">123</span>          <span class="c1"># Another environment variable</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="p">},</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># Personal and shared secrets to be passed as environment variables</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">personal_secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MY_PERSONAL_SECRET_1&quot;</span><span class="p">],</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">shared_secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SHARED_SECRET_1&quot;</span><span class="p">],</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Create and start the worker</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">create_worker</span><span class="p">(</span><span class="n">worker_config</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Open a Jupyter notebook on the new worker</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">worker</span><span class="o">.</span><span class="n">open_notebook</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Define a name for the stored secret</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">git_secret_name</span> <span class="o">=</span> <span class="s2">&quot;MY_GIT_SECRET&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Prompt for your personal access token</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your Git personal access token:&quot;</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Store or update the token in the Practicus AI Vault</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">prt</span><span class="o">.</span><span class="n">vault</span><span class="o">.</span><span class="n">create_or_update_secret</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">git_secret_name</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully saved secret &#39;</span><span class="si">{</span><span class="n">git_secret_name</span><span class="si">}</span><span class="s2">&#39; in Practicus AI Vault.&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<!-- #region -->
-<h2 id="verifying-environment-variables-and-secrets">Verifying Environment Variables and Secrets</h2>
-<p>Inside the worker’s terminal (not here), you can run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MY_FIRST_ENV is: </span><span class="nv">$MY_FIRST_ENV</span><span class="s2">&quot;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MY_SECOND_ENV is: </span><span class="nv">$MY_SECOND_ENV</span><span class="s2">&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Avoid printing actual secrets in plaintext!</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MY_PERSONAL_SECRET_1 length:&quot;</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$MY_PERSONAL_SECRET_1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-m<span class="k">)</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;SHARED_SECRET_1 length:&quot;</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$SHARED_SECRET_1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-m<span class="k">)</span>
-</span></code></pre></div></p>
-<p>The above commands will help confirm that the environment variables and secrets have been successfully injected into the worker's environment. Note that we never display the actual secret values directly.</p>
-<!-- #endregion -->
-
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Terminate the worker when you&#39;re finished.</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">worker</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+<h3 id="step-3-configure-git-and-synchronize-the-repository">Step 3: Configure Git and Synchronize the Repository</h3>
+<p>Specify details such as the repository URL, which secret to use, and optional parameters like branch name, fetch depth, or sparse checkout folders.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">remote_url</span> <span class="o">=</span> <span class="s2">&quot;https://git.practicus.my-company.com/myuser/myrepo.git&quot;</span>  <span class="c1"># Example repository URL</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Create a GitConfig object</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">git_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">GitConfig</span><span class="p">(</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">remote_url</span><span class="o">=</span><span class="n">remote_url</span><span class="p">,</span>   <span class="c1"># Repository to clone or pull</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">secret_name</span><span class="o">=</span><span class="n">git_secret_name</span><span class="p">,</span>  <span class="c1"># Name of the secret containing the PAT</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="c1"># Optional configurations:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="c1"># username=&quot;your-username&quot;,  # If the Git username differs from your Practicus AI username</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="c1"># save_secret=True,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="c1"># local_path=&quot;~/some-path-on-worker&quot;,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="c1"># branch=&quot;main&quot;,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="c1"># sparse_checkout_folders=[&quot;folder1&quot;, &quot;folder2&quot;],</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="c1"># fetch_depth=1,</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># For demonstration, retrieve the token in this local notebook (avoid printing it!)</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">git_secret_name</span><span class="p">],</span> <span class="n">age</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">vault</span><span class="o">.</span><span class="n">get_secret</span><span class="p">(</span><span class="n">git_secret_name</span><span class="p">)</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retrieved secret &#39;</span><span class="si">{</span><span class="n">git_secret_name</span><span class="si">}</span><span class="s2">&#39; which is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> days old.&quot;</span><span class="p">)</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="c1"># Sync the repository locally in this current environment</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="n">prt</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">sync_repo</span><span class="p">(</span><span class="n">git_config</span><span class="p">)</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repository synced locally.&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="step-4-auto-clone-or-pull-the-repo-on-worker-startup">Step 4: Auto-Clone or Pull the Repo on Worker Startup</h3>
+<p>Using <code>git_configs</code> in the <code>WorkerConfig</code>, you can automatically clone or pull the repository when the worker is created. This ensures your environment has the code ready immediately.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Configure a new worker to automatically clone your repository</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">worker_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">WorkerConfig</span><span class="p">(</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;X-Small&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">personal_secrets</span><span class="o">=</span><span class="p">[</span><span class="n">git_secret_name</span><span class="p">],</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">git_configs</span><span class="o">=</span><span class="p">[</span><span class="n">git_config</span><span class="p">],</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Create and start the worker</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">worker</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">create_worker</span><span class="p">(</span><span class="n">worker_config</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Open a notebook on the new worker</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">worker</span><span class="o">.</span><span class="n">open_notebook</span><span class="p">()</span>
+</span></code></pre></div>
+<h2 id="cleanup">Cleanup</h2>
+<p>Terminate the worker when you are finished.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">worker</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
 </span></code></pre></div>
 <hr />
-<p><strong>Previous</strong>: <a href="../secrets/">Secrets</a> | <strong>Next</strong>: <a href="../git/">Git</a></p>
+<p><strong>Previous</strong>: <a href="../automated-worker-init/">Automated Worker Init</a> | <strong>Next</strong>: <a href="../git-integrated-cicd/">Git Integrated CICD</a></p>
 
 
 

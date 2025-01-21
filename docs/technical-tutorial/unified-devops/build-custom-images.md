@@ -206,4 +206,4 @@ worker_from_custom_image.terminate()
 
 ---
 
-**Previous**: [Cicd](cicd.md) | **Next**: [How To > Automate Notebooks > Executing Notebooks](../how-to/automate-notebooks/executing-notebooks.md)
+**Previous**: [Git Integrated CICD](git-integrated-cicd.md) | **Next**: [How To > Automate Notebooks > Executing Notebooks](../how-to/automate-notebooks/executing-notebooks.md)

@@ -12,7 +12,7 @@ jupyter:
     name: python3
 ---
 
-# Using the Practicus AI Git Helper
+# Automated Git Sync for Workers
 
 This example demonstrates how to securely configure Git in Practicus AI, ensuring you can clone or pull a repository both locally (within a running notebook) and automatically when a worker starts.
 
@@ -107,4 +107,4 @@ worker.terminate()
 
 ---
 
-**Previous**: [Worker Startup](worker-startup.md) | **Next**: [Cicd](cicd.md)
+**Previous**: [Automated Worker Init](automated-worker-init.md) | **Next**: [Git Integrated CICD](git-integrated-cicd.md)

@@ -17,6 +17,7 @@ jupyter:
 In modern data and software engineering, teams often grapple with fragmented tools and workflows when attempting to integrate development, security, and operations. **Unified DevOps** is a methodology that brings these components together into a single, cohesive environment—reducing complexity, boosting collaboration, and accelerating releases. 
 
 ## Why Does Unified DevOps Matter?
+
 - **Streamlined Collaboration:** Development, IT operations, and data science teams can collaborate in one platform. This leads to fewer context switches and more efficient handoffs.
 - **Faster Delivery Cycles:** Automated CI/CD pipelines reduce the time from code commit to production deployment.
 - **Security and Compliance:** A unified platform offers consistent security controls across every step of the development lifecycle, from managing secrets to controlling infrastructure access.
@@ -33,6 +34,7 @@ Practicus AI provides a **single platform** that integrates all the capabilities
 
 ## How to Get Started
 In the following examples, you’ll learn how to:
+
 - **Store and Retrieve Secrets** with Practicus AI’s Vault.
 - **Configure Worker Environments** by setting environment variables and injecting personal or shared secrets.
 - **Set Up Git Repositories** to automatically clone or pull code inside Practicus AI.
@@ -44,4 +46,4 @@ By the end, you’ll see how these capabilities combine into a single, streamlin
 
 ---
 
-**Previous**: [Llms With DeepSpeed](../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md) | **Next**: [Secrets](secrets.md)
+**Previous**: [Llms With DeepSpeed](../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md) | **Next**: [Secrets With Vault](secrets-with-vault.md)

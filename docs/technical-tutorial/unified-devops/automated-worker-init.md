@@ -12,7 +12,7 @@ jupyter:
     name: python3
 ---
 
-# Configuring Environment Variables and Secrets at Worker Startup
+# Automated Worker Initialization with Secrets
 
 In this example, we'll show how to pass both standard environment variables and secure secrets from Practicus AI vault (personal and shared) to a Practicus AI Worker. This is especially useful for setting up required configurations during job startup without hardcoding sensitive information.
 
@@ -68,4 +68,4 @@ worker.terminate()
 
 ---
 
-**Previous**: [Secrets](secrets.md) | **Next**: [Git](git.md)
+**Previous**: [Secrets With Vault](secrets-with-vault.md) | **Next**: [Automated Git Sync](automated-git-sync.md)
