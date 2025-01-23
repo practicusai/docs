@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Practicus Core
+    display_name: Python 3 (ipykernel)
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Distributed XGBoost with Dask for Scalable Machine Learning

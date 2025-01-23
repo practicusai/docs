@@ -78,4 +78,4 @@ print(polars_df.head())
 
 ---
 
-**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Extras > Data Analysis > Plot > Introduction](../extras/data-analysis/plot/introduction.md)
+**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Extras > Modeling > SparkML > Ice Cream > SparkML Ice Cream](../extras/modeling/sparkml/ice-cream/sparkml-ice-cream.md)

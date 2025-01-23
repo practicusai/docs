@@ -87,6 +87,18 @@ nav:
         - Intro To DeepSpeed: technical-tutorial/distributed-computing/deepspeed/basics/intro-to-deepspeed.md
       - LLM Fine Tuning:
         - Llms With DeepSpeed: technical-tutorial/distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed.md
+    - Ray:
+      - Interactive:
+        - Start Cluster: technical-tutorial/distributed-computing/ray/interactive/start-cluster.md
+        - Use Cluster: technical-tutorial/distributed-computing/ray/interactive/use-cluster.md
+      - Batch Job:
+        - Batch Job: technical-tutorial/distributed-computing/ray/batch-job/batch-job.md
+      - Modin:
+        - Start Cluster: technical-tutorial/distributed-computing/ray/modin/start-cluster.md
+        - Use Cluster: technical-tutorial/distributed-computing/ray/modin/use-cluster.md
+      - Vllm:
+        - Start Cluster: technical-tutorial/distributed-computing/ray/vllm/start-cluster.md
+        - Use Cluster: technical-tutorial/distributed-computing/ray/vllm/use-cluster.md
   - Unified DevOps:
     - Introduction: technical-tutorial/unified-devops/introduction.md
     - Secrets With Vault: technical-tutorial/unified-devops/secrets-with-vault.md
@@ -114,20 +126,6 @@ nav:
     - Model Tokens: technical-tutorial/how-to/model-tokens.md
     - Use Polars: technical-tutorial/how-to/use-polars.md
   - Extras:
-    - Data Analysis:
-      - Plot:
-        - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md
-        - Multiple Layers: technical-tutorial/extras/data-analysis/plot/multiple-layers.md
-      - Eda:
-        - Analyze: technical-tutorial/extras/data-analysis/eda/analyze.md
-    - Data Processing:
-      - Pre Process Data:
-        - Preprocess: technical-tutorial/extras/data-processing/pre-process-data/preprocess.md
-      - Process Data:
-        - Insurance: technical-tutorial/extras/data-processing/process-data/insurance.md
-        - Insurance With Remote Worker: technical-tutorial/extras/data-processing/process-data/insurance-with-remote-worker.md
-        - Spark Custom Config: technical-tutorial/extras/data-processing/process-data/spark-custom-config.md
-        - Spark Object Storage: technical-tutorial/extras/data-processing/process-data/spark-object-storage.md
     - Modeling:
       - SparkML:
         - Ice Cream:
@@ -150,6 +148,9 @@ nav:
       - Shap Analysis: technical-tutorial/extras/modeling/shap-analysis.md
       - Bank Marketing:
         - Bank Marketing: technical-tutorial/extras/modeling/bank-marketing/bank-marketing.md
+    - Workflows:
+      - Task Parameters: technical-tutorial/extras/workflows/task-parameters.md
+      - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
     - Generative AI:
       - Email E Asistant:
         - Mail E-Assistant: technical-tutorial/extras/generative-ai/email-e-asistant/mail-e-assistant.md
@@ -189,6 +190,20 @@ nav:
           - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/consume-parallel.md
       - Cv Asistant:
         - Cv Asistant: technical-tutorial/extras/generative-ai/cv-asistant/cv-asistant.md
+    - Data Analysis:
+      - Plot:
+        - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md
+        - Multiple Layers: technical-tutorial/extras/data-analysis/plot/multiple-layers.md
+      - Eda:
+        - Analyze: technical-tutorial/extras/data-analysis/eda/analyze.md
+    - Data Processing:
+      - Pre Process Data:
+        - Preprocess: technical-tutorial/extras/data-processing/pre-process-data/preprocess.md
+      - Process Data:
+        - Insurance: technical-tutorial/extras/data-processing/process-data/insurance.md
+        - Insurance With Remote Worker: technical-tutorial/extras/data-processing/process-data/insurance-with-remote-worker.md
+        - Spark Custom Config: technical-tutorial/extras/data-processing/process-data/spark-custom-config.md
+        - Spark Object Storage: technical-tutorial/extras/data-processing/process-data/spark-object-storage.md
 - AI Studio Tutorial:
   - Getting Started: ai-studio-tutorial/start.md
   - Intro to Data Analysis: ai-studio-tutorial/data-analysis-intro.md
@@ -206,6 +221,17 @@ nav:
   - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
   - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
   - Next Steps: ai-studio-tutorial/next-steps.md
+- Administration Tutorial:
+  - Create User Group: console-tutorial/create-user-group.md
+  - Add Image: console-tutorial/add_image.md
+  - Resources Management: console-tutorial/resources-management.md
+  - Storage: console-tutorial/storage.md
+  - Model Deployment: console-tutorial/model_depl.md
+  - App Hosting: console-tutorial/app-hosting.md
+  - Git Config: console-tutorial/git-config.md
+  - Object Storage: console-tutorial/object-storage.md
+  - Add-on Services: console-tutorial/add-on-services.md
+  - Enterprise SSO: console-tutorial/enterprise-sso.md
 - SDK v24.8.3: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md

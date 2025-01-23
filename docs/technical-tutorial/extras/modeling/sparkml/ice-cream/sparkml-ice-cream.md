@@ -299,4 +299,4 @@ async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFra
 
 ---
 
-**Previous**: [Spark Object Storage](../../../data-processing/process-data/spark-object-storage.md) | **Next**: [Spark With Job > Batch Job](../spark-with-job/batch-job.md)
+**Previous**: [Use Polars](../../../../how-to/use-polars.md) | **Next**: [Spark With Job > Batch Job](../spark-with-job/batch-job.md)

@@ -202,4 +202,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Use Polars](../../../how-to/use-polars.md) | **Next**: [Multiple Layers](multiple-layers.md)
+**Previous**: [Cv Asistant](../../generative-ai/cv-asistant/cv-asistant.md) | **Next**: [Multiple Layers](multiple-layers.md)

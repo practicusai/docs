@@ -29,7 +29,7 @@ import practicuscore as prt
 # Configure the worker
 worker_config = prt.WorkerConfig(
     worker_size="X-Small",
-    env_values={
+    env_variables={
         "MY_FIRST_ENV": "123",       # Regular environment variable
         "MY_SECOND_ENV": 123          # Another environment variable
     },

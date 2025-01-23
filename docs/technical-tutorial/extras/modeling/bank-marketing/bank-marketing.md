@@ -366,4 +366,4 @@ def one_hot(df, text_col_list: list[str] | None,
 
 ---
 
-**Previous**: [Shap Analysis](../shap-analysis.md) | **Next**: [Generative AI > Email E Asistant > Mail E-Assistant](../../generative-ai/email-e-asistant/mail-e-assistant.md)
+**Previous**: [Shap Analysis](../shap-analysis.md) | **Next**: [Workflows > Task Parameters](../../workflows/task-parameters.md)

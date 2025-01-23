@@ -77,4 +77,4 @@ prt.engines.delete_spark_session(spark)
 
 ---
 
-**Previous**: [Spark Custom Config](spark-custom-config.md) | **Next**: [Modeling > SparkML > Ice Cream > SparkML Ice Cream](../../modeling/sparkml/ice-cream/sparkml-ice-cream.md)
+**Previous**: [Spark Custom Config](spark-custom-config.md)
