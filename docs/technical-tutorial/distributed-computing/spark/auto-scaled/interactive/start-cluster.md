@@ -55,8 +55,8 @@ assert auto_dist_worker_size, "Please select an auto-distributed (privileged) wo
 
 ```python
 # Let's define the distributed features
-distributed_config = prt.distributed.JobConfig(
-    job_type = prt.distributed.JobType.spark,
+distributed_config = prt.DistJobConfig(
+    job_type = prt.DistJobType.spark,
     # ** The below changes the default cluster behavior **
     auto_distributed=True,
     # Set the initial size. 

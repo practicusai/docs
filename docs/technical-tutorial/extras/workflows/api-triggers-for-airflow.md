@@ -73,4 +73,4 @@ By configuring an `HttpSensor` (or a custom sensor around `HttpHook`) with the c
 
 ---
 
-**Previous**: [Task Parameters](task-parameters.md) | **Next**: [Generative AI > Email E Asistant > Mail E-Assistant](../generative-ai/email-e-asistant/mail-e-assistant.md)
+**Previous**: [Task Parameters](task-parameters.md) | **Next**: [Generative AI > Advanced LangChain > Lang Chain LLM Model](../generative-ai/advanced-langchain/lang-chain-llm-model.md)

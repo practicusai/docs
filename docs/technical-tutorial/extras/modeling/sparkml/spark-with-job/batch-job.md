@@ -29,8 +29,8 @@ import practicuscore as prt
 job_dir = "~/my/spark_with_job/"
 
 
-distributed_config = prt.distributed.JobConfig(
-    job_type = prt.distributed.JobType.spark,
+distributed_config = prt.DistJobConfig(
+    job_type = prt.DistJobType.spark,
     job_dir = job_dir,
     py_file = "job.py",
     worker_count = 2,

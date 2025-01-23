@@ -26,8 +26,8 @@ jupyter:
 import practicuscore as prt
 
 # Let's define the distributed features
-distributed_config = prt.distributed.JobConfig(
-    job_type = prt.distributed.JobType.ray,
+distributed_config = prt.DistJobConfig(
+    job_type = prt.DistJobType.ray,
     worker_count = 2,
 )
 

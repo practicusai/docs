@@ -1,4 +1,4 @@
-# Practicus AI Studio tutorial
+# Practicus AI Studio Tutorial
 
 Welcome to Practicus AI Studio hands-on tutorial. 
 

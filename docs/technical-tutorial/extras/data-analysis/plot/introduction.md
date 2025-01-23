@@ -202,4 +202,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Cv Asistant](../../generative-ai/cv-asistant/cv-asistant.md) | **Next**: [Multiple Layers](multiple-layers.md)
+**Previous**: [Mail E-Assistant](../../generative-ai/email-e-assistant/mail-e-assistant.md) | **Next**: [Multiple Layers](multiple-layers.md)

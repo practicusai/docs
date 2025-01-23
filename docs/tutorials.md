@@ -33,9 +33,14 @@ If coding isn’t your focus, the [AI Studio tutorial](ai-studio-tutorial/start.
 2. **Follow the tutorial steps**  
    Open [AI Studio tutorial](ai-studio-tutorial/start.md) and start following the tutorial steps.
 
+## Operations Tutorial
+
+If your primary focus is MLOps, DataOps, SecOps, or DevOps, we recommend that you first skim the [Technical Tutorial](technical-tutorial/getting-started/introduction.md) to gain a solid understanding of the Practicus AI platform fundamentals. Once you’re familiar with the basics, proceed to the [Operations tutorial](ops-tutorial/start.md).
+
 ---
 
 **Previous**: [Tutorials](tutorials.md) | **Next**: Choose one of the below.
 
 - [Technical Tutorial (if you code)](technical-tutorial/getting-started/introduction.md)
-- [AI Studio tutorial (if you do not code)](ai-studio-tutorial/start.md) 
+- [AI Studio tutorial (if you do not code)](ai-studio-tutorial/start.md)
+- [Operations tutorial](ops-tutorial/start.md) 

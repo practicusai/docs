@@ -152,8 +152,6 @@ nav:
       - Task Parameters: technical-tutorial/extras/workflows/task-parameters.md
       - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
     - Generative AI:
-      - Email E Asistant:
-        - Mail E-Assistant: technical-tutorial/extras/generative-ai/email-e-asistant/mail-e-assistant.md
       - Advanced LangChain:
         - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
       - LLM Apps:
@@ -168,6 +166,8 @@ nav:
           - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
       - Milvus Embedding And LangChain:
         - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
+      - Cv Assistant:
+        - Cv Assistant: technical-tutorial/extras/generative-ai/cv-assistant/cv-assistant.md
       - Deploying LLM:
         - Introduction: technical-tutorial/extras/generative-ai/deploying-llm/Introduction.md
         - Preparation:
@@ -188,8 +188,8 @@ nav:
           - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/model-json.md
           - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/deploy.md
           - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/consume-parallel.md
-      - Cv Asistant:
-        - Cv Asistant: technical-tutorial/extras/generative-ai/cv-asistant/cv-asistant.md
+      - Email E Assistant:
+        - Mail E-Assistant: technical-tutorial/extras/generative-ai/email-e-assistant/mail-e-assistant.md
     - Data Analysis:
       - Plot:
         - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md
@@ -221,17 +221,18 @@ nav:
   - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
   - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
   - Next Steps: ai-studio-tutorial/next-steps.md
-- Administration Tutorial:
-  - Create User Group: console-tutorial/create-user-group.md
-  - Add Image: console-tutorial/add_image.md
-  - Resources Management: console-tutorial/resources-management.md
-  - Storage: console-tutorial/storage.md
-  - Model Deployment: console-tutorial/model_depl.md
-  - App Hosting: console-tutorial/app-hosting.md
-  - Git Config: console-tutorial/git-config.md
-  - Object Storage: console-tutorial/object-storage.md
-  - Add-on Services: console-tutorial/add-on-services.md
-  - Enterprise SSO: console-tutorial/enterprise-sso.md
+- Operations Tutorial:
+  - Getting started: ops-tutorial/start.md
+  - Users and Groups: ops-tutorial/create-user-group.md
+  - Custom Images: ops-tutorial/custom-images.md
+  - Resources Management: ops-tutorial/resources-management.md
+  - Storage: ops-tutorial/storage.md
+  - Model Deployment: ops-tutorial/model-deployment.md
+  - Application Deployment: ops-tutorial/app-deployment.md
+  - Git Configuration: ops-tutorial/git-config.md
+  - Object Storage: ops-tutorial/object-storage.md
+  - Add-on Services: ops-tutorial/add-on-services.md
+  - Enterprise SSO: ops-tutorial/enterprise-sso.md
 - SDK v24.8.3: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md

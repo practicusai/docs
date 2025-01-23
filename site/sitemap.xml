@@ -237,43 +237,47 @@
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/add-on-services/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/add-on-services/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/add_image/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/app-deployment/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/app-hosting/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/create-user-group/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/create-user-group/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/custom-images/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/enterprise-sso/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/enterprise-sso/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/git-config/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/git-config/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/model_depl/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/model-deployment/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/object-storage/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/object-storage/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/resources-management/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/resources-management/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/console-tutorial/storage/</loc>
+         <loc>https://docs.practicus.ai/ops-tutorial/start/</loc>
+         <lastmod>2025-01-23</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/ops-tutorial/storage/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
@@ -393,7 +397,7 @@
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/technical-tutorial/extras/generative-ai/cv-asistant/cv-asistant/</loc>
+         <loc>https://docs.practicus.ai/technical-tutorial/extras/generative-ai/cv-assistant/cv-assistant/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
@@ -457,7 +461,7 @@
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/technical-tutorial/extras/generative-ai/email-e-asistant/mail-e-assistant/</loc>
+         <loc>https://docs.practicus.ai/technical-tutorial/extras/generative-ai/email-e-assistant/mail-e-assistant/</loc>
          <lastmod>2025-01-23</lastmod>
     </url>
     <url>

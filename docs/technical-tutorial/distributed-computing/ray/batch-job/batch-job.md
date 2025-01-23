@@ -28,8 +28,8 @@ import practicuscore as prt
 
 job_dir = "~/my/ray"
 
-distributed_config = prt.distributed.JobConfig(
-    job_type = prt.distributed.JobType.ray,
+distributed_config = prt.DistJobConfig(
+    job_type = prt.DistJobType.ray,
     job_dir = job_dir,
     py_file = "job.py",
     worker_count = 2,
@@ -73,7 +73,7 @@ prt.distributed.view_log(
 - Please note that result.csv is a folder that can contain `parts of the processed file` by each worker (Ray executors)
 - Also note that you do **not** need to terminate the cluster since it has a 'py_file' to execute, which defaults `terminate_on_completion` parameter to True.
 - You can change terminate_on_completion to False to keep the cluster running after the job is completed to troubleshoot issues.
-- You can view other `prt.distributed.JobConfig` properties to customize the cluster
+- You can view other `prt.DistJobConfig` properties to customize the cluster
 
 
 ## Supplementary Files

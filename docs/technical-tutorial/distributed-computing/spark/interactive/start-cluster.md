@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Practicus Core
+    display_name: Python 3 (ipykernel)
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Starting an interactive Spark Cluster
@@ -25,8 +25,8 @@ jupyter:
 import practicuscore as prt
 
 # Let's define the distributed features
-distributed_config = prt.distributed.JobConfig(
-    job_type = prt.distributed.JobType.spark,
+distributed_config = prt.DistJobConfig(
+    job_type = prt.DistJobType.spark,
     worker_count = 2,
 )
 

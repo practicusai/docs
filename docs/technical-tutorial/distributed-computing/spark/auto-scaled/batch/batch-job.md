@@ -59,8 +59,8 @@ assert auto_dist_worker_size, "Please select an auto-distributed (privileged) wo
 ```python
 # Configure distributed job settings
 # This example uses Spark with auto-scaling capabilities.
-distributed_config = prt.distributed.JobConfig(
-    job_type=prt.distributed.JobType.spark,
+distributed_config = prt.DistJobConfig(
+    job_type=prt.DistJobType.spark,
     auto_distributed=True,   # Enables automatic scaling of the Spark cluster
     initial_count=1,         # Start with 1 executor plus the coordinator (2 workers total)
     max_count=4              # Allow the cluster to scale up to 4 additional executors if needed

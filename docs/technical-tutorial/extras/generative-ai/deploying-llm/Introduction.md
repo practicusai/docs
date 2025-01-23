@@ -52,4 +52,4 @@
 
 ---
 
-**Previous**: [Milvus Chain](../milvus-embedding-and-langchain/milvus-chain.md) | **Next**: [Preparation > Model Download](Preparation/Model-Download.md)
+**Previous**: [Cv Assistant](../cv-assistant/cv-assistant.md) | **Next**: [Preparation > Model Download](Preparation/Model-Download.md)

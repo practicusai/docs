@@ -31,8 +31,8 @@ if prt.distributed.running_on_a_cluster():
     print("You are already running this code on a distributed cluster. No need to create a new one..")
 else:
     print("Starting a new distributed Dask cluster.")
-    distributed_config = prt.distributed.JobConfig(
-        job_type = prt.distributed.JobType.dask,
+    distributed_config = prt.DistJobConfig(
+        job_type = prt.DistJobType.dask,
         worker_count = 2,
     )
     worker_config = prt.WorkerConfig(
