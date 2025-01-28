@@ -228,4 +228,4 @@ def run(payload: ModelRequest, **kwargs):
 
 ---
 
-**Previous**: [Lang Chain LLM Model](../../advanced-langchain/lang-chain-llm-model.md) | **Next**: [Sdk LLM Apphost > Non Stream > Sdk Streamlit Hosting](../sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md)
+**Previous**: [Mobile-Banking](../../mobile-banking/mobile-banking.md) | **Next**: [Sdk LLM Apphost > Non Stream > Sdk Streamlit Hosting](../sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md)

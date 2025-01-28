@@ -60,6 +60,8 @@ nav:
       - Streaming: technical-tutorial/generative-ai/langchain/streaming.md
     - Vector Databases:
       - Sample Vector Db: technical-tutorial/generative-ai/vector-databases/sample-vector-db.md
+    - Openai Compatibility:
+      - Build: technical-tutorial/generative-ai/openai-compatibility/build.md
   - Distributed Computing:
     - Introduction: technical-tutorial/distributed-computing/introduction.md
     - Spark:
@@ -154,6 +156,8 @@ nav:
     - Generative AI:
       - Advanced LangChain:
         - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
+      - Mobile-Banking:
+        - Mobile-Banking: technical-tutorial/extras/generative-ai/mobile-banking/mobile-banking.md
       - LLM Apps:
         - API LLM Apphost:
           - Build: technical-tutorial/extras/generative-ai/llm-apps/api-llm-apphost/build.md
@@ -190,6 +194,10 @@ nav:
           - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/consume-parallel.md
       - Email E Assistant:
         - Mail E-Assistant: technical-tutorial/extras/generative-ai/email-e-assistant/mail-e-assistant.md
+      - Memory-Chatbot-Sdk:
+        - Chatbot-Console-Openai: technical-tutorial/extras/generative-ai/memory-chatbot-sdk/chatbot-console-openai.md
+        - Stream Chatbot:
+          - Memory Chabot: technical-tutorial/extras/generative-ai/memory-chatbot-sdk/stream-chatbot/memory-chabot.md
     - Data Analysis:
       - Plot:
         - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md

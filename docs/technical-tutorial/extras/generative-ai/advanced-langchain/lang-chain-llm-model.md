@@ -340,4 +340,4 @@ print(answer)
 
 ---
 
-**Previous**: [API Triggers For Airflow](../../workflows/api-triggers-for-airflow.md) | **Next**: [LLM Apps > API LLM Apphost > Build](../llm-apps/api-llm-apphost/build.md)
+**Previous**: [API Triggers For Airflow](../../workflows/api-triggers-for-airflow.md) | **Next**: [Mobile Banking > Mobile-Banking](../mobile-banking/mobile-banking.md)

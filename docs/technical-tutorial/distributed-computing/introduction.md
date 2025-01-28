@@ -61,4 +61,4 @@ Practicus AI’s distributed computing platform provides the following advantage
 
 ---
 
-**Previous**: [Sample Vector Db](../generative-ai/vector-databases/sample-vector-db.md) | **Next**: [Spark > Interactive > Start Cluster](spark/interactive/start-cluster.md)
+**Previous**: [Build](../generative-ai/openai-compatibility/build.md) | **Next**: [Spark > Interactive > Start Cluster](spark/interactive/start-cluster.md)

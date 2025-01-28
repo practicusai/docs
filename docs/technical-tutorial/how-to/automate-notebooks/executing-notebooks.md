@@ -87,7 +87,7 @@ prt.notebooks.execute_notebook(
 ```python
 # Advanced Notebook automation parameters
 default_output_folder="~/tests"  # If none, writes notebook output to same folder as notebook
-default_failed_output_folder="~/tests_failed"  # If not none, collects failed notebook results 
+default_failed_output_folder="~/tests_failed"  # If not none, copies failed notebook results
 
 # By calling configure you can save notebook results to central location
 # Please note that you can do this to a shared/ folder daily where all of our members have access to
@@ -107,6 +107,10 @@ prt.notebooks.execute_notebook(
         "some_param": 0 
     }
 )
+
+# You can access successful and failed notebooks lists with the below
+print("Successful notebook runs:", prt.notebooks.successful_notebooks)
+print("Failed notebook runs:", prt.notebooks.failed_notebooks)
 
 # Calling validate_history() will raise an exception IF any of the previous notebooks failed
 # This is useful to have a primary "orchestration" notebook that executes other child notebooks,

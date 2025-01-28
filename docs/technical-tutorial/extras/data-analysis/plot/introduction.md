@@ -202,4 +202,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Mail E-Assistant](../../generative-ai/email-e-assistant/mail-e-assistant.md) | **Next**: [Multiple Layers](multiple-layers.md)
+**Previous**: [Memory Chabot](../../generative-ai/memory-chatbot-sdk/stream-chatbot/memory-chabot.md) | **Next**: [Multiple Layers](multiple-layers.md)

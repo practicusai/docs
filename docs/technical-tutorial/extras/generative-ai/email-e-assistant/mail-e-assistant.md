@@ -600,4 +600,4 @@ print(answer)
 
 ---
 
-**Previous**: [Consume Parallel](../deploying-llm/combined-method/consume-parallel.md) | **Next**: [Data Analysis > Plot > Introduction](../../data-analysis/plot/introduction.md)
+**Previous**: [Consume Parallel](../deploying-llm/combined-method/consume-parallel.md) | **Next**: [Memory Chatbot Sdk > Chatbot-Console-Openai](../memory-chatbot-sdk/chatbot-console-openai.md)

@@ -145,8 +145,8 @@ app_url, api_url = prt.apps.deploy(
     icon=icon,
 )
 
-print("App deployed:", app_url)
-print("API endpoint:", api_url)
+print("Booting UI :", app_url)
+print("Booting API:", api_url)
 ```
 
 ### Understanding App Versions
@@ -159,6 +159,11 @@ Practicus AI supports multiple app versions and provides different URLs for each
   * Staging: `/staging/`
   * Latest: `/latest/`
   * Exact version: `/v[version]/`
+  * For Practicus AI API service mesh dynamically routes to work, place `version indicator right after /api/`
+  * For example:
+  * https://practicus.company.com/apps/my-first-app/api/prod/say-hello/
+  * https://practicus.company.com/apps/my-first-app/api/v4/say-hello/
+  * Please note that ../api/say-hello/v4/ or ../api/say-hello/v4/prod/ will **not** work.
 
 
 ```python

@@ -462,6 +462,12 @@
                         <li>
                                 <a class="function" href="#notebooks.execute_notebook">execute_notebook</a>
                         </li>
+                        <li>
+                                <a class="function" href="#notebooks.find_notebooks">find_notebooks</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#notebooks.execute_notebooks">execute_notebooks</a>
+                        </li>
                 </ul>
 
             </li>
@@ -548,6 +554,9 @@
                         </li>
                         <li>
                                 <a class="variable" href="#Region.is_default">is_default</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Region.console_client">console_client</a>
                         </li>
                         <li>
                                 <a class="variable" href="#Region.worker_list">worker_list</a>
@@ -5790,7 +5799,7 @@ If True, clears the record of previously executed notebooks, resetting <code><a 
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">execute_notebook</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">input_path</span>,</span><span class="param">	<span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">kernel_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">failed_output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+        <span class="name">execute_notebook</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">input_path</span>,</span><span class="param">	<span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">kernel_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">failed_output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
 
         
     </div>
@@ -5803,7 +5812,7 @@ If True, clears the record of previously executed notebooks, resetting <code><a 
 <ul>
 <li>input_path (str): The path to the input <code>.ipynb</code> notebook file. <code>~</code> will be expanded to home dir. If no <code>.ipynb</code> suffix, it is appended.</li>
 <li>parameters (dict | None): A dictionary of parameters to pass to the notebook.</li>
-<li>cwd: (str | Path | None) Working directory to use when executing the notebook</li>
+<li>cwd: (str | Path | None) Working directory to use when executing the notebook, if none defaults to the directory of the notebook.</li>
 <li>kernel_name (str | None): Name of kernel to execute the notebook against</li>
 <li>output_path (str | None): The path to save the executed notebook.
 If None, uses <code><a href="#notebooks.default_output_folder">default_output_folder</a></code> or modifies <code>input_path</code> to create an <code>_output.ipynb</code>.</li>
@@ -5811,6 +5820,12 @@ If None, uses <code><a href="#notebooks.default_output_folder">default_output_fo
 If None, uses <code><a href="#notebooks.default_failed_output_folder">default_failed_output_folder</a></code> if configured.</li>
 <li>raise_on_failure (bool): If True, raises an exception if the notebook fails.</li>
 <li>**kwargs: Additional arguments passed to <code>papermill.execute_notebook()</code>.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>bool: True if the notebook ran successfully, False if it fails and raise_on_failure=False (default)</li>
 </ul>
 
 <p><strong>Behavior:</strong></p>
@@ -5831,6 +5846,113 @@ If None, uses <code><a href="#notebooks.default_failed_output_folder">default_fa
 <span class="p">)</span>
 </code></pre>
 </div>
+</div>
+
+
+                            </div>
+                            <div id="notebooks.find_notebooks" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">find_notebooks</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">start_path</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">exclude</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#notebooks.find_notebooks"></a>
+    
+            <div class="docstring"><p>Recursively finds notebooks (.ipynb files) starting from a given path, excluding any
+paths or files matching patterns in <code>exclude</code>.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>start_path (str):
+The starting directory to search.</li>
+<li>exclude (list[str] | None):
+A list of patterns to exclude. For example:
+<ul>
+<li><code>"folder/notebook.ipynb"</code> will exclude just that file.</li>
+<li><code>"folder/*"</code> will exclude every notebook under the <code>folder</code> directory.</li>
+</ul></li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>list[str]: A sorted list of absolute paths to the matching <code>.ipynb</code> files.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="notebooks.execute_notebooks" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">execute_notebooks</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">start_path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">exclude</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">notebook_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#notebooks.execute_notebooks"></a>
+    
+            <div class="docstring"><p>Executes all notebooks found in a given directory (recursively), allowing the caller
+to exclude certain paths or specify parameters for specific notebooks (or groups
+of notebooks) via wildcard patterns.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>start_path (str):
+The starting directory to search for <code>.ipynb</code> files.</li>
+<li>exclude (list[str] | None):
+A list of patterns to exclude. For example:
+<ul>
+<li><code>"folder/notebook.ipynb"</code> will exclude just that file.</li>
+<li><code>"folder/*"</code> will exclude every notebook under the <code>folder</code> directory.</li>
+</ul></li>
+<li>notebook_params (dict | None):
+A dictionary mapping a pattern or file path to a dictionary of parameters.
+Examples:</li>
+</ul>
+
+<p>1) Specific file:</p>
+
+<pre><code> <div class="pdoc-code codehilite">
+<pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;some_dir/a.ipynb&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;param1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+ Only `some_dir/a.ipynb` will use `{"param1": 1}`.
+</code></pre>
+
+<p>2) Wildcard for all notebooks in a directory:</p>
+
+<pre><code> <div class="pdoc-code codehilite">
+<pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;some_dir/*&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;param1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+ All notebooks under `some_dir` (and its children) will get `{"param1": 1}`.
+</code></pre>
+
+<p>If multiple patterns match a single notebook, the <em>last</em> matching pattern's
+  parameters will take precedence.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>None</li>
+</ul>
+
+<p>Upon completion, logs how many notebooks succeeded or failed.</p>
 </div>
 
 
@@ -6526,6 +6648,25 @@ and configurations do not conflict across environments.</li>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is the default region.&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
+</div>
+
+
+                            </div>
+                            <div id="Region.console_client" class="classattr">
+                                <div class="attr variable">
+            <span class="name">console_client</span><span class="annotation">: practicuscore.k8s_console_client.K8sConsoleClient</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Region.console_client"></a>
+    
+            <div class="docstring"><p>For advanced scenarios only: returns internal API client for control plane (Practicus AI Console) operations.</p>
+
+<h6 id="returns">Returns</h6>
+
+<blockquote>
+  <p>Active K8sConsoleClient instance</p>
+</blockquote>
 </div>
 
 
