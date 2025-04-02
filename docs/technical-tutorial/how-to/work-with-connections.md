@@ -61,7 +61,7 @@ the database file path.
 import practicuscore as prt
 
 _name = "New SQLite Connection"
-_conn_conf = prt.connections.SqLiteConnConf(file_path="/home/ubuntu/samples/chinook.db")
+_conn_conf = prt.connections.SqLiteConnConf(file_path="/home/ubuntu/samples/data/chinook.db")
 
 new_conn_uuid = prt.connections.create(name=_name, conn_conf=_conn_conf)
 print(new_conn_uuid)
@@ -96,7 +96,7 @@ _conn_id_or_name = None
 assert _conn_id_or_name is not None
 conn = prt.connections.get(_conn_id_or_name)
 
-_new_conn_conf = None  # prt.connections.SqLiteConnConf(file_path="/home/ubuntu/samples/chinook.db")
+_new_conn_conf = None  # prt.connections.SqLiteConnConf(file_path="/home/ubuntu/samples/data/chinook.db")
 _updated_name = None
 assert _new_conn_conf and _updated_name
 

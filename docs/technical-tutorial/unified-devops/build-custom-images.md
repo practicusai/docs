@@ -85,7 +85,7 @@ with open("/home/ubuntu/build/hello.txt", "wt") as f:
 # Create a Dockerfile in ~/build
 dockerfile_content = """
 # Use a base image from your private registry or a public source
-FROM my-registry.practicus.my-company.com/practicusai/practicus-minimal:24.8.3
+FROM my-registry.practicus.my-company.com/practicusai/practicus-minimal:24.8.4
 
 # Copy in our text file
 COPY hello.txt /home/ubuntu/hello.txt
@@ -108,7 +108,7 @@ repo_password = "some-token"
 
 success = prt.containers.build_image(
     name="my-registry.practicus.my-company.com/demo/practicus-minimal-my",
-    tag="24.8.3",
+    tag="24.8.4",
     push_image=True,
     registry_credentials=[
         ("my-registry.practicus.my-company.com", repo_username, repo_password),
@@ -123,7 +123,7 @@ print("Successful!" if success else "Failed..")
 <!-- #raw -->
 prtcli build-container-image -p \
     name="my-registry.practicus.my-company.com/demo/practicus-minimal-my" \
-    tag="24.8.3" \
+    tag="24.8.4" \
     push_image=True \
     registry_credentials="[(\"my-registry.practicus.my-company.com\", \"my-robot-user\", \"token\")]" \
     insecure_registry=True
@@ -133,7 +133,7 @@ prtcli build-container-image -p \
 Once your image is successfully pushed, you can reference it in any future Practicus AI Worker by its full name, for example:
 
 ```
-my-registry.practicus.my-company.com/demo/practicus-minimal-my:24.8.3
+my-registry.practicus.my-company.com/demo/practicus-minimal-my:24.8.4
 ```
 
 
@@ -155,7 +155,7 @@ image_config = prt.ImageConfig(
 
 worker_config = prt.WorkerConfig(
     # If desired, specify a tag explicitly, 
-    # worker_image="my-registry.practicus.my-company.com/demo/practicus-minimal-my:24.8.3",
+    # worker_image="my-registry.practicus.my-company.com/demo/practicus-minimal-my:24.8.4",
     # or else, the current Practicus AI platform version is used if the tag is omitted.
     worker_image="my-registry.practicus.my-company.com/demo/practicus-minimal-my",
     worker_size="Small-restricted",
@@ -189,7 +189,7 @@ Example CLI command:
 ```bash
 prtcli build-container-image -p \
     name="my-registry.practicus.my-company.com/my-project/my-image" \
-    tag="24.8.3" \
+    tag="24.8.4" \
     build_args="{\"ENV_VAR\": \"value\"}" \
     registry_credentials="[(\"my-registry.practicus.my-company.com\", \"my-robot-user\", \"token\")]" \
     insecure_registry=true
@@ -206,4 +206,4 @@ worker_from_custom_image.terminate()
 
 ---
 
-**Previous**: [Git Integrated CICD](git-integrated-cicd.md) | **Next**: [How To > Automate Notebooks > Executing Notebooks](../how-to/automate-notebooks/executing-notebooks.md)
+**Previous**: [Git Integrated CICD](git-integrated-cicd.md) | **Next**: [Notifications](notifications.md)

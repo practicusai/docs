@@ -18,10 +18,6 @@ jupyter:
 
 ##### The workflow illustrates obtaining a session token, invoking the LLM API endpoint, and processing responses in parallel.
 
-```python
-from langchain_practicus import ChatPracticus
-import practicuscore as prt
-```
 
 ### Defining parameters.
  
@@ -34,6 +30,11 @@ api_url = None # Model API e.g. "https://company.practicus.com/llm-models/llama-
 
 ```python
 assert api_url, "Please enter your model api url."
+```
+
+```python
+from langchain_practicus import ChatPracticus
+import practicuscore as prt
 ```
 
 ##### The `test_langchain_practicus` function is defined to interact with the PracticusAI model endpoint. It uses the `ChatPracticus` object to invoke the API with the provided URL, token, and input data. The response is printed in two formats: a raw dictionary and its content.

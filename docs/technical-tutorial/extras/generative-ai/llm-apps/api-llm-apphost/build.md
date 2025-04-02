@@ -17,20 +17,6 @@ jupyter:
 In this example we will try to host an LLM application which only used by API requests. This application will use an already deployed llm model.
 
 
-```python
-import practicuscore as prt
-import requests 
-import json
-
-region = prt.get_region()
-```
-
-#### API Python script
-
-First of all we need to create a Python scripts which will be invoked by using requests. For this instance we should create an 'apis' folder which will contain the Python scripts. Then we can create our scripts within the folder.
-
-You can check-out sample api script [simple_api.py](apis/simple_api.py)
-
 
 ### Defining parameters.
  
@@ -46,6 +32,31 @@ model_prefix = None
 deployment_setting_key = None
 app_prefix = None
 ```
+
+```python
+assert host, "Please enter your host url"
+assert lang_model, "Please select a model"
+assert app_name, "Please enter application name"
+assert model_name, "Please enter model_name"
+assert model_prefix, "Please enter model_prefix"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+```
+
+```python
+import practicuscore as prt
+import requests 
+import json
+
+region = prt.get_region()
+```
+
+#### API Python script
+
+First of all we need to create a Python scripts which will be invoked by using requests. For this instance we should create an 'apis' folder which will contain the Python scripts. Then we can create our scripts within the folder.
+
+You can check-out sample api script [simple_api.py](apis/simple_api.py)
+
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
  
@@ -73,16 +84,6 @@ display(my_app_settings.to_pandas())
 # Let's list our app prefixes and select one of them.
 my_app_prefix_list = region.app_prefix_list
 display(my_app_prefix_list.to_pandas())
-```
-
-```python
-assert host, "Please enter your host url"
-assert lang_model, "Please select a model"
-assert app_name, "Please enter application name"
-assert model_name, "Please enter model_name"
-assert model_prefix, "Please enter model_prefix"
-assert deployment_setting_key, "Please enter deployment_setting_key"
-assert app_prefix, "Please enter app_prefix"
 ```
 
 #### Testing scripts

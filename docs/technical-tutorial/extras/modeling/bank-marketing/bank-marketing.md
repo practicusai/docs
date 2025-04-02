@@ -30,10 +30,6 @@ In the data set to be studied, variables such as demographic information, balanc
 - In addition, the poutcome variable should be deleted to prevent Data Leakage.
 - Then the model Feature Selection was selected as 95% and the Setup params were set to fix_imbalance: True.
 
-```python
-import practicuscore as prt
-region = prt.get_region()
-```
 
 ### Defining parameters.
  
@@ -44,6 +40,18 @@ deployment_key = None
 prefix = None
 model_name = None # Eg. bank_test_1
 experiment_tracking_service = None # Eg. MlFlow
+```
+
+```python
+assert deployment_key, "Please select a deployment key"
+assert prefix, "Please select a prefix"
+assert model_name, "Please select a model_name"
+assert experiment_tracking_service, "Please select an experiment tracking service, or skip this cell"
+```
+
+```python
+import practicuscore as prt
+region = prt.get_region()
 ```
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
@@ -64,13 +72,6 @@ display(my_addon_list.to_pandas())
 ```
 
 ```python
-assert deployment_key, "Please select a deployment key"
-assert prefix, "Please select a prefix"
-assert model_name, "Please select a model_name"
-assert experiment_tracking_service, "Please select an experiment tracking service, or skip this cell"
-```
-
-```python
 import practicuscore as prt
 
 worker = prt.get_local_worker()
@@ -79,7 +80,7 @@ worker = prt.get_local_worker()
 ```python
 data_conn = {
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/bank_marketing.csv"
+    "file_path": "/home/ubuntu/samples/data/bank_marketing.csv"
 }
 
 proc = worker.load(data_conn) 
@@ -366,4 +367,4 @@ def one_hot(df, text_col_list: list[str] | None,
 
 ---
 
-**Previous**: [Shap Analysis](../shap-analysis.md) | **Next**: [Workflows > Task Parameters](../../workflows/task-parameters.md)
+**Previous**: [Shap Analysis](../shap-analysis.md) | **Next**: [Zip Unzip > Zip Unzip](../zip-unzip/zip-unzip.md)

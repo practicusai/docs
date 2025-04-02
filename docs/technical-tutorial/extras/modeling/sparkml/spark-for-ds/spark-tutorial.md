@@ -38,7 +38,7 @@ A CSV file is loaded into a Spark DataFrame using Spark's `read.csv()` method. T
 
 
 ```python
-file_path = "/home/ubuntu/samples/insurance.csv"
+file_path = "/home/ubuntu/samples/data/insurance.csv"
 data = spark.read.csv(file_path, header=True, inferSchema=True)
 ```
 

@@ -28,11 +28,6 @@ The primary goal of this notebook is to showcase how Practicus AI users can leve
 
 Let's embark on this journey!
 
-```python
-import practicuscore as prt
-
-region = prt.current_region()
-```
 
 ### Defining parameters.
  
@@ -45,15 +40,21 @@ experiment_name = None # Eg. automl-experiment-test
 ```
 
 ```python
+assert service_key, "Please select a service_key"
+assert experiment_name, "Please select a experiment_name"
+```
+
+```python
+import practicuscore as prt
+
+region = prt.current_region()
+```
+
+```python
 # If you don't know experiment service key and name you can checkout down below
 
 addon_list = region.addon_list
 display(addon_list.to_pandas())
-```
-
-```python
-assert service_key, "Please select a service_key"
-assert experiment_name, "Please select a experiment_name"
 ```
 
 <!-- #region -->
@@ -82,7 +83,7 @@ warnings.filterwarnings("ignore")
 ```python
 data_set_conn = {
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/insurance.csv"
+    "file_path": "/home/ubuntu/samples/data/insurance.csv"
  
 }
 ```
@@ -436,7 +437,7 @@ spark = SparkSession.builder \
     .appName("Advanced Data Processing") \
     .getOrCreate()
 
-file_path = "/home/ubuntu/samples/insurance.csv"
+file_path = "/home/ubuntu/samples/data/insurance.csv"
 data = spark.read.csv(file_path, header=True, inferSchema=True)
 missing_data = data.select([count(when(col(c).isNull(), c)).alias(c) for c in data.columns])
 

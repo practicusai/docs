@@ -133,4 +133,4 @@ prtcli execute-notebook -p notebook=my-notebook.ipynb
 
 ---
 
-**Previous**: [Build Custom Images](../../unified-devops/build-custom-images.md) | **Next**: [Improve Code Quality > Automated Code Quality](../improve-code-quality/automated-code-quality.md)
+**Previous**: [Notifications](../../unified-devops/notifications.md) | **Next**: [Improve Code Quality > Automated Code Quality](../improve-code-quality/automated-code-quality.md)

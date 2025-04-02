@@ -34,6 +34,25 @@ The first step in fine-tuning involves preparing the dataset and downloading the
 3. Downloading a pre-trained LLM (e.g., LLaMA-3B-Instruct) from the Hugging Face Hub for fine-tuning.
 
 ```python
+worker_size = "L-GPU"
+worker_count = None
+log_level = "DEBUG"
+worker_image="ghcr.io/practicusai/practicus-gpu-deepspeed"
+terminate_on_completion = False
+startup_script='pip install accelerate trl peft datasets'
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert worker_count, "Please enter your worker_count."
+assert log_level, "Please enter your log_level."
+assert worker_image, "Please enter your worker_image."
+assert terminate_on_completion, "Please enter your terminate_on_completion (True or False)."
+assert startup_script, "Please enter your startup_script."
+
+```
+
+```python
 import pandas as pd
 
 url = 'https://raw.githubusercontent.com/practicusai/sample-data/refs/heads/main/customer_support/Customer_Support_Dataset.csv'
@@ -101,11 +120,11 @@ distributed_config = prt.DistJobConfig(
 )
 
 worker_config = prt.WorkerConfig(
-    worker_image="ghcr.io/practicusai/practicus-gpu-deepspeed",
-    worker_size="L-GPU",
-    log_level="DEBUG",
+    worker_image=worker_image,
+    worker_size=worker_size,
+    log_level=log_level,
     distributed_config=distributed_config,
-    startup_script='pip install accelerate trl peft datasets'
+    startup_script=startup_script
 )
 
 coordinator_worker = prt.create_worker(worker_config)

@@ -38,7 +38,7 @@ worker_config = {
 # Processes start by loading some data.  
 worker_file_conn = {
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/ice_cream.csv"
+    "file_path": "/home/ubuntu/samples/data/ice_cream.csv"
 }
 
 proc_1 = worker.load(worker_file_conn)
@@ -49,7 +49,7 @@ proc_1.show_head()
 # Let's create another process
 sqlite_conn = {
     "connection_type": "SQLITE",
-    "file_path": "/home/ubuntu/samples/chinook.db",
+    "file_path": "/home/ubuntu/samples/data/chinook.db",
     "sql_query": "select * from artists"
 }
 

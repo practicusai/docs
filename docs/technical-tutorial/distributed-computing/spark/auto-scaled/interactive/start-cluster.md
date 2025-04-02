@@ -33,13 +33,16 @@ jupyter:
 Let's identify a worker size that supports auto-scaling and includes the required privileged capabilities for running batch jobs.
 
 ```python
-import practicuscore as prt
-
-region = prt.get_default_region()
+auto_distributed = None
+auto_dist_worker_size = None
+initial_count = None
+max_count = None
 ```
 
 ```python
-auto_dist_worker_size = None
+import practicuscore as prt
+
+region = prt.get_default_region()
 ```
 
 If you don't know your auto-distributed (privileged) workers you can check them out by using the SDK like down below:
@@ -50,7 +53,10 @@ display(worker_size_list.to_pandas()) # Check auto_distributed col.
 ```
 
 ```python
+assert auto_distributed, "Please select a auto_distributed (True or false)."
 assert auto_dist_worker_size, "Please select an auto-distributed (privileged) worker sizes."
+assert initial_count, "Please select an initial_count."
+assert max_count, "Please select a max_count."
 ```
 
 ```python

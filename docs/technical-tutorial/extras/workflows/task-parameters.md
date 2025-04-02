@@ -107,4 +107,4 @@ By following these steps, you can effectively pass custom parameters and configu
 
 ---
 
-**Previous**: [Bank Marketing](../modeling/bank-marketing/bank-marketing.md) | **Next**: [API Triggers For Airflow](api-triggers-for-airflow.md)
+**Previous**: [Zip Unzip](../modeling/zip-unzip/zip-unzip.md) | **Next**: [API Triggers For Airflow](api-triggers-for-airflow.md)

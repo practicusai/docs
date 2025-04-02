@@ -22,17 +22,27 @@ jupyter:
 - If you do not have access to ~/my or ~/shared folders, please check the auto-scaled examples which does not need such drives, but are limited in functionality.
 
 ```python
+worker_size = None  
+worker_count = None
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert worker_count, "Please enter your worker_count."
+```
+
+```python
 import practicuscore as prt
 
 # Let's define the distributed features
 distributed_config = prt.DistJobConfig(
     job_type = prt.DistJobType.spark,
-    worker_count = 2,
+    worker_count = worker_count,
 )
 
 # Let's define worker features of the cluster 
 worker_config = prt.WorkerConfig(
-    worker_size="X-Small",
+    worker_size=worker_size,
     distributed_config=distributed_config,
 )
 

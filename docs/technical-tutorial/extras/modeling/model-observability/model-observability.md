@@ -27,10 +27,6 @@ In this example, we'll deploy a model on an income dataset. Our main goal withIn
 5. Making predictions with deployed model without making any pre-process
 
 
-```python
-import practicuscore as prt
-region = prt.get_region()
-```
 
 ### Defining parameters.
  
@@ -41,6 +37,18 @@ deployment_key = None
 prefix = None
 model_name = None # Eg. bank_test_1
 practicus_url = None # Eg. http://practicus.company.com
+```
+
+```python
+assert deployment_key, "Please select a deployment key"
+assert prefix, "Please select a prefix"
+assert model_name, "Please select a model_name"
+assert practicus_url, "Please select practicus_url"
+```
+
+```python
+import practicuscore as prt
+region = prt.get_region()
 ```
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
@@ -55,13 +63,6 @@ my_model_prefixes = region.model_prefix_list
 display(my_model_prefixes.to_pandas())
 ```
 
-```python
-assert deployment_key, "Please select a deployment key"
-assert prefix, "Please select a prefix"
-assert model_name, "Please select a model_name"
-assert practicus_url, "Please select practicus_url"
-```
-
 # Creating Preprocess and the Pipeline
 
 
@@ -71,7 +72,7 @@ Loading the data set
 import practicuscore as prt
 import pandas as pd 
 
-df = pd.read_csv("/home/ubuntu/samples/income.csv")
+df = pd.read_csv("/home/ubuntu/samples/data/income.csv")
 
 df.head()
 ```

@@ -14,17 +14,6 @@ jupyter:
 
 # Hosting of LLM which is built by using SDK
 
-```python
-import practicuscore as prt
-region = prt.get_region()
-```
-
-### Test App
-
-```python
-# When you finish test, stop this cell. If you dont stop cell always be open.
-prt.apps.test_app()
-```
 
 ### Defining parameters.
  
@@ -38,6 +27,26 @@ app_prefix = None
 app_dir = None
 ```
 
+```python
+assert app_name, "Please enter application name"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+```
+
+```python
+import practicuscore as prt
+region = prt.get_region()
+```
+
+### Test App
+
+```python
+# When you finish test, stop this cell. If you dont stop cell always be open.
+prt.apps.test_app()
+```
+
 ##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
  
 
@@ -49,14 +58,6 @@ display(my_app_prefixes.to_pandas())
 ```python
 my_app_settings = region.app_deployment_setting_list
 display(my_app_settings.to_pandas())
-```
-
-```python
-assert app_name, "Please enter application name"
-assert deployment_setting_key, "Please enter deployment_setting_key"
-assert app_prefix, "Please enter app_prefix"
-assert deployment_setting_key, "Please enter deployment_setting_key"
-assert app_prefix, "Please enter app_prefix"
 ```
 
 ### Deploying App
@@ -119,4 +120,4 @@ with st.form("my_form"): # Define our question
 
 ---
 
-**Previous**: [Build](../../api-llm-apphost/build.md) | **Next**: [Stream > Sdk Streamlit Hosting](../stream/sdk-streamlit-hosting.md)
+**Previous**: [Build](../../api-llm-apphost/build.md) | **Next**: [Langflow LLM Apphost > Langflow Streamlit Hosting](../../langflow-llm-apphost/langflow-streamlit-hosting.md)

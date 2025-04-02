@@ -33,6 +33,14 @@ Make sure to include any necessary permissions (e.g., read/write to repositories
 Store the new token in the Practicus AI Vault to keep it secure and avoid hardcoding credentials in your code.
 
 ```python
+worker_size = None
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+```
+
+```python
 import practicuscore as prt
 from getpass import getpass
 
@@ -71,7 +79,7 @@ git_config = prt.GitConfig(
 
 # For demonstration, retrieve the token in this local notebook (avoid printing it!)
 os.environ[git_secret_name], age = prt.vault.get_secret(git_secret_name)
-print(f"Retrieved secret '{git_secret_name}' which is {age} days old.")
+print(f"Retrieved secret '{git_secret_name}', and it is {age} days old.")
 
 # Sync the repository locally in this current environment
 prt.git.sync_repo(git_config)
@@ -85,7 +93,7 @@ Using `git_configs` in the `WorkerConfig`, you can automatically clone or pull t
 ```python
 # Configure a new worker to automatically clone your repository
 worker_config = prt.WorkerConfig(
-    worker_size="X-Small",
+    worker_size=worker_size,
     personal_secrets=[git_secret_name],
     git_configs=[git_config],
 )
@@ -104,7 +112,22 @@ Terminate the worker when you are finished.
 worker.terminate()
 ```
 
+## Git Configuration via the Web UI
+
+You can also manage your Git settings and secrets through Practicus Home's web interface. To get started:
+
+1. **Access Your Home Page:**
+   Navigate to your home page (e.g., https://practicus.my-company.com).
+
+2. **Manage Your Secrets:**
+   Open the **Settings** menu, then select **Create Secret** to add or update existing secrets.
+
+3. **Configure a New Worker:**
+   When creating a new worker, select **Advanced Settings** and choose the desired Git configuration and apply the secrets you just saved.
+
+This streamlined process makes it simple to securely set up your Git configuration without leaving the web UI. Enjoy seamless integration with Practicus Home!
+
 
 ---
 
-**Previous**: [Automated Worker Init](automated-worker-init.md) | **Next**: [Git Integrated CICD](git-integrated-cicd.md)
+**Previous**: [Build](automated-init/build.md) | **Next**: [Git Integrated CICD](git-integrated-cicd.md)

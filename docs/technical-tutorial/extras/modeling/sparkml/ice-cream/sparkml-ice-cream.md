@@ -16,11 +16,6 @@ jupyter:
 
 This sample notebook outlines the process of deploying a SparkML model on the Practicus AI platform and making predictions from the deployed model using various methods.
 
-```python
-import practicuscore as prt
-
-region = prt.current_region()
-```
 
 ### Defining parameters.
  
@@ -32,6 +27,19 @@ deployment_key = None
 prefix = None
 model_name = None
 practicus_url = None # E.g. http://company.practicus.com
+```
+
+```python
+assert deployment_key, "Please select a deployment key"
+assert prefix, "Please select a prefix"
+assert model_name, "Please enter a model_name"
+assert practicus_url, "Please enter practicus_url"
+```
+
+```python
+import practicuscore as prt
+
+region = prt.current_region()
 ```
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
@@ -47,17 +55,10 @@ display(my_model_prefixes.to_pandas())
 ```
 
 ```python
-assert deployment_key, "Please select a deployment key"
-assert prefix, "Please select a prefix"
-assert model_name, "Please enter a model_name"
-assert practicus_url, "Please enter practicus_url"
-```
-
-```python
 import pandas as pd
 
 # Step 1: Read CSV with Pandas
-data = pd.read_csv("/home/ubuntu/samples/ice_cream.csv")
+data = pd.read_csv("/home/ubuntu/samples/data/ice_cream.csv")
 ```
 
 ```python
@@ -145,7 +146,7 @@ def predict(df: pd.DataFrame) -> pd.DataFrame:
 ```python
 import pandas as pd
 
-data = pd.read_csv("/home/ubuntu/samples/ice_cream.csv")
+data = pd.read_csv("/home/ubuntu/samples/data/ice_cream.csv")
 ```
 
 ```python
@@ -216,7 +217,7 @@ print("API session token:", token)
 import pandas as pd
 import requests 
 
-df = pd.read_csv("/home/ubuntu/samples/ice_cream.csv")
+df = pd.read_csv("/home/ubuntu/samples/data/ice_cream.csv")
 
 headers = {
     'authorization': f'Bearer {token}',

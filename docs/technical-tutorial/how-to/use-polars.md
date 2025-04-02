@@ -40,7 +40,7 @@ In this notebook, we will:
 import polars as pl
 
 # Read the dataset using Polars
-df = pl.read_csv("/home/ubuntu/samples/diamond.csv")
+df = pl.read_csv("/home/ubuntu/samples/data/diamond.csv")
 
 # Basic exploration
 print("Shape of the dataset:", df.shape)

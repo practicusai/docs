@@ -39,11 +39,15 @@ print("Jupyter Lab login url:", url)
 ```
 
 ```python
-# To share using VS Code
-url, token = worker.open_vscode(get_url_only=True)
+# To share using VS Code (must run on another worker)
+remote_worker = None
+# E.g. remote_worker = prt.create_worker(worker_config)
 
-print("VS Code login url:", url)
-print("VS Code token    :", token)
+if remote_worker:
+    url, token = remote_worker.open_vscode(get_url_only=True)
+
+    print("VS Code login url:", url)
+    print("VS Code token    :", token)
 ```
 
 

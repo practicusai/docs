@@ -31,6 +31,15 @@ The `PrtLangMessage` object stores content and associated roles within a diction
 This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
 
 ```python
+method = None
+model_name = None
+model_prefix = None
+app_name = None
+app_prefix = None
+host = None
+```
+
+```python
 import practicuscore as prt
 region = prt.get_region()
 ```
@@ -155,4 +164,4 @@ Albert Einstein was a theoretical physicist born in 1879 in Germany. He is best 
 
 ---
 
-**Previous**: [LangChain Basics](langchain-basics.md) | **Next**: [Vector Databases > Sample Vector Db](../vector-databases/sample-vector-db.md)
+**Previous**: [LangChain Basics](langchain-basics.md) | **Next**: [Model Hosting > Build](model-hosting/build.md)

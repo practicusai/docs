@@ -38,11 +38,26 @@ The configuration prepares a coordinator worker that initializes a distributed j
 - And copy `train.py` and `ds_config.json` under this folder.
 
 ```python
+worker_size = "L-GPU"
+worker_count = None
+log_level = "DEBUG"
+worker_image="ghcr.io/practicusai/practicus-gpu-deepspeed"
+terminate_on_completion = False
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert worker_count, "Please enter your worker_count."
+assert log_level, "Please enter your log_level."
+assert worker_image, "Please enter your worker_image."
+assert terminate_on_completion, "Please enter your terminate_on_completion (True or False)."
+```
+
+```python
 import practicuscore as prt
 
 # DeepSpeed job directory must have default files ds_config.json and train.py (can be renamed)
 job_dir = "~/my/deepspeed"
-worker_count = 2
 
 distributed_config = prt.DistJobConfig(
     job_type = prt.DistJobType.deepspeed,
@@ -52,9 +67,9 @@ distributed_config = prt.DistJobConfig(
 )
 
 worker_config = prt.WorkerConfig(
-    worker_image="ghcr.io/practicusai/practicus-gpu-deepspeed",
-    worker_size="L-GPU",
-    log_level="DEBUG",
+    worker_image=worker_image,
+    worker_size=worker_size,
+    log_level=log_level,
     distributed_config=distributed_config
 )
 

@@ -37,7 +37,7 @@ In this example, we'll showcase how to apply pre-process steps by using our SDK,
 ```python
 dataset_conn ={
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/income.csv"
+    "file_path": "/home/ubuntu/samples/data/income.csv"
 }
 ```
 

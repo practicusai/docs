@@ -102,4 +102,4 @@ You have 2 options to deploy to Airflow from Practicus AI Studio.
 
 ---
 
-**Previous**: [Deploying On Airflow](../airflow/deploying-on-airflow.md) | **Next**: [Generative AI > Introduction](../../generative-ai/introduction.md)
+**Previous**: [Deploying On Airflow](../airflow/deploying-on-airflow.md) | **Next**: [Mlflow > Insurance Mlflow](../mlflow/insurance-mlflow.md)

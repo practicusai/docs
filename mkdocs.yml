@@ -51,17 +51,27 @@ nav:
       - Deploying On Airflow: technical-tutorial/workflows/airflow/deploying-on-airflow.md
     - AI Studio:
       - Generating Wokflows: technical-tutorial/workflows/AI-Studio/generating-wokflows.md
+    - Mlflow:
+      - Insurance Mlflow: technical-tutorial/workflows/mlflow/insurance-mlflow.md
   - Generative AI:
     - Introduction: technical-tutorial/generative-ai/introduction.md
     - Apps:
-      - Building Visual Apps: technical-tutorial/generative-ai/apps/building-visual-apps.md
+      - Build: technical-tutorial/generative-ai/apps/build.md
     - LangChain:
       - LangChain Basics: technical-tutorial/generative-ai/langchain/langchain-basics.md
       - Streaming: technical-tutorial/generative-ai/langchain/streaming.md
+      - Model Hosting:
+        - Build: technical-tutorial/generative-ai/langchain/model-hosting/build.md
+      - Embeddings: technical-tutorial/generative-ai/langchain/embeddings.md
     - Vector Databases:
       - Sample Vector Db: technical-tutorial/generative-ai/vector-databases/sample-vector-db.md
-    - Openai Compatibility:
-      - Build: technical-tutorial/generative-ai/openai-compatibility/build.md
+    - OpenAI Compatibility:
+      - Models:
+        - Build: technical-tutorial/generative-ai/openai-compatibility/models/build.md
+      - Embeddings:
+        - Build: technical-tutorial/generative-ai/openai-compatibility/embeddings/build.md
+    - Service Orchestration:
+      - Build: technical-tutorial/generative-ai/service-orchestration/build.md
   - Distributed Computing:
     - Introduction: technical-tutorial/distributed-computing/introduction.md
     - Spark:
@@ -101,13 +111,18 @@ nav:
       - Vllm:
         - Start Cluster: technical-tutorial/distributed-computing/ray/vllm/start-cluster.md
         - Use Cluster: technical-tutorial/distributed-computing/ray/vllm/use-cluster.md
+    - Custom Adaptor:
+      - Start Cluster: technical-tutorial/distributed-computing/custom-adaptor/start-cluster.md
+      - Use Cluster: technical-tutorial/distributed-computing/custom-adaptor/use-cluster.md
   - Unified DevOps:
     - Introduction: technical-tutorial/unified-devops/introduction.md
     - Secrets With Vault: technical-tutorial/unified-devops/secrets-with-vault.md
-    - Automated Worker Init: technical-tutorial/unified-devops/automated-worker-init.md
+    - Automated Init:
+      - Build: technical-tutorial/unified-devops/automated-init/build.md
     - Automated Git Sync: technical-tutorial/unified-devops/automated-git-sync.md
     - Git Integrated CICD: technical-tutorial/unified-devops/git-integrated-cicd.md
     - Build Custom Images: technical-tutorial/unified-devops/build-custom-images.md
+    - Notifications: technical-tutorial/unified-devops/notifications.md
   - How To:
     - Automate Notebooks:
       - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
@@ -150,10 +165,16 @@ nav:
       - Shap Analysis: technical-tutorial/extras/modeling/shap-analysis.md
       - Bank Marketing:
         - Bank Marketing: technical-tutorial/extras/modeling/bank-marketing/bank-marketing.md
+      - Zip Unzip:
+        - Zip Unzip: technical-tutorial/extras/modeling/zip-unzip/zip-unzip.md
     - Workflows:
       - Task Parameters: technical-tutorial/extras/workflows/task-parameters.md
       - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
     - Generative AI:
+      - Databases:
+        - Using Databases: technical-tutorial/extras/generative-ai/databases/using-databases.md
+      - Prtchatbot:
+        - Prtchatbot: technical-tutorial/extras/generative-ai/prtchatbot/prtchatbot.md
       - Advanced LangChain:
         - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
       - Mobile-Banking:
@@ -164,12 +185,12 @@ nav:
         - Sdk LLM Apphost:
           - Non-Stream:
             - Sdk Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md
-          - Stream:
-            - Sdk Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/sdk-llm-apphost/stream/sdk-streamlit-hosting.md
         - Langflow LLM Apphost:
           - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
       - Milvus Embedding And LangChain:
         - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
+      - Ecomm-Sdk:
+        - Memory Chabot: technical-tutorial/extras/generative-ai/ecomm-sdk/memory-chabot.md
       - Cv Assistant:
         - Cv Assistant: technical-tutorial/extras/generative-ai/cv-assistant/cv-assistant.md
       - Deploying LLM:
@@ -195,7 +216,7 @@ nav:
       - Email E Assistant:
         - Mail E-Assistant: technical-tutorial/extras/generative-ai/email-e-assistant/mail-e-assistant.md
       - Memory-Chatbot-Sdk:
-        - Chatbot-Console-Openai: technical-tutorial/extras/generative-ai/memory-chatbot-sdk/chatbot-console-openai.md
+        - Chatbot-Console-OpenAI: technical-tutorial/extras/generative-ai/memory-chatbot-sdk/chatbot-console-openai.md
         - Stream Chatbot:
           - Memory Chabot: technical-tutorial/extras/generative-ai/memory-chatbot-sdk/stream-chatbot/memory-chabot.md
     - Data Analysis:
@@ -241,7 +262,8 @@ nav:
   - Object Storage: ops-tutorial/object-storage.md
   - Add-on Services: ops-tutorial/add-on-services.md
   - Enterprise SSO: ops-tutorial/enterprise-sso.md
-- SDK v24.8.3: sdk/practicuscore.html
+  - AI Assistants: ops-tutorial/ai_assistants.md
+- SDK v24.8.4: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

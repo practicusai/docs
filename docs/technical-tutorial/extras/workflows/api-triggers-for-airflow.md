@@ -7,70 +7,315 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Practicus Core
     language: python
-    name: python3
+    name: practicus
 ---
 
-# API Triggers with HttpSensor in Apache Airflow
+# Airflow HTTP Sensor Demo
 
-In this example, we will demonstrate how to use the `HttpSensor` in Apache Airflow to poll a REST API. This can be particularly useful if your pipeline depends on external API data or statuses.
+## Introduction
+### What Are Airflow Sensors?
+In Apache Airflow, **Sensors** are special tasks that **wait** for an external condition to be true before allowing your DAG (Directed Acyclic Graph) to proceed.
 
-## Overview
-1. **Create or configure an Airflow Connection**: Under *Admin → Connections*, set up your HTTP connection (`Conn Id`) with the base URL and optionally store your token securely.
-2. **Reference the connection in your DAG**: Use the `http_conn_id` in the `HttpSensor` (or define headers directly if you prefer).
-3. **Set up your sensor**: The `HttpSensor` will regularly check (poke) an endpoint until it finds an expected value or times out.
+A classic use case is waiting for a file to appear on AWS S3, or for a certain row in a database table. Once the condition is met (the file exists or the row is found), the sensor task signals success, and the rest of the DAG can continue.
+
+### Why Use an HTTP Sensor?
+With **microservices** and modern architectures, you often have external services or APIs orchestrating data readiness. Instead of making Airflow directly query your database (which can load your Airflow infrastructure), you can expose an **API endpoint** that quickly checks the condition, and have Airflow poll that endpoint.
+
+- **Offload Airflow Load**: Instead of Airflow running big queries, your microservice does the heavy lifting, and Airflow just queries the result of that check.
+- **API-Driven**: Microservices can handle the domain logic, scaling, and performance. Airflow simply polls an HTTP endpoint.
+- **Clean Separation of Concerns**: Airflow focuses on workflow orchestration, not on large or complex business logic.
+
+### How This Example Helps
+- **Step-by-Step Guide**: Shows how to create a simple API with a sensor route.
+- **Deploy** the API so that Airflow can poll it.
+- **Configure** an Airflow connection and create a DAG that uses an HTTP Sensor.
+
+Let's jump in!
 
 
+<!-- #region -->
+# Airflow Sensors
 
-## Example DAG
-Below is a minimal example of a DAG using `HttpSensor`. When you place this code in an Airflow DAG file, it will:
-- Start from `days_ago(1)`.
-- Use the `HttpSensor` to GET from `my/api/endpoint`.
-- Send an authorization Bearer token in the header.
-- Check if the response contains `expected_value`. If yes, the task succeeds; if not, it keeps retrying until the timeout.
+For more info on HTTP sensor:
+[Airflow HTTP Sensor Documentation](https://airflow.apache.org/docs/apache-airflow-providers-http/4.13.3/_api/airflow/providers/http/sensors/http/index.html)
+
+## Create an API
+Create `sensor.py` under `app/apis` folder.
+
+```python
+# app/apis/sensor.py
+from starlette.requests import Request
+
+async def run(request: Request, **kwargs):
+    table_name = request.query_params.get("table_name", None)
+    assert table_name, "API request does not have table_name parameter, e.g. ../?table_name=my_table"
+
+    # Add your condition, e.g. SQL query, business logic, etc.
+    # If the condition is met for table_1, return True.
+    # Otherwise, return False with an error message.
+
+    if table_name == "table_1":
+        return {
+            "ok": True,
+        }
+    
+    return {
+        "ok": False,
+        "error": f"table_name is '{table_name}' but must be 'table_1'",
+    }
+```
+
+### Multiple Sensors
+To create multiple sensors, you can:
+- Add additional conditions and routes in the same `sensor.py`, or
+- Create multiple `.py` files, each implementing a different sensor.
+
+## Deploy the API
+<!-- #endregion -->
+
+### Notebook Parameters
+Below, we define notebook parameters for selecting which deployment setting, prefix, and Airflow service to use.
+Adjust these values as needed.
+
+```python
+# Parameters 
+# Select the app deployment setting and prefix for the API
+app_deployment_key = None
+app_prefix = None
+
+# Airflow Service to use
+airflow_service_key = None
+token = None  # Replace with your long-term token
+```
+
+```python
+assert app_deployment_key, "No app deployment setting selected."
+assert app_prefix, "No app prefix selected."
+assert airflow_service_key, "No Airflow service selected."
+assert token, "Please assign the token for the App API you just deployed"
+```
+
+```python
+import practicuscore as prt
+```
+
+### Deploying the App
+The next code cell deploys our sensor API to your chosen environment (via PracticusCore).
+
+```python
+app_name = "http-sensor-test"
+visible_name = "Http Sensor Test"
+description = "API to test Airflow Sensors"
+icon = "fa-wifi"
+
+app_url, api_url = prt.apps.deploy(
+    deployment_setting_key=app_deployment_key,
+    prefix=app_prefix,
+    app_name=app_name,
+    app_dir="app",
+    visible_name=visible_name,
+    description=description,
+    icon=icon,
+)
+
+print("Booting UI :", app_url)
+print("Booting API:", api_url)
+```
+
+## Get a Long-Term Access Token for the API
+- You need to be an **admin** for this operation.
+- **Admin Console → App Hosting → Access Tokens → Create New**
+  - Select an expiry date.
+  - In the "App Access Tokens" section, select **http-sensor-test**.
+- Copy the **app API token**. We'll paste it in the next cell.
+
+
+### Test the API
+It's always a good idea to test the API before hooking it into Airflow.
+
+```python
+import requests
+
+# api_url is the base we will save in Airflow connection
+sensor_api_url = api_url + "sensor/"  # The specific endpoint for the sensor
+
+# Optional parameters
+params = {
+    "table_name": "table_1"
+}
+
+headers = {
+    "Authorization": f"Bearer {token}",
+}
+
+# Make a GET request to test
+resp = requests.get(
+    sensor_api_url,
+    headers=headers,
+    params=params
+)
+
+if resp.ok:
+    print("Response text:")
+    print(resp.text)
+    resp_dict = resp.json()
+    error = resp_dict.get("error")
+    if error:
+        print("API returned error:", error)
+    print("ok?", resp_dict.get("ok"))
+else:
+    print("Error:", resp.status_code, resp.text)
+```
+
+## Create a New Airflow Connection
+
+1. Go to the **Airflow UI** → **Admin** → **Connections**.
+2. Create a new connection:
+   - **Conn ID**: `http_sensor_test`
+   - **Conn Type**: HTTP
+   - **Host**: The base URL of your deployed app. For example:
+     - `https://practicus.your-company.com/apps/http-sensor-test/api/v1/` (or `/api/` without /v1/)
+     - Do **not** include `sensor/` here—only the base path.
+   - **Password**: Paste the **token** from above.
+3. Leave other fields empty or default.
+
+## Create the DAG
+Below, we'll generate the basic DAG structure using `practicuscore`. We'll then customize it to add an HTTP Sensor.
+
+```python
+import practicuscore as prt
+
+# Define a DAG flow with 2 tasks, one waiting for the API and one processing
+dag_flow = "wait_for_api >> my_task"
+
+# Default worker configuration
+default_worker_config = prt.WorkerConfig(
+    worker_image="practicus",
+    worker_size="X-Small",
+)
+
+dag_key = "http_sensor"
+schedule_interval = None  # You can set a cron string or '@daily' if desired
+retries = 0  # 0 for dev/test, increase for production usage
+
+prt.workflows.generate_files(
+    dag_key=dag_key,
+    dag_flow=dag_flow,
+    files_path=None,
+    default_worker_config=default_worker_config,
+    save_credentials=True,
+    overwrite_existing=False,
+    schedule_interval=schedule_interval,
+    retries=retries,
+)
+```
+
+- You can delete the generated file `wait_for_api.py`, because we'll replace it with our **sensor** code.
+- Update **`http_sensor_dag.py`** so it looks like this:
 
 
 ```python
-from airflow.sensors.http_sensor import HttpSensor
-from airflow import DAG
-from airflow.utils.dates import days_ago
-from datetime import timedelta
+# http_sensor_dag.py
 
-default_args = {
-    'owner': 'airflow',
-    'depends_on_past': False,
-    'start_date': days_ago(1),
-    'retries': 1,
-    'retry_delay': timedelta(minutes=1)
-}
+from datetime import datetime
+from airflow.decorators import dag, task
+import practicuscore as prt
 
-with DAG(
-    dag_id='example_http_sensor',
-    default_args=default_args,
-    schedule_interval='@once',
-) as dag:
+# Constructing a Unique DAG ID
+# ----------------------------
+# We strongly recommend using a DAG ID format like:
+#    <dag_key>.<username>
+# This approach ensures the username effectively serves as a namespace,
+# preventing name collisions in Airflow.
 
-    http_sensor_task = HttpSensor(
-        task_id='http_sensor_task',
-        http_conn_id='my_http_conn_id',  # Must match the connection ID in Airflow
-        endpoint='my/api/endpoint',
-        method='GET',
-        headers={
-            'Authorization': 'Bearer YOUR_BEARER_TOKEN_HERE'
+# Let's locate dag_key and username. This runs in Airflow 'after' deployment.
+dag_key, username = prt.workflows.get_dag_info(__file__)
+dag_id = f"{dag_key}.{username}"
+
+# Fetch Bearer Token of API from Airflow Connection
+from airflow.hooks.base import BaseHook
+
+http_conn_id = "http_sensor_test"
+connection = BaseHook.get_connection(http_conn_id)
+bearer_token = connection.password
+
+def check_api_response(response) -> bool:
+    """Decides if the API response meets the condition to proceed."""
+    # Convert response to a dictionary
+    resp_dict = response.json()
+    error = resp_dict.get("error")
+    if error:
+        print("Sensor criteria not met:", error)
+    # Return True if "ok" is True, otherwise False
+    return resp_dict.get("ok", False) is True
+
+@dag(
+    dag_id=dag_id,
+    schedule_interval=None,  # Only run on-demand
+    start_date=datetime(2025, 1, 30, 20, 13),
+    default_args={
+        "owner": username,
+        "retries": 0,
+    },
+    catchup=False,
+    params=prt.workflows.get_airflow_params(),
+)
+def generate_dag():
+    from airflow.providers.http.sensors.http import HttpSensor
+    
+    wait_for_api = HttpSensor(
+        task_id='wait_for_http_sensor',
+        http_conn_id=http_conn_id,
+        endpoint='sensor/',  # appended to the base URL in the Airflow connection
+        request_params={
+            "table_name": "table_1",
         },
-        response_check=lambda response: "expected_value" in response.text,
-        poke_interval=30,  # how often to ping the endpoint (in seconds)
-        timeout=60,        # how long to wait before failing the task
-        mode='reschedule'  # or 'poke' depending on your preference
+        headers={
+            "Authorization": f"Bearer {bearer_token}",
+        },
+        response_check=check_api_response,  # A function to validate the response
+        deferrable=True,     # If True, it keeps trying until poke_interval or timeout
+        poke_interval=10,    # Check every 10 seconds
+        timeout=30 * 60,     # Stop after 30 minutes
     )
 
+    my_task = task(prt.workflows.run_airflow_task, task_id="my_task")()
+    wait_for_api >> my_task
+
+generate_dag()
 ```
 
-## Conclusion
-By configuring an `HttpSensor` (or a custom sensor around `HttpHook`) with the correct headers, you can easily poll REST APIs that require Bearer tokens. This approach is handy for triggering downstream tasks only when external services have the data or status you need.
+### Deploy the Workflow
+Now let's deploy the workflow (i.e., the DAG) to Airflow.
+
+```python
+# Let's deploy the workflow
+# Make sure service_key is defined above.
+
+prt.workflows.deploy(
+    service_key=airflow_service_key,  # corrected variable name
+    dag_key=dag_key,
+    files_path=None,  # Current dir
+)
+```
+
+## Testing on Airflow
+
+1. Go to your Airflow UI, enable the **http_sensor** DAG.
+2. Trigger the DAG manually.
+3. Observe that **wait_for_http_sensor** attempts to call the `sensor/` endpoint.
+   - If the response is `ok: True`, the DAG moves to `my_task`.
+   - If the response is `ok: False`, the sensor will **keep checking** at `poke_interval` until `timeout`.
+4. If `table_name` is not `table_1` in the example, you’ll see an error in the logs, and the sensor won't succeed.
+
+Try updating your `sensor.py` logic to always fail—this will let you see that `my_task` never runs, and the sensor eventually times out.
+
+**That’s it!** You now have an Airflow DAG that uses an HTTP Sensor to poll your microservice for some condition (in this case, the existence or readiness of `table_1`).
+
 
 
 ---
 
-**Previous**: [Task Parameters](task-parameters.md) | **Next**: [Generative AI > Advanced LangChain > Lang Chain LLM Model](../generative-ai/advanced-langchain/lang-chain-llm-model.md)
+**Previous**: [Task Parameters](task-parameters.md) | **Next**: [Generative AI > Databases > Using Databases](../generative-ai/databases/using-databases.md)

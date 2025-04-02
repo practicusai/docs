@@ -28,7 +28,7 @@ from sklearn.tree import plot_tree
 
 ```python
 # load the csv file as a data frame
-df = pd.read_csv('samples/iris.csv')
+df = pd.read_csv('samples/data/iris.csv')
 ```
 
 ```python
@@ -536,7 +536,7 @@ spark = SparkSession.builder \
     .appName("Advanced Data Processing") \
     .getOrCreate()
 
-file_path = "/home/ubuntu/samples/insurance.csv"
+file_path = "/home/ubuntu/samples/data/insurance.csv"
 data = spark.read.csv(file_path, header=True, inferSchema=True)
 missing_data = data.select([count(when(col(c).isNull(), c)).alias(c) for c in data.columns])
 

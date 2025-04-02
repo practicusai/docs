@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus_genai
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Practicus AI Workers
@@ -41,6 +41,23 @@ This approach provides an isolated, on-demand environment for efficient developm
 ### Creating a Worker with Default Settings
 
 Let's start by creating a worker with the default configuration.
+
+
+#### Define Parameters
+
+```python
+worker_image="practicus-genai"
+worker_size="X-Small"
+startup_script="""
+echo "Hello Practicus AI" > ~/hello.txt
+"""
+```
+
+```python
+assert worker_image, "Please select a worker_image."
+assert worker_size, "Please select a worker_size."
+assert startup_script "Please write startup_script."
+```
 
 ```python
 # Import the Practicus AI SDK
@@ -75,11 +92,9 @@ Now let's create a worker with a custom configuration, specifying a custom image
 ```python
 # Define a custom worker configuration
 worker_config = prt.WorkerConfig(
-    worker_image="practicus-genai",
-    worker_size="X-Small",
-    startup_script="""
-    echo "Hello Practicus AI" > ~/hello.txt
-    """,
+    worker_image=worker_image,
+    worker_size=worker_size,
+    startup_script=startup_script,
 )
 
 # Create the worker with the custom configuration

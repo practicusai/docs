@@ -38,16 +38,16 @@ experiment_name = None
 ```
 
 ```python
+assert service_name, "Please select a service_name"
+assert service_key, "Please select a service_key"
+assert experiment_name, "Please select a experiment_name"
+```
+
+```python
 # If you don't know service key and name you can checkout down below
 
 addon_list = region.addon_list
 display(addon_list.to_pandas())
-```
-
-```python
-assert service_name, "Please select a service_name"
-assert service_key, "Please select a service_key"
-assert experiment_name, "Please select a experiment_name"
 ```
 
 ```python
@@ -57,7 +57,7 @@ prt.experiments.configure(service_name=service_name, service_key=service_key, ex
 ```python
 data_set_conn = {
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/ice_cream.csv"
+    "file_path": "/home/ubuntu/samples/data/ice_cream.csv"
 }
 ```
 

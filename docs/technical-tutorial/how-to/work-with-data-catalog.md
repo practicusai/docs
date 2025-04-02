@@ -124,7 +124,7 @@ sql_query = """
 # Let's configure a connection
 conn_conf_dict = {
     "connection_type": "SQLITE",
-    "file_path": "/home/ubuntu/samples/chinook.db",
+    "file_path": "/home/ubuntu/samples/data/chinook.db",
     "sql_query": sql_query,
 }
 

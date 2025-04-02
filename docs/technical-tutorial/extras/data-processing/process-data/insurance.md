@@ -46,7 +46,7 @@ data_set_conn = {
     "connection_type": "WORKER_FILE",
     "ws_uuid": "d9b92183-8832-4fd1-8187-ac741ff6aab0",
     "ws_name": "insurance",
-    "file_path": "/home/ubuntu/samples/insurance.csv"
+    "file_path": "/home/ubuntu/samples/data/insurance.csv"
 }
 ```
 

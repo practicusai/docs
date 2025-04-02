@@ -33,7 +33,7 @@ warnings.simplefilter(action = "ignore")
 ```python
 data_set_conn = {
     "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/insurance.csv"
+    "file_path": "/home/ubuntu/samples/data/insurance.csv"
 }
 ```
 

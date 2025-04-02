@@ -25,11 +25,6 @@ jupyter:
     - https://service.practicus.io/models/practicus/diamond-price/v3/
 - Please note that Practicus AI model urls always end with a "/" 
 
-```python
-import practicuscore as prt 
-
-region = prt.regions.get_default_region()
-```
 
 ### Defining parameters.
  
@@ -44,6 +39,12 @@ model_prefix = None #  E.g. 'models/practicus'
 ```python
 assert model_name, "Please enter your model_name "
 assert model_prefix, "Please enter your model_prefix."
+```
+
+```python
+import practicuscore as prt 
+
+region = prt.regions.get_default_region()
 ```
 
 ```python
@@ -73,11 +74,6 @@ display(df)
 
 filtered_df = df[(df['prefix'] == model_prefix) & (df['versions'].notna())]
 display(filtered_df)
-```
-
-```python
-assert model_name, "Please enter your model_name"
-assert model_prefix, "Please enter your model_prefix"
 ```
 
 ```python

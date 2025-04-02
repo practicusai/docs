@@ -24,6 +24,18 @@ In this example we will:
 - And copy job.py under this folder
 
 ```python
+worker_size = None
+worker_count = None
+log_level = "DEBUG"
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert worker_count, "Please enter your worker_count."
+assert log_level, "Please enter your log_level."
+```
+
+```python
 import practicuscore as prt
 
 job_dir = "~/my/spark"
@@ -32,13 +44,13 @@ distributed_config = prt.DistJobConfig(
     job_type = prt.DistJobType.spark,
     job_dir = job_dir,
     py_file = "job.py",
-    worker_count = 2,
+    worker_count = worker_count,
 )
 
 worker_config = prt.WorkerConfig(
-    worker_size="X-Small",
+    worker_size=worker_size,
     distributed_config=distributed_config,
-    log_level="DEBUG",
+    log_level=log_level,
 )
 
 coordinator_worker = prt.create_worker(

@@ -12,11 +12,6 @@ jupyter:
     name: python3
 ---
 
-```python
-import practicuscore as prt
-region = prt.get_region()
-```
-
 ### Defining parameters.
  
 This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
@@ -35,19 +30,6 @@ if vector_store == 'MilvusDB':
     
 ```
 
-If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
-
-```python
-# Let's list our models and select one of them.
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
-```
-
-```python
-my_model_prefixes = region.model_prefix_list
-display(my_model_prefixes.to_pandas())
-```
-
 ```python
 assert host, "Please enter your host url" 
 assert embedding_model_path, "Please enter your embedding model path."
@@ -59,6 +41,24 @@ assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB
 
 if vector_store == 'MilvusDB':
     assert 'milvus_uri', "Please enter your milvus connection uri"
+```
+
+```python
+import practicuscore as prt
+region = prt.get_region()
+```
+
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+# Let's list our models and select one of them.
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
 ```
 
 ## Firstly we need install transformers and torch
@@ -528,4 +528,4 @@ print(answer)
 
 ---
 
-**Previous**: [Milvus Chain](../milvus-embedding-and-langchain/milvus-chain.md) | **Next**: [Deploying LLM > Introduction](../deploying-llm/Introduction.md)
+**Previous**: [Memory Chabot](../ecomm-sdk/memory-chabot.md) | **Next**: [Deploying LLM > Introduction](../deploying-llm/Introduction.md)

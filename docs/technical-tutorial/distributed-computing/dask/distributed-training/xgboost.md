@@ -21,6 +21,18 @@ This example showcases the use of Dask for distributed computing with XGBoost, e
 *   Loading the saved model and making predictions on new data.
 
 ```python
+worker_size = None
+worker_count = None
+model_path = "model.ubj"
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert worker_count, "Please enter your worker_count."
+assert model_path, "Please enter your model_path."
+```
+
+```python
 import practicuscore as prt
 
 # Let's start with creating an interactive Dask cluster 
@@ -33,10 +45,10 @@ else:
     print("Starting a new distributed Dask cluster.")
     distributed_config = prt.DistJobConfig(
         job_type = prt.DistJobType.dask,
-        worker_count = 2,
+        worker_count = worker_count,
     )
     worker_config = prt.WorkerConfig(
-        worker_size="X-Small",
+        worker_size=worker_size,
         distributed_config=distributed_config,
     )
     coordinator_worker = prt.create_worker(

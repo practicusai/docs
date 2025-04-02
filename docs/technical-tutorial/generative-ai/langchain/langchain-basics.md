@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus_genai
     language: python
-    name: practicus
+    name: python3
 ---
 
 # LangChain Pipeline Development
@@ -25,15 +25,15 @@ To get started with `ChatPracticus`, you will need the following parameters:
 Once these parameters are set, you can define a `chat` instance using `ChatPracticus` and invoke it with any prompt of your choice.
 
 ```python
-import practicuscore as prt
-
-region = prt.get_region()
-```
-
-```python
 model_name = None
 model_prefix = None
 host = None # e.g. 'company.practicus.io'
+```
+
+```python
+import practicuscore as prt
+
+region = prt.get_region()
 ```
 
 If you don't know your prefixes and models you can check them out by using the SDK like down below:
@@ -123,4 +123,4 @@ test_langchain_practicus(api_url, token, ['who is einstein'])
 
 ---
 
-**Previous**: [Building Visual Apps](../apps/building-visual-apps.md) | **Next**: [Streaming](streaming.md)
+**Previous**: [Build](../apps/build.md) | **Next**: [Streaming](streaming.md)

@@ -21,16 +21,22 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-import practicuscore as prt
-region = prt.get_region()
-```
-
-```python
 app_name = None # E.g. 'api-chatbot'
 deployment_setting_key = None
 app_prefix = None
 app_dir = None
 
+```
+
+```python
+assert app_name, "Please enter application name"
+assert deployment_setting_key, "Please enter deployment_setting_key"
+assert app_prefix, "Please enter app_prefix"
+```
+
+```python
+import practicuscore as prt
+region = prt.get_region()
 ```
 
 ##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
@@ -55,12 +61,6 @@ my_app_settings = region.app_deployment_setting_list
 display(my_app_settings.to_pandas())
 deployment_setting_key = my_app_settings[1].key
 print("Using first setting with key:", deployment_setting_key)
-```
-
-```python
-assert app_name, "Please enter application name"
-assert deployment_setting_key, "Please enter deployment_setting_key"
-assert app_prefix, "Please enter app_prefix"
 ```
 
 ## Testing App
@@ -217,4 +217,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Sdk Streamlit Hosting](../sdk-llm-apphost/stream/sdk-streamlit-hosting.md) | **Next**: [Milvus Embedding And LangChain > Milvus Chain](../../milvus-embedding-and-langchain/milvus-chain.md)
+**Previous**: [Sdk Streamlit Hosting](../sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md) | **Next**: [Milvus Embedding And LangChain > Milvus Chain](../../milvus-embedding-and-langchain/milvus-chain.md)

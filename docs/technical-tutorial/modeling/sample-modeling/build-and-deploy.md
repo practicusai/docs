@@ -34,7 +34,7 @@ import pandas as pd
 from xgboost import XGBRegressor
 
 # Load the ice cream dataset that come pre-installed in Workers
-df = pd.read_csv("/home/ubuntu/samples/ice_cream.csv")
+df = pd.read_csv("/home/ubuntu/samples/data/ice_cream.csv")
 
 # Separate features and target
 X = df[["Temperature"]]

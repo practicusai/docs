@@ -17,10 +17,6 @@ This notebook demonstrates the development of a **Retrieval-Augmented Generation
 The RAG model retrieves relevant contextual data and generates meaningful answers using a language model. 
 We utilize **LangChain**, **Transformers**, and other related libraries to build the model.
 
-```python
-import practicuscore as prt
-region = prt.get_region()
-```
 
 ### Defining parameters.
  
@@ -41,6 +37,24 @@ if vector_store == 'MilvusDB':
 ```
 
 ```python
+assert host, "Please enter your host url" 
+assert embedding_model_path, "Please enter your embedding model path."
+assert model_name, "Please enter your embedding model_name."
+
+# You can use one of ChromaDB or MilvusDB as vector store
+assert model_prefix, "Please enter your embedding model_prefix."
+
+assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
+if vector_store == 'MilvusDB':
+    assert 'milvus_uri', "Please enter your milvus connection uri"
+```
+
+```python
+import practicuscore as prt
+region = prt.get_region()
+```
+
+```python
 vector_store = 'MilvusDB'
 ```
 
@@ -55,19 +69,6 @@ display(my_model_list.to_pandas())
 ```python
 my_model_prefixes = region.model_prefix_list
 display(my_model_prefixes.to_pandas())
-```
-
-```python
-assert host, "Please enter your host url" 
-assert embedding_model_path, "Please enter your embedding model path."
-assert model_name, "Please enter your embedding model_name."
-
-# You can use one of ChromaDB or MilvusDB as vector store
-assert model_prefix, "Please enter your embedding model_prefix."
-
-assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
-if vector_store == 'MilvusDB':
-    assert 'milvus_uri', "Please enter your milvus connection uri"
 ```
 
 ### Preparing Data

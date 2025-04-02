@@ -24,6 +24,20 @@ In this example we will:
 - And copy job.py under this folder
 
 ```python
+worker_size = None
+worker_count = None
+log_level = "DEBUG"
+worker_image="practicus-ray"
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert worker_count, "Please enter your worker_count."
+assert log_level, "Please enter your log_level."
+assert worker_image, "Please enter your worker_image."
+```
+
+```python
 import practicuscore as prt
 
 job_dir = "~/my/ray"
@@ -32,15 +46,15 @@ distributed_config = prt.DistJobConfig(
     job_type = prt.DistJobType.ray,
     job_dir = job_dir,
     py_file = "job.py",
-    worker_count = 2,
+    worker_count = worker_count,
 )
 
 worker_config = prt.WorkerConfig(
     # Please note that Ray requires a specific worker image
-    worker_image="practicus-ray",
-    worker_size="Medium",
+    worker_image=worker_image,
+    worker_size=worker_size,
     distributed_config=distributed_config,
-    log_level="DEBUG",
+    log_level=log_level,
 )
 
 coordinator_worker = prt.create_worker(

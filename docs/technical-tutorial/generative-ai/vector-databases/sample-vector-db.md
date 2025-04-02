@@ -220,4 +220,4 @@ utility.drop_collection("hello_milvus")
 
 ---
 
-**Previous**: [Streaming](../langchain/streaming.md) | **Next**: [Openai Compatibility > Build](../openai-compatibility/build.md)
+**Previous**: [Embeddings](../langchain/embeddings.md) | **Next**: [OpenAI Compatibility > Models > Build](../openai-compatibility/models/build.md)

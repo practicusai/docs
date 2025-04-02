@@ -6,7 +6,7 @@ print("Getting Dask session")
 dask = prt.distributed.get_client()
 
 print("Reading diamond data")
-df = dd.read_csv('/home/ubuntu/samples/diamond.csv')  
+df = dd.read_csv('/home/ubuntu/samples/data/diamond.csv')  
 
 print("Calculating")
 df["New Price"] = df["Price"] * 0.8

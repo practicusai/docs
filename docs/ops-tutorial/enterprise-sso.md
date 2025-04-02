@@ -50,5 +50,5 @@ To add a new application:
 
 ---
 
-[< Previous](add-on-services.md)
+[< Previous](add-on-services.md) | [Next >](ai_assistants.md)
 

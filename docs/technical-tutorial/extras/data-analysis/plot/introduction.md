@@ -68,7 +68,7 @@ Let's load it into one of our worker environments.
 data_set_conn = {
     "connection_type": "WORKER_FILE",
     "sample_size": 1180,
-    "file_path": "/home/ubuntu/samples/titanic.csv"
+    "file_path": "/home/ubuntu/samples/data/titanic.csv"
 }
 ```
 

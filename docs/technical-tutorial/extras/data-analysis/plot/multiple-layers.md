@@ -60,7 +60,7 @@ Let's load it into one of our worker environments.
 data_set_conn = {
     "connection_type": "WORKER_FILE",
     "sample_size": 150,
-    "file_path": "/home/ubuntu/samples/iris.csv"
+    "file_path": "/home/ubuntu/samples/data/iris.csv"
 }
 ```
 

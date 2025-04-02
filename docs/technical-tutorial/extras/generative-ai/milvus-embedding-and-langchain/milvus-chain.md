@@ -26,6 +26,30 @@ Focuses:
 
 Necessary libraries:
 
+
+### Defining parameters.
+ 
+This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
+ 
+
+```python
+host = None # E.g. company.practicus.com'
+embedding_model_path = None
+milvus_uri = None # E.g. 'company.practicus.milvus.com'
+milvus_port = None # E.g. '19530'
+model_name = None
+model_prefix = None
+```
+
+```python
+assert host, "Please enter your host url"
+assert embedding_model_path, "Please enter your embedding model path."
+assert milvus_uri, "Please enter your milvus connection uri"
+assert milvus_port, "Please enter your milvus connection port"
+assert model_name, "Please enter your model_name"
+assert model_prefix, "Please enter your model_prefix"
+```
+
 ```python
 ! pip install transformers sentence-transformers langchain langchain-community langchain-milvus chromadb pypdf
 ! pip install torch --index-url https://download.pytorch.org/whl/cpu
@@ -52,20 +76,6 @@ warnings.filterwarnings('ignore')
 region = prt.get_region()
 ```
 
-### Defining parameters.
- 
-This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
- 
-
-```python
-host = None # E.g. company.practicus.com'
-embedding_model_path = None
-milvus_uri = None # E.g. 'company.practicus.milvus.com'
-milvus_port = None # E.g. '19530'
-model_name = None
-model_prefix = None
-```
-
 ##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
  
 
@@ -80,15 +90,6 @@ my_model_prefixes = region.model_prefix_list
 display(my_model_prefixes.to_pandas())
 
 print("Using first prefix:", model_prefix)
-```
-
-```python
-assert host, "Please enter your host url"
-assert embedding_model_path, "Please enter your embedding model path."
-assert milvus_uri, "Please enter your milvus connection uri"
-assert milvus_port, "Please enter your milvus connection port"
-assert model_name, "Please enter your model_name"
-assert model_prefix, "Please enter your model_prefix"
 ```
 
 ## Prepare test document
@@ -404,4 +405,4 @@ utility.drop_collection("dummy_info")
 
 ---
 
-**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Cv Assistant > Cv Assistant](../cv-assistant/cv-assistant.md)
+**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Ecomm Sdk > Memory Chabot](../ecomm-sdk/memory-chabot.md)

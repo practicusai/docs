@@ -46,4 +46,4 @@ By the end, you’ll see how these capabilities combine into a single, streamlin
 
 ---
 
-**Previous**: [Use Cluster](../distributed-computing/ray/vllm/use-cluster.md) | **Next**: [Secrets With Vault](secrets-with-vault.md)
+**Previous**: [Use Cluster](../distributed-computing/custom-adaptor/use-cluster.md) | **Next**: [Secrets With Vault](secrets-with-vault.md)

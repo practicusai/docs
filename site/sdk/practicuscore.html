@@ -24,7 +24,7 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#practicus-ai-sdk-v2483">Practicus AI SDK v24.8.3</a>
+  <li><a href="#practicus-ai-sdk-v2484">Practicus AI SDK v24.8.4</a>
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#key-functionality">Key Functionality</a></li>
@@ -142,6 +142,33 @@
                     <a class="class" href="#apps">apps</a>
                             <ul class="memberlist">
                         <li>
+                                <a class="function" href="#apps.api">api</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.test_api">test_api</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.deploy">deploy</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.get_session_token">get_session_token</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.test_app">test_app</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.delete">delete</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.delete_version">delete_version</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.prepare_db">prepare_db</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.remove_db">remove_db</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#apps.secure_page">secure_page</a>
                         </li>
                         <li>
@@ -182,24 +209,6 @@
                         </li>
                         <li>
                                 <a class="function" href="#apps.delete_cookie">delete_cookie</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.deploy">deploy</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.get_session_token">get_session_token</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.test_app">test_app</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.call_api">call_api</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.delete">delete</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.delete_version">delete_version</a>
                         </li>
                 </ul>
 
@@ -523,6 +532,63 @@
 
             </li>
             <li>
+                    <a class="class" href="#mq">mq</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#mq.consumer">consumer</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#mq.connect">connect</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#mq.publish">publish</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#mq.analyze">analyze</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#mq.test_consumer">test_consumer</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#mq.apply_topology">apply_topology</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#mq.export_topology">export_topology</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#notify">notify</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="class" href="#notify.Notification">notify.Notification</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#notify.send">send</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#db">db</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#db.init">init</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#db.revision">revision</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#db.upgrade">upgrade</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#db.upsert_static_data">upsert_static_data</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#Region">Region</a>
                             <ul class="memberlist">
                         <li>
@@ -631,6 +697,12 @@
                                 <a class="function" href="#Region.delete_app_version">delete_app_version</a>
                         </li>
                         <li>
+                                <a class="function" href="#Region.prepare_app_db">prepare_app_db</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Region.remove_app_db">remove_app_db</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#Region.deploy_workflow">deploy_workflow</a>
                         </li>
                         <li>
@@ -659,6 +731,9 @@
                         </li>
                         <li>
                                 <a class="function" href="#Region.open_addon">open_addon</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Region.get_addon_access_token">get_addon_access_token</a>
                         </li>
                         <li>
                                 <a class="function" href="#Region.get_worker">get_worker</a>
@@ -1101,6 +1176,15 @@
                         <li>
                                 <a class="variable" href="#Log.GIT">GIT</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#Log.MQ">MQ</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Log.NOTIFY">NOTIFY</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Log.DB">DB</a>
+                        </li>
                 </ul>
 
             </li>
@@ -1187,6 +1271,48 @@
                         </li>
                         <li>
                                 <a class="function" href="#WorkerConfig.model_dump_json">model_dump_json</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#ImageConfig">ImageConfig</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#ImageConfig.repo_username">repo_username</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.repo_password">repo_password</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.repo_secret_name">repo_secret_name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.pull_policy">pull_policy</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.builder">builder</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.builder_capacity">builder_capacity</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.insecure_registries">insecure_registries</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.custom_builder_url">custom_builder_url</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ImageConfig.validate_pull_policy">validate_pull_policy</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ImageConfig.validate_builder_capacity">validate_builder_capacity</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ImageConfig.validate_model">validate_model</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ImageConfig.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -1318,48 +1444,6 @@
 
             </li>
             <li>
-                    <a class="class" href="#ImageConfig">ImageConfig</a>
-                            <ul class="memberlist">
-                        <li>
-                                <a class="variable" href="#ImageConfig.repo_username">repo_username</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.repo_password">repo_password</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.repo_secret_name">repo_secret_name</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.pull_policy">pull_policy</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.builder">builder</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.builder_capacity">builder_capacity</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.insecure_registries">insecure_registries</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.custom_builder_url">custom_builder_url</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ImageConfig.validate_pull_policy">validate_pull_policy</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ImageConfig.validate_builder_capacity">validate_builder_capacity</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ImageConfig.validate_model">validate_model</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.model_config">model_config</a>
-                        </li>
-                </ul>
-
-            </li>
-            <li>
                     <a class="class" href="#GitConfig">GitConfig</a>
                             <ul class="memberlist">
                         <li>
@@ -1388,6 +1472,63 @@
                         </li>
                         <li>
                                 <a class="variable" href="#GitConfig.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#MQConfig">MQConfig</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#MQConfig.conn_str">conn_str</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.queue">queue</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.exchange">exchange</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.exchange_type">exchange_type</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.queue_ttl">queue_ttl</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.routing_key">routing_key</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.max_retries">max_retries</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.dead_letter_exchange">dead_letter_exchange</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.dead_letter_routing_key">dead_letter_routing_key</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.headers">headers</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.verify_delivery">verify_delivery</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.prefetch_count">prefetch_count</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.user_name">user_name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.password">password</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.host">host</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.vhost">vhost</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -1462,7 +1603,7 @@
                     <h1 class="modulename">
 practicuscore    </h1>
 
-                        <div class="docstring"><h1 id="practicus-ai-sdk-v2483">Practicus AI SDK v24.8.3</h1>
+                        <div class="docstring"><h1 id="practicus-ai-sdk-v2484">Practicus AI SDK v24.8.4</h1>
 
 <h2 id="overview">Overview</h2>
 
@@ -1663,7 +1804,7 @@ Practicus AI-managed environment.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">login</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_password</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">save_config</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
+        <span class="name">login</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">one_time_password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_password</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">save_config</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
 
         
     </div>
@@ -1683,6 +1824,8 @@ You can also define <code>PRT_URL</code> OS Environment variable and skip provid
 <li>email (str | None): The user's email associated with the Practicus AI account.
 If a token is provided, the email inside the token has priority and the email you provide is ignored.</li>
 <li>password (str | None): The user's password. Optional if refresh_token or access_token are provided.</li>
+<li>one_time_password (str | None): If logging in with a password AND Multi-factor Authentication (MFA) is enabled,
+you must also pass the one-time password from your authenticator app e.g. Google Authenticator.</li>
 <li>refresh_token (str | None): Existing refresh token; can be used instead of password-based login.</li>
 <li>access_token (str | None): An existing valid access token to bypass credential-based login.</li>
 <li>token (str | None): An existing valid refresh or access token. Token type is automatically detected.
@@ -2570,7 +2713,7 @@ model name, problem type, version, and performance score.</p>
     </div>
     <a class="headerlink" href="#models.zip"></a>
     
-            <div class="docstring"><p>Packages selected files into a <code>model.zip</code> archive for model deployment.</p>
+            <div class="docstring"><p>Packages selected files and folders into a <code>model.zip</code> archive for model deployment.</p>
 
 <p>By default, Practicus AI may automatically upload certain files (like environment configuration).
 If you include these files in <code>model.zip</code>, it may cause ambiguity. Hence, certain known files are skipped.</p>
@@ -2578,14 +2721,14 @@ If you include these files in <code>model.zip</code>, it may cause ambiguity. He
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li>files_to_add (list[str]): A list of filenames (within <code>model_dir</code>) to include in the zip file.</li>
-<li>model_dir (str | None): The directory containing the files. If None, defaults to the current directory.</li>
+<li>files_to_add (list[str]): A list of filenames or folder names (within <code>model_dir</code>) to include in the zip file.</li>
+<li>model_dir (str | None): The directory containing the files/folders. If None, defaults to the current directory.</li>
 </ul>
 
 <p><strong>Example:</strong></p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">zip</span><span class="p">([</span><span class="s2">&quot;trained_model.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;requirements.txt&quot;</span><span class="p">],</span> <span class="n">model_dir</span><span class="o">=</span><span class="s2">&quot;path/to/model/files&quot;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">zip</span><span class="p">([</span><span class="s2">&quot;trained_model.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;config_folder&quot;</span><span class="p">],</span> <span class="n">model_dir</span><span class="o">=</span><span class="s2">&quot;path/to/model/files&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -2728,6 +2871,344 @@ __pydantic_private__: Values of private attributes set on the model instance.
 </div>
 
 
+                            <div id="apps.api" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">api</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">path</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.api"></a>
+    
+            <div class="docstring"><p>Decorator for API methods that only support POST.</p>
+
+<p>Args:
+    path (str): The API endpoint path.</p>
+</div>
+
+
+                            </div>
+                            <div id="apps.test_api" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">test_api</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">payload</span>,</span><span class="param">	<span class="n">requestor</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">api_folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.test_api"></a>
+    
+            <div class="docstring"><p>Loads dynamic API modules from the current folder and calls the async API handler
+associated with the given path. Useful for design-time testing of APIs without deploying.</p>
+
+<p>Args:
+    path (str): The API endpoint path.
+    payload: The payload to pass to the API handler.
+    requestor (dict | None): Simulates calling the API as a particular requestor.
+        Expected keys: username (str), email (str), user_id (int), admin (bool).
+    api_folder (str | None): Where to find APIs. If empty, uses current working dir.</p>
+
+<p>Returns:
+    The result returned by the API handler.</p>
+
+<p>Raises:
+    ValueError: If no API handler is found for the given path.
+    TypeError: If the API handler is not an async function.</p>
+</div>
+
+
+                            </div>
+                            <div id="apps.deploy" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">deploy</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.deploy"></a>
+    
+            <div class="docstring"><p>Deploys an application to the currently selected Practicus AI region.</p>
+
+<p>This operation packages the app's UI code, configuration, and any supporting files, and uploads them
+to the Practicus AI environment. Once deployed, the app and its API are accessible through stable URLs.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>deployment_setting_key (str): The key identifying the application deployment service (set by your admin).</li>
+<li>prefix (str): A prefix used to group and identify the app and its versions.</li>
+<li>app_name (str): A unique name for this specific version of the app.</li>
+<li>app_dir (str | None): The directory containing the app files. If None, uses the current working directory.</li>
+<li>visible_name (str | None): The user-facing name displayed in the Practicus AI interface.</li>
+<li>description (str | None): A short description of the app’s purpose or functionality.</li>
+<li>startup_script (str | None): Startup script to run each time the app kubernetes pod starts.
+Note: App deployment setting can also have a startup script defined, in which case that script would run first.</li>
+<li>env_variables (dict | None): OS environment variables to pass to the App. Shared for all app versions.</li>
+<li>personal_secrets (list[str] | None): List of personal secrets to pull from the vault.
+You can use PERSONAL_SECRET_1:NEW_OS_ENV format to rename the OS environment variable.</li>
+<li>shared_secrets (list[str] | None): Shared secrets saved by the admin in the vault.
+You can use SHARED_SECRET_1:NEW_OS_ENV format to rename the OS environment variable.</li>
+<li>icon (str | None): A Font Awesome icon name (e.g., "fa:rocket") to represent the app.
+Only use Free and v5.x icons. To search, please visit <a href="https://fontawesome.com/v5/search?ic=free">https://fontawesome.com/v5/search?ic=free</a></li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>tuple[str, str]: A tuple containing:
+<ol>
+<li>The UI URL of the deployed app.</li>
+<li>The API URL of the deployed app.</li>
+</ol></li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">ui_url</span><span class="p">,</span> <span class="n">api_url</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span>
+    <span class="n">deployment_setting_key</span><span class="o">=</span><span class="s2">&quot;my-deployment-setting&quot;</span><span class="p">,</span>
+    <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span>
+    <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my-app&quot;</span><span class="p">,</span>
+    <span class="n">visible_name</span><span class="o">=</span><span class="s2">&quot;MyApp&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A sample application&quot;</span><span class="p">,</span>
+    <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;fa-rocket&quot;</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.get_session_token" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.get_session_token"></a>
+    
+            <div class="docstring"><p>Obtains a short-lived session token for interacting with the application's API.</p>
+
+<p>Use this token to call the app’s API endpoints, or to upload new versions of the app (if <code>for_upload</code> is True).</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>api_url (str | None): The app’s API URL. E.g. "https://practicus.company.com/apps/my-app/api/v5/"</li>
+<li>app_id (int | None): The app’s unique identifier. If provided, it can be used instead of <code>api_url</code>.</li>
+<li>for_upload (bool): If True, requests a token with permissions to upload new versions (admin privileges may be required).</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>str: A session token string.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">token</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_session_token</span><span class="p">(</span><span class="n">api_url</span><span class="o">=</span><span class="s2">&quot;https://practicus.company.com/apps/my-app/api/v5/&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Session token:&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.test_app" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">test_app</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>, </span><span class="param"><span class="n">kill_existing_app</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.test_app"></a>
+    
+            <div class="docstring"><p>Tests the application by running it locally inside a Practicus AI Worker environment.</p>
+
+<p>This method launches the Streamlit app so you can interact with it through the Practicus AI Studio
+environment (e.g., via a port-forwarded URL). Useful for iterative development and debugging before
+deploying to a production environment.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>app_dir (str | None): The directory containing the app files. If None, uses the current working directory.</li>
+<li>kill_existing_app (bool): If True, terminates any previously running test app instances on this worker
+before launching the new one.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">test_app</span><span class="p">(</span><span class="n">app_dir</span><span class="o">=</span><span class="s2">&quot;my_app_dir&quot;</span><span class="p">)</span>
+<span class="c1"># Open the provided URL in Practicus AI Studio to interact with the test app.</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.delete" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">delete</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.delete"></a>
+    
+            <div class="docstring"><p>Deletes an application from the current region.</p>
+
+<p>Either <code>app_id</code> or both <code>prefix</code> and <code>app_name</code> should be provided to identify the app.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>app_id (int | None): The unique identifier of the app. If provided, overrides <code>prefix</code> and <code>app_name</code>.</li>
+<li>prefix (str | None): The app prefix to identify which group of apps it belongs to.</li>
+<li>app_name (str | None): The name of the app to delete.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="c1"># Delete by app_id</span>
+<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">app_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+
+<span class="c1"># Or delete by prefix and app name</span>
+<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.delete_version" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">delete_version</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">version</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.delete_version"></a>
+    
+            <div class="docstring"><p>Deletes a specific version of an application from the current region.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>version (str): The version identifier of the app to delete.</li>
+<li>app_id (int | None): The app’s unique identifier. If provided, <code>prefix</code> and <code>app_name</code> are ignored.</li>
+<li>prefix (str | None): The prefix identifying the app group, if <code>app_id</code> is not provided.</li>
+<li>app_name (str | None): The specific app name, if <code>app_id</code> is not provided.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="c1"># Delete version using app_id</span>
+<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">,</span> <span class="n">app_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+
+<span class="c1"># Or delete version using prefix and app_name</span>
+<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my_application&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.prepare_db" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">prepare_db</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.prepare_db"></a>
+    
+            <div class="docstring"><p>Creates a database schema for the selected app_prefix and app_name, using database settings from deployment_setting_key.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>prefix (str): The app prefix.</li>
+<li>app_name (str): The app name.</li>
+<li>deployment_setting_key (str | None): App deployment setting key.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>(str, str): A tuple of (connection string, database schema name).</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">create_app_db_schema</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my-app&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.remove_db" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">remove_db</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.remove_db"></a>
+    
+            <div class="docstring"><p><strong>DELETES DATA</strong> Removes the db dedicated to the app.
+Removes database for the app by deleting the database schema dedicated for the selected app_prefix and app_name,
+using the db configuration of deployment_setting_key.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>prefix (str): The app prefix.</li>
+<li>app_name (str): The app name.</li>
+<li>deployment_setting_key (str | None): App deployment setting key.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>None</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">create_app_db_schema</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my-app&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
                             <div id="apps.secure_page" class="classattr">
                                 <div class="attr function">
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
@@ -3206,248 +3687,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete_cookie</span><span class="p">(</span><span class="s2">&quot;theme&quot;</span><span class="p">)</span>
 <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Theme cookie deleted.&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
-
-                            </div>
-                            <div id="apps.deploy" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">deploy</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.deploy"></a>
-    
-            <div class="docstring"><p>Deploys an application to the currently selected Practicus AI region.</p>
-
-<p>This operation packages the app's UI code, configuration, and any supporting files, and uploads them
-to the Practicus AI environment. Once deployed, the app and its API are accessible through stable URLs.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>deployment_setting_key (str): The key identifying the application deployment service (set by your admin).</li>
-<li>prefix (str): A prefix used to group and identify the app and its versions.</li>
-<li>app_name (str): A unique name for this specific version of the app.</li>
-<li>app_dir (str | None): The directory containing the app files. If None, uses the current working directory.</li>
-<li>visible_name (str | None): The user-facing name displayed in the Practicus AI interface.</li>
-<li>description (str | None): A short description of the app’s purpose or functionality.</li>
-<li>icon (str | None): A Font Awesome icon name (e.g., "fa:rocket") to represent the app.</li>
-</ul>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>tuple[str, str]: A tuple containing:
-<ol>
-<li>The UI URL of the deployed app.</li>
-<li>The API URL of the deployed app.</li>
-</ol></li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">ui_url</span><span class="p">,</span> <span class="n">api_url</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span>
-    <span class="n">deployment_setting_key</span><span class="o">=</span><span class="s2">&quot;my_streamlit_service&quot;</span><span class="p">,</span>
-    <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
-    <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">,</span>
-    <span class="n">app_dir</span><span class="o">=</span><span class="s2">&quot;app_folder&quot;</span><span class="p">,</span>
-    <span class="n">visible_name</span><span class="o">=</span><span class="s2">&quot;MyApp&quot;</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A sample Streamlit application&quot;</span><span class="p">,</span>
-    <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;rocket&quot;</span>
-<span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
-
-                            </div>
-                            <div id="apps.get_session_token" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.get_session_token"></a>
-    
-            <div class="docstring"><p>Obtains a short-lived session token for interacting with the application's API.</p>
-
-<p>Use this token to call the app’s API endpoints, or to upload new versions of the app (if <code>for_upload</code> is True).</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>api_url (str | None): The app’s API URL. E.g. "https://practicus.company.com/apps/my-app/api/v5/"</li>
-<li>app_id (int | None): The app’s unique identifier. If provided, it can be used instead of <code>api_url</code>.</li>
-<li>for_upload (bool): If True, requests a token with permissions to upload new versions (admin privileges may be required).</li>
-</ul>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str: A session token string.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">token</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_session_token</span><span class="p">(</span><span class="n">api_url</span><span class="o">=</span><span class="s2">&quot;https://practicus.company.com/apps/my-app/api/v5/&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Session token:&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
-
-                            </div>
-                            <div id="apps.test_app" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">test_app</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>, </span><span class="param"><span class="n">kill_existing_app</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.test_app"></a>
-    
-            <div class="docstring"><p>Tests the application by running it locally inside a Practicus AI Worker environment.</p>
-
-<p>This method launches the Streamlit app so you can interact with it through the Practicus AI Studio
-environment (e.g., via a port-forwarded URL). Useful for iterative development and debugging before
-deploying to a production environment.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>app_dir (str | None): The directory containing the app files. If None, uses the current working directory.</li>
-<li>kill_existing_app (bool): If True, terminates any previously running test app instances on this worker
-before launching the new one.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">test_app</span><span class="p">(</span><span class="n">app_dir</span><span class="o">=</span><span class="s2">&quot;my_app_dir&quot;</span><span class="p">)</span>
-<span class="c1"># Open the provided URL in Practicus AI Studio to interact with the test app.</span>
-</code></pre>
-</div>
-</div>
-
-
-                            </div>
-                            <div id="apps.call_api" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">call_api</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">api_module</span><span class="p">:</span> <span class="n">module</span>, </span><span class="param"><span class="n">payload</span>, </span><span class="param"><span class="n">is_admin</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.call_api"></a>
-    
-            <div class="docstring"><p>Calls the <code>run()</code> function of a provided API module, optionally with admin privileges.
-Useful for local testing and debugging of API logic without deploying.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>api_module (ModuleType): The Python module representing the API. Must have a <code>run()</code> function.</li>
-<li>payload: The payload to pass to the <code>run()</code> function. Should match the expected pydantic model if defined.</li>
-<li>is_admin (bool): If True, simulates calling the API as an admin user.</li>
-</ul>
-
-<p><strong>Returns:</strong>
-The result returned by the <code>run()</code> function of the API module.</p>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">my_app_apis</span><span class="w"> </span><span class="kn">import</span> <span class="n">my_api_module</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">call_api</span><span class="p">(</span><span class="n">my_api_module</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;API call result:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
-
-                            </div>
-                            <div id="apps.delete" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">delete</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.delete"></a>
-    
-            <div class="docstring"><p>Deletes an application from the current region.</p>
-
-<p>Either <code>app_id</code> or both <code>prefix</code> and <code>app_name</code> should be provided to identify the app.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>app_id (int | None): The unique identifier of the app. If provided, overrides <code>prefix</code> and <code>app_name</code>.</li>
-<li>prefix (str | None): The app prefix to identify which group of apps it belongs to.</li>
-<li>app_name (str | None): The name of the app to delete.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="c1"># Delete by app_id</span>
-<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">app_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
-
-<span class="c1"># Or delete by prefix and app name</span>
-<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
-
-                            </div>
-                            <div id="apps.delete_version" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">delete_version</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">version</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.delete_version"></a>
-    
-            <div class="docstring"><p>Deletes a specific version of an application from the current region.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>version (str): The version identifier of the app to delete.</li>
-<li>app_id (int | None): The app’s unique identifier. If provided, <code>prefix</code> and <code>app_name</code> are ignored.</li>
-<li>prefix (str | None): The prefix identifying the app group, if <code>app_id</code> is not provided.</li>
-<li>app_name (str | None): The specific app name, if <code>app_id</code> is not provided.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="c1"># Delete version using app_id</span>
-<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">,</span> <span class="n">app_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
-
-<span class="c1"># Or delete version using prefix and app_name</span>
-<span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my_application&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -5018,7 +5257,7 @@ if only one user is associated with it.</li>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">login</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_password</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">save_config</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
+        <span class="name">login</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">one_time_password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_password</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">save_config</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
 
         
     </div>
@@ -5038,6 +5277,8 @@ You can also define <code>PRT_URL</code> OS Environment variable and skip provid
 <li>email (str | None): The user's email associated with the Practicus AI account.
 If a token is provided, the email inside the token has priority and the email you provide is ignored.</li>
 <li>password (str | None): The user's password. Optional if refresh_token or access_token are provided.</li>
+<li>one_time_password (str | None): If logging in with a password AND Multi-factor Authentication (MFA) is enabled,
+you must also pass the one-time password from your authenticator app e.g. Google Authenticator.</li>
 <li>refresh_token (str | None): Existing refresh token; can be used instead of password-based login.</li>
 <li>access_token (str | None): An existing valid access token to bypass credential-based login.</li>
 <li>token (str | None): An existing valid refresh or access token. Token type is automatically detected.
@@ -6143,7 +6384,7 @@ is skipped in favor of the custom one.</p>
 <ul>
 <li>name (str | None): Name of the image to build. Required if
 <code>custom_build_command</code> is not provided.</li>
-<li>tag (str | None): Tag for the image, e.g., "24.8.3". Required
+<li>tag (str | None): Tag for the image, e.g., "24.8.x". Required
 if <code>custom_build_command</code> is not provided.</li>
 <li>push_image (bool): If True, pushes the built image to its registry
 after successful build. Defaults to True.</li>
@@ -6172,7 +6413,7 @@ build command entirely. Intended to be used with the help of Practicus AI profes
 <div class="pdoc-code codehilite">
 <pre><span></span><code>    <span class="n">ContainerHelper</span><span class="o">.</span><span class="n">build_image</span><span class="p">(</span>
          <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-registry.my-company.com/myproject/my-app&quot;</span><span class="p">,</span>
-         <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;24.8.3&quot;</span><span class="p">,</span>
+         <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;24.8.x&quot;</span><span class="p">,</span>
          <span class="n">push_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
          <span class="n">build_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;MY_ARG&quot;</span><span class="p">:</span> <span class="s2">&quot;my_value&quot;</span><span class="p">},</span>
          <span class="n">registry_credentials</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;my-registry.my-company.com&quot;</span><span class="p">,</span> <span class="s2">&quot; robot$myproject+my-robot&quot;</span><span class="p">,</span> <span class="s2">&quot;some-token&quot;</span><span class="p">)],</span>
@@ -6405,6 +6646,493 @@ If there are conflicts, they will be reported in stderr.</p>
 
                             </div>
                 </section>
+                <section id="mq">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">mq</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#mq"></a>
+    
+            <div class="docstring"><p>Public API for RabbitMQ operations.
+Provides:</p>
+
+<ul>
+<li><code>consumer(...)</code>: Decorator for consumer (subscriber) functions.</li>
+<li><code>connect(...)</code>: Asynchronously connects to RabbitMQ (returns an MQConnection instance).</li>
+<li><code>publish(...)</code>: Asynchronously publishes messages.</li>
+<li><code>analyze(...)</code>: Inspects Python files for consumers (subscribers).</li>
+<li><code>test_consumer(...)</code>: Runs a consumer (subscriber) interactively for testing.</li>
+<li><code>apply_topology(...)</code>: Explicitly applies (declares) the topology (exchange, queue, binding).</li>
+<li><code>export_topology(...)</code>: Creates topology .yaml files (exchange, queue, binding, user, permissions, vhost).</li>
+</ul>
+
+<p><strong>Example</strong>:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">my_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">MQConfig</span><span class="p">,</span> <span class="n">mq</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">MQConfig</span><span class="p">(</span>
+     <span class="n">conn_str</span><span class="o">=</span><span class="s2">&quot;amqp://localhost&quot;</span><span class="p">,</span>
+     <span class="n">queue</span><span class="o">=</span><span class="s2">&quot;test-queue&quot;</span><span class="p">,</span>        <span class="c1"># For consumers (subscribers) or direct-to-queue publishing (if exchange=None).</span>
+     <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;test-exchange&quot;</span><span class="p">,</span>  <span class="c1"># Omit if you prefer direct-to-queue publishing.</span>
+     <span class="n">exchange_type</span><span class="o">=</span><span class="s2">&quot;direct&quot;</span><span class="p">,</span>
+     <span class="n">verify_delivery</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="nd">@<a href="#mq.consumer">mq.consumer</a></span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_message</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">incoming</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got:&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Headers:&quot;</span><span class="p">,</span> <span class="n">incoming</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># Optionally, apply (declare) the topology (if you have configure privileges)</span>
+<span class="k">await</span> <span class="n"><a href="#mq.apply_topology">mq.apply_topology</a></span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Asynchronous publishing:</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="k">await</span> <span class="n"><a href="#mq.connect">mq.connect</a></span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="k">await</span> <span class="n"><a href="#mq.publish">mq.publish</a></span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;Hello from async publisher!&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            <div id="mq.consumer" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">consumer</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">mq_config</span><span class="p">:</span> <span class="n"><a href="#MQConfig">MQConfig</a></span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#mq.consumer"></a>
+    
+            <div class="docstring"><p>Decorator to mark an async function as a RabbitMQ consumer (subscriber).</p>
+
+<p>Usage:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="nd">@<a href="#mq.consumer">mq.consumer</a></span><span class="p">(</span><span class="n">MQConfig</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">my_consumer</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">incoming</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre>
+</div>
+
+<p>The function must be <code>async def</code>. The decorated function can have one or two parameters:</p>
+
+<ul>
+<li>1 param: receives the deserialized message (str or Pydantic model).</li>
+<li>2 params: second param is the raw <code>aio_pika.IncomingMessage</code>.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="mq.connect" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">connect</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">config</span><span class="p">:</span> <span class="n"><a href="#MQConfig">MQConfig</a></span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">mq_helper</span><span class="o">.</span><span class="n">MQConnection</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#mq.connect"></a>
+    
+            <div class="docstring"><p>Connects to RabbitMQ using MQConnection (async).</p>
+</div>
+
+
+                            </div>
+                            <div id="mq.publish" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">publish</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">conn</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">mq_helper</span><span class="o">.</span><span class="n">MQConnection</span>,</span><span class="param">	<span class="n">msg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">BaseModel</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#mq.publish"></a>
+    
+            <div class="docstring"><p>Publishes a message asynchronously with retry logic.</p>
+</div>
+
+
+                            </div>
+                            <div id="mq.analyze" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">analyze</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">py_file_path</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n">function</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#mq.analyze"></a>
+    
+            <div class="docstring"><p>Analyzes a Python file for functions decorated with <code>@<a href="#mq.consumer">mq.consumer</a>(...)</code>
+and returns the list of consumer (subscriber) functions. Raises TypeError if a
+decorated function is not async.</p>
+</div>
+
+
+                            </div>
+                            <div id="mq.test_consumer" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">test_consumer</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">consumer</span><span class="p">:</span> <span class="n">function</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#mq.test_consumer"></a>
+    
+            <div class="docstring"><p>Runs a consumer (subscriber) in the foreground for testing. Stops on KeyboardInterrupt.</p>
+
+<p>Example usage:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="nd">@<a href="#mq.consumer">mq.consumer</a></span><span class="p">(</span><span class="n">MQConfig</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">my_sub</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n"><a href="#mq.test_consumer">mq.test_consumer</a></span><span class="p">(</span><span class="n">my_sub</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="mq.apply_topology" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">apply_topology</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">config</span><span class="p">:</span> <span class="n"><a href="#MQConfig">MQConfig</a></span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#mq.apply_topology"></a>
+    
+            <div class="docstring"><p>Explicitly applies (declares) the topology (exchange, queue, and binding) using the provided configuration.
+Assumes that the developer has full configure privileges on the RabbitMQ cluster.
+Closes the connection after applying (declaration).
+Prefer to use <code><a href="#mq.export_topology">mq.export_topology</a>(...)</code> if you lack privileges.</p>
+</div>
+
+
+                            </div>
+                            <div id="mq.export_topology" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">export_topology</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">config</span><span class="p">:</span> <span class="n"><a href="#MQConfig">MQConfig</a></span>,</span><span class="param">	<span class="n">files_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">create_user</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">save_user_credentials</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">create_virtual_host</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">create_scripts</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">comment_out_delete_commands</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#mq.export_topology"></a>
+    
+            <div class="docstring"><p>Generates Kubernetes YAML topology files based on the provided MQConfig using Jinja2 templates.</p>
+
+<p>This creates YAML definitions for RabbitMQ resources (exchange, queue, binding, etc.)
+and can generate helper bash scripts for applying/deleting these resources on Kubernetes.</p>
+
+<p>Parameters:
+    config (MQConfig): The configuration object containing connection details and topology settings.
+    files_path (str | None): The output directory for generated YAML files and scripts. Defaults to cwd.
+    namespace (str | None): Kubernetes namespace to use. Defaults to <code>core_context_glbl.k8s_namespace</code>.
+    create_user (bool): Whether to generate YAML for creating MQ user resources.
+    save_user_credentials (bool): If True, the generated secret file includes the actual password.
+    create_virtual_host (bool): Whether to generate YAML for creating the RabbitMQ virtual host.
+    create_scripts (bool): Whether to generate helper bash scripts (create/delete).
+    comment_out_delete_commands (bool): If True, the delete commands in the deletion script are commented out.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="notify">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">notify</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#notify"></a>
+    
+            <div class="docstring"><p>Convenience class for sending notifications.</p>
+
+<p>Exposes the <code><a href="#notify.send">send</a></code> method of NotifyHelper as a static method and prevents instantiation.</p>
+</div>
+
+
+                            <div id="notify.send" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">send</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">recipients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">preheader</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">category</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">urgency</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">send_plain_text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_template</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">additional_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">exc_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="#Region">Region</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#notify.send"></a>
+    
+            <div class="docstring"><p>Sends a notification with the specified details.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li>recipients (list[str] | str | None): One or more recipient email addresses. If none, sends notification to current user.</li>
+<li>title (str | None): Title of the notification.</li>
+<li>body (str | None): Content of the notification.</li>
+<li>preheader (str | None): Preview text for email clients. If missing, defaults to the first 100 characters of the body.</li>
+<li>level (str | None): Log level. Options: "debug", "info", "warning", "error".
+Level is also added to the bottom of the notification (if email) so users can create mailbox rules to route to folders easier.</li>
+<li>category (str | None): A category text such as 'xyz_success' 'abc_created' ...
+Categories are added to the bottom of the notification (if email) so users can create mailbox rules to route to folders easier.</li>
+<li>urgency (str | None): Urgency level. Options: "low", "normal", "high", "critical".
+Urgency is also added to the bottom of the notification (if email) so users can create mailbox rules to route to folders easier.</li>
+<li>send_plain_text (bool | None): If True, sends the notification as plain text.</li>
+<li>ignore_template (bool | None): If True, indicates that the body includes the complete HTML.</li>
+<li>additional_params (dict | None): Additional parameters for custom logic.</li>
+<li>exc_info (bool | None): If True, includes exception details (stack trace) in the notification.</li>
+<li>raise_on_error (bool): If False (default), errors on notifications get logged but do not raise an exception.</li>
+<li>region (Region | None): Pass a Practicus AI Region object if you are sending the notification on a region
+other than the current / default region. If you are also using a custom notification app,
+define it using PRT_CUSTOM_NOTIFY_APP_SUFFIX OS Environment variable, or else, /apps/notify/api/send/ is used.</li>
+</ul>
+
+<p>Returns:</p>
+
+<ul>
+<li>Notification: The created Notification instance.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">notification</span> <span class="o">=</span> <span class="n">NotifyHelper</span><span class="o">.</span><span class="n">send</span><span class="p">(</span>
+    <span class="n">recipients</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;user@example.com&quot;</span><span class="p">],</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Test Notification&quot;</span><span class="p">,</span>
+    <span class="n">body</span><span class="o">=</span><span class="s2">&quot;&lt;p&gt;Hello World!&lt;/p&gt;&quot;</span><span class="p">,</span>
+    <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="notify.Notification">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">notify.Notification</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#notify.Notification"></a>
+    
+            <div class="docstring"><p>Represents a notification to be sent via the Practicus AI SDK.</p>
+</div>
+
+
+                </section>
+                <section id="db">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">db</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#db"></a>
+    
+            <div class="docstring"><p>Public API for Database operations.</p>
+
+<p>Provides:</p>
+
+<ul>
+<li>init: Initialize the database structure.</li>
+<li>revision: Create a new database revision (revision message limited to 75 characters).</li>
+<li>upgrade: Upgrade the database to the latest migration.
+<ul>
+<li>Supports offline mode (generate a SQL script) via the 'offline' parameter.</li>
+</ul></li>
+</ul>
+
+<p>Example:
+    import practicuscore as prt</p>
+
+<pre><code># Initialize the database setup in the current directory.
+prt.db.init(overwrite=True)
+
+# Create a new revision (max 75 characters).
+prt.db.revision("Added new model")
+
+# Upgrade the database online.
+prt.db.upgrade()
+
+# Or upgrade in offline mode (generate a SQL script).
+prt.db.upgrade(offline=True)
+</code></pre>
+</div>
+
+
+                            <div id="db.init" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">init</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>, </span><span class="param"><span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#db.init"></a>
+    
+            <div class="docstring"><p>Initialize the database structure for Practicus AI.</p>
+
+<p>This method performs the following steps:</p>
+
+<ol>
+<li>Creates the 'db' folder (if it doesn't exist) in the specified directory.</li>
+<li>Generates db/__init__.py with "from <a href="#models">.models</a> import *".</li>
+<li>Creates a sample db/models.py (if not already present) with a sample SQLModel and db/static_data.py</li>
+<li>Runs "alembic init migrations" to generate migrations folder and alembic.ini.</li>
+<li>Moves the generated migrations folder to db/migrations.</li>
+<li>Moves alembic.ini from the root to db/migrations.ini and updates it to set
+"script_location = db/migrations".</li>
+<li>Updates env.py in db/migrations:
+<ul>
+<li>Replaces "target_metadata = None" with code that:
+a. Retrieves PRT_DB_CONN_STR from environment variables.
+b. Sets the sqlalchemy.url in the Alembic config.
+c. Imports db and SQLModel, setting target_metadata = SQLModel.metadata.</li>
+</ul></li>
+<li>Updates script.py.mako in db/migrations:
+<ul>
+<li>Inserts "import sqlmodel" at the top (above the marker) if it is not already present.</li>
+</ul></li>
+<li>Logs detailed debug and info messages to assist the user.
+<ol start="10">
+<li>Informs the user that they can now open db/models.py to start adding their models.</li>
+</ol></li>
+</ol>
+
+<p>Parameters:
+    directory (str): The directory where the db folder will be created (default: current directory).
+    overwrite (bool): Whether to overwrite existing files (except models.py and static_data.py).</p>
+
+<p>Example:
+    import practicuscore as prt
+    prt.db.init(overwrite=True)</p>
+</div>
+
+
+                            </div>
+                            <div id="db.revision" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">revision</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">message</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#db.revision"></a>
+    
+            <div class="docstring"><p>Generate a new Alembic revision with autogeneration using PRT_DB_CONN_STR OS env variable as connection string.</p>
+
+<p>The revision message must be 75 characters or fewer. After the revision is
+generated, review the migration script under db/migrations/versions and adjust
+the auto-detected changes before proceeding with an upgrade.</p>
+
+<p>Parameters:
+    message (str): The revision message (max 75 characters).</p>
+
+<p>Example:
+    import practicuscore as prt
+    prt.db.revision("Added new model")</p>
+</div>
+
+
+                            </div>
+                            <div id="db.upgrade" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">upgrade</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">offline</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#db.upgrade"></a>
+    
+            <div class="docstring"><p>Upgrade the database to the latest revision using PRT_DB_CONN_STR OS env variable as connection string.</p>
+
+<p>Supports two modes:</p>
+
+<ul>
+<li>Online mode (default): Applies the latest migration revisions directly.</li>
+<li>Offline mode: Generates a SQL script (using --sql) that you can review and
+manually apply to update your database.</li>
+</ul>
+
+<p>Parameters:
+    offline (bool): If True, generate a SQL script instead of applying changes.
+                   Defaults to False.</p>
+
+<p>Example:
+    import practicuscore as prt</p>
+
+<pre><code># Online upgrade:
+prt.db.upgrade()
+
+# Offline upgrade (generate SQL script):
+prt.db.upgrade(offline=True)
+</code></pre>
+</div>
+
+
+                            </div>
+                            <div id="db.upsert_static_data" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">upsert_static_data</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#db.upsert_static_data"></a>
+    
+            <div class="docstring"><p>Upserts (inserts, or updates if exists) static data to the app database using db/static_data.py file in current folder
+using PRT_DB_CONN_STR OS env variable as connection string.
+Please make sure your has static primary keys, and not auto-increment primary keys.
+Without static primary keys, you will insert new data on each run.</p>
+
+<p>Returns:</p>
+
+<ul>
+<li>Dictionary of model name and number of rows upserted</li>
+</ul>
+
+<p>Example:
+    import practicuscore as prt
+    prt.db.upsert_static_data()</p>
+</div>
+
+
+                            </div>
+                </section>
                 <section id="Region">
                     <div class="attr class">
             
@@ -6427,7 +7155,7 @@ By interacting with a <code><a href="#Region">Region</a></code>, you can:</p>
 <li>Deploy and manage ML models, view model prefixes and versions.</li>
 <li>Deploy and manage Streamlit-based applications.</li>
 <li>Manage data connections (e.g., S3, SQL databases, Snowflake).</li>
-<li>Work with add-ons and external services integrated into the Practicus AI ecosystem.</li>
+<li>Work with add-ons integrated into the Practicus AI ecosystem.</li>
 </ul>
 
 <p><strong>Key Concepts:</strong></p>
@@ -6457,7 +7185,7 @@ and configurations do not conflict across environments.</li>
 
 <span class="c1"># Deploy a model or app</span>
 <span class="n">region</span><span class="o">.</span><span class="n">deploy_model</span><span class="p">(</span><span class="n">deployment_key</span><span class="o">=</span><span class="s2">&quot;my_model_service&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;mymodel&quot;</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;model_v1&quot;</span><span class="p">)</span>
-<span class="n">region</span><span class="o">.</span><span class="n">deploy_app</span><span class="p">(</span><span class="n">deployment_setting_key</span><span class="o">=</span><span class="s2">&quot;my_app_service&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">)</span>
+<span class="n">region</span><span class="o">.</span><span class="n">deploy_app</span><span class="p">(</span><span class="n">deployment_setting_key</span><span class="o">=</span><span class="s2">&quot;my_app_service&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">)</span>
 
 <span class="c1"># Manage data connections</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_connection</span><span class="p">(</span><span class="s2">&quot;my_database&quot;</span><span class="p">)</span>
@@ -7302,7 +8030,7 @@ deployments under a logical namespace.</p>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">deploy_app</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+        <span class="name">deploy_app</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -7319,6 +8047,13 @@ deployments under a logical namespace.</p>
 <li>app_dir (str | None): The directory with app files. If None, current directory is used.</li>
 <li>visible_name (str | None): User-facing name of the app.</li>
 <li>description (str | None): Short description of the app.</li>
+<li>startup_script (str | None): Startup script to run each time the app kubernetes pod starts.
+Note: App deployment setting can also have a startup script defined, in which case that script would run first.</li>
+<li>env_variables (dict | None): OS environment variables to pass to the App. Shared for all app versions.</li>
+<li>personal_secrets (list[str] | None): List of personal secrets to pull from the vault.
+You can use PERSONAL_SECRET_1:NEW_OS_ENV format to rename the OS environment variable.</li>
+<li>shared_secrets (list[str] | None): Shared secrets saved by the admin in the vault.
+You can use SHARED_SECRET_1:NEW_OS_ENV format to rename the OS environment variable.</li>
 <li>icon (str | None): Font Awesome icon name.</li>
 </ul>
 
@@ -7327,13 +8062,6 @@ deployments under a logical namespace.</p>
 <ul>
 <li>(str, str): (UI URL, API URL)</li>
 </ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">ui_url</span><span class="p">,</span> <span class="n">api_url</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">deploy_app</span><span class="p">(</span><span class="s2">&quot;my_app_service&quot;</span><span class="p">,</span> <span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="s2">&quot;app_v1&quot;</span><span class="p">,</span> <span class="n">app_dir</span><span class="o">=</span><span class="s2">&quot;app_files/&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
 </div>
 
 
@@ -7361,7 +8089,7 @@ deployments under a logical namespace.</p>
 <p><strong>Example:</strong></p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">delete_app</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">delete_app</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my-app&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -7392,7 +8120,83 @@ deployments under a logical namespace.</p>
 <p><strong>Example:</strong></p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">delete_app_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">delete_app_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my-app&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="Region.prepare_app_db" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">prepare_app_db</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Region.prepare_app_db"></a>
+    
+            <div class="docstring"><p>Prepares database for an app by creating a database schema dedicated for the selected app_prefix and app_name, using database settings from deployment_setting_key.
+Since app versions can have a different deployment_settings, please make sure database schema and settings are compatible
+for all app versions.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>prefix (str): The app prefix.</li>
+<li>app_name (str): The app name.</li>
+<li>deployment_setting_key (str): App deployment setting key.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>(str, str): A tuple of (connection string, database schema name).</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">prepare_app_db</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my-app&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="Region.remove_app_db" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">remove_app_db</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Region.remove_app_db"></a>
+    
+            <div class="docstring"><p><strong>DELETES DATA</strong> from the db dedicated to the app.
+Resets database for the app by deleting the database schema dedicated for the selected app_prefix and app_name,
+using the db configuration of deployment_setting_key.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>prefix (str): The app prefix.</li>
+<li>app_name (str): The app name.</li>
+<li>deployment_setting_key (str): App deployment setting key.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>None</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">reset_app_db</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my-app&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -7667,7 +8471,7 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
     </div>
     <a class="headerlink" href="#Region.get_addon"></a>
     
-            <div class="docstring"><p>Retrieves an AddOn (external service) by its key.</p>
+            <div class="docstring"><p>Retrieves an AddOn by its key.</p>
 
 <p><strong>Parameters:</strong></p>
 
@@ -7717,6 +8521,38 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">open_addon</span><span class="p">(</span><span class="s2">&quot;my_addon_key&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="Region.get_addon_access_token" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_addon_access_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">addon_helper</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Region.get_addon_access_token"></a>
+    
+            <div class="docstring"><p>Gets an API access token for the selected add-on. One of key or addon parameter must be provided.
+Please note that only some add-ons APIs can use these keys. Please check the documentation to learn more.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>key (str | None): The unique key of the add-on. You can use prt.addon_list to view all the add-ons you have access to.</li>
+<li>addon (AddOn | None): The unique key of the add-on. You can use prt.addon_list to view all the add-ons you have access to.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">add_ons</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">addon_list</span>
+<span class="c1"># An access token for the first add-on in your list.</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_addon_access_token</span><span class="p">(</span><span class="n">prt</span><span class="o">.</span><span class="n">addon_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -10817,6 +11653,42 @@ configure their levels and outputs independently.</p>
     
 
                             </div>
+                            <div id="Log.MQ" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MQ</span>        =
+<span class="default_value">&lt;<a href="#Log.MQ">Log.MQ</a>: &#39;practicus.core.mq&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.MQ"></a>
+    
+    
+
+                            </div>
+                            <div id="Log.NOTIFY" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NOTIFY</span>        =
+<span class="default_value">&lt;<a href="#Log.NOTIFY">Log.NOTIFY</a>: &#39;practicus.core.notify&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.NOTIFY"></a>
+    
+    
+
+                            </div>
+                            <div id="Log.DB" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DB</span>        =
+<span class="default_value">&lt;<a href="#Log.DB">Log.DB</a>: &#39;practicus.core.db&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.DB"></a>
+    
+    
+
+                            </div>
                 </section>
                 <section id="set_logging_level">
                     <div class="attr function">
@@ -11327,6 +12199,229 @@ Generally not recommended unless working with trusted but self-signed certs.</p>
 <ul>
 <li>str: A JSON-encoded string of the WorkerConfig.</li>
 </ul>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="ImageConfig">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">ImageConfig</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig"></a>
+    
+            <div class="docstring"><p>ImageConfig is used within the Practicus AI platform to configure how
+container images are built, pulled, and managed. This configuration
+can be used to:</p>
+
+<ul>
+<li>Provide registry credentials (username/password or use an existing
+Kubernetes secret).</li>
+<li>Control Kubernetes pull policies.</li>
+<li>Enable/disable container-building capabilities.</li>
+<li>Specify builder configuration (capacity, insecure registries, custom builder URL).</li>
+</ul>
+
+<p>For example, you might want to create an <code><a href="#ImageConfig">ImageConfig</a></code> to build or pull
+images from a private registry. You can set a username/password pair, or
+refer to an existing <code><a href="#ImageConfig.repo_secret_name">repo_secret_name</a></code> in your Kubernetes environment.
+If you enable a builder (<code>builder=True</code>), you can fine-tune how much of
+the Worker capacity is used for building images (<code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>) and
+define insecure registries or custom builder URLs.</p>
+</div>
+
+
+                            <div id="ImageConfig.repo_username" class="classattr">
+                                <div class="attr variable">
+            <span class="name">repo_username</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.repo_username"></a>
+    
+            <div class="docstring"><p>Username for the container registry. Leave blank if not needed or if using repo_secret_name.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.repo_password" class="classattr">
+                                <div class="attr variable">
+            <span class="name">repo_password</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.repo_password"></a>
+    
+            <div class="docstring"><p>Password or token for the container registry. Leave blank if not needed or if using repo_secret_name.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.repo_secret_name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">repo_secret_name</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.repo_secret_name"></a>
+    
+            <div class="docstring"><p>Kubernetes secret name for the container registry.
+If this is set, you must not set <code><a href="#ImageConfig.repo_username">repo_username</a></code> or <code><a href="#ImageConfig.repo_password">repo_password</a></code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.pull_policy" class="classattr">
+                                <div class="attr variable">
+            <span class="name">pull_policy</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.pull_policy"></a>
+    
+            <div class="docstring"><p>Kubernetes pull policy for the container. Valid values:</p>
+
+<ul>
+<li>Always</li>
+<li>IfNotPresent</li>
+<li>Never
+Leave empty to use the default setting.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.builder" class="classattr">
+                                <div class="attr variable">
+            <span class="name">builder</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.builder"></a>
+    
+            <div class="docstring"><p>If True, enables container-building functionality for custom images.
+Must be set to True in order to configure builder-specific fields.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.builder_capacity" class="classattr">
+                                <div class="attr variable">
+            <span class="name">builder_capacity</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.builder_capacity"></a>
+    
+            <div class="docstring"><p>Defines the percentage (1–99) of Worker capacity allocated for building images.
+Can only be set if <code>builder=True</code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.insecure_registries" class="classattr">
+                                <div class="attr variable">
+            <span class="name">insecure_registries</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.insecure_registries"></a>
+    
+            <div class="docstring"><p>Comma-separated list of container registries to treat as insecure (HTTP instead of HTTPS).
+This may be needed if you host or pull images from registries without TLS/SSL.
+Can only be set if <code>builder=True</code>.</p>
+
+<p>Note: If you only need to push insecurely (rather than pulling base images), you can
+skip this and select "insecure push" at run/build time instead.
+E.g. 'insecure_registry1.mycompany.com,insecure_registry2.mycompany.com, ..'</p>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.custom_builder_url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">custom_builder_url</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.custom_builder_url"></a>
+    
+            <div class="docstring"><p>Optional custom image builder URL that extends or inherits from:</p>
+
+<ul>
+<li>ghcr.io/practicusai/practicus-builder</li>
+<li>or ../practicus-builder-privileged
+Can only be set if <code>builder=True</code>.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.validate_pull_policy" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_validator">@field_validator(&#39;pull_policy&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_pull_policy</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.validate_pull_policy"></a>
+    
+    
+
+                            </div>
+                            <div id="ImageConfig.validate_builder_capacity" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_validator">@field_validator(&#39;builder_capacity&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_builder_capacity</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span></span><span class="return-annotation">) -> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.validate_builder_capacity"></a>
+    
+    
+
+                            </div>
+                            <div id="ImageConfig.validate_model" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;before&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">values</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.validate_model"></a>
+    
+            <div class="docstring"><p>Cross-field validation:</p>
+
+<ul>
+<li><code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>, <code><a href="#ImageConfig.insecure_registries">insecure_registries</a></code>, and <code><a href="#ImageConfig.custom_builder_url">custom_builder_url</a></code>
+can only be set if <code>builder=True</code>.</li>
+<li>If <code><a href="#ImageConfig.repo_secret_name">repo_secret_name</a></code> is set, neither <code><a href="#ImageConfig.repo_username">repo_username</a></code> nor <code><a href="#ImageConfig.repo_password">repo_password</a></code>
+can be specified.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="ImageConfig.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ImageConfig.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
 </div>
 
 
@@ -11895,228 +12990,6 @@ exploration, experiments, or debugging.</p>
 
                             </div>
                 </section>
-                <section id="ImageConfig">
-                    <div class="attr class">
-            
-    <span class="def">class</span>
-    <span class="name">ImageConfig</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig"></a>
-    
-            <div class="docstring"><p>ImageConfig is used within the Practicus AI platform to configure how
-container images are built, pulled, and managed. This configuration
-can be used to:</p>
-
-<ul>
-<li>Provide registry credentials (username/password or use an existing
-Kubernetes secret).</li>
-<li>Control Kubernetes pull policies.</li>
-<li>Enable/disable container-building capabilities.</li>
-<li>Specify builder configuration (capacity, insecure registries, custom builder URL).</li>
-</ul>
-
-<p>For example, you might want to create an <code><a href="#ImageConfig">ImageConfig</a></code> to build or pull
-images from a private registry. You can set a username/password pair, or
-refer to an existing <code><a href="#ImageConfig.repo_secret_name">repo_secret_name</a></code> in your Kubernetes environment.
-If you enable a builder (<code>builder=True</code>), you can fine-tune how much of
-the Worker capacity is used for building images (<code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>) and
-define insecure registries or custom builder URLs.</p>
-</div>
-
-
-                            <div id="ImageConfig.repo_username" class="classattr">
-                                <div class="attr variable">
-            <span class="name">repo_username</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.repo_username"></a>
-    
-            <div class="docstring"><p>Username for the container registry. Leave blank if not needed or if using repo_secret_name.</p>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.repo_password" class="classattr">
-                                <div class="attr variable">
-            <span class="name">repo_password</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.repo_password"></a>
-    
-            <div class="docstring"><p>Password or token for the container registry. Leave blank if not needed or if using repo_secret_name.</p>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.repo_secret_name" class="classattr">
-                                <div class="attr variable">
-            <span class="name">repo_secret_name</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.repo_secret_name"></a>
-    
-            <div class="docstring"><p>Kubernetes secret name for the container registry.
-If this is set, you must not set <code><a href="#ImageConfig.repo_username">repo_username</a></code> or <code><a href="#ImageConfig.repo_password">repo_password</a></code>.</p>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.pull_policy" class="classattr">
-                                <div class="attr variable">
-            <span class="name">pull_policy</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.pull_policy"></a>
-    
-            <div class="docstring"><p>Kubernetes pull policy for the container. Valid values:</p>
-
-<ul>
-<li>Always</li>
-<li>IfNotPresent</li>
-<li>Never
-Leave empty to use the default setting.</li>
-</ul>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.builder" class="classattr">
-                                <div class="attr variable">
-            <span class="name">builder</span><span class="annotation">: bool | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.builder"></a>
-    
-            <div class="docstring"><p>If True, enables container-building functionality for custom images.
-Must be set to True in order to configure builder-specific fields.</p>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.builder_capacity" class="classattr">
-                                <div class="attr variable">
-            <span class="name">builder_capacity</span><span class="annotation">: int | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.builder_capacity"></a>
-    
-            <div class="docstring"><p>Defines the percentage (1–99) of Worker capacity allocated for building images.
-Can only be set if <code>builder=True</code>.</p>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.insecure_registries" class="classattr">
-                                <div class="attr variable">
-            <span class="name">insecure_registries</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.insecure_registries"></a>
-    
-            <div class="docstring"><p>Comma-separated list of container registries to treat as insecure (HTTP instead of HTTPS).
-This may be needed if you host or pull images from registries without TLS/SSL.
-Can only be set if <code>builder=True</code>.</p>
-
-<p>Note: If you only need to push insecurely (rather than pull), you can
-skip this and select "insecure push" at run/build time instead.</p>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.custom_builder_url" class="classattr">
-                                <div class="attr variable">
-            <span class="name">custom_builder_url</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.custom_builder_url"></a>
-    
-            <div class="docstring"><p>Optional custom image builder URL that extends or inherits from:</p>
-
-<ul>
-<li>ghcr.io/practicusai/practicus-builder</li>
-<li>or ../practicus-builder-privileged
-Can only be set if <code>builder=True</code>.</li>
-</ul>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.validate_pull_policy" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-field_validator">@field_validator(&#39;pull_policy&#39;)</div>
-
-        <span class="def">def</span>
-        <span class="name">validate_pull_policy</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.validate_pull_policy"></a>
-    
-    
-
-                            </div>
-                            <div id="ImageConfig.validate_builder_capacity" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-field_validator">@field_validator(&#39;builder_capacity&#39;)</div>
-
-        <span class="def">def</span>
-        <span class="name">validate_builder_capacity</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span></span><span class="return-annotation">) -> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.validate_builder_capacity"></a>
-    
-    
-
-                            </div>
-                            <div id="ImageConfig.validate_model" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;before&#39;)</div>
-
-        <span class="def">def</span>
-        <span class="name">validate_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">values</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.validate_model"></a>
-    
-            <div class="docstring"><p>Cross-field validation:</p>
-
-<ul>
-<li><code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>, <code><a href="#ImageConfig.insecure_registries">insecure_registries</a></code>, and <code><a href="#ImageConfig.custom_builder_url">custom_builder_url</a></code>
-can only be set if <code>builder=True</code>.</li>
-<li>If <code><a href="#ImageConfig.repo_secret_name">repo_secret_name</a></code> is set, neither <code><a href="#ImageConfig.repo_username">repo_username</a></code> nor <code><a href="#ImageConfig.repo_password">repo_password</a></code>
-can be specified.</li>
-</ul>
-</div>
-
-
-                            </div>
-                            <div id="ImageConfig.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
-                </section>
                 <section id="GitConfig">
                     <div class="attr class">
             
@@ -12243,6 +13116,293 @@ can be specified.</li>
         
     </div>
     <a class="headerlink" href="#GitConfig.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="MQConfig">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">MQConfig</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig"></a>
+    
+            <div class="docstring"><p>MQConfig is a unified configuration model for both RabbitMQ publishers and consumers (subscribers).
+It encapsulates all necessary parameters for connecting to a RabbitMQ broker and configuring
+message publishing and consumption (subscription). Adjust these parameters to fine-tune your publishers
+and consumers (subscribers).</p>
+
+<p>In production, ensure that the topology (exchanges, queues, bindings) is already configured.
+Alternatively, if you have configure privileges, call <code><a href="#mq.apply_topology">mq.apply_topology</a>(...)</code> to create
+the necessary artifacts, or <code><a href="#mq.export_topology">mq.export_topology</a>(...)</code> to export artifacts and let an admin
+create the topology resources.</p>
+</div>
+
+
+                            <div id="MQConfig.conn_str" class="classattr">
+                                <div class="attr variable">
+            <span class="name">conn_str</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.conn_str"></a>
+    
+            <div class="docstring"><p>AMQP URL (e.g. "amqp://user:pass@host/vhost").</p>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.queue" class="classattr">
+                                <div class="attr variable">
+            <span class="name">queue</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.queue"></a>
+    
+            <div class="docstring"><p>Queue name.</p>
+
+<ul>
+<li>Required for consumers (subscribers).</li>
+<li>For publishers, required if <code><a href="#MQConfig.exchange">exchange</a></code> is None (i.e., for direct-to-queue publishing).</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.exchange" class="classattr">
+                                <div class="attr variable">
+            <span class="name">exchange</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.exchange"></a>
+    
+            <div class="docstring"><p>Exchange name.</p>
+
+<ul>
+<li>If omitted, publishers use the channel’s default exchange.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.exchange_type" class="classattr">
+                                <div class="attr variable">
+            <span class="name">exchange_type</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.exchange_type"></a>
+    
+            <div class="docstring"><p>Exchange type ("direct", "fanout", "topic", "headers"). Defaults to "direct" if omitted.</p>
+
+<ul>
+<li>Ignored when publishing directly to a queue.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.queue_ttl" class="classattr">
+                                <div class="attr variable">
+            <span class="name">queue_ttl</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.queue_ttl"></a>
+    
+            <div class="docstring"><p>Consumers (Subscribers) only:</p>
+
+<ul>
+<li>Message TTL in milliseconds (e.g. 60000).</li>
+<li>If omitted, no TTL is set.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.routing_key" class="classattr">
+                                <div class="attr variable">
+            <span class="name">routing_key</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.routing_key"></a>
+    
+            <div class="docstring"><p>Routing key for publishing.</p>
+
+<ul>
+<li>For direct-to-queue publishing, defaults to the queue name if not provided.</li>
+<li>Otherwise defaults to an empty string.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.max_retries" class="classattr">
+                                <div class="attr variable">
+            <span class="name">max_retries</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.max_retries"></a>
+    
+            <div class="docstring"><p>Maximum number of times a message is retried (based on x-death).</p>
+
+<ul>
+<li>Defaults to 5.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.dead_letter_exchange" class="classattr">
+                                <div class="attr variable">
+            <span class="name">dead_letter_exchange</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.dead_letter_exchange"></a>
+    
+            <div class="docstring"><p>Dead-letter exchange name.</p>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.dead_letter_routing_key" class="classattr">
+                                <div class="attr variable">
+            <span class="name">dead_letter_routing_key</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.dead_letter_routing_key"></a>
+    
+            <div class="docstring"><p>Routing key for dead-lettering. Defaults to an empty string.</p>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.headers" class="classattr">
+                                <div class="attr variable">
+            <span class="name">headers</span><span class="annotation">: dict | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.headers"></a>
+    
+            <div class="docstring"><p>For headers exchanges:</p>
+
+<ul>
+<li>Attached to the message when publishing and used as binding arguments when consuming (subscribing).</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.verify_delivery" class="classattr">
+                                <div class="attr variable">
+            <span class="name">verify_delivery</span><span class="annotation">: bool</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.verify_delivery"></a>
+    
+            <div class="docstring"><p>If True, sets the broker's <code>mandatory</code> flag during publishing.</p>
+
+<ul>
+<li>In principle, unroutable messages would be returned by the broker.</li>
+<li>However, the current code does NOT attach a return-listener callback, so it may
+not fully handle the “unroutable” scenario. General publish failures are retried.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.prefetch_count" class="classattr">
+                                <div class="attr variable">
+            <span class="name">prefetch_count</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.prefetch_count"></a>
+    
+            <div class="docstring"><p>Consumers (Subscribers) only:</p>
+
+<ul>
+<li>Configures channel prefetch (QoS) if set.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.user_name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">user_name</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.user_name"></a>
+    
+            <div class="docstring"><p>Returns the user name extracted from conn_str.</p>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.password" class="classattr">
+                                <div class="attr variable">
+            <span class="name">password</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.password"></a>
+    
+            <div class="docstring"><p>Returns the password extracted from conn_str.</p>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.host" class="classattr">
+                                <div class="attr variable">
+            <span class="name">host</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.host"></a>
+    
+            <div class="docstring"><p>Returns the host extracted from conn_str.</p>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.vhost" class="classattr">
+                                <div class="attr variable">
+            <span class="name">vhost</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.vhost"></a>
+    
+            <div class="docstring"><p>Returns the virtual host (vhost) extracted from conn_str.
+The vhost is taken from the path component (excluding the leading '/').</p>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.model_config"></a>
     
             <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
 </div>

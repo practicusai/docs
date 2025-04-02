@@ -20,7 +20,7 @@ Generative AI (GenAI) is revolutionizing how we interact with and utilize AI mod
 
 ## Key Areas of Focus
 
-### Building Visual Applications for GenAI
+### Building Applications for GenAI
 With Practicus AI, you can create visually rich, interactive applications that leverage GenAI capabilities. You can integrate Generative AI models into applications to provide functionalities such as:
 
 - Chatbots for customer service or technical support.
@@ -63,4 +63,4 @@ Practicus AI enables you to deploy custom fine-tuned LLMs tailored to your speci
 
 ---
 
-**Previous**: [Generating Wokflows](../workflows/AI-Studio/generating-wokflows.md) | **Next**: [Apps > Building Visual Apps](apps/building-visual-apps.md)
+**Previous**: [Insurance Mlflow](../workflows/mlflow/insurance-mlflow.md) | **Next**: [Apps > Build](apps/build.md)

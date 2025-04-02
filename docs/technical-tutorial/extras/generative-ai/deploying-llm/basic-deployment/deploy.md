@@ -18,10 +18,6 @@ jupyter:
 
 ##### Deploying a model with Practicus AI involves a sequence of steps designed to securely and efficiently transition a model from development to a production-ready state. Here's a step-by-step explanation, aimed at providing clarity and guidance:
 
-```python
-import practicuscore as prt
-region = prt.get_region() # The region where the deployments are stored
-```
 
 ### Defining parameters.
  
@@ -36,6 +32,11 @@ _model_name = None # e.g. "llama-1b-basic-test"
 
 ```python
 assert _deployment_key and _prefix and _model_name, "Please enter your deployment parameters."
+```
+
+```python
+import practicuscore as prt
+region = prt.get_region() # The region where the deployments are stored
 ```
 
 ##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:

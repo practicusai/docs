@@ -34,23 +34,9 @@ model_name = None
 model_prefix = None
 
 vector_store = None
-
 if vector_store == 'MilvusDB':
     milvus_uri = None # Milvus connection url, E.g. 'company.practicus.milvus.com'
-    
-```
 
-If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
-
-```python
-# Let's list our models and select one of them.
-my_model_list = region.model_list
-display(my_model_list.to_pandas())
-```
-
-```python
-my_model_prefixes = region.model_prefix_list
-display(my_model_prefixes.to_pandas())
 ```
 
 ```python
@@ -64,6 +50,19 @@ assert model_prefix, "Please enter your embedding model_prefix."
 assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
 if vector_store == 'MilvusDB':
     assert 'milvus_uri', "Please enter your milvus connection uri"
+```
+
+If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
+
+```python
+# Let's list our models and select one of them.
+my_model_list = region.model_list
+display(my_model_list.to_pandas())
+```
+
+```python
+my_model_prefixes = region.model_prefix_list
+display(my_model_prefixes.to_pandas())
 ```
 
 ### Preparing Data
@@ -340,4 +339,4 @@ print(answer)
 
 ---
 
-**Previous**: [API Triggers For Airflow](../../workflows/api-triggers-for-airflow.md) | **Next**: [Mobile Banking > Mobile-Banking](../mobile-banking/mobile-banking.md)
+**Previous**: [Prtchatbot](../prtchatbot/prtchatbot.md) | **Next**: [Mobile Banking > Mobile-Banking](../mobile-banking/mobile-banking.md)

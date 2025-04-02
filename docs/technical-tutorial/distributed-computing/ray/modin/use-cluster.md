@@ -30,7 +30,7 @@ ray = prt.distributed.get_client()
 # import pandas as pd
 import modin.pandas as pd
 
-df = pd.read_csv("/home/ubuntu/samples/airline.csv")
+df = pd.read_csv("/home/ubuntu/samples/data/airline.csv")
 
 print("DataFrame type is:", type(df))
 

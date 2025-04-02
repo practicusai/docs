@@ -38,7 +38,7 @@ on:
 
 jobs:
   Sample-Job:
-    runs-on: practicus-24.8.3
+    runs-on: practicus-24.8.4
     steps:
       - name: Say Hello
         run: echo "Hello"
@@ -56,6 +56,16 @@ You can trigger Practicus AI workers, tasks, or container builds directly in you
 ### Step 1: Obtain a Practicus AI Refresh Token
 In Practicus AI, generate a refresh token for your account, then store it privately.
 
+
+```python
+worker_size = None
+startup_script = """echo "Hello from Practicus AI unified DevOps""""
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert startup_script, "Please enter your startup_script."
+```
 
 ```python
 import practicuscore as prt
@@ -80,10 +90,8 @@ Below is a simple Python script (`cicd/start_worker.py`) that spins up a Practic
 import practicuscore as prt
 
 worker_config = prt.WorkerConfig(
-    worker_size="X-Small",
-    startup_script="""
-    echo "Hello from Practicus AI unified DevOps"
-    """
+    worker_size=worker_size,
+    startup_script=startup_script
 )
 
 print("Starting worker...")
@@ -111,7 +119,7 @@ env:
 
 jobs:
   Explore-PracticusAI-Actions:
-    runs-on: practicus-24.8.3
+    runs-on: practicus-24.8.4
     steps:
       - uses: actions/checkout@v4
 
@@ -141,7 +149,7 @@ print("Hello from a simple task")
 import practicuscore as prt
 
 worker_config = prt.WorkerConfig(
-    worker_size="X-Small",
+    worker_size=worker_size,
 )
 
 task_file = "task.py"  # The file to run
@@ -176,7 +184,7 @@ env:
 
 jobs:
   Explore-PracticusAI-Actions:
-    runs-on: practicus-24.8.3
+    runs-on: practicus-24.8.4
     steps:
       - uses: actions/checkout@v4
 
@@ -217,7 +225,7 @@ git_config = prt.GitConfig(
 
 # Create a WorkerConfig that auto-clones the repo
 worker_config = prt.WorkerConfig(
-    worker_size="X-Small",
+    worker_size=worker_size,
     personal_secrets=[git_secret_name],
     git_configs=[git_config],
 )
@@ -255,7 +263,7 @@ env:
 
 jobs:
   Explore-PracticusAI-Actions:
-    runs-on: practicus-24.8.3
+    runs-on: practicus-24.8.4
     steps:
       - uses: actions/checkout@v4
 

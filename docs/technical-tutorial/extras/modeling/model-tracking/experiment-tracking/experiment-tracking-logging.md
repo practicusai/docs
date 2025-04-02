@@ -32,16 +32,16 @@ experiment_name = None
 ```
 
 ```python
+assert service_name, "Please select a service_name"
+assert service_key, "Please select a service_key"
+assert experiment_name, "Please enter a experiment_name"
+```
+
+```python
 # If you don't know service key and name you can checkout down below
 
 addon_list = region.addon_list
 display(addon_list.to_pandas())
-```
-
-```python
-assert service_name, "Please select a service_name"
-assert service_key, "Please select a service_key"
-assert experiment_name, "Please enter a experiment_name"
 ```
 
 ```python

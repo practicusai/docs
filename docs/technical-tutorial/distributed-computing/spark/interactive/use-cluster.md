@@ -58,6 +58,17 @@ coordinator_worker.terminate()
 prt.get_local_worker().terminate()
 ```
 
+### Troubleshooting
+
+If you’re experiencing issues with an interactive cluster that doesn’t run job/train.py, please follow these steps:
+
+1. **Agent Count Mismatch**:
+   If the number of distributed agents shown by `prt.distributed.get_client()` is less than what you expected, wait a moment and then run `get_client()` again. This is usually because the agents have not yet joined the cluster.
+   *Note: Batch jobs automatically wait for agents to join.*
+
+2. **Viewing Logs**:
+   To view logs, navigate to the `~/my/.distributed` folder.
+
 <!-- #endregion -->
 
 

@@ -337,4 +337,4 @@ with st.sidebar:
 
 ---
 
-**Previous**: [Chatbot-Console-Openai](../chatbot-console-openai.md) | **Next**: [Data Analysis > Plot > Introduction](../../../data-analysis/plot/introduction.md)
+**Previous**: [Chatbot-Console-OpenAI](../chatbot-console-openai.md) | **Next**: [Data Analysis > Plot > Introduction](../../../data-analysis/plot/introduction.md)

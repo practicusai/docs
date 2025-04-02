@@ -24,6 +24,18 @@ In this example we will:
 - And copy job.py under this (spark_with_job) folder
 
 ```python
+worker_size = None
+worker_count = None
+log_level = "DEBUG"
+```
+
+```python
+assert worker_size, "Please enter your worker_size."
+assert worker_count, "Please enter your worker_count."
+assert log_level, "Please enter your log_level."
+```
+
+```python
 import practicuscore as prt
 
 job_dir = "~/my/spark_with_job/"
@@ -33,15 +45,16 @@ distributed_config = prt.DistJobConfig(
     job_type = prt.DistJobType.spark,
     job_dir = job_dir,
     py_file = "job.py",
-    worker_count = 2,
+    worker_count = worker_count,
     terminate_on_completion = False
 )
 
 worker_config = prt.WorkerConfig(
-    worker_size="Small",
+    worker_size=worker_size,
     distributed_config=distributed_config,
-    log_level="DEBUG"
+    log_level=log_level
 )
+
 coordinator_worker = prt.create_worker(
     worker_config=worker_config,
 )
@@ -83,7 +96,7 @@ spark = SparkSession.builder \
     .appName("Advanced Data Processing") \
     .getOrCreate()
 
-file_path = "/home/ubuntu/samples/insurance.csv"
+file_path = "/home/ubuntu/samples/data/insurance.csv"
 data = spark.read.csv(file_path, header=True, inferSchema=True)
 missing_data = data.select([count(when(col(c).isNull(), c)).alias(c) for c in data.columns])
 

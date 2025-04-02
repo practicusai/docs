@@ -188,6 +188,7 @@ prt.workflows.deploy(
 )
 ```
 
+<!-- #region -->
 ## Additional Notes and Customizations
 
 - **Running Shell Scripts:** Tasks don't have to be Python files; `.sh` scripts also work.
@@ -195,6 +196,34 @@ prt.workflows.deploy(
 - **Credential Management:** For security, consider storing credentials globally at the Airflow environment level. Avoid embedding sensitive info in local files.
 - **Multi-Region Deployments:** You can create workflows that run tasks in different regions. Just ensure the worker config `.json` files point to the correct `service_url`, `email`, and `refresh_key`.
 - **Customizing the DAG:** Edit the generated DAG file to change default parameters, logging settings, or to add custom logic. For complex scenarios (e.g., different logging strategies), you can customize the `run_airflow_task` calls as shown in the example snippet.
+- **Runtime parameters and dynamic tasks:** To pass DAG runtime parameters to a Worker, provide the dynamic `env_variables` argument when calling the task—these values will be set as OS environment variables in the Worker that executes the task. For example, the `dynamic_task` helper function below retrieves the runtime execution date and injects it as an environment variable. Instead of using separate code to modify parameters, you can simply define a helper function that receives **kwargs, constructs your dynamic parameters, and then calls `prt.workflows.run_airflow_task` with those values, giving you the flexibility to adjust each task’s behavior dynamically.
+
+```python
+@dag(
+    # ...
+)
+def generate_dag():
+    def dynamic_task(**kwargs):
+        # Get the dynamic runtime parameter, e.g., the execution date.
+        execution_date = kwargs.get("execution_date", "")
+        # Build the env_variables dictionary.
+        env_variables = {
+            "EXECUTION_DATE": str(execution_date)
+        }
+        # Start the worker with the dynamic env_variables, which will be merged with existing parameters.
+        return prt.workflows.run_airflow_task(env_variables=env_variables, **kwargs)
+
+    # Instead of the below
+    # my_1st_task = task(prt.workflows.run_airflow_task, task_id="my_1st_task")()
+    # Use the dynamic_task function we defined above
+    my_1st_task = task(dynamic_task, task_id="my_1st_task")()
+
+    # ...
+```
+
+- In this example, the dynamic parameter (the `execution_date`) is captured at runtime and added to the `env_variables` dictionary. This dictionary is then passed to `prt.workflows.run_airflow_task` along with all other keyword arguments, ensuring that your Worker gets the merged configuration.
+
+<!-- #endregion -->
 
 
 ---
