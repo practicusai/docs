@@ -25,8 +25,12 @@ In this example, we demonstrate:
 ```python
 # Convenience classes, you can also use your own that are compatible with OpenAI APIs.
 from practicuscore.gen_ai import (
-    ChatCompletionRequest, ChatMessage, ChatCompletionResponseUsage, ChatCompletionResponseChoiceMessage, 
-    ChatCompletionResponseChoice, ChatCompletionResponse
+    ChatCompletionRequest,
+    ChatMessage,
+    ChatCompletionResponseUsage,
+    ChatCompletionResponseChoiceMessage,
+    ChatCompletionResponseChoice,
+    ChatCompletionResponse,
 )
 ```
 
@@ -47,24 +51,13 @@ print(request_json)
 ```python
 # Sample Response
 # 1) Create a usage object
-usage = ChatCompletionResponseUsage(
-    prompt_tokens=5,
-    completion_tokens=10,
-    total_tokens=15
-)
+usage = ChatCompletionResponseUsage(prompt_tokens=5, completion_tokens=10, total_tokens=15)
 
 # 2) Create a message for the choice
-choice_message = ChatCompletionResponseChoiceMessage(
-    role="assistant",
-    content="Hi there! How can I help you today?"
-)
+choice_message = ChatCompletionResponseChoiceMessage(role="assistant", content="Hi there! How can I help you today?")
 
 # 3) Create a choice object
-choice = ChatCompletionResponseChoice(
-    index=0,
-    message=choice_message,
-    finish_reason="stop"
-)
+choice = ChatCompletionResponseChoice(index=0, message=choice_message, finish_reason="stop")
 
 # 4) Finally, create the top-level response object
 response_obj = ChatCompletionResponse(
@@ -73,7 +66,7 @@ response_obj = ChatCompletionResponse(
     created=1700000000,
     model="gpt-3.5-turbo",
     usage=usage,
-    choices=[choice]
+    choices=[choice],
 )
 
 # Convert response to JSON
@@ -92,10 +85,7 @@ region = prt.get_default_region()
 
 # Identify the first available model deployment system
 if len(region.model_deployment_list) == 0:
-    raise SystemError(
-        "No model deployment systems are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model deployment systems are available. Please contact your system administrator.")
 elif len(region.model_deployment_list) > 1:
     print("Multiple model deployment systems found. Using the first one.")
 
@@ -104,10 +94,7 @@ deployment_key = model_deployment.key
 
 # Identify the first available model prefix
 if len(region.model_prefix_list) == 0:
-    raise SystemError(
-        "No model prefixes are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model prefixes are available. Please contact your system administrator.")
 elif len(region.model_prefix_list) > 1:
     print("Multiple model prefixes found. Using the first one.")
 
@@ -130,10 +117,7 @@ For the sake simplicity, we are deploying a model that just echoes what we send.
 ```python
 # Deploy model.py
 api_url, api_version_url, api_meta_url = prt.models.deploy(
-    deployment_key=deployment_key,
-    prefix=prefix,
-    model_name=model_name,
-    model_dir=model_dir
+    deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir
 )
 ```
 
@@ -158,12 +142,9 @@ print("API session token:", token)
 
 ```python
 # Now let's send a test request to our proxy using Python's requests.
-import requests 
+import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "application/json"}
 
 r = requests.post(api_url, headers=headers, data=request_json)
 if not r.ok:
@@ -190,8 +171,8 @@ You can also install and use the **OpenAI Python SDK**, then override its URLs t
 from openai import OpenAI
 
 client = OpenAI(
-    base_url = api_url,   # The proxy URL deployed via Practicus
-    api_key = token       # Practicus AI session token
+    base_url=api_url,  # The proxy URL deployed via Practicus
+    api_key=token,  # Practicus AI session token
 )
 
 print("Connecting to", client.base_url, "to test OpenAI SDK compatibility.")
@@ -200,7 +181,7 @@ response = client.chat.completions.create(
     model="llama2",  # Just an example model name
     messages=[
         {"role": "user", "content": "Testing SDK compatibility."},
-    ]
+    ],
 )
 
 print("\nResponse:")
@@ -224,8 +205,11 @@ if response.choices:
 ### model.py
 ```python
 from practicuscore.gen_ai import (
-    ChatCompletionRequest, ChatCompletionResponseUsage, ChatCompletionResponseChoiceMessage,
-    ChatCompletionResponseChoice, ChatCompletionResponse
+    ChatCompletionRequest,
+    ChatCompletionResponseUsage,
+    ChatCompletionResponseChoiceMessage,
+    ChatCompletionResponseChoice,
+    ChatCompletionResponse,
 )
 
 model = None
@@ -249,25 +233,16 @@ async def predict(payload_dict: dict, **kwargs):
         msgs += f"{(msg.role + ': ') if msg.role else ''}{msg.content}\n"
 
     # Usage (Optional)
-    usage = ChatCompletionResponseUsage(
-        prompt_tokens=5,
-        completion_tokens=10,
-        total_tokens=15
-    )
+    usage = ChatCompletionResponseUsage(prompt_tokens=5, completion_tokens=10, total_tokens=15)
 
     # Use your LLM model to generate a response.
     # This one just echoes back what the user asks.
     choice_message = ChatCompletionResponseChoiceMessage(
-        role="assistant",
-        content=f"You asked:\n{msgs}\nAnd I don't know how to respond yet."
+        role="assistant", content=f"You asked:\n{msgs}\nAnd I don't know how to respond yet."
     )
 
     # Create a choice object
-    choice = ChatCompletionResponseChoice(
-        index=0,
-        message=choice_message,
-        finish_reason="stop"
-    )
+    choice = ChatCompletionResponseChoice(index=0, message=choice_message, finish_reason="stop")
 
     # Finally, create the top-level response object
     open_ai_compatible_response = ChatCompletionResponse(

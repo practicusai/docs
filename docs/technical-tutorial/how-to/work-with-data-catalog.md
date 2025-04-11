@@ -20,15 +20,6 @@ Data sources can be Data Lakes, Object Storage (E.g. S3), Data Warehouses (E.g. 
 
 Data catalog info does **not** include details like the actual SQL queries to run, S3 keys to read etc., but just the info such as host address, port (if needed), user name, password etc. You can think of them as a "connection string" in most programming languages. 
 
-
-# Practicus AI Data Catalog
-
-Practicus AI provides a Data Catalog where you, or an admininstrator can save data source connection information. 
-
-Data sources can be Data Lakes, Object Storage (E.g. S3), Data Warehouses (E.g. Snowflake), Databases (e.g. Oracle) ...
-
-Data catalog info does **not** include details like the actual SQL queries to run, S3 keys to read etc., but just the info such as host address, port (if needed), user name, password etc. You can think of them as a "connection string" in most programming languages. 
-
 ```python
 import practicuscore as prt
 
@@ -40,15 +31,13 @@ region = prt.current_region()
 ```
 
 ```python
-# Let's get connections that we have access to 
+# Let's get connections that we have access to
 # If a connection is missing, please ask your admin to be granted access,
 # OR, create new connections using the Practicus AI App or SDK
 connections = region.connection_list
 
 if len(connections) == 0:
-    raise ConnectionError(
-        "You or an admin has not defined any connections yet. "
-        "This notebook will not be meaningful..")
+    raise ConnectionError("You or an admin has not defined any connections yet. This notebook will not be meaningful..")
 ```
 
 ```python
@@ -63,12 +52,12 @@ first_connection
 ```
 
 ```python
-# Is the data source read-only? 
+# Is the data source read-only?
 if first_connection.can_write:
     print("You can read from, and write to this data source.")
 else:
     print("Data source is read-only. You cannot write to this data-source.")
-    # Note: read-only data sources are created by Practicus AI admins 
+    # Note: read-only data sources are created by Practicus AI admins
     # and shared with users or user groups using Management Console.
 ```
 
@@ -104,11 +93,10 @@ This is the simplest option and does not use a central data catalog to store con
 # Let's get a worker to use, one that you are already working on, or a remote one.
 try:
     worker = region.get_local_worker()
-except: 
+except:
     workers = region.worker_list
     if len(workers) == 0:
-        raise ConnectionError(
-            "Please run this code on a Practicus AI worker, or have at least one active worker") 
+        raise ConnectionError("Please run this code on a Practicus AI worker, or have at least one active worker")
     worker = workers[0]
 ```
 
@@ -153,12 +141,13 @@ proc = worker.load("my_conn_conf.json")
 proc.show_head()
 proc.kill()
 
-import os 
+import os
+
 os.remove("my_conn_conf.json")
 ```
 
 ```python
-# You can use the appropriate conn conf class, 
+# You can use the appropriate conn conf class,
 #   which can offer some benefits such as intellisense in Jupyter or other IDE.
 # The below will use an Oracle Connection Configuration Class
 
@@ -171,7 +160,6 @@ oracle_conn_conf = OracleConnConf(
     user="alice",
     password="in-wonderland",
     sql_query="select * from my_table",
-
     # Wrong port !!
     db_port=100_000,
 )
@@ -237,8 +225,8 @@ type(conn_conf_object)
 ```
 
 ```python
-# Let's make sure we use a connection type that can run a SQL statement, 
-#   which will be a child class of Relational DB class RelationalConnConf. 
+# Let's make sure we use a connection type that can run a SQL statement,
+#   which will be a child class of Relational DB class RelationalConnConf.
 from practicuscore.api_base import RelationalConnConf
 
 if not isinstance(conn_conf_object, RelationalConnConf):
@@ -280,10 +268,10 @@ if redshift_conn:
 conn_with_credentials = {
     "connection_type": "SNOWFLAKE",
     "db_name": "my.snowflake.com",
-    # add warehouse etc. 
+    # add warehouse etc.
     "user": "bob",
     "password": "super-secret",
-    "sql_query": "Select * from Table"
+    "sql_query": "Select * from Table",
 }
 # proc = worker.load(conn_with_credentials)
 
@@ -295,4 +283,4 @@ conn_with_credentials = {
 
 ---
 
-**Previous**: [Work With Processes](work-with-processes.md) | **Next**: [Use Custom Metrics](use-custom-metrics.md)
+**Previous**: [Work With Processes](work-with-processes.md) | **Next**: [Caching Large Model Files](caching-large-model-files.md)

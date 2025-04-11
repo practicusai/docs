@@ -26,23 +26,23 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 _aws_access_key_id = None
 _aws_secret_access_key = None
-_bucket = None # The name of your target bucket, e.g. "my-data-bucket"
-_prefix = None # Your prefix within bucket e.g. cache/llama-1b-instruct/
+_bucket = None  # The name of your target bucket, e.g. "my-data-bucket"
+_prefix = None  # Your prefix within bucket e.g. cache/llama-1b-instruct/
 
-_folder_path = None # The local path containing files to upload.
-                    # e.g. "/home/ubuntu/shared/LLM-Models/llama-1B-instruct"
-                    
+_folder_path = None  # The local path containing files to upload.
+# e.g. "/home/ubuntu/shared/LLM-Models/llama-1B-instruct"
+
 _aws_session_token = None  # (Optional) AWS session token for temporary credentials
-_aws_region = None         # (Optional) Your AWS region. If unknown, you may leave it as None.
-_endpoint_url = None       # (Optional) Endpoint URL for S3-compatible services (e.g., MinIO API URL)
+_aws_region = None  # (Optional) Your AWS region. If unknown, you may leave it as None.
+_endpoint_url = None  # (Optional) Endpoint URL for S3-compatible services (e.g., MinIO API URL)
 
-_prefix = None  # (Optional) Prefix for organizing objects within the bucket. 
-                # Use None or "" for root-level placement, or specify something 
-                # like "folder" or "folder/subfolder" for nested directories.
+_prefix = None  # (Optional) Prefix for organizing objects within the bucket.
+# Use None or "" for root-level placement, or specify something
+# like "folder" or "folder/subfolder" for nested directories.
 
-_source_path_to_cut = None  # (Optional) A prefix within the local folder path 
-                            # that you want to remove from the uploaded object keys.
-                            # Leave as None to default to the entire folder path.
+_source_path_to_cut = None  # (Optional) A prefix within the local folder path
+# that you want to remove from the uploaded object keys.
+# Leave as None to default to the entire folder path.
 ```
 
 ```python
@@ -83,7 +83,7 @@ def upload_files(folder_path, bucket_name, prefix, s3_client):
 
                 # Use the relative path as the prefix for the S3 object key
                 s3_key = relative_path.replace("\\", "/")  # Ensure compatibility with S3 (Unix-style paths)
-                s3_key = prefix+s3_key
+                s3_key = prefix + s3_key
 
                 # Upload the file
                 s3_client.upload_file(full_path, bucket_name, s3_key)
@@ -100,11 +100,7 @@ def upload_files(folder_path, bucket_name, prefix, s3_client):
 ##### Before executing the upload and download functions, configure your S3 client with your AWS credentials. Ensure your AWS Access Key ID and AWS Secret Access Key are securely stored and not hard-coded or exposed in your scripts.
 
 ```python
-s3_client = boto3.client(
-    's3',
-    aws_access_key_id=_aws_access_key_id,
-    aws_secret_access_key=_aws_secret_access_key
-)
+s3_client = boto3.client("s3", aws_access_key_id=_aws_access_key_id, aws_secret_access_key=_aws_secret_access_key)
 ```
 
 ##### Now, call the upload_files function to upload your model directory to S3.
@@ -128,7 +124,7 @@ _upload_conf = prt.connections.UploadS3Conf(
     folder_path=_folder_path,
     source_path_to_cut=_source_path_to_cut,
     aws_access_key_id=_aws_access_key_id,
-    aws_secret_access_key=_aws_secret_access_key
+    aws_secret_access_key=_aws_secret_access_key,
 )
 
 prt.connections.upload_to_s3(_upload_conf)

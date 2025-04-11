@@ -1,4 +1,4 @@
-import practicuscore as prt 
+import practicuscore as prt
 from pydantic import BaseModel
 
 
@@ -26,10 +26,11 @@ async def connect():
     mq_conn = await prt.mq.connect(mq_config)
 
 
-async def run(payload: MyMsg, **kwargs):
+@prt.apps.api("/publish")
+async def publish(payload: MyMsg, **kwargs):
     if mq_conn is None:
         await connect()
 
     await prt.mq.publish(mq_conn, payload)
-    
+
     return {"ok": True}

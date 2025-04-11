@@ -47,8 +47,11 @@ Create `sensor.py` under `app/apis` folder.
 ```python
 # app/apis/sensor.py
 from starlette.requests import Request
+import practicuscore as prt
 
-async def run(request: Request, **kwargs):
+
+@prt.apps.api("/sensor")
+async def sensor(request: Request, **kwargs):
     table_name = request.query_params.get("table_name", None)
     assert table_name, "API request does not have table_name parameter, e.g. ../?table_name=my_table"
 
@@ -80,7 +83,7 @@ Below, we define notebook parameters for selecting which deployment setting, pre
 Adjust these values as needed.
 
 ```python
-# Parameters 
+# Parameters
 # Select the app deployment setting and prefix for the API
 app_deployment_key = None
 app_prefix = None
@@ -142,20 +145,14 @@ import requests
 sensor_api_url = api_url + "sensor/"  # The specific endpoint for the sensor
 
 # Optional parameters
-params = {
-    "table_name": "table_1"
-}
+params = {"table_name": "table_1"}
 
 headers = {
     "Authorization": f"Bearer {token}",
 }
 
 # Make a GET request to test
-resp = requests.get(
-    sensor_api_url,
-    headers=headers,
-    params=params
-)
+resp = requests.get(sensor_api_url, headers=headers, params=params)
 
 if resp.ok:
     print("Response text:")
@@ -241,6 +238,7 @@ http_conn_id = "http_sensor_test"
 connection = BaseHook.get_connection(http_conn_id)
 bearer_token = connection.password
 
+
 def check_api_response(response) -> bool:
     """Decides if the API response meets the condition to proceed."""
     # Convert response to a dictionary
@@ -250,6 +248,7 @@ def check_api_response(response) -> bool:
         print("Sensor criteria not met:", error)
     # Return True if "ok" is True, otherwise False
     return resp_dict.get("ok", False) is True
+
 
 @dag(
     dag_id=dag_id,
@@ -264,11 +263,11 @@ def check_api_response(response) -> bool:
 )
 def generate_dag():
     from airflow.providers.http.sensors.http import HttpSensor
-    
+
     wait_for_api = HttpSensor(
-        task_id='wait_for_http_sensor',
+        task_id="wait_for_http_sensor",
         http_conn_id=http_conn_id,
-        endpoint='sensor/',  # appended to the base URL in the Airflow connection
+        endpoint="sensor/",  # appended to the base URL in the Airflow connection
         request_params={
             "table_name": "table_1",
         },
@@ -276,13 +275,14 @@ def generate_dag():
             "Authorization": f"Bearer {bearer_token}",
         },
         response_check=check_api_response,  # A function to validate the response
-        deferrable=True,     # If True, it keeps trying until poke_interval or timeout
-        poke_interval=10,    # Check every 10 seconds
-        timeout=30 * 60,     # Stop after 30 minutes
+        deferrable=True,  # If True, it keeps trying until poke_interval or timeout
+        poke_interval=10,  # Check every 10 seconds
+        timeout=30 * 60,  # Stop after 30 minutes
     )
 
     my_task = task(prt.workflows.run_airflow_task, task_id="my_task")()
     wait_for_api >> my_task
+
 
 generate_dag()
 ```

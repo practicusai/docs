@@ -26,7 +26,7 @@ This section defines key parameters for the notebook. Parameters control the beh
 deployment_key = None
 prefix = None
 model_name = None
-practicus_url = None # E.g. http://company.practicus.com
+practicus_url = None  # E.g. http://company.practicus.com
 ```
 
 ```python
@@ -41,10 +41,7 @@ assert practicus_url, "Please enter practicus_url"
 We will be using Practicus AI to prepare data, but you can also do it manually using just Pandas. The rest of the model building and deployment steps would not change. 
 
 ```python
-data_set_conn = {
-    "connection_type": "WORKER_FILE",
-    "file_path":"/home/ubuntu/samples/data/insurance.csv"
-}
+data_set_conn = {"connection_type": "WORKER_FILE", "file_path": "/home/ubuntu/samples/data/insurance.csv"}
 ```
 
 ```python
@@ -52,16 +49,16 @@ import practicuscore as prt
 
 region = prt.current_region()
 worker = region.get_or_create_worker()
-proc = worker.load(data_set_conn) 
+proc = worker.load(data_set_conn)
 
 proc.show_head()
 ```
 
 ```python
-proc.categorical_map(column_name='sex', column_suffix='category') 
-proc.categorical_map(column_name='smoker', column_suffix='category') 
-proc.categorical_map(column_name='region', column_suffix='category') 
-proc.delete_columns(['region', 'smoker', 'sex']) 
+proc.categorical_map(column_name="sex", column_suffix="category")
+proc.categorical_map(column_name="smoker", column_suffix="category")
+proc.categorical_map(column_name="region", column_suffix="category")
+proc.delete_columns(["region", "smoker", "sex"])
 ```
 
 ```python
@@ -74,8 +71,8 @@ df.head()
 Let's build a model with XGBoost
 
 ```python
-X = df.drop('charges', axis=1)
-y = df['charges']
+X = df.drop("charges", axis=1)
+y = df["charges"]
 ```
 
 ```python
@@ -88,9 +85,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 import xgboost as xgb
 from sklearn.pipeline import Pipeline
 
-pipeline = Pipeline([
-    ('model', xgb.XGBRegressor(objective='reg:squarederror', n_estimators=100))
-])
+pipeline = Pipeline([("model", xgb.XGBRegressor(objective="reg:squarederror", n_estimators=100))])
 pipeline.fit(X_train, y_train)
 ```
 
@@ -102,21 +97,21 @@ pipeline.fit(X_train, y_train)
 ```python
 import cloudpickle
 
-with open('model.pkl', 'wb') as f:
+with open("model.pkl", "wb") as f:
     cloudpickle.dump(pipeline, f)
 ```
 
 ```python
-import joblib 
+import joblib
 import pandas as pd
 
 # Load the saved model
-model = joblib.load('model.pkl')
+model = joblib.load("model.pkl")
 
 # Making predictions
 predictions = model.predict(X)
 
-pred_df = pd.DataFrame(predictions, columns=['Predictions'])
+pred_df = pd.DataFrame(predictions, columns=["Predictions"])
 pred_df.head()
 ```
 
@@ -125,11 +120,9 @@ pred_df.head()
 ```python
 # Let's locate the Kubernetes model deployment to deploy our model
 if len(region.model_deployment_list) == 0:
-    raise SystemError("You do not have any model deployment systems. "
-                      "Please contact your system admin.")
+    raise SystemError("You do not have any model deployment systems. Please contact your system admin.")
 elif len(region.model_deployment_list) > 1:
-    print("You have more than one model deployment systems. "
-          "Will use the first one")
+    print("You have more than one model deployment systems. Will use the first one")
 
 print(f"Will deploy '{prefix}/{model_name}' to '{deployment_key}' kubernetes deployment")
 ```
@@ -143,7 +136,7 @@ prt.models.deploy(
     deployment_key=deployment_key,
     prefix=prefix,
     model_name=model_name,
-    model_dir=None # Current dir
+    model_dir=None,  # Current dir
 )
 ```
 
@@ -174,12 +167,9 @@ print("API session token:", token)
 - If you would like to construct the Dataframe yourself, skip passing content-type header and construct using Starlette request object [View sample code](model_custom_df.py)
 
 ```python
-import requests 
+import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df.to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -187,6 +177,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")
@@ -198,13 +189,9 @@ pred_df.head()
 - Compressing to and from the API endpoint can increase performance for large datasets, low network bandwidth.
 
 ```python
-import lz4 
+import lz4
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv',
-    'content-encoding': 'lz4'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv", "content-encoding": "lz4"}
 data_csv = X.to_csv(index=False)
 compressed = lz4.frame.compress(data_csv.encode())
 print(f"Request compressed from {len(data_csv)} bytes to {len(compressed)} bytes")
@@ -230,10 +217,7 @@ If enabled, Practicus AI allows you to detect feature and prediction drift and v
 # Let's create an artificial drift for BMI feature, which will also affect charges
 df["bmi"] = df["bmi"] * 1.2
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df.to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -241,6 +225,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")
@@ -261,7 +246,7 @@ model_config = prt.models.create_model_config(
     problem_type="Regression",
     version_name="2024-02-15",
     final_model="xgboost",
-    score=123
+    score=123,
 )
 model_config.save("model.json")
 # You also can directly instantiate ModelConfig class to provide more metadata elements
@@ -277,7 +262,7 @@ prt.models.deploy(
     deployment_key=deployment_key,
     prefix=prefix,
     model_name=model_name,
-    model_dir=None # Current dir
+    model_dir=None,  # Current dir
 )
 ```
 
@@ -286,8 +271,8 @@ prt.models.deploy(
 You can add the query string '?get_meta=true' to any model to get the metadata.
 
 ```python
-headers = {'authorization': f'Bearer {token}'}
-r = requests.get(api_url + '?get_meta=true', headers=headers)
+headers = {"authorization": f"Bearer {token}"}
+r = requests.get(api_url + "?get_meta=true", headers=headers)
 
 if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
@@ -349,7 +334,7 @@ async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
 
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise FileNotFoundError(f"Could not locate model file: {model_file}")
 
@@ -360,15 +345,15 @@ async def predict(http_request, df: pd.DataFrame | None = None, *args, **kwargs)
     if df is None:
         raise ValueError("No dataframe received")
 
-    if 'charges' in df.columns:
+    if "charges" in df.columns:
         # Dropping 'charges' since it is the target
-        df = df.drop('charges', axis=1)
+        df = df.drop("charges", axis=1)
 
         # Making predictions
     predictions = model_pipeline.predict(df)
 
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
+    predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
 
     return predictions_df
 
@@ -387,7 +372,7 @@ async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
 
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise FileNotFoundError(f"Could not locate model file: {model_file}")
 
@@ -399,15 +384,15 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
     # E.g. read bytes using http_request.stream(), decode and pass to Pandas.
     raise NotImplemented("DataFrame generation code not implemented")
 
-    if 'charges' in df.columns:
+    if "charges" in df.columns:
         # Dropping 'charges' since it is the target
-        df = df.drop('charges', axis=1)
+        df = df.drop("charges", axis=1)
 
     # Making predictions
     predictions = model_pipeline.predict(df)
 
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
+    predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
 
     return predictions_df
 

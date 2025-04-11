@@ -42,18 +42,14 @@ job_dir = "~/my/spark_with_job/"
 
 
 distributed_config = prt.DistJobConfig(
-    job_type = prt.DistJobType.spark,
-    job_dir = job_dir,
-    py_file = "job.py",
-    worker_count = worker_count,
-    terminate_on_completion = False
+    job_type=prt.DistJobType.spark,
+    job_dir=job_dir,
+    py_file="job.py",
+    worker_count=worker_count,
+    terminate_on_completion=False,
 )
 
-worker_config = prt.WorkerConfig(
-    worker_size=worker_size,
-    distributed_config=distributed_config,
-    log_level=log_level
-)
+worker_config = prt.WorkerConfig(worker_size=worker_size, distributed_config=distributed_config, log_level=log_level)
 
 coordinator_worker = prt.create_worker(
     worker_config=worker_config,
@@ -64,7 +60,6 @@ coordinator_worker = prt.create_worker(
 prt.distributed.live_view(
     job_dir=job_dir,
     job_id=coordinator_worker.job_id,
-    
 )
 ```
 
@@ -74,11 +69,7 @@ prt.distributed.live_view(
 rank = 0
 # To view other workers set rank = 1,2, ..
 
-prt.distributed.view_log(
-    job_dir=job_dir,
-    job_id=coordinator_worker.job_id,
-    rank=rank
-)
+prt.distributed.view_log(job_dir=job_dir, job_id=coordinator_worker.job_id, rank=rank)
 ```
 
 
@@ -86,31 +77,31 @@ prt.distributed.view_log(
 
 ### job.py
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, count, when, lit, max, min, stddev, corr
 from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler, StandardScaler
 from pyspark.ml import Pipeline
 
-spark = SparkSession.builder \
-    .appName("Advanced Data Processing") \
-    .getOrCreate()
+spark = SparkSession.builder.appName("Advanced Data Processing").getOrCreate()
 
 file_path = "/home/ubuntu/samples/data/insurance.csv"
 data = spark.read.csv(file_path, header=True, inferSchema=True)
 missing_data = data.select([count(when(col(c).isNull(), c)).alias(c) for c in data.columns])
 
-categorical_columns = ['sex', 'smoker', 'region']
+categorical_columns = ["sex", "smoker", "region"]
 indexers = [StringIndexer(inputCol=col, outputCol=col + "_index") for col in categorical_columns]
 encoders = [OneHotEncoder(inputCol=col + "_index", outputCol=col + "_encoded") for col in categorical_columns]
 
-data = data.withColumn("bmi_category", 
-                       when(col("bmi") < 18.5, lit("underweight"))
-                       .when((col("bmi") >= 18.5) & (col("bmi") < 25), lit("normal"))
-                       .when((col("bmi") >= 25) & (col("bmi") < 30), lit("overweight"))
-                       .otherwise(lit("obese")))
+data = data.withColumn(
+    "bmi_category",
+    when(col("bmi") < 18.5, lit("underweight"))
+    .when((col("bmi") >= 18.5) & (col("bmi") < 25), lit("normal"))
+    .when((col("bmi") >= 25) & (col("bmi") < 30), lit("overweight"))
+    .otherwise(lit("obese")),
+)
 
-feature_columns = ['age', 'bmi', 'children', 'sex_encoded', 'smoker_encoded', 'region_encoded']
+feature_columns = ["age", "bmi", "children", "sex_encoded", "smoker_encoded", "region_encoded"]
 assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
 
 scaler = StandardScaler(inputCol="features", outputCol="scaled_features", withStd=True, withMean=False)
@@ -123,6 +114,7 @@ output_path = "/home/ubuntu/my/processed_insurance_data.parquet/"
 data.write.parquet(output_path, mode="overwrite")
 
 spark.stop()
+
 ```
 
 ### run/2c741e/prt_dist_job.json

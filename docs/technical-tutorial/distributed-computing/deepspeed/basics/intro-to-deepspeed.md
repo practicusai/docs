@@ -41,7 +41,7 @@ The configuration prepares a coordinator worker that initializes a distributed j
 worker_size = "L-GPU"
 worker_count = None
 log_level = "DEBUG"
-worker_image="ghcr.io/practicusai/practicus-gpu-deepspeed"
+worker_image = "ghcr.io/practicusai/practicus-gpu-deepspeed"
 terminate_on_completion = False
 ```
 
@@ -60,17 +60,14 @@ import practicuscore as prt
 job_dir = "~/my/deepspeed"
 
 distributed_config = prt.DistJobConfig(
-    job_type = prt.DistJobType.deepspeed,
-    job_dir = job_dir,
-    worker_count = worker_count,
+    job_type=prt.DistJobType.deepspeed,
+    job_dir=job_dir,
+    worker_count=worker_count,
     terminate_on_completion=False,
 )
 
 worker_config = prt.WorkerConfig(
-    worker_image=worker_image,
-    worker_size=worker_size,
-    log_level=log_level,
-    distributed_config=distributed_config
+    worker_image=worker_image, worker_size=worker_size, log_level=log_level, distributed_config=distributed_config
 )
 
 coordinator_worker = prt.create_worker(worker_config)
@@ -150,13 +147,19 @@ class LargeModel(nn.Module):
     def __init__(self):
         super(LargeModel, self).__init__()
         self.layers = nn.Sequential(
-            nn.Linear(8192, 4096), nn.ReLU(),
-            nn.Linear(4096, 2048), nn.ReLU(),
-            nn.Linear(2048, 1024), nn.ReLU(),
-            nn.Linear(1024, 512), nn.ReLU(),
-            nn.Linear(512, 256), nn.ReLU(),
-            nn.Linear(256, 128), nn.ReLU(),
-            nn.Linear(128, 1)
+            nn.Linear(8192, 4096),
+            nn.ReLU(),
+            nn.Linear(4096, 2048),
+            nn.ReLU(),
+            nn.Linear(2048, 1024),
+            nn.ReLU(),
+            nn.Linear(1024, 512),
+            nn.ReLU(),
+            nn.Linear(512, 256),
+            nn.ReLU(),
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Linear(128, 1),
         )
 
     def forward(self, x):
@@ -176,8 +179,8 @@ def train():
     dist.init_process_group(
         backend="nccl",
         init_method=f"tcp://{os.environ['MASTER_ADDR']}:{os.environ['MASTER_PORT']}",
-        rank=int(os.environ['RANK']),
-        world_size=int(os.environ['WORLD_SIZE']),
+        rank=int(os.environ["RANK"]),
+        world_size=int(os.environ["WORLD_SIZE"]),
     )
 
     device = torch.device(f"cuda:0")
@@ -185,11 +188,7 @@ def train():
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
     # Initialize DeepSpeed
-    model, optimizer, _, _ = deepspeed.initialize(
-        model=model,
-        optimizer=optimizer,
-        config="ds_config.json"
-    )
+    model, optimizer, _, _ = deepspeed.initialize(model=model, optimizer=optimizer, config="ds_config.json")
 
     # Training loop
     for epoch in range(5):
@@ -208,8 +207,10 @@ def train():
         model.backward(loss)
         model.step()
 
-        print(f"[GPU {os.environ['RANK']}] Epoch {epoch}, Loss: {loss.item()}, "
-              f"Allocated VRAM: {torch.cuda.memory_allocated(device) / 1e9:.2f} GB")
+        print(
+            f"[GPU {os.environ['RANK']}] Epoch {epoch}, Loss: {loss.item()}, "
+            f"Allocated VRAM: {torch.cuda.memory_allocated(device) / 1e9:.2f} GB"
+        )
 
     # Clean cache
     dist.destroy_process_group()

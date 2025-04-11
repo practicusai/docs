@@ -18,7 +18,7 @@ jupyter:
 - Please run this example on the `Dask Coordinator (master)`.
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Let's get a Dask session
 client = prt.distributed.get_client()

@@ -135,4 +135,4 @@ The rest is the same as NVIDIA MIG, define a new worker size and use the GPU Typ
 
 ---
 
-**Previous**: [Customize Templates](customize-templates.md) | **Next**: [Configure Workspaces](configure-workspaces.md)
+**Previous**: [Hosting Temporary Apis](hosting-temporary-apis.md) | **Next**: [Configure Workspaces](configure-workspaces.md)

@@ -29,7 +29,7 @@ import base64
 additional_params = {
     "timezone": "America/Los_Angeles",
     # Setting a custom password is possible, but not recommended.
-    "password": "super_secret"
+    "password": "super_secret",
 }
 
 additional_params_str = json.dumps(additional_params)
@@ -38,11 +38,7 @@ additional_params_b64 = str(base64.b64encode(bytes(additional_params_str, encodi
 
 ```python
 # Create a workspace with these additional parameters
-workspace = region.create_workspace(
-    worker_config={
-        "additional_params": additional_params_b64
-    }
-)
+workspace = region.create_workspace(worker_config={"additional_params": additional_params_b64})
 ```
 
 ```python

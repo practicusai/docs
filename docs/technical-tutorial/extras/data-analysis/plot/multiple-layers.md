@@ -60,12 +60,12 @@ Let's load it into one of our worker environments.
 data_set_conn = {
     "connection_type": "WORKER_FILE",
     "sample_size": 150,
-    "file_path": "/home/ubuntu/samples/data/iris.csv"
+    "file_path": "/home/ubuntu/samples/data/iris.csv",
 }
 ```
 
 ```python
-proc = worker.load(data_set_conn, engine='AUTO') 
+proc = worker.load(data_set_conn, engine="AUTO")
 ```
 
 ```python
@@ -81,7 +81,7 @@ display(df)
 Before starting data analyzing with bokeh, we need to do some preprocess on Iris dataset
 
 ```python
-means = df.groupby('species').mean().reset_index()
+means = df.groupby("species").mean().reset_index()
 ```
 
 ```python
@@ -89,7 +89,7 @@ from sklearn.preprocessing import LabelEncoder
 
 label_encoder = LabelEncoder()
 
-means['species_encoded'] = label_encoder.fit_transform(means['species'])
+means["species_encoded"] = label_encoder.fit_transform(means["species"])
 ```
 
 ```python
@@ -111,7 +111,7 @@ source = ColumnDataSource(means)
 Let's create our figure to do some visualisation.
 
 ```python
-p = figure(title="Analysis Over Species", x_axis_label='Species', y_axis_label='Features', width=400, height=300)
+p = figure(title="Analysis Over Species", x_axis_label="Species", y_axis_label="Features", width=400, height=300)
 ```
 
 Here's an explanation of each parameter in the figure function call:
@@ -125,7 +125,16 @@ Here's an explanation of each parameter in the figure function call:
 Let's continue with our first plotting of _vbar_ (vertical bar plotting)!
 
 ```python
-first_layer = p.vbar(x = 'species_encoded', top = 'sepal_length', width=0.9, line_color='green', fill_color='lime', fill_alpha=0.5, legend_label="Sepal Length", source=source)
+first_layer = p.vbar(
+    x="species_encoded",
+    top="sepal_length",
+    width=0.9,
+    line_color="green",
+    fill_color="lime",
+    fill_alpha=0.5,
+    legend_label="Sepal Length",
+    source=source,
+)
 show(p)
 ```
 
@@ -148,7 +157,16 @@ Overall, this line of code creates a vertical bar plot of sepal lengths for diff
 Let's add another vbar, a second layer, which will show case _petal_length_.
 
 ```python
-second_layer = p.vbar(x = 'species_encoded', top = 'petal_length', width=0.9, line_color='blue', fill_color='lightskyblue', fill_alpha=0.5, legend_label="Petal Length", source=source)
+second_layer = p.vbar(
+    x="species_encoded",
+    top="petal_length",
+    width=0.9,
+    line_color="blue",
+    fill_color="lightskyblue",
+    fill_alpha=0.5,
+    legend_label="Petal Length",
+    source=source,
+)
 show(p)
 ```
 
@@ -157,8 +175,8 @@ After adding our second layer it started to be too crowded for such a small figu
 ```python
 p.width = 800
 p.height = 600
-p.xaxis.axis_label = 'Flower Species'
-p.yaxis.axis_label = 'Flower Features'
+p.xaxis.axis_label = "Flower Species"
+p.yaxis.axis_label = "Flower Features"
 
 show(p)
 ```
@@ -166,7 +184,14 @@ show(p)
 Let's add some plots about our flowers width, but if we add more bars it will make the figure too confusing to read. Therefore, let's add line plots to visualize width features of our flowers.
 
 ```python
-third_layer = p.line(x='species_encoded', y='sepal_width', line_width=4, line_color='darkolivegreen', legend_label="Sepal Width", source=source)
+third_layer = p.line(
+    x="species_encoded",
+    y="sepal_width",
+    line_width=4,
+    line_color="darkolivegreen",
+    legend_label="Sepal Width",
+    source=source,
+)
 show(p)
 ```
 
@@ -187,7 +212,9 @@ Overall, this line of code creates a line plot of sepal widths for different spe
 Let's add our fourth and last plot!
 
 ```python
-fourth_layer = p.line(x='species_encoded', y='petal_width', line_width=4, line_color='darkblue', legend_label="Petal Width", source=source)
+fourth_layer = p.line(
+    x="species_encoded", y="petal_width", line_width=4, line_color="darkblue", legend_label="Petal Width", source=source
+)
 show(p)
 ```
 
@@ -195,13 +222,13 @@ After adding all layer we still missing something, it would be a cool feature if
 
 ```python
 tips = [
-    ('Sepal Length', '@sepal_length'),
-    ('Petal Length', '@petal_length'),
-    ('Sepal Width', '@sepal_width'),
-    ('Petal Width', '@petal_width')
+    ("Sepal Length", "@sepal_length"),
+    ("Petal Length", "@petal_length"),
+    ("Sepal Width", "@sepal_width"),
+    ("Petal Width", "@petal_width"),
 ]
 
-p.add_tools(HoverTool(tooltips=tips)) 
+p.add_tools(HoverTool(tooltips=tips))
 show(p)
 ```
 

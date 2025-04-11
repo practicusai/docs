@@ -49,7 +49,7 @@ If you don't know your auto-distributed (privileged) workers you can check them 
 
 ```python
 worker_size_list = region.worker_size_list
-display(worker_size_list.to_pandas()) # Check auto_distributed col.
+display(worker_size_list.to_pandas())  # Check auto_distributed col.
 ```
 
 ```python
@@ -62,11 +62,11 @@ assert max_count, "Please select a max_count."
 ```python
 # Let's define the distributed features
 distributed_config = prt.DistJobConfig(
-    job_type = prt.DistJobType.spark,
+    job_type=prt.DistJobType.spark,
     # ** The below changes the default cluster behavior **
     auto_distributed=True,
-    # Set the initial size. 
-    # These are 'additional` executors to coordinator, 
+    # Set the initial size.
+    # These are 'additional` executors to coordinator,
     # E.g. the below will create a cluster of 2 workers.
     initial_count=1,
     # Optional: set a maximum to auto-scale to, if needed.
@@ -74,7 +74,7 @@ distributed_config = prt.DistJobConfig(
     max_count=4,
 )
 
-# Let's define worker features of the cluster 
+# Let's define worker features of the cluster
 worker_config = prt.WorkerConfig(
     # Please make sure to use a worker size with
     #   privileged access.
@@ -92,7 +92,7 @@ coordinator_worker = prt.create_worker(
 ```
 
 ```python
-# Since this is an interactive Spark cluster, 
+# Since this is an interactive Spark cluster,
 #  let's login to execute some code.
 
 notebook_url = coordinator_worker.open_notebook()
@@ -104,7 +104,7 @@ print("Page did not open? You can open this url manually:", notebook_url)
 by opening the next notebook in this directory
 
 ```python
-# Done experimenting? Let's terminate the coordinator 
+# Done experimenting? Let's terminate the coordinator
 #  which will also terminate the cluster.
 coordinator_worker.terminate()
 ```

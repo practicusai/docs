@@ -59,7 +59,7 @@ In Practicus AI, generate a refresh token for your account, then store it privat
 
 ```python
 worker_size = None
-startup_script = """echo "Hello from Practicus AI unified DevOps""""
+startup_script = """ echo "Hello from Practicus AI unified DevOps" """
 ```
 
 ```python
@@ -89,10 +89,7 @@ Below is a simple Python script (`cicd/start_worker.py`) that spins up a Practic
 # cicd/start_worker.py
 import practicuscore as prt
 
-worker_config = prt.WorkerConfig(
-    worker_size=worker_size,
-    startup_script=startup_script
-)
+worker_config = prt.WorkerConfig(worker_size=worker_size, startup_script=startup_script)
 
 print("Starting worker...")
 worker = prt.create_worker(worker_config)
@@ -157,7 +154,7 @@ task_file = "task.py"  # The file to run
 print(f"Starting {task_file} on a new worker.")
 worker, success = prt.run_task(
     file_name=task_file,
-    files_path="cicd",       # Local folder containing task.py
+    files_path="cicd",  # Local folder containing task.py
     worker_config=worker_config,
 )
 
@@ -235,7 +232,7 @@ task_file_on_worker = f"{local_path_for_git}/cicd/task.py"
 
 print(f"Starting {task_file_on_worker} on a new worker.")
 worker, success = prt.run_task(
-    upload_files=False,              # We'll rely on Git instead of uploading files
+    upload_files=False,  # We'll rely on Git instead of uploading files
     file_path_on_worker=task_file_on_worker,
     worker_config=worker_config,
 )

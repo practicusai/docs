@@ -25,7 +25,7 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-api_url = None # Model API e.g. "https://company.practicus.com/llm-models/llama-3b-chain-test/"
+api_url = None  # Model API e.g. "https://company.practicus.com/llm-models/llama-3b-chain-test/"
 ```
 
 ```python
@@ -46,7 +46,7 @@ def test_langchain_practicus(api_url, token, inputs):
         api_token=token,
         model_id="current models ignore this",
     )
-    
+
     response = chat.invoke(input=inputs)
 
     print("\n\nReceived response:\n", dict(response))
@@ -58,7 +58,6 @@ def test_langchain_practicus(api_url, token, inputs):
 ##### The method below creates a token that is valid for 4 hours, longer tokens can be retrieved from the admin console.
 
 ```python
-
 token = prt.models.get_session_token(api_url)
 print("API session token:", token)
 ```
@@ -66,7 +65,7 @@ print("API session token:", token)
 ##### We invoke the `test_langchain_practicus` function with the API URL, session token, and an example query, `'What is the capital of England?'`. The function sends the query to the PracticusAI endpoint and prints the received response.
 
 ```python
-test_langchain_practicus(api_url, token, ['What is the capital of England?'])
+test_langchain_practicus(api_url, token, ["What is the capital of England?"])
 ```
 
 # Consume LLM API With basic HTTP requests
@@ -78,7 +77,7 @@ test_langchain_practicus(api_url, token, ['What is the capital of England?'])
 import practicuscore as prt
 
 # We will be using using the SDK to get a session token.
-api_url = None # Model API e.g. "https://company.practicus.com/llm-models/llama-3b-chain-test/"
+api_url = None  # Model API e.g. "https://company.practicus.com/llm-models/llama-3b-chain-test/"
 token = prt.models.get_session_token(api_url)
 print("API session token:", token)
 ```
@@ -88,10 +87,10 @@ print("API session token:", token)
 ```python
 from requests import get
 
-headers = {'authorization': f'Bearer {token}'}
-r = get(api_url + '?get_meta=true', headers=headers)
+headers = {"authorization": f"Bearer {token}"}
+r = get(api_url + "?get_meta=true", headers=headers)
 
-print('Model details: ', r.text)
+print("Model details: ", r.text)
 if r.status_code != 200:
     print(f"Error code {r.status_code}")
 ```
@@ -105,15 +104,15 @@ import json
 # Provide a user prompt to the LLM API and retrieve the generated response.
 data = {
     #'system_context': '',
-    'user_prompt': "Who is Nikola Tesla?"
-    }
+    "user_prompt": "Who is Nikola Tesla?"
+}
 r = get(api_url, headers=headers, json=data)
 
 if r.status_code != 200:
     print(f"Error code {r.status_code}")
 
 # Print API response for generated prediction
-print('Prediction result:')
+print("Prediction result:")
 try:
     parsed = json.loads(r.text)
     print(json.dumps(parsed, indent=1))
@@ -156,20 +155,20 @@ async def init(model_meta=None, *args, **kwargs):
     model_cache = "/var/practicus/cache"
     if model_cache not in sys.path:
         sys.path.insert(0, model_cache)
-    
+
     try:
         from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
     except Exception as e:
         raise print(f"Failed to import required libraries: {e}")
-    
+
     # Initialize the local LLM model using transformers:
-    
+
     def load_local_llm(model_path):
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = AutoModelForCausalLM.from_pretrained(model_path)
-        model.to('cpu') # Change with cuda or auto to use gpus.
-        return pipeline('text-generation', model=model, tokenizer=tokenizer, max_new_tokens=200)
-    
+        model.to("cpu")  # Change with cuda or auto to use gpus.
+        return pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=200)
+
     try:
         generator = load_local_llm(model_cache)
     except Exception as e:
@@ -184,52 +183,49 @@ async def cleanup(model_meta=None, *args, **kwargs):
     generator = None
 
     from torch import cuda
+
     cuda.empty_cache()
 
-async def predict(payload_dict: dict, **kwargs):
 
+async def predict(payload_dict: dict, **kwargs):
     # For basic text-in, text-out task:
     if "user_prompt" in payload_dict:
-            
         # Recording the start time to measure execution duration.
         start = datetime.now()
 
         # Extracting given prompt from the http request
         sentence = payload_dict["user_prompt"]
-        
+
         # Passing the prompt to the `generator`, loaded llm model to generate a response.
         res = generator([sentence])
         text = res[0]
 
         # Returning a structured response containing the generated text and execution time.
-        total_time = (datetime.now() - start).total_seconds()   
-        return {
-            'answer': f'Time:{total_time}\nanswer:{text}'
-        }
-    
+        total_time = (datetime.now() - start).total_seconds()
+        return {"answer": f"Time:{total_time}\nanswer:{text}"}
+
     # For langchain applications:
-    else: 
-        
+    else:
         from practicuscore.gen_ai import PrtLangRequest, PrtLangResponse
 
         # The payload dictionary is validated against PrtLangRequest.
         practicus_llm_req = PrtLangRequest.model_validate(payload_dict)
-        
+
         # Converts the validated request object to a dictionary.
         data_js = practicus_llm_req.model_dump_json(indent=2, exclude_unset=True)
         payload = json.loads(data_js)
-        
+
         # Joins the content field from all messages in the payload to form the prompt string.
-        prompt = " ".join([item['content'] for item in payload['messages']])
+        prompt = " ".join([item["content"] for item in payload["messages"]])
 
         # Generate a response from the model
         response = generator(prompt)
-        answer = response[0]['generated_text']
+        answer = response[0]["generated_text"]
 
         # Creates a PrtLangResponse object with the generated content and metadata about the language model and token usage
         resp = PrtLangResponse(
             content=answer,
-            lang_model=payload['lang_model'],
+            lang_model=payload["lang_model"],
             input_tokens=0,
             output_tokens=0,
             total_tokens=0,
@@ -239,6 +235,7 @@ async def predict(payload_dict: dict, **kwargs):
         )
 
         return resp
+
 ```
 
 

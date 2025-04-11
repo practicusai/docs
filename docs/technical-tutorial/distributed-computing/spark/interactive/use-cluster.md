@@ -18,7 +18,7 @@ jupyter:
 - Please run this example on the `Spark Coordinator (master)`.
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Let's get a Spark session
 spark = prt.distributed.get_client()

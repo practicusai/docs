@@ -21,11 +21,10 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-app_name = None # E.g. 'api-chatbot'
+app_name = None  # E.g. 'api-chatbot'
 deployment_setting_key = None
 app_prefix = None
 app_dir = None
-
 ```
 
 ```python
@@ -36,6 +35,7 @@ assert app_prefix, "Please enter app_prefix"
 
 ```python
 import practicuscore as prt
+
 region = prt.get_region()
 ```
 
@@ -43,21 +43,21 @@ region = prt.get_region()
  
 
 ```python
-my_app_prefix_list = region.app_prefix_list
+my_app_prefix_list = prt.apps.get_prefix_list()
 display(my_app_prefix_list.to_pandas())
 app_prefix = my_app_prefix_list[0].prefix
 print("Using first app prefix", app_prefix)
 ```
 
 ```python
-my_app_list = region.app_list
+my_app_list = prt.apps.get_list()
 display(my_app_list.to_pandas())
 app_name = my_app_list[0].name
 print("Using first app name:", app_name)
 ```
 
 ```python
-my_app_settings = region.app_deployment_setting_list
+my_app_settings = prt.apps.get_deployment_setting_list()
 display(my_app_settings.to_pandas())
 deployment_setting_key = my_app_settings[1].key
 print("Using first setting with key:", deployment_setting_key)
@@ -74,15 +74,12 @@ After exporting the json and save it within current directory of this tutorial, 
 ```python
 from langflow.load import run_flow_from_json
 
-result = run_flow_from_json(
-    flow="Flow.json",
-    input_value="What is the capital of Australia?"
-)
+result = run_flow_from_json(flow="Flow.json", input_value="What is the capital of Australia?")
 
 run_output = result[0]
 result_data = run_output.outputs[0]
-message_obj = result_data.results['message']
-message_text = message_obj.data['text']
+message_obj = result_data.results["message"]
+message_text = message_obj.data["text"]
 
 message_text
 ```
@@ -108,7 +105,7 @@ prt.apps.deploy(
     deployment_setting_key=deployment_setting_key,
     prefix=app_prefix,
     app_name=app_name,
-    app_dir=None # Current dir
+    app_dir=None,  # Current dir
 )
 ```
 
@@ -150,38 +147,22 @@ def main():
     # When the user inputs a message, add it to the chat history and display it.
     if prompt := st.chat_input("I'm your flow, how may I help you?"):
         # Add user message to chat history
-        st.session_state.messages.append(
-            {
-                "role": "user",
-                "content": prompt
-            }
-        )
+        st.session_state.messages.append({"role": "user", "content": prompt})
         # Display user message in chat message container
-        with st.chat_message(
-                "user"
-        ):
+        with st.chat_message("user"):
             st.write(prompt)
         # Display assistant response in chat message container
-        with st.chat_message(
-                "assistant"
-        ):
+        with st.chat_message("assistant"):
             message_placeholder = st.empty()
             with st.spinner(text="Thinking..."):
                 assistant_response = generate_response(prompt)
                 message_placeholder.write(assistant_response)
         # Add assistant response to chat history
-        st.session_state.messages.append(
-            {
-                "role": "assistant",
-                "content": assistant_response
-            }
-        )
+        st.session_state.messages.append({"role": "assistant", "content": assistant_response})
 
 
 def run_flow(message, flow_json):
-    result = run_flow_from_json(flow=flow_json,
-                                input_value=message,
-                                fallback_to_env_vars=True)  # False by default
+    result = run_flow_from_json(flow=flow_json, input_value=message, fallback_to_env_vars=True)  # False by default
     return result
 
 
@@ -191,20 +172,20 @@ def generate_response(prompt):
     # logging.info(f"question: {prompt}")
 
     # Run the flow to get the response.
-    response = run_flow(message=prompt, flow_json='Flow.json')
+    response = run_flow(message=prompt, flow_json="Flow.json")
 
     run_output = response[0]
     result_data = run_output.outputs[0]
-    message_obj = result_data.results['message']
-    message_text = message_obj.data['text']
+    message_obj = result_data.results["message"]
+    message_text = message_obj.data["text"]
 
     try:
         # Log and return the assistant's response.
-        #logging.info(f"answer: {message_obj}")
+        # logging.info(f"answer: {message_obj}")
         return message_text
     except Exception as exc:
         # Log any errors and return a fallback message.
-        #logging.error(f"error: {exc}")
+        # logging.error(f"error: {exc}")
         return "Sorry, there was a problem finding an answer for you."
 
 

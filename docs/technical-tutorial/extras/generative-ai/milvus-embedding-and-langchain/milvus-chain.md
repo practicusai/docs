@@ -33,10 +33,10 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-host = None # E.g. company.practicus.com'
+host = None  # E.g. company.practicus.com'
 embedding_model_path = None
-milvus_uri = None # E.g. 'company.practicus.milvus.com'
-milvus_port = None # E.g. '19530'
+milvus_uri = None  # E.g. 'company.practicus.milvus.com'
+milvus_port = None  # E.g. '19530'
 model_name = None
 model_prefix = None
 ```
@@ -71,7 +71,8 @@ import chromadb
 import random
 
 import warnings
-warnings.filterwarnings('ignore')
+
+warnings.filterwarnings("ignore")
 
 region = prt.get_region()
 ```
@@ -97,7 +98,9 @@ print("Using first prefix:", model_prefix)
 ```python
 import requests
 
-url = 'https://raw.githubusercontent.com/practicusai/sample-data/refs/heads/main/small_rag_document/test_document_v1.pdf'
+url = (
+    "https://raw.githubusercontent.com/practicusai/sample-data/refs/heads/main/small_rag_document/test_document_v1.pdf"
+)
 
 output_file = "test_document_v1.pdf"
 
@@ -123,7 +126,7 @@ def call_llm_api(inputs, api_url, api_token):
 
     :params inputs: The input to be sent to the API.
     :params api_url: The endpoint URL of the ChatPracticus API.
-    
+
     """
 
     chat = ChatPracticus(
@@ -131,11 +134,11 @@ def call_llm_api(inputs, api_url, api_token):
         api_token=api_token,
         model_id="current models ignore this",
     )
-    
+
     response = chat.invoke(input=inputs)
     # response = chat.invoke("What is Capital of France?")  # This also works
-    
-    return(response.content)
+
+    return response.content
 ```
 
 ## Get all pdf files and use seperator for split questions
@@ -146,29 +149,30 @@ def load_and_split_pdfs(pdf_files, chunk_size=500, chunk_overlap=50):
     Load all pdf files and split with using the 'seperator'.
 
     :param pdf_files: A list of paths to the PDF files to be processed.
-    :param chunk_size: The maximum number of characters in each text chunk. 
+    :param chunk_size: The maximum number of characters in each text chunk.
     :param chunk_overlap: The number of characters to overlap between consecutive chunks.
     """
     all_docs = []
-    text_splitter = CharacterTextSplitter( # Langchain method used to separate documents, there are different ways
-        separator="\n", # Defines the separator used to split the text.
+    text_splitter = CharacterTextSplitter(  # Langchain method used to separate documents, there are different ways
+        separator="\n",  # Defines the separator used to split the text.
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
         length_function=len,
-        is_separator_regex=False)
-    
+        is_separator_regex=False,
+    )
+
     for pdf_file in pdf_files:
-        loader = PyPDFLoader(pdf_file) # PDF loader compatible with langchain
+        loader = PyPDFLoader(pdf_file)  # PDF loader compatible with langchain
         documents = loader.load_and_split()
         split_docs = text_splitter.split_documents(documents)
         all_docs.extend(split_docs)
-            
+
     return all_docs
 ```
 
 ```python
 # Define pdf array
-pdf_list = ['test_document_v1.pdf']
+pdf_list = ["test_document_v1.pdf"]
 
 text_chunks = load_and_split_pdfs(pdf_list, chunk_size=500)
 ```
@@ -180,10 +184,11 @@ for i, row in enumerate(text_chunks):
 ```
 
 ```python
-embedding_model = HuggingFaceEmbeddings( # This class is used to generate embeddings for the text chunks.
-        model_name=embedding_model_path, # Specifies the path to the pre-trained embeddings model used for generating embeddings.
-        model_kwargs={'device': 'cpu'}, # Configuration for running model on cpu.
-        encode_kwargs={'normalize_embeddings': False})
+embedding_model = HuggingFaceEmbeddings(  # This class is used to generate embeddings for the text chunks.
+    model_name=embedding_model_path,  # Specifies the path to the pre-trained embeddings model used for generating embeddings.
+    model_kwargs={"device": "cpu"},  # Configuration for running model on cpu.
+    encode_kwargs={"normalize_embeddings": False},
+)
 ```
 
 ```python
@@ -198,7 +203,9 @@ vector_dimension = len(embeddings[0])
 from pymilvus import (
     connections,
     utility,
-    FieldSchema, CollectionSchema, DataType,
+    FieldSchema,
+    CollectionSchema,
+    DataType,
     Collection,
 )
 ```
@@ -230,9 +237,9 @@ fields = [
     # Id field of vectors
     FieldSchema(name="pk", dtype=DataType.VARCHAR, is_primary=True, auto_id=False, max_length=100),
     # Embedded texts field
-    FieldSchema(name="companyInfo", dtype=DataType.VARCHAR, max_length=65535), # https://milvus.io/docs/limitations.md
+    FieldSchema(name="companyInfo", dtype=DataType.VARCHAR, max_length=65535),  # https://milvus.io/docs/limitations.md
     # Embedded vectors field
-    FieldSchema(name="embeddings", dtype=DataType.FLOAT_VECTOR, dim=vector_dimension)
+    FieldSchema(name="embeddings", dtype=DataType.FLOAT_VECTOR, dim=vector_dimension),
 ]
 
 # Creating schema and collection
@@ -251,9 +258,9 @@ The insert() method returns:
 ```python
 entities = [
     # provide the pk field because `auto_id` is set to False
-    [str(i) for i in range(len(text_chunks))], # Will be inserted to first field, 'pk'
+    [str(i) for i in range(len(text_chunks))],  # Will be inserted to first field, 'pk'
     context_array,  # Will be inserted to second field, 'companyInfo'
-    embeddings,    # Will be inserted to third field, 'embeddings'
+    embeddings,  # Will be inserted to third field, 'embeddings'
 ]
 ```
 
@@ -294,7 +301,7 @@ dummy_company_collection.load()
 
 ```python
 # The query down below returns 'companyInfo' field of entities that has any 'pk' information, which means, all of the entities.
-entities = dummy_company_collection.query(expr="pk != ''", output_fields=['companyInfo'], limit=100)
+entities = dummy_company_collection.query(expr="pk != ''", output_fields=["companyInfo"], limit=100)
 
 # Print out the retrieved entities
 for entity in entities:
@@ -303,7 +310,7 @@ for entity in entities:
 
 ```python
 # Now we can embed a text and querry it on our collection
-vector_to_search = embedding_model.embed_documents(['What is the company name?'])
+vector_to_search = embedding_model.embed_documents(["What is the company name?"])
 ```
 
 ```python
@@ -315,7 +322,9 @@ search_params = {
 }
 
 start_time = time.time()
-result = dummy_company_collection.search(vector_to_search, "embeddings", search_params, limit=1, output_fields=["companyInfo"])
+result = dummy_company_collection.search(
+    vector_to_search, "embeddings", search_params, limit=1, output_fields=["companyInfo"]
+)
 end_time = time.time()
 
 for hits in result:
@@ -330,10 +339,16 @@ We use LangChain to integrate our Milvus vector collection into the RAG pipeline
 ```python
 from langchain.vectorstores import Milvus
 
-def initialize_milvus_retriever():
 
+def initialize_milvus_retriever():
     # Connect to the existing collection in Milvus without recreating it
-    milvus_retriever = Milvus(embedding_model, connection_args={"uri": f'https://{milvus_uri}:{milvus_port}'}, collection_name="dummy_info", text_field='companyInfo', vector_field='embeddings')
+    milvus_retriever = Milvus(
+        embedding_model,
+        connection_args={"uri": f"https://{milvus_uri}:{milvus_port}"},
+        collection_name="dummy_info",
+        text_field="companyInfo",
+        vector_field="embeddings",
+    )
     return milvus_retriever
 ```
 
@@ -345,9 +360,9 @@ milvus_retriever = initialize_milvus_retriever()
 
 ```python
 def format_docs(docs):
-     # Retrieves the content of each document in the `docs` list and joins the content of 
-     # all documents into a single string, with each document's content separated by two newline characters.
-     return "\n\n".join(doc.page_content for doc in docs) 
+    # Retrieves the content of each document in the `docs` list and joins the content of
+    # all documents into a single string, with each document's content separated by two newline characters.
+    return "\n\n".join(doc.page_content for doc in docs)
 ```
 
 ## All chains merged into each other at this function
@@ -357,28 +372,30 @@ def format_docs(docs):
 def query_pdf(retriever, question, api_url, api_token):
     """
     this function is used for returning response by using all of the chains we defined above
-    
+
     :param retriever : An instance of a retriever used to fetch relevant documents.
     :param question : The question to be asked about the PDF content.
     """
-    
-    prompt_template = PromptTemplate( # Defines a template for the prompt sent to the LLM.
+
+    prompt_template = PromptTemplate(  # Defines a template for the prompt sent to the LLM.
         input_variables=["context", "question"],
-        template=( # The format of the prompt.
+        template=(  # The format of the prompt.
             "You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. "
             "If you don't know the answer, just say that you don't know.\n"
             "Question: {question}\nContext: {context}\nAnswer:"
-        )
+        ),
     )
-    
-    docs = retriever.similarity_search(question, k=3) # Uses the retriever to get relevant documents based on the question.
-    context = format_docs(docs) # Formats the retrieved documents
-    
-    prompt = prompt_template.format(context=context, question=question) # Formats the prompt
+
+    docs = retriever.similarity_search(
+        question, k=3
+    )  # Uses the retriever to get relevant documents based on the question.
+    context = format_docs(docs)  # Formats the retrieved documents
+
+    prompt = prompt_template.format(context=context, question=question)  # Formats the prompt
 
     answer = call_llm_api(prompt, api_url, api_token)
-    
-    return answer.strip().split('Answer:')[-1].strip()
+
+    return answer.strip().split("Answer:")[-1].strip()
 ```
 
 ## Chat Example
@@ -390,10 +407,9 @@ token = prt.models.get_session_token(api_url=api_url)
 
 ```python
 # Example query
-answer = query_pdf(retriever = milvus_retriever, 
-                   question="What is the name of company?", 
-                   api_url = api_url,
-                   api_token = token)
+answer = query_pdf(
+    retriever=milvus_retriever, question="What is the name of company?", api_url=api_url, api_token=token
+)
 print(answer)
 ```
 
@@ -405,4 +421,4 @@ utility.drop_collection("dummy_info")
 
 ---
 
-**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Ecomm Sdk > Memory Chabot](../ecomm-sdk/memory-chabot.md)
+**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Agentic > Build](../agentic/build.md)

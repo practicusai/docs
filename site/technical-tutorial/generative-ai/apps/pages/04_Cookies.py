@@ -2,16 +2,16 @@ import practicuscore as prt
 import streamlit as st
 
 # Secure the page using the provided SDK
-prt.apps.secure_page(
-    page_title="Using Cookies"
-)
+prt.apps.secure_page(page_title="Using Cookies")
 
 st.title("Cookies Management")
 
 # Inputs for cookie operations
 cookie_name = st.text_input("Cookie Name", placeholder="Enter cookie name")
 cookie_value = st.text_input("Cookie Value", placeholder="Enter cookie value")
-max_age = st.number_input("Max Validity (seconds)", min_value=None, value=None, step=60, placeholder="Leave empty for 30 days")
+max_age = st.number_input(
+    "Max Validity (seconds)", min_value=None, value=None, step=60, placeholder="Leave empty for 30 days"
+)
 path = st.text_input("Cookie path", placeholder="Leave empty for /")
 
 # Add Cookie
@@ -40,4 +40,3 @@ if st.button("Delete Cookie"):
         st.success(f"Cookie '{cookie_name}' has been deleted!")
     else:
         st.error("Please provide a cookie name to delete.")
-

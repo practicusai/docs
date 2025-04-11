@@ -24,9 +24,9 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-host = None # E.g. 'company.practicus.com'
-lang_model=  None # E.g. 'LLAMA-3-70b'
-app_name = None # E.g. 'api-chatbot'
+host = None  # E.g. 'company.practicus.com'
+lang_model = None  # E.g. 'LLAMA-3-70b'
+app_name = None  # E.g. 'api-chatbot'
 model_name = None
 model_prefix = None
 deployment_setting_key = None
@@ -45,7 +45,7 @@ assert app_prefix, "Please enter app_prefix"
 
 ```python
 import practicuscore as prt
-import requests 
+import requests
 import json
 
 region = prt.get_region()
@@ -75,14 +75,13 @@ display(my_model_prefixes.to_pandas())
 
 ```python
 # Let's list our app deployments and select one of them.
-my_app_settings = region.app_deployment_setting_list
+my_app_settings = prt.apps.get_deployment_setting_list()
 display(my_app_settings.to_pandas())
-
 ```
 
 ```python
 # Let's list our app prefixes and select one of them.
-my_app_prefix_list = region.app_prefix_list
+my_app_prefix_list = prt.apps.get_prefix_list()
 display(my_app_prefix_list.to_pandas())
 ```
 
@@ -99,23 +98,14 @@ token = prt.models.get_session_token(api_url=api_url)
 from apis.simple_api import Messages, ModelRequest, run
 
 # Let's test our message class
-messages = Messages(
-    content="Who is einstein?", 
-    role="human"
-)
+messages = Messages(content="Who is einstein?", role="human")
 
 messages
 ```
 
 ```python
 # Let's test our Model request class
-modelreq = ModelRequest(
-    messages = messages,
-    lang_model = lang_model,
-    streaming = False,
-    api_token = token,
-    end_point = api_url
-)
+modelreq = ModelRequest(messages=messages, lang_model=lang_model, streaming=False, api_token=token, end_point=api_url)
 
 dict(modelreq)
 ```
@@ -136,7 +126,7 @@ prt.apps.deploy(
     deployment_setting_key=deployment_setting_key,
     prefix=app_prefix,
     app_name=app_name,
-    app_dir=None # Current dir
+    app_dir=None,  # Current dir
 )
 ```
 
@@ -150,9 +140,7 @@ token = prt.apps.get_session_token(api_url=api_url)
 ```
 
 ```python
-headers = {
-    "Authorization": f"Bearer {token}",
-    "content-type": 'application/json'}
+headers = {"Authorization": f"Bearer {token}", "content-type": "application/json"}
 
 
 data_js = modelreq.model_dump_json(indent=2)
@@ -178,40 +166,45 @@ print(f"Your documentation url:{documentation_url}")
 ### apis/simple_api.py
 ```python
 from pydantic import BaseModel
+import practicuscore as prt
 from practicuscore.gen_ai import PrtLangRequest, PrtLangMessage
 from requests import get
 import json
 
-''' We are defining classes for taken inputs from api call. Using classes allows you to enforce type safety. 
+""" We are defining classes for taken inputs from api call. Using classes allows you to enforce type safety. 
 This means you can be sure that the data your functions receive has the correct types and structure, 
-reducing the likelihood of runtime errors. But you don't have to use classes while creating api scripts.'''
+reducing the likelihood of runtime errors. But you don't have to use classes while creating api scripts."""
+
 
 # Holds a message's content and an optional role for model to consume prompts.
 class Messages(PrtLangMessage):
     content: str
     role: str | None = None
 
+
 # Stores details for a language model request, including the message, model type, and API information.
 class ModelRequest(BaseModel):
     messages: Messages
-    lang_model: str | None = 'None'
+    lang_model: str | None = "None"
     streaming: bool | None = False
     end_point: str
     api_token: str
 
-# We need to define a 'run' function to process incoming data to API
-def run(payload: ModelRequest, **kwargs):
 
+# We need to define a 'run' function to process incoming data to API
+@prt.apps.api("/simple-api")
+async def run(payload: ModelRequest, **kwargs):
     # Set up authorization headers using the API token from the payload
-    headers = {'authorization': f'Bearer {payload.api_token}'}
+    headers = {"authorization": f"Bearer {payload.api_token}"}
 
     # Create a language model request object with message, model, and streaming options
     practicus_llm_req = PrtLangRequest(
         messages=[payload.messages],
         lang_model=payload.lang_model,
         streaming=payload.streaming,
-        llm_kwargs={"kw1": 123, "kw2": "k2"} # (Optional) Additional parameters for the language model could be added here
-        )
+        llm_kwargs={"kw1": 123, "kw2": "k2"},
+        # (Optional) Additional parameters for the language model could be added here
+    )
 
     # Convert the request object to a JSON string, excluding unset fields
     data_js = json.loads(practicus_llm_req.model_dump_json(indent=2, exclude_unset=True))
@@ -221,9 +214,10 @@ def run(payload: ModelRequest, **kwargs):
 
     # Parse the JSON response text into a Python dictionary
     parsed = json.loads(r.text)
-    
+
     # Return the parsed response dictionary
     return parsed
+
 ```
 
 

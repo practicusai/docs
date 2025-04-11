@@ -49,7 +49,7 @@ If you don't know your auto-distributed (privileged) workers you can check them 
 
 ```python
 worker_size_list = region.worker_size_list
-display(worker_size_list.to_pandas()) # Check auto_distributed col.
+display(worker_size_list.to_pandas())  # Check auto_distributed col.
 ```
 
 ```python
@@ -61,9 +61,9 @@ assert auto_dist_worker_size, "Please select an auto-distributed (privileged) wo
 # This example uses Spark with auto-scaling capabilities.
 distributed_config = prt.DistJobConfig(
     job_type=prt.DistJobType.spark,
-    auto_distributed=True,   # Enables automatic scaling of the Spark cluster
-    initial_count=1,         # Start with 1 executor plus the coordinator (2 workers total)
-    max_count=4              # Allow the cluster to scale up to 4 additional executors if needed
+    auto_distributed=True,  # Enables automatic scaling of the Spark cluster
+    initial_count=1,  # Start with 1 executor plus the coordinator (2 workers total)
+    max_count=4,  # Allow the cluster to scale up to 4 additional executors if needed
 )
 
 # Define the worker configuration
@@ -83,14 +83,14 @@ worker_config = prt.WorkerConfig(
 # Running the batch job:
 # - Starts a worker
 # - Submits 'job.py' to run on the cluster
-# - 'job.py' creates a Spark session and triggers cluster creation 
+# - 'job.py' creates a Spark session and triggers cluster creation
 #   with multiple executors as defined above.
 # - Monitors execution and prints progress
 # - On completion, terminates the Spark session and executors
 worker, success = prt.run_task(
     file_name="job.py",
     worker_config=worker_config,
-    terminate_on_completion=False  # Leave the cluster running until we decide to terminate
+    terminate_on_completion=False,  # Leave the cluster running until we decide to terminate
 )
 ```
 

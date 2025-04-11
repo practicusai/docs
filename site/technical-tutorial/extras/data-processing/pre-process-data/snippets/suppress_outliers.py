@@ -1,6 +1,11 @@
 def suppress_outliers(
-        df, outlier_float_col_list: list[str] | None, q1_percentile: float = 0.25, q3_percentile: float = 0.75,
-        result_col_suffix: str | None = "no_outlier", result_col_prefix: str | None = None):
+    df,
+    outlier_float_col_list: list[str] | None,
+    q1_percentile: float = 0.25,
+    q3_percentile: float = 0.75,
+    result_col_suffix: str | None = "no_outlier",
+    result_col_prefix: str | None = None,
+):
     """
     Suppresses outliers in specified numeric columns of the dataframe based on custom percentile values for Q1 and Q3.
     Adds new columns with the selected suffix or prefix. If no suffix or prefix is provided, overwrites the existing column.
@@ -29,9 +34,9 @@ def suppress_outliers(
         upper_bound = q3 + 1.5 * iqr
 
         if result_col_suffix:
-            new_col_name = f'{col}_{result_col_suffix}'
+            new_col_name = f"{col}_{result_col_suffix}"
         elif result_col_prefix:
-            new_col_name = f'{result_col_prefix}_{col}'
+            new_col_name = f"{result_col_prefix}_{col}"
         else:
             new_col_name = col
 
@@ -39,5 +44,5 @@ def suppress_outliers(
         df[new_col_name] = np.where(
             df[col] < lower_bound, lower_bound, np.where(df[col] > upper_bound, upper_bound, df[col])
         )
-    
+
     return df

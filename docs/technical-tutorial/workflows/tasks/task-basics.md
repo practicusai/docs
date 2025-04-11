@@ -167,6 +167,7 @@ These options give you flexibility in how tasks run, interact with environments,
 ### task_1.py
 ```python
 print("Hello from simple task 1")
+
 ```
 
 ### task_2.sh
@@ -196,12 +197,13 @@ def main():
         with open("my_log.txt", "wt") as f:
             f.write(str(ex))
         raise ex
-    
+
     print("Finished task..")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
+
 ```
 
 

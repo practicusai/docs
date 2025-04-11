@@ -35,7 +35,7 @@ assert model_path, "Please enter your model_path."
 ```python
 import practicuscore as prt
 
-# Let's start with creating an interactive Dask cluster 
+# Let's start with creating an interactive Dask cluster
 # Note: you can also run this as a batch job.
 # To learn more, please view the batch section of this guide.
 
@@ -44,8 +44,8 @@ if prt.distributed.running_on_a_cluster():
 else:
     print("Starting a new distributed Dask cluster.")
     distributed_config = prt.DistJobConfig(
-        job_type = prt.DistJobType.dask,
-        worker_count = worker_count,
+        job_type=prt.DistJobType.dask,
+        worker_count=worker_count,
     )
     worker_config = prt.WorkerConfig(
         worker_size=worker_size,
@@ -54,10 +54,10 @@ else:
     coordinator_worker = prt.create_worker(
         worker_config=worker_config,
     )
-    
+
     # Let's login to the cluster coordinator
     notebook_url = coordinator_worker.open_notebook()
-    
+
     print("Page did not open? You can open this url manually:", notebook_url)
 ```
 
@@ -80,7 +80,7 @@ print("Page did not open? You can open this url manually:", dashboard_url)
 ```
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Let's get a Dask session
 client = prt.distributed.get_client()
@@ -107,12 +107,7 @@ dtrain = xgb.dask.DaskDMatrix(client, X_train, y_train)
 dtest = xgb.dask.DaskDMatrix(client, X_test, y_test)
 
 # Set XGBoost parameters
-params = {
-    'objective': 'binary:logistic',
-    'max_depth': 6,
-    'eta': 0.3,
-    'tree_method': 'hist'
-}
+params = {"objective": "binary:logistic", "max_depth": 6, "eta": 0.3, "tree_method": "hist"}
 
 # Train the model
 bst = xgb.dask.train(client, params, dtrain, num_boost_round=100)
@@ -123,7 +118,7 @@ preds = xgb.dask.predict(client, bst, dtest)
 print("Predictions made successfully")
 
 model_path = "model.ubj"
-bst['booster'].save_model(model_path)
+bst["booster"].save_model(model_path)
 print(f"Model saved to {model_path}")
 ```
 
@@ -144,7 +139,7 @@ print("Model loaded successfully")
 
 # Generate a *new* random dataset (important: different from training/testing)
 X_new = da.random.random((500, 10), chunks=(100, 10))  # New data!
-X_new_computed = client.compute(X_new).result() # Important to compute before creating DMatrix
+X_new_computed = client.compute(X_new).result()  # Important to compute before creating DMatrix
 dnew = xgb.DMatrix(X_new_computed)
 
 # Make predictions using the loaded model

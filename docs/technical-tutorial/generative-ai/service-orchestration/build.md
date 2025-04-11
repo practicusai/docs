@@ -97,8 +97,10 @@ import asyncio
 import practicuscore as prt
 from pydantic import BaseModel
 
+
 class MyMsg(BaseModel):
     text: str
+
 
 # Our first MQConfig. We'll define an exchange and a queue.
 mq_config_basic = prt.MQConfig(
@@ -133,6 +135,7 @@ async def async_publish_example():
         await prt.mq.publish(conn, msg)
         print("Message published asynchronously using exchange.")
 
+
 # Run the async publisher example
 await async_publish_example()
 ```
@@ -153,12 +156,14 @@ mq_config_direct = prt.MQConfig(
 # Declare the queue (if privileges allow)
 await prt.mq.apply_topology(mq_config_direct)
 
+
 async def async_publish_direct_queue():
     conn = await prt.mq.connect(mq_config_direct)
     async with conn:
         msg = MyMsg(text="Hello directly to queue asynchronously!")
         await prt.mq.publish(conn, msg)
         print("Message published directly to queue asynchronously.")
+
 
 await async_publish_direct_queue()
 ```
@@ -183,8 +188,9 @@ subscriber_config = prt.MQConfig(
     exchange_type="direct",
     routing_key="test-route",
     prefetch_count=10,
-    max_retries=5
+    max_retries=5,
 )
+
 
 @prt.mq.consumer(subscriber_config)
 async def process_message(msg: MyMsg):
@@ -192,7 +198,6 @@ async def process_message(msg: MyMsg):
     A consumer that expects a Pydantic model.
     """
     print("Received message:", msg.text)
-
 ```
 
 ### Testing a Consumer in Jupyter
@@ -207,15 +212,13 @@ if test_consumer:
 
 ```python
 # Example of a Consumer with Two Parameters
-subscriber_config_two_params = prt.MQConfig(
-    conn_str=mq_conn_str,
-    queue="my-direct-queue"
-)
+subscriber_config_two_params = prt.MQConfig(conn_str=mq_conn_str, queue="my-direct-queue")
+
 
 @prt.mq.consumer(subscriber_config_two_params)
 async def process_message_twoparams(body, incoming_msg):
     """
-    A consumer that receives the decoded message and the raw IncomingMessage 
+    A consumer that receives the decoded message and the raw IncomingMessage
     with properties such as message id.
     """
     print("Received body:", body)
@@ -267,12 +270,12 @@ async def consume_message_raw(message):
 # View application deployment settings and application prefixes
 region = prt.get_default_region()
 
-my_app_settings = region.app_deployment_setting_list
+my_app_settings = prt.apps.get_deployment_setting_list()
 
 print("Application deployment settings available:")
 display(my_app_settings.to_pandas())
 
-my_app_prefixes = region.app_prefix_list
+my_app_prefixes = prt.apps.get_prefix_list()
 
 print("Application prefixes (groups) available:")
 display(my_app_prefixes.to_pandas())
@@ -287,13 +290,14 @@ assert app_prefix, "Please select an app prefix."
 async def test_publisher():
     import apis.publish
     from apis.publish import MyMsg
-    
+
     payload = MyMsg(text="Testing API")
-    
+
     # Test the publishing API asynchronously
-    # You can use prt.apps.call_api() for sync functions.
-    response = await prt.apps.call_api_async(apis.publish, payload)
+    # You can use prt.apps.test_api()
+    response = await prt.apps.test_api("/publish", payload)
     print("Response:", response)
+
 
 if test_api:
     await test_publisher()
@@ -321,7 +325,7 @@ app_url, api_url = prt.apps.deploy(
     app_dir=None,
     visible_name=visible_name,
     description=description,
-    icon=icon
+    icon=icon,
 )
 
 print("API Endpoint URL:", api_url)
@@ -330,28 +334,26 @@ print("API Endpoint URL:", api_url)
 ```python
 def send_request():
     import requests
-    
+
     token = prt.apps.get_session_token(api_url=api_url)
     publish_api_url = f"{api_url}publish/"
-    
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json"
-    }
-    
+
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
     payload = MyMsg(text="Testing API")
-    
+
     json_data = payload.model_dump_json(indent=2)
     print(f"Sending the following JSON to: {publish_api_url}")
     print(json_data)
-    
+
     resp = requests.post(publish_api_url, json=json_data, headers=headers)
-    
+
     if resp.ok:
         print("Response:")
         print(resp.text)
     else:
         print("Error:", resp.status_code, resp.text)
+
 
 send_request()
 ```
@@ -359,28 +361,26 @@ send_request()
 ```python
 async def send_request_async():
     import httpx
-    
+
     token = prt.apps.get_session_token(api_url=api_url)
     publish_api_url = f"{api_url}publish/"
-    
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json"
-    }
-    
+
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
     payload = MyMsg(text="Testing API with an async call")
     json_data = payload.model_dump_json(indent=2)
     print(f"Sending (async) the following JSON to: {publish_api_url}")
     print(json_data)
-    
+
     async with httpx.AsyncClient() as client:
         response = await client.post(publish_api_url, data=json_data, headers=headers)
-    
+
     if response.status_code < 300:
         print("Response:")
         print(response.text)
     else:
         print("Error:", response.status_code, response.text)
+
 
 await send_request_async()
 ```
@@ -395,7 +395,7 @@ await send_request_async()
 
 ```python
 # Cleaning-up: Delete the deployed app
-region.delete_app(prefix=app_prefix, app_name=app_name)
+prt.apps.delete(prefix=app_prefix, app_name=app_name)
 ```
 
 ## 8. Exporting RabbitMQ Topology for Production
@@ -413,12 +413,7 @@ mq_vhost = "some-vhost"
 
 mq_conn_str = f"amqp://{mq_user}:{mq_pwd}@{mq_host}/{mq_vhost}"
 
-new_config = prt.MQConfig(
-    conn_str=mq_conn_str,
-    exchange="new-exchange",
-    queue="new-queue",
-    exchange_type="direct"
-)
+new_config = prt.MQConfig(conn_str=mq_conn_str, exchange="new-exchange", queue="new-queue", exchange_type="direct")
 
 prt.mq.export_topology(new_config)
 
@@ -464,7 +459,7 @@ In this notebook we have:
 
 ### apis/publish.py
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 from pydantic import BaseModel
 
 
@@ -492,12 +487,13 @@ async def connect():
     mq_conn = await prt.mq.connect(mq_config)
 
 
-async def run(payload: MyMsg, **kwargs):
+@prt.apps.api("/publish")
+async def publish(payload: MyMsg, **kwargs):
     if mq_conn is None:
         await connect()
 
     await prt.mq.publish(mq_conn, payload)
-    
+
     return {"ok": True}
 
 ```

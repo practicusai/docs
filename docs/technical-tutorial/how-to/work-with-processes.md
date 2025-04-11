@@ -31,15 +31,12 @@ worker_config = {
     "worker_size": "Small",
     "worker_image": "practicus",
 }
-# worker = prt.create_worker(worker_config) 
+# worker = prt.create_worker(worker_config)
 ```
 
 ```python
-# Processes start by loading some data.  
-worker_file_conn = {
-    "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/data/ice_cream.csv"
-}
+# Processes start by loading some data.
+worker_file_conn = {"connection_type": "WORKER_FILE", "file_path": "/home/ubuntu/samples/data/ice_cream.csv"}
 
 proc_1 = worker.load(worker_file_conn)
 proc_1.show_head()
@@ -50,7 +47,7 @@ proc_1.show_head()
 sqlite_conn = {
     "connection_type": "SQLITE",
     "file_path": "/home/ubuntu/samples/data/chinook.db",
-    "sql_query": "select * from artists"
+    "sql_query": "select * from artists",
 }
 
 proc_2 = worker.load(sqlite_conn)
@@ -64,7 +61,7 @@ for proc in worker.proc_list:
 ```
 
 ```python
-# Converting the proc_list into string will give you a csv 
+# Converting the proc_list into string will give you a csv
 print(worker.proc_list)
 ```
 
@@ -74,7 +71,7 @@ worker.proc_list.to_pandas()
 ```
 
 ```python
-# Simply accessing the proc_list will also print a formatted table string 
+# Simply accessing the proc_list will also print a formatted table string
 worker.proc_list
 ```
 

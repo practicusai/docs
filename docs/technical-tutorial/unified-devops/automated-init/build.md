@@ -26,7 +26,7 @@ This example demonstrates how to pass custom configuration as OS environment var
 
 ```python
 worker_size = None
-app_deployment_key = None 
+app_deployment_key = None
 app_prefix = "apps"
 ```
 
@@ -43,11 +43,11 @@ import practicuscore as prt
 worker_config = prt.WorkerConfig(
     worker_size=worker_size,
     env_variables={
-        "MY_FIRST_ENV": "123",       # Standard environment variable as a string
-        "MY_SECOND_ENV": 123           # Standard environment variable as a number
+        "MY_FIRST_ENV": "123",  # Standard environment variable as a string
+        "MY_SECOND_ENV": 123,  # Standard environment variable as a number
     },
     personal_secrets=["PERSONAL_SECRET_1"],  # Personal secret (injected as an environment variable)
-    shared_secrets=["SHARED_SECRET_1"]         # Shared secret (injected as an environment variable)
+    shared_secrets=["SHARED_SECRET_1"],  # Shared secret (injected as an environment variable)
 )
 
 # Create and start the worker
@@ -88,12 +88,12 @@ Similar to workers, you can also deploy an Application with environment variable
 import practicuscore as prt
 
 region = prt.get_region()
-my_app_settings = region.app_deployment_setting_list
+my_app_settings = prt.apps.get_deployment_setting_list()
 
 print("Available Application Deployment Settings:")
 display(my_app_settings.to_pandas())
 
-my_app_prefixes = region.app_prefix_list
+my_app_prefixes = prt.apps.get_prefix_list()
 
 print("Available Application Prefixes:")
 display(my_app_prefixes.to_pandas())
@@ -108,20 +108,17 @@ description = "This application is configured with environment variables and sec
 icon = "check"
 
 app_url, api_url = prt.apps.deploy(
-    deployment_setting_key = app_deployment_key,
-    prefix = app_prefix,
-    app_name = app_name,
-    app_dir = None,
-    visible_name = visible_name,
-    description = description,
-    startup_script = "echo 'hello' > hello.txt",
-    env_variables = {
-        "MY_FIRST_ENV": "123",
-        "MY_SECOND_ENV": 123
-    },
-    personal_secrets = ["PERSONAL_SECRET_1"],
-    shared_secrets = ["SHARED_SECRET_1"],
-    icon = icon
+    deployment_setting_key=app_deployment_key,
+    prefix=app_prefix,
+    app_name=app_name,
+    app_dir=None,
+    visible_name=visible_name,
+    description=description,
+    startup_script="echo 'hello' > hello.txt",
+    env_variables={"MY_FIRST_ENV": "123", "MY_SECOND_ENV": 123},
+    personal_secrets=["PERSONAL_SECRET_1"],
+    shared_secrets=["SHARED_SECRET_1"],
+    icon=icon,
 )
 
 print("Launching UI at:", app_url)
@@ -146,13 +143,13 @@ resp = requests.get(verify_api_url, headers=headers)
 if resp.ok:
     resp_json = resp.json()
     print("Configuration received:", resp_json)
-    
+
     print("Validating configuration values...")
     # Check that both environment variables have the expected value
     assert resp_json["MY_FIRST_ENV"] == resp_json["MY_SECOND_ENV"] == "123"
     # Verify that the secrets are present by checking their lengths
-    assert resp_json["PERSONAL_SECRET_1_LEN"] > 0 
-    assert resp_json["SHARED_SECRET_1_LEN"] > 0 
+    assert resp_json["PERSONAL_SECRET_1_LEN"] > 0
+    assert resp_json["SHARED_SECRET_1_LEN"] > 0
     # Confirm that the startup script executed correctly
     assert resp_json["hello_txt_content"] == "hello"
     print("Configuration validated successfully.")
@@ -165,7 +162,7 @@ else:
 import practicuscore as prt
 
 region = prt.get_region()
-region.delete_app(prefix=app_prefix, app_name=app_name)
+prt.apps.delete(prefix=app_prefix, app_name=app_name)
 ```
 
 ## Customizing Secret OS Environment Variable Names
@@ -183,7 +180,9 @@ This format is supported for both personal and shared secrets, enabling you to a
 
 ### apis/verify.py
 ```python
-import os 
+import os
+import practicuscore as prt
+
 
 MY_FIRST_ENV = os.getenv("MY_FIRST_ENV", default="?")
 MY_SECOND_ENV = os.getenv("MY_SECOND_ENV", default="?")
@@ -193,12 +192,13 @@ SHARED_SECRET_1 = os.getenv("SHARED_SECRET_1", default="?")
 HELLO_TXT_PATH = "/var/practicus/hello.txt"
 
 
-def run(**kwargs):
+@prt.apps.api("/verify")
+async def verify(**kwargs):
     hello_txt_content = "?"
     if os.path.exists(HELLO_TXT_PATH):
         with open(HELLO_TXT_PATH, "r") as f:
             hello_txt_content = f.read().strip()
-    
+
     return {
         "msg": "Reading configuration from OS environment variables. (Only length of secrets for security)",
         "MY_FIRST_ENV": MY_FIRST_ENV,

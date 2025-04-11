@@ -61,7 +61,7 @@ In this example, we simulate an exception. The notify app captures exception det
 import practicuscore as prt
 
 try:
-    # Let's simulte an exception 
+    # Let's simulte an exception
     x = 1 / 0
 except:
     prt.notify.send(exc_info=True)

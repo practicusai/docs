@@ -1,4 +1,4 @@
-import practicuscore as prt 
+import practicuscore as prt
 
 # Let's get a Spark session
 print("Getting Spark session")

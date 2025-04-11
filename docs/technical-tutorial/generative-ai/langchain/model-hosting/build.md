@@ -26,10 +26,7 @@ region = prt.get_default_region()
 
 # Identify the first available model deployment system
 if len(region.model_deployment_list) == 0:
-    raise SystemError(
-        "No model deployment systems are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model deployment systems are available. Please contact your system administrator.")
 elif len(region.model_deployment_list) > 1:
     print("Multiple model deployment systems found. Using the first one.")
 
@@ -38,10 +35,7 @@ deployment_key = model_deployment.key
 
 # Identify the first available model prefix
 if len(region.model_prefix_list) == 0:
-    raise SystemError(
-        "No model prefixes are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model prefixes are available. Please contact your system administrator.")
 elif len(region.model_prefix_list) > 1:
     print("Multiple model prefixes found. Using the first one.")
 
@@ -64,10 +58,7 @@ For the sake simplicity, we are deploying a model that just echoes what we send.
 ```python
 # Deploy model.py
 api_url, api_version_url, api_meta_url = prt.models.deploy(
-    deployment_key=deployment_key,
-    prefix=prefix,
-    model_name=model_name,
-    model_dir=model_dir
+    deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir
 )
 ```
 
@@ -93,28 +84,22 @@ print("API session token:", token)
 ```python
 from practicuscore.gen_ai import PrtLangMessage, PrtLangRequest, PrtLangResponse
 
-human_msg = PrtLangMessage(
-    content="Who is einstein? ",
-    role = "human"
-)
+human_msg = PrtLangMessage(content="Who is einstein? ", role="human")
 
-system_msg = PrtLangMessage(
-    content="Give me answer less than 100 words.",
-    role = "system"
-)
+system_msg = PrtLangMessage(content="Give me answer less than 100 words.", role="system")
 
-practicus_llm_req = PrtLangRequest( 
+practicus_llm_req = PrtLangRequest(
     # Our context
-    messages=[human_msg, system_msg], 
+    messages=[human_msg, system_msg],
     # Select a model, leave empty for default
-    lang_model="", 
+    lang_model="",
     # Streaming mode
-    streaming=True, 
-    # If we have a extra parameters at model.py we can add them here 
-    llm_kwargs={"kw1": 123, "kw2": "k2"} 
+    streaming=True,
+    # If we have a extra parameters at model.py we can add them here
+    llm_kwargs={"kw1": 123, "kw2": "k2"},
 )
 
-request_json = practicus_llm_req.model_dump_json(indent=2, exclude_unset=True) 
+request_json = practicus_llm_req.model_dump_json(indent=2, exclude_unset=True)
 
 print("Will send json request:")
 print(request_json)
@@ -122,12 +107,9 @@ print(request_json)
 
 ```python
 # Now let's send a test request to our proxy using Python's requests.
-import requests 
+import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "application/json"}
 
 r = requests.post(api_url, headers=headers, data=request_json)
 if not r.ok:
@@ -166,26 +148,26 @@ async def init(model_meta=None, *args, **kwargs):
 async def cleanup(model_meta=None, *args, **kwargs):
     print("Cleaning up memory")
     # Add your clean-up code here
-    
+
 
 async def predict(payload_dict: dict, **kwargs):
     try:
         req = PrtLangRequest.model_validate(payload_dict)
     except Exception as ex:
-        raise ValueError(f"Invalid PrtLangRequest request. {ex}") from ex    
+        raise ValueError(f"Invalid PrtLangRequest request. {ex}") from ex
 
     # Converts the validated request object to a dictionary.
     data_js = req.model_dump_json(indent=2, exclude_unset=True)
     payload = json.loads(data_js)
-    
+
     # Joins the content field from all messages in the payload to form the prompt string.
-    prompt = " ".join([item['content'] for item in payload['messages']])    
+    prompt = " ".join([item["content"] for item in payload["messages"]])
 
     answer = f"You asked:\n{prompt}\nAnd I don't know how to respond yet."
-    
+
     resp = PrtLangResponse(
         content=answer,
-        lang_model=payload['lang_model'],
+        lang_model=payload["lang_model"],
         input_tokens=0,
         output_tokens=0,
         total_tokens=0,

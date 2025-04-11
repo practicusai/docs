@@ -66,7 +66,7 @@ remote_url = "https://git.practicus.my-company.com/myuser/myrepo.git"  # Example
 
 # Create a GitConfig object
 git_config = prt.GitConfig(
-    remote_url=remote_url,   # Repository to clone or pull
+    remote_url=remote_url,  # Repository to clone or pull
     secret_name=git_secret_name,  # Name of the secret containing the PAT
     # Optional configurations:
     # username="your-username",  # If the Git username differs from your Practicus AI username

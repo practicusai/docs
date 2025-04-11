@@ -25,7 +25,7 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-api_url = None # e.g. 'https://company.practicus.com/llm-models/llama-1b-basic-test/'
+api_url = None  # e.g. 'https://company.practicus.com/llm-models/llama-1b-basic-test/'
 ```
 
 ```python
@@ -47,10 +47,10 @@ print("API session token:", token)
 ```python
 from requests import get
 
-headers = {'authorization': f'Bearer {token}'}
-r = get(api_url + '?get_meta=true', headers=headers)
+headers = {"authorization": f"Bearer {token}"}
+r = get(api_url + "?get_meta=true", headers=headers)
 
-print('Model details: ', r.text)
+print("Model details: ", r.text)
 if r.status_code != 200:
     print(f"Error code {r.status_code}")
 ```
@@ -64,15 +64,15 @@ import json
 # Provide a user prompt to the LLM API and retrieve the generated response.
 data = {
     #'system_context': '',
-    'user_prompt': "Who is Einstein?"
-    }
+    "user_prompt": "Who is Einstein?"
+}
 r = get(api_url, headers=headers, json=data)
 
 if r.status_code != 200:
     print(f"Error code {r.status_code}")
 
 # Print API response for generated prediction
-print('Prediction result:')
+print("Prediction result:")
 try:
     parsed = json.loads(r.text)
     print(json.dumps(parsed, indent=1))
@@ -104,6 +104,7 @@ import json
 
 generator = None
 
+
 async def init(model_meta=None, *args, **kwargs):
     global generator
 
@@ -111,31 +112,30 @@ async def init(model_meta=None, *args, **kwargs):
     if generator is not None:
         print("generator exists, using")
         return
-    
+
     # If `generator` is not already initialised, builds the generator by loading the desired LLM
     print("generator is none, building")
-    model_cache = "/var/practicus/cache" # for details check 02_model_json
+    model_cache = "/var/practicus/cache"  # for details check 02_model_json
     if model_cache not in sys.path:
         sys.path.insert(0, model_cache)
-    
+
     try:
         from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
     except Exception as e:
         raise print(f"Failed to import required libraries: {e}")
-    
+
     # Initialize the local LLM model using transformers:
     def load_local_llm(model_path):
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = AutoModelForCausalLM.from_pretrained(model_path)
-        model.to('cpu') # Change with cuda or auto to use gpus.
-        return pipeline('text-generation', model=model, tokenizer=tokenizer, max_new_tokens=200)
-    
+        model.to("cpu")  # Change with cuda or auto to use gpus.
+        return pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=200)
+
     try:
         generator = load_local_llm(model_cache)
     except Exception as e:
         print(f"Failed to build generator: {e}")
         raise
-
 
 
 async def cleanup(model_meta=None, *args, **kwargs):
@@ -145,25 +145,25 @@ async def cleanup(model_meta=None, *args, **kwargs):
     generator = None
 
     from torch import cuda
+
     cuda.empty_cache()
 
+
 async def predict(payload_dict: dict, **kwargs):
-    
     # Recording the start time to measure execution duration.
     start = datetime.now()
 
     # Extracting given prompt from the http request
     sentence = payload_dict["user_prompt"]
-    
+
     # Passing the prompt to the `generator`, loaded llm model to generate a response.
     res = generator([sentence])
     text = res[0]
 
     # Returning a structured response containing the generated text and execution time.
-    total_time = (datetime.now() - start).total_seconds()   
-    return {
-        'answer': f'Time:{total_time}\nanswer:{text}'
-    }
+    total_time = (datetime.now() - start).total_seconds()
+    return {"answer": f"Time:{total_time}\nanswer:{text}"}
+
 ```
 
 

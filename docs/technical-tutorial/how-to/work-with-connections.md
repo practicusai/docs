@@ -65,7 +65,6 @@ _conn_conf = prt.connections.SqLiteConnConf(file_path="/home/ubuntu/samples/data
 
 new_conn_uuid = prt.connections.create(name=_name, conn_conf=_conn_conf)
 print(new_conn_uuid)
-
 ```
 
 ## Retrieving a Specific Connection
@@ -114,7 +113,7 @@ Set the parameters below and run the code to transfer files.
 ```python
 import practicuscore as prt
 
-_aws_access_key_id = None   # AWS Access Key ID or compatible service key
+_aws_access_key_id = None  # AWS Access Key ID or compatible service key
 _aws_secret_access_key = None  # AWS Secret Access Key or compatible service secret
 _bucket = None  # The name of your target bucket, e.g. "my-data-bucket"
 
@@ -122,8 +121,8 @@ _bucket = None  # The name of your target bucket, e.g. "my-data-bucket"
 assert _aws_access_key_id and _aws_secret_access_key and _bucket
 
 _aws_session_token = None  # (Optional) AWS session token
-_aws_region = None         # (Optional) AWS region
-_endpoint_url = None       # (Optional) S3-compatible endpoint (e.g., MinIO)
+_aws_region = None  # (Optional) AWS region
+_endpoint_url = None  # (Optional) S3-compatible endpoint (e.g., MinIO)
 
 _prefix = None  # (Optional) Prefix for organizing objects within the bucket
 _folder_path = None  # The local folder path with files to upload
@@ -138,7 +137,7 @@ _upload_conf = prt.connections.UploadS3Conf(
     folder_path=_folder_path,
     source_path_to_cut=_source_path_to_cut,
     aws_access_key_id=_aws_access_key_id,
-    aws_secret_access_key=_aws_secret_access_key
+    aws_secret_access_key=_aws_secret_access_key,
 )
 
 prt.connections.upload_to_s3(_upload_conf)

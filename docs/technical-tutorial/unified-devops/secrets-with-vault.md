@@ -51,15 +51,15 @@ import practicuscore as prt
 key, age = prt.vault.get_secret(
     name=personal_secret_name,
 )
-print(f"Retrieved personal secret {personal_secret_name} key: ****, length is {len(key)} chars, and it is {age} days old.")
+print(
+    f"Retrieved personal secret {personal_secret_name} key: ****, length is {len(key)} chars, and it is {age} days old."
+)
 ```
 
 ## Accessing a Shared Secret
 You can also retrieve secrets that are created by administrators and shared with you or one of your groups.
 
 ```python
-
-
 key, age = prt.vault.get_secret(name=shared_secret_name, shared=True)
 print(f"Retrieved shared secret {shared_secret_name} key: ****, length is {len(key)} chars, and it is {age} days old.")
 ```

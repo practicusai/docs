@@ -27,10 +27,10 @@ worker = prt.get_local_worker()
 conn_conf = {
     "connection_type": "WORKER_FILE",
     "sampling_method": "ALL",
-    "file_path": "/home/ubuntu/samples/data/insurance.csv"
+    "file_path": "/home/ubuntu/samples/data/insurance.csv",
 }
 
-proc = worker.load(conn_conf) 
+proc = worker.load(conn_conf)
 proc.show_head()
 ```
 
@@ -57,27 +57,33 @@ exp = RegressionExperiment()
 ##### We'll configure our experiment with a specific name, making it easier to manage and reference.
 
 ```python
-# You need to configure using the service unique key, you can find your key on the "Practicus AI Admin Console" 
-#service_key = 'mlflow-primary'  
+# You need to configure using the service unique key, you can find your key on the "Practicus AI Admin Console"
+# service_key = 'mlflow-primary'
 # Optionally, you can provide experime name to create a new experiement while configuring
-experiment_name = 'insurance'
+experiment_name = "insurance"
 
-#prt.experiments.configure(service_key=service_key, experiment_name=experiment_name)
+# prt.experiments.configure(service_key=service_key, experiment_name=experiment_name)
 # No experiment service selected, will use MlFlow inside the Worker. To configu3re manually:
-#prt.experiments.configure(experiment_name=experiment_name, service_name='Experiment service name')
+# prt.experiments.configure(experiment_name=experiment_name, service_name='Experiment service name')
 ```
 
 ### Step 4: Preparing Data with PyCaret's Setup
 ##### A critical step where we specify our experiment's details, such as the target variable, session ID for reproducibility, and whether to log the experiment for tracking purposes.
 
 ```python
-#setup_params = {'normalize': True, 'normalize_method': 'minmax', 
-                #'remove_outliers' : True, 'outliers_method':  'iforest'}
+# setup_params = {'normalize': True, 'normalize_method': 'minmax',
+#'remove_outliers' : True, 'outliers_method':  'iforest'}
 ```
 
 ```python
-exp.setup(data=df_model, target='charges', session_id=42, 
-          log_experiment=True, feature_selection=True, experiment_name=experiment_name)
+exp.setup(
+    data=df_model,
+    target="charges",
+    session_id=42,
+    log_experiment=True,
+    feature_selection=True,
+    experiment_name=experiment_name,
+)
 ```
 
 ### Step 5: Model Selection and Tuning
@@ -86,7 +92,7 @@ exp.setup(data=df_model, target='charges', session_id=42,
 ##### This command leverages AutoML to compare different models automatically, selecting the one that performs best according to a default or specified metric. It's a quick way to identify a strong baseline model without manual experimentation.
 
 ```python
-best_model = exp.compare_models(include=['lr', 'lasso',  'lightgbm'])
+best_model = exp.compare_models(include=["lr", "lasso", "lightgbm"])
 ```
 
 ##### Once a baseline model is selected, this step fine-tunes its hyperparameters to improve performance. The use of tune-sklearn and hyperopt indicates an advanced search across the hyperparameter space for optimal settings, which can significantly enhance model accuracy.
@@ -114,7 +120,7 @@ predictions
 ```
 
 ```python
-exp.save_model(final_model, 'model')
+exp.save_model(final_model, "model")
 ```
 
 #### (Recommneded) Adding model metadata to your API
@@ -131,7 +137,7 @@ model_config = prt.models.create_model_config(
     problem_type="Regression",
     version_name="2024-05-30",
     final_model="knn",
-    score=4.2493
+    score=4.2493,
 )
 model_config.save("model.json")
 # You also can directly instantiate ModelConfig class to provide more metadata elements
@@ -145,21 +151,16 @@ df.head()
 ```
 
 ```python
-deployment_key = 'automl-depl'
+deployment_key = "automl-depl"
 assert deployment_key, "Please select a deployment key"
-prefix = 'models'
-model_name = 'insurance-mlflow-test'
+prefix = "models"
+model_name = "insurance-mlflow-test"
 model_dir = None
 ```
 
 ```python
 # Deploy to current Practicus AI region
-prt.models.deploy(
-    deployment_key=deployment_key,
-    prefix=prefix,
-    model_name=model_name,
-    model_dir=model_dir
-)
+prt.models.deploy(deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir)
 ```
 
 ```python
@@ -179,12 +180,9 @@ print("API session token:", token)
 ```
 
 ```python
-import requests 
+import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df.head(5000).to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -192,6 +190,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")

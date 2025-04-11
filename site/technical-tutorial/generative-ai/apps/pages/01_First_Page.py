@@ -16,11 +16,11 @@ st.write("Hello from first page!")
 
 st.write(some_function())
 
-if 'page_1_counter' not in st.session_state:
+if "page_1_counter" not in st.session_state:
     st.session_state.page_1_counter = 0
 
-increment = st.button('Increment Counter +2')
+increment = st.button("Increment Counter +2")
 if increment:
     st.session_state.page_1_counter += 2
 
-st.write('Counter = ', st.session_state.page_1_counter)
+st.write("Counter = ", st.session_state.page_1_counter)

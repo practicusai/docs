@@ -41,6 +41,7 @@ host = None
 
 ```python
 import practicuscore as prt
+
 region = prt.get_region()
 ```
 
@@ -48,16 +49,16 @@ region = prt.get_region()
 method = None
 
 # For model APIs
-if method == 'llm_model':
+if method == "llm_model":
     model_name = None
     model_prefix = None
-   
+
 # For App APIs
-elif method == 'llm_app':
+elif method == "llm_app":
     app_name = None
     app_prefix = None
 
-host = None # e.g. 'company.practicus.io'
+host = None  # e.g. 'company.practicus.io'
 ```
 
 If you don't know your prefixes and models or apps you can check them out by using the SDK like down below:
@@ -73,23 +74,23 @@ display(my_model_prefixes.to_pandas())
 ```
 
 ```python
-my_app_list = region.app_list
+my_app_list = prt.apps.get_list()
 display(my_app_list.to_pandas())
 ```
 
 ```python
-my_app_prefix_list = region.app_prefix_list
+my_app_prefix_list = prt.apps.get_prefix_list()
 display(my_app_prefix_list.to_pandas())
 ```
 
 ```python
-assert method in ('llm_app', 'llm_model'), "Please select a valid method ('llm_app' or 'llm_model')."
+assert method in ("llm_app", "llm_model"), "Please select a valid method ('llm_app' or 'llm_model')."
 
-if method == 'llm_model':
+if method == "llm_model":
     assert model_name, "Please select an LLM."
     assert model_prefix, "Please select the prefix LLM  deployed."
 
-elif method == 'llm_app':
+elif method == "llm_app":
     assert app_name, "Please select an LLM app."
     assert app_prefix, "Please select the prefix LLM app deployed."
 
@@ -99,9 +100,9 @@ assert host, "Please enter your host"
 Now we can define our API url and it's token.
 
 ```python
-if method == 'llm_model':
+if method == "llm_model":
     api_url = f"https://{host}/{model_prefix}/{model_name}/"
-elif method == 'llm_app':
+elif method == "llm_app":
     api_url = f"https://{host}/{app_prefix}/{app_name}/api/"
 
 token = prt.models.get_session_token(api_url=api_url)
@@ -113,15 +114,9 @@ import requests
 ```
 
 ```python
-human_msg = PrtLangMessage(
-    content="Who is einstein? ",
-    role = "human"
-)
+human_msg = PrtLangMessage(content="Who is einstein? ", role="human")
 
-system_msg = PrtLangMessage(
-    content="Give me answer less than 100 words.",
-    role = "system"
-)
+system_msg = PrtLangMessage(content="Give me answer less than 100 words.", role="system")
 ```
 
 ### Request LLM
@@ -129,32 +124,29 @@ system_msg = PrtLangMessage(
 - If you need to data json you can use 'model_dump_json'. This function will return json.
 
 ```python
-# This class need message and model and if you want to stream, 
+# This class need message and model and if you want to stream,
 # you should change streaming value false to true
-practicus_llm_req = PrtLangRequest( 
+practicus_llm_req = PrtLangRequest(
     # Our context
-    messages=[human_msg, system_msg], 
+    messages=[human_msg, system_msg],
     # Select a model, leave empty for default
-    lang_model="", 
+    lang_model="",
     # Streaming mode
-    streaming=True, 
-    # If we have a extra parameters at model.py we can add them here 
-    llm_kwargs={"kw1": 123, "kw2": "k2"} 
+    streaming=True,
+    # If we have a extra parameters at model.py we can add them here
+    llm_kwargs={"kw1": 123, "kw2": "k2"},
 )
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "application/json"}
 
 # Convert our returned parameter to json
-data_js = practicus_llm_req.model_dump_json(indent=2, exclude_unset=True) 
+data_js = practicus_llm_req.model_dump_json(indent=2, exclude_unset=True)
 ```
 
 ```python
-with requests.post(api_url, headers=headers, data=data_js, stream=True) as r: 
-    for response_chunk in r.iter_content(1024): 
-        print(response_chunk.decode("utf-8"), end = '')
+with requests.post(api_url, headers=headers, data=data_js, stream=True) as r:
+    for response_chunk in r.iter_content(1024):
+        print(response_chunk.decode("utf-8"), end="")
 ```
 
 #### Sample streaming output

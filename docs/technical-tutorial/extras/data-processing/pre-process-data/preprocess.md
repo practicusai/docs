@@ -35,10 +35,7 @@ In this example, we'll showcase how to apply pre-process steps by using our SDK,
 ### Step-1: Loading the Dataset
 
 ```python
-dataset_conn ={
-    "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/data/income.csv"
-}
+dataset_conn = {"connection_type": "WORKER_FILE", "file_path": "/home/ubuntu/samples/data/income.csv"}
 ```
 
 ```python
@@ -88,8 +85,8 @@ The 'handle_missing' method of the SDK can be utilized to fill or drop missing v
 - custom_value: The value which will be used in filling columns, if not using 'custom' method leave it to be 'None'
 
 ```python
-proc.handle_missing(technique='minimum', column_list=['workclass'], custom_value='None')
-proc.handle_missing(technique='custom', column_list=['native-country'], custom_value='unknown')
+proc.handle_missing(technique="minimum", column_list=["workclass"], custom_value="None")
+proc.handle_missing(technique="custom", column_list=["native-country"], custom_value="unknown")
 ```
 
 #### 3.2: Suppressing of outliers by using snippets
@@ -108,11 +105,8 @@ E.g. the paramaters within 'suppress_outliers' can be listed as:
 - result_col_prefix: str | None = None (Prefix for the new column where the suppressed data will be stored.),
 
 ```python
-proc.run_snippet( 
-    'suppress_outliers', 
-    outlier_float_col_list=["capital-gain", "capital-loss"],
-    q1_percentile = 0.05,
-    q3_percentile = 0.95
+proc.run_snippet(
+    "suppress_outliers", outlier_float_col_list=["capital-gain", "capital-loss"], q1_percentile=0.05, q3_percentile=0.95
 )
 ```
 
@@ -124,14 +118,7 @@ The 'one_hot' method of the SDK can be utilized to apply one-hot encoding to the
 - column_prefix: A prefix to use for the new one-hot encoded columns.
 
 ```python
-cat_col_list = [
-    'workclass', 
-    'education', 
-    'marital-status', 
-    'occupation', 
-    'relationship', 
-    'native-country'
-]
+cat_col_list = ["workclass", "education", "marital-status", "occupation", "relationship", "native-country"]
 ```
 
 ```python
@@ -147,7 +134,7 @@ The 'categorical_map' method of the SDK can be utilized to apply label encoding 
 - column_prefix: A prefix to use for the new one-hot encoded columns.
 
 ```python
-proc.categorical_map(column_name='sex', column_suffix='cat')
+proc.categorical_map(column_name="sex", column_suffix="cat")
 ```
 
 #### 3.5: Re-naming Columns
@@ -155,23 +142,23 @@ proc.categorical_map(column_name='sex', column_suffix='cat')
 The 'rename_column' method of the SDK can be utilized to rename columns.
 
 ```python
-proc.rename_column('hours-per-week', 'hours_per_week')
+proc.rename_column("hours-per-week", "hours_per_week")
 ```
 
 ```python
-proc.rename_column('capital-loss', 'capital_loss')
+proc.rename_column("capital-loss", "capital_loss")
 ```
 
 ```python
-proc.rename_column('capital-gain', 'capital_gain')
+proc.rename_column("capital-gain", "capital_gain")
 ```
 
 ```python
-proc.rename_column('education-num', 'education_num')
+proc.rename_column("education-num", "education_num")
 ```
 
 ```python
-proc.rename_column('income >50K', 'income_50K') 
+proc.rename_column("income >50K", "income_50K")
 ```
 
 #### 3.6: Deleting Columns
@@ -179,13 +166,7 @@ proc.rename_column('income >50K', 'income_50K')
 The 'delete_columns' method of the SDK can be utilized to delete columns.
 
 ```python
-proc.delete_columns(['sex', 
-                     'workclass', 
-                     'education', 
-                     'marital-status', 
-                     'occupation', 
-                     'relationship', 
-                     'native-country'])
+proc.delete_columns(["sex", "workclass", "education", "marital-status", "occupation", "relationship", "native-country"])
 ```
 
 #### 3.7: Standardization of numerical columns
@@ -193,12 +174,12 @@ proc.delete_columns(['sex',
 The 'normalize.py' snippet of the SDK can be utilized to apply standardization to numeric columns.
 
 ```python
-proc.run_snippet( 
-    'normalize', 
-    numeric_col_list=['age', 'education_num', 'capital_gain', 'capital_loss', 'hours_per_week'],    
-    normalization_option="Min-Max Normalization",  
-    result=None
-) 
+proc.run_snippet(
+    "normalize",
+    numeric_col_list=["age", "education_num", "capital_gain", "capital_loss", "hours_per_week"],
+    normalization_option="Min-Max Normalization",
+    result=None,
+)
 ```
 
 #### 3.8: Logging the pre-process
@@ -244,7 +225,9 @@ class WeightsEnum(str, Enum):
     distance = "distance"
 
 
-def impute_missing_knn(df, missing_val_col: list[str] | None, n_neighbors: int = 5, weights: WeightsEnum = WeightsEnum.uniform):
+def impute_missing_knn(
+    df, missing_val_col: list[str] | None, n_neighbors: int = 5, weights: WeightsEnum = WeightsEnum.uniform
+):
     """
     Replaces each missing value using K-Nearest Neighbors technique
     :param missing_val_col: Columns to impute missing values. Leave empty for all columns
@@ -262,7 +245,9 @@ def impute_missing_knn(df, missing_val_col: list[str] | None, n_neighbors: int =
     if missing_val_col:
         non_numeric_columns = set(missing_val_col) - set(numeric_df.columns)
         if non_numeric_columns:
-            raise ValueError(f"Please only select numeric columns to impute, or do not select any columns. Non-numeric columns: {non_numeric_columns}")
+            raise ValueError(
+                f"Please only select numeric columns to impute, or do not select any columns. Non-numeric columns: {non_numeric_columns}"
+            )
 
         imputed_data = knn_imp.fit_transform(numeric_df[missing_val_col])
         imputed_df = pd.DataFrame(imputed_data, columns=missing_val_col, index=numeric_df.index)
@@ -275,7 +260,7 @@ def impute_missing_knn(df, missing_val_col: list[str] | None, n_neighbors: int =
 
 
 impute_missing_knn.worker_required = True
-impute_missing_knn.supported_engines = ['pandas']
+impute_missing_knn.supported_engines = ["pandas"]
 
 ```
 
@@ -290,17 +275,22 @@ class NormalizationOptions(str, Enum):
     ROBUST = "Robust Normalization"
 
 
-def normalize(df, numeric_col_list: list[str] | None = None, normalization_option: NormalizationOptions = NormalizationOptions.Z_SCORE, result: list[str] | None = None):
+def normalize(
+    df,
+    numeric_col_list: list[str] | None = None,
+    normalization_option: NormalizationOptions = NormalizationOptions.Z_SCORE,
+    result: list[str] | None = None,
+):
     """
     Normalizes certain columns in the DataFrame with the selected normalization method.
-    
+
     :param numeric_col_list: Names of the numeric columns to normalize. If None, all numeric columns are considered.
     :param normalization_option: Specifies the method for normalization: Z-Score (standardizes data), Min-Max (scales data to a fixed range, typically [0, 1]), or Robust (reduces the impact of outliers).
     :param result: Column names to write normalization results. If None, the original column names appended with "_normalized" will be used.
     """
     import numpy as np
     from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
-    
+
     # If no specific columns provided, use all numeric columns
     if numeric_col_list is None:
         numeric_col_list = df.select_dtypes(include=[np.number]).columns.tolist()
@@ -314,23 +304,31 @@ def normalize(df, numeric_col_list: list[str] | None = None, normalization_optio
         scaler = RobustScaler()
     else:
         raise ValueError("Unsupported normalization option selected.")
-    
+
     # Normalize specified columns and assign results either to new columns or overwrite them
     for col in numeric_col_list:
-        normalized_col_name = col + "_normalized" if result is None else result.pop(0) if result else f"{col}_normalized"
+        normalized_col_name = (
+            col + "_normalized" if result is None else result.pop(0) if result else f"{col}_normalized"
+        )
         df[normalized_col_name] = scaler.fit_transform(df[[col]])
 
     return df
 
 
 normalize.worker_required = True
+
 ```
 
 ### snippets/suppress_outliers.py
 ```python
 def suppress_outliers(
-        df, outlier_float_col_list: list[str] | None, q1_percentile: float = 0.25, q3_percentile: float = 0.75,
-        result_col_suffix: str | None = "no_outlier", result_col_prefix: str | None = None):
+    df,
+    outlier_float_col_list: list[str] | None,
+    q1_percentile: float = 0.25,
+    q3_percentile: float = 0.75,
+    result_col_suffix: str | None = "no_outlier",
+    result_col_prefix: str | None = None,
+):
     """
     Suppresses outliers in specified numeric columns of the dataframe based on custom percentile values for Q1 and Q3.
     Adds new columns with the selected suffix or prefix. If no suffix or prefix is provided, overwrites the existing column.
@@ -359,9 +357,9 @@ def suppress_outliers(
         upper_bound = q3 + 1.5 * iqr
 
         if result_col_suffix:
-            new_col_name = f'{col}_{result_col_suffix}'
+            new_col_name = f"{col}_{result_col_suffix}"
         elif result_col_prefix:
-            new_col_name = f'{result_col_prefix}_{col}'
+            new_col_name = f"{result_col_prefix}_{col}"
         else:
             new_col_name = col
 
@@ -369,7 +367,7 @@ def suppress_outliers(
         df[new_col_name] = np.where(
             df[col] < lower_bound, lower_bound, np.where(df[col] > upper_bound, upper_bound, df[col])
         )
-    
+
     return df
 
 ```

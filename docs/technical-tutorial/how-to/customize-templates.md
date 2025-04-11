@@ -62,4 +62,4 @@ print(rendered_code)
 
 ---
 
-**Previous**: [Use Custom Metrics](use-custom-metrics.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)
+**Previous**: [Use Custom Metrics](use-custom-metrics.md) | **Next**: [Hosting Temporary Apis](hosting-temporary-apis.md)

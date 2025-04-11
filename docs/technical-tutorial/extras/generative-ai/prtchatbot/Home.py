@@ -43,11 +43,15 @@ with st.form("main_form"):
         cursor = connection.cursor()
         cursor.execute("SELECT session_id FROM sessions WHERE session_id = %s", (st.session_state.session_id,))
         if cursor.fetchone() is None:
-            cursor.execute("INSERT INTO sessions (session_id, user_id, title, created_at, language) VALUES (%s, %s, %s, %s, %s)",
-                           (st.session_state.session_id, 1, title, now, "English"))
+            cursor.execute(
+                "INSERT INTO sessions (session_id, user_id, title, created_at, language) VALUES (%s, %s, %s, %s, %s)",
+                (st.session_state.session_id, 1, title, now, "English"),
+            )
         else:
-            cursor.execute("UPDATE sessions SET title = %s, language = %s WHERE session_id = %s",
-                           (title, "English", st.session_state.session_id))
+            cursor.execute(
+                "UPDATE sessions SET title = %s, language = %s WHERE session_id = %s",
+                (title, "English", st.session_state.session_id),
+            )
         connection.commit()
         cursor.close()
         connection.close()
@@ -76,14 +80,16 @@ connection.close()
 if "selected_session_id" not in st.session_state:
     st.session_state.selected_session_id = None
 
-default_index = 0 if st.session_state.selected_session_id is None else session_ids.index(st.session_state.selected_session_id)
+default_index = (
+    0 if st.session_state.selected_session_id is None else session_ids.index(st.session_state.selected_session_id)
+)
 
 selected_index = st.selectbox(
-    "💬 Load Session", 
-    options=range(len(session_labels)), 
+    "💬 Load Session",
+    options=range(len(session_labels)),
     format_func=lambda i: session_labels[i],
     index=default_index,
-    key=st.session_state.selectbox_key
+    key=st.session_state.selectbox_key,
 )
 
 selected_session = session_ids[selected_index]

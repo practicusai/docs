@@ -35,8 +35,8 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 deployment_key = None
 prefix = None
-model_name = None # Eg. bank_test_1
-practicus_url = None # Eg. http://practicus.company.com
+model_name = None  # Eg. bank_test_1
+practicus_url = None  # Eg. http://practicus.company.com
 ```
 
 ```python
@@ -48,6 +48,7 @@ assert practicus_url, "Please select practicus_url"
 
 ```python
 import practicuscore as prt
+
 region = prt.get_region()
 ```
 
@@ -70,7 +71,7 @@ Loading the data set
 
 ```python
 import practicuscore as prt
-import pandas as pd 
+import pandas as pd
 
 df = pd.read_csv("/home/ubuntu/samples/data/income.csv")
 
@@ -82,21 +83,22 @@ Creating pre-process function for new features
 ```python
 from sklearn.preprocessing import FunctionTransformer
 
-def add_features(df):    
-    
-    for column in df.select_dtypes(include='object'):  # Selecting columns which has type as object
+
+def add_features(df):
+    for column in df.select_dtypes(include="object"):  # Selecting columns which has type as object
         mode_value = df[column].mode()[0]  # Find mode
         df[column] = df[column].fillna(mode_value)
 
-    for column in df.select_dtypes(include='int64'):  # Selecting columns which has type as in64
+    for column in df.select_dtypes(include="int64"):  # Selecting columns which has type as in64
         mean_value = df[column].mean()  # Find median
         df[column] = df[column].fillna(mean_value)
 
-    for column in df.select_dtypes(include='float64'):  # Selecting columns which has type as float64
+    for column in df.select_dtypes(include="float64"):  # Selecting columns which has type as float64
         mean_value = df[column].mean()  # Find Median
         df[column] = df[column].fillna(mean_value)
-    
+
     return df
+
 
 add_features_transformer = FunctionTransformer(add_features, validate=False)
 ```
@@ -112,8 +114,17 @@ df.dtypes
 Defining categorical and numerical features
 
 ```python
-numeric_features = ['age', 'education-num', 'capital-gain', 'capital-loss', 'hours-per-week']
-categorical_features = ['workclass', 'education', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'native-country']
+numeric_features = ["age", "education-num", "capital-gain", "capital-loss", "hours-per-week"]
+categorical_features = [
+    "workclass",
+    "education",
+    "marital-status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "native-country",
+]
 ```
 
 Creating preprocessor object for the pipeline to apply scaling and one hot encoding
@@ -123,10 +134,8 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 preprocessor = ColumnTransformer(
-    transformers=[
-        ('num', StandardScaler(), numeric_features),
-        ('cat', OneHotEncoder(), categorical_features)
-    ])
+    transformers=[("num", StandardScaler(), numeric_features), ("cat", OneHotEncoder(), categorical_features)]
+)
 ```
 
 Creating the pipeline
@@ -136,11 +145,13 @@ Creating the pipeline
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 
-pipeline = Pipeline(steps=[
-    ('add_features', add_features_transformer),
-    ('preprocessor', preprocessor),
-    ('classifier', RandomForestClassifier())
-])
+pipeline = Pipeline(
+    steps=[
+        ("add_features", add_features_transformer),
+        ("preprocessor", preprocessor),
+        ("classifier", RandomForestClassifier()),
+    ]
+)
 ```
 
 # Model Training
@@ -149,14 +160,14 @@ pipeline = Pipeline(steps=[
 Train test split
 
 ```python
-X = df.drop(['income >50K'], axis=1)
-y = df['income >50K']
+X = df.drop(["income >50K"], axis=1)
+y = df["income >50K"]
 ```
 
 ```python
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42);
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 ```
 
 Fitting the model
@@ -167,7 +178,7 @@ pipeline.fit(X_train, y_train)
 
 ```python
 score = pipeline.score(X_test, y_test)
-print(f'Accuracy Score of the model: {score}')
+print(f"Accuracy Score of the model: {score}")
 ```
 
 Importing the model by using cloudpickle
@@ -175,7 +186,7 @@ Importing the model by using cloudpickle
 ```python
 import cloudpickle
 
-with open('model.pkl', 'wb') as f:
+with open("model.pkl", "wb") as f:
     cloudpickle.dump(pipeline, f)
 ```
 
@@ -184,23 +195,23 @@ import joblib
 import pandas as pd
 
 # Load the saved model
-model = joblib.load('model.pkl')
+model = joblib.load("model.pkl")
 
 # Making predictions
 predictions = model.predict(X)
 
 # Converting predictions to a DataFrame
-predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
+predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
 ```
 
 # Deployment of the model
 
 ```python
 prt.models.deploy(
-    deployment_key=deployment_key, 
-    prefix=prefix, 
-    model_name=model_name, 
-    model_dir=None # Current dir
+    deployment_key=deployment_key,
+    prefix=prefix,
+    model_name=model_name,
+    model_dir=None,  # Current dir
 )
 ```
 
@@ -228,10 +239,7 @@ Making predictions without making any pre-process on the income dataset
 ```python
 import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df.to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -239,6 +247,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")
@@ -260,45 +269,48 @@ import pandas as pd
 import numpy as np
 from starlette.exceptions import HTTPException
 import joblib
- 
+
 model_pipeline = None
- 
+
+
 def add_features(df):
-    for column in df.select_dtypes(include='object'):
+    for column in df.select_dtypes(include="object"):
         mode_value = df[column].mode()[0]
         df[column] = df[column].fillna(mode_value)
 
-    for column in df.select_dtypes(include='int64'):
+    for column in df.select_dtypes(include="int64"):
         mean_value = df[column].mean()
         df[column] = df[column].fillna(mean_value)
 
-    for column in df.select_dtypes(include='float64'):
+    for column in df.select_dtypes(include="float64"):
         mean_value = df[column].mean()
         df[column] = df[column].fillna(mean_value)
     return df
- 
+
+
 async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
- 
+
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise HTTPException(status_code=404, detail=f"Could not locate model file: {model_file}")
- 
+
     model_pipeline = joblib.load(model_file)
-   
- 
+
+
 async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwargs) -> pd.DataFrame:
     if df is None:
         raise HTTPException(status_code=500, detail="No dataframe received")
 
     # Making predictions
     predictions = model_pipeline.predict(df)
- 
+
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['income >50K'])
- 
+    predictions_df = pd.DataFrame(predictions, columns=["income >50K"])
+
     return predictions_df
+
 ```
 
 

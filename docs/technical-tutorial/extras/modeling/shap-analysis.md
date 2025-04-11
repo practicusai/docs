@@ -28,28 +28,26 @@ from sklearn.tree import plot_tree
 
 ```python
 # load the csv file as a data frame
-df = pd.read_csv('samples/data/iris.csv')
+df = pd.read_csv("samples/data/iris.csv")
 ```
 
 ```python
 label_encoder = LabelEncoder()
-df['species'] = label_encoder.fit_transform(df['species'])
+df["species"] = label_encoder.fit_transform(df["species"])
 ```
 
 ```python
 # Separate Features and Target Variables
-X = df.drop(columns='species')
-y = df['species']
+X = df.drop(columns="species")
+y = df["species"]
 ```
 
 ```python
 # Create Train & Test Data
-X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.3,
-                                                	stratify =y,
-                                                	random_state = 13)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=13)
 
 # Build the model
-rf_clf = RandomForestClassifier(max_features=2, n_estimators =100 ,bootstrap = True)
+rf_clf = RandomForestClassifier(max_features=2, n_estimators=100, bootstrap=True)
 
 rf_clf.fit(X_train, y_train)
 ```
@@ -82,10 +80,10 @@ This graphical analysis is instrumental for data-driven decision-making, ensurin
 importances = rf_clf.feature_importances_
 indices = np.argsort(importances)
 features = df.columns
-plt.title('Feature Importances')
-plt.barh(range(len(indices)), importances[indices], color='y', align='center')
+plt.title("Feature Importances")
+plt.barh(range(len(indices)), importances[indices], color="y", align="center")
 plt.yticks(range(len(indices)), [features[i] for i in indices])
-plt.xlabel('Relative Importance')
+plt.xlabel("Relative Importance")
 plt.show()
 ```
 
@@ -94,7 +92,7 @@ plt.show()
 explainer = shap.TreeExplainer(rf_clf)
 shap_values = explainer.shap_values(X)
 
-class_names = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
+class_names = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
 ```
 
 <!-- #region -->
@@ -131,11 +129,8 @@ feature_names = list(X_train.columns)
 tree_to_plot = rf_clf.estimators_[0]
 
 # Plot the selected tree
-fig = plt.figure(figsize=(25,20))
-_ = plot_tree(tree_to_plot,
-              feature_names=feature_names,
-              class_names=class_names,
-              filled=True)
+fig = plt.figure(figsize=(25, 20))
+_ = plot_tree(tree_to_plot, feature_names=feature_names, class_names=class_names, filled=True)
 ```
 
 # SHAP Value Summary: Feature Importance for Iris Classification
@@ -157,7 +152,7 @@ The SHAP summary plot offers an in-depth understanding of how each feature influ
 
 
 ```python
-shap.summary_plot(shap_values, X.values, plot_type="bar", class_names= class_names, feature_names = X.columns)
+shap.summary_plot(shap_values, X.values, plot_type="bar", class_names=class_names, feature_names=X.columns)
 ```
 
 # SHAP Summary Plot for Iris Dataset Model Interpretation
@@ -181,18 +176,15 @@ By employing the SHAP summary plot, we provide a granular view of feature influe
 
 
 ```python
-shap.summary_plot(shap_values[1], X.values, feature_names = X.columns)
-
+shap.summary_plot(shap_values[1], X.values, feature_names=X.columns)
 ```
 
 ```python
-shap.summary_plot(shap_values[0], X.values, feature_names = X.columns)
-
+shap.summary_plot(shap_values[0], X.values, feature_names=X.columns)
 ```
 
 ```python
-shap.summary_plot(shap_values[2], X.values, feature_names = X.columns)
-
+shap.summary_plot(shap_values[2], X.values, feature_names=X.columns)
 ```
 
 # SHAP Dependence Plot: Sepal Length's Influence on Iris Classification
@@ -251,16 +243,26 @@ Understanding which features the model prioritizes and the potential outcomes of
 
 ```python
 row = 8
-shap.waterfall_plot(shap.Explanation(values=shap_values[0][row], 
-                                        base_values=explainer.expected_value[0], data=X_test.iloc[row],  
-                                        feature_names=X_test.columns.tolist()))
+shap.waterfall_plot(
+    shap.Explanation(
+        values=shap_values[0][row],
+        base_values=explainer.expected_value[0],
+        data=X_test.iloc[row],
+        feature_names=X_test.columns.tolist(),
+    )
+)
 ```
 
 ```python
 row = 42
-shap.waterfall_plot(shap.Explanation(values=shap_values[0][row], 
-                                        base_values=explainer.expected_value[0], data=X_test.iloc[row],  
-                                        feature_names=X_test.columns.tolist()))
+shap.waterfall_plot(
+    shap.Explanation(
+        values=shap_values[0][row],
+        base_values=explainer.expected_value[0],
+        data=X_test.iloc[row],
+        feature_names=X_test.columns.tolist(),
+    )
+)
 ```
 
 ### SHAP Force Plot 
@@ -268,8 +270,7 @@ shap.waterfall_plot(shap.Explanation(values=shap_values[0][row],
 ##### This SHAP Force Plot  illustrates the impact of each feature on our model's classification prediction. The "base value" represents our average reference prediction, while the "f(x) = 1.00" value is the definitive prediction made by our model for this instance. Red bars (petal length: 4.5, petal width: 1.3, and sepal length: 5.7) indicate factors that increase the model's prediction. These three features have elevated the prediction, with petal length having the most significant impact. Sepal width (2.8) presents a slight negative effect, causing a minimal decrease in the model's prediction. Overall, in light of these values, our model robustly classifies the given data point into a specific category.
 
 ```python
-shap.plots.force(explainer.expected_value[0], shap_values[0][0,:], X_test.iloc[0, :], matplotlib = True)
-
+shap.plots.force(explainer.expected_value[0], shap_values[0][0, :], X_test.iloc[0, :], matplotlib=True)
 ```
 
 ### SHAP Decision Plot
@@ -284,7 +285,7 @@ Sepal length and sepal width: Exhibit variable impacts on the model output.
 This plot is instrumental in pinpointing the most influential features for a prediction and understanding their collective impact on the final model output.
 
 ```python
-#For class 0
+# For class 0
 shap.decision_plot(explainer.expected_value[0], shap_values[0], X_test.columns)
 ```
 
@@ -316,7 +317,7 @@ def label_encoder(df, text_col_list: list[str] | None = None):
     if text_col_list is not None:
         categorical_cols = text_col_list
     else:
-        categorical_cols = [col for col in df.columns if col.dtype == 'O']
+        categorical_cols = [col for col in df.columns if col.dtype == "O"]
 
     # Apply Label Encoding to each specified (or detected) categorical column
     for col in categorical_cols:
@@ -343,9 +344,14 @@ class DummyOption(str, Enum):
     KEEP_ALL = "Keep All Dummies"
 
 
-def one_hot(df, text_col_list: list[str] | None,
-            max_categories: int = 25, dummy_option: DummyOption = DummyOption.KEEP_ALL,
-            result_col_suffix: list[str] | None = None, result_col_prefix: list[str] | None = None):
+def one_hot(
+    df,
+    text_col_list: list[str] | None,
+    max_categories: int = 25,
+    dummy_option: DummyOption = DummyOption.KEEP_ALL,
+    result_col_suffix: list[str] | None = None,
+    result_col_prefix: list[str] | None = None,
+):
     """
     Applies one-hot encoding to specified columns in the DataFrame. If no columns are specified,
     one-hot encoding is applied to all categorical columns that have a number of unique categories
@@ -363,12 +369,15 @@ def one_hot(df, text_col_list: list[str] | None,
     import pandas as pd
 
     if text_col_list is None:
-        text_col_list = [col for col in df.columns if df[col].dtype == 'object' and df[col].nunique() <= max_categories]
+        text_col_list = [col for col in df.columns if df[col].dtype == "object" and df[col].nunique() <= max_categories]
 
     for col in text_col_list:
-        dummies = pd.get_dummies(df[col], prefix=(result_col_prefix if result_col_prefix else col),
-                                 drop_first=(dummy_option == DummyOption.DROP_FIRST))
-        dummies = dummies.rename(columns=lambda x: f'{x}_{result_col_suffix}' if result_col_suffix else x)
+        dummies = pd.get_dummies(
+            df[col],
+            prefix=(result_col_prefix if result_col_prefix else col),
+            drop_first=(dummy_option == DummyOption.DROP_FIRST),
+        )
+        dummies = dummies.rename(columns=lambda x: f"{x}_{result_col_suffix}" if result_col_suffix else x)
 
         df = pd.concat([df, dummies], axis=1)
 
@@ -384,45 +393,48 @@ import pandas as pd
 import numpy as np
 from starlette.exceptions import HTTPException
 import joblib
- 
+
 model_pipeline = None
- 
+
+
 def add_features(df):
-    for column in df.select_dtypes(include='object'):
+    for column in df.select_dtypes(include="object"):
         mode_value = df[column].mode()[0]
         df[column] = df[column].fillna(mode_value)
 
-    for column in df.select_dtypes(include='int64'):
+    for column in df.select_dtypes(include="int64"):
         mean_value = df[column].mean()
         df[column] = df[column].fillna(mean_value)
 
-    for column in df.select_dtypes(include='float64'):
+    for column in df.select_dtypes(include="float64"):
         mean_value = df[column].mean()
         df[column] = df[column].fillna(mean_value)
     return df
- 
+
+
 async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
- 
+
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise HTTPException(status_code=404, detail=f"Could not locate model file: {model_file}")
- 
+
     model_pipeline = joblib.load(model_file)
-   
- 
+
+
 async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwargs) -> pd.DataFrame:
     if df is None:
         raise HTTPException(status_code=500, detail="No dataframe received")
 
     # Making predictions
     predictions = model_pipeline.predict(df)
- 
+
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['income >50K'])
- 
+    predictions_df = pd.DataFrame(predictions, columns=["income >50K"])
+
     return predictions_df
+
 ```
 
 ### model_tracking/model_drift/model.py
@@ -431,7 +443,7 @@ import os
 from typing import Optional
 import pandas as pd
 from starlette.exceptions import HTTPException
-import joblib 
+import joblib
 
 
 model_pipeline = None
@@ -441,7 +453,7 @@ async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
 
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise HTTPException(status_code=404, detail=f"Could not locate model file: {model_file}")
 
@@ -452,16 +464,16 @@ async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwar
     if df is None:
         raise HTTPException(status_code=500, detail="No dataframe received")
 
-    if 'charges' in df.columns:
+    if "charges" in df.columns:
         # Dropping 'charges' since it is the target
-        df = df.drop('charges', axis=1)  
+        df = df.drop("charges", axis=1)
 
     # Making predictions
     predictions = model_pipeline.predict(df)
 
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
-    
+    predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
+
     return predictions_df
 
 ```
@@ -499,58 +511,55 @@ async def init(*args, **kwargs):
 
 async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFrame:
     # Define schema for Spark DataFrame
-    schema = StructType([
-        StructField("features", DoubleType(), True)
-    ])
-    
+    schema = StructType([StructField("features", DoubleType(), True)])
+
     # Convert input Pandas DataFrame to Spark DataFrame
     spark_data = spark.createDataFrame(
-        df.apply(lambda row: (Vectors.dense(float(row['Temperature'])),), axis=1),
-        schema=["features"]
+        df.apply(lambda row: (Vectors.dense(float(row["Temperature"])),), axis=1), schema=["features"]
     )
-    
+
     # Make predictions using the Spark model
     predictions = model.transform(spark_data)
-    
+
     # Select the relevant columns and convert to Pandas DataFrame
     predictions_pd = predictions.select("features", "prediction").toPandas()
-    
+
     # Extract the Temperature and predicted Revenue for readability
     predictions_pd["Temperature"] = predictions_pd["features"].apply(lambda x: x[0])
     predictions_pd = predictions_pd.rename(columns={"prediction": "predicted_Revenue"})
     predictions_pd = predictions_pd[["predicted_Revenue"]]
-    
+
     return predictions_pd
 
 ```
 
 ### sparkml/spark_with_job/job.py
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, count, when, lit, max, min, stddev, corr
 from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler, StandardScaler
 from pyspark.ml import Pipeline
 
-spark = SparkSession.builder \
-    .appName("Advanced Data Processing") \
-    .getOrCreate()
+spark = SparkSession.builder.appName("Advanced Data Processing").getOrCreate()
 
 file_path = "/home/ubuntu/samples/data/insurance.csv"
 data = spark.read.csv(file_path, header=True, inferSchema=True)
 missing_data = data.select([count(when(col(c).isNull(), c)).alias(c) for c in data.columns])
 
-categorical_columns = ['sex', 'smoker', 'region']
+categorical_columns = ["sex", "smoker", "region"]
 indexers = [StringIndexer(inputCol=col, outputCol=col + "_index") for col in categorical_columns]
 encoders = [OneHotEncoder(inputCol=col + "_index", outputCol=col + "_encoded") for col in categorical_columns]
 
-data = data.withColumn("bmi_category", 
-                       when(col("bmi") < 18.5, lit("underweight"))
-                       .when((col("bmi") >= 18.5) & (col("bmi") < 25), lit("normal"))
-                       .when((col("bmi") >= 25) & (col("bmi") < 30), lit("overweight"))
-                       .otherwise(lit("obese")))
+data = data.withColumn(
+    "bmi_category",
+    when(col("bmi") < 18.5, lit("underweight"))
+    .when((col("bmi") >= 18.5) & (col("bmi") < 25), lit("normal"))
+    .when((col("bmi") >= 25) & (col("bmi") < 30), lit("overweight"))
+    .otherwise(lit("obese")),
+)
 
-feature_columns = ['age', 'bmi', 'children', 'sex_encoded', 'smoker_encoded', 'region_encoded']
+feature_columns = ["age", "bmi", "children", "sex_encoded", "smoker_encoded", "region_encoded"]
 assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
 
 scaler = StandardScaler(inputCol="features", outputCol="scaled_features", withStd=True, withMean=False)
@@ -563,6 +572,7 @@ output_path = "/home/ubuntu/my/processed_insurance_data.parquet/"
 data.write.parquet(output_path, mode="overwrite")
 
 spark.stop()
+
 ```
 
 ### sparkml/spark_with_job/run/2c741e/prt_dist_job.json
@@ -593,7 +603,7 @@ async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
 
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise FileNotFoundError(f"Could not locate model file: {model_file}")
 
@@ -604,15 +614,15 @@ async def predict(http_request, df: pd.DataFrame | None = None, *args, **kwargs)
     if df is None:
         raise ValueError("No dataframe received")
 
-    if 'charges' in df.columns:
+    if "charges" in df.columns:
         # Dropping 'charges' since it is the target
-        df = df.drop('charges', axis=1)
+        df = df.drop("charges", axis=1)
 
         # Making predictions
     predictions = model_pipeline.predict(df)
 
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
+    predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
 
     return predictions_df
 
@@ -631,7 +641,7 @@ async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
 
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise FileNotFoundError(f"Could not locate model file: {model_file}")
 
@@ -643,15 +653,15 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
     # E.g. read bytes using http_request.stream(), decode and pass to Pandas.
     raise NotImplemented("DataFrame generation code not implemented")
 
-    if 'charges' in df.columns:
+    if "charges" in df.columns:
         # Dropping 'charges' since it is the target
-        df = df.drop('charges', axis=1)
+        df = df.drop("charges", axis=1)
 
     # Making predictions
     predictions = model_pipeline.predict(df)
 
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
+    predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
 
     return predictions_df
 

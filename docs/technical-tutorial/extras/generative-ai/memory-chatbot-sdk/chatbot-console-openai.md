@@ -39,12 +39,7 @@ This code attempts to establish a connection to a PostgreSQL database using the 
 
 ```python
 try:
-    connection = psycopg2.connect(
-        host="...",
-        database="...",
-        user="...",
-        password="..."
-    )
+    connection = psycopg2.connect(host="...", database="...", user="...", password="...")
     print("Connection successful!")
 except Exception as e:
     print(f"Connection error: {e}")
@@ -78,12 +73,7 @@ This code sets up the necessary configurations for:
 ```python
 openai.api_key = "..."
 
-db_config = {
-    "host": "...",
-    "database": "...",
-    "user": "...",
-    "password": "..."
-}
+db_config = {"host": "...", "database": "...", "user": "...", "password": "..."}
 ```
 
 # Creating a Conversations Table in PostgreSQL
@@ -120,7 +110,6 @@ This code connects to a PostgreSQL database, creates a cursor object to execute 
 ```python
 conn = psycopg2.connect(**db_config)
 cursor = conn.cursor()
-
 ```
 
 ```python
@@ -166,7 +155,7 @@ This function, `save_conversation`, inserts a single conversation record into th
 def save_conversation(user_message, bot_response, user_id, session_id):
     cursor.execute(
         "INSERT INTO conversations (user_message, bot_response, user_id, session_id) VALUES (%s, %s, %s, %s)",
-        (user_message, bot_response, user_id, session_id)
+        (user_message, bot_response, user_id, session_id),
     )
     conn.commit()
 ```
@@ -209,11 +198,19 @@ The `get_conversation` function retrieves conversation records from the `convers
 ```python
 def get_conversation(user_id=None, session_id=None):
     if user_id and session_id:
-        cursor.execute("SELECT user_message, bot_response FROM conversations WHERE user_id = %s AND session_id = %s ORDER BY timestamp ASC", (user_id, session_id))
+        cursor.execute(
+            "SELECT user_message, bot_response FROM conversations WHERE user_id = %s AND session_id = %s ORDER BY timestamp ASC",
+            (user_id, session_id),
+        )
     elif user_id:
-        cursor.execute("SELECT user_message, bot_response FROM conversations WHERE user_id = %s ORDER BY timestamp ASC", (user_id,))
+        cursor.execute(
+            "SELECT user_message, bot_response FROM conversations WHERE user_id = %s ORDER BY timestamp ASC", (user_id,)
+        )
     elif session_id:
-        cursor.execute("SELECT user_message, bot_response FROM conversations WHERE session_id = %s ORDER BY timestamp ASC", (session_id,))
+        cursor.execute(
+            "SELECT user_message, bot_response FROM conversations WHERE session_id = %s ORDER BY timestamp ASC",
+            (session_id,),
+        )
     else:
         cursor.execute("SELECT user_message, bot_response FROM conversations ORDER BY timestamp ASC")
     return cursor.fetchall()
@@ -251,11 +248,8 @@ The `chat_with_openai` function interacts with OpenAI's GPT model to generate a 
 ```python
 def chat_with_openai(prompt):
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response['choices'][0]['message']['content']
+        response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
+        return response["choices"][0]["message"]["content"]
     except Exception as e:
         return f"Hata: {e}"
 ```
@@ -305,7 +299,7 @@ def main():
     print("Welcome to Chatbot! (Type 'exit' to exit)")
     user_id = input("Please enter your user ID: ")
     session_id = input("Please enter your session ID (enter a new value for the new session): ")
-    
+
     conversation_history = get_conversation(user_id=user_id, session_id=session_id)
     if conversation_history:
         print("\nPrevious Conversation History:")
@@ -358,7 +352,6 @@ if __name__ == "__main__":
     finally:
         cursor.close()
         conn.close()
-
 ```
 
 
@@ -374,12 +367,7 @@ import requests
 import html
 import datetime
 
-db_config = {
-    "host": "...",
-    "database": "...",
-    "user": "...",
-    "password": "..."
-}
+db_config = {"host": "...", "database": "...", "user": "...", "password": "..."}
 
 conn = psycopg2.connect(**db_config)
 cursor = conn.cursor()
@@ -395,44 +383,56 @@ CREATE TABLE IF NOT EXISTS conversations (
 """)
 conn.commit()
 
+
 def save_conversation(user_message, bot_response, session_id):
     if user_message and bot_response:
         cursor.execute(
             "INSERT INTO conversations (user_message, bot_response, session_id) VALUES (%s, %s, %s)",
-            (user_message, bot_response, session_id)
+            (user_message, bot_response, session_id),
         )
         conn.commit()
     elif user_message:
         cursor.execute(
-            "INSERT INTO conversations (user_message, session_id) VALUES (%s, %s)",
-            (user_message, session_id)
+            "INSERT INTO conversations (user_message, session_id) VALUES (%s, %s)", (user_message, session_id)
         )
         conn.commit()
 
+
 def get_conversation(session_id=None, limit=5):
     if session_id:
-        cursor.execute("""
+        cursor.execute(
+            """
             SELECT user_message, bot_response 
             FROM conversations 
             WHERE session_id = %s 
             ORDER BY timestamp DESC 
             LIMIT %s
-        """, (session_id, limit))
+        """,
+            (session_id, limit),
+        )
     else:
-        cursor.execute("""
+        cursor.execute(
+            """
             SELECT user_message, bot_response 
             FROM conversations 
             ORDER BY timestamp DESC 
             LIMIT %s
-        """, (limit,))
+        """,
+            (limit,),
+        )
     return cursor.fetchall()
+
 
 def get_conversation_with_timestamps(session_id=None):
     if session_id:
-        cursor.execute("SELECT user_message, bot_response, timestamp FROM conversations WHERE session_id = %s ORDER BY timestamp DESC", (session_id,))
+        cursor.execute(
+            "SELECT user_message, bot_response, timestamp FROM conversations WHERE session_id = %s ORDER BY timestamp DESC",
+            (session_id,),
+        )
     else:
         cursor.execute("SELECT user_message, bot_response, timestamp FROM conversations ORDER BY timestamp DESC")
     return cursor.fetchall()
+
 
 def get_all_session_ids():
     cursor.execute("""
@@ -443,11 +443,13 @@ def get_all_session_ids():
     """)
     return [row[0] for row in cursor.fetchall()]
 
+
 def summarize_conversation(conversation_history):
     summary = "This is a summary of the conversation:\n"
     for user_message, bot_response in conversation_history:
         summary += f"User: {user_message}\nBot: {bot_response}\n"
     return summary
+
 
 def render_chat_history(conversation_history):
     if conversation_history:
@@ -484,35 +486,33 @@ def render_chat_history(conversation_history):
     else:
         st.markdown("No conversation history found.")
 
+
 def delete_session(session_id):
     cursor.execute("DELETE FROM conversations WHERE session_id = %s", (session_id,))
     conn.commit()
 
+
 def generate_response(prompt, model, session_id=None):
     api_url = "..."
     token = prt.models.get_session_token(api_url=api_url)
-    
+
     conversation_history = get_conversation(session_id=session_id)
     context = summarize_conversation(conversation_history)
-    
+
     full_prompt = context + "User: " + prompt
 
     practicus_llm_req = PrtLangRequest(
-        messages=[PrtLangMessage(content=full_prompt, role="human")],
-        lang_model=model,
-        streaming=True
+        messages=[PrtLangMessage(content=full_prompt, role="human")], lang_model=model, streaming=True
     )
-    
-    headers = {
-        'authorization': f'Bearer {token}',
-        'content-type': 'application/json'
-    }
-    
+
+    headers = {"authorization": f"Bearer {token}", "content-type": "application/json"}
+
     data_js = practicus_llm_req.model_dump_json(indent=2, exclude_unset=True)
-    
+
     with requests.post(api_url, headers=headers, data=data_js, stream=True) as r:
         for word in r.iter_content(1024):
             yield word.decode("utf-8")
+
 
 st.set_page_config(page_title="Chatbot", layout="wide")
 st.title("Chatbot App")
@@ -546,14 +546,16 @@ with input_placeholder.container():
     if st.button("Send"):
         if not st.session_state["selected_session_id"]:
             st.session_state["selected_session_id"] = "temporary_session"
-        
+
         st.session_state["messages"].append({"role": "user", "content": user_message})
         bot_response = ""
         for chunk in generate_response(user_message, "gpt-4o", session_id=st.session_state["selected_session_id"]):
             bot_response += chunk
             st.session_state["messages"].append({"role": "bot", "content": chunk})
             with chat_placeholder.container():
-                updated_conversation = get_conversation_with_timestamps(session_id=st.session_state["selected_session_id"]) + [(user_message, bot_response, datetime.datetime.now())]
+                updated_conversation = get_conversation_with_timestamps(
+                    session_id=st.session_state["selected_session_id"]
+                ) + [(user_message, bot_response, datetime.datetime.now())]
                 render_chat_history(updated_conversation)
 
         if bot_response.strip():
@@ -592,16 +594,20 @@ with st.sidebar:
 
     if st.session_state["session_saved"]:
         st.write(f"Selected Session ID: {st.session_state['selected_session_id']}")
-    
+
     if st.button("Save"):
         if not st.session_state["session_saved"]:
             st.session_state["selected_session_id"] = st.text_input("New Chat ID", placeholder="Enter new chat id")
         else:
-            cursor.execute("SELECT session_id FROM conversations WHERE session_id = %s", (st.session_state["selected_session_id"],))
+            cursor.execute(
+                "SELECT session_id FROM conversations WHERE session_id = %s", (st.session_state["selected_session_id"],)
+            )
             if cursor.fetchone():
                 st.warning("This session is already exist.")
             else:
-                cursor.execute("INSERT INTO conversations (session_id) VALUES (%s)", (st.session_state["selected_session_id"],))
+                cursor.execute(
+                    "INSERT INTO conversations (session_id) VALUES (%s)", (st.session_state["selected_session_id"],)
+                )
                 conn.commit()
                 st.success(f"Chat saved: {st.session_state['selected_session_id']}")
                 st.session_state["session_saved"] = True

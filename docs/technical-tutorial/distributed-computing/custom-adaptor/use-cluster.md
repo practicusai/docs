@@ -51,9 +51,9 @@ To do this:
 <!-- #endregion -->
 
 ```python
-import os 
-import base64 
-import json 
+import os
+import base64
+import json
 
 distributed_conf_dict_b64 = os.getenv("PRT_DISTRIBUTED_CONF", None)
 distributed_conf_str = base64.b64decode(distributed_conf_dict_b64.encode("utf-8")).decode("utf-8")
@@ -76,7 +76,7 @@ os.environ["PRT_DISTRIBUTED_CONF"] = distributed_conf_dict_b64
 ```
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Our Spark session code will work as usual
 spark = prt.distributed.get_client()
@@ -137,6 +137,7 @@ If you’re experiencing issues with an interactive cluster that doesn’t run j
 import practicuscore as prt
 from practicuscore.dist_job import SparkAdaptor
 
+
 class MySparkAdaptor(SparkAdaptor):
     @property
     def _run_cluster_coordinator_command(self) -> str:
@@ -144,7 +145,7 @@ class MySparkAdaptor(SparkAdaptor):
 
         # Change the command as needed
         new_command = old_command + " # add your changes here"
-        
+
         return new_command
 
     @property
@@ -152,7 +153,7 @@ class MySparkAdaptor(SparkAdaptor):
         old_command = super()._run_cluster_agent_command
 
         new_command = old_command + " # add your changes here"
-        
+
         return new_command
 
 ```

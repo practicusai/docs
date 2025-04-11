@@ -20,8 +20,8 @@ BASE_DIR = "/home/ubuntu/my/deepspeed/llm_fine_tune"
 @dataclass
 class ModelArguments:
     model_name_or_path: str = field(
-        default=os.path.join(BASE_DIR, 'llama-3B-instruct'),  # Set default model path here
-        metadata={"help": "Path to pretrained model or model identifier from huggingface.co/models"}
+        default=os.path.join(BASE_DIR, "llama-3B-instruct"),  # Set default model path here
+        metadata={"help": "Path to pretrained model or model identifier from huggingface.co/models"},
     )
     lora_alpha: Optional[int] = field(default=16)
     lora_dropout: Optional[float] = field(default=0.1)
@@ -30,29 +30,18 @@ class ModelArguments:
         default="q_proj,k_proj,v_proj,o_proj,down_proj,up_proj,gate_proj",
         metadata={"help": "Comma-separated list of target modules to apply LoRA layers to."},
     )
-    use_flash_attn: Optional[bool] = field(
-        default=False, metadata={"help": "Enables Flash attention for training."}
-    )
+    use_flash_attn: Optional[bool] = field(default=False, metadata={"help": "Enables Flash attention for training."})
 
 
 @dataclass
 class DataTrainingArguments:
     dataset_path: str = field(
         default=os.path.join(BASE_DIR, "Customer_Support_Dataset.csv"),
-        metadata={"help": "Path to the CSV file containing training data."}
+        metadata={"help": "Path to the CSV file containing training data."},
     )
-    input_field: str = field(
-        default="instruction",
-        metadata={"help": "Field name for user input in the dataset."}
-    )
-    target_field: str = field(
-        default="response",
-        metadata={"help": "Field name for target responses in the dataset."}
-    )
-    max_seq_length: int = field(
-        default=180,
-        metadata={"help": "Maximum sequence length for tokenization."}
-    )
+    input_field: str = field(default="instruction", metadata={"help": "Field name for user input in the dataset."})
+    target_field: str = field(default="response", metadata={"help": "Field name for target responses in the dataset."})
+    max_seq_length: int = field(default=180, metadata={"help": "Maximum sequence length for tokenization."})
 
 
 def create_and_prepare_model(args, data_args):
@@ -63,7 +52,7 @@ def create_and_prepare_model(args, data_args):
         r=args.lora_r,
         bias="none",
         task_type="CAUSAL_LM",
-        target_modules=args.lora_target_modules.split(",")
+        target_modules=args.lora_target_modules.split(","),
     )
 
     # Load tokenizer
@@ -83,19 +72,16 @@ def create_and_prepare_model(args, data_args):
 def preprocess_data(df, tokenizer, data_args):
     def tokenize_function(row):
         inputs = tokenizer(
-            row[data_args.input_field],
-            truncation=True,
-            padding="max_length",
-            max_length=data_args.max_seq_length
+            row[data_args.input_field], truncation=True, padding="max_length", max_length=data_args.max_seq_length
         )
         targets = tokenizer(
-            row[data_args.target_field],
-            truncation=True,
-            padding="max_length",
-            max_length=data_args.max_seq_length
+            row[data_args.target_field], truncation=True, padding="max_length", max_length=data_args.max_seq_length
         )
-        return {"input_ids": inputs["input_ids"], "attention_mask": inputs["attention_mask"],
-                "labels": targets["input_ids"]}
+        return {
+            "input_ids": inputs["input_ids"],
+            "attention_mask": inputs["attention_mask"],
+            "labels": targets["input_ids"],
+        }
 
     # Adding instruction to training dataset
     instruction = """You are a top-rated customer service agent named John. 
@@ -162,7 +148,7 @@ def main():
         train_dataset=tokenized_data,
         eval_dataset=tokenized_data,
         peft_config=peft_config,
-        max_seq_length=512
+        max_seq_length=512,
     )
 
     # Train the model

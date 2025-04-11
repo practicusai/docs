@@ -68,12 +68,12 @@ Let's load it into one of our worker environments.
 data_set_conn = {
     "connection_type": "WORKER_FILE",
     "sample_size": 1180,
-    "file_path": "/home/ubuntu/samples/data/titanic.csv"
+    "file_path": "/home/ubuntu/samples/data/titanic.csv",
 }
 ```
 
 ```python
-proc = worker.load(data_set_conn, engine='AUTO') 
+proc = worker.load(data_set_conn, engine="AUTO")
 ```
 
 ```python
@@ -101,11 +101,7 @@ source = ColumnDataSource(df)
 We need to create a mapper of colors to use color feature as dynamically. We will use LinearColorMapper() built-in function of Bokeh to create our mapper.
 
 ```python
-color_mapper = LinearColorMapper( 
-    palette='Sunset11', 
-    low=df['survived'].min(), 
-    high=df['survived'].max()
-)
+color_mapper = LinearColorMapper(palette="Sunset11", low=df["survived"].min(), high=df["survived"].max())
 ```
 
 Here's a breakdown of the parameters:
@@ -117,7 +113,7 @@ Here's a breakdown of the parameters:
 Let's create our figure to do some visualisation.
 
 ```python
-p = figure(title="Analysis Over Survivors", x_axis_label='age', y_axis_label='fare', width=600, height=400)
+p = figure(title="Analysis Over Survivors", x_axis_label="age", y_axis_label="fare", width=600, height=400)
 ```
 
 Here's an explanation of each parameter in the figure function call:
@@ -131,7 +127,9 @@ Here's an explanation of each parameter in the figure function call:
 Let's continue with our first plotting of _circle_ (circle plotting)!
 
 ```python
-circle = p.circle(x='age', y='fare', radius='pclass', color=transform('survived', color_mapper), alpha=0.5, source=source)
+circle = p.circle(
+    x="age", y="fare", radius="pclass", color=transform("survived", color_mapper), alpha=0.5, source=source
+)
 show(p)
 ```
 
@@ -151,10 +149,9 @@ Here's an explanation of each parameter:
 At this point we should add a bar which describes the meaning of colors. We could do this by using ColorBar() feature of Bokeh.
 
 ```python
-color_bar = ColorBar(color_mapper=color_mapper, padding=3,
-                         ticker=p.xaxis.ticker, formatter=p.xaxis.formatter)
+color_bar = ColorBar(color_mapper=color_mapper, padding=3, ticker=p.xaxis.ticker, formatter=p.xaxis.formatter)
 
-p.add_layout(color_bar, 'right')
+p.add_layout(color_bar, "right")
 show(p)
 ```
 
@@ -172,14 +169,9 @@ Here's an explanation of each parameter:
 We still missing something, it would be a cool feature if we could see the values of data points. Actually, we could use _HoverTool()_ bokeh to do that!
 
 ```python
-tips = [
-    ('Fare', '@fare'),
-    ('Age', '@age'),
-    ('Survived', '@survived'),
-    ('Pclass', '@pclass')
-]
+tips = [("Fare", "@fare"), ("Age", "@age"), ("Survived", "@survived"), ("Pclass", "@pclass")]
 
-p.add_tools(HoverTool(tooltips=tips)) 
+p.add_tools(HoverTool(tooltips=tips))
 show(p)
 ```
 

@@ -25,7 +25,7 @@ jupyter:
 ```python
 worker_size = None
 worker_count = None
-worker_image="practicus-gpu-ray"
+worker_image = "practicus-gpu-ray"
 ```
 
 ```python
@@ -39,11 +39,11 @@ import practicuscore as prt
 
 # Let's define the distributed features
 distributed_config = prt.DistJobConfig(
-    job_type = prt.DistJobType.ray,
-    worker_count = worker_count,
+    job_type=prt.DistJobType.ray,
+    worker_count=worker_count,
 )
 
-# Let's define worker features of the cluster 
+# Let's define worker features of the cluster
 worker_config = prt.WorkerConfig(
     # Please note that this example requires GPUs
     # Please note that Ray requires a specific worker image
@@ -52,7 +52,7 @@ worker_config = prt.WorkerConfig(
     distributed_config=distributed_config,
 )
 
-# Creating the coordinator (master) worker 
+# Creating the coordinator (master) worker
 # will also create the cluster.
 coordinator_worker = prt.create_worker(
     worker_config=worker_config,
@@ -73,7 +73,7 @@ print("Page did not open? You can open this url manually:", notebook_url)
 by opening the next example in this directory
 
 ```python
-# Done experimenting? Let's terminate the coordinator 
+# Done experimenting? Let's terminate the coordinator
 #  which will also terminate the cluster.
 coordinator_worker.terminate()
 ```

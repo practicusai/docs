@@ -44,6 +44,7 @@ prt.quality.check()
 # We can add a "No QA" tag to ignore checking a certain type of issue
 # E.g. to ignore an unused imports for a line of code
 import pandas  # noqa: F401
+
 # To ignore all QA checks (not recommended)
 import numpy  # noqa
 ```
@@ -53,12 +54,10 @@ import numpy  # noqa
 
 ### bad_code.py
 ```python
-import pandas 
+import pandas
 
 # this is an error
 print(undefined_var)
-
-
 
 
 print("Too many blank lines, which is a code formatting issue.")

@@ -67,27 +67,22 @@ Once you’ve set up the notebook and its parameters, you can execute it using P
 ```python
 import practicuscore as prt
 
-# This will run just fine, 
+# This will run just fine,
 # and save the resulting output to sample_notebook_output.ipynb
 prt.notebooks.execute_notebook("sample_notebook")
 ```
 
 ```python
 # The below *will FAIL* since some_param cannot be 0
-prt.notebooks.execute_notebook(
-    "sample_notebook",
-    parameters={
-        "some_param": 0 
-    }
-)
+prt.notebooks.execute_notebook("sample_notebook", parameters={"some_param": 0})
 ```
 
 ## Advanced features
 
 ```python
 # Advanced Notebook automation parameters
-default_output_folder="~/tests"  # If none, writes notebook output to same folder as notebook
-default_failed_output_folder="~/tests_failed"  # If not none, copies failed notebook results
+default_output_folder = "~/tests"  # If none, writes notebook output to same folder as notebook
+default_failed_output_folder = "~/tests_failed"  # If not none, copies failed notebook results
 
 # By calling configure you can save notebook results to central location
 # Please note that you can do this to a shared/ folder daily where all of our members have access to
@@ -101,12 +96,7 @@ prt.notebooks.configure(
 prt.notebooks.execute_notebook("sample_notebook")
 
 # This will fail but does not stop the execution of the notebook
-prt.notebooks.execute_notebook(
-    "sample_notebook",
-    parameters={
-        "some_param": 0 
-    }
-)
+prt.notebooks.execute_notebook("sample_notebook", parameters={"some_param": 0})
 
 # You can access successful and failed notebooks lists with the below
 print("Successful notebook runs:", prt.notebooks.successful_notebooks)
@@ -114,11 +104,11 @@ print("Failed notebook runs:", prt.notebooks.failed_notebooks)
 
 # Calling validate_history() will raise an exception IF any of the previous notebooks failed
 # This is useful to have a primary "orchestration" notebook that executes other child notebooks,
-# And then finally fails itself if there was a mistake. 
-# You can then report the result, essentially creating a final report. 
+# And then finally fails itself if there was a mistake.
+# You can then report the result, essentially creating a final report.
 prt.notebooks.validate_history()
 
-# You can view the passed and failed execution results in 
+# You can view the passed and failed execution results in
 # ~/tests and ~/tests_failed with a time stamp (optional)
 ```
 

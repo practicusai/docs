@@ -1,4 +1,6 @@
-import os 
+import os
+import practicuscore as prt
+
 
 MY_FIRST_ENV = os.getenv("MY_FIRST_ENV", default="?")
 MY_SECOND_ENV = os.getenv("MY_SECOND_ENV", default="?")
@@ -8,12 +10,13 @@ SHARED_SECRET_1 = os.getenv("SHARED_SECRET_1", default="?")
 HELLO_TXT_PATH = "/var/practicus/hello.txt"
 
 
-def run(**kwargs):
+@prt.apps.api("/verify")
+async def verify(**kwargs):
     hello_txt_content = "?"
     if os.path.exists(HELLO_TXT_PATH):
         with open(HELLO_TXT_PATH, "r") as f:
             hello_txt_content = f.read().strip()
-    
+
     return {
         "msg": "Reading configuration from OS environment variables. (Only length of secrets for security)",
         "MY_FIRST_ENV": MY_FIRST_ENV,

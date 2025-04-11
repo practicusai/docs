@@ -25,9 +25,9 @@ jupyter:
  
 
 ```python
-_deployment_key = None # e.g. "llm-depl"
-_prefix = None # e.g. "llm-models"
-_model_name = None # e.g. "llama-1b-combined-test"
+_deployment_key = None  # e.g. "llm-depl"
+_prefix = None  # e.g. "llm-models"
+_model_name = None  # e.g. "llama-1b-combined-test"
 ```
 
 ```python
@@ -36,7 +36,8 @@ assert _deployment_key and _prefix and _model_name, "Please enter your deploymen
 
 ```python
 import practicuscore as prt
-region = prt.get_region() # The region where the deployments are stored
+
+region = prt.get_region()  # The region where the deployments are stored
 ```
 
 ##### If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
@@ -59,9 +60,9 @@ display(my_model_deployments.to_pandas())
 ```python
 prt.models.deploy(
     deployment_key=_deployment_key,
-    prefix=_prefix, 
-    model_name=_model_name, 
-    model_dir=None # Current dir
+    prefix=_prefix,
+    model_name=_model_name,
+    model_dir=None,  # Current dir
 )
 ```
 
@@ -107,20 +108,20 @@ async def init(model_meta=None, *args, **kwargs):
     model_cache = "/var/practicus/cache"
     if model_cache not in sys.path:
         sys.path.insert(0, model_cache)
-    
+
     try:
         from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
     except Exception as e:
         raise print(f"Failed to import required libraries: {e}")
-    
+
     # Initialize the local LLM model using transformers:
-    
+
     def load_local_llm(model_path):
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = AutoModelForCausalLM.from_pretrained(model_path)
-        model.to('cpu') # Change with cuda or auto to use gpus.
-        return pipeline('text-generation', model=model, tokenizer=tokenizer, max_new_tokens=200)
-    
+        model.to("cpu")  # Change with cuda or auto to use gpus.
+        return pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=200)
+
     try:
         generator = load_local_llm(model_cache)
     except Exception as e:
@@ -135,52 +136,49 @@ async def cleanup(model_meta=None, *args, **kwargs):
     generator = None
 
     from torch import cuda
+
     cuda.empty_cache()
 
-async def predict(payload_dict: dict, **kwargs):
 
+async def predict(payload_dict: dict, **kwargs):
     # For basic text-in, text-out task:
     if "user_prompt" in payload_dict:
-            
         # Recording the start time to measure execution duration.
         start = datetime.now()
 
         # Extracting given prompt from the http request
         sentence = payload_dict["user_prompt"]
-        
+
         # Passing the prompt to the `generator`, loaded llm model to generate a response.
         res = generator([sentence])
         text = res[0]
 
         # Returning a structured response containing the generated text and execution time.
-        total_time = (datetime.now() - start).total_seconds()   
-        return {
-            'answer': f'Time:{total_time}\nanswer:{text}'
-        }
-    
+        total_time = (datetime.now() - start).total_seconds()
+        return {"answer": f"Time:{total_time}\nanswer:{text}"}
+
     # For langchain applications:
-    else: 
-        
+    else:
         from practicuscore.gen_ai import PrtLangRequest, PrtLangResponse
 
         # The payload dictionary is validated against PrtLangRequest.
         practicus_llm_req = PrtLangRequest.model_validate(payload_dict)
-        
+
         # Converts the validated request object to a dictionary.
         data_js = practicus_llm_req.model_dump_json(indent=2, exclude_unset=True)
         payload = json.loads(data_js)
-        
+
         # Joins the content field from all messages in the payload to form the prompt string.
-        prompt = " ".join([item['content'] for item in payload['messages']])
+        prompt = " ".join([item["content"] for item in payload["messages"]])
 
         # Generate a response from the model
         response = generator(prompt)
-        answer = response[0]['generated_text']
+        answer = response[0]["generated_text"]
 
         # Creates a PrtLangResponse object with the generated content and metadata about the language model and token usage
         resp = PrtLangResponse(
             content=answer,
-            lang_model=payload['lang_model'],
+            lang_model=payload["lang_model"],
             input_tokens=0,
             output_tokens=0,
             total_tokens=0,
@@ -190,6 +188,7 @@ async def predict(payload_dict: dict, **kwargs):
         )
 
         return resp
+
 ```
 
 

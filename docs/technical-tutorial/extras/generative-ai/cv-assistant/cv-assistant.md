@@ -18,33 +18,33 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-host = None # E.g. 'company.practicus.com'
+host = None  # E.g. 'company.practicus.com'
 embedding_model_path = None
 model_name = None
 model_prefix = None
 
-vector_store = None # ChromaDB or MilvusDB
+vector_store = None  # ChromaDB or MilvusDB
 
-if vector_store == 'MilvusDB':
-    milvus_uri = None # E.g. 'company.practicus.milvus.com'
-    
+if vector_store == "MilvusDB":
+    milvus_uri = None  # E.g. 'company.practicus.milvus.com'
 ```
 
 ```python
-assert host, "Please enter your host url" 
+assert host, "Please enter your host url"
 assert embedding_model_path, "Please enter your embedding model path."
 assert model_name, "Please enter your embedding model_name."
 assert model_prefix, "Please enter your embedding model_prefix."
 
 # You can use one of ChromaDB or MilvusDB as vector store
-assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
+assert vector_store in ["ChromaDB", "MilvusDB"], "Vector store must be 'ChromaDB' or 'MilvusDB'."
 
-if vector_store == 'MilvusDB':
-    assert 'milvus_uri', "Please enter your milvus connection uri"
+if vector_store == "MilvusDB":
+    assert "milvus_uri", "Please enter your milvus connection uri"
 ```
 
 ```python
 import practicuscore as prt
+
 region = prt.get_region()
 ```
 
@@ -109,23 +109,21 @@ url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_pat
 
 response = requests.get(url)
 if response.status_code == 200:
-    files = response.json()  
-    
+    files = response.json()
+
     for file in files:
-        file_url = file['download_url'] 
-        file_name = file['name']  
+        file_url = file["download_url"]
+        file_name = file["name"]
 
         file_response = requests.get(file_url)
         if file_response.status_code == 200:
-
-            with open(file_name, 'wb') as f:
+            with open(file_name, "wb") as f:
                 f.write(file_response.content)
             print(f"'{file_name}' successfully downloaded.")
         else:
             print(f"'{file_name}' not successfully downloaded.")
 else:
     print(f"HTTP status: {response.status_code}")
-
 ```
 
 ## Import Libraries
@@ -144,7 +142,8 @@ import random
 import pandas as pd
 
 import warnings
-warnings.filterwarnings('ignore')
+
+warnings.filterwarnings("ignore")
 ```
 
 ## Define llm api function and call ChatPracticus in this function
@@ -190,10 +189,10 @@ def call_llm_api(inputs, api_url, api_token):
         api_token=api_token,
         model_id="current models ignore this",
     )
-    
+
     response = chat.invoke(input=inputs)
-    
-    return(response.content)
+
+    return response.content
 ```
 
 ## Get all resumes and use seperator for split questions
@@ -215,9 +214,9 @@ def call_llm_api(inputs, api_url, api_token):
 
 ```python
 df = pd.read_csv("HR.csv")
-merged_resumes = ''
-for resume in df['Resume_str']:
-    merged_resumes = merged_resumes + '//m-n-m//' + resume
+merged_resumes = ""
+for resume in df["Resume_str"]:
+    merged_resumes = merged_resumes + "//m-n-m//" + resume
 ```
 
 #### Description
@@ -250,9 +249,9 @@ This function processes a concatenated string of resumes, splits them into indiv
 def load_and_split_resumes(merged_resumes, chunk_size=500, chunk_overlap=50):
     """
     Load and split email strings into chunks.
-    
+
     :param merged_resumes: A single string containing all resumes contents, separated by '//m-n-m//'.
-    :param chunk_size: The maximum number of characters in each text chunk. 
+    :param chunk_size: The maximum number of characters in each text chunk.
     :param chunk_overlap: The number of characters to overlap between consecutive chunks.
     """
     all_docs = []
@@ -261,17 +260,17 @@ def load_and_split_resumes(merged_resumes, chunk_size=500, chunk_overlap=50):
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
         length_function=len,
-        is_separator_regex=False
+        is_separator_regex=False,
     )
 
     # Split resumes
-    resumes = merged_resumes.split('//m-n-m//')
+    resumes = merged_resumes.split("//m-n-m//")
 
     # Transform to Document
     documents = [Document(page_content=resume.strip()) for resume in resumes if resume.strip()]
 
     # Split docs
-    split_docs = text_splitter.split_documents(documents) 
+    split_docs = text_splitter.split_documents(documents)
     all_docs.extend(split_docs)
 
     return all_docs
@@ -311,21 +310,24 @@ text_chunks = load_and_split_resumes(merged_resumes)
 
 
 ```python
-if vector_store == 'ChromaDB':
+if vector_store == "ChromaDB":
     # Generate embeddings and create vector store
     def create_chroma_vector_store(chunks, embeddings_model_path):
-        embeddings = HuggingFaceEmbeddings( # This class is used to generate embeddings for the text chunks.
-            model_name=embeddings_model_path, # Specifies the path to the pre-trained embeddings model used for generating embeddings.
-            model_kwargs={'device': 'cpu'}, # Configuration for running model on cpu.
-            encode_kwargs={'normalize_embeddings': False})
-        
+        embeddings = HuggingFaceEmbeddings(  # This class is used to generate embeddings for the text chunks.
+            model_name=embeddings_model_path,  # Specifies the path to the pre-trained embeddings model used for generating embeddings.
+            model_kwargs={"device": "cpu"},  # Configuration for running model on cpu.
+            encode_kwargs={"normalize_embeddings": False},
+        )
+
         db_name = str(random.random())
-        vectorstore_resumes = Chroma.from_documents(collection_name=db_name, documents=chunks, embedding=embeddings) # This method creates a vector store from the provided documents (chunks) and embeddings.
+        vectorstore_resumes = Chroma.from_documents(
+            collection_name=db_name, documents=chunks, embedding=embeddings
+        )  # This method creates a vector store from the provided documents (chunks) and embeddings.
 
         # 'search_type' parameter defines the method to use while searching the most relevant documents to the prompt and 'k' parameter defines the number of documents which will include within context
-        retriever_resumes = vectorstore_resumes.as_retriever(search_type="similarity", search_kwargs={"k": 2}) 
+        retriever_resumes = vectorstore_resumes.as_retriever(search_type="similarity", search_kwargs={"k": 2})
         return retriever_resumes
-        
+
     retriever_resumes = create_chroma_vector_store(text_chunks, embedding_model_path)
 ```
 
@@ -368,29 +370,29 @@ if vector_store == 'ChromaDB':
 from langchain_milvus import Milvus
 from pymilvus import connections
 
-if vector_store == 'MilvusDB':
+if vector_store == "MilvusDB":
+
     def create_milvus_vector_store(chunks, embeddings_model_path):
-        embeddings = HuggingFaceEmbeddings( # This class is used to generate embeddings for the text chunks.
-            model_name=embeddings_model_path, # Specifies the path to the pre-trained embeddings model used for generating embeddings.
-            model_kwargs={'device': 'cpu'}, # Configuration for running model on cpu.
-            encode_kwargs={'normalize_embeddings': False})
+        embeddings = HuggingFaceEmbeddings(  # This class is used to generate embeddings for the text chunks.
+            model_name=embeddings_model_path,  # Specifies the path to the pre-trained embeddings model used for generating embeddings.
+            model_kwargs={"device": "cpu"},  # Configuration for running model on cpu.
+            encode_kwargs={"normalize_embeddings": False},
+        )
 
         connections.connect("default", host=milvus_uri, port="19530")
-        
+
         vectorstore = Milvus.from_documents(
             documents=chunks,
             embedding=embeddings,
             collection_name="langchain_example",
-            connection_args={
-                "uri": f"https://{milvus_uri}:19530"
-            },
+            connection_args={"uri": f"https://{milvus_uri}:19530"},
             drop_old=True,  # Drop the old Milvus collection if it exists
-        ) 
+        )
 
         # 'search_type' parameter defines the method to use while searching the most relevant documents to the prompt and 'k' parameter defines the number of documents which will include within context
-        retriever_resumes = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 2}) 
+        retriever_resumes = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 2})
         return retriever_resumes
-        
+
     retriever_resumes = create_milvus_vector_store(text_chunks, embedding_model_path)
 ```
 
@@ -413,8 +415,8 @@ This function processes a list of document objects, extracts their `page_content
 
 ```python
 def format_docs(docs):
-     # Retrieves the content of each document in the `docs` list and joins the content of all documents into a single string, with each document's content separated by two newline characters.
-     return "\n\n".join(doc.page_content for doc in docs) 
+    # Retrieves the content of each document in the `docs` list and joins the content of all documents into a single string, with each document's content separated by two newline characters.
+    return "\n\n".join(doc.page_content for doc in docs)
 ```
 
 ## All chains merged into each other at this function
@@ -446,27 +448,26 @@ This function retrieves relevant documents for a given question using a retrieve
    - Extracts the answer from the API response by splitting the output on the keyword `Answer:` and removing extra whitespace.
 
 ```python
-
 def query_resume(retriever, question, api_url, api_token):
-
-    
-    prompt_template = PromptTemplate( # Defines a template for the prompt sent to the LLM.
+    prompt_template = PromptTemplate(  # Defines a template for the prompt sent to the LLM.
         input_variables=["context", "question"],
-        template=( # The format of the prompt.
+        template=(  # The format of the prompt.
             "You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. "
             "If you don't know the answer, just say that you don't know.\n"
             "Question: {question}\nContext: {context}\nAnswer:"
-        )
+        ),
     )
-    
-    docs = retriever.get_relevant_documents(question) # Uses the retriever to get relevant documents based on the question.
-    context = format_docs(docs) # Formats the retrieved documents
-    
-    prompt = prompt_template.format(context=context, question=question) # Formats the prompt
+
+    docs = retriever.get_relevant_documents(
+        question
+    )  # Uses the retriever to get relevant documents based on the question.
+    context = format_docs(docs)  # Formats the retrieved documents
+
+    prompt = prompt_template.format(context=context, question=question)  # Formats the prompt
 
     answer = call_llm_api(prompt, api_url, api_token)
-    
-    return answer.strip().split('Answer:')[-1].strip()
+
+    return answer.strip().split("Answer:")[-1].strip()
 ```
 
 ## Chat Examples
@@ -511,7 +512,7 @@ region = prt.get_region()
 
 
 ```python
-#Create api url and token
+# Create api url and token
 api_url = f"https://{host}/{model_prefix}/{model_name}/"
 token = prt.models.get_session_token(api_url=api_url)
 ```
@@ -520,7 +521,12 @@ token = prt.models.get_session_token(api_url=api_url)
 
 ```python
 # Example query
-answer = query_resume(retriever = retriever_resumes, question="What are the leadership qualities of an HR Director?", api_url = api_url,api_token = token)
+answer = query_resume(
+    retriever=retriever_resumes,
+    question="What are the leadership qualities of an HR Director?",
+    api_url=api_url,
+    api_token=token,
+)
 # Get Answer
 print(answer)
 ```

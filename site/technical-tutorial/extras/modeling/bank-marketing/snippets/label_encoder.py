@@ -11,7 +11,7 @@ def label_encoder(df, text_col_list: list[str] | None = None):
     if text_col_list is not None:
         categorical_cols = text_col_list
     else:
-        categorical_cols = [col for col in df.columns if col.dtype == 'O']
+        categorical_cols = [col for col in df.columns if col.dtype == "O"]
 
     # Apply Label Encoding to each specified (or detected) categorical column
     for col in categorical_cols:

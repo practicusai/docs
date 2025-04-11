@@ -18,18 +18,18 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-host = None # 'E.g. company.practicus.com'
+host = None  # 'E.g. company.practicus.com'
 embedding_model_path = None
-vector_store = None 
-milvus_uri = None # E.g. 'company.practicus.milvus.com'
+vector_store = None
+milvus_uri = None  # E.g. 'company.practicus.milvus.com'
 ```
 
 ```python
-assert host, "Please enter your host url" 
+assert host, "Please enter your host url"
 assert embedding_model_path, "Please enter your embedding model path."
-assert vector_store in ['ChromaDB', 'MilvusDB'], "Vector store must be 'ChromaDB' or 'MilvusDB'."
-if vector_store == 'MilvusDB': 
-    assert 'milvus_uri', "Please enter your milvus connection uri"
+assert vector_store in ["ChromaDB", "MilvusDB"], "Vector store must be 'ChromaDB' or 'MilvusDB'."
+if vector_store == "MilvusDB":
+    assert "milvus_uri", "Please enter your milvus connection uri"
 ```
 
 ## Firstly we need install transformers and torch
@@ -79,23 +79,21 @@ url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_pat
 
 response = requests.get(url)
 if response.status_code == 200:
-    files = response.json()  
-    
+    files = response.json()
+
     for file in files:
-        file_url = file['download_url'] 
-        file_name = file['name']  
+        file_url = file["download_url"]
+        file_name = file["name"]
 
         file_response = requests.get(file_url)
         if file_response.status_code == 200:
-
-            with open(file_name, 'wb') as f:
+            with open(file_name, "wb") as f:
                 f.write(file_response.content)
             print(f"'{file_name}' successfully downloaded.")
         else:
             print(f"'{file_name}' not successfully downloaded.")
 else:
     print(f"HTTP Status: {response.status_code}")
-
 ```
 
 ## Import Libraries
@@ -113,7 +111,8 @@ import chromadb
 import random
 
 import warnings
-warnings.filterwarnings('ignore')
+
+warnings.filterwarnings("ignore")
 ```
 
 
@@ -176,7 +175,7 @@ def call_llm_api(inputs, api_url, api_token):
 
     :params inputs: The input to be sent to the API.
     :params api_url: The endpoint URL of the ChatPracticus API.
-    
+
     """
 
     chat = ChatPracticus(
@@ -184,10 +183,10 @@ def call_llm_api(inputs, api_url, api_token):
         api_token=api_token,
         model_id="current models ignore this",
     )
-    
+
     response = chat.invoke(input=inputs)
-    
-    return(response.content)
+
+    return response.content
 ```
 
 ## Get all mails and use seperator for split questions
@@ -221,14 +220,15 @@ This code reads a CSV file containing email data, extracts a specific column, an
 
 ```python
 import pandas as pd
-df = pd.read_csv('single_sender_1k.csv')
 
-df = df[['message_sent']]
+df = pd.read_csv("single_sender_1k.csv")
 
-merged_mails = ''
+df = df[["message_sent"]]
 
-for message in df['message_sent']:
-    merged_mails = merged_mails + '//m-n-m//' + message
+merged_mails = ""
+
+for message in df["message_sent"]:
+    merged_mails = merged_mails + "//m-n-m//" + message
 ```
 
 This function takes a concatenated string of emails, splits it into individual email documents, and further divides the documents into smaller chunks using a specified chunk size and overlap.
@@ -265,9 +265,9 @@ This function takes a concatenated string of emails, splits it into individual e
 def load_and_split_mails(merged_mails, chunk_size=500, chunk_overlap=50):
     """
     Load and split email strings into chunks.
-    
+
     :param merged_mails: A single string containing all email contents, separated by '//m-n-m//'.
-    :param chunk_size: The maximum number of characters in each text chunk. 
+    :param chunk_size: The maximum number of characters in each text chunk.
     :param chunk_overlap: The number of characters to overlap between consecutive chunks.
     """
     all_docs = []
@@ -276,17 +276,17 @@ def load_and_split_mails(merged_mails, chunk_size=500, chunk_overlap=50):
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
         length_function=len,
-        is_separator_regex=False
+        is_separator_regex=False,
     )
 
     # Split mails
-    emails = merged_mails.split('//m-n-m//')
+    emails = merged_mails.split("//m-n-m//")
 
     # Transform to Document
     documents = [Document(page_content=email.strip()) for email in emails if email.strip()]
 
     # Split docs
-    split_docs = text_splitter.split_documents(documents) 
+    split_docs = text_splitter.split_documents(documents)
     all_docs.extend(split_docs)
 
     return all_docs
@@ -340,20 +340,24 @@ This code generates embeddings for email chunks and creates a ChromaDB vector st
 
 ```python
 # Generate embeddings and create vector store
-if vector_store == 'ChromaDB':
+if vector_store == "ChromaDB":
+
     def create_chroma_vector_store(chunks, embeddings_model_path):
-        embeddings = HuggingFaceEmbeddings( # This class is used to generate embeddings for the text chunks.
-            model_name=embeddings_model_path, # Specifies the path to the pre-trained embeddings model used for generating embeddings.
-            model_kwargs={'device': 'cpu'}, # Configuration for running model on cpu.
-            encode_kwargs={'normalize_embeddings': False})
-        
+        embeddings = HuggingFaceEmbeddings(  # This class is used to generate embeddings for the text chunks.
+            model_name=embeddings_model_path,  # Specifies the path to the pre-trained embeddings model used for generating embeddings.
+            model_kwargs={"device": "cpu"},  # Configuration for running model on cpu.
+            encode_kwargs={"normalize_embeddings": False},
+        )
+
         db_name = str(random.random())
-        vectorstore = Chroma.from_documents(collection_name=db_name, documents=chunks, embedding=embeddings) # This method creates a vector store from the provided documents (chunks) and embeddings.
+        vectorstore = Chroma.from_documents(
+            collection_name=db_name, documents=chunks, embedding=embeddings
+        )  # This method creates a vector store from the provided documents (chunks) and embeddings.
 
         # 'search_type' parameter defines the method to use while searching the most relevant documents to the prompt and 'k' parameter defines the number of documents which will include within context
-        retriever_mail = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 2}) 
+        retriever_mail = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 2})
         return retriever_mail
-        
+
     retriever_mail = create_chroma_vector_store(text_chunks, embedding_model_path)
 ```
 
@@ -380,29 +384,29 @@ This code sets up a vector store using MilvusDB to store embeddings for email ch
 from langchain_milvus import Milvus
 from pymilvus import connections
 
-if vector_store == 'MilvusDB':
+if vector_store == "MilvusDB":
+
     def create_milvus_vector_store(chunks, embeddings_model_path):
-        embeddings = HuggingFaceEmbeddings( # This class is used to generate embeddings for the text chunks.
-            model_name=embeddings_model_path, # Specifies the path to the pre-trained embeddings model used for generating embeddings.
-            model_kwargs={'device': 'cpu'}, # Configuration for running model on cpu.
-            encode_kwargs={'normalize_embeddings': False})
+        embeddings = HuggingFaceEmbeddings(  # This class is used to generate embeddings for the text chunks.
+            model_name=embeddings_model_path,  # Specifies the path to the pre-trained embeddings model used for generating embeddings.
+            model_kwargs={"device": "cpu"},  # Configuration for running model on cpu.
+            encode_kwargs={"normalize_embeddings": False},
+        )
 
         connections.connect("default", host=milvus_uri, port="19530")
-        
+
         vectorstore = Milvus.from_documents(
             documents=chunks,
             embedding=embeddings,
             collection_name="langchain_example",
-            connection_args={
-                "uri": f"https://{milvus_uri}:19530"
-            },
+            connection_args={"uri": f"https://{milvus_uri}:19530"},
             drop_old=True,  # Drop the old Milvus collection if it exists
-        ) 
+        )
 
         # 'search_type' parameter defines the method to use while searching the most relevant documents to the prompt and 'k' parameter defines the number of documents which will include within context
-        retriever_mail = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 2}) 
+        retriever_mail = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 2})
         return retriever_mail
-    
+
     retriever_mail = create_milvus_vector_store(text_chunks, embedding_model_path)
 ```
 
@@ -425,8 +429,8 @@ This function processes a list of document objects and combines their content in
 
 ```python
 def format_docs(docs):
-     # Retrieves the content of each document in the `docs` list and joins the content of all documents into a single string, with each document's content separated by two newline characters.
-     return "\n\n".join(doc.page_content for doc in docs) 
+    # Retrieves the content of each document in the `docs` list and joins the content of all documents into a single string, with each document's content separated by two newline characters.
+    return "\n\n".join(doc.page_content for doc in docs)
 ```
 
 ## All chains merged into each other at this function
@@ -467,28 +471,30 @@ This function retrieves relevant documents related to a given question from a re
 def query_mail(retriever, question, api_url, api_token):
     """
     this function is used for returning response by using all of the chains we defined above
-    
+
     :param retriever : An instance of a retriever used to fetch relevant documents.
     :param question : The question to be asked about the PDF content.
     """
-    
-    prompt_template = PromptTemplate( # Defines a template for the prompt sent to the LLM.
+
+    prompt_template = PromptTemplate(  # Defines a template for the prompt sent to the LLM.
         input_variables=["context", "question"],
-        template=( # The format of the prompt.
+        template=(  # The format of the prompt.
             "You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. "
             "If you don't know the answer, just say that you don't know.\n"
             "Question: {question}\nContext: {context}\nAnswer:"
-        )
+        ),
     )
-    
-    docs = retriever.get_relevant_documents(question) # Uses the retriever to get relevant documents based on the question.
-    context = format_docs(docs) # Formats the retrieved documents
-    
-    prompt = prompt_template.format(context=context, question=question) # Formats the prompt
+
+    docs = retriever.get_relevant_documents(
+        question
+    )  # Uses the retriever to get relevant documents based on the question.
+    context = format_docs(docs)  # Formats the retrieved documents
+
+    prompt = prompt_template.format(context=context, question=question)  # Formats the prompt
 
     answer = call_llm_api(prompt, api_url, api_token)
-    
-    return answer.strip().split('Answer:')[-1].strip()
+
+    return answer.strip().split("Answer:")[-1].strip()
 ```
 
 ## Chat Examples
@@ -508,6 +514,7 @@ This code initializes the Practicus environment by retrieving the current region
 
 ```python
 import practicuscore as prt
+
 region = prt.get_region()
 ```
 
@@ -593,7 +600,12 @@ Get answer with our function
 
 ```python
 # Example query
-answer = query_mail(retriever = retriever_mail, question="How can business meetings be made more productive, and what are some alternative travel suggestions?", api_url = api_url,api_token = token)
+answer = query_mail(
+    retriever=retriever_mail,
+    question="How can business meetings be made more productive, and what are some alternative travel suggestions?",
+    api_url=api_url,
+    api_token=token,
+)
 print(answer)
 ```
 

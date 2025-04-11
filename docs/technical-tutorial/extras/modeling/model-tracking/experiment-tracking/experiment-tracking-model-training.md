@@ -31,7 +31,7 @@ region = prt.current_region()
 
 # You need to configure using the service unique key and name
 service_name = None
-service_key =  None
+service_key = None
 
 # Optionally, you can provide experiment name to create a new experiment while configuring
 experiment_name = None
@@ -46,7 +46,7 @@ assert experiment_name, "Please select a experiment_name"
 ```python
 # If you don't know service key and name you can checkout down below
 
-addon_list = region.addon_list
+addon_list = prt.addons.get_list()
 display(addon_list.to_pandas())
 ```
 
@@ -55,10 +55,7 @@ prt.experiments.configure(service_name=service_name, service_key=service_key, ex
 ```
 
 ```python
-data_set_conn = {
-    "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/data/ice_cream.csv"
-}
+data_set_conn = {"connection_type": "WORKER_FILE", "file_path": "/home/ubuntu/samples/data/ice_cream.csv"}
 ```
 
 ```python
@@ -66,7 +63,7 @@ import practicuscore as prt
 
 region = prt.current_region()
 worker = region.get_or_create_worker()
-proc = worker.load(data_set_conn) 
+proc = worker.load(data_set_conn)
 
 data = proc.get_df_copy()
 data.head()
@@ -84,12 +81,12 @@ y = data.Revenue
 ```python
 # Test and Train split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
- 
+
 # XGBoost parameters
 params = {
-    'max_depth': 3,
-    'eta': 0.1,
-    'objective': 'reg:squarederror',
+    "max_depth": 3,
+    "eta": 0.1,
+    "objective": "reg:squarederror",
 }
 ```
 

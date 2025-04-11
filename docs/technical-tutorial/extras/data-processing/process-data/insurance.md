@@ -46,30 +46,30 @@ data_set_conn = {
     "connection_type": "WORKER_FILE",
     "ws_uuid": "d9b92183-8832-4fd1-8187-ac741ff6aab0",
     "ws_name": "insurance",
-    "file_path": "/home/ubuntu/samples/data/insurance.csv"
+    "file_path": "/home/ubuntu/samples/data/insurance.csv",
 }
 ```
 
 ```python
-proc = worker.load(data_set_conn) 
+proc = worker.load(data_set_conn)
 ```
 
 Data preparation with Practicus AI SDK
 
 ```python
-proc.categorical_map(column_name='sex', column_suffix='category') 
+proc.categorical_map(column_name="sex", column_suffix="category")
 ```
 
 ```python
-proc.categorical_map(column_name='smoker', column_suffix='category') 
+proc.categorical_map(column_name="smoker", column_suffix="category")
 ```
 
 ```python
-proc.categorical_map(column_name='region', column_suffix='category') 
+proc.categorical_map(column_name="region", column_suffix="category")
 ```
 
 ```python
-proc.delete_columns(['region', 'smoker', 'sex']) 
+proc.delete_columns(["region", "smoker", "sex"])
 ```
 
 ```python
@@ -92,16 +92,16 @@ proc.kill()
 ##### If you make the process functional and do it with with, you don't need to kill the worker when the process is finished. The worker is automatically killed when this process is finished
 
 ```python
-# Running the below will terminate the worker 
+# Running the below will terminate the worker
 # with prt.get_local_worker() as worker:
 
 # E.g. the below would run the task, and then kill the process first, and then the worker.
 # with prt.get_local_worker() as worker:
 #     with worker.load(data_set_conn) as proc:
-#         proc.categorical_map(column_name='sex', column_suffix='category'), 
+#         proc.categorical_map(column_name='sex', column_suffix='category'),
 #         proc.categorical_map(column_name='smoker', column_suffix='category'),
 #         proc.categorical_map(column_name='region', column_suffix='category'),
-#         proc.delete_columns(['region', 'smoker', 'sex']) 
+#         proc.delete_columns(['region', 'smoker', 'sex'])
 #         proc.wait_until_done()
 #         proc.show_logs()
 ```

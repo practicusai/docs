@@ -25,7 +25,7 @@ region = prt.current_region()
 
 # You need to configure using the service unique key and name
 service_name = None
-service_key =  None
+service_key = None
 
 # Optionally, you can provide experiment name to create a new experiment while configuring
 experiment_name = None
@@ -40,7 +40,7 @@ assert experiment_name, "Please enter a experiment_name"
 ```python
 # If you don't know service key and name you can checkout down below
 
-addon_list = region.addon_list
+addon_list = prt.addons.get_list()
 display(addon_list.to_pandas())
 ```
 
@@ -69,7 +69,7 @@ with mlflow.start_run(run_name=run_name):
     if not os.path.exists(artifact_path):
         os.makedirs(artifact_path)
     file_path = os.path.join(artifact_path, "output.txt")
-    
+
     with open(file_path, "w") as f:
         f.write("This is a test artifact.")
 

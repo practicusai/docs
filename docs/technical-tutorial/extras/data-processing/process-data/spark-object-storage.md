@@ -16,10 +16,9 @@ jupyter:
 # Defining Parameters
 aws_region = None
 aws_access_key_id = None
-aws_secret_access_key= None
-endpoint_url = None # example "http://prt-svc-sampleobj.prt-ns.svc.cluster.local",
-s3_bucket_uri = None # E.g "s3a://sample-bucket/boston.csv"
-
+aws_secret_access_key = None
+endpoint_url = None  # example "http://prt-svc-sampleobj.prt-ns.svc.cluster.local",
+s3_bucket_uri = None  # E.g "s3a://sample-bucket/boston.csv"
 ```
 
 ```python
@@ -36,7 +35,7 @@ connection = {
     "connection_type": "S3",
     "aws_region": aws_region,
     "aws_access_key_id": aws_access_key_id,
-    "aws_secret_access_key":aws_secret_access_key,
+    "aws_secret_access_key": aws_secret_access_key,
     # Optional
     # "aws_session_token", "..."
 }
@@ -46,19 +45,19 @@ connection = {
 # For others, e.g. Minio
 connection = {
     "connection_type": "S3",
-    "endpoint_url": endpoint_url, 
+    "endpoint_url": endpoint_url,
     "aws_access_key_id": aws_access_key_id,
     "aws_secret_access_key": aws_secret_access_key,
 }
 ```
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Create a Spark session
 spark = prt.engines.get_spark_session(connection)
 
-# If you are using distributed Spark, you should now have the Spark cluster up & running. 
+# If you are using distributed Spark, you should now have the Spark cluster up & running.
 ```
 
 ```python
@@ -67,11 +66,11 @@ df.head()
 ```
 
 ```python
-# Optional: delete Spark Session 
+# Optional: delete Spark Session
 prt.engines.delete_spark_session(spark)
 
 # If you are using distributed Spark, you should now have the Spark cluster terminated.
-# You can also terminate your worker, which will automatically terminate the child Spark Cluster. 
+# You can also terminate your worker, which will automatically terminate the child Spark Cluster.
 ```
 
 

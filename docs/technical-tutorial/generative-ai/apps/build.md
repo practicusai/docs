@@ -65,14 +65,12 @@ If you don't know your prefixes and deployments you can check them out by using 
 ```python
 import practicuscore as prt
 
-region = prt.get_region()
-
-my_app_settings = region.app_deployment_setting_list
+my_app_settings = prt.apps.get_deployment_setting_list()
 
 print("Application deployment settings I have access to:")
 display(my_app_settings.to_pandas())
 
-my_app_prefixes = region.app_prefix_list
+my_app_prefixes = prt.apps.get_prefix_list()
 
 print("Application prefixes (groups) I have access to:")
 display(my_app_prefixes.to_pandas())
@@ -116,9 +114,8 @@ payload = SayHelloRequest(person=person)
 
 print(issubclass(type(payload), BaseModel))
 
-response: SayHelloResponse = prt.apps.call_api(apis.say_hello, payload)
+response: SayHelloResponse = prt.apps.test_api("/say-hello", payload)
 print("Greeting message:", response.greeting_message)
-print("Email:", response.for_person.email)
 ```
 
 ## Deploying the App
@@ -126,7 +123,7 @@ print("Email:", response.for_person.email)
 Once our development and tests are over, we can deploy the app as a new version.
 
 ```python
-app_name="my-first-app"
+app_name = "my-first-app"
 visible_name = "My First App"
 description = "A very useful app.."
 icon = "fa-rocket"
@@ -143,6 +140,7 @@ app_url, api_url = prt.apps.deploy(
 
 print("Booting UI :", app_url)
 print("Booting API:", api_url)
+print("API Docs   :", api_url + "redoc/")
 ```
 
 ### Understanding App Versions
@@ -168,10 +166,7 @@ import requests
 token = prt.apps.get_session_token(api_url=api_url)
 say_hello_api_url = f"{api_url}say-hello/"
 
-headers = {
-    "Authorization": f"Bearer {token}",
-    "content-type": "application/json"
-}
+headers = {"Authorization": f"Bearer {token}", "content-type": "application/json"}
 
 json_data = payload.model_dump_json(indent=2)
 print(f"Sending below JSON to: {say_hello_api_url}")
@@ -204,16 +199,16 @@ Permissions can be granted by:
 
 ```python
 print("Listing all apps and their versions I have access to:")
-region.app_list.to_pandas()
+prt.apps.get_list().to_pandas()
 ```
 
 ```python
 # If you don't know the app_id you can use prefix and app_name
-region.delete_app(prefix=app_prefix, app_name=app_name)
+prt.apps.delete(prefix=app_prefix, app_name=app_name)
 
 try:
     # Deleting an app and all it's versions
-    region.delete_app(app_id=123)
+    prt.apps.delete(app_id=123)
 except:
     pass
 ```
@@ -221,10 +216,10 @@ except:
 ```python
 try:
     # Deleting a particular version of an app
-    region.delete_app_version(app_id=123, version=4)
+    prt.apps.delete_version(app_id=123, version=4)
 
     # If you don't know the app_id you can use prefix and app_name
-    region.delete_app_version(prefix="apps", app_name="my-first-app", version=4)
+    prt.apps.delete_version(prefix="apps", app_name="my-first-app", version=4)
 except:
     pass
 ```
@@ -255,41 +250,103 @@ st.write("This is a text from the code inside the page.")
 
 st.write(some_function())
 
-if 'counter' not in st.session_state:
+if "counter" not in st.session_state:
     st.session_state.counter = 0
 
-increment = st.button('Increment Counter')
+increment = st.button("Increment Counter")
 if increment:
     current = st.session_state.counter
     new = current + 1
     st.session_state.counter = new
     prt.logger.info(f"Increased counter from {current} to {new}")
 
-st.write('Counter = ', st.session_state.counter)
+st.write("Counter = ", st.session_state.counter)
 
 ```
 
 ### apis/say_hello.py
 ```python
 from pydantic import BaseModel
+import practicuscore as prt
 
 
 class Person(BaseModel):
     name: str
+    """Name of the Person"""
     email: str | None = None
+    """Email of the Person"""
+
+    model_config = {
+        "use_attribute_docstrings": True,
+    }
 
 
 class SayHelloRequest(BaseModel):
     person: Person
+    """Person to say hello to"""
+
+    # Optional configuration
+    model_config = {
+        # use_attribute_docstrings=True allows documentation with """add docs here""" format
+        # Alternative is to use Field(..., description="add docs here"
+        "use_attribute_docstrings": True,
+        "json_schema_extra": {
+            # Examples get documented in OpenAPI and are extremely useful for AI Agents.
+            "examples": [
+                {"person": {"name": "Alice", "email": "alice@wonderland.com"}},
+                {"person": {"name": "Bill", "email": "bill@wonderland.com"}},
+            ]
+        },
+    }
 
 
 class SayHelloResponse(BaseModel):
     greeting_message: str
-    for_person: Person
+    """Greeting message"""
+
+    model_config = {
+        "use_attribute_docstrings": True,
+        "json_schema_extra": {"examples": [{"greeting_message": "Hello Alice"}, {"greeting_message": "Hello Bill"}]},
+    }
 
 
-def run(payload: SayHelloRequest, **kwargs):
-    return SayHelloResponse(greeting_message=f"Hello {payload.person.name}", for_person=payload.person)
+@prt.api("/say-hello")
+async def say_hello(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
+    """This API sends a greeting message back to the caller"""
+
+    return SayHelloResponse(greeting_message=f"Hello {payload.person.name}")
+
+
+# An API example custom spec (metadata)
+# These get documented in OpenAPI (with a P) format and can be made available dynamically to AI Agents
+api_spec = prt.APISpec(
+    execution_target=prt.APIExecutionTarget.AIAgent,
+    read_only=False,
+    scope=prt.APIScope.TeamWide,
+    risk_profile=prt.APIRiskProfile.High,
+    human_gated=True,
+    deterministic=False,
+    idempotent=False,
+    stateful=True,
+    asynchronous=True,
+    maturity_level=4,
+    disable_authentication=True,
+    # Primitive types (int, str etc) are recommended for custom attributes.
+    custom_attributes={
+        "my-cust-attr-str": "hello",
+        "my-cust-attr-int": 123,
+        "my-cust-attr-float": 1.2,
+        "my-cust-attr-bool": True,
+    },
+)
+
+
+@prt.api("/say-hello-with-spec", spec=api_spec)
+async def say_hello_with_spec(request, payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
+    """
+    This API does some pretty cool stuff. I'd like to explain further. But let's park for now.
+    """
+    return SayHelloResponse(greeting_message=f"Hello2 {payload.person.name}")
 
 ```
 
@@ -313,14 +370,14 @@ st.write("Hello from first page!")
 
 st.write(some_function())
 
-if 'page_1_counter' not in st.session_state:
+if "page_1_counter" not in st.session_state:
     st.session_state.page_1_counter = 0
 
-increment = st.button('Increment Counter +2')
+increment = st.button("Increment Counter +2")
 if increment:
     st.session_state.page_1_counter += 2
 
-st.write('Counter = ', st.session_state.page_1_counter)
+st.write("Counter = ", st.session_state.page_1_counter)
 
 ```
 
@@ -345,14 +402,14 @@ st.write("This page is not secured and will be open to public.")
 
 st.write(some_function())
 
-if 'page_2_counter' not in st.session_state:
+if "page_2_counter" not in st.session_state:
     st.session_state.page_2_counter = 0
 
-increment = st.button('Increment Counter +4')
+increment = st.button("Increment Counter +4")
 if increment:
     st.session_state.page_2_counter += 4
 
-st.write('Counter = ', st.session_state.page_2_counter)
+st.write("Counter = ", st.session_state.page_2_counter)
 
 ```
 
@@ -380,10 +437,10 @@ if prt.apps.user_is_admin():
     admin_input1 = st.text_input("Admin Input 1")
     admin_input2 = st.text_input("Admin Input 2")
 
-    admin_action = st.button('Admin Button')
+    admin_action = st.button("Admin Button")
     if admin_action:
         st.write("Performing some dummy admin action..")
-    
+
 ```
 
 ### pages/04_Cookies.py
@@ -392,16 +449,16 @@ import practicuscore as prt
 import streamlit as st
 
 # Secure the page using the provided SDK
-prt.apps.secure_page(
-    page_title="Using Cookies"
-)
+prt.apps.secure_page(page_title="Using Cookies")
 
 st.title("Cookies Management")
 
 # Inputs for cookie operations
 cookie_name = st.text_input("Cookie Name", placeholder="Enter cookie name")
 cookie_value = st.text_input("Cookie Value", placeholder="Enter cookie value")
-max_age = st.number_input("Max Validity (seconds)", min_value=None, value=None, step=60, placeholder="Leave empty for 30 days")
+max_age = st.number_input(
+    "Max Validity (seconds)", min_value=None, value=None, step=60, placeholder="Leave empty for 30 days"
+)
 path = st.text_input("Cookie path", placeholder="Leave empty for /")
 
 # Add Cookie
@@ -431,7 +488,6 @@ if st.button("Delete Cookie"):
     else:
         st.error("Please provide a cookie name to delete.")
 
-
 ```
 
 ### pages/05_App_Meta.py
@@ -439,9 +495,7 @@ if st.button("Delete Cookie"):
 import practicuscore as prt
 import streamlit as st
 
-prt.apps.secure_page(
-    page_title="Application Metadata"
-)
+prt.apps.secure_page(page_title="Application Metadata")
 
 st.title("Application Metadata")
 
@@ -454,36 +508,40 @@ if prt.apps.development_mode():
         **Developer Information:**
         """
     )
-    st.write({
-        "Email": prt.apps.get_user_email(),
-        "Username": prt.apps.get_username(),
-        "User ID": prt.apps.get_user_id(),
-    })
+    st.write(
+        {
+            "Email": prt.apps.get_user_email(),
+            "Username": prt.apps.get_username(),
+            "User ID": prt.apps.get_user_id(),
+        }
+    )
 else:
     st.subheader("Deployed App Metadata")
     col1, col2 = st.columns(2)
 
     with col1:
         st.markdown("**Application Details**")
-        st.write({
-            "Name": prt.apps.get_app_name(),
-            "Prefix": prt.apps.get_app_prefix(),
-            "Version": prt.apps.get_app_version(),
-            "App ID": prt.apps.get_app_id(),
-        })
+        st.write(
+            {
+                "Name": prt.apps.get_app_name(),
+                "Prefix": prt.apps.get_app_prefix(),
+                "Version": prt.apps.get_app_version(),
+                "App ID": prt.apps.get_app_id(),
+            }
+        )
 
     with col2:
         st.markdown("**User Information**")
-        st.write({
-            "Email": prt.apps.get_user_email(),
-            "Username": prt.apps.get_username(),
-            "User ID": prt.apps.get_user_id(),
-        })
+        st.write(
+            {
+                "Email": prt.apps.get_user_email(),
+                "Username": prt.apps.get_username(),
+                "User ID": prt.apps.get_user_id(),
+            }
+        )
 
 if st.button("View User Groups"):
-    st.write(
-        prt.apps.get_user_groups()
-    )
+    st.write(prt.apps.get_user_groups())
     # User groups are cached. If you need reset you can call:
     # reload = True
     # prt.apps.get_user_groups(reload)

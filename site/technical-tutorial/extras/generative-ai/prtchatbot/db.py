@@ -1,18 +1,20 @@
 import psycopg2
 import datetime
 
+
 def create_connection():
     try:
         connection = psycopg2.connect(
             host="test-db-1.c34rytcb0n56.us-east-1.rds.amazonaws.com",
             database="llm",
             user="prt_analytics_user",
-            password="prt_analytics_pwd"
+            password="prt_analytics_pwd",
         )
         return connection
     except Exception as e:
         print(f"Connection error: {e}")
         return None
+
 
 def save_message_to_db(session_id, role, content):
     connection = create_connection()
@@ -23,15 +25,19 @@ def save_message_to_db(session_id, role, content):
 
         if result is None:
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-            cursor.execute("INSERT INTO sessions (session_id, title, created_at, language) VALUES (%s, %s, %s, %s)",
-                           (session_id, f"Oturum - {session_id[:8]}", now, "English"))
+            cursor.execute(
+                "INSERT INTO sessions (session_id, title, created_at, language) VALUES (%s, %s, %s, %s)",
+                (session_id, f"Oturum - {session_id[:8]}", now, "English"),
+            )
             connection.commit()
 
-        cursor.execute("INSERT INTO messages (session_id, role, content) VALUES (%s, %s, %s)", 
-                       (session_id, role, content))
+        cursor.execute(
+            "INSERT INTO messages (session_id, role, content) VALUES (%s, %s, %s)", (session_id, role, content)
+        )
         connection.commit()
         cursor.close()
         connection.close()
+
 
 def get_session_messages(session_id):
     connection = create_connection()
@@ -41,6 +47,7 @@ def get_session_messages(session_id):
     cursor.close()
     connection.close()
     return [{"role": role, "content": content} for content, role in messages]
+
 
 def delete_session_from_db(session_id):
     connection = create_connection()

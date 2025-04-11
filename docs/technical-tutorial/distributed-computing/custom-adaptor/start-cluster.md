@@ -22,7 +22,7 @@ This example demonstrates how to customize Practicus AI distributed cluster or j
 - If you do not have access to ~/my or ~/shared folders, please check the auto-scaled examples which does not need such drives, but are limited in functionality.
 
 ```python
-worker_size =  None
+worker_size = None
 worker_count = None
 ```
 
@@ -34,9 +34,11 @@ assert worker_count, "Please enter your worker_count."
 ### Copy the contents of this folder to ~/my/custom_adaptor
 
 ```python
-import os 
+import os
 
-assert os.path.exists("/home/ubuntu/my/custom_adaptor/my_adaptor.py"), "Please copy the contents of this folder to ~/my/custom_adaptor"
+assert os.path.exists("/home/ubuntu/my/custom_adaptor/my_adaptor.py"), (
+    "Please copy the contents of this folder to ~/my/custom_adaptor"
+)
 ```
 
 ```python
@@ -55,16 +57,16 @@ import practicuscore as prt
 
 # Let's define the distributed features
 distributed_config = prt.DistJobConfig(
-    worker_count = worker_count,
+    worker_count=worker_count,
     # Let's change job_type to custom
-    job_type = prt.DistJobType.custom,
-    # Job directory must have the .py file of our custom adaptor 
-    job_dir = "/home/ubuntu/my/custom_adaptor",
+    job_type=prt.DistJobType.custom,
+    # Job directory must have the .py file of our custom adaptor
+    job_dir="/home/ubuntu/my/custom_adaptor",
     # MySparkAdaptor class in my_adaptor.py
-    custom_adaptor = "my_adaptor.MySparkAdaptor",
+    custom_adaptor="my_adaptor.MySparkAdaptor",
 )
 
-# Let's define worker features of the cluster 
+# Let's define worker features of the cluster
 worker_config = prt.WorkerConfig(
     worker_size=worker_size,
     distributed_config=distributed_config,
@@ -72,7 +74,7 @@ worker_config = prt.WorkerConfig(
     log_level="DEBUG",
 )
 
-# Creating the coordinator (master) worker 
+# Creating the coordinator (master) worker
 # will also create the cluster.
 coordinator_worker = prt.create_worker(
     worker_config=worker_config,
@@ -80,7 +82,7 @@ coordinator_worker = prt.create_worker(
 ```
 
 ```python
-# Since this is an interactive Spark cluster, 
+# Since this is an interactive Spark cluster,
 #  let's login to execute some code.
 
 notebook_url = coordinator_worker.open_notebook()
@@ -92,7 +94,7 @@ print("Page did not open? You can open this url manually:", notebook_url)
 by opening the next notebook in this directory
 
 ```python
-# Done experimenting? Let's terminate the coordinator 
+# Done experimenting? Let's terminate the coordinator
 #  which will also terminate the cluster.
 coordinator_worker.terminate()
 ```
@@ -105,6 +107,7 @@ coordinator_worker.terminate()
 import practicuscore as prt
 from practicuscore.dist_job import SparkAdaptor
 
+
 class MySparkAdaptor(SparkAdaptor):
     @property
     def _run_cluster_coordinator_command(self) -> str:
@@ -112,7 +115,7 @@ class MySparkAdaptor(SparkAdaptor):
 
         # Change the command as needed
         new_command = old_command + " # add your changes here"
-        
+
         return new_command
 
     @property
@@ -120,7 +123,7 @@ class MySparkAdaptor(SparkAdaptor):
         old_command = super()._run_cluster_agent_command
 
         new_command = old_command + " # add your changes here"
-        
+
         return new_command
 
 ```

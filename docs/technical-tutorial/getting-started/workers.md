@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: practicus_genai
+    display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
@@ -46,9 +46,9 @@ Let's start by creating a worker with the default configuration.
 #### Define Parameters
 
 ```python
-worker_image="practicus-genai"
-worker_size="X-Small"
-startup_script="""
+worker_image = "practicus-genai"
+worker_size = "X-Small"
+startup_script = """
 echo "Hello Practicus AI" > ~/hello.txt
 """
 ```
@@ -56,7 +56,6 @@ echo "Hello Practicus AI" > ~/hello.txt
 ```python
 assert worker_image, "Please select a worker_image."
 assert worker_size, "Please select a worker_size."
-assert startup_script "Please write startup_script."
 ```
 
 ```python

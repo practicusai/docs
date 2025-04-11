@@ -16,7 +16,7 @@ jupyter:
 # Before you begin make sure the application deployment settings have a database configuration
 app_deployment_key = "appdepl"
 app_prefix = "apps"
-app_name="my-db-using-app"
+app_name = "my-db-using-app"
 ```
 
 ```python
@@ -79,7 +79,7 @@ prt.db.revision("initial tables")
 Note: Always review `db/migrations/versions` files
 
 ```python
-# Apply the changes to the database. 
+# Apply the changes to the database.
 # This is for dev/test. For production, you can have the deployed application auto-migrate db.
 prt.db.upgrade()
 # offline = True only generates SQL
@@ -93,7 +93,7 @@ To upsert (insert, if exists update) enum-line tables to the database, open `db/
 ```python
 result = prt.db.upsert_static_data()
 
-print("Upsert operation sumamry:") 
+print("Upsert operation sumamry:")
 for table, rows in result.items():
     print("Upserted", rows, "rows for table model:", table)
 ```
@@ -120,7 +120,7 @@ app_url, api_url = prt.apps.deploy(
     description=description,
     icon=icon,
     # Database related
-    personal_secrets = ["MY_APP_CONN_STR:PRT_DB_CONN_STR"]
+    personal_secrets=["MY_APP_CONN_STR:PRT_DB_CONN_STR"],
 )
 
 print("Booting UI :", app_url)
@@ -139,8 +139,9 @@ prt.db.upgrade()
 ## Using database in run-time
 
 ```python
-from db import Hero 
+from db import Hero
 from sqlmodel import Session, create_engine
+
 
 def add_rows():
     hero_1 = Hero(name="Deadpond", secret_name="Dive Wilson")

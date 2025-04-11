@@ -72,10 +72,7 @@ region = prt.get_default_region()
 
 # Identify the first available model deployment system
 if len(region.model_deployment_list) == 0:
-    raise SystemError(
-        "No model deployment systems are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model deployment systems are available. Please contact your system administrator.")
 elif len(region.model_deployment_list) > 1:
     print("Multiple model deployment systems found. Using the first one.")
 
@@ -84,10 +81,7 @@ deployment_key = model_deployment.key
 
 # Identify the first available model prefix
 if len(region.model_prefix_list) == 0:
-    raise SystemError(
-        "No model prefixes are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model prefixes are available. Please contact your system administrator.")
 elif len(region.model_prefix_list) > 1:
     print("Multiple model prefixes found. Using the first one.")
 
@@ -113,10 +107,7 @@ Review the `model.py` file to see how the XGBoost model is integrated and consum
 ```python
 # This function can be called multiple times to deploy additional versions.
 api_url, api_version_url, api_meta_url = prt.models.deploy(
-    deployment_key=deployment_key,
-    prefix=prefix,
-    model_name=model_name,
-    model_dir=model_dir
+    deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir
 )
 ```
 
@@ -142,12 +133,9 @@ print("API session token:", token)
 
 ```python
 # Now let's consume the Rest API to make the prediction
-import requests 
+import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df["Temperature"].to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -155,6 +143,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text} - {r.headers}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")
@@ -176,25 +165,25 @@ model = None
 async def init(*args, **kwargs):
     print("Initializing model")
     global model
- 
+
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.ubj')
+    model_file = os.path.join(current_dir, "model.ubj")
     if not os.path.exists(model_file):
         raise FileNotFoundError(f"Could not locate model file: {model_file}")
 
     model = XGBRegressor()
     model.load_model(model_file)
 
-    
+
 async def predict(df, *args, **kwargs):
     if df is None:
         raise ValueError("No dataframe received")
 
     X = df[["Temperature"]]
-    
+
     # Generate predictions
     predictions = model.predict(X)
-    
+
     # Return predictions as a new DataFrame
     return pd.DataFrame({"predictions": predictions})
 

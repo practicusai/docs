@@ -17,11 +17,11 @@ st.write("This page is not secured and will be open to public.")
 
 st.write(some_function())
 
-if 'page_2_counter' not in st.session_state:
+if "page_2_counter" not in st.session_state:
     st.session_state.page_2_counter = 0
 
-increment = st.button('Increment Counter +4')
+increment = st.button("Increment Counter +4")
 if increment:
     st.session_state.page_2_counter += 4
 
-st.write('Counter = ', st.session_state.page_2_counter)
+st.write("Counter = ", st.session_state.page_2_counter)

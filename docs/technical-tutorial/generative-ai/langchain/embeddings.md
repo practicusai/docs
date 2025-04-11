@@ -35,16 +35,18 @@ embedding_api_token = prt.models.get_session_token(embedding_api_url)
 ```
 
 ```python
-# Dummy retriever simulating a vector store 
+# Dummy retriever simulating a vector store
 
 from typing import List
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.documents import Document
 
+
 class DummyRetriever(BaseRetriever):
     """A dummy retriever that returns predefined documents."""
+
     documents: List[Document]
-    
+
     def _get_relevant_documents(self, query: str) -> List[Document]:
         """Return the predefined documents regardless of the query."""
         return self.documents
@@ -82,7 +84,7 @@ documents = [
 retriever = DummyRetriever(documents=documents)
 
 # 4. Initialize ChatPracticus
-llm = ChatPracticus(model_id="your_model_id") #replace with your model id.
+llm = ChatPracticus(model_id="your_model_id")  # replace with your model id.
 
 # 5. Create a RetrievalQA chain
 prompt_template = """Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
@@ -91,9 +93,7 @@ prompt_template = """Use the following pieces of context to answer the question 
 
 Question: {question}
 Answer:"""
-PROMPT = PromptTemplate(
-    template=prompt_template, input_variables=["context", "question"]
-)
+PROMPT = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
 
 qa_chain = RetrievalQA.from_chain_type(
     llm=llm,

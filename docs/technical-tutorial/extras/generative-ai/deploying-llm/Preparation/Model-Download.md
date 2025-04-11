@@ -20,7 +20,7 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 file_path = None  # e.g. /home/ubuntu/shared/LLM-Models/llama-1B-instruct
 REPO_ID = None  # e.g. meta-llama/Llama-3.2-1B-Instruct
-hf_token = None # for details checkout step 1 
+hf_token = None  # for details checkout step 1
 ```
 
 ```python

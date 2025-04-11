@@ -18,7 +18,7 @@ jupyter:
 - Please run this example on the `Ray Coordinator (master)`.
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Let's get a Ray session.
 # this is similar to running `import ray` and then `ray.init()`
@@ -27,6 +27,7 @@ ray = prt.distributed.get_client()
 
 ```python
 from vllm import LLM, SamplingParams
+
 prompts = [
     "Mexico is famous for ",
     "The largest country in the world is ",

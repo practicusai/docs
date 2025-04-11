@@ -27,7 +27,7 @@ In this example we will:
 worker_size = None
 worker_count = None
 log_level = "DEBUG"
-worker_image="practicus-ray"
+worker_image = "practicus-ray"
 ```
 
 ```python
@@ -43,10 +43,10 @@ import practicuscore as prt
 job_dir = "~/my/ray"
 
 distributed_config = prt.DistJobConfig(
-    job_type = prt.DistJobType.ray,
-    job_dir = job_dir,
-    py_file = "job.py",
-    worker_count = worker_count,
+    job_type=prt.DistJobType.ray,
+    job_dir=job_dir,
+    py_file="job.py",
+    worker_count=worker_count,
 )
 
 worker_config = prt.WorkerConfig(
@@ -75,11 +75,7 @@ prt.distributed.live_view(
 rank = 0
 # To view other workers set rank = 1,2, ..
 
-prt.distributed.view_log(
-    job_dir=job_dir,
-    job_id=coordinator_worker.job_id,
-    rank=rank
-)
+prt.distributed.view_log(job_dir=job_dir, job_id=coordinator_worker.job_id, rank=rank)
 ```
 
 ### Wrapping up

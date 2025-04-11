@@ -25,11 +25,11 @@ from sklearn.metrics import mean_squared_error
 import practicuscore as prt
 
 # Load data
-data = pd.read_csv('/home/ubuntu/samples/data/ice_cream.csv')
+data = pd.read_csv("/home/ubuntu/samples/data/ice_cream.csv")
 
 # Split data
-X = data[['Temperature']]
-y = data['Revenue']
+X = data[["Temperature"]]
+y = data["Revenue"]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
@@ -49,13 +49,9 @@ This code creates a DataFrame to compare the actual and predicted ice cream sale
 ```python
 import pandas as pd
 
-results_df = pd.DataFrame({
-    'Actual Revenue': y_test.values,
-    'Predicted Revenue': y_pred
-})
+results_df = pd.DataFrame({"Actual Revenue": y_test.values, "Predicted Revenue": y_pred})
 
 print(results_df.head())
-
 ```
 
 # Saving the Trained Model
@@ -67,12 +63,11 @@ This code saves the trained linear regression model as a `.pkl` file using `pick
 import pickle
 
 # Save .pkl
-model_file_path = 'model.pkl'
-with open(model_file_path, 'wb') as file:
+model_file_path = "model.pkl"
+with open(model_file_path, "wb") as file:
     pickle.dump(model, file)
 
 print(f"Created '{model_file_path}'.")
-
 ```
 
 # Creating and Extracting Model Archive
@@ -92,13 +87,8 @@ This code uses `prt.models.zip()` to create a compressed `model.zip` file contai
 # Create model.zip
 
 prt.models.zip(
-    files_to_add=[
-        "support1.txt",
-        "support2.txt",
-        "model.py",
-        "model.pkl"
-    ],
-    model_dir = None  # Current directory
+    files_to_add=["support1.txt", "support2.txt", "model.py", "model.pkl"],
+    model_dir=None,  # Current directory
 )
 
 # Unzip included with prt.models.unzip()
@@ -114,17 +104,17 @@ region = prt.get_region()
 ```
 
 ```python
-#Let's list our model prefixes and select one of them.
+# Let's list our model prefixes and select one of them.
 my_model_prefixes = region.model_prefix_list
 display(my_model_prefixes.to_pandas())
 
-#We will select first prefix
+# We will select first prefix
 model_prefix = my_model_prefixes[0].key
 print("Using first prefix:", model_prefix)
 ```
 
 ```python
-model_name = 'test-zip-new'
+model_name = "test-zip-new"
 ```
 
 ```python
@@ -140,12 +130,7 @@ This code uploads `model.zip` using `prt.models.deploy()`, associating it with t
 
 ```python
 # This will now upload model.zip
-prt.models.deploy(
-    deployment_key=deployment_key,
-    prefix=model_prefix,
-    model_name=model_name,
-    model_dir=None
-)
+prt.models.deploy(deployment_key=deployment_key, prefix=model_prefix, model_name=model_name, model_dir=None)
 ```
 
 # Generating Model API URL and Session Token
@@ -172,12 +157,9 @@ This code sends a request to the deployed model API using the Practicus AI sessi
 
 
 ```python
-import requests 
+import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = X.head(10).to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -185,6 +167,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")

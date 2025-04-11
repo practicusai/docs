@@ -135,6 +135,15 @@
                         <li>
                                 <a class="function" href="#models.unzip">unzip</a>
                         </li>
+                        <li>
+                                <a class="function" href="#models.get_list">get_list</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#models.get_deployment_list">get_deployment_list</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#models.get_prefix_list">get_prefix_list</a>
+                        </li>
                 </ul>
 
             </li>
@@ -143,9 +152,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#apps.api">api</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.test_api">test_api</a>
                         </li>
                         <li>
                                 <a class="function" href="#apps.deploy">deploy</a>
@@ -161,6 +167,18 @@
                         </li>
                         <li>
                                 <a class="function" href="#apps.delete_version">delete_version</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.get_list">get_list</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.get_prefix_list">get_prefix_list</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.get_deployment_setting_list">get_deployment_setting_list</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.test_api">test_api</a>
                         </li>
                         <li>
                                 <a class="function" href="#apps.prepare_db">prepare_db</a>
@@ -498,6 +516,9 @@
                         <li>
                                 <a class="function" href="#containers.build_image">build_image</a>
                         </li>
+                        <li>
+                                <a class="function" href="#containers.update_build_config">update_build_config</a>
+                        </li>
                 </ul>
 
             </li>
@@ -584,6 +605,18 @@
                         </li>
                         <li>
                                 <a class="function" href="#db.upsert_static_data">upsert_static_data</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#addons">addons</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#addons.get_session_token">get_session_token</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#addons.get_list">get_list</a>
                         </li>
                 </ul>
 
@@ -733,7 +766,7 @@
                                 <a class="function" href="#Region.open_addon">open_addon</a>
                         </li>
                         <li>
-                                <a class="function" href="#Region.get_addon_access_token">get_addon_access_token</a>
+                                <a class="function" href="#Region.get_addon_session_token">get_addon_session_token</a>
                         </li>
                         <li>
                                 <a class="function" href="#Region.get_worker">get_worker</a>
@@ -803,6 +836,9 @@
                         </li>
                         <li>
                                 <a class="function" href="#Region.change_password">change_password</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Region.get_ai_assistants">get_ai_assistants</a>
                         </li>
                 </ul>
 
@@ -1185,6 +1221,9 @@
                         <li>
                                 <a class="variable" href="#Log.DB">DB</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#Log.ADDONS">ADDONS</a>
+                        </li>
                 </ul>
 
             </li>
@@ -1295,9 +1334,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#ImageConfig.builder_capacity">builder_capacity</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ImageConfig.insecure_registries">insecure_registries</a>
                         </li>
                         <li>
                                 <a class="variable" href="#ImageConfig.custom_builder_url">custom_builder_url</a>
@@ -1552,6 +1588,114 @@
 
             </li>
             <li>
+                    <a class="class" href="#APIExecutionTarget">APIExecutionTarget</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#APIExecutionTarget.DirectExecution">DirectExecution</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIExecutionTarget.AIAgent">AIAgent</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIExecutionTarget.HumanWorker">HumanWorker</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIExecutionTarget.RPABot">RPABot</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIExecutionTarget.RemoteService">RemoteService</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#APIRiskProfile">APIRiskProfile</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#APIRiskProfile.Low">Low</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIRiskProfile.Medium">Medium</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIRiskProfile.High">High</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#APIScope">APIScope</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#APIScope.AppOnly">AppOnly</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIScope.TeamWide">TeamWide</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIScope.CompanyWide">CompanyWide</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIScope.PartnerExternal">PartnerExternal</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APIScope.Public">Public</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#APISpec">APISpec</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#APISpec.execution_target">execution_target</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.read_only">read_only</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.scope">scope</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.risk_profile">risk_profile</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.human_gated">human_gated</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.deterministic">deterministic</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.idempotent">idempotent</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.stateful">stateful</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.asynchronous">asynchronous</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.maturity_level">maturity_level</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.disable_authentication">disable_authentication</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.custom_attributes">custom_attributes</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#APISpec.validate_custom_attributes">validate_custom_attributes</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#APISpec.validate_model">validate_model</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#APISpec.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="function" href="#get_default_region">get_default_region</a>
             </li>
             <li>
@@ -1586,6 +1730,9 @@
             </li>
             <li>
                     <a class="function" href="#run_task">run_task</a>
+            </li>
+            <li>
+                    <a class="function" href="#api">api</a>
             </li>
     </ul>
 
@@ -2196,7 +2343,7 @@ If not provided, defaults are used.</li>
 If False, you must upload files separately e.g. using automated git sync,
 or run a file already in ~/my or ~/shared folder and set file_path_on_worker param.</li>
 <li>file_path_on_worker (str | None): If you are not uploading files, you must set file_path_on_worker param
-to the <em>full path</em> of the Python (.py) or shell (.sh) script to run. E.g. ~/my/projects/repo/task.py 
+to the <em>full path</em> of the Python (.py) or shell (.sh) script to run. E.g. ~/my/projects/repo/task.py
 This file must already be present on the Worker e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.</li>
 <li>worker_config (WorkerConfig | str | dict | None): Configuration for the remote worker.</li>
 <li>terminate_on_completion (bool): If True, terminates the worker after completion.</li>
@@ -2384,10 +2531,10 @@ provided by the region.</p>
 <p><strong>Key Concepts:</strong></p>
 
 <ul>
-<li><strong>Model Deployment:</strong> Uploading a model and its associated files (artifacts, weights, metadata) to a server 
+<li><strong>Model Deployment:</strong> Uploading a model and its associated files (artifacts, weights, metadata) to a server
 accessible via a stable API endpoint.</li>
-<li><strong>Model Config &amp; Signature:</strong> Capturing and storing metadata about the model’s input schema, output schema, 
-problem type, and version information. This information is crucial for reproducibility, explainability, and 
+<li><strong>Model Config &amp; Signature:</strong> Capturing and storing metadata about the model’s input schema, output schema,
+problem type, and version information. This information is crucial for reproducibility, explainability, and
 consistent model version management.</li>
 </ul>
 
@@ -2766,6 +2913,103 @@ If None, defaults to the current directory.</li>
 
 
                             </div>
+                            <div id="models.get_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelMeta</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#models.get_list"></a>
+    
+            <div class="docstring"><p>Retrieves a list of all models known to this region.</p>
+
+<p>Each <code>ModelMeta</code> object contains metadata about a model, such as its name, versions, and associated prefix.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>PrtList[ModelMeta]: A read-only list of models.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">model_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">latest_version</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="models.get_deployment_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_deployment_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelDeployment</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#models.get_deployment_list"></a>
+    
+            <div class="docstring"><p>Retrieves a list of all model deployments currently defined in this region.</p>
+
+<p>A <code>ModelDeployment</code> represents a deployed model service, including routing and scaling details.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>PrtList[ModelDeployment]: A read-only list of model deployments.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">deployment</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">model_deployment_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">deployment</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span> <span class="n">deployment</span><span class="o">.</span><span class="n">deployment_key</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="models.get_prefix_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_prefix_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelPrefix</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#models.get_prefix_list"></a>
+    
+            <div class="docstring"><p>Retrieves a list of configured model prefixes available in this region.</p>
+
+<p>Model prefixes group related models, allowing you to organize and manage multiple versions and
+deployments under a logical namespace.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>PrtList[ModelPrefix]: A read-only list of model prefixes.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">model_prefix_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">prefix</span><span class="o">.</span><span class="n">prefix_name</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
                 </section>
                 <section id="models.ModelConfig">
                     <div class="attr class">
@@ -2876,47 +3120,18 @@ __pydantic_private__: Values of private attributes set on the model instance.
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">api</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">path</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+        <span class="name">api</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">path</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">spec</span><span class="p">:</span> <span class="n"><a href="#APISpec">APISpec</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.api"></a>
     
-            <div class="docstring"><p>Decorator for API methods that only support POST.</p>
-
-<p>Args:
-    path (str): The API endpoint path.</p>
-</div>
-
-
-                            </div>
-                            <div id="apps.test_api" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">test_api</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">payload</span>,</span><span class="param">	<span class="n">requestor</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">api_folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.test_api"></a>
-    
-            <div class="docstring"><p>Loads dynamic API modules from the current folder and calls the async API handler
-associated with the given path. Useful for design-time testing of APIs without deploying.</p>
+            <div class="docstring"><p>Decorator for Practicus AI Application APIs.</p>
 
 <p>Args:
     path (str): The API endpoint path.
-    payload: The payload to pass to the API handler.
-    requestor (dict | None): Simulates calling the API as a particular requestor.
-        Expected keys: username (str), email (str), user_id (int), admin (bool).
-    api_folder (str | None): Where to find APIs. If empty, uses current working dir.</p>
-
-<p>Returns:
-    The result returned by the API handler.</p>
-
-<p>Raises:
-    ValueError: If no API handler is found for the given path.
-    TypeError: If the API handler is not an async function.</p>
+    spec (APISpec | None): Defines the characteristics and behavior of a Practicus AI App API endpoint,
+        focusing on its execution pattern, operational properties, and context.</p>
 </div>
 
 
@@ -3102,7 +3317,7 @@ before launching the new one.</li>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">delete_version</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">version</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+        <span class="name">delete_version</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">version</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -3113,7 +3328,7 @@ before launching the new one.</li>
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li>version (str): The version identifier of the app to delete.</li>
+<li>version (int | str): The version identifier of the app to delete.</li>
 <li>app_id (int | None): The app’s unique identifier. If provided, <code>prefix</code> and <code>app_name</code> are ignored.</li>
 <li>prefix (str | None): The prefix identifying the app group, if <code>app_id</code> is not provided.</li>
 <li>app_name (str | None): The specific app name, if <code>app_id</code> is not provided.</li>
@@ -3129,6 +3344,134 @@ before launching the new one.</li>
 <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;app_v1&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;my_application&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
+</div>
+
+
+                            </div>
+                            <div id="apps.get_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AppMeta</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.get_list"></a>
+    
+            <div class="docstring"><p>Retrieves a list of all applications known to this region.</p>
+
+<p>Each <code>AppMeta</code> object contains metadata about the app, such as its prefix, name, versions, and deployment info.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>PrtList[AppMeta]: A read-only list of apps.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">app_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">app_name</span><span class="p">,</span> <span class="n">app</span><span class="o">.</span><span class="n">visible_name</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.get_prefix_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_prefix_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AppPrefix</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.get_prefix_list"></a>
+    
+            <div class="docstring"><p>Retrieves a list of app prefixes available in this region.</p>
+
+<p>App prefixes group related applications, providing a logical namespace for organizing multiple apps.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>PrtList[AppPrefix]: A read-only list of app prefixes.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">app_prefix_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">prefix</span><span class="o">.</span><span class="n">prefix</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.get_deployment_setting_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_deployment_setting_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AppDeploymentSetting</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.get_deployment_setting_list"></a>
+    
+            <div class="docstring"><p>Retrieves a list of all application deployment settings defined in this region.</p>
+
+<p><code>AppDeploymentSetting</code> provides configurations that influence how apps are deployed
+(e.g., environment variables, scaling settings).</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>PrtList[AppDeploymentSetting]: A read-only list of app deployment settings.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">app_deployment_setting_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">setting</span><span class="o">.</span><span class="n">deployment_setting_key</span><span class="p">,</span> <span class="n">setting</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="apps.test_api" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">test_api</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">payload</span>,</span><span class="param">	<span class="n">requestor</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">api_folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.test_api"></a>
+    
+            <div class="docstring"><p>Loads dynamic API modules from the current folder and calls the async API handler
+associated with the given path. Useful for design-time testing of APIs without deploying.</p>
+
+<p>Args:
+    path (str): The API endpoint path.
+    payload: The payload to pass to the API handler.
+    requestor (dict | None): Simulates calling the API as a particular requestor.
+        Expected keys: username (str), email (str), user_id (int), admin (bool).
+    api_folder (str | None): Where to find APIs. If empty, uses current working dir.</p>
+
+<p>Returns:
+    The result returned by the API handler.</p>
+
+<p>Raises:
+    ValueError: If no API handler is found for the given path.
+    TypeError: If the API handler is not an async function.</p>
 </div>
 
 
@@ -6343,6 +6686,8 @@ container images in Kubernetes.</li>
 <li><code><a href="#containers.build_image">build_image</a></code>: A method for building and optionally pushing container images.
 This can be used for tasks such as deploying custom images to private registries
 or automated CI/CD workflows.</li>
+<li><code><a href="#containers.update_build_config">update_build_config</a></code>: A method for updating build service configuration at runtime,
+particularly useful for adding insecure registries without restarting the Worker.</li>
 </ul>
 
 <p><strong>Use Cases</strong>:</p>
@@ -6352,6 +6697,8 @@ or automated CI/CD workflows.</li>
 <code><a href="#ImageConfig">ImageConfig</a></code> or registry credentials in <code><a href="#containers.build_image">build_image</a></code> parameters.</li>
 <li><strong>Building Custom Images</strong>: Call <code><a href="#containers.build_image">build_image</a></code> to compile a Dockerfile
 into a runnable image and push it to a registry if needed.</li>
+<li><strong>Runtime Configuration</strong>: Call <code><a href="#containers.update_build_config">update_build_config</a></code> to update the build service
+daemon's configuration, such as adding insecure registries after startup.</li>
 <li><strong>Advanced Builds</strong>: Leverage additional build arguments or an entirely
 custom command for specialized configurations.</li>
 </ul>
@@ -6427,6 +6774,87 @@ build command entirely. Intended to be used with the help of Practicus AI profes
 <ul>
 <li>Logs for this build process are written to the log file/home/ubuntu/build/build.log, which you can
 view to debug issues.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="containers.update_build_config" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">update_build_config</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">config_content</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">insecure_registries</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#containers.update_build_config"></a>
+    
+            <div class="docstring"><p>Update build service configuration and restart the daemon if necessary.</p>
+
+<p>This method allows updating the build service daemon's configuration at runtime
+without requiring a pod restart. It supports two approaches:</p>
+
+<ol>
+<li>Providing a complete custom build service configuration</li>
+<li>Specifying insecure registries (simpler approach for common use case)</li>
+</ol>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>config_content (str | None): Complete build service configuration content.
+This parameter takes precedence if both are provided.</li>
+</ul>
+
+<ul>
+<li>insecure_registries (str | list | None): Either a comma-separated string or
+a list of registry hostnames to mark as insecure (HTTP instead of HTTPS).
+Example: "registry1.local,registry2.example.com" or ["registry1.local", "registry2.example.com"]</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>bool: True if configuration was updated successfully, False otherwise.</li>
+</ul>
+
+<p><strong>Examples:</strong></p>
+
+<p>Simple approach for insecure registries:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">ContainerHelper</span><span class="o">.</span><span class="n">update_build_config</span><span class="p">(</span>
+    <span class="n">insecure_registries</span><span class="o">=</span><span class="s2">&quot;my-registry.my-company.com,registry2.example.com&quot;</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Advanced approach with custom configuration:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">custom_config</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">[registry.&quot;my-registry.example.com&quot;]</span>
+<span class="s1">  insecure = true</span>
+
+<span class="s1">[registry.&quot;secure-registry.example.com&quot;]</span>
+<span class="s1">  ca = &quot;/etc/certs/my-ca.pem&quot;</span>
+
+<span class="s1">[worker.oci]</span>
+<span class="s1">  max-parallelism = 4</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">ContainerHelper</span><span class="o">.</span><span class="n">update_build_config</span><span class="p">(</span><span class="n">config_content</span><span class="o">=</span><span class="n">custom_config</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>When the configuration is updated, if the build service daemon is already running,
+it will be restarted automatically to apply the new configuration.</li>
+<li>The complete configuration approach gives you full control over all build service
+settings, including certificates, mirrors, and advanced worker options.</li>
 </ul>
 </div>
 
@@ -6656,7 +7084,7 @@ If there are conflicts, they will be reported in stderr.</p>
     </div>
     <a class="headerlink" href="#mq"></a>
     
-            <div class="docstring"><p>Public API for RabbitMQ operations.
+            <div class="docstring"><p>SDK for RabbitMQ operations.
 Provides:</p>
 
 <ul>
@@ -6956,7 +7384,7 @@ define it using PRT_CUSTOM_NOTIFY_APP_SUFFIX OS Environment variable, or else, /
     </div>
     <a class="headerlink" href="#db"></a>
     
-            <div class="docstring"><p>Public API for Database operations.</p>
+            <div class="docstring"><p>SDK for Database operations.</p>
 
 <p>Provides:</p>
 
@@ -7128,6 +7556,86 @@ Without static primary keys, you will insert new data on each run.</p>
 <p>Example:
     import practicuscore as prt
     prt.db.upsert_static_data()</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="addons">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">addons</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#addons"></a>
+    
+            <div class="docstring"><p>Helper methods for Practicus AI Add-ons.</p>
+</div>
+
+
+                            <div id="addons.get_session_token" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#addons.get_session_token"></a>
+    
+            <div class="docstring"><p>Gets an API session token for the selected add-on. One of key or addon parameter must be provided.
+Please note that only some add-ons APIs can use these keys. Please check the documentation to learn more.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>key (str | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
+<li>addon (AddOn | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="n">add_ons</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
+<span class="c1"># An session token for the first add-on in your list.</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_addon_session_token</span><span class="p">(</span><span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="addons.get_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_list</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#addons.get_list"></a>
+    
+            <div class="docstring"><p>Retrieves a list of add-ons (3rd party services) integrated into this region.</p>
+
+<p>Add-ons might represent external analytics tools, monitoring services etc. accessible through the region.</p>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>PrtList[AddOn]: A read-only list of add-ons.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">addon</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">addon_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">addon</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">addon</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre>
+</div>
 </div>
 
 
@@ -8410,7 +8918,7 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
                             </div>
                             <div id="Region.addon_list" class="classattr">
                                 <div class="attr variable">
-            <span class="name">addon_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.addon_helper.AddOn]</span>
+            <span class="name">addon_list</span><span class="annotation">: <a href="#PrtList">PrtList</a>[practicuscore.api_k8s.AddOn]</span>
 
         
     </div>
@@ -8465,7 +8973,7 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_addon</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">key</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">addon_helper</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_addon</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">key</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -8527,32 +9035,32 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
 
 
                             </div>
-                            <div id="Region.get_addon_access_token" class="classattr">
+                            <div id="Region.get_addon_session_token" class="classattr">
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_addon_access_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">addon_helper</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_addon_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
-    <a class="headerlink" href="#Region.get_addon_access_token"></a>
+    <a class="headerlink" href="#Region.get_addon_session_token"></a>
     
-            <div class="docstring"><p>Gets an API access token for the selected add-on. One of key or addon parameter must be provided.
+            <div class="docstring"><p>Gets an API session token for the selected add-on. One of key or addon parameter must be provided.
 Please note that only some add-ons APIs can use these keys. Please check the documentation to learn more.</p>
 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li>key (str | None): The unique key of the add-on. You can use prt.addon_list to view all the add-ons you have access to.</li>
-<li>addon (AddOn | None): The unique key of the add-on. You can use prt.addon_list to view all the add-ons you have access to.</li>
+<li>key (str | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
+<li>addon (AddOn | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
 </ul>
 
 <p><strong>Example:</strong></p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">add_ons</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">addon_list</span>
-<span class="c1"># An access token for the first add-on in your list.</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_addon_access_token</span><span class="p">(</span><span class="n">prt</span><span class="o">.</span><span class="n">addon_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+<pre><span></span><code><span class="n">add_ons</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
+<span class="c1"># An session token for the first add-on in your list.</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_addon_session_token</span><span class="p">(</span><span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -9260,6 +9768,33 @@ and an integer representing age in days.</li>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Password changed successfully.&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
+</div>
+
+
+                            </div>
+                            <div id="Region.get_ai_assistants" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_ai_assistants</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Region.get_ai_assistants"></a>
+    
+            <div class="docstring"><p>Retrieves the AI Assistants that the current logged in user has access to.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>include_custom_tokens (str): If True (default) returns The current password.</li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<ul>
+<li>list[dict]: The list of metadata dictionary of AI Assistants</li>
+</ul>
 </div>
 
 
@@ -11689,6 +12224,18 @@ configure their levels and outputs independently.</p>
     
 
                             </div>
+                            <div id="Log.ADDONS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ADDONS</span>        =
+<span class="default_value">&lt;<a href="#Log.ADDONS">Log.ADDONS</a>: &#39;practicus.core.addon&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.ADDONS"></a>
+    
+    
+
+                            </div>
                 </section>
                 <section id="set_logging_level">
                     <div class="attr function">
@@ -12323,25 +12870,6 @@ Can only be set if <code>builder=True</code>.</p>
 
 
                             </div>
-                            <div id="ImageConfig.insecure_registries" class="classattr">
-                                <div class="attr variable">
-            <span class="name">insecure_registries</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ImageConfig.insecure_registries"></a>
-    
-            <div class="docstring"><p>Comma-separated list of container registries to treat as insecure (HTTP instead of HTTPS).
-This may be needed if you host or pull images from registries without TLS/SSL.
-Can only be set if <code>builder=True</code>.</p>
-
-<p>Note: If you only need to push insecurely (rather than pulling base images), you can
-skip this and select "insecure push" at run/build time instead.
-E.g. 'insecure_registry1.mycompany.com,insecure_registry2.mycompany.com, ..'</p>
-</div>
-
-
-                            </div>
                             <div id="ImageConfig.custom_builder_url" class="classattr">
                                 <div class="attr variable">
             <span class="name">custom_builder_url</span><span class="annotation">: str | None</span>
@@ -12403,7 +12931,7 @@ Can only be set if <code>builder=True</code>.</li>
             <div class="docstring"><p>Cross-field validation:</p>
 
 <ul>
-<li><code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>, <code><a href="#ImageConfig.insecure_registries">insecure_registries</a></code>, and <code><a href="#ImageConfig.custom_builder_url">custom_builder_url</a></code>
+<li><code><a href="#ImageConfig.builder_capacity">builder_capacity</a></code>, and <code><a href="#ImageConfig.custom_builder_url">custom_builder_url</a></code>
 can only be set if <code>builder=True</code>.</li>
 <li>If <code><a href="#ImageConfig.repo_secret_name">repo_secret_name</a></code> is set, neither <code><a href="#ImageConfig.repo_username">repo_username</a></code> nor <code><a href="#ImageConfig.repo_password">repo_password</a></code>
 can be specified.</li>
@@ -13528,6 +14056,458 @@ If <code>False</code>, the JSON is compact.</li>
 
                             </div>
                 </section>
+                <section id="APIExecutionTarget">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">APIExecutionTarget</span><wbr>(<span class="base">builtins.str</span>, <span class="base">enum.Enum</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#APIExecutionTarget"></a>
+    
+            <div class="docstring"><p>Defines where the primary work initiated by the API call to the Practicus AI App is performed.</p>
+</div>
+
+
+                            <div id="APIExecutionTarget.DirectExecution" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DirectExecution</span>        =
+<span class="default_value">DirectExecution</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIExecutionTarget.DirectExecution"></a>
+    
+            <div class="docstring"><p>Executes standard application logic directly, without involving AI agents, humans, or external automation.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIExecutionTarget.AIAgent" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AIAgent</span>        =
+<span class="default_value">AIAgent</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIExecutionTarget.AIAgent"></a>
+    
+            <div class="docstring"><p>Execution delegated to a specialized AI agent.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIExecutionTarget.HumanWorker" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HumanWorker</span>        =
+<span class="default_value">HumanWorker</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIExecutionTarget.HumanWorker"></a>
+    
+            <div class="docstring"><p>Execution delegated to a human worker (Human-in-the-Loop).</p>
+</div>
+
+
+                            </div>
+                            <div id="APIExecutionTarget.RPABot" class="classattr">
+                                <div class="attr variable">
+            <span class="name">RPABot</span>        =
+<span class="default_value">RPABot</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIExecutionTarget.RPABot"></a>
+    
+            <div class="docstring"><p>Execution delegated to a Robotic Process Automation bot.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIExecutionTarget.RemoteService" class="classattr">
+                                <div class="attr variable">
+            <span class="name">RemoteService</span>        =
+<span class="default_value">RemoteService</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIExecutionTarget.RemoteService"></a>
+    
+            <div class="docstring"><p>Execution involves calling another distinct internal or external service/API.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="APIRiskProfile">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">APIRiskProfile</span><wbr>(<span class="base">builtins.str</span>, <span class="base">enum.Enum</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#APIRiskProfile"></a>
+    
+            <div class="docstring"><p>Represents the assessed potential risk associated with the Practicus AI App API endpoint.</p>
+</div>
+
+
+                            <div id="APIRiskProfile.Low" class="classattr">
+                                <div class="attr variable">
+            <span class="name">Low</span>        =
+<span class="default_value">Low</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIRiskProfile.Low"></a>
+    
+            <div class="docstring"><p>Low risk if misused or if it fails. Minimal to no compliance, security, financial, or legal concerns.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIRiskProfile.Medium" class="classattr">
+                                <div class="attr variable">
+            <span class="name">Medium</span>        =
+<span class="default_value">Medium</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIRiskProfile.Medium"></a>
+    
+            <div class="docstring"><p>Moderate risk if misused or if it fails. Potential compliance, security, financial, or legal concerns.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIRiskProfile.High" class="classattr">
+                                <div class="attr variable">
+            <span class="name">High</span>        =
+<span class="default_value">High</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIRiskProfile.High"></a>
+    
+            <div class="docstring"><p>High risk if misused or if it fails. Significant compliance, security, financial, or legal concerns.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="APIScope">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">APIScope</span><wbr>(<span class="base">builtins.str</span>, <span class="base">enum.Enum</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#APIScope"></a>
+    
+            <div class="docstring"><p>Defines the access scope of the Practicus AI App API endpoint.</p>
+</div>
+
+
+                            <div id="APIScope.AppOnly" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AppOnly</span>        =
+<span class="default_value">AppOnly</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIScope.AppOnly"></a>
+    
+            <div class="docstring"><p>Accesses resources limited to this Practicus AI App.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIScope.TeamWide" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TeamWide</span>        =
+<span class="default_value">TeamWide</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIScope.TeamWide"></a>
+    
+            <div class="docstring"><p>Accesses resources across systems managed by this app's development team.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIScope.CompanyWide" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CompanyWide</span>        =
+<span class="default_value">CompanyWide</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIScope.CompanyWide"></a>
+    
+            <div class="docstring"><p>Accesses internal resources across different teams and systems within the company.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIScope.PartnerExternal" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PartnerExternal</span>        =
+<span class="default_value">PartnerExternal</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIScope.PartnerExternal"></a>
+    
+            <div class="docstring"><p>Accesses resources hosted externally by verified third-party partners.</p>
+</div>
+
+
+                            </div>
+                            <div id="APIScope.Public" class="classattr">
+                                <div class="attr variable">
+            <span class="name">Public</span>        =
+<span class="default_value">Public</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APIScope.Public"></a>
+    
+            <div class="docstring"><p>Accesses resources publicly available on the internet.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="APISpec">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">APISpec</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec"></a>
+    
+            <div class="docstring"><p>Defines the characteristics and behavior of a Practicus AI App API endpoint,
+focusing on its execution pattern, operational properties, and context.</p>
+</div>
+
+
+                            <div id="APISpec.execution_target" class="classattr">
+                                <div class="attr variable">
+            <span class="name">execution_target</span><span class="annotation">: <a href="#APIExecutionTarget">APIExecutionTarget</a> | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.execution_target"></a>
+    
+            <div class="docstring"><p>Specifies where the primary work initiated by the API call is performed.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.read_only" class="classattr">
+                                <div class="attr variable">
+            <span class="name">read_only</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.read_only"></a>
+    
+            <div class="docstring"><p>Indicates if the endpoint only reads data (True, Informational) or if it modifies data/state (False, Operational).</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.scope" class="classattr">
+                                <div class="attr variable">
+            <span class="name">scope</span><span class="annotation">: <a href="#APIScope">APIScope</a> | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.scope"></a>
+    
+            <div class="docstring"><p>Defines the intended audience or network reach of the API endpoint.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.risk_profile" class="classattr">
+                                <div class="attr variable">
+            <span class="name">risk_profile</span><span class="annotation">: <a href="#APIRiskProfile">APIRiskProfile</a> | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.risk_profile"></a>
+    
+            <div class="docstring"><p>Assesses the potential risk associated with the API endpoint's usage or failure.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.human_gated" class="classattr">
+                                <div class="attr variable">
+            <span class="name">human_gated</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.human_gated"></a>
+    
+            <div class="docstring"><p>Indicates if an otherwise operational task will go through human review or approval before final execution.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.deterministic" class="classattr">
+                                <div class="attr variable">
+            <span class="name">deterministic</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.deterministic"></a>
+    
+            <div class="docstring"><p>Indicates if the endpoint's logic is Deterministic (consistent output for identical inputs), or Non-deterministic (output may vary even for identical inputs).</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.idempotent" class="classattr">
+                                <div class="attr variable">
+            <span class="name">idempotent</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.idempotent"></a>
+    
+            <div class="docstring"><p>Indicates if calling the endpoint multiple times with the same input has the same net effect as calling it once. Only relevant for non-read-only endpoints.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.stateful" class="classattr">
+                                <div class="attr variable">
+            <span class="name">stateful</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.stateful"></a>
+    
+            <div class="docstring"><p>Indicates if the endpoint maintains state across multiple calls from the same client (True) or if each call is independent (False).</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.asynchronous" class="classattr">
+                                <div class="attr variable">
+            <span class="name">asynchronous</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.asynchronous"></a>
+    
+            <div class="docstring"><p>Indicates if the endpoint completes its work immediately and returns the result (False, Sync) or if it acknowledges the request and completes the work later (True, Async).</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.maturity_level" class="classattr">
+                                <div class="attr variable">
+            <span class="name">maturity_level</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.maturity_level"></a>
+    
+            <div class="docstring"><p>Represents the intrinsic stability and readiness of the API. Default Categories are:
+1: POC, 2: Experimental, 3: Beta, 4: Stable, 5: Critical/Foundational.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.disable_authentication" class="classattr">
+                                <div class="attr variable">
+            <span class="name">disable_authentication</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.disable_authentication"></a>
+    
+            <div class="docstring"><p>(Use with Caution) If True, disables standard API authentication, making the endpoint publicly accessible or accessible without tokens. Defaults to False (authentication enabled) if None.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.custom_attributes" class="classattr">
+                                <div class="attr variable">
+            <span class="name">custom_attributes</span><span class="annotation">: dict[str, str | int | float | bool] | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.custom_attributes"></a>
+    
+            <div class="docstring"><p>Allows defining arbitrary key-value pairs for custom attributes, tagging, or extensions specific to this endpoint.</p>
+
+<p>Provide a dictionary where keys are strings (e.g., 'my-tag') and values should be JSON-serializable 
+(e.g., string, number, boolean). These pairs are exposed as OpenAPI specification 
+extensions, automatically prefixed with 'x-prt-'. </p>
+
+<p>Example: 
+  Input:  {'my-tag': 'tag-value', 'experimental': True}
+  OpenAPI Output: 'x-prt-my-tag': 'tag-value', 'x-prt-experimental': True</p>
+
+<p>This metadata is also typically displayed in generated API documentation views like ReDoc.</p>
+</div>
+
+
+                            </div>
+                            <div id="APISpec.validate_custom_attributes" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_validator">@field_validator(&#39;custom_attributes&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_custom_attributes</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.validate_custom_attributes"></a>
+    
+    
+
+                            </div>
+                            <div id="APISpec.validate_model" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;before&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">values</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.validate_model"></a>
+    
+    
+
+                            </div>
+                            <div id="APISpec.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span>        =
+<span class="default_value">{&#39;validate_assignment&#39;: True}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
                 <section id="get_default_region">
                     <div class="attr function">
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
@@ -13864,7 +14844,7 @@ a dict, or <code><a href="#WorkerConfig">WorkerConfig</a></code>. If None, uses 
 If False, you must upload files separately e.g. using automated git sync,
 or run a file already in ~/my or ~/shared folder and set file_path_on_worker param.</li>
 <li>file_path_on_worker (str | None): If you are not uploading files, you must set file_path_on_worker param
-to the <em>full path</em> of the Python (.py) or shell (.sh) script to run. E.g. ~/my/projects/repo/task.py 
+to the <em>full path</em> of the Python (.py) or shell (.sh) script to run. E.g. ~/my/projects/repo/task.py
 This file must already be present on the Worker e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.</li>
 <li>worker_config (WorkerConfig | str | dict | None): Configuration for the remote worker.</li>
 <li>terminate_on_completion (bool): If True, terminates the worker after completion.</li>
@@ -13879,6 +14859,27 @@ This file must already be present on the Worker e.g. by using automated git sync
   <p>A tuple of <code>(Worker, bool)</code> where Worker is the worker used or created for this task,
            and bool indicates if the task succeeded.</p>
 </blockquote>
+</div>
+
+
+                </section>
+                <section id="api">
+                    <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">api</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">path</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">spec</span><span class="p">:</span> <span class="n"><a href="#APISpec">APISpec</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#api"></a>
+    
+            <div class="docstring"><p>Decorator for Practicus AI Application APIs.</p>
+
+<p>Args:
+    path (str): The API endpoint path.
+    spec (APISpec | None): Defines the characteristics and behavior of a Practicus AI App API endpoint,
+        focusing on its execution pattern, operational properties, and context.</p>
 </div>
 
 

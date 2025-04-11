@@ -18,7 +18,7 @@ jupyter:
 - Please run this example on the `Ray Coordinator (master)`.
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Let's get a Ray session.
 # this is similar to running `import ray` and then `ray.init()`
@@ -30,11 +30,13 @@ ray = prt.distributed.get_client()
 def square(x):
     return x * x
 
+
 def calculate():
     numbers = [i for i in range(10)]
     futures = [square.remote(i) for i in numbers]
     results = ray.get(futures)
     print("Distributed square results of", numbers, "is", results)
+
 
 calculate()
 ```
@@ -54,11 +56,13 @@ print("Page did not open? You can open this url manually:", dashboard_url)
 def square(x):
     return x * x
 
+
 def calculate():
     numbers = [i for i in range(10)]
     futures = [square.remote(i) for i in numbers]
     results = ray.get(futures)
     print("Distributed square results of", numbers, "is", results)
+
 
 calculate()
 ```

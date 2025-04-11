@@ -19,14 +19,14 @@ st.write("This is a text from the code inside the page.")
 
 st.write(some_function())
 
-if 'counter' not in st.session_state:
+if "counter" not in st.session_state:
     st.session_state.counter = 0
 
-increment = st.button('Increment Counter')
+increment = st.button("Increment Counter")
 if increment:
     current = st.session_state.counter
     new = current + 1
     st.session_state.counter = new
     prt.logger.info(f"Increased counter from {current} to {new}")
 
-st.write('Counter = ', st.session_state.counter)
+st.write("Counter = ", st.session_state.counter)

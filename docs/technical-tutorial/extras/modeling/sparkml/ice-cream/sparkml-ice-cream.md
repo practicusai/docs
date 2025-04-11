@@ -26,7 +26,7 @@ This section defines key parameters for the notebook. Parameters control the beh
 deployment_key = None
 prefix = None
 model_name = None
-practicus_url = None # E.g. http://company.practicus.com
+practicus_url = None  # E.g. http://company.practicus.com
 ```
 
 ```python
@@ -70,14 +70,11 @@ from pyspark.ml.linalg import Vectors
 spark = SparkSession.builder.appName("IceCreamRevenuePrediction").getOrCreate()
 
 # Define schema for Spark DataFrame
-schema = StructType([
-    StructField("label", DoubleType(), True),
-    StructField("features", DoubleType(), True)
-])
+schema = StructType([StructField("label", DoubleType(), True), StructField("features", DoubleType(), True)])
 
 spark_data = spark.createDataFrame(
-    data.apply(lambda row: (float(row['Revenue']), Vectors.dense(float(row['Temperature']))), axis=1),
-    schema=["label", "features"]
+    data.apply(lambda row: (float(row["Revenue"]), Vectors.dense(float(row["Temperature"]))), axis=1),
+    schema=["label", "features"],
 )
 ```
 
@@ -107,7 +104,7 @@ spark.stop()
 ```
 
 ```python
-# Prediction, you can run this in another notebook 
+# Prediction, you can run this in another notebook
 
 import pandas as pd
 from pyspark.sql import SparkSession
@@ -115,31 +112,29 @@ from pyspark.ml.linalg import Vectors
 from pyspark.sql.types import StructType, StructField, DoubleType
 from pyspark.ml.regression import LinearRegressionModel
 
+
 def predict(df: pd.DataFrame) -> pd.DataFrame:
     spark = SparkSession.builder.appName("IceCreamRevenuePrediction").getOrCreate()
     model = LinearRegressionModel.load(model_name)
     # Define schema for Spark DataFrame
-    schema = StructType([
-        StructField("features", DoubleType(), True)
-    ])
-    
+    schema = StructType([StructField("features", DoubleType(), True)])
+
     # Convert input Pandas DataFrame to Spark DataFrame
     spark_data = spark.createDataFrame(
-        df.apply(lambda row: (Vectors.dense(float(row['Temperature'])),), axis=1),
-        schema=["features"]
+        df.apply(lambda row: (Vectors.dense(float(row["Temperature"])),), axis=1), schema=["features"]
     )
-    
+
     # Make predictions using the Spark model
     predictions = model.transform(spark_data)
-    
+
     # Select the relevant columns and convert to Pandas DataFrame
     predictions_pd = predictions.select("features", "prediction").toPandas()
-    
+
     # Extract the Temperature and predicted Revenue for readability
     predictions_pd["Temperature"] = predictions_pd["features"].apply(lambda x: x[0])
     predictions_pd = predictions_pd.rename(columns={"prediction": "predicted_Revenue"})
     predictions_pd = predictions_pd[["predicted_Revenue"]]
-    
+
     return predictions_pd
 ```
 
@@ -184,7 +179,7 @@ spark.stop()
 - Please follow the below steps to deploy the model as usual
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Deploying model as an API
 # Please review model.py and model.json files
@@ -193,7 +188,7 @@ prt.models.deploy(
     deployment_key=deployment_key,
     prefix=prefix,
     model_name=model_name,
-    model_dir=None # Current dir  
+    model_dir=None,  # Current dir
 )
 ```
 
@@ -215,14 +210,11 @@ print("API session token:", token)
 # Caution: Due to initial Spark session creation process, first prediction can be quite slow.
 
 import pandas as pd
-import requests 
+import requests
 
 df = pd.read_csv("/home/ubuntu/samples/data/ice_cream.csv")
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df.to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -230,6 +222,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")
@@ -272,27 +265,24 @@ async def init(*args, **kwargs):
 
 async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFrame:
     # Define schema for Spark DataFrame
-    schema = StructType([
-        StructField("features", DoubleType(), True)
-    ])
-    
+    schema = StructType([StructField("features", DoubleType(), True)])
+
     # Convert input Pandas DataFrame to Spark DataFrame
     spark_data = spark.createDataFrame(
-        df.apply(lambda row: (Vectors.dense(float(row['Temperature'])),), axis=1),
-        schema=["features"]
+        df.apply(lambda row: (Vectors.dense(float(row["Temperature"])),), axis=1), schema=["features"]
     )
-    
+
     # Make predictions using the Spark model
     predictions = model.transform(spark_data)
-    
+
     # Select the relevant columns and convert to Pandas DataFrame
     predictions_pd = predictions.select("features", "prediction").toPandas()
-    
+
     # Extract the Temperature and predicted Revenue for readability
     predictions_pd["Temperature"] = predictions_pd["features"].apply(lambda x: x[0])
     predictions_pd = predictions_pd.rename(columns={"prediction": "predicted_Revenue"})
     predictions_pd = predictions_pd[["predicted_Revenue"]]
-    
+
     return predictions_pd
 
 ```

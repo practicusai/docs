@@ -27,7 +27,7 @@ Once these parameters are set, you can define a `chat` instance using `ChatPract
 ```python
 model_name = None
 model_prefix = None
-host = None # e.g. 'company.practicus.io'
+host = None  # e.g. 'company.practicus.io'
 ```
 
 ```python
@@ -67,14 +67,10 @@ Below is an example of how to create and use a `ChatPracticus` instance in your 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_practicus import ChatPracticus
 
+
 def test_langchain_practicus(api_url, token, inputs):
-    chat = ChatPracticus(
-        endpoint_url=api_url,
-        api_token=token,
-        model_id="some models will ignore this",
-        stream = True
-    )
-    
+    chat = ChatPracticus(endpoint_url=api_url, api_token=token, model_id="some models will ignore this", stream=True)
+
     response = chat.invoke(input=inputs)
 
     print("\n\nReceived response:\n", response)
@@ -107,7 +103,7 @@ inputs = [human_input1, human_input2, system_message]
 ```
 
 ```python
-test_langchain_practicus(api_url, token, ['who is einstein'])
+test_langchain_practicus(api_url, token, ["who is einstein"])
 ```
 
 #### Received json response:

@@ -38,15 +38,12 @@ import practicuscore as prt
 
 worker_config = prt.WorkerConfig(
     worker_image="practicus",  # The base container image
-    worker_size="X-Small",     # Size configuration
-    env_variables={
-        "MY_FIRST_PARAM": "VALUE1",
-        "MY_SECOND_PARAM": 123
-    },
+    worker_size="X-Small",  # Size configuration
+    env_variables={"MY_FIRST_PARAM": "VALUE1", "MY_SECOND_PARAM": 123},
 )
 
 worker, success = prt.run_task(
-    file_name="task.py",          # The name of the script to run
+    file_name="task.py",  # The name of the script to run
     worker_config=worker_config,
 )
 

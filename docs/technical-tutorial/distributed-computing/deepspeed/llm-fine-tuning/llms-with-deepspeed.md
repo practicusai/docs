@@ -37,9 +37,9 @@ The first step in fine-tuning involves preparing the dataset and downloading the
 worker_size = "L-GPU"
 worker_count = None
 log_level = "DEBUG"
-worker_image="ghcr.io/practicusai/practicus-gpu-deepspeed"
+worker_image = "ghcr.io/practicusai/practicus-gpu-deepspeed"
 terminate_on_completion = False
-startup_script='pip install accelerate trl peft datasets'
+startup_script = "pip install accelerate trl peft datasets"
 ```
 
 ```python
@@ -49,20 +49,19 @@ assert log_level, "Please enter your log_level."
 assert worker_image, "Please enter your worker_image."
 assert terminate_on_completion, "Please enter your terminate_on_completion (True or False)."
 assert startup_script, "Please enter your startup_script."
-
 ```
 
 ```python
 import pandas as pd
 
-url = 'https://raw.githubusercontent.com/practicusai/sample-data/refs/heads/main/customer_support/Customer_Support_Dataset.csv'
+url = "https://raw.githubusercontent.com/practicusai/sample-data/refs/heads/main/customer_support/Customer_Support_Dataset.csv"
 df = pd.read_csv(url, index_col=0)
 
 df.head()
 ```
 
 ```python
-df.to_csv('Customer_Support_Dataset.csv')
+df.to_csv("Customer_Support_Dataset.csv")
 ```
 
 ### Hugging Face Authentication
@@ -71,11 +70,12 @@ To download models from Hugging Face, you need to authenticate using your API to
 
 ```python
 from huggingface_hub.hf_api import HfFolder
+
 try:
-    HfFolder.save_token('...')  # Replace with your Hugging Face API token
+    HfFolder.save_token("...")  # Replace with your Hugging Face API token
 
 except:
-    print('Hugging face token is wrong.')
+    print("Hugging face token is wrong.")
 ```
 
 ### Download Pre-Trained Model
@@ -124,7 +124,7 @@ worker_config = prt.WorkerConfig(
     worker_size=worker_size,
     log_level=log_level,
     distributed_config=distributed_config,
-    startup_script=startup_script
+    startup_script=startup_script,
 )
 
 coordinator_worker = prt.create_worker(worker_config)
@@ -171,10 +171,10 @@ The fine-tuned model and tokenizer are loaded from the `output_dir`. The `device
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # Load the fine-tuned model
-model_name_or_path = './output_dir'  # Path to the saved fine-tuned model
+model_name_or_path = "./output_dir"  # Path to the saved fine-tuned model
 
-tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, device_map='auto')
-model = AutoModelForCausalLM.from_pretrained(model_name_or_path, device_map='auto')
+tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model_name_or_path, device_map="auto")
 ```
 
 ```python
@@ -185,7 +185,7 @@ messages = [{"role": "user", "content": "want assistance to cancel purchase 554"
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
 # Tokenize input text
-inputs = tokenizer(prompt, return_tensors='pt', truncation=True).to("cuda")
+inputs = tokenizer(prompt, return_tensors="pt", truncation=True).to("cuda")
 
 # Generate model response
 outputs = model.generate(**inputs, max_new_tokens=150, num_return_sequences=1)
@@ -199,10 +199,10 @@ print(text.split("assistant")[1])
 
 ```python
 # Load the base model
-model_name_or_path = './llama-3B-instruct'  # Path to the saved fine-tuned model
+model_name_or_path = "./llama-3B-instruct"  # Path to the saved fine-tuned model
 
-tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, device_map='auto')
-model = AutoModelForCausalLM.from_pretrained(model_name_or_path, device_map='auto')
+tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model_name_or_path, device_map="auto")
 ```
 
 ```python
@@ -213,7 +213,7 @@ messages = [{"role": "user", "content": "want assistance to cancel purchase 554"
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
 # Tokenize input text
-inputs = tokenizer(prompt, return_tensors='pt', truncation=True).to("cuda")
+inputs = tokenizer(prompt, return_tensors="pt", truncation=True).to("cuda")
 
 # Generate model response
 outputs = model.generate(**inputs, max_new_tokens=150, num_return_sequences=1)
@@ -272,8 +272,8 @@ BASE_DIR = "/home/ubuntu/my/deepspeed/llm_fine_tune"
 @dataclass
 class ModelArguments:
     model_name_or_path: str = field(
-        default=os.path.join(BASE_DIR, 'llama-3B-instruct'),  # Set default model path here
-        metadata={"help": "Path to pretrained model or model identifier from huggingface.co/models"}
+        default=os.path.join(BASE_DIR, "llama-3B-instruct"),  # Set default model path here
+        metadata={"help": "Path to pretrained model or model identifier from huggingface.co/models"},
     )
     lora_alpha: Optional[int] = field(default=16)
     lora_dropout: Optional[float] = field(default=0.1)
@@ -282,29 +282,18 @@ class ModelArguments:
         default="q_proj,k_proj,v_proj,o_proj,down_proj,up_proj,gate_proj",
         metadata={"help": "Comma-separated list of target modules to apply LoRA layers to."},
     )
-    use_flash_attn: Optional[bool] = field(
-        default=False, metadata={"help": "Enables Flash attention for training."}
-    )
+    use_flash_attn: Optional[bool] = field(default=False, metadata={"help": "Enables Flash attention for training."})
 
 
 @dataclass
 class DataTrainingArguments:
     dataset_path: str = field(
         default=os.path.join(BASE_DIR, "Customer_Support_Dataset.csv"),
-        metadata={"help": "Path to the CSV file containing training data."}
+        metadata={"help": "Path to the CSV file containing training data."},
     )
-    input_field: str = field(
-        default="instruction",
-        metadata={"help": "Field name for user input in the dataset."}
-    )
-    target_field: str = field(
-        default="response",
-        metadata={"help": "Field name for target responses in the dataset."}
-    )
-    max_seq_length: int = field(
-        default=180,
-        metadata={"help": "Maximum sequence length for tokenization."}
-    )
+    input_field: str = field(default="instruction", metadata={"help": "Field name for user input in the dataset."})
+    target_field: str = field(default="response", metadata={"help": "Field name for target responses in the dataset."})
+    max_seq_length: int = field(default=180, metadata={"help": "Maximum sequence length for tokenization."})
 
 
 def create_and_prepare_model(args, data_args):
@@ -315,7 +304,7 @@ def create_and_prepare_model(args, data_args):
         r=args.lora_r,
         bias="none",
         task_type="CAUSAL_LM",
-        target_modules=args.lora_target_modules.split(",")
+        target_modules=args.lora_target_modules.split(","),
     )
 
     # Load tokenizer
@@ -335,19 +324,16 @@ def create_and_prepare_model(args, data_args):
 def preprocess_data(df, tokenizer, data_args):
     def tokenize_function(row):
         inputs = tokenizer(
-            row[data_args.input_field],
-            truncation=True,
-            padding="max_length",
-            max_length=data_args.max_seq_length
+            row[data_args.input_field], truncation=True, padding="max_length", max_length=data_args.max_seq_length
         )
         targets = tokenizer(
-            row[data_args.target_field],
-            truncation=True,
-            padding="max_length",
-            max_length=data_args.max_seq_length
+            row[data_args.target_field], truncation=True, padding="max_length", max_length=data_args.max_seq_length
         )
-        return {"input_ids": inputs["input_ids"], "attention_mask": inputs["attention_mask"],
-                "labels": targets["input_ids"]}
+        return {
+            "input_ids": inputs["input_ids"],
+            "attention_mask": inputs["attention_mask"],
+            "labels": targets["input_ids"],
+        }
 
     # Adding instruction to training dataset
     instruction = """You are a top-rated customer service agent named John. 
@@ -414,7 +400,7 @@ def main():
         train_dataset=tokenized_data,
         eval_dataset=tokenized_data,
         peft_config=peft_config,
-        max_seq_length=512
+        max_seq_length=512,
     )
 
     # Train the model

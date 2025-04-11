@@ -32,6 +32,7 @@ from prometheus_client import Counter, REGISTRY
 
 my_counter = None
 
+
 async def init(*args, **kwargs):
     # ... your existing model init code
 
@@ -40,9 +41,7 @@ async def init(*args, **kwargs):
     metric_name = "my_test_counter"
     try:
         my_counter = Counter(
-            name=metric_name,
-            documentation="My test counter",
-            labelnames=["my_first_dimension", "my_second_dimension"]
+            name=metric_name, documentation="My test counter", labelnames=["my_first_dimension", "my_second_dimension"]
         )
     except ValueError:
         # Metric is already defined; retrieve it from the registry
@@ -61,7 +60,6 @@ async def predict(df, *args, **kwargs):
     ).inc()
 
     # ... your existing code returning prediction
-
 ```
 
 ## Step 2) For App Hosting, modify API .py files
@@ -73,8 +71,10 @@ You can select any api .py file and initialize Prometheus counters, histograms, 
 
 # ... your existing imports
 from prometheus_client import Counter, REGISTRY
+import practicuscore as prt
 
 my_counter = None
+
 
 def init_counter():
     global my_counter
@@ -82,15 +82,14 @@ def init_counter():
     metric_name = "my_test_counter"
     try:
         my_counter = Counter(
-            name=metric_name,
-            documentation="My test counter",
-            labelnames=["my_first_dimension", "my_second_dimension"]
+            name=metric_name, documentation="My test counter", labelnames=["my_first_dimension", "my_second_dimension"]
         )
     except ValueError:
         # Metric is already defined; retrieve it from the registry
         my_counter = REGISTRY._names_to_collectors.get(metric_name)
         if not my_counter:
             raise  # Something else went wrong
+
 
 def increment_my_counter():
     if not my_counter:
@@ -103,7 +102,8 @@ def increment_my_counter():
     ).inc()
 
 
-def run(payload: SomePayloadRequest, **kwargs):
+@prt.apps.api("/some-api-method")
+async def run(payload: SomePayloadRequest, **kwargs):
     # ... api code
 
     # observe any metric
@@ -171,4 +171,4 @@ If you do not see your metric in the monitoring system, check the following:
 
 ---
 
-**Previous**: [Work With Data Catalog](work-with-data-catalog.md) | **Next**: [Customize Templates](customize-templates.md)
+**Previous**: [Caching Large Model Files](caching-large-model-files.md) | **Next**: [Customize Templates](customize-templates.md)

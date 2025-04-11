@@ -6,7 +6,9 @@ class WeightsEnum(str, Enum):
     distance = "distance"
 
 
-def impute_missing_knn(df, missing_val_col: list[str] | None, n_neighbors: int = 5, weights: WeightsEnum = WeightsEnum.uniform):
+def impute_missing_knn(
+    df, missing_val_col: list[str] | None, n_neighbors: int = 5, weights: WeightsEnum = WeightsEnum.uniform
+):
     """
     Replaces each missing value using K-Nearest Neighbors technique
     :param missing_val_col: Columns to impute missing values. Leave empty for all columns
@@ -24,7 +26,9 @@ def impute_missing_knn(df, missing_val_col: list[str] | None, n_neighbors: int =
     if missing_val_col:
         non_numeric_columns = set(missing_val_col) - set(numeric_df.columns)
         if non_numeric_columns:
-            raise ValueError(f"Please only select numeric columns to impute, or do not select any columns. Non-numeric columns: {non_numeric_columns}")
+            raise ValueError(
+                f"Please only select numeric columns to impute, or do not select any columns. Non-numeric columns: {non_numeric_columns}"
+            )
 
         imputed_data = knn_imp.fit_transform(numeric_df[missing_val_col])
         imputed_df = pd.DataFrame(imputed_data, columns=missing_val_col, index=numeric_df.index)
@@ -37,4 +41,4 @@ def impute_missing_knn(df, missing_val_col: list[str] | None, n_neighbors: int =
 
 
 impute_missing_knn.worker_required = True
-impute_missing_knn.supported_engines = ['pandas']
+impute_missing_knn.supported_engines = ["pandas"]

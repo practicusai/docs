@@ -36,14 +36,14 @@ This section defines key parameters for the notebook. Parameters control the beh
 deployment_key = None
 prefix = None
 model_name = None
-practicus_url = None # Example http://company.practicus.com
+practicus_url = None  # Example http://company.practicus.com
 ```
 
 ```python
 assert deployment_key, "Please select a deployment key"
 assert prefix, "Please select a prefix"
 assert model_name, "Please enter a model_name"
-assert practicus_url, "Please enter practicus_url" 
+assert practicus_url, "Please enter practicus_url"
 ```
 
 ## Model Development
@@ -52,10 +52,7 @@ assert practicus_url, "Please enter practicus_url"
 Loading and preparing the dataset
 
 ```python
-data_set_conn = {
-    "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/data/insurance.csv"
-}
+data_set_conn = {"connection_type": "WORKER_FILE", "file_path": "/home/ubuntu/samples/data/insurance.csv"}
 ```
 
 ```python
@@ -65,7 +62,7 @@ import practicuscore as prt
 
 region = prt.current_region()
 worker = region.get_or_create_worker()
-proc = worker.load(data_set_conn) 
+proc = worker.load(data_set_conn)
 
 proc.show_head()
 ```
@@ -73,10 +70,10 @@ proc.show_head()
 ```python
 # Pre-process
 
-proc.categorical_map(column_name='sex', column_suffix='category') 
-proc.categorical_map(column_name='smoker', column_suffix='category') 
-proc.categorical_map(column_name='region', column_suffix='category') 
-proc.delete_columns(['region', 'smoker', 'sex']) 
+proc.categorical_map(column_name="sex", column_suffix="category")
+proc.categorical_map(column_name="smoker", column_suffix="category")
+proc.categorical_map(column_name="region", column_suffix="category")
+proc.delete_columns(["region", "smoker", "sex"])
 ```
 
 ```python
@@ -89,8 +86,8 @@ df.head()
 Model Training
 
 ```python
-X = df.drop('charges', axis=1)
-y = df['charges']
+X = df.drop("charges", axis=1)
+y = df["charges"]
 ```
 
 ```python
@@ -103,9 +100,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 import xgboost as xgb
 from sklearn.pipeline import Pipeline
 
-pipeline = Pipeline([
-    ('model', xgb.XGBRegressor(objective='reg:squarederror', n_estimators=100))
-])
+pipeline = Pipeline([("model", xgb.XGBRegressor(objective="reg:squarederror", n_estimators=100))])
 pipeline.fit(X_train, y_train)
 ```
 
@@ -114,7 +109,7 @@ pipeline.fit(X_train, y_train)
 
 import cloudpickle
 
-with open('model.pkl', 'wb') as f:
+with open("model.pkl", "wb") as f:
     cloudpickle.dump(pipeline, f)
 ```
 
@@ -122,10 +117,10 @@ with open('model.pkl', 'wb') as f:
 
 ```python
 prt.models.deploy(
-    deployment_key=deployment_key, 
-    prefix=prefix, 
-    model_name=model_name, 
-    model_dir=None # Current Dir
+    deployment_key=deployment_key,
+    prefix=prefix,
+    model_name=model_name,
+    model_dir=None,  # Current Dir
 )
 ```
 
@@ -138,12 +133,12 @@ import practicuscore as prt
 
 region = prt.current_region()
 worker = region.get_or_create_worker()
-proc = worker.load(data_set_conn) 
+proc = worker.load(data_set_conn)
 
-proc.categorical_map(column_name='sex', column_suffix='category') 
-proc.categorical_map(column_name='smoker', column_suffix='category') 
-proc.categorical_map(column_name='region', column_suffix='category') 
-proc.delete_columns(['region', 'smoker', 'sex']) 
+proc.categorical_map(column_name="sex", column_suffix="category")
+proc.categorical_map(column_name="smoker", column_suffix="category")
+proc.categorical_map(column_name="region", column_suffix="category")
+proc.delete_columns(["region", "smoker", "sex"])
 
 df = proc.get_df_copy()
 df.head()
@@ -171,10 +166,7 @@ print("API session token:", token)
 import requests
 import pandas as pd
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df.to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -182,6 +174,7 @@ if not r.ok:
     raise ConnectionError(f"{r.status_code} - {r.text}")
 
 from io import BytesIO
+
 pred_df = pd.read_csv(BytesIO(r.content))
 
 print("Prediction Result:")
@@ -195,11 +188,11 @@ pred_df.head()
 ## Hand-Made Model Drift
 
 ```python
-df['age'] = df['age'] * 2
+df["age"] = df["age"] * 2
 ```
 
 ```python
-df['bmi'] = df['bmi'] * 3
+df["bmi"] = df["bmi"] * 3
 ```
 
 ```python
@@ -207,10 +200,7 @@ display(df)
 ```
 
 ```python
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'text/csv'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "text/csv"}
 data_csv = df.to_csv(index=False)
 
 r = requests.post(api_url, headers=headers, data=data_csv)
@@ -235,7 +225,7 @@ import os
 from typing import Optional
 import pandas as pd
 from starlette.exceptions import HTTPException
-import joblib 
+import joblib
 
 
 model_pipeline = None
@@ -245,7 +235,7 @@ async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
 
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise HTTPException(status_code=404, detail=f"Could not locate model file: {model_file}")
 
@@ -256,16 +246,16 @@ async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwar
     if df is None:
         raise HTTPException(status_code=500, detail="No dataframe received")
 
-    if 'charges' in df.columns:
+    if "charges" in df.columns:
         # Dropping 'charges' since it is the target
-        df = df.drop('charges', axis=1)  
+        df = df.drop("charges", axis=1)
 
     # Making predictions
     predictions = model_pipeline.predict(df)
 
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
-    
+    predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
+
     return predictions_df
 
 ```

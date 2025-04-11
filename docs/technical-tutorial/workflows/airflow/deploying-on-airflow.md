@@ -60,7 +60,7 @@ my_2nd_task_worker_config = prt.WorkerConfig(
 )
 
 custom_worker_configs = [
-    ('my_2nd_task', my_2nd_task_worker_config),
+    ("my_2nd_task", my_2nd_task_worker_config),
 ]
 
 dag_key = "my_workflow"
@@ -115,7 +115,7 @@ successful_task_workers, failed_task_workers = prt.workflows.test_tasks(
     files_path=None,  # Current dir
     default_worker_config=default_worker_config,
     custom_worker_configs=custom_worker_configs,
-    terminate_on_success=True,   # Automatically terminate successful tasks
+    terminate_on_success=True,  # Automatically terminate successful tasks
     terminate_on_failed=False,  # Keep failed tasks alive for debugging
 )
 ```
@@ -151,7 +151,7 @@ If you don't know your Airflow service key, you can list available add-ons and i
 import practicuscore as prt
 
 region = prt.get_default_region()
-addons_df = region.addon_list.to_pandas()
+addons_df = prt.addons.get_list().to_pandas()
 
 print("Add-on services accessible to you:")
 display(addons_df)

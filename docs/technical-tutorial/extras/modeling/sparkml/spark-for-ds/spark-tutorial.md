@@ -26,9 +26,7 @@ This code creates a `SparkSession` object, which is the entry point for any Spar
 
 
 ```python
-spark = SparkSession.builder \
-    .appName("Advanced Data Processing") \
-    .getOrCreate()
+spark = SparkSession.builder.appName("Advanced Data Processing").getOrCreate()
 ```
 
 ## Reading a CSV File with Spark
@@ -74,16 +72,14 @@ data.describe().show()
 
 print("Min, Max and Std:")
 data.select(
-    [min(c).alias(f"{c}_min") for c in data.columns if data.schema[c].dataType != "StringType"] +
-    [max(c).alias(f"{c}_max") for c in data.columns if data.schema[c].dataType != "StringType"] +
-    [stddev(c).alias(f"{c}_stddev") for c in data.columns if data.schema[c].dataType != "StringType"]
+    [min(c).alias(f"{c}_min") for c in data.columns if data.schema[c].dataType != "StringType"]
+    + [max(c).alias(f"{c}_max") for c in data.columns if data.schema[c].dataType != "StringType"]
+    + [stddev(c).alias(f"{c}_stddev") for c in data.columns if data.schema[c].dataType != "StringType"]
 ).show()
 
 
 print("Correlation Analysis:")
-data.select(corr("age", "charges").alias("age_charges_corr"), 
-            corr("bmi", "charges").alias("bmi_charges_corr")).show()
-
+data.select(corr("age", "charges").alias("age_charges_corr"), corr("bmi", "charges").alias("bmi_charges_corr")).show()
 ```
 
 ## Handling Categorical Variables
@@ -92,7 +88,7 @@ This code transforms categorical variables into numerical representations, prepa
 
 
 ```python
-categorical_columns = ['sex', 'smoker', 'region']
+categorical_columns = ["sex", "smoker", "region"]
 indexers = [StringIndexer(inputCol=col, outputCol=col + "_index") for col in categorical_columns]
 encoders = [OneHotEncoder(inputCol=col + "_index", outputCol=col + "_encoded") for col in categorical_columns]
 ```
@@ -103,14 +99,15 @@ BMI values are categorized into specific groups, and the data is grouped to coun
 
 
 ```python
-data = data.withColumn("bmi_category", 
-                       when(col("bmi") < 18.5, lit("underweight"))
-                       .when((col("bmi") >= 18.5) & (col("bmi") < 25), lit("normal"))
-                       .when((col("bmi") >= 25) & (col("bmi") < 30), lit("overweight"))
-                       .otherwise(lit("obese")))
+data = data.withColumn(
+    "bmi_category",
+    when(col("bmi") < 18.5, lit("underweight"))
+    .when((col("bmi") >= 18.5) & (col("bmi") < 25), lit("normal"))
+    .when((col("bmi") >= 25) & (col("bmi") < 30), lit("overweight"))
+    .otherwise(lit("obese")),
+)
 
 data.groupBy("bmi_category").count().show()
-
 ```
 
 ## Feature Vector Assembly
@@ -119,9 +116,8 @@ The specified numerical and encoded categorical columns are combined into a sing
 
 
 ```python
-feature_columns = ['age', 'bmi', 'children', 'sex_encoded', 'smoker_encoded', 'region_encoded']
+feature_columns = ["age", "bmi", "children", "sex_encoded", "smoker_encoded", "region_encoded"]
 assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
-
 ```
 
 ## Scaling Features and Applying a Pipeline
@@ -148,7 +144,6 @@ output_path = "/home/ubuntu/my/processed_insurance_data.parquet"
 data.write.parquet(output_path, mode="overwrite")
 
 spark.stop()
-
 ```
 
 

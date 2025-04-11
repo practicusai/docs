@@ -41,10 +41,10 @@ import practicuscore as prt
 job_dir = "~/my/dask"
 
 distributed_config = prt.DistJobConfig(
-    job_type = prt.DistJobType.dask,
-    job_dir = job_dir,
-    py_file = "job.py",
-    worker_count = worker_count,
+    job_type=prt.DistJobType.dask,
+    job_dir=job_dir,
+    py_file="job.py",
+    worker_count=worker_count,
 )
 
 worker_config = prt.WorkerConfig(
@@ -71,11 +71,7 @@ prt.distributed.live_view(
 rank = 0
 # To view other workers set rank = 1,2, ..
 
-prt.distributed.view_log(
-    job_dir=job_dir,
-    job_id=coordinator_worker.job_id,
-    rank=rank
-)
+prt.distributed.view_log(job_dir=job_dir, job_id=coordinator_worker.job_id, rank=rank)
 ```
 
 ### Wrapping up
@@ -90,7 +86,7 @@ prt.distributed.view_log(
 
 ### job.py
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 import dask.dataframe as dd
 
 # Let's get a Dask session
@@ -98,7 +94,7 @@ print("Getting Dask session")
 dask = prt.distributed.get_client()
 
 print("Reading diamond data")
-df = dd.read_csv('/home/ubuntu/samples/data/diamond.csv')  
+df = dd.read_csv("/home/ubuntu/samples/data/diamond.csv")
 
 print("Calculating")
 df["New Price"] = df["Price"] * 0.8
@@ -107,7 +103,7 @@ print("Since Dask is a lazy execution engine,")
 print(" actual calculations will happen when you call compute() or save.")
 
 print("Saving")
-df.to_csv('/home/ubuntu/my/dask/result.csv')
+df.to_csv("/home/ubuntu/my/dask/result.csv")
 
 # Note: the save location must be accessible by all workers
 # A good place to save for distributed processing is object storage

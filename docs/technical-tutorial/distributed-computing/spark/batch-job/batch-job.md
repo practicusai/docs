@@ -41,10 +41,10 @@ import practicuscore as prt
 job_dir = "~/my/spark"
 
 distributed_config = prt.DistJobConfig(
-    job_type = prt.DistJobType.spark,
-    job_dir = job_dir,
-    py_file = "job.py",
-    worker_count = worker_count,
+    job_type=prt.DistJobType.spark,
+    job_dir=job_dir,
+    py_file="job.py",
+    worker_count=worker_count,
 )
 
 worker_config = prt.WorkerConfig(
@@ -71,11 +71,7 @@ prt.distributed.live_view(
 rank = 0
 # To view other workers set rank = 1,2, ..
 
-prt.distributed.view_log(
-    job_dir=job_dir,
-    job_id=coordinator_worker.job_id,
-    rank=rank
-)
+prt.distributed.view_log(job_dir=job_dir, job_id=coordinator_worker.job_id, rank=rank)
 ```
 
 ### Wrapping up
@@ -90,7 +86,7 @@ prt.distributed.view_log(
 
 ### job.py
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # Let's get a Spark session
 print("Getting Spark session")

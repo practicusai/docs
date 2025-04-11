@@ -133,12 +133,15 @@ nav:
     - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
     - Work With Processes: technical-tutorial/how-to/work-with-processes.md
     - Work With Data Catalog: technical-tutorial/how-to/work-with-data-catalog.md
+    - Caching Large Model Files: technical-tutorial/how-to/caching-large-model-files.md
     - Use Custom Metrics: technical-tutorial/how-to/use-custom-metrics.md
     - Customize Templates: technical-tutorial/how-to/customize-templates.md
+    - Hosting Temporary Apis: technical-tutorial/how-to/hosting-temporary-apis.md
     - Configure Advanced Gpu: technical-tutorial/how-to/configure-advanced-gpu.md
     - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md
     - Share Workers: technical-tutorial/how-to/share-workers.md
     - View Stats: technical-tutorial/how-to/view-stats.md
+    - Startup Scripts: technical-tutorial/how-to/startup-scripts.md
     - Create Virtual Envs: technical-tutorial/how-to/create-virtual-envs.md
     - Model Tokens: technical-tutorial/how-to/model-tokens.md
     - Use Polars: technical-tutorial/how-to/use-polars.md
@@ -177,6 +180,8 @@ nav:
         - Prtchatbot: technical-tutorial/extras/generative-ai/prtchatbot/prtchatbot.md
       - Advanced LangChain:
         - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
+      - AI Assistants:
+        - AI Assistants: technical-tutorial/extras/generative-ai/ai-assistants/ai-assistants.md
       - Mobile-Banking:
         - Mobile-Banking: technical-tutorial/extras/generative-ai/mobile-banking/mobile-banking.md
       - LLM Apps:
@@ -189,6 +194,10 @@ nav:
           - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
       - Milvus Embedding And LangChain:
         - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
+      - Agentic:
+        - Build: technical-tutorial/extras/generative-ai/agentic/build.md
+      - Langflow Apis:
+        - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
       - Ecomm-Sdk:
         - Memory Chabot: technical-tutorial/extras/generative-ai/ecomm-sdk/memory-chabot.md
       - Cv Assistant:
@@ -263,6 +272,7 @@ nav:
   - Add-on Services: ops-tutorial/add-on-services.md
   - Enterprise SSO: ops-tutorial/enterprise-sso.md
   - AI Assistants: ops-tutorial/ai_assistants.md
+  - MFA (Multi-Factor Authentication): ops-tutorial/mfa.md
 - SDK v24.8.4: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md

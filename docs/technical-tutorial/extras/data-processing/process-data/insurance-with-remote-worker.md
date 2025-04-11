@@ -37,9 +37,9 @@ Create a new worker with practicuscore method of "create_worker" and use this ne
 worker_conf = {
     "worker_size": "Medium",
     "worker_image": "practicus",
-    #"service_url": "",
-    #"email": "",
-    #"refresh_token": "**entry_your_token**"
+    # "service_url": "",
+    # "email": "",
+    # "refresh_token": "**entry_your_token**"
 }
 ```
 
@@ -55,32 +55,29 @@ worker = prt.create_worker(worker_conf)
 ```python
 # configuration of connection
 
-data_set_conn = {
-    "connection_type": "WORKER_FILE",
-    "file_path": "/home/ubuntu/samples/data/insurance.csv"
-}
+data_set_conn = {"connection_type": "WORKER_FILE", "file_path": "/home/ubuntu/samples/data/insurance.csv"}
 ```
 
 ```python
-proc = worker.load(data_set_conn, engine='AUTO') 
+proc = worker.load(data_set_conn, engine="AUTO")
 ```
 
 Data prep with Practicus ai SDK
 
 ```python
-proc.categorical_map(column_name='sex', column_suffix='category') 
+proc.categorical_map(column_name="sex", column_suffix="category")
 ```
 
 ```python
-proc.categorical_map(column_name='smoker', column_suffix='category') 
+proc.categorical_map(column_name="smoker", column_suffix="category")
 ```
 
 ```python
-proc.categorical_map(column_name='region', column_suffix='category') 
+proc.categorical_map(column_name="region", column_suffix="category")
 ```
 
 ```python
-proc.delete_columns(['region', 'smoker', 'sex']) 
+proc.delete_columns(["region", "smoker", "sex"])
 ```
 
 ```python
@@ -107,12 +104,12 @@ worker.terminate()
 ##### If you make the process functional and do it with with, you don't need to kill the worker when the process is finished. The worker is automatically killed when this process is finished
 
 ```python
-with prt.create_worker(worker_conf) as worker: 
+with prt.create_worker(worker_conf) as worker:
     with worker.load(data_set_conn) as proc:
-        proc.categorical_map(column_name='sex', column_suffix='category'), 
-        proc.categorical_map(column_name='smoker', column_suffix='category'),
-        proc.categorical_map(column_name='region', column_suffix='category'),
-        proc.delete_columns(['region', 'smoker', 'sex']) 
+        (proc.categorical_map(column_name="sex", column_suffix="category"),)
+        (proc.categorical_map(column_name="smoker", column_suffix="category"),)
+        (proc.categorical_map(column_name="region", column_suffix="category"),)
+        proc.delete_columns(["region", "smoker", "sex"])
         proc.wait_until_done(timeout_min=600)
         proc.show_logs()
 ```

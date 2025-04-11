@@ -27,6 +27,7 @@ After testing our application we can set our configurations and start the deploy
 
 ```python
 import practicuscore as prt
+
 region = prt.get_region()
 ```
 
@@ -36,9 +37,9 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-app_name = 'prtchatbot3' # E.g. 'api-chatbot'
-deployment_setting_key = 'appdepl'
-app_prefix = 'apps'
+app_name = "prtchatbot3"  # E.g. 'api-chatbot'
+deployment_setting_key = "appdepl"
+app_prefix = "apps"
 app_dir = None
 ```
 
@@ -46,21 +47,21 @@ app_dir = None
  
 
 ```python
-my_app_list = region.app_list
+my_app_list = prt.apps.get_list()
 display(my_app_list.to_pandas())
 
 print("Using first app name:", app_name)
 ```
 
 ```python
-my_app_prefix_list = region.app_prefix_list
+my_app_prefix_list = prt.apps.get_prefix_list()
 display(my_app_prefix_list.to_pandas())
 
 print("Using first app prefix", app_prefix)
 ```
 
 ```python
-my_app_settings = region.app_deployment_setting_list
+my_app_settings = prt.apps.get_deployment_setting_list()
 display(my_app_settings.to_pandas())
 
 print("Using first setting with key:", deployment_setting_key)
@@ -76,10 +77,10 @@ assert app_prefix, "Please enter app_prefix"
 
 ```python
 prt.apps.deploy(
-    deployment_setting_key=deployment_setting_key, # Deployment Key, ask admin for deployment key
-    prefix=app_prefix, # Apphost deployment extension
-    app_name=app_name, 
-    app_dir=None # Directory of files that will be deployed ('None' for current directory)
+    deployment_setting_key=deployment_setting_key,  # Deployment Key, ask admin for deployment key
+    prefix=app_prefix,  # Apphost deployment extension
+    app_name=app_name,
+    app_dir=None,  # Directory of files that will be deployed ('None' for current directory)
 )
 ```
 
@@ -137,11 +138,15 @@ with st.form("main_form"):
         cursor = connection.cursor()
         cursor.execute("SELECT session_id FROM sessions WHERE session_id = %s", (st.session_state.session_id,))
         if cursor.fetchone() is None:
-            cursor.execute("INSERT INTO sessions (session_id, user_id, title, created_at, language) VALUES (%s, %s, %s, %s, %s)",
-                           (st.session_state.session_id, 1, title, now, "English"))
+            cursor.execute(
+                "INSERT INTO sessions (session_id, user_id, title, created_at, language) VALUES (%s, %s, %s, %s, %s)",
+                (st.session_state.session_id, 1, title, now, "English"),
+            )
         else:
-            cursor.execute("UPDATE sessions SET title = %s, language = %s WHERE session_id = %s",
-                           (title, "English", st.session_state.session_id))
+            cursor.execute(
+                "UPDATE sessions SET title = %s, language = %s WHERE session_id = %s",
+                (title, "English", st.session_state.session_id),
+            )
         connection.commit()
         cursor.close()
         connection.close()
@@ -170,14 +175,16 @@ connection.close()
 if "selected_session_id" not in st.session_state:
     st.session_state.selected_session_id = None
 
-default_index = 0 if st.session_state.selected_session_id is None else session_ids.index(st.session_state.selected_session_id)
+default_index = (
+    0 if st.session_state.selected_session_id is None else session_ids.index(st.session_state.selected_session_id)
+)
 
 selected_index = st.selectbox(
-    "💬 Load Session", 
-    options=range(len(session_labels)), 
+    "💬 Load Session",
+    options=range(len(session_labels)),
     format_func=lambda i: session_labels[i],
     index=default_index,
-    key=st.session_state.selectbox_key
+    key=st.session_state.selectbox_key,
 )
 
 selected_session = session_ids[selected_index]
@@ -210,11 +217,13 @@ if user_input:
 
     save_message_to_db(st.session_state.session_id, "user", user_input)
     save_message_to_db(st.session_state.session_id, "assistant", response)
+
 ```
 
 ### chatbot.py
 ```python
 import requests
+import time
 from db import save_message_to_db, get_session_messages
 import streamlit as st
 from practicuscore.gen_ai import ChatCompletionRequest
@@ -225,17 +234,29 @@ def get_response_from_model(model_name, user_input):
     return call_practicus_model(user_input, model_name)
 
 
+@st.cache_data
+def get_token_for_model(model_name):
+    token_data = st.session_state.get(f"token_{model_name}", None)
+
+    if not token_data or token_data["expires_at"] < time.time():
+        api_url = f"https://dev.practicus.io/models/{model_name}/"
+        token = prt.models.get_session_token(api_url=api_url)
+
+        expires_at = time.time() + 3 * 60 * 60
+        st.session_state[f"token_{model_name}"] = {"token": token, "expires_at": expires_at}
+
+        return token
+    else:
+        return token_data["token"]
+
+
 def call_practicus_model(user_input, model_name):
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
 
-    api_url = f"https://dev.practicus.io/models/{model_name}/"
-    token = prt.models.get_session_token(api_url=api_url)
+    token = get_token_for_model(model_name)
 
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json"
-    }
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
@@ -243,16 +264,10 @@ def call_practicus_model(user_input, model_name):
         {"role": "user", "content": user_input},
     ]
 
-    chat_request = ChatCompletionRequest(
-        model=model_name,
-        messages=messages,
-        temperature=0.7,
-        max_tokens=512  
-
-    )
+    chat_request = ChatCompletionRequest(model=model_name, messages=messages, temperature=0.7, max_tokens=512)
 
     payload = chat_request.model_dump()
-    response = requests.post(api_url, headers=headers, json=payload)
+    response = requests.post(f"https://dev.practicus.io/models/{model_name}/", headers=headers, json=payload)
 
     try:
         data = response.json()
@@ -266,7 +281,6 @@ def call_practicus_model(user_input, model_name):
     else:
         return f"⚠️ Unexpected response: {data}"
 
-
 ```
 
 ### db.py
@@ -274,18 +288,20 @@ def call_practicus_model(user_input, model_name):
 import psycopg2
 import datetime
 
+
 def create_connection():
     try:
         connection = psycopg2.connect(
             host="test-db-1.c34rytcb0n56.us-east-1.rds.amazonaws.com",
             database="llm",
             user="prt_analytics_user",
-            password="prt_analytics_pwd"
+            password="prt_analytics_pwd",
         )
         return connection
     except Exception as e:
         print(f"Connection error: {e}")
         return None
+
 
 def save_message_to_db(session_id, role, content):
     connection = create_connection()
@@ -296,15 +312,19 @@ def save_message_to_db(session_id, role, content):
 
         if result is None:
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-            cursor.execute("INSERT INTO sessions (session_id, title, created_at, language) VALUES (%s, %s, %s, %s)",
-                           (session_id, f"Oturum - {session_id[:8]}", now, "English"))
+            cursor.execute(
+                "INSERT INTO sessions (session_id, title, created_at, language) VALUES (%s, %s, %s, %s)",
+                (session_id, f"Oturum - {session_id[:8]}", now, "English"),
+            )
             connection.commit()
 
-        cursor.execute("INSERT INTO messages (session_id, role, content) VALUES (%s, %s, %s)", 
-                       (session_id, role, content))
+        cursor.execute(
+            "INSERT INTO messages (session_id, role, content) VALUES (%s, %s, %s)", (session_id, role, content)
+        )
         connection.commit()
         cursor.close()
         connection.close()
+
 
 def get_session_messages(session_id):
     connection = create_connection()
@@ -314,6 +334,7 @@ def get_session_messages(session_id):
     cursor.close()
     connection.close()
     return [{"role": role, "content": content} for content, role in messages]
+
 
 def delete_session_from_db(session_id):
     connection = create_connection()

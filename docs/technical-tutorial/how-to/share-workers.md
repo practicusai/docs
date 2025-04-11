@@ -19,7 +19,7 @@ To allow another user to access a Practicus AI worker you’ve created, you can 
 **Important Note**: Any user you share a worker with will have access to the contents of your `~/my` and `~/shared` directories.
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # To share the worker you are currently using,
 #  first get a reference to 'self'

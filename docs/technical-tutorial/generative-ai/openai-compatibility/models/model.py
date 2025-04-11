@@ -1,6 +1,9 @@
 from practicuscore.gen_ai import (
-    ChatCompletionRequest, ChatCompletionResponseUsage, ChatCompletionResponseChoiceMessage,
-    ChatCompletionResponseChoice, ChatCompletionResponse
+    ChatCompletionRequest,
+    ChatCompletionResponseUsage,
+    ChatCompletionResponseChoiceMessage,
+    ChatCompletionResponseChoice,
+    ChatCompletionResponse,
 )
 
 model = None
@@ -24,25 +27,16 @@ async def predict(payload_dict: dict, **kwargs):
         msgs += f"{(msg.role + ': ') if msg.role else ''}{msg.content}\n"
 
     # Usage (Optional)
-    usage = ChatCompletionResponseUsage(
-        prompt_tokens=5,
-        completion_tokens=10,
-        total_tokens=15
-    )
+    usage = ChatCompletionResponseUsage(prompt_tokens=5, completion_tokens=10, total_tokens=15)
 
     # Use your LLM model to generate a response.
     # This one just echoes back what the user asks.
     choice_message = ChatCompletionResponseChoiceMessage(
-        role="assistant",
-        content=f"You asked:\n{msgs}\nAnd I don't know how to respond yet."
+        role="assistant", content=f"You asked:\n{msgs}\nAnd I don't know how to respond yet."
     )
 
     # Create a choice object
-    choice = ChatCompletionResponseChoice(
-        index=0,
-        message=choice_message,
-        finish_reason="stop"
-    )
+    choice = ChatCompletionResponseChoice(index=0, message=choice_message, finish_reason="stop")
 
     # Finally, create the top-level response object
     open_ai_compatible_response = ChatCompletionResponse(

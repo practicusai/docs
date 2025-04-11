@@ -23,7 +23,7 @@ jupyter:
     - Can I use a token created for one Practicus AI region for another region? By default, no. If your admin deployed the regions in "federated" mode, yes.
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 import getpass
 
 region = prt.regions.get_default_region()
@@ -35,8 +35,8 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-practicus_url = None # E.g."https://practicus.your-company.com" 
-email = None # E.g. "your-email@your-company.com"
+practicus_url = None  # E.g."https://practicus.your-company.com"
+email = None  # E.g. "your-email@your-company.com"
 password = None
 ```
 
@@ -67,7 +67,6 @@ print("Access token:", access_token)
 
 
 # Tip: region.url shows the current Practicus AI service URL that you are logged-in to.
-
 
 
 print(f"Please enter the password for {email} to login {practicus_url}")

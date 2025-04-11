@@ -20,7 +20,6 @@ if prt.apps.user_is_admin():
     admin_input1 = st.text_input("Admin Input 1")
     admin_input2 = st.text_input("Admin Input 2")
 
-    admin_action = st.button('Admin Button')
+    admin_action = st.button("Admin Button")
     if admin_action:
         st.write("Performing some dummy admin action..")
-    

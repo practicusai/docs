@@ -52,7 +52,9 @@ import time
 from pymilvus import (
     connections,
     utility,
-    FieldSchema, CollectionSchema, DataType,
+    FieldSchema,
+    CollectionSchema,
+    DataType,
     Collection,
 )
 
@@ -89,7 +91,7 @@ We're going to create a collection with 3 fields.
 fields = [
     FieldSchema(name="pk", dtype=DataType.VARCHAR, is_primary=True, auto_id=False, max_length=100),
     FieldSchema(name="random", dtype=DataType.DOUBLE),
-    FieldSchema(name="embeddings", dtype=DataType.FLOAT_VECTOR, dim=dim)
+    FieldSchema(name="embeddings", dtype=DataType.FLOAT_VECTOR, dim=dim),
 ]
 
 schema = CollectionSchema(fields, "hello_milvus is the simplest demo to introduce the APIs")
@@ -111,7 +113,7 @@ entities = [
     # provide the pk field because `auto_id` is set to False
     [str(i) for i in range(num_entities)],
     rng.random(num_entities).tolist(),  # field random, only supports list
-    rng.random((num_entities, dim)),    # field embeddings, supports numpy.ndarray and list
+    rng.random((num_entities, dim)),  # field embeddings, supports numpy.ndarray and list
 ]
 
 insert_result = hello_milvus.insert(entities)
@@ -184,7 +186,9 @@ Start hybrid searching with `random > 0.5`
 
 ```python
 start_time = time.time()
-result = hello_milvus.search(vectors_to_search, "embeddings", search_params, limit=3, expr="random > 0.5", output_fields=["random"])
+result = hello_milvus.search(
+    vectors_to_search, "embeddings", search_params, limit=3, expr="random > 0.5", output_fields=["random"]
+)
 end_time = time.time()
 
 for hits in result:

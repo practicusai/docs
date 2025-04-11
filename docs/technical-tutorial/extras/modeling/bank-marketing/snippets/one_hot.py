@@ -6,9 +6,14 @@ class DummyOption(str, Enum):
     KEEP_ALL = "Keep All Dummies"
 
 
-def one_hot(df, text_col_list: list[str] | None,
-            max_categories: int = 25, dummy_option: DummyOption = DummyOption.KEEP_ALL,
-            result_col_suffix: list[str] | None = None, result_col_prefix: list[str] | None = None):
+def one_hot(
+    df,
+    text_col_list: list[str] | None,
+    max_categories: int = 25,
+    dummy_option: DummyOption = DummyOption.KEEP_ALL,
+    result_col_suffix: list[str] | None = None,
+    result_col_prefix: list[str] | None = None,
+):
     """
     Applies one-hot encoding to specified columns in the DataFrame. If no columns are specified,
     one-hot encoding is applied to all categorical columns that have a number of unique categories
@@ -26,12 +31,15 @@ def one_hot(df, text_col_list: list[str] | None,
     import pandas as pd
 
     if text_col_list is None:
-        text_col_list = [col for col in df.columns if df[col].dtype == 'object' and df[col].nunique() <= max_categories]
+        text_col_list = [col for col in df.columns if df[col].dtype == "object" and df[col].nunique() <= max_categories]
 
     for col in text_col_list:
-        dummies = pd.get_dummies(df[col], prefix=(result_col_prefix if result_col_prefix else col),
-                                 drop_first=(dummy_option == DummyOption.DROP_FIRST))
-        dummies = dummies.rename(columns=lambda x: f'{x}_{result_col_suffix}' if result_col_suffix else x)
+        dummies = pd.get_dummies(
+            df[col],
+            prefix=(result_col_prefix if result_col_prefix else col),
+            drop_first=(dummy_option == DummyOption.DROP_FIRST),
+        )
+        dummies = dummies.rename(columns=lambda x: f"{x}_{result_col_suffix}" if result_col_suffix else x)
 
         df = pd.concat([df, dummies], axis=1)
 

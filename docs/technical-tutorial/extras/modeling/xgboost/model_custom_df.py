@@ -9,7 +9,7 @@ async def init(model_meta=None, *args, **kwargs):
     global model_pipeline
 
     current_dir = os.path.dirname(__file__)
-    model_file = os.path.join(current_dir, 'model.pkl')
+    model_file = os.path.join(current_dir, "model.pkl")
     if not os.path.exists(model_file):
         raise FileNotFoundError(f"Could not locate model file: {model_file}")
 
@@ -21,14 +21,14 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
     # E.g. read bytes using http_request.stream(), decode and pass to Pandas.
     raise NotImplemented("DataFrame generation code not implemented")
 
-    if 'charges' in df.columns:
+    if "charges" in df.columns:
         # Dropping 'charges' since it is the target
-        df = df.drop('charges', axis=1)
+        df = df.drop("charges", axis=1)
 
     # Making predictions
     predictions = model_pipeline.predict(df)
 
     # Converting predictions to a DataFrame
-    predictions_df = pd.DataFrame(predictions, columns=['Predictions'])
+    predictions_df = pd.DataFrame(predictions, columns=["Predictions"])
 
     return predictions_df

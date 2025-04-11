@@ -32,8 +32,8 @@ This section defines key parameters for the notebook. Parameters control the beh
  
 
 ```python
-model_name = None # E.g. "diamond-price"
-model_prefix = None #  E.g. 'models/practicus'
+model_name = None  # E.g. "diamond-price"
+model_prefix = None  #  E.g. 'models/practicus'
 ```
 
 ```python
@@ -42,14 +42,14 @@ assert model_prefix, "Please enter your model_prefix."
 ```
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 region = prt.regions.get_default_region()
 ```
 
 ```python
 # Let's get model prefixes dataframe
-# We can also use the list form with: region.model_prefix_list 
+# We can also use the list form with: region.model_prefix_list
 model_prefix_df = region.model_prefix_list.to_pandas()
 
 print("Current model prefixes:")
@@ -68,11 +68,11 @@ display(df)
 
 ```python
 # You can use regular pandas filters
-# E.g. let's search for models with a particular model prefix, 
+# E.g. let's search for models with a particular model prefix,
 # and remove all models that are not deployed (hs no version)
 
 
-filtered_df = df[(df['prefix'] == model_prefix) & (df['versions'].notna())]
+filtered_df = df[(df["prefix"] == model_prefix) & (df["versions"].notna())]
 display(filtered_df)
 ```
 
@@ -94,7 +94,7 @@ If your end users do not have access to Practicus AI SDK, they can simply make t
 
 import requests
 
-try :
+try:
     console_api_url = "http://local.practicus.io/console/api/"
 
     # Option 1 - Use password auth every time you need tokens
@@ -109,7 +109,7 @@ try :
         raise ConnectionError(r.status_code)
     body = r.json()
     refresh_token = body["refresh"]  # Keep refresh tokens safe!
-    console_access_token = body["access"] 
+    console_access_token = body["access"]
 
     # Option 2 - Get a refresh token once, and only use that until it expires in ~3 months
     print("[Recommended] Getting console API access token using refresh token")
@@ -128,7 +128,9 @@ try :
 
     # Locating model id
     print("Getting model id.")
-    print("Note: you can also view model id using Open API documentation (E.g. https://../models/redoc/), or using Practicus AI App.")
+    print(
+        "Note: you can also view model id using Open API documentation (E.g. https://../models/redoc/), or using Practicus AI App."
+    )
     r = requests.get(api_url + "?get_meta=true", headers=headers, data=data)
     if not r.ok:
         raise ConnectionError(r.status_code)
@@ -136,7 +138,7 @@ try :
     print("Model id:", model_id)
 
     # Getting model access token, expires in ~4 hours
-    print("Getting a model API session token using the console API access token") 
+    print("Getting a model API session token using the console API access token")
     console_model_token_api_url = f"{console_api_url}modelhost/model-auth/"
     data = {"model_id": model_id}
     r = requests.get(console_model_token_api_url, headers=headers, data=data)
@@ -144,7 +146,7 @@ try :
         raise ConnectionError(r.status_code)
     body = r.json()
     model_api_token = body["token"]
-    print("Model API session token:", model_api_token) 
+    print("Model API session token:", model_api_token)
 except:
     pass
 ```

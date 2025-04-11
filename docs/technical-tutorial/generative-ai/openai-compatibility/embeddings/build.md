@@ -18,9 +18,7 @@ You can build Practicus AI embedding APIs that are compatible with the OpenAI AP
 
 ```python
 # Convenience classes, you can also use your own that are compatible with OpenAI APIs.
-from practicuscore.gen_ai import (
-    PrtEmbeddingsRequest, PrtEmbeddingObject, PrtEmbeddingUsage, PrtEmbeddingsResponse
-)
+from practicuscore.gen_ai import PrtEmbeddingsRequest, PrtEmbeddingObject, PrtEmbeddingUsage, PrtEmbeddingsResponse
 ```
 
 ```python
@@ -43,16 +41,10 @@ print(request_json)
 ```python
 # Sample Response
 # 1) Create a usage object
-usage = PrtEmbeddingUsage(
-    prompt_tokens=5,
-    total_tokens=15
-)
+usage = PrtEmbeddingUsage(prompt_tokens=5, total_tokens=15)
 
 # 2) # let's simulate embeddings and index.
-embedding = PrtEmbeddingObject(
-    embedding=[0.123, 0.345],
-    index=123
-)
+embedding = PrtEmbeddingObject(embedding=[0.123, 0.345], index=123)
 
 # 4) Finally, create the top-level response object
 response_obj = PrtEmbeddingsResponse(
@@ -77,10 +69,7 @@ region = prt.get_default_region()
 
 # Identify the first available model deployment system
 if len(region.model_deployment_list) == 0:
-    raise SystemError(
-        "No model deployment systems are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model deployment systems are available. Please contact your system administrator.")
 elif len(region.model_deployment_list) > 1:
     print("Multiple model deployment systems found. Using the first one.")
 
@@ -89,10 +78,7 @@ deployment_key = model_deployment.key
 
 # Identify the first available model prefix
 if len(region.model_prefix_list) == 0:
-    raise SystemError(
-        "No model prefixes are available. "
-        "Please contact your system administrator."
-    )
+    raise SystemError("No model prefixes are available. Please contact your system administrator.")
 elif len(region.model_prefix_list) > 1:
     print("Multiple model prefixes found. Using the first one.")
 
@@ -115,10 +101,7 @@ For the sake simplicity, we are deploying a model that sends random embeddings.
 ```python
 # Deploy model.py
 api_url, api_version_url, api_meta_url = prt.models.deploy(
-    deployment_key=deployment_key,
-    prefix=prefix,
-    model_name=model_name,
-    model_dir=model_dir
+    deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir
 )
 ```
 
@@ -143,12 +126,9 @@ print("API session token:", token)
 
 ```python
 # Now let's send a test request to our proxy using Python's requests.
-import requests 
+import requests
 
-headers = {
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json'
-}
+headers = {"authorization": f"Bearer {token}", "content-type": "application/json"}
 
 r = requests.post(api_url, headers=headers, data=request_json)
 if not r.ok:
@@ -174,10 +154,7 @@ You can also install and use the **OpenAI Python SDK**, then override its URLs t
 ```python
 from openai import OpenAI
 
-client = OpenAI(
-    base_url=api_url,
-    api_key=token
-)
+client = OpenAI(base_url=api_url, api_key=token)
 
 print("Connecting to", client.base_url, "to test OpenAI SDK compatibility for embeddings.")
 
@@ -192,7 +169,9 @@ try:
     print(response)
 
     if response.data:
-        print("\nEmbedding vector (first 5 elements):", response.data[0].embedding[:5])  # Print the first 5 elements of the embedding
+        print(
+            "\nEmbedding vector (first 5 elements):", response.data[0].embedding[:5]
+        )  # Print the first 5 elements of the embedding
 
 except Exception as e:
     print(f"An error occurred: {e}")
@@ -211,9 +190,7 @@ except Exception as e:
 
 ### model.py
 ```python
-from practicuscore.gen_ai import (
-    PrtEmbeddingsRequest, PrtEmbeddingObject, PrtEmbeddingUsage, PrtEmbeddingsResponse
-)
+from practicuscore.gen_ai import PrtEmbeddingsRequest, PrtEmbeddingObject, PrtEmbeddingUsage, PrtEmbeddingsResponse
 
 model = None
 
@@ -230,18 +207,12 @@ async def predict(payload_dict: dict, **kwargs):
         req = PrtEmbeddingsRequest.model_validate(payload_dict)
     except Exception as ex:
         raise ValueError(f"Invalid PrtEmbeddingsRequest request. {ex}") from ex
-    
-    usage = PrtEmbeddingUsage(
-        prompt_tokens=5,
-        total_tokens=15
-    )
+
+    usage = PrtEmbeddingUsage(prompt_tokens=5, total_tokens=15)
 
     # Generating some random embeddings, replace with the actual model
-    embedding = PrtEmbeddingObject(
-        embedding=[0.123, 0.345, 0.567, 0.789],
-        index=1234
-    )
-    
+    embedding = PrtEmbeddingObject(embedding=[0.123, 0.345, 0.567, 0.789], index=1234)
+
     response_obj = PrtEmbeddingsResponse(
         data=[embedding],
         model="an-optional-model-id",
