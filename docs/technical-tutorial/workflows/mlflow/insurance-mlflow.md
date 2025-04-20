@@ -173,9 +173,10 @@ print("Model REST API Url:", api_url)
 ```
 
 ```python
-# We will be using using the SDK to get a session token.
+# We will be using using the SDK to get a session token (or reuse existing, if not expired).
 # To learn how to get a token without the SDK, please view 05_others/tokens sample notebook
-token = prt.models.get_session_token(api_url)
+token = None
+token = prt.models.get_session_token(api_url, token=token)
 print("API session token:", token)
 ```
 

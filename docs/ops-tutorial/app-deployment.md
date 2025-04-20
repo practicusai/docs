@@ -20,8 +20,8 @@ To add a new deployment setting, click the **Add Deployment Setting** button. Th
 - **Enable Observability**: Toggles observability settings for metrics collection.
 - **Log Level**: Defines the verbosity of logs (e.g., `Default`).
 
-![](img\app_host_01.png)
-![](img\app_host_02.png)
+![](img/app_host_01.png)
+![](img/app_host_02.png)
 
 Click **Save** to finalize the configuration.
 
@@ -43,7 +43,7 @@ To add a new app prefix, click the **Add App Prefix** button. Configure the foll
 - **Icon**: Optional Font Awesome icon for visual identification.
 - **Sort Order**: Determines display order (higher values appear first).
 
-![](img\app_host_03.png)
+![](img/app_host_03.png)
 
 Click **Save** to complete.
 

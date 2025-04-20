@@ -37,8 +37,8 @@ assert api_url, "Please enter your model api url."
 ```python
 import practicuscore as prt
 
-
-token = prt.models.get_session_token(api_url)
+token = None  # Get a new token, or reuse existing if not expired.
+token = prt.models.get_session_token(api_url, token=token)
 print("API session token:", token)
 ```
 

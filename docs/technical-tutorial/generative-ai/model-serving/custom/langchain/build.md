@@ -77,8 +77,9 @@ print(api_meta_url)
 ```python
 # We'll use the Practicus AI SDK to get a session token.
 # If you prefer, you can handle authentication differently.
-token = prt.models.get_session_token(api_url)
-print("API session token:", token)
+token = None  # Get a new token, or reuse existing, if not expired
+token = prt.models.get_session_token(api_url, token=token)
+print("API session token: ..", token[-4:])
 ```
 
 ```python
@@ -183,4 +184,4 @@ async def predict(payload_dict: dict, **kwargs):
 
 ---
 
-**Previous**: [Streaming](../streaming.md) | **Next**: [Embeddings](../embeddings.md)
+**Previous**: [Build](../embeddings/build.md) | **Next**: [LangChain > LangChain Basics](../../../langchain/langchain-basics.md)

@@ -136,8 +136,9 @@ print(api_meta_url)
 ```python
 # We'll use the Practicus AI SDK to get a session token.
 # If you prefer, you can handle authentication differently.
-token = prt.models.get_session_token(api_url)
-print("API session token:", token)
+token = None  # Get a new token, or reuse existing, if not expired
+token = prt.models.get_session_token(api_url, token=token)
+print("API session token: ..", token[-4:])
 ```
 
 ```python
@@ -260,4 +261,4 @@ async def predict(payload_dict: dict, **kwargs):
 
 ---
 
-**Previous**: [Sample Vector Db](../../vector-databases/sample-vector-db.md) | **Next**: [Embeddings > Build](../embeddings/build.md)
+**Previous**: [Model Serving](../../vllm/model-serving.md) | **Next**: [Embeddings > Build](../embeddings/build.md)

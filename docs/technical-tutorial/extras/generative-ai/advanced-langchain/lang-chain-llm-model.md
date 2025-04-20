@@ -326,7 +326,8 @@ import practicuscore as prt
 
 ```python
 api_url = f"https://{host}/{model_prefix}/{model_name}/"
-token = prt.models.get_session_token(api_url=api_url)
+token = None  # Get a new token, or reuse existing, if not expired
+token = prt.models.get_session_token(api_url=api_url, token=token)
 ```
 
 

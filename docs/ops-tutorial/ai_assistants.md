@@ -23,7 +23,7 @@ An AI Assistant is a configurable endpoint that allows you to integrate differen
 - **Model API**, **App API**, **Custom API**: The configured back-end for the AI.  
 - **Sort order**: The position in which the assistant is displayed in the user interface.
 
-    ![](img\ai_01.png)
+    ![](img/ai_01.png)
 
 ---
 
@@ -46,7 +46,7 @@ You will be redirected to the **Add AI Assistant** page.
 - **Description** *(Optional)*:  
   - A short summary describing the assistant’s behavior, capabilities, or specialized domain.
 
-![](img\ai_02.png)
+![](img/ai_02.png)
 
 ### Step 3: Select the Interface and APIs
 
@@ -62,7 +62,7 @@ You will be redirected to the **Add AI Assistant** page.
 - **Custom API**:  
   - Use this field to set a base URL for a non-Practicus API endpoint (e.g., OpenAI’s `https://api.openai.com/v1`).  
 
-![](img\ai_03.png)
+![](img/ai_03.png)
 
 ### Step 4: Configure Access Tokens and Parameters
 
@@ -81,7 +81,7 @@ You will be redirected to the **Add AI Assistant** page.
 - **Custom config**:  
   - An optional JSON field where you can supply additional configuration parameters, including required headers for certain APIs (e.g., `OpenAI-Organization`).  
 
-![](img\ai_04.png)
+![](img/ai_04.png)
 
 ### Step 5: Sort Order
 
@@ -89,7 +89,7 @@ You will be redirected to the **Add AI Assistant** page.
   - Determines the display order of AI Assistants in the user interface.  
   - Higher numbers appear later in the list.
 
-![](img\ai_05.png)
+![](img/ai_05.png)
 
 ### Step 6: Save Your New AI Assistant
 

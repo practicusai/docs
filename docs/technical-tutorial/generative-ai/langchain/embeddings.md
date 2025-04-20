@@ -30,8 +30,12 @@ assert embedding_api_url, "Please select the embedding API url"
 ```python
 import practicuscore as prt
 
-model_api_token = prt.models.get_session_token(model_api_url)
-embedding_api_token = prt.models.get_session_token(embedding_api_url)
+# Get a new token, or reuse existing, if not expired
+model_api_token = None
+embedding_api_token = None
+
+model_api_token = prt.models.get_session_token(model_api_url, token=model_api_token)
+embedding_api_token = prt.models.get_session_token(embedding_api_url, token=embedding_api_token)
 ```
 
 ```python
@@ -135,4 +139,4 @@ print(f"\nEmbedded Query Vector: {embedded_query_vector}")
 
 ---
 
-**Previous**: [Build](model-hosting/build.md) | **Next**: [Vector Databases > Sample Vector Db](../vector-databases/sample-vector-db.md)
+**Previous**: [Streaming](streaming.md) | **Next**: [Vector Databases > Sample Vector Db](../vector-databases/sample-vector-db.md)

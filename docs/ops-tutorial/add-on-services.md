@@ -17,7 +17,7 @@ To add a new Add-On Service, follow these steps:
    - **Add-On Service Type**: Select the type of service from the dropdown menu.
    - **URL**: Enter the primary URL of the service.
 
-   - ![](img\add_on_02.png)
+   - ![](img/add_on_02.png)
 
 - Optional fields:
    - **Enterprise SSO App**: If applicable, select an SSO app to authenticate users with Practicus AI login credentials.
@@ -25,7 +25,7 @@ To add a new Add-On Service, follow these steps:
    - **Object Storage Connection**: Select an object storage connection for data storage.
    - **Git Repo Connection**: Specify a Git repository connection if the service integrates with a repository.
 
-   ![](img\add_on_03.png)
+   ![](img/add_on_03.png)
 
 - Click **Save**, or choose **Save and add another** to configure additional services.
 
@@ -41,7 +41,7 @@ To define a new service type, follow these steps:
    - **Key**: Enter a unique identifier for the service type.
    - **Name**: Provide a descriptive name for the service type.
 
-   ![](img\add_on_04.png)
+   ![](img/add_on_04.png)
 
 - Click **Save**, or choose **Save and add another** to configure additional service types.
 

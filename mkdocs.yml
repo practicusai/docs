@@ -57,19 +57,22 @@ nav:
     - Introduction: technical-tutorial/generative-ai/introduction.md
     - Apps:
       - Build: technical-tutorial/generative-ai/apps/build.md
+    - Model Serving:
+      - Vllm:
+        - Model Serving: technical-tutorial/generative-ai/model-serving/vllm/model-serving.md
+      - Custom:
+        - Models:
+          - Build: technical-tutorial/generative-ai/model-serving/custom/models/build.md
+        - Embeddings:
+          - Build: technical-tutorial/generative-ai/model-serving/custom/embeddings/build.md
+        - LangChain:
+          - Build: technical-tutorial/generative-ai/model-serving/custom/langchain/build.md
     - LangChain:
       - LangChain Basics: technical-tutorial/generative-ai/langchain/langchain-basics.md
       - Streaming: technical-tutorial/generative-ai/langchain/streaming.md
-      - Model Hosting:
-        - Build: technical-tutorial/generative-ai/langchain/model-hosting/build.md
       - Embeddings: technical-tutorial/generative-ai/langchain/embeddings.md
     - Vector Databases:
       - Sample Vector Db: technical-tutorial/generative-ai/vector-databases/sample-vector-db.md
-    - OpenAI Compatibility:
-      - Models:
-        - Build: technical-tutorial/generative-ai/openai-compatibility/models/build.md
-      - Embeddings:
-        - Build: technical-tutorial/generative-ai/openai-compatibility/embeddings/build.md
     - Service Orchestration:
       - Build: technical-tutorial/generative-ai/service-orchestration/build.md
   - Distributed Computing:
@@ -141,10 +144,10 @@ nav:
     - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md
     - Share Workers: technical-tutorial/how-to/share-workers.md
     - View Stats: technical-tutorial/how-to/view-stats.md
-    - Startup Scripts: technical-tutorial/how-to/startup-scripts.md
     - Create Virtual Envs: technical-tutorial/how-to/create-virtual-envs.md
     - Model Tokens: technical-tutorial/how-to/model-tokens.md
     - Use Polars: technical-tutorial/how-to/use-polars.md
+    - Personal Startup Scripts: technical-tutorial/how-to/personal-startup-scripts.md
   - Extras:
     - Modeling:
       - SparkML:

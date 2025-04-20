@@ -57,7 +57,8 @@ This section defines key parameters for the notebook. Parameters control the beh
 app_deployment_key = None
 app_prefix = "apps"
 
-test_app = True
+test_ui = True
+test_api = True
 ```
 
 If you don't know your prefixes and deployments you can check them out by using the SDK like down below:
@@ -85,7 +86,7 @@ assert app_prefix, "Please select an app prefix."
 
 To ensure proper execution, run the code below on a Practicus AI GenAI or a compatible container image. Make sure to use the GenAI Jupyter kernel (the `practicus_genai` virtual environment).
 
-### Testing Applications in Design Time
+### (Recommended) Testing Application UIs in Design Time
 
 You can launch a sample Streamlit application directly within the Practicus AI worker to test it before deploying to a Practicus AI AppHost system.
 
@@ -98,24 +99,30 @@ If you are using VS Code, click on the printed URL to view the application.
 If you are using Jupyter, we recommend using Practicus AI Studio, which has built-in GenAI app visualization. After running the code below, navigate to **Explore**, right-click on the worker, and select **GenAI App**.
 
 ```python
-if test_app:
+if test_ui:
     prt.apps.test_app()
 ```
 
-### Testing APIs in design time
+### (Recommended) Testing APIs in design time
 
 ```python
-import apis.say_hello
-from apis.say_hello import Person, SayHelloRequest, SayHelloResponse
-from pydantic import BaseModel
+if test_api:
+    from apis.say_hello import Person, SayHelloRequest, SayHelloResponse
+    from pydantic import BaseModel
 
-person = Person(name="Alice", email="alice@wonderland.com")
-payload = SayHelloRequest(person=person)
+    person = Person(name="Alice", email="alice@wonderland.com")
+    payload = SayHelloRequest(person=person)
 
-print(issubclass(type(payload), BaseModel))
+    print(issubclass(type(payload), BaseModel))
 
-response: SayHelloResponse = prt.apps.test_api("/say-hello", payload)
-print("Greeting message:", response.greeting_message)
+    response: SayHelloResponse = prt.apps.test_api("/say-hello", payload)
+    print("Greeting message:", response.greeting_message)
+```
+
+### (Recommended) Analyze the App before deployment
+
+```python
+prt.apps.analyze()
 ```
 
 ## Deploying the App
@@ -163,7 +170,8 @@ Practicus AI supports multiple app versions and provides different URLs for each
 ```python
 import requests
 
-token = prt.apps.get_session_token(api_url=api_url)
+token = None  # Get a new token, or reuse existing, if not expired
+token = prt.apps.get_session_token(api_url=api_url, token=token)
 say_hello_api_url = f"{api_url}say-hello/"
 
 headers = {"Authorization": f"Bearer {token}", "content-type": "application/json"}
@@ -575,4 +583,4 @@ def some_function():
 
 ---
 
-**Previous**: [Introduction](../introduction.md) | **Next**: [LangChain > LangChain Basics](../langchain/langchain-basics.md)
+**Previous**: [Introduction](../introduction.md) | **Next**: [Model Serving > Vllm > Model Serving](../model-serving/vllm/model-serving.md)

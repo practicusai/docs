@@ -58,7 +58,8 @@ def test_langchain_practicus(api_url, token, inputs):
 ##### The method below creates a token that is valid for 4 hours, longer tokens can be retrieved from the admin console.
 
 ```python
-token = prt.models.get_session_token(api_url)
+token = None  # Get a new token, or reuse existing if not expired.
+token = prt.models.get_session_token(api_url, token=token)
 print("API session token:", token)
 ```
 
@@ -78,7 +79,8 @@ import practicuscore as prt
 
 # We will be using using the SDK to get a session token.
 api_url = None  # Model API e.g. "https://company.practicus.com/llm-models/llama-3b-chain-test/"
-token = prt.models.get_session_token(api_url)
+token = None  # Get a new token, or reuse existing if not expired.
+token = prt.models.get_session_token(api_url, token=token)
 print("API session token:", token)
 ```
 

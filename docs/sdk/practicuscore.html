@@ -109,6 +109,9 @@
                                 <a class="class" href="#models.ModelConfig">models.ModelConfig</a>
                         </li>
                         <li>
+                                <a class="variable" href="#models.server">server</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#models.deploy">deploy</a>
                         </li>
                         <li>
@@ -179,6 +182,9 @@
                         </li>
                         <li>
                                 <a class="function" href="#apps.test_api">test_api</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.analyze">analyze</a>
                         </li>
                         <li>
                                 <a class="function" href="#apps.prepare_db">prepare_db</a>
@@ -1224,6 +1230,9 @@
                         <li>
                                 <a class="variable" href="#Log.ADDONS">ADDONS</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#Log.MODEL_SERVER">MODEL_SERVER</a>
+                        </li>
                 </ul>
 
             </li>
@@ -1288,6 +1297,9 @@
                                 <a class="variable" href="#WorkerConfig.git_configs">git_configs</a>
                         </li>
                         <li>
+                                <a class="variable" href="#WorkerConfig.additional_params">additional_params</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#WorkerConfig.validate_service_type">validate_service_type</a>
                         </li>
                         <li>
@@ -1298,18 +1310,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#WorkerConfig.model_config">model_config</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#WorkerConfig.model_validate">model_validate</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#WorkerConfig.model_validate_json">model_validate_json</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#WorkerConfig.model_dump">model_dump</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#WorkerConfig.model_dump_json">model_dump_json</a>
                         </li>
                 </ul>
 
@@ -1696,6 +1696,54 @@
 
             </li>
             <li>
+                    <a class="class" href="#ModelServer">ModelServer</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#ModelServer.initialized">initialized</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ModelServer.STATUS_STOPPED">STATUS_STOPPED</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ModelServer.STATUS_STARTING">STATUS_STARTING</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ModelServer.STATUS_RUNNING">STATUS_RUNNING</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ModelServer.STATUS_ERROR">STATUS_ERROR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ModelServer.STATUS_STOPPING">STATUS_STOPPING</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.start">start</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.wait_until_ready">wait_until_ready</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.get_status">get_status</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.get_base_url">get_base_url</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.stop">stop</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.get_output">get_output</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.extract_upstream_path">extract_upstream_path</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.serve">serve</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="function" href="#get_default_region">get_default_region</a>
             </li>
             <li>
@@ -1783,14 +1831,18 @@ allowing you to work with Practicus AI resources efficiently:</p>
 <li><code><a href="#workflows">workflows</a></code>: Deploy and manage workflows (e.g., Airflow DAGs).</li>
 <li><code><a href="#connections">connections</a></code>: Manage and create data source connections (e.g., S3, SQL).</li>
 <li><code><a href="#distributed">distributed</a></code>: Work with distributed job clusters and frameworks.</li>
-<li><code><a href="#containers">containers</a></code>: Build and use custom container images.</li>
 <li><code><a href="#auth">auth</a></code>: Authentication helpers for logging in and out of regions.</li>
-<li><code><a href="#vault">vault</a></code>: Secret manager methods to save, retrieve and delete secrets in Practicus AI Vault.</li>
-<li><code><a href="#git">git</a></code>: Git helper methods to sync remote repositories.</li>
 <li><code><a href="#engines">engines</a></code>: Interact with data processing engines like Spark.</li>
 <li><code><a href="#experiments">experiments</a></code>: Manage experiment tracking services, such as MLFlow.</li>
 <li><code><a href="#notebooks">notebooks</a></code>: Access Jupyter notebooks running on workers.</li>
 <li><code><a href="#quality">quality</a></code>: Code quality (linting, formatting) utilities.</li>
+<li><code><a href="#containers">containers</a></code>: Build and use custom container images.</li>
+<li><code><a href="#vault">vault</a></code>: Secret manager methods to save, retrieve and delete secrets in Practicus AI Vault.</li>
+<li><code><a href="#git">git</a></code>: Git helper methods to sync remote repositories.</li>
+<li><code><a href="#mq">mq</a></code>: Helper for RabbitMQ operations.</li>
+<li><code><a href="#notify">notify</a></code>: Sending notifications like emails, and if configures, text messages.</li>
+<li><code><a href="#db">db</a></code>: Helper for Database operations.</li>
+<li><code><a href="#addons">addons</a></code>: Helper methods for Practicus AI Add-ons.</li>
 </ul>
 
 <h3 id="core-classes">Core Classes</h3>
@@ -1911,7 +1963,7 @@ and credentials.</p>
 <span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">login</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://my-practicus-region.example.com&quot;</span><span class="p">,</span>
     <span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;my_password&quot;</span>
 <span class="p">)</span>
 
 <span class="c1"># Set the default region (if multiple are configured)</span>
@@ -1993,7 +2045,7 @@ You can also define <code>PRT_TOKEN</code> OS Environment variable and skip prov
 <pre><span></span><code><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">login</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://my-practicus-region.example.com&quot;</span><span class="p">,</span>
     <span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;my_password&quot;</span><span class="p">,</span>
     <span class="n">save_password</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </code></pre>
@@ -2374,7 +2426,7 @@ This file must already be present on the Worker e.g. by using automated git sync
     <a class="headerlink" href="#regions.auto_login"></a>
     
             <div class="docstring"><p>Automatically logs into the Practicus AI region when running within a known Practicus AI environment
-(e.g., a worker or workspace) that already has embedded credentials. Useful for automations and
+(e.g., a worker or workspace) that already has embedded credentials. Useful for automation and
 internal scenarios where explicit login is not required.</p>
 
 <h6 id="returns">Returns</h6>
@@ -2414,13 +2466,20 @@ internal scenarios where explicit login is not required.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_access_token</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_access_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
     <a class="headerlink" href="#regions.get_access_token"></a>
     
             <div class="docstring"><p>Retrieves a new access token for the currently active region using the stored refresh token.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
+</ul>
 
 <h6 id="returns">Returns</h6>
 
@@ -2554,6 +2613,18 @@ consistent model version management.</li>
 </div>
 
 
+                            <div id="models.server" class="classattr">
+                                <div class="attr variable">
+            <span class="name">server</span>        =
+<span class="default_value">&lt;class &#39;<a href="#ModelServer">ModelServer</a>&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#models.server"></a>
+    
+    
+
+                            </div>
                             <div id="models.deploy" class="classattr">
                                 <div class="attr function">
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
@@ -2610,7 +2681,7 @@ can be used to route requests to the latest version dynamically.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -2624,6 +2695,8 @@ can be used to route requests to the latest version dynamically.</p>
 <ul>
 <li>api_url (str): The base URL of the model API, e.g. "https://practicus.company.com/models/my-model/".</li>
 <li>for_upload (bool): If True, requests a token with permissions suitable for model uploads.</li>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
 <li>retry (int): Number of retry attempts if the token request fails.</li>
 </ul>
 
@@ -3204,7 +3277,7 @@ Only use Free and v5.x icons. To search, please visit <a href="https://fontaweso
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -3220,6 +3293,9 @@ Only use Free and v5.x icons. To search, please visit <a href="https://fontaweso
 <li>api_url (str | None): The app’s API URL. E.g. "https://practicus.company.com/apps/my-app/api/v5/"</li>
 <li>app_id (int | None): The app’s unique identifier. If provided, it can be used instead of <code>api_url</code>.</li>
 <li>for_upload (bool): If True, requests a token with permissions to upload new versions (admin privileges may be required).</li>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
+<li>retry (int): Number of times to retry obtaining a token.</li>
 </ul>
 
 <p><strong>Returns:</strong></p>
@@ -3472,6 +3548,25 @@ associated with the given path. Useful for design-time testing of APIs without d
 <p>Raises:
     ValueError: If no API handler is found for the given path.
     TypeError: If the API handler is not an async function.</p>
+</div>
+
+
+                            </div>
+                            <div id="apps.analyze" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">analyze</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">app_folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.analyze"></a>
+    
+            <div class="docstring"><p>Aalyzes the app folder to report on APIs, Pages, MQ handlers and other artifacts.</p>
+
+<p>Args:
+    app_folder (str | None): Where to find APIs. If empty, uses current working dir.</p>
 </div>
 
 
@@ -5549,7 +5644,7 @@ streamlined manner.</p>
 <span class="n">prt</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://my-practicus-region.example.com&quot;</span><span class="p">,</span>
     <span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;my_password&quot;</span>
 <span class="p">)</span>
 
 <span class="c1"># Retrieve an access token</span>
@@ -5642,7 +5737,7 @@ You can also define <code>PRT_TOKEN</code> OS Environment variable and skip prov
 <pre><span></span><code><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">login</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://my-practicus-region.example.com&quot;</span><span class="p">,</span>
     <span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;my_password&quot;</span><span class="p">,</span>
     <span class="n">save_password</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </code></pre>
@@ -5693,7 +5788,7 @@ no action will be taken.</li>
     <a class="headerlink" href="#auth.auto_login"></a>
     
             <div class="docstring"><p>Automatically logs into the Practicus AI region when running within a known Practicus AI environment
-(e.g., a worker or workspace) that already has embedded credentials. Useful for automations and
+(e.g., a worker or workspace) that already has embedded credentials. Useful for automation and
 internal scenarios where explicit login is not required.</p>
 
 <h6 id="returns">Returns</h6>
@@ -5764,13 +5859,20 @@ provided by the region.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_access_token</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_access_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
     <a class="headerlink" href="#auth.get_access_token"></a>
     
             <div class="docstring"><p>Retrieves a new access token for the currently active region using the stored refresh token.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
+</ul>
 
 <h6 id="returns">Returns</h6>
 
@@ -7306,7 +7408,7 @@ and can generate helper bash scripts for applying/deleting these resources on Ku
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">send</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">recipients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">preheader</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">category</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">urgency</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">send_plain_text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_template</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">additional_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">exc_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="#Region">Region</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+        <span class="name">send</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">recipients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">preheader</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">category</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">urgency</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">send_plain_text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_template</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">additional_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">exc_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="#Region">Region</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -7335,12 +7437,14 @@ Urgency is also added to the bottom of the notification (if email) so users can 
 <li>region (Region | None): Pass a Practicus AI Region object if you are sending the notification on a region
 other than the current / default region. If you are also using a custom notification app,
 define it using PRT_CUSTOM_NOTIFY_APP_SUFFIX OS Environment variable, or else, /apps/notify/api/send/ is used.</li>
+<li>token: (str | None): Existing token for the Notification app. If the token is valid for another 30 seconds,
+the same token is used, or else a new token is acquired.</li>
 </ul>
 
 <p>Returns:</p>
 
 <ul>
-<li>Notification: The created Notification instance.</li>
+<li>str | None: Notification app token, so you can cache for future use.</li>
 </ul>
 
 <p>Example:</p>
@@ -7580,7 +7684,7 @@ Without static primary keys, you will insert new data on each run.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -7592,18 +7696,21 @@ Please note that only some add-ons APIs can use these keys. Please check the doc
 <p><strong>Parameters:</strong></p>
 
 <ul>
+<li>url (str | None): The API URL of the add-on, from which the key will be extracted using the first part of the URL.
+E.g. For an Add-on API URL of <a href="https://my-addon.practicus.company.com/some/api/">https://my-addon.practicus.company.com/some/api/</a> the key would become 'my-addon'.
+Note: In rare cases, and admin can define multiple Add-ons with the same URL but different keys,
+in which case you should use the below key or AddOn instance instead.</li>
 <li>key (str | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
 <li>addon (AddOn | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
 </ul>
 
-<p><strong>Example:</strong></p>
+<p><strong>Returns:</strong></p>
 
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">add_ons</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
-<span class="c1"># An session token for the first add-on in your list.</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_addon_session_token</span><span class="p">(</span><span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-</code></pre>
-</div>
+<ul>
+<li>str: token acuired</li>
+</ul>
 </div>
 
 
@@ -8843,7 +8950,7 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_model_api_session_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>, </span><span class="param"><span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_model_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -8856,6 +8963,8 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
 <ul>
 <li>api_url (str): The model API URL.</li>
 <li>for_upload (bool): If True, requests a token with permissions for model uploads.</li>
+<li>token: (str | None): Existing token. If the token will nto expire for another 30 seconds, the same token is
+returned to improve performance, and save a round-trip to security APIs. (Highly recommended)</li>
 <li>retry (int): Number of times to retry obtaining a token.</li>
 </ul>
 
@@ -8881,7 +8990,7 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_app_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_app_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -8895,6 +9004,8 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
 <li>api_url (str | None): The app API URL.</li>
 <li>app_id (int | None): The app's unique identifier.</li>
 <li>for_upload (bool): If True, requests a token for uploading a new app version.</li>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
 <li>retry (int): Number of times to retry obtaining a token.</li>
 </ul>
 
@@ -9039,7 +9150,7 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_addon_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_addon_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -9051,16 +9162,20 @@ Please note that only some add-ons APIs can use these keys. Please check the doc
 <p><strong>Parameters:</strong></p>
 
 <ul>
+<li>url (str | None): The API URL of the add-on, from which the key will be extracted using the first part of the URL.
+E.g. For an Add-on API URL of <a href="https://my-addon.practicus.company.com/some/api/">https://my-addon.practicus.company.com/some/api/</a> the key would become 'my-addon'.
+Note: In rare cases, and admin can define multiple Add-ons with the same URL but different keys,
+in which case you should use the below key or AddOn instance instead.</li>
 <li>key (str | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
 <li>addon (AddOn | None): The unique key of the add-on. You can use prt.addons.get_list() to view all the add-ons you have access to.</li>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
 </ul>
 
 <p><strong>Example:</strong></p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">add_ons</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
-<span class="c1"># An session token for the first add-on in your list.</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_addon_session_token</span><span class="p">(</span><span class="n">prt</span><span class="o">.</span><span class="n">addons</span><span class="o">.</span><span class="n">get_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+<pre><span></span><code><span class="n">token</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_addon_session_token</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://my-addon.practicus.company.com/some/api/&#39;</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -9348,7 +9463,7 @@ such as databases or S3 buckets.</p>
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="kn">import</span> <span class="n">S3ConnConf</span><span class="p">,</span> <span class="n">connections</span>
 
-<span class="n">s3_conf</span> <span class="o">=</span> <span class="n">S3ConnConf</span><span class="p">(</span><span class="n">access_key</span><span class="o">=</span><span class="s2">&quot;AKIA...&quot;</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="s2">&quot;secret...&quot;</span><span class="p">,</span> <span class="n">bucket</span><span class="o">=</span><span class="s2">&quot;my-bucket&quot;</span><span class="p">)</span>
+<span class="n">s3_conf</span> <span class="o">=</span> <span class="n">S3ConnConf</span><span class="p">(</span><span class="n">access_key</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="s2">&quot;secret...&quot;</span><span class="p">,</span> <span class="n">bucket</span><span class="o">=</span><span class="s2">&quot;my-bucket&quot;</span><span class="p">)</span>
 <span class="n">uuid</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_s3_conn&quot;</span><span class="p">,</span> <span class="n">conn_conf</span><span class="o">=</span><span class="n">s3_conf</span><span class="p">,</span> <span class="n">can_write</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created connection with UUID:&quot;</span><span class="p">,</span> <span class="n">uuid</span><span class="p">)</span>
 </code></pre>
@@ -9386,7 +9501,7 @@ how connections are stored (via <code>tree_path</code>).</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="c1"># Assume we previously retrieved or created a connection with UUID &quot;abcd1234&quot;</span>
-<span class="n">updated_s3_conf</span> <span class="o">=</span> <span class="n">S3ConnConf</span><span class="p">(</span><span class="n">access_key</span><span class="o">=</span><span class="s2">&quot;AKIA...&quot;</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="s2">&quot;new_secret&quot;</span><span class="p">,</span> <span class="n">bucket</span><span class="o">=</span><span class="s2">&quot;my-new-bucket&quot;</span><span class="p">)</span>
+<span class="n">updated_s3_conf</span> <span class="o">=</span> <span class="n">S3ConnConf</span><span class="p">(</span><span class="n">access_key</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="s2">&quot;new_secret&quot;</span><span class="p">,</span> <span class="n">bucket</span><span class="o">=</span><span class="s2">&quot;my-new-bucket&quot;</span><span class="p">)</span>
 <span class="n">region</span><span class="o">.</span><span class="n">update_connection</span><span class="p">(</span><span class="n">conn_uuid</span><span class="o">=</span><span class="s2">&quot;abcd1234&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_updated_s3_conn&quot;</span><span class="p">,</span> <span class="n">conn_conf</span><span class="o">=</span><span class="n">updated_s3_conf</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection updated successfully.&quot;</span><span class="p">)</span>
 </code></pre>
@@ -9597,13 +9712,20 @@ and an integer representing age in days.</li>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_access_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_access_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
     <a class="headerlink" href="#Region.get_access_token"></a>
     
             <div class="docstring"><p>Retrieves an access token for the region using the stored refresh token.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
+to improve performance and save a round-trip to security APIs.</li>
+</ul>
 
 <p><strong>Returns:</strong></p>
 
@@ -9632,7 +9754,9 @@ and an integer representing age in days.</li>
     </div>
     <a class="headerlink" href="#Region.get_refresh_token"></a>
     
-            <div class="docstring"><p>Retrieves a refresh token for the region using the stored refresh token.</p>
+            <div class="docstring"><p>Retrieves a refresh token for the region with stored username, password.
+If no username, password is stored, but a refresh_token is saved, then the refresh_token is validated and the
+same refresh_token is returned.</p>
 
 <p><strong>Returns:</strong></p>
 
@@ -9661,7 +9785,7 @@ and an integer representing age in days.</li>
     </div>
     <a class="headerlink" href="#Region.get_refresh_and_access_token"></a>
     
-            <div class="docstring"><p>Retrieves a refreshed access token and refresh token from the region.</p>
+            <div class="docstring"><p>Retrieves a refreshed access token and refresh token (if username, password is saved) for the region.</p>
 
 <p><strong>Returns:</strong></p>
 
@@ -9707,7 +9831,7 @@ and an integer representing age in days.</li>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="n">user</span><span class="p">,</span> <span class="n">pwd</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">get_workspace_credentials</span><span class="p">(</span><span class="s2">&quot;instance1234&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Workspace creds:&quot;</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Workspace credentials:&quot;</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pwd</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -9764,7 +9888,7 @@ and an integer representing age in days.</li>
 <p><strong>Example:</strong></p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="n">old_password</span><span class="o">=</span><span class="s2">&quot;oldpass&quot;</span><span class="p">,</span> <span class="n">new_password</span><span class="o">=</span><span class="s2">&quot;NewP@ssw0rd!&quot;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">region</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="n">old_password</span><span class="o">=</span><span class="s2">&quot;old_pass&quot;</span><span class="p">,</span> <span class="n">new_password</span><span class="o">=</span><span class="s2">&quot;NewP@ssw0rd!&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Password changed successfully.&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
@@ -10223,7 +10347,7 @@ like <code>region.create_worker()</code> or <code>region.get_local_worker()</cod
 <p><strong>Returns:</strong></p>
 
 <ul>
-<li>bool | None: The worker's ready status, True if ready, False if readiness failed. None if ready status not knwown.</li>
+<li>bool | None: The worker's ready status, True if ready, False if readiness failed. None if ready status not known.</li>
 </ul>
 </div>
 
@@ -11177,7 +11301,7 @@ provides methods to terminate, wait until current operations are complete, and m
     </div>
     <a class="headerlink" href="#Process.get_eng"></a>
     
-            <div class="docstring"><p>Returns the internal dataengine representation enum</p>
+            <div class="docstring"><p>Returns the internal data engine representation enum</p>
 </div>
 
 
@@ -11360,7 +11484,7 @@ provides methods to terminate, wait until current operations are complete, and m
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_model_api_session_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>, </span><span class="param"><span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_model_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -12236,6 +12360,18 @@ configure their levels and outputs independently.</p>
     
 
                             </div>
+                            <div id="Log.MODEL_SERVER" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MODEL_SERVER</span>        =
+<span class="default_value">&lt;<a href="#Log.MODEL_SERVER">Log.MODEL_SERVER</a>: &#39;practicus.core.model_server&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.MODEL_SERVER"></a>
+    
+    
+
+                            </div>
                 </section>
                 <section id="set_logging_level">
                     <div class="attr function">
@@ -12568,6 +12704,19 @@ Generally not recommended unless working with trusted but self-signed certs.</p>
 
 
                             </div>
+                            <div id="WorkerConfig.additional_params" class="classattr">
+                                <div class="attr variable">
+            <span class="name">additional_params</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#WorkerConfig.additional_params"></a>
+    
+            <div class="docstring"><p>Additional params is used to base 64 decode/encode certain fields.</p>
+</div>
+
+
+                            </div>
                             <div id="WorkerConfig.validate_service_type" class="classattr">
                                 <div class="attr function">
                     <div class="decorator decorator-field_validator">@field_validator(&#39;service_type&#39;)</div>
@@ -12620,132 +12769,6 @@ Generally not recommended unless working with trusted but self-signed certs.</p>
     <a class="headerlink" href="#WorkerConfig.model_config"></a>
     
             <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
-                            <div id="WorkerConfig.model_validate" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-classmethod">@classmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">model_validate</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">data</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#WorkerConfig.model_validate"></a>
-    
-            <div class="docstring"><p>Validate a pydantic model instance.</p>
-
-<p>Args:
-    obj: The object to validate.
-    strict: Whether to enforce types strictly.
-    from_attributes: Whether to extract data from object attributes.
-    context: Additional context to pass to the validator.</p>
-
-<p>Raises:
-    ValidationError: If the object could not be validated.</p>
-
-<p>Returns:
-    The validated model instance.</p>
-</div>
-
-
-                            </div>
-                            <div id="WorkerConfig.model_validate_json" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-classmethod">@classmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">model_validate_json</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">json_data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="nb">bytearray</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#WorkerConfig.model_validate_json"></a>
-    
-            <div class="docstring"><p>Validates and creates a WorkerConfig object from a JSON string.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>json_data: The JSON-encoded string, bytes, or bytearray containing the worker config data.</li>
-</ul>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>WorkerConfig: A validated WorkerConfig instance.</li>
-</ul>
-
-<p><strong>Raises:</strong></p>
-
-<ul>
-<li>ValueError: If the JSON is invalid or required fields are missing.</li>
-</ul>
-</div>
-
-
-                            </div>
-                            <div id="WorkerConfig.model_dump" class="classattr">
-                                <div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">model_dump</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#WorkerConfig.model_dump"></a>
-    
-            <div class="docstring"><p>Usage docs: <a href="https://docs.pydantic.dev/2.10/concepts/serialization/#modelmodel_dump">https://docs.pydantic.dev/2.10/concepts/serialization/#modelmodel_dump</a></p>
-
-<p>Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.</p>
-
-<p>Args:
-    mode: The mode in which <code>to_python</code> should run.
-        If mode is 'json', the output will only contain JSON serializable types.
-        If mode is 'python', the output may contain non-JSON-serializable Python objects.
-    include: A set of fields to include in the output.
-    exclude: A set of fields to exclude from the output.
-    context: Additional context to pass to the serializer.
-    by_alias: Whether to use the field's alias in the dictionary key if defined.
-    exclude_unset: Whether to exclude fields that have not been explicitly set.
-    exclude_defaults: Whether to exclude fields that are set to their default value.
-    exclude_none: Whether to exclude fields that have a value of <code>None</code>.
-    round_trip: If True, dumped values should be valid as input for non-idempotent types such as Json[T].
-    warnings: How to handle serialization errors. False/"none" ignores them, True/"warn" logs errors,
-        "error" raises a [<code>PydanticSerializationError</code>][pydantic_core.PydanticSerializationError].
-    serialize_as_any: Whether to serialize fields with duck-typing serialization behavior.</p>
-
-<p>Returns:
-    A dictionary representation of the model.</p>
-</div>
-
-
-                            </div>
-                            <div id="WorkerConfig.model_dump_json" class="classattr">
-                                <div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">model_dump_json</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#WorkerConfig.model_dump_json"></a>
-    
-            <div class="docstring"><p>Serializes the WorkerConfig to a JSON string, including any additional parameters.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>indent (int | None): Indentation for pretty-printing JSON. Defaults to 4 if not set.</li>
-<li>**kwargs: Additional arguments passed to <code><a href="#WorkerConfig.model_dump">model_dump</a></code>.</li>
-</ul>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str: A JSON-encoded string of the WorkerConfig.</li>
-</ul>
 </div>
 
 
@@ -14503,6 +14526,367 @@ extensions, automatically prefixed with 'x-prt-'. </p>
     <a class="headerlink" href="#APISpec.model_config"></a>
     
             <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="ModelServer">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">ModelServer</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer"></a>
+    
+            <div class="docstring"><p>A static class for managing local LLM serving processes.</p>
+
+<p>This class encapsulates the functionality of launching and managing upstream inference service VLLM processes,
+providing a clean API for starting, monitoring, and shutting down the server.</p>
+
+<p>All methods are static and the class maintains a singleton server instance internally,
+so users can call methods directly on the class without instantiation.</p>
+</div>
+
+
+                            <div id="ModelServer.initialized" class="classattr">
+                                <div class="attr variable">
+            <span class="name">initialized</span>        =
+<span class="default_value">False</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.initialized"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.STATUS_STOPPED" class="classattr">
+                                <div class="attr variable">
+            <span class="name">STATUS_STOPPED</span>        =
+<span class="default_value">&#39;stopped&#39;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.STATUS_STOPPED"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.STATUS_STARTING" class="classattr">
+                                <div class="attr variable">
+            <span class="name">STATUS_STARTING</span>        =
+<span class="default_value">&#39;starting&#39;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.STATUS_STARTING"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.STATUS_RUNNING" class="classattr">
+                                <div class="attr variable">
+            <span class="name">STATUS_RUNNING</span>        =
+<span class="default_value">&#39;running&#39;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.STATUS_RUNNING"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.STATUS_ERROR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">STATUS_ERROR</span>        =
+<span class="default_value">&#39;error&#39;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.STATUS_ERROR"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.STATUS_STOPPING" class="classattr">
+                                <div class="attr variable">
+            <span class="name">STATUS_STOPPING</span>        =
+<span class="default_value">&#39;stopping&#39;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.STATUS_STOPPING"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.start" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">start</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.start"></a>
+    
+            <div class="docstring"><p>Start a upstream inference service VLLM process with the specified model and options.</p>
+
+<p>This method initiates a non-blocking start of upstream inference service VLLM or local mock server.
+If a server is already running or starting, this method will do nothing and return False.</p>
+
+<p>Args:
+    model: Name of the model to serve (as expected by VLLM) or path to a local python file.
+        You can also provide the model using PRT_SERVE_MODEL OS environment variable.
+    inference_engine: The model inference engine to use. If none, defaults to 'VLLM'.
+        You can also provide the engine using PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
+    options: Dictionary of options to pass to the server command, where:
+             - Keys represent command-line arguments (without leading dashes)
+             - Boolean values determine whether flag arguments are included
+             - Other values are converted to strings and passed as values
+        You can also provide options using PRT_SERVE_MODEL_OPTIONS_B64 OS environment variable.
+        Please note that the string in OS env variable must be a base64 encoded JSON string representing the
+        options dictionary.
+    wait_until_ready: Waits until the server is ready.
+        You can also set false, and manually wait calling wait_until_ready().</p>
+
+<p>Returns:
+    bool: True if server start was initiated, False otherwise</p>
+
+<p>Example:
+    # Start a VLLM server
+    prt.models.server.start("llama-2-7b", {
+        "tensor-parallel-size": 2,
+        "gpu-memory-utilization": 0.9,
+        "enable-prefix-caching": True
+    })</p>
+
+<pre><code># Or to run a local test server
+prt.models.server.start("mock_server.py")
+</code></pre>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.wait_until_ready" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">wait_until_ready</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span>, </span><span class="param"><span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.wait_until_ready"></a>
+    
+            <div class="docstring"><p>Wait until the server is ready, with an optional timeout.</p>
+
+<p>This method blocks until the server enters the RUNNING state or an error occurs.
+It checks the server status at regular intervals and raises an exception if
+the server enters an error state or if the timeout is reached.</p>
+
+<p>Args:
+    timeout: Maximum time to wait in seconds
+    interval: Time between status checks in seconds</p>
+
+<p>Returns:
+    bool: True if the server is ready</p>
+
+<p>Raises:
+    RuntimeError: If the server enters an error state or timeout is reached
+    ValueError: If no server has been started</p>
+
+<p>Example:
+    prt.models.server.start("llama/model")
+    try:
+        prt.models.server.wait_until_ready(timeout=120)
+        print("Server is ready!")
+    except RuntimeError as e:
+        print(f"Server error: {e}")</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.get_status" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_status</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.get_status"></a>
+    
+            <div class="docstring"><p>Get the current server status.</p>
+
+<p>Returns a dictionary with detailed information about the current server state,
+including its operational status, configured model, port, and any error messages.</p>
+
+<p>Returns:
+    Dict with the current server state information:
+        - status: Current server status (stopped, starting, running, error, stopping)
+        - model: Name of the model being served
+        - port: Port the server is configured to run on
+        - error_message: Details if status is 'error'
+        - process_id: PID of the server process if running
+        - uptime: Server uptime in seconds if running
+        - local_test_mode: Whether the server is running in test mode</p>
+
+<p>Example:
+    status = prt.models.server.get_status()
+    if status['status'] == 'running':
+        print(f"Server running for {status['uptime']:.2f} seconds")
+    elif status['status'] == 'error':
+        print(f"Server error: {status['error_message']}")</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.get_base_url" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_base_url</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.get_base_url"></a>
+    
+            <div class="docstring"><p>Get the base URL of the running server.</p>
+
+<p>Returns the base URL that can be used to connect to the server,
+or None if the server is not in the RUNNING state.</p>
+
+<p>Returns:
+    str: Base URL string (e.g., "http://localhost:8585") if server is running
+    None: If server is not running</p>
+
+<p>Example:
+    base_url = prt.models.server.get_base_url()
+    if base_url:
+        client = openai.OpenAI(base_url=base_url)
+        # Use client...</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.stop" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">stop</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.stop"></a>
+    
+            <div class="docstring"><p>Shutdown the server process.</p>
+
+<p>Gracefully stops the running server process, first attempting a clean shutdown
+with SIGTERM, then falling back to SIGKILL if the server doesn't exit within
+the specified timeout.</p>
+
+<p>Args:
+    timeout: Maximum time in seconds to wait for graceful shutdown before forcing</p>
+
+<p>Returns:
+    bool: True if shutdown completed successfully, False otherwise</p>
+
+<p>Example:
+    # Use the server...
+    prt.models.server.stop()  # Shutdown when done</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.get_output" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">get_output</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">stdout</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stderr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">max_lines</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.get_output"></a>
+    
+            <div class="docstring"><p>Get the captured process output.</p>
+
+<p>Retrieves the stdout and/or stderr output that has been captured from
+the server process.</p>
+
+<p>Args:
+    stdout: Whether to include stdout output
+    stderr: Whether to include stderr output
+    max_lines: Maximum number of lines to retrieve per stream</p>
+
+<p>Returns:
+    Dict with 'stdout' and/or 'stderr' lists of captured lines</p>
+
+<p>Example:
+    # Get last 50 lines from both stdout and stderr
+    output = prt.models.server.get_output(max_lines=50)</p>
+
+<pre><code># Print stderr only
+output = prt.models.server.get_output(stdout=False)
+for line in output['stderr']:
+    print(line)
+</code></pre>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.extract_upstream_path" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">extract_upstream_path</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="n">model_meta</span><span class="p">:</span> <span class="nb">dict</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.extract_upstream_path"></a>
+    
+            <div class="docstring"><p>Extracts the suffix part of a URL after the model prefix, model name, and optional version.</p>
+
+<p>Args:
+    http_request: A Starlette HTTP request object
+    model_meta: A dictionary containing model_prefix, model_name, and model_version</p>
+
+<p>Returns:
+    str: The remaining URL path after model prefix, model name, and version</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.serve" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">serve</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="n">model_meta</span><span class="p">:</span> <span class="nb">dict</span>,</span><span class="param">	<span class="n">payload_dict</span><span class="p">:</span> <span class="nb">dict</span>,</span><span class="param">	<span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">600.0</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.serve"></a>
+    
+            <div class="docstring"><p>Async function to proxy requests to )upstream inference service VLLM running on current pod e.g. <a href="http://localhost:8585">http://localhost:8585</a></p>
+
+<p>Args:
+    http_request: The original HTTP request object
+    model_meta: Metadata about the model being served
+    payload_dict: The payload to send to the upstream inference service VLLM
+    timeout: Timeout in seconds to wait for the upstream inference service VLLM</p>
+
+<p>Returns:
+    Response from the upstream inference service VLLM</p>
 </div>
 
 

@@ -42,7 +42,8 @@ print("API url:", api_url)
 import practicuscore as prt
 
 region = prt.current_region()
-access_token = region.get_addon_session_token(key="langflow")
+token = None  # Get a new token, or reuse existing if not expired.
+access_token = region.get_addon_session_token(key="langflow", token=token)
 ```
 
 ```python

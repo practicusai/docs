@@ -58,7 +58,8 @@ Now we can define our API url and it's token.
 
 ```python
 api_url = f"https://{host}/{model_prefix}/{model_name}/"
-token = prt.models.get_session_token(api_url=api_url)
+token = None  # Get a new token, or reuse existing, if not expired
+token = prt.models.get_session_token(api_url=api_url, token=token)
 ```
 
 Below is an example of how to create and use a `ChatPracticus` instance in your code.
@@ -119,4 +120,4 @@ test_langchain_practicus(api_url, token, ["who is einstein"])
 
 ---
 
-**Previous**: [Build](../apps/build.md) | **Next**: [Streaming](streaming.md)
+**Previous**: [Build](../model-serving/custom/langchain/build.md) | **Next**: [Streaming](streaming.md)

@@ -28,7 +28,6 @@ assert app_prefix, "Please select an app prefix."
 
 ```python
 import practicuscore as prt
-import apis.say_hello
 from apis.say_hello import SayHelloRequest, SayHelloResponse
 from pydantic import BaseModel
 
@@ -86,7 +85,8 @@ Practicus AI supports multiple app versions and provides different URLs for each
 ```python
 import requests
 
-token = prt.apps.get_session_token(api_url=api_url)
+token = None  # Get a new token, or reuse existing if not expired.
+token = prt.apps.get_session_token(api_url=api_url, token=token)
 say_hello_api_url = f"{api_url}say-hello/"
 
 headers = {"Authorization": f"Bearer {token}", "content-type": "application/json"}

@@ -8,16 +8,16 @@
       
       
       
-        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/generative-ai/langchain/model-hosting/build/">
+        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/generative-ai/model-serving/custom/langchain/build/">
       
       
-        <link rel="prev" href="../../streaming/">
+        <link rel="prev" href="../../embeddings/build/">
       
       
-        <link rel="next" href="../../embeddings/">
+        <link rel="next" href="../../../../langchain/langchain-basics/">
       
       
-      <link rel="icon" href="../../../../../img/practicus50.png">
+      <link rel="icon" href="../../../../../../img/practicus50.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -100,9 +100,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="Docs | Practicus AI" class="md-header__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../../../../.." title="Docs | Practicus AI" class="md-header__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
       
-  <img src="../../../../../img/practicus50.png" alt="logo">
+  <img src="../../../../../../img/practicus50.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -220,9 +220,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="Docs | Practicus AI" class="md-nav__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../../../../.." title="Docs | Practicus AI" class="md-nav__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
       
-  <img src="../../../../../img/practicus50.png" alt="logo">
+  <img src="../../../../../../img/practicus50.png" alt="logo">
 
     </a>
     Docs | Practicus AI
@@ -237,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -257,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../getting-started/" class="md-nav__link">
+      <a href="../../../../../../getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -277,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../tutorials/" class="md-nav__link">
+      <a href="../../../../../../tutorials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -369,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/introduction/" class="md-nav__link">
+      <a href="../../../../../getting-started/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -390,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/workers/" class="md-nav__link">
+      <a href="../../../../../getting-started/workers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/workspaces/" class="md-nav__link">
+      <a href="../../../../../getting-started/workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/add-ons/" class="md-nav__link">
+      <a href="../../../../../getting-started/add-ons/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -496,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../modeling/introduction/" class="md-nav__link">
+      <a href="../../../../../modeling/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../modeling/sample-modeling/build-and-deploy/" class="md-nav__link">
+      <a href="../../../../../modeling/sample-modeling/build-and-deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -624,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/introduction/" class="md-nav__link">
+      <a href="../../../../../workflows/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -680,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/tasks/task-basics/" class="md-nav__link">
+      <a href="../../../../../workflows/tasks/task-basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -744,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/airflow/deploying-on-airflow/" class="md-nav__link">
+      <a href="../../../../../workflows/airflow/deploying-on-airflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/AI-Studio/generating-wokflows/" class="md-nav__link">
+      <a href="../../../../../workflows/AI-Studio/generating-wokflows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../workflows/mlflow/insurance-mlflow/" class="md-nav__link">
+      <a href="../../../../../workflows/mlflow/insurance-mlflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../introduction/" class="md-nav__link">
+      <a href="../../../../introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1002,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../apps/build/" class="md-nav__link">
+      <a href="../../../../apps/build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,7 +1047,7 @@
             
   
   <span class="md-ellipsis">
-    LangChain
+    Model Serving
   </span>
   
 
@@ -1057,7 +1057,42 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_4_3">
             <span class="md-nav__icon md-icon"></span>
-            LangChain
+            Model Serving
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3_1" id="__nav_4_4_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vllm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Vllm
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1068,11 +1103,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../langchain-basics/" class="md-nav__link">
+      <a href="../../../vllm/model-serving/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    LangChain Basics
+    Model Serving
   </span>
   
 
@@ -1082,22 +1117,9 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../streaming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Streaming
-  </span>
-  
-
-      </a>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1119,24 +1141,189 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_4_3_3" id="__nav_4_4_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_4_3_2" id="__nav_4_4_3_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    Model Hosting
+    Custom
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_4_3_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4_3_2">
             <span class="md-nav__icon md-icon"></span>
-            Model Hosting
+            Custom
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3_2_1" id="__nav_4_4_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_4_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3_2_2" id="__nav_4_4_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Embeddings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_4_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Embeddings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embeddings/build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3_2_3" id="__nav_4_4_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LangChain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_4_3_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            LangChain
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1242,22 +1429,9 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../embeddings/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Embeddings
-  </span>
-  
-
-      </a>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1292,7 +1466,7 @@
             
   
   <span class="md-ellipsis">
-    Vector Databases
+    LangChain
   </span>
   
 
@@ -1302,7 +1476,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4_4">
             <span class="md-nav__icon md-icon"></span>
-            Vector Databases
+            LangChain
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1313,11 +1487,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../vector-databases/sample-vector-db/" class="md-nav__link">
+      <a href="../../../../langchain/langchain-basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Sample Vector Db
+    LangChain Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../langchain/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../langchain/embeddings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Embeddings
   </span>
   
 
@@ -1356,7 +1572,7 @@
             
   
   <span class="md-ellipsis">
-    OpenAI Compatibility
+    Vector Databases
   </span>
   
 
@@ -1366,42 +1582,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4_5">
             <span class="md-nav__icon md-icon"></span>
-            OpenAI Compatibility
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_4_5_1" id="__nav_4_4_5_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Models
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_5_1">
-            <span class="md-nav__icon md-icon"></span>
-            Models
+            Vector Databases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1412,87 +1593,15 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openai-compatibility/models/build/" class="md-nav__link">
+      <a href="../../../../vector-databases/sample-vector-db/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Build
+    Sample Vector Db
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_4_5_2" id="__nav_4_4_5_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Embeddings
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_5_2">
-            <span class="md-nav__icon md-icon"></span>
-            Embeddings
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../openai-compatibility/embeddings/build/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Build
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1548,7 +1657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../service-orchestration/build/" class="md-nav__link">
+      <a href="../../../../service-orchestration/build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1620,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/introduction/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1711,7 +1820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/interactive/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1732,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/interactive/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1796,7 +1905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/batch-job/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1895,7 +2004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/auto-scaled/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/auto-scaled/interactive/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1916,7 +2025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/auto-scaled/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/auto-scaled/interactive/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1980,7 +2089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/spark/auto-scaled/batch/batch-job/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/spark/auto-scaled/batch/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2095,7 +2204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/interactive/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2116,7 +2225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/interactive/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2180,7 +2289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/batch-job/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2244,7 +2353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/dask/distributed-training/xgboost/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/dask/distributed-training/xgboost/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2351,7 +2460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/deepspeed/basics/intro-to-deepspeed/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/deepspeed/basics/intro-to-deepspeed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2415,7 +2524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2522,7 +2631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/ray/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/ray/interactive/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2543,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/ray/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/ray/interactive/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2607,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/ray/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/ray/batch-job/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2671,7 +2780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/ray/modin/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/ray/modin/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2692,7 +2801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/ray/modin/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/ray/modin/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2756,7 +2865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/ray/vllm/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/ray/vllm/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2777,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/ray/vllm/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/ray/vllm/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2849,7 +2958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/custom-adaptor/start-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/custom-adaptor/start-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2870,7 +2979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../distributed-computing/custom-adaptor/use-cluster/" class="md-nav__link">
+      <a href="../../../../../distributed-computing/custom-adaptor/use-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2942,7 +3051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../unified-devops/introduction/" class="md-nav__link">
+      <a href="../../../../../unified-devops/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2963,7 +3072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../unified-devops/secrets-with-vault/" class="md-nav__link">
+      <a href="../../../../../unified-devops/secrets-with-vault/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3019,7 +3128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../unified-devops/automated-init/build/" class="md-nav__link">
+      <a href="../../../../../unified-devops/automated-init/build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3048,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../unified-devops/automated-git-sync/" class="md-nav__link">
+      <a href="../../../../../unified-devops/automated-git-sync/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3069,7 +3178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../unified-devops/git-integrated-cicd/" class="md-nav__link">
+      <a href="../../../../../unified-devops/git-integrated-cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3090,7 +3199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../unified-devops/build-custom-images/" class="md-nav__link">
+      <a href="../../../../../unified-devops/build-custom-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3111,7 +3220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../unified-devops/notifications/" class="md-nav__link">
+      <a href="../../../../../unified-devops/notifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3210,7 +3319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/automate-notebooks/executing-notebooks/" class="md-nav__link">
+      <a href="../../../../../how-to/automate-notebooks/executing-notebooks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3274,7 +3383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/improve-code-quality/automated-code-quality/" class="md-nav__link">
+      <a href="../../../../../how-to/improve-code-quality/automated-code-quality/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3303,7 +3412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/work-with-connections/" class="md-nav__link">
+      <a href="../../../../../how-to/work-with-connections/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3324,7 +3433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/integrate-git/" class="md-nav__link">
+      <a href="../../../../../how-to/integrate-git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3345,7 +3454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/use-security-tokens/" class="md-nav__link">
+      <a href="../../../../../how-to/use-security-tokens/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3366,7 +3475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/work-with-processes/" class="md-nav__link">
+      <a href="../../../../../how-to/work-with-processes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3387,7 +3496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/work-with-data-catalog/" class="md-nav__link">
+      <a href="../../../../../how-to/work-with-data-catalog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3408,7 +3517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/caching-large-model-files/" class="md-nav__link">
+      <a href="../../../../../how-to/caching-large-model-files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3429,7 +3538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/use-custom-metrics/" class="md-nav__link">
+      <a href="../../../../../how-to/use-custom-metrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3450,7 +3559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/customize-templates/" class="md-nav__link">
+      <a href="../../../../../how-to/customize-templates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3471,7 +3580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/hosting-temporary-apis/" class="md-nav__link">
+      <a href="../../../../../how-to/hosting-temporary-apis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3492,7 +3601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/configure-advanced-gpu/" class="md-nav__link">
+      <a href="../../../../../how-to/configure-advanced-gpu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3513,7 +3622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/configure-workspaces/" class="md-nav__link">
+      <a href="../../../../../how-to/configure-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3534,7 +3643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/share-workers/" class="md-nav__link">
+      <a href="../../../../../how-to/share-workers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3555,7 +3664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/view-stats/" class="md-nav__link">
+      <a href="../../../../../how-to/view-stats/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3576,28 +3685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/startup-scripts/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Startup Scripts
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../how-to/create-virtual-envs/" class="md-nav__link">
+      <a href="../../../../../how-to/create-virtual-envs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3618,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/model-tokens/" class="md-nav__link">
+      <a href="../../../../../how-to/model-tokens/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3639,11 +3727,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to/use-polars/" class="md-nav__link">
+      <a href="../../../../../how-to/use-polars/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Use Polars
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-to/personal-startup-scripts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Personal Startup Scripts
   </span>
   
 
@@ -3808,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/sparkml/ice-cream/sparkml-ice-cream/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/sparkml/ice-cream/sparkml-ice-cream/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3872,7 +3981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/sparkml/spark-with-job/batch-job/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/sparkml/spark-with-job/batch-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3936,7 +4045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/sparkml/spark-for-ds/spark-tutorial/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/sparkml/spark-for-ds/spark-tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4043,7 +4152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4064,7 +4173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-model-training/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-model-training/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4128,7 +4237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/model-tracking/model-drift/model-drift/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/model-tracking/model-drift/model-drift/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4200,7 +4309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/model-observability/model-observability/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/model-observability/model-observability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4264,7 +4373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/xgboost/xgboost/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/xgboost/xgboost/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4293,7 +4402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/AutoML/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/AutoML/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4314,7 +4423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/shap-analysis/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/shap-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4370,7 +4479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/bank-marketing/bank-marketing/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/bank-marketing/bank-marketing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4434,7 +4543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/modeling/zip-unzip/zip-unzip/" class="md-nav__link">
+      <a href="../../../../../extras/modeling/zip-unzip/zip-unzip/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4506,7 +4615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/workflows/task-parameters/" class="md-nav__link">
+      <a href="../../../../../extras/workflows/task-parameters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4527,7 +4636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/workflows/api-triggers-for-airflow/" class="md-nav__link">
+      <a href="../../../../../extras/workflows/api-triggers-for-airflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4626,7 +4735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/databases/using-databases/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/databases/using-databases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4690,7 +4799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/prtchatbot/prtchatbot/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/prtchatbot/prtchatbot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4754,7 +4863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/advanced-langchain/lang-chain-llm-model/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/advanced-langchain/lang-chain-llm-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4818,7 +4927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/ai-assistants/ai-assistants/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/ai-assistants/ai-assistants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4882,7 +4991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/mobile-banking/mobile-banking/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/mobile-banking/mobile-banking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4981,7 +5090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/llm-apps/api-llm-apphost/build/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/llm-apps/api-llm-apphost/build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5080,7 +5189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5152,7 +5261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5224,7 +5333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/milvus-embedding-and-langchain/milvus-chain/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/milvus-embedding-and-langchain/milvus-chain/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5288,7 +5397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/agentic/build/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/agentic/build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5352,7 +5461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/langflow-apis/langflow-api/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/langflow-apis/langflow-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5416,7 +5525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/ecomm-sdk/memory-chabot/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/ecomm-sdk/memory-chabot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5480,7 +5589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/cv-assistant/cv-assistant/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/cv-assistant/cv-assistant/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5544,7 +5653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/Introduction/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/Introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5600,7 +5709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/Preparation/Model-Download/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/Preparation/Model-Download/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5621,7 +5730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/Preparation/Upload-LLM/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/Preparation/Upload-LLM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5685,7 +5794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/model/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/basic-deployment/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5706,7 +5815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/model-json/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/basic-deployment/model-json/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5727,7 +5836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/deploy/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/basic-deployment/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5748,7 +5857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/consume-parallel/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/basic-deployment/consume-parallel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5812,7 +5921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/model/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/langchain-deployment/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5833,7 +5942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/model-json/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/langchain-deployment/model-json/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5854,7 +5963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/deploy/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/langchain-deployment/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5875,7 +5984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/consume-parallel/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/langchain-deployment/consume-parallel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5939,7 +6048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/model/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/combined-method/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5960,7 +6069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/model-json/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/combined-method/model-json/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5981,7 +6090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/deploy/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/combined-method/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6002,7 +6111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/consume-parallel/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/deploying-llm/combined-method/consume-parallel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6074,7 +6183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/email-e-assistant/mail-e-assistant/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/email-e-assistant/mail-e-assistant/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6138,7 +6247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/memory-chatbot-sdk/chatbot-console-openai/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/memory-chatbot-sdk/chatbot-console-openai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6194,7 +6303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/generative-ai/memory-chatbot-sdk/stream-chatbot/memory-chabot/" class="md-nav__link">
+      <a href="../../../../../extras/generative-ai/memory-chatbot-sdk/stream-chatbot/memory-chabot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6309,7 +6418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-analysis/plot/introduction/" class="md-nav__link">
+      <a href="../../../../../extras/data-analysis/plot/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6330,7 +6439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-analysis/plot/multiple-layers/" class="md-nav__link">
+      <a href="../../../../../extras/data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6394,7 +6503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-analysis/eda/analyze/" class="md-nav__link">
+      <a href="../../../../../extras/data-analysis/eda/analyze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6501,7 +6610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-processing/pre-process-data/preprocess/" class="md-nav__link">
+      <a href="../../../../../extras/data-processing/pre-process-data/preprocess/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6565,7 +6674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-processing/process-data/insurance/" class="md-nav__link">
+      <a href="../../../../../extras/data-processing/process-data/insurance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6586,7 +6695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-processing/process-data/insurance-with-remote-worker/" class="md-nav__link">
+      <a href="../../../../../extras/data-processing/process-data/insurance-with-remote-worker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6607,7 +6716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-processing/process-data/spark-custom-config/" class="md-nav__link">
+      <a href="../../../../../extras/data-processing/process-data/spark-custom-config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6628,7 +6737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extras/data-processing/process-data/spark-object-storage/" class="md-nav__link">
+      <a href="../../../../../extras/data-processing/process-data/spark-object-storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6715,7 +6824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/start/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6736,7 +6845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/data-analysis-intro/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/data-analysis-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6757,7 +6866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/plot/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/plot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6778,7 +6887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/data-prep-intro/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/data-prep-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6799,7 +6908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/snippets/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/snippets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6820,7 +6929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/Workflow/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/Workflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6841,7 +6950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/worker-node-intro/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/worker-node-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6862,7 +6971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/explore/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/explore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6883,7 +6992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/data-profiling/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/data-profiling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6904,7 +7013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/model/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6925,7 +7034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/Experiment-Service/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/Experiment-Service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6946,7 +7055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/predict/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/predict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6967,7 +7076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/sql/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/sql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6988,7 +7097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/chatgpt/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/chatgpt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7009,7 +7118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/develop_ml_models/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/develop_ml_models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7030,7 +7139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ai-studio-tutorial/next-steps/" class="md-nav__link">
+      <a href="../../../../../../ai-studio-tutorial/next-steps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7093,7 +7202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/start/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7114,7 +7223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/create-user-group/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/create-user-group/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7135,7 +7244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/custom-images/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/custom-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7156,7 +7265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/resources-management/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/resources-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7177,7 +7286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/storage/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7198,7 +7307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/model-deployment/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/model-deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7219,7 +7328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/app-deployment/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/app-deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7240,7 +7349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/git-config/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/git-config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7261,7 +7370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/object-storage/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/object-storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7282,7 +7391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/add-on-services/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/add-on-services/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7303,7 +7412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/enterprise-sso/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/enterprise-sso/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7324,7 +7433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/ai_assistants/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/ai_assistants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7345,7 +7454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ops-tutorial/mfa/" class="md-nav__link">
+      <a href="../../../../../../ops-tutorial/mfa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7373,7 +7482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../sdk/practicuscore.html" class="md-nav__link">
+      <a href="../../../../../../sdk/practicuscore.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7428,7 +7537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../setup-guide/" class="md-nav__link">
+      <a href="../../../../../../setup-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7484,7 +7593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../mlops/" class="md-nav__link">
+      <a href="../../../../../../mlops/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7505,7 +7614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../model-api/" class="md-nav__link">
+      <a href="../../../../../../model-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7569,7 +7678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../modern-data-pipelines/" class="md-nav__link">
+      <a href="../../../../../../modern-data-pipelines/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7590,7 +7699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../code-export/" class="md-nav__link">
+      <a href="../../../../../../code-export/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7611,7 +7720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../airflow/" class="md-nav__link">
+      <a href="../../../../../../airflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7640,7 +7749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../explore/" class="md-nav__link">
+      <a href="../../../../../../explore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7661,7 +7770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../cloud/" class="md-nav__link">
+      <a href="../../../../../../cloud/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7682,7 +7791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../analyze/" class="md-nav__link">
+      <a href="../../../../../../analyze/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7703,7 +7812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../model/" class="md-nav__link">
+      <a href="../../../../../../model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7759,7 +7868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../prepare/" class="md-nav__link">
+      <a href="../../../../../../prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7780,7 +7889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../excel-prep/" class="md-nav__link">
+      <a href="../../../../../../excel-prep/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7801,7 +7910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../join/" class="md-nav__link">
+      <a href="../../../../../../join/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7865,7 +7974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../predict/" class="md-nav__link">
+      <a href="../../../../../../predict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7886,7 +7995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../excel-predict/" class="md-nav__link">
+      <a href="../../../../../../excel-predict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7915,7 +8024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../aws-iam/" class="md-nav__link">
+      <a href="../../../../../../aws-iam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7936,7 +8045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../logging/" class="md-nav__link">
+      <a href="../../../../../../logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7992,7 +8101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../sdk-start/" class="md-nav__link">
+      <a href="../../../../../../sdk-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8013,7 +8122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../data-prep/" class="md-nav__link">
+      <a href="../../../../../../data-prep/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8034,7 +8143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../share-models/" class="md-nav__link">
+      <a href="../../../../../../share-models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8055,7 +8164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../api-reference/" class="md-nav__link">
+      <a href="../../../../../../api-reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8076,7 +8185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../advanced/" class="md-nav__link">
+      <a href="../../../../../../advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8126,7 +8235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../feedback/" class="md-nav__link">
+      <a href="../../../../../../feedback/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8275,8 +8384,9 @@
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># We&#39;ll use the Practicus AI SDK to get a session token.</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># If you prefer, you can handle authentication differently.</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">token</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get_session_token</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;API session token:&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">token</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Get a new token, or reuse existing, if not expired</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">token</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get_session_token</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;API session token: ..&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">practicuscore.gen_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrtLangMessage</span><span class="p">,</span> <span class="n">PrtLangRequest</span><span class="p">,</span> <span class="n">PrtLangResponse</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
@@ -8367,7 +8477,7 @@
 </span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>    <span class="k">return</span> <span class="n">resp</span>
 </span></code></pre></div>
 <hr />
-<p><strong>Previous</strong>: <a href="../../streaming/">Streaming</a> | <strong>Next</strong>: <a href="../../embeddings/">Embeddings</a></p>
+<p><strong>Previous</strong>: <a href="../../embeddings/build/">Build</a> | <strong>Next</strong>: <a href="../../../../langchain/langchain-basics/">LangChain &gt; LangChain Basics</a></p>
 
 
 
@@ -8403,10 +8513,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["content.code.copy"], "search": "../../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../../../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
   </body>

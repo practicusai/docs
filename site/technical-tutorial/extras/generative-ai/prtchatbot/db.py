@@ -8,7 +8,7 @@ def create_connection():
             host="test-db-1.c34rytcb0n56.us-east-1.rds.amazonaws.com",
             database="llm",
             user="prt_analytics_user",
-            password="prt_analytics_pwd",
+            password="",
         )
         return connection
     except Exception as e:
@@ -27,8 +27,9 @@ def save_message_to_db(session_id, role, content):
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
             cursor.execute(
                 "INSERT INTO sessions (session_id, title, created_at, language) VALUES (%s, %s, %s, %s)",
-                (session_id, f"Oturum - {session_id[:8]}", now, "English"),
+                (session_id, f"Session - {session_id[:8]}", now, "English"),
             )
+
             connection.commit()
 
         cursor.execute(
@@ -55,6 +56,23 @@ def delete_session_from_db(session_id):
         cursor = connection.cursor()
         cursor.execute("DELETE FROM messages WHERE session_id = %s", (session_id,))
         cursor.execute("DELETE FROM sessions WHERE session_id = %s", (session_id,))
+        connection.commit()
+        cursor.close()
+        connection.close()
+
+
+def update_message_in_db(session_id, old_content, new_content):
+    connection = create_connection()
+    if connection:
+        cursor = connection.cursor()
+        cursor.execute(
+            """
+            UPDATE messages 
+            SET content = %s 
+            WHERE session_id = %s AND content = %s
+        """,
+            (new_content, session_id, old_content),
+        )
         connection.commit()
         cursor.close()
         connection.close()

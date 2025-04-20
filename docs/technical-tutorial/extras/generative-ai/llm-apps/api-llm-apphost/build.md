@@ -136,7 +136,8 @@ After the deployment process we can consume the api url by using the code cell d
 
 ```python
 api_url = f"https://{host}/{app_prefix}/{app_name}/api/simple_api/"
-token = prt.apps.get_session_token(api_url=api_url)
+token = None  # Get a new token, or reuse existing if not expired.
+token = prt.apps.get_session_token(api_url=api_url, token=token)
 ```
 
 ```python

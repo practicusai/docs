@@ -105,7 +105,8 @@ if method == "llm_model":
 elif method == "llm_app":
     api_url = f"https://{host}/{app_prefix}/{app_name}/api/"
 
-token = prt.models.get_session_token(api_url=api_url)
+token = None  # Get a new token, or reuse existing, if not expired
+token = prt.models.get_session_token(api_url=api_url, token=token)
 ```
 
 ```python
@@ -156,4 +157,4 @@ Albert Einstein was a theoretical physicist born in 1879 in Germany. He is best 
 
 ---
 
-**Previous**: [LangChain Basics](langchain-basics.md) | **Next**: [Model Hosting > Build](model-hosting/build.md)
+**Previous**: [LangChain Basics](langchain-basics.md) | **Next**: [Embeddings](embeddings.md)

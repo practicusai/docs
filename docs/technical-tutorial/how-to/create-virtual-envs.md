@@ -88,4 +88,4 @@ uv pip install pandas
 
 ---
 
-**Previous**: [Startup Scripts](startup-scripts.md) | **Next**: [Model Tokens](model-tokens.md)
+**Previous**: [View Stats](view-stats.md) | **Next**: [Model Tokens](model-tokens.md)

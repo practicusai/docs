@@ -44,7 +44,10 @@ from practicuscore.gen_ai import AIAssistantHelper
 
 ```python
 assistant_url = AIAssistantHelper.get_api_endpoint(selected_ai_assistant, region)
-assistant_token = AIAssistantHelper.get_api_token(selected_ai_assistant, region)
+assistant_token = None  # Get a new token, or reuse existing if not expired.
+assistant_token = AIAssistantHelper.get_api_token(
+    assistant_config=selected_ai_assistant, region=region, token=assistant_token
+)
 ```
 
 ```python

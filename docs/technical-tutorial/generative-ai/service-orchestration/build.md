@@ -559,4 +559,4 @@ async def consume_message_raw(message):
 
 ---
 
-**Previous**: [Build](../openai-compatibility/embeddings/build.md) | **Next**: [Distributed Computing > Introduction](../../distributed-computing/introduction.md)
+**Previous**: [Sample Vector Db](../vector-databases/sample-vector-db.md) | **Next**: [Distributed Computing > Introduction](../../distributed-computing/introduction.md)

@@ -57,7 +57,8 @@ def test_langchain_practicus(api_url, token, inputs):
 ##### The method below creates a token that is valid for 4 hours, longer tokens can be retrieved from the admin console.
 
 ```python
-token = prt.models.get_session_token(api_url)
+token = None  # Get a new token, or reuse existing if not expired.
+token = prt.models.get_session_token(api_url, token=token)
 print("API session token:", token)
 ```
 

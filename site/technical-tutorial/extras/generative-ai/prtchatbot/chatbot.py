@@ -4,15 +4,35 @@ from db import save_message_to_db, get_session_messages
 import streamlit as st
 from practicuscore.gen_ai import ChatCompletionRequest
 import practicuscore as prt
+import jwt
+from datetime import datetime, timedelta
+from typing import Optional
 
+
+def get_jwt_expiry(token: str) -> Optional[datetime]:
+    """
+    Extracts the expiry date from a JWT token without verifying its signature.
+
+    Args:
+        token (str): The JWT token string.
+
+    Returns:
+        Optional[datetime]: The expiry date as a datetime object if available, otherwise None.
+    """
+    decoded_payload: dict = jwt.decode(token, options={"verify_signature": False})
+    expiry_timestamp: Optional[int] = decoded_payload.get("exp")
+
+    if expiry_timestamp is None:
+        return None
+
+    return datetime.utcfromtimestamp(expiry_timestamp)
 
 def get_response_from_model(model_name, user_input):
     return call_practicus_model(user_input, model_name)
 
-
-@st.cache_data
 def get_token_for_model(model_name):
     token_data = st.session_state.get(f"token_{model_name}", None)
+
 
     if not token_data or token_data["expires_at"] < time.time():
         api_url = f"https://dev.practicus.io/models/{model_name}/"
@@ -20,6 +40,7 @@ def get_token_for_model(model_name):
 
         expires_at = time.time() + 3 * 60 * 60
         st.session_state[f"token_{model_name}"] = {"token": token, "expires_at": expires_at}
+
 
         return token
     else:

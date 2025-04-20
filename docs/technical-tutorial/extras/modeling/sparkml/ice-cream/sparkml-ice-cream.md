@@ -290,4 +290,4 @@ async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFra
 
 ---
 
-**Previous**: [Use Polars](../../../../how-to/use-polars.md) | **Next**: [Spark With Job > Batch Job](../spark-with-job/batch-job.md)
+**Previous**: [Personal Startup Scripts](../../../../how-to/personal-startup-scripts.md) | **Next**: [Spark With Job > Batch Job](../spark-with-job/batch-job.md)
