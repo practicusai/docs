@@ -559,4 +559,4 @@ async def consume_message_raw(message):
 
 ---
 
-**Previous**: [Sample Vector Db](../vector-databases/sample-vector-db.md) | **Next**: [Distributed Computing > Introduction](../../distributed-computing/introduction.md)
+**Previous**: [Build](../relational-databases/build.md) | **Next**: [Distributed Computing > Introduction](../../distributed-computing/introduction.md)

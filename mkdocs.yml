@@ -73,6 +73,8 @@ nav:
       - Embeddings: technical-tutorial/generative-ai/langchain/embeddings.md
     - Vector Databases:
       - Sample Vector Db: technical-tutorial/generative-ai/vector-databases/sample-vector-db.md
+    - Relational Databases:
+      - Build: technical-tutorial/generative-ai/relational-databases/build.md
     - Service Orchestration:
       - Build: technical-tutorial/generative-ai/service-orchestration/build.md
   - Distributed Computing:
@@ -276,7 +278,7 @@ nav:
   - Enterprise SSO: ops-tutorial/enterprise-sso.md
   - AI Assistants: ops-tutorial/ai_assistants.md
   - MFA (Multi-Factor Authentication): ops-tutorial/mfa.md
-- SDK v24.8.4: sdk/practicuscore.html
+- SDK v25.5.0: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

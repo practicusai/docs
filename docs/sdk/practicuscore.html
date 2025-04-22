@@ -24,7 +24,7 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#practicus-ai-sdk-v2484">Practicus AI SDK v24.8.4</a>
+  <li><a href="#practicus-ai-sdk-v2550">Practicus AI SDK v25.5.0</a>
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#key-functionality">Key Functionality</a></li>
@@ -1798,7 +1798,7 @@
                     <h1 class="modulename">
 practicuscore    </h1>
 
-                        <div class="docstring"><h1 id="practicus-ai-sdk-v2484">Practicus AI SDK v24.8.4</h1>
+                        <div class="docstring"><h1 id="practicus-ai-sdk-v2550">Practicus AI SDK v25.5.0</h1>
 
 <h2 id="overview">Overview</h2>
 
@@ -7436,7 +7436,7 @@ Urgency is also added to the bottom of the notification (if email) so users can 
 <li>raise_on_error (bool): If False (default), errors on notifications get logged but do not raise an exception.</li>
 <li>region (Region | None): Pass a Practicus AI Region object if you are sending the notification on a region
 other than the current / default region. If you are also using a custom notification app,
-define it using PRT_CUSTOM_NOTIFY_APP_SUFFIX OS Environment variable, or else, /apps/notify/api/send/ is used.</li>
+define it using PRT_CUSTOM_NOTIFY_APP_SUFFIX OS Environment variable, or else, /apps/sys/notify/api/send/ is used.</li>
 <li>token: (str | None): Existing token for the Notification app. If the token is valid for another 30 seconds,
 the same token is used, or else a new token is acquired.</li>
 </ul>
@@ -12706,13 +12706,13 @@ Generally not recommended unless working with trusted but self-signed certs.</p>
                             </div>
                             <div id="WorkerConfig.additional_params" class="classattr">
                                 <div class="attr variable">
-            <span class="name">additional_params</span><span class="annotation">: str | None</span>
+            <span class="name">additional_params</span><span class="annotation">: str</span>
 
         
     </div>
     <a class="headerlink" href="#WorkerConfig.additional_params"></a>
     
-            <div class="docstring"><p>Additional params is used to base 64 decode/encode certain fields.</p>
+            <div class="docstring"><p>(Internal and advanced use only) Additional params is used to base 64 decode/encode certain fields.</p>
 </div>
 
 

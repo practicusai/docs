@@ -16,7 +16,6 @@ Let's have a look of _Plot_ basics by loading _salary.csv_.  We will ignore the 
 
 ![](img/plot/plot-1.png)
 
-
 After loading the data set, click on _Plot_ button to start ploting service.
 
 ![](img/plot/plot-2.png)
@@ -99,11 +98,7 @@ After open up advanced section you will see the options of _Dynamic Size_ and _D
 - Click to _Dynamic color_ drop down menu and select _survive_
 - Click to _Add Layer_
 
-The plot down below should be showed up:
-
-![](img/plot/plot-8.png)
-
-Hence, we can deduce from the analysis that passengers with smaller data points (indicating lower values of "Pclass") paid higher fares and had a better chance of survival. Moreover, it's evident that passengers with lower ages (on the X-axis) had a higher likelihood of surviving.
+We can deduce from the analysis that passengers with smaller data points (indicating lower values of "Pclass") paid higher fares and had a better chance of survival. Moreover, it's evident that passengers with lower ages (on the X-axis) had a higher likelihood of surviving.
 
 ### Analyze over multiple layer
 
@@ -135,10 +130,10 @@ Before start let's use label encode and group by on the _species_ and for better
 - Click _Prepare_
 - Click _Group By_
 - Select _species_ from _Group by_ drop down menu
-- Select *sepal_length* and _Mean (Average)_ from _Summarize_ drop down menus
-- Select *sepal_windth* and _Mean (Average)_ from _Summarize_ drop down menus
-- Select *petal_length* and _Mean (Average)_ from _Summarize_ drop down menus
-- Select *petal_windth* and _Mean (Average)_ from _Summarize_ drop down menus
+- Select _sepal_length_ and _Mean (Average)_ from _Summarize_ drop down menus
+- Select _sepal_windth_ and _Mean (Average)_ from _Summarize_ drop down menus
+- Select _petal_length_ and _Mean (Average)_ from _Summarize_ drop down menus
+- Select _petal_windth_ and _Mean (Average)_ from _Summarize_ drop down menus
 - Click _OK_
 
 ![](img/plot/plot-11.png)
@@ -146,7 +141,6 @@ Before start let's use label encode and group by on the _species_ and for better
 In the end we should have the table down below:
 
 ![](img/plot/plot-12.png)
-
 
 Let's start plotting for multiple layer analyze,
 
@@ -159,7 +153,7 @@ For first layer:
 - Click _Graphic_ drop down menu
 - Select _Bars_
 - Click to  _X Coordinate_ drop down menu and select _species_
-- Click to  _Y Coordinate_ drop down menu and select *sepal_length_mean*
+- Click to  _Y Coordinate_ drop down menu and select _sepal_length_mean_
 - Click to _Advanced_
 - Select greenish color from _Color_ drop down menu
 - Enter a value of 50 for the _Transparency %_ input
@@ -172,7 +166,7 @@ For second layer:
 - Click _Graphic_ drop down menu
 - Select _Line_
 - Click to  _X Coordinate_ drop down menu and select _species_
-- Click to  _Y Coordinate_ drop down menu and select *sepal_windth_mean*
+- Click to  _Y Coordinate_ drop down menu and select _sepal_windth_mean_
 - Click to _Advanced_
 - Select a darker greenish color from _Color_ drop down menu
 - Click to _Add Layer_
@@ -184,7 +178,7 @@ For third layer:
 - Click _Graphic_ drop down menu
 - Select _Bars_
 - Click to  _X Coordinate_ drop down menu and select _species_
-- Click to  _Y Coordinate_ drop down menu and select *petal_length_mean*
+- Click to  _Y Coordinate_ drop down menu and select _petal_length_mean_
 - Click to _Advanced_
 - Select blueish color from _Color_ drop down menu
 - Ênter a value of 50 for the _Transparency %_ input
@@ -197,7 +191,7 @@ For fourth layer:
 - Click _Graphic_ drop down menu
 - Select _Line_
 - Click to  _X Coordinate_ drop down menu and select _species_
-- Click to  _Y Coordinate_ drop down menu and select *petal_windth_mean*
+- Click to  _Y Coordinate_ drop down menu and select _petal_windth_mean_
 - Click to _Advanced_
 - Select a darker blueish color from _Color_ drop down menu
 - Click to _Add Layer_
@@ -221,7 +215,7 @@ Defining a Google Maps API over admin console:
 - Open _Admin Console_ of __Practicus AI__
 - Expand (Click) _Definitions_ from left menu
 - Click _Cluster Definitions_
-- Click *GOOGLE_MAPS_API_KEY* from table
+- Click _GOOGLE_MAPS_API_KEY_ from table
 
 ![](img/plot/plot-18.png)
 
@@ -240,7 +234,7 @@ Defining a Google Maps API within application:
 
 ![](img/plot/plot-20.png)
 
-After assigning the Google Map API we could have a look to Geo-Map by using *car_insurance* dataset. This dataset contains information about the insurance company's past customers who have purchased health insurance.  The objective is to use this dataset to train a predictive model that can determine whether these past customers would also be interested in purchasing vehicle insurance from the same company.
+After assigning the Google Map API we could have a look to Geo-Map by using _car_insurance_ dataset. This dataset contains information about the insurance company's past customers who have purchased health insurance.  The objective is to use this dataset to train a predictive model that can determine whether these past customers would also be interested in purchasing vehicle insurance from the same company.
 
 The features can be listed as:
 
@@ -257,28 +251,27 @@ Policy_Sales_Channel: An anonymized code representing the outreach channel used 
 Vintage: The duration, in days, for which the customer has been associated with the company.
 Response: Indicates customer interest. 1 indicates interest, while 0 signifies no interest.
 
-
 Let's load the dataset to our worker:
 
 - Open _Practicus AI_ app
 - You will see the Explore tab, click on _New Worker_
 - Select the worker which has been started
 - Navigate to the _samples_ directory and open _airports.csv_ :
-- _samples_ > *car_insurance.csv*
+- _samples_ > _car_insurance.csv_
 - Click on the file and you will see a preview
 - Click Load
 
 ![](img/plot/plot-21.png)
 
-Before start let's group the data on the *Regeion_Code* column for better visualisation:
+Before start let's group the data on the _Regeion_Code_ column for better visualisation:
 
 - Click _Prepare_
 - Click _Group By_
-- Select *Regeion_Code* from _Group by_ drop down menu
-- Select *Response* and _sum_ from _Summarize_ drop down menus
-- Select *Previously_Insured* and _sum_ from _Summarize_ drop down menus
-- Select *Lat* and _max_ from _Summarize_ drop down menus
-- Select *Lon* and _max_ from _Summarize_ drop down menus
+- Select _Regeion_Code_ from _Group by_ drop down menu
+- Select _Response_ and _sum_ from _Summarize_ drop down menus
+- Select _Previously_Insured_ and _sum_ from _Summarize_ drop down menus
+- Select _Lat_ and _max_ from _Summarize_ drop down menus
+- Select _Lon_ and _max_ from _Summarize_ drop down menus
 - Click _OK_
 
 ![](img/plot/plot-22.png)
@@ -287,7 +280,7 @@ Let's start our plotting journey,
 
 - Click on _Plot_
 - Click _Data Source_ drop down menu
-- Select *car_insurance*
+- Select _car_insurance_
 - Click _Graphic_ drop down menu
 - Select _Geo Map_
 
@@ -298,14 +291,14 @@ After selecting the "Geo Map" graphic style, we observe four distinct options th
 - _Map Type_: Indicates Google Maps styles.
 - _Zoom_: Provides an approximation of the number of miles/kilometers that fit into the area represented by the plot.
 
-Let's try to visualize the relation between _Response_ and *Previously_Insured* on Google Maps by plotting data from the *car_insurance* dataset:
+Let's try to visualize the relation between _Response_ and _Previously_Insured_ on Google Maps by plotting data from the _car_insurance_ dataset:
 
-- Select *Lon_max* from _Longitude_ drop down menu
-- Select *Lat_max* from _Latitude_ drop down menu
-- Enter *1500* to _Zoom_ input
+- Select _Lon_max_ from _Longitude_ drop down menu
+- Select _Lat_max_ from _Latitude_ drop down menu
+- Enter _1500_ to _Zoom_ input
 - Click _Advanced_
-- Select *Response_sum* from _Dynamic Size_ drop down menu
-- Select *Previously_Insured_sum* from _Dynamic Color_ drop down menu
+- Select _Response_sum_ from _Dynamic Size_ drop down menu
+- Select _Previously_Insured_sum_ from _Dynamic Color_ drop down menu
 - Click _Add Layer_
 
 ![](img/plot/plot-23.png)

@@ -1,12 +1,13 @@
 # Introduction to MLOps
 
-_This section requires a Practicus AI Cloud Worker, S3 compatible object storage, and a Kubernetes Cluster. Please visit the [introduction to Cloud Workers](tutorial/worker-node-intro.md) section of our tutorial to learn more._
+_This section requires a Practicus AI Cloud Worker, S3 compatible object storage, and a Kubernetes Cluster. Please visit the introduction to Cloud Workers section of our tutorial to learn more._
 
 ### What is MLOps
 
 - MLOps, short for Machine Learning Operations, is a set of practices that automates the machine learning lifecycle from development to deployment to monitoring and maintenance. It bridges the gap between ML engineers and DevOps teams to create a culture of continuous improvement for ML products.
 
 ### Why is MLOps Important?
+
 - MLOps is a valuable tool for organizations that want to get more value from their ML investments. By automating and managing the ML lifecycle, MLOps can help organizations to deploy ML models to production faster, improve the quality and reliability of ML models, reduce the risk of ML failures, and increase the ROI of ML investments.
 
 ### What is Practicus AI's MLOps approach?
@@ -80,7 +81,7 @@ Now that we have learned how to deploy the model we created, let's learn how to 
 ![](img/mlops/mlops8.png)
 
 - At the same time, there may be containers that you have prepared with extra packages in this area, you can assign them, and you can add extra libraries to these containers with pip install by writing a startup script.
- 
+
 ![](img/mlops/mlops9.png)
 
 - You can assign these Deployments on a group and user basis so that you can easily manage the models. You can also authorize these users and groups to run custom code.
@@ -124,7 +125,7 @@ You can also upload your pre-built models to Practicus AI and manage production 
 
 - Perform Deployment assignment of models.
 - You can mark Stage as **Staging** and/or **Production**.
-- Perform traffic routing between these versions with **Traffic Volume Weight%**. 
+- Perform traffic routing between these versions with **Traffic Volume Weight%**.
 - If you select Cascade prefix access tokens, you can access this model with the access token you defined for the prefix.
 
 ### Model Versions
@@ -154,14 +155,13 @@ You can also upload your pre-built models to Practicus AI and manage production 
 - Select Model External API Access Tokens or Add another Model External API Access Token.
 - Click Save.
 
-We have completed the MLOps operations that can be done from the Practicus AI Admin Console. 
+We have completed the MLOps operations that can be done from the Practicus AI Admin Console.
 
 Now you can access our MLOps video from the link below to try these operations and digest the information you have gained:
 
 [Practicus AI Open MLOps](https://www.youtube.com/watch?v=S9cUE1Bh7RE&t=6s)
 
-### Optional: Model Documentation 
+### Optional: Model Documentation
 
 - Business users can easily explore individual systems with the interface and access data sources. Technical users can easily access the documentation of the models with Swagger, OpeAPI or Redoc.
 ![](img/mlops/mlops14.png)
-

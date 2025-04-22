@@ -37,19 +37,13 @@ from openai import OpenAI
 prt.models.server.start("llama/some-model", {"tensor-parallel-size": 2})
 
 # Get the custom model URL
-base_url=prt.models.server.get_base_url()
+base_url = prt.models.server.get_base_url()
 
 # Create OpenAI client
-client = OpenAI(
-    base_url=base_url,
-    api_key=token
-)
+client = OpenAI(base_url=base_url, api_key=token)
 
 # Send a chat request
-response = client.chat.completions.create(
-    messages=[{"role": "user", "content": "Capital of France?"}],
-    max_tokens=100
-)
+response = client.chat.completions.create(messages=[{"role": "user", "content": "Capital of France?"}], max_tokens=100)
 
 print(response.choices[0].message.content)
 ```
@@ -65,7 +59,7 @@ Follow the below steps to use an existing container image to dynamically downloa
 
 #### Define the container image
 - Open Practicus AI management console > Infrastructure > Container Images
-- Add a new container image `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:24.8.4` or a compatible image.
+- Add a new container image `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.0` or a compatible image.
 
 #### Create a model deployment
 - Open Practicus AI management console > ML Model Hosting > Model Deployments
@@ -110,7 +104,7 @@ PRT_SERVE_MODEL_OPTIONS_B64=eyJkdHlwZSI6ICJoYWxmIn0K
 You can bake the model into your image to avoid runtime downloads. This is `strongly recommended` for production models.
 
 ```dockerfile
-FROM ghcr.io/practicusai/practicus-modelhost-base-gpu-vllm:24.8.4
+FROM ghcr.io/practicusai/practicus-modelhost-base-gpu-vllm:25.5.0
 
 # Let's pick a tiny, yet effective model.
 ENV PRT_SERVE_MODEL="TinyLlama/TinyLlama-1.1B-Chat-v1.0"
@@ -156,9 +150,11 @@ You can save `/var/practicus/model.py` to your custom container image to customi
 # /var/practicus/model.py
 import practicuscore as prt
 
+
 async def init(**kwargs):
     if not prt.models.server.initialized:
         prt.models.server.start()
+
 
 async def serve(http_request, payload: dict, **kwargs):
     return await prt.models.server.serve(http_request=http_request, payload=payload, **kwargs)
@@ -174,12 +170,9 @@ from openai import OpenAI
 import practicuscore as prt
 
 # Start and wait until ready
-prt.models.server.start(
-    "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    options={"dtype": "half"}
-)
- 
-base_url=prt.models.server.get_base_url() + "/v1"
+prt.models.server.start("TinyLlama/TinyLlama-1.1B-Chat-v1.0", options={"dtype": "half"})
+
+base_url = prt.models.server.get_base_url() + "/v1"
 print("Model URL:", base_url)
 # prints http://localhost:8585/v1
 
@@ -187,7 +180,7 @@ print("Model URL:", base_url)
 client = OpenAI(
     base_url=base_url,
     # Token not needed for local use
-    api_key="not-needed"
+    api_key="not-needed",
 )
 
 # Send a chat request
@@ -196,7 +189,7 @@ response = client.chat.completions.create(
     # Tip: To always use the current model you can set model=None
     model="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
     messages=[{"role": "user", "content": "Capital of France?"}],
-    max_tokens=100
+    max_tokens=100,
 )
 print(response.choices[0].message.content)
 #  Prints 'Paris'
@@ -224,14 +217,8 @@ prt.models.server.start("mock_llm_server.py")
 base_url = prt.models.server.get_base_url()
 
 # Send a mock request
-client = OpenAI(
-    base_url=base_url,
-    api_key="not-needed"
-)
-response = client.chat.completions.create(
-    model="mock_llm",
-    messages=[{"role": "user", "content": "Hello mock!"}]
-)
+client = OpenAI(base_url=base_url, api_key="not-needed")
+response = client.chat.completions.create(model="mock_llm", messages=[{"role": "user", "content": "Hello mock!"}])
 
 print(response.choices[0].message.content)
 # Prints Hello mock!
