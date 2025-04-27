@@ -75,8 +75,10 @@ nav:
       - Sample Vector Db: technical-tutorial/generative-ai/vector-databases/sample-vector-db.md
     - Relational Databases:
       - Build: technical-tutorial/generative-ai/relational-databases/build.md
-    - Service Orchestration:
-      - Build: technical-tutorial/generative-ai/service-orchestration/build.md
+    - Message Queues:
+      - Build: technical-tutorial/generative-ai/message-queues/build.md
+    - Agentic AI:
+      - Build: technical-tutorial/generative-ai/agentic-ai/build.md
   - Distributed Computing:
     - Introduction: technical-tutorial/distributed-computing/introduction.md
     - Spark:
@@ -176,6 +178,8 @@ nav:
       - Zip Unzip:
         - Zip Unzip: technical-tutorial/extras/modeling/zip-unzip/zip-unzip.md
     - Workflows:
+      - Task Runnner App:
+        - Build: technical-tutorial/extras/workflows/task-runnner-app/build.md
       - Task Parameters: technical-tutorial/extras/workflows/task-parameters.md
       - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
     - Generative AI:
@@ -199,8 +203,6 @@ nav:
           - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
       - Milvus Embedding And LangChain:
         - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
-      - Agentic:
-        - Build: technical-tutorial/extras/generative-ai/agentic/build.md
       - Langflow Apis:
         - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
       - Ecomm-Sdk:

@@ -32,10 +32,9 @@ This example demonstrates how to use `prt.db` module to manage database schema m
     * Deploy the application, ensuring it has the database connection string.
 
 **Prerequisites:**
-* A system admin must configure a management database connection setting for your Practicus AI `app deployment setting`, effectively making it `db-enabled`.
+* A system admin must configure a database connection for your Practicus AI `app deployment setting`, effectively making it `db-enabled`.
+* Please see below `Preparing a Database for Your Applications` section to learn how.
 * The `app_deployment_key` below refers to the key of this db-enabled app deployment setting.
-* A note for DBAs: The management database connections db user must have `create role` permissions at the database server level, and `create schema` permissions at the selected database level.
-* The above management database user is `only used` at the control plane (behind the scenes) to create a `restricted database user`, dedicated to your application.
 
 ## 1. Setup and Preparation
 
@@ -43,9 +42,16 @@ First, we define some parameters for our application.
 
 ```python
 # Parameters
-app_deployment_key = None  
+app_deployment_key = None  # must be db-enabled
 app_prefix = "apps"
 app_name = "my-db-app"
+```
+
+```python
+# Sanity check
+assert app_deployment_key, "app_deployment_key not defined"
+assert app_prefix, "app_prefix not defined"
+assert app_name, "app_name not defined"
 ```
 
 If you don't know which app app deployment settings are `db-enabled`, you can list the app deployment settings you have acess to and check the `db_enabled` column running the below.
@@ -60,15 +66,19 @@ display(my_app_settings.to_pandas())
 ```
 
 ```python
-assert app_deployment_key, "app_deployment_key not defined"
-assert app_prefix, "app_prefix not defined"
-assert app_name, "app_name not defined"
-```
+# Let's verify our app deployment setting is db-enabled
+verified = False
+for app_setting in my_app_settings:
+    if app_setting.key == app_deployment_key:
+        if not app_setting.db_enabled:
+            raise SystemError(f"Setting '{app_deployment_key}' is not db-enabled.")
+        verified = True
+        break
 
-```python
-# Define a unique name for the secret where we'll store the DB connection string.
-db_conn_secret_name = f"{app_prefix.replace('/', '_')}__{app_name.replace('-', '_')}__CONN_STR".upper()
-print(f"Database connection string will be stored in Vault secret: {db_conn_secret_name}")
+if not verified:
+    raise ValueError(f"Setting '{app_deployment_key}' could not be located.")
+
+print(f"Located setting '{app_deployment_key}' and it is db-enabled. Good to go!")
 ```
 
 ### 1.1. Prepare the Application Database Schema
@@ -87,7 +97,7 @@ try:
     )
 
     print(f"Successfully prepared database schema: {db_schema}")
-    # print(f"Database connection string: {db_conn_str}") # Uncomment locally to see if needed, but avoid printing secrets
+    # print(f"Database connection string: {db_conn_str}") # Uncomment locally to see if needed, but avoid printing secrets.
     print("*** Connection string obtained. Please handle it securely. ***")
 except Exception as e:
     print(f"Error preparing database: {e}")
@@ -103,6 +113,10 @@ The `prt.db` commands (`revision`, `upgrade`, `upsert_static_data`) expect the c
 
 ```python
 import os
+
+# Define a unique name for the secret where we'll store the DB connection string.
+db_conn_secret_name = f"{app_prefix.replace('/', '_')}__{app_name.replace('-', '_')}__CONN_STR".upper()
+print(f"Database connection string will be stored in Vault secret: {db_conn_secret_name}")
 
 # Store the connection string in Vault
 print(f"Storing connection string in Vault secret: {db_conn_secret_name}")
@@ -470,28 +484,92 @@ except Exception as e:
 ```
 
 <!-- #region -->
-## 7. Advanced Notes and Troubleshooting
+## 7. A Guide for Admins: Preparing a Database for Your Applications 
 
-### Manual DB Schema Creation
-If you prefer or need to create the initial database schema and role manually (e.g., due to restricted permissions), you can use SQL commands like the following. Run `prt.apps.prepare_db` first to see the exact names it would generate.
+Use the following SQL scripts as a guide to create the necessary database structure for your applications.
 
-* The `schema_name` must follow the pattern `prefix__app_name`, where `/` and `-` in the prefix and app name are replaced with `_`.
-* Examples:
-    * `prefix="apps"`, `app_name="my-db-app"` -> `schema_name="apps__my_db_app"`
-    * `prefix="apps/finance"`, `app_name="some-app"` -> `schema_name="apps_finance__some_app"`
+### 1. Create an Administrative Database Role (User)
+
+First, create a dedicated administrative role. This role is primarily intended for control plane operations (e.g., automated setup scripts or administrative tools) to manage database artifacts for your applications.
+
+* **Purpose:** This admin role (`prt_apps_admin` in the example) will be used to create more restricted, application-specific database roles and schemas. It is *not* intended for direct use by the applications themselves.
+* **`CREATEROLE` Permission:** This permission is required because the admin role needs the ability to create separate, isolated database roles for each application, enhancing security and separation.
+* **`LOGIN` Permission:** Allows this role to connect to the database server.
 
 ```sql
--- Replace schema_name, your_db_name, and a secure password
-CREATE SCHEMA your_schema_name;
-CREATE ROLE your_schema_name LOGIN PASSWORD 'YOUR_SECURE_PASSWORD_HERE';
--- Replace 'your_db_name' with the actual name of the database where the schema resides
-ALTER ROLE your_schema_name IN DATABASE your_db_name SET search_path TO your_schema_name;
-GRANT ALL ON SCHEMA your_schema_name TO your_schema_name;
--- You might need additional grants depending on your setup
-GRANT USAGE ON SCHEMA your_schema_name TO your_schema_name;
-GRANT CREATE ON SCHEMA your_schema_name TO your_schema_name; -- Needed for Alembic/upgrade
+-- Create the administrative role
+CREATE ROLE prt_apps_admin WITH
+  LOGIN
+  CREATEROLE
+  PASSWORD '_your_password_'; -- Replace with a strong, secure password
 ```
-After manual creation, you would generate the connection string yourself and store it in Vault / set `PRT_DB_CONN_STR` before running `prt.db.init`, `revision`, `upgrade`.
+
+### 2. Create a Dedicated Database (Recommended)
+
+It's best practice to create a separate database specifically for your applications. Hosting this database on a dedicated server instance is also recommended for performance and isolation, if feasible.
+
+* **`OWNER prt_apps_admin`**: Assigning the administrative role as the owner grants it initial full permissions within this new database, simplifying subsequent setup.
+
+```sql
+-- Create the application database and set the owner
+CREATE DATABASE prt_apps
+  OWNER prt_apps_admin;
+```
+
+### 3. Grant Necessary Permissions to the Admin Role
+
+Ensure the administrative role has the essential permissions on the newly created database.
+
+* **`CONNECT` Permission:** Allows the `prt_apps_admin` role to connect specifically to the `prt_apps` database.
+* **`CREATE` Permission:** Allows the `prt_apps_admin` role to create new schemas within the `prt_apps` database. This is necessary for creating isolated schemas for different applications or services.
+
+```sql
+-- Grant connection access to the database
+GRANT CONNECT ON DATABASE prt_apps TO prt_apps_admin;
+
+-- Grant permission to create schemas within the database
+GRANT CREATE ON DATABASE prt_apps TO prt_apps_admin;
+```
+
+### 4. Configure Application Deployment Settings
+
+After setting up the administrative database role and database, you need to configure your `app deployment setting` to use them.
+
+#### a. Construct the Connection String
+
+You will need a standard PostgreSQL connection string to connect Practicus AI to the database you created.
+
+* **Standard Format:** `postgresql://user:password@host/database`
+* **Example (using the admin role):** `postgresql://prt_apps_admin:your_secure_password@your_database_host/prt_apps`
+* **Using Practicus AI Password Management (Recommended):** To avoid hardcoding the password directly in the connection string, Practicus AI allows you to use a placeholder (`__PASSWORD__`) and store the password securely and separately within the platform.
+    * **Format:** `postgresql://user:__PASSWORD__@host/database`
+    * **Example:** `postgresql://prt_apps_admin:__PASSWORD__@prt-db-pg-1-rw.prt-ns.svc.cluster.local/prt_apps`
+        *(Replace the host `prt-db-pg-1-rw.prt-ns.svc.cluster.local` with your actual database host address)*
+
+#### b. Create a System Database Connection in Practicus AI
+
+Next, register this connection within the Practicus AI Admin Console.
+
+1.  Navigate to **Data Catalog** > **System DB Connections**.
+2.  Click to add a new database connection (e.g., name it `my-db-for-apps`).
+3.  Enter the connection string constructed in the previous step.
+4.  **Recommendation:** Use the connection string format with `__PASSWORD__` and enter the actual password in the dedicated password field provided by Practicus AI. Save the connection.
+
+#### c. Update Application Deployment Settings
+
+Finally, link this database connection to your app deployment settings. This tells Practicus AI which database connection to use when apps need to create their own isolated database resources.
+
+1.  Navigate to **App Hosting** > **Deployment Settings**.
+2.  Either add a new deployment setting or edit an existing one.
+3.  Scroll down to the **Database Connection** section.
+4.  Select the System DB Connection you created earlier (e.g., `my-db-for-apps`) from the dropdown list.
+5.  Save the deployment settings.
+
+With this configuration complete, users creating new applications or updating existing ones through Practicus AI will now have the capability to automatically provision isolated database schemas and roles using the administrative database connection you've set up.
+
+<!-- #endregion -->
+
+## 8. Advanced Notes and Troubleshooting
 
 ### Migration Script Review
 * **Column Renames:** Alembic's auto-generation often detects a column rename as a `drop_column` followed by an `add_column`, which causes data loss. Review the generated scripts in `db/migrations/versions/` and manually change these to use `op.alter_column(..., new_column_name='...')` if you need to preserve data during a rename.
@@ -507,9 +585,8 @@ After manual creation, you would generate the connection string yourself and sto
 
 ### File Locations
 * `prt.db.init`, `revision`, `upgrade`, `upsert_static_data` all expect the `db` directory (containing `models.py`, `static_data.py`, `migrations.ini`, `migrations/`) to be in the **current working directory** where the Python command/notebook cell is executed.
-<!-- #endregion -->
 
 
 ---
 
-**Previous**: [Sample Vector Db](../vector-databases/sample-vector-db.md) | **Next**: [Service Orchestration > Build](../service-orchestration/build.md)
+**Previous**: [Sample Vector Db](../vector-databases/sample-vector-db.md) | **Next**: [Message Queues > Build](../message-queues/build.md)

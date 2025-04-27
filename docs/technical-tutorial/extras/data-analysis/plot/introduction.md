@@ -106,11 +106,11 @@ color_mapper = LinearColorMapper(palette="Sunset11", low=df["survived"].min(), h
 
 Here's a breakdown of the parameters:
 
-- palette: This parameter specifies the color palette to use for mapping the data values. In this case, it's set to 'Sunset11', which is refers to a predefined color palette named 'Sunset11' of Bokeh. This palette consists of 11 distinct colors arranged in a gradient from light to dark or from one color to another. You can look at [Bokeh's documentation](#https://docs.bokeh.org/en/latest/docs/reference/palettes.html) to see more options.
+- palette: This parameter specifies the color palette to use for mapping the data values. In this case, it's set to 'Sunset11', which is refers to a predefined color palette named 'Sunset11' of Bokeh. This palette consists of 11 distinct colors arranged in a gradient from light to dark or from one color to another. You can look at [Bokeh's documentation](https://docs.bokeh.org/en/latest/docs/reference/palettes.html) to see more options.
 - low: This parameter sets the lowest data value in the range of values to be mapped to colors. It's typically set to the minimum value of the data being mapped. In this case, it's set to df['survived'].min(), indicating that the lowest value in the 'survived' column of the DataFrame (df) will be mapped to the lowest color in the palette.
 - high: This parameter sets the highest data value in the range of values to be mapped to colors. It's typically set to the maximum value of the data being mapped. Here, it's set to df['survived'].max(), indicating that the highest value in the 'survived' column of the DataFrame (df) will be mapped to the highest color in the palette.
 
-Let's create our figure to do some visualisation.
+Let's create our figure to do some visualization.
 
 ```python
 p = figure(title="Analysis Over Survivors", x_axis_label="age", y_axis_label="fare", width=600, height=400)

@@ -82,4 +82,4 @@ print(result)
 
 ---
 
-**Previous**: [Build](../agentic/build.md) | **Next**: [Ecomm Sdk > Memory Chabot](../ecomm-sdk/memory-chabot.md)
+**Previous**: [Milvus Chain](../milvus-embedding-and-langchain/milvus-chain.md) | **Next**: [Ecomm Sdk > Memory Chabot](../ecomm-sdk/memory-chabot.md)

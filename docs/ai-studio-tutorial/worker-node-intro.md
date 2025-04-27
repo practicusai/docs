@@ -4,14 +4,11 @@ Some advanced Practicus AI features require to use software in addition to Pract
 
 ## What is a Cloud Worker?
 
-Some Practicus AI features such as **AutoML**, making ** AI Predictions**, **Advanced Profiling** and **production deployment** capabilities require a larger setup, so we moved these from the app to a backend (server) system.  
-
-You have multiple Cloud Worker options to choose from. You can run them in the cloud or on your computer. Please view [help on choosing a Cloud Worker](../setup-guide.md#choose-a-worker-node-system) to learn more.  
-
+Some Practicus AI features such as **AutoML**, making **AI Predictions**, **Advanced Profiling** and **production deployment** capabilities require a larger setup, so we moved these from the app to a backend (server) system.  
 
 ## Setup Cloud Worker
 
-Please check the [Setup Guide](../setup-guide.md) to learn how to configure Practicus AI Cloud Workers. 
+Please check the [Setup Guide](../setup-guide.md) to learn how to configure Practicus AI Cloud Workers.
 
 You can use the free cloud tier for this tutorial, or use containers on your computer as well.
 
@@ -19,12 +16,12 @@ You can use the free cloud tier for this tutorial, or use containers on your com
 
 - Click on the _Cloud_ button to open the _Cloud Workers_ tab
 - Make sure the selected local for your computer, or the optimal _AWS Cloud Region_. The closest region geographically will usually give you the best internet network performance
-- Click _Start New_ 
+- Click _Start New_
 
 ![](img/cloud-intro/cloud-tab.png)
 
 - Pick the _Cloud Worker Size_ of your Cloud Worker
-- Click ok to _Start new Cloud Worker_ 
+- Click ok to _Start new Cloud Worker_
 
 The default size will be enough for most tasks. You can also choose the free cloud tier.
 
@@ -39,6 +36,7 @@ In a few seconds you will see your Cloud Worker is launching, and in 1-2 minutes
 If you use local container Cloud Workers you have less to worry about stopping them.  
 
 ### Cloud Workers
+
 Similar to electricity, water, or other utilities, your cloud vendor (AWS) will charge you a fee for the hours your Cloud Worker is running. Although Practicus AI Cloud Workers automatically shut down after 90 minutes, it would be a practical approach to shut down your Cloud Workers manually when you are done for the day.
 
 For this, you can simply select a clod node and click on the _Stop_ button. The next day, you can select the stopped Cloud Worker, click _Start_ and continue where you are left.
@@ -49,7 +47,7 @@ Tip: It is usually not a good idea to frequently stop / start instances. Please 
 
 Practicus AI Cloud Workers are designed to be disposable, also called ephemeral. You can choose a Cloud Worker and click _Terminate_ to simply delete everything related to it.
 
-Please be careful that if you choose to store data on the local disk of your Cloud Worker, this will also get lost after termination. In this case, you can prefer to copy your data manually, or simply click the _Replicate_ button before terminating a Cloud Worker. 
+Please be careful that if you choose to store data on the local disk of your Cloud Worker, this will also get lost after termination. In this case, you can prefer to copy your data manually, or simply click the _Replicate_ button before terminating a Cloud Worker.
 
 ## (Optional) Using Jupyter Lab
 
@@ -64,7 +62,7 @@ This will start the Jupyter Lab service and view inside the app. You can also ri
 
 ![](img/cloud-intro/jupyter.png)
 
-Notes: 
+Notes:
 
 - If you shut down the app, the secure connection tunnel to the Cloud Worker notebook service will be lost even if the Cloud Worker continues to run.
 - There are two separate Conda kernels configured for your notebook server. Big data one will have common libraries and data engines, such as DASK, RAPIDS (if you have GPUs) and Spark installed. The ML one, as the name suggests, will have ML related libraries such as scikit-learn, Xgboost, Pycaret ..
@@ -76,6 +74,5 @@ For technical users.
 You can choose a Cloud Worker and click the _Terminal_ button to instantly open up the terminal. You have sudo (super-user) access and this can be a very powerful and flexible way to customize your Cloud Worker.
 
 ![](img/cloud-intro/terminal.png)
-
 
 [< Previous](data-prep-intro.md) | [Next >](explore.md)

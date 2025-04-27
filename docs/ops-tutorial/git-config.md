@@ -34,4 +34,4 @@ To add a new Git repository, click the **Add System Git Repository** button and 
 
 ---
 
-[< Previous](app-deployment) | [Next >](object-storage.md)
+[< Previous](app-deployment.md) | [Next >](object-storage.md)

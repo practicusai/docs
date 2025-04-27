@@ -571,9 +571,6 @@
                                 <a class="function" href="#mq.publish">publish</a>
                         </li>
                         <li>
-                                <a class="function" href="#mq.analyze">analyze</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#mq.test_consumer">test_consumer</a>
                         </li>
                         <li>
@@ -1519,19 +1516,19 @@
                                 <a class="variable" href="#MQConfig.conn_str">conn_str</a>
                         </li>
                         <li>
-                                <a class="variable" href="#MQConfig.queue">queue</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#MQConfig.exchange">exchange</a>
                         </li>
                         <li>
                                 <a class="variable" href="#MQConfig.exchange_type">exchange_type</a>
                         </li>
                         <li>
-                                <a class="variable" href="#MQConfig.queue_ttl">queue_ttl</a>
+                                <a class="variable" href="#MQConfig.routing_key">routing_key</a>
                         </li>
                         <li>
-                                <a class="variable" href="#MQConfig.routing_key">routing_key</a>
+                                <a class="variable" href="#MQConfig.queue">queue</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#MQConfig.queue_ttl">queue_ttl</a>
                         </li>
                         <li>
                                 <a class="variable" href="#MQConfig.max_retries">max_retries</a>
@@ -1685,9 +1682,6 @@
                         </li>
                         <li>
                                 <a class="function" href="#APISpec.validate_custom_attributes">validate_custom_attributes</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#APISpec.validate_model">validate_model</a>
                         </li>
                         <li>
                                 <a class="variable" href="#APISpec.model_config">model_config</a>
@@ -3563,7 +3557,7 @@ associated with the given path. Useful for design-time testing of APIs without d
     </div>
     <a class="headerlink" href="#apps.analyze"></a>
     
-            <div class="docstring"><p>Aalyzes the app folder to report on APIs, Pages, MQ handlers and other artifacts.</p>
+            <div class="docstring"><p>Analyzes the app folder to report on APIs, Pages, MQ handlers and other artifacts.</p>
 
 <p>Args:
     app_folder (str | None): Where to find APIs. If empty, uses current working dir.</p>
@@ -7292,24 +7286,6 @@ Provides:</p>
 
 
                             </div>
-                            <div id="mq.analyze" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">analyze</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">py_file_path</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n">function</span><span class="p">]</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#mq.analyze"></a>
-    
-            <div class="docstring"><p>Analyzes a Python file for functions decorated with <code>@<a href="#mq.consumer">mq.consumer</a>(...)</code>
-and returns the list of consumer (subscriber) functions. Raises TypeError if a
-decorated function is not async.</p>
-</div>
-
-
-                            </div>
                             <div id="mq.test_consumer" class="classattr">
                                 <div class="attr function">
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
@@ -7408,7 +7384,7 @@ and can generate helper bash scripts for applying/deleting these resources on Ku
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">send</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">recipients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">preheader</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">category</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">urgency</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">send_plain_text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_template</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">additional_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">exc_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="#Region">Region</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+        <span class="name">send</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">recipients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">preheader</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">category</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">urgency</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">send_plain_text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_template</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">additional_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">exc_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="#Region">Region</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -12706,13 +12682,14 @@ Generally not recommended unless working with trusted but self-signed certs.</p>
                             </div>
                             <div id="WorkerConfig.additional_params" class="classattr">
                                 <div class="attr variable">
-            <span class="name">additional_params</span><span class="annotation">: str</span>
+            <span class="name">additional_params</span><span class="annotation">: str | None</span>
 
         
     </div>
     <a class="headerlink" href="#WorkerConfig.additional_params"></a>
     
-            <div class="docstring"><p>(Internal and advanced use only) Additional params is used to base 64 decode/encode certain fields.</p>
+            <div class="docstring"><p>(Internal and advanced use only) Read-only field. Additional params is used to base 64 decode/encode certain fields.
+Do not set it manually, since the value of additional_params will be overwritten each time model_dump is called.</p>
 </div>
 
 
@@ -13709,24 +13686,6 @@ create the topology resources.</p>
 
 
                             </div>
-                            <div id="MQConfig.queue" class="classattr">
-                                <div class="attr variable">
-            <span class="name">queue</span><span class="annotation">: str | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#MQConfig.queue"></a>
-    
-            <div class="docstring"><p>Queue name.</p>
-
-<ul>
-<li>Required for consumers (subscribers).</li>
-<li>For publishers, required if <code><a href="#MQConfig.exchange">exchange</a></code> is None (i.e., for direct-to-queue publishing).</li>
-</ul>
-</div>
-
-
-                            </div>
                             <div id="MQConfig.exchange" class="classattr">
                                 <div class="attr variable">
             <span class="name">exchange</span><span class="annotation">: str | None</span>
@@ -13738,7 +13697,7 @@ create the topology resources.</p>
             <div class="docstring"><p>Exchange name.</p>
 
 <ul>
-<li>If omitted, publishers use the channel’s default exchange.</li>
+<li>If omitted, publishers use the channel's default exchange.</li>
 </ul>
 </div>
 
@@ -13761,24 +13720,6 @@ create the topology resources.</p>
 
 
                             </div>
-                            <div id="MQConfig.queue_ttl" class="classattr">
-                                <div class="attr variable">
-            <span class="name">queue_ttl</span><span class="annotation">: int | None</span>
-
-        
-    </div>
-    <a class="headerlink" href="#MQConfig.queue_ttl"></a>
-    
-            <div class="docstring"><p>Consumers (Subscribers) only:</p>
-
-<ul>
-<li>Message TTL in milliseconds (e.g. 60000).</li>
-<li>If omitted, no TTL is set.</li>
-</ul>
-</div>
-
-
-                            </div>
                             <div id="MQConfig.routing_key" class="classattr">
                                 <div class="attr variable">
             <span class="name">routing_key</span><span class="annotation">: str | None</span>
@@ -13792,6 +13733,42 @@ create the topology resources.</p>
 <ul>
 <li>For direct-to-queue publishing, defaults to the queue name if not provided.</li>
 <li>Otherwise defaults to an empty string.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.queue" class="classattr">
+                                <div class="attr variable">
+            <span class="name">queue</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.queue"></a>
+    
+            <div class="docstring"><p>Queue name.</p>
+
+<ul>
+<li>Required for consumers (subscribers).</li>
+<li>For publishers, required if <code><a href="#MQConfig.exchange">exchange</a></code> is None (i.e., for direct-to-queue publishing).</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MQConfig.queue_ttl" class="classattr">
+                                <div class="attr variable">
+            <span class="name">queue_ttl</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#MQConfig.queue_ttl"></a>
+    
+            <div class="docstring"><p>Consumers (Subscribers) only:</p>
+
+<ul>
+<li>Message TTL in milliseconds (e.g. 60000).</li>
+<li>If omitted, no TTL is set.</li>
 </ul>
 </div>
 
@@ -14502,20 +14479,6 @@ extensions, automatically prefixed with 'x-prt-'. </p>
     
 
                             </div>
-                            <div id="APISpec.validate_model" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;before&#39;)</div>
-
-        <span class="def">def</span>
-        <span class="name">validate_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">values</span></span><span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#APISpec.validate_model"></a>
-    
-    
-
-                            </div>
                             <div id="APISpec.model_config" class="classattr">
                                 <div class="attr variable">
             <span class="name">model_config</span>        =
@@ -14543,7 +14506,7 @@ extensions, automatically prefixed with 'x-prt-'. </p>
     
             <div class="docstring"><p>A static class for managing local LLM serving processes.</p>
 
-<p>This class encapsulates the functionality of launching and managing upstream inference service VLLM processes,
+<p>This class encapsulates the functionality of launching and managing upstream inference service vLLM processes,
 providing a clean API for starting, monitoring, and shutting down the server.</p>
 
 <p>All methods are static and the class maintains a singleton server instance internally,
@@ -14634,13 +14597,13 @@ so users can call methods directly on the class without instantiation.</p>
     </div>
     <a class="headerlink" href="#ModelServer.start"></a>
     
-            <div class="docstring"><p>Start a upstream inference service VLLM process with the specified model and options.</p>
+            <div class="docstring"><p>Start a upstream inference service vLLM process with the specified model and options.</p>
 
-<p>This method initiates a non-blocking start of upstream inference service VLLM or local mock server.
+<p>This method initiates a non-blocking start of upstream inference service vLLM or local mock server.
 If a server is already running or starting, this method will do nothing and return False.</p>
 
 <p>Args:
-    model: Name of the model to serve (as expected by VLLM) or path to a local python file.
+    model: Name of the model to serve (as expected by vLLM) or path to a local python file.
         You can also provide the model using PRT_SERVE_MODEL OS environment variable.
     inference_engine: The model inference engine to use. If none, defaults to 'VLLM'.
         You can also provide the engine using PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
@@ -14658,7 +14621,7 @@ If a server is already running or starting, this method will do nothing and retu
     bool: True if server start was initiated, False otherwise</p>
 
 <p>Example:
-    # Start a VLLM server
+    # Start a vLLM server
     prt.models.server.start("llama-2-7b", {
         "tensor-parallel-size": 2,
         "gpu-memory-utilization": 0.9,
@@ -14877,16 +14840,16 @@ for line in output['stderr']:
     </div>
     <a class="headerlink" href="#ModelServer.serve"></a>
     
-            <div class="docstring"><p>Async function to proxy requests to )upstream inference service VLLM running on current pod e.g. <a href="http://localhost:8585">http://localhost:8585</a></p>
+            <div class="docstring"><p>Async function to proxy requests to )upstream inference service vLLM running on current pod e.g. <a href="http://localhost:8585">http://localhost:8585</a></p>
 
 <p>Args:
     http_request: The original HTTP request object
     model_meta: Metadata about the model being served
-    payload_dict: The payload to send to the upstream inference service VLLM
-    timeout: Timeout in seconds to wait for the upstream inference service VLLM</p>
+    payload_dict: The payload to send to the upstream inference service vLLM
+    timeout: Timeout in seconds to wait for the upstream inference service vLLM</p>
 
 <p>Returns:
-    Response from the upstream inference service VLLM</p>
+    Response from the upstream inference service vLLM</p>
 </div>
 
 

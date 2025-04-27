@@ -12,109 +12,261 @@ jupyter:
     name: python3
 ---
 
-# Practicus AI Large Language Model Hosting
+# Practicus AI Large Language Model (LLM) Hosting
 
-This example demonstrates how to use the Practicus AI SDK `ModelServer` to host LLM models on Practicus AI Model Hosting platform, and also experiment in design time using Practicus AI Workers.
+This example demonstrates how to leverage the Practicus AI platform's optimized LLM hosting features, powered by engines like vLLM for high-throughput and low-latency inference. We will cover:
+
+1.  **Experimenting in Design Time:** Interactively running and testing LLMs directly within a Practicus AI Worker's Jupyter environment using the `ModelServer` utility.
+2.  **Deploying for Runtime:** Packaging and deploying LLMs as scalable endpoints on the Practicus AI Model Hosting platform.
+
+This approach is the recommended method for hosting most Large Language Models on Practicus AI, offering significant performance benefits and simplified deployment compared to writing custom prediction code from scratch.
+
+> **Note:** If you need to host non-LLM models or require deep customization beyond the options provided by the built-in LLM serving engine (e.g., complex pre/post-processing logic tightly coupled with the model), please view the custom model serving section for guidance on building models with custom Python code.
 
 
+## 1. Overview of the `prt.models.server` Utility
 
-## 1. Overview of ModelServer
+The `practicuscore.models.server` module (`prt.models.server`) provides a high-level interface to manage LLM inference servers within the Practicus AI environment. Primarily, it controls an underlying inference engine process (like vLLM by default) and exposes its functionality.
 
-`ModelServer` runs and manages LLM inference services, such as `VLLM` (default engine). It provides methods to:
+Key capabilities include:
 
-1. Start the server with a given model and options.
-2. Secure access and route requests.
-3. Monitor and report model health.
-4. Monitor and report model metrics.
+* **Starting/Stopping Servers:** Easily launch and terminate the inference server process (e.g., vLLM) with specified models and configurations (like quantization, tensor parallelism).
+* **Health & Status Monitoring:** Check if the server is running, view logs, and diagnose issues.
+* **Providing Access URL:** Get the local URL to interact with the running server.
+* **Runtime Integration:** Facilitates deploying models using optimized container images, often exposing an OpenAI-compatible API endpoint for standardized interaction.
 
-## High level Usage
+
+## 2. Experimenting in Design Time (Jupyter Notebook)
+
+You can interactively start an LLM server, send requests, and shut it down directly within a Practicus AI Worker notebook. This is ideal for development, testing prompts, and evaluating different models or configurations before deployment.
+
+**Note:** This runs the server *locally* within your Worker's resources. Ensure your Worker has sufficient resources (especially GPU memory) for the chosen model.
 
 ```python
 import practicuscore as prt
 from openai import OpenAI
+import time
 
-# Example: start a VLLM server for a Hugging Face model
-prt.models.server.start("llama/some-model", {"tensor-parallel-size": 2})
+# Define the model from Hugging Face and any specific engine options
+# Example: Use TinyLlama and specify 'half' precision (float16) suitable for GPUs like T4
+model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+vllm_options = {"dtype": "half"}
 
-# Get the custom model URL
+# Start the vLLM server process and wait for it to become ready
+print(f"Starting server for model: {model_id} with options: {vllm_options}...")
+prt.models.server.start(model_id, options=vllm_options)
+
+# The server might take a moment to initialize, especially on first download
+
+# Get the base URL of the locally running server
+# Append '/v1' for the OpenAI-compatible API endpoint
 base_url = prt.models.server.get_base_url()
+if not base_url:
+    print("Error: Server failed to start. Check logs:")
+    print(prt.models.server.get_output())
+else:
+    openai_api_base = base_url + "/v1"
+    print(f"Server started. OpenAI compatible API Base URL: {openai_api_base}")
 
-# Create OpenAI client
-client = OpenAI(base_url=base_url, api_key=token)
+    # Create an OpenAI client pointed at the local server
+    # No API key is needed ('api_key' can be anything) for local interaction
+    client = OpenAI(
+        base_url=openai_api_base,
+        api_key="not-needed-for-local",
+    )
 
-# Send a chat request
-response = client.chat.completions.create(messages=[{"role": "user", "content": "Capital of France?"}], max_tokens=100)
+    # Send a chat completion request
+    print("Sending chat request...")
+    try:
+        response = client.chat.completions.create(
+            # The 'model' parameter should match the model loaded by the server
+            # You can often use model=None if only one model is served, 
+            # or explicitly pass the model_id
+            model=model_id, 
+            messages=[{"role": "user", "content": "What is the capital of France?"}],
+            max_tokens=50, # Limit response length
+            temperature=0.7
+        )
+        print("Response received:")
+        print(response.choices[0].message.content)
+        # Expected output might be similar to: 'The capital of France is Paris.'
+    except Exception as e:
+        print(f"Error during chat completion: {e}")
+        print("Check server status and logs.")
 
-print(response.choices[0].message.content)
 ```
 
-<!-- #region -->
-## Deploying Models
+### Additional Utilities for Design Time
 
-There are multiple options to deploy LLM models for run-time.
+While the server is running in your notebook session, you can monitor it:
 
-### Option 1: Dynamically downloading models in run-time (no-coding required)
+```python
+# Check the server's status ('running', 'error', 'stopped', etc.)
+status = prt.models.server.get_status()
+print(f"Server Status: {status}")
 
-Follow the below steps to use an existing container image to dynamically download the model and start serving.
-
-#### Define the container image
-- Open Practicus AI management console > Infrastructure > Container Images
-- Add a new container image `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.0` or a compatible image.
-
-#### Create a model deployment
-- Open Practicus AI management console > ML Model Hosting > Model Deployments
-- Add a new model deployment with GPUs, selecting the custom image you created above.
-- Set the below os environment variables using the `Extra configuration` section:
-- `PRT_SERVE_MODEL`: Hugging Face model ID
-- `PRT_SERVE_MODEL_OPTIONS_B64`: (optional) Base64‑encoded JSON of VLLM options
-
-#### Create models
-- Open Practicus AI management console > ML Model Hosting > Models
-- Add a `new model` e.g. `my-tiny-model`
-- Add a `new version` to this model and point to the model deployment you created above.
-- Tip: You can create `multiple versions` each pointing to different model deployments, and then perform `A/B testing` comparing LLM model performance.
-
-
-**Example 1**: Serving TinyLlama
-
-Add the below to model deployment in `Extra configuration` section
+# Get recent logs (stdout/stderr) from the server process
+logs = prt.models.server.get_output()
+print("Recent Server Logs:")
+print(logs)
 ```
+
+### Testing with a Mock LLM Server on CPU
+
+For testing pipelines or developing client code without requiring a GPU or a real LLM, you can run a simple mock server. This mock server just needs to implement the expected API endpoint (e.g., `/v1/chat/completions`).
+
+Create a Python file (view example `mock_llm_server.py` at the bottom of this page) with a basic web server (like Flask or FastAPI) that returns predefined responses. Then, start it using `prt.models.server.start()`.
+
+```python
+# Example: Assuming you have 'mock_llm_server.py' in the same directory
+# This file would contain a simple Flask/FastAPI app mimicking the OpenAI API structure
+try:
+    print("Attempting to stop any existing server...")
+    prt.models.server.stop() # Stop the real LLM server if it's running
+    time.sleep(2)
+
+    print("Starting the mock server...")
+    # Make sure 'mock_llm_server.py' exists and is runnable
+    prt.models.server.start("mock_llm_server.py") 
+    time.sleep(5) # Give mock server time to start
+
+    mock_base_url = prt.models.server.get_base_url()
+    if not mock_base_url:
+        print("Error: Mock server failed to start. Check logs:")
+        print(prt.models.server.get_output())
+    else:
+        mock_api_base = mock_base_url + "/v1"
+        print(f"Mock Server Running. API Base: {mock_api_base}")
+
+        # Create client for the mock server
+        mock_client = OpenAI(base_url=mock_api_base, api_key="not-needed")
+
+        # Send a request to the mock server
+        mock_response = mock_client.chat.completions.create(
+            model="mock-model", # Model name expected by your mock server
+            messages=[{"role": "user", "content": "Hello mock!"}]
+            )
+        print("Mock Response:", mock_response.choices[0].message.content)
+        # Example mock server might return: 'You said: Hello mock!'
+except FileNotFoundError:
+    print("Skipping mock server test: 'mock_llm_server.py' not found.")
+except Exception as e:
+    print(f"An error occurred during mock server test: {e}")
+finally:
+    # Important: Stop the mock server when done
+    print("Stopping the mock server...")
+    prt.models.server.stop()
+```
+
+### Cleaning Up the Design Time Server
+
+When you are finished experimenting in the notebook, **it's crucial to stop the server** to release GPU resources.
+
+```python
+print("Stopping any running server...")
+prt.models.server.stop()
+print(f"Server Status after stop: {prt.models.server.get_status()}")
+```
+
+## 3. Deploying Models for Runtime
+
+Once you have selected and tested your model, you need to deploy it as a scalable service on the Practicus AI Model Hosting platform. This involves packaging the model and its serving configuration into a container image and creating a deployment through the Practicus AI console.
+
+There are a few ways to configure the container for LLM serving:
+
+
+### Option 1: Dynamically Download Model at Runtime (No Coding Required)
+
+This is the quickest way to get started. Use a pre-built Practicus AI vLLM image, and configure the model ID and options via environment variables in the model deployment settings. The container will download the specified model when it starts.
+
+**Pros:** Simple configuration, no need to build custom images.
+**Cons:** Can lead to longer cold start times as the model needs to be downloaded on pod startup. Potential for download issues at runtime.
+
+**Steps:**
+
+1.  **Define Container Image in Practicus AI:**
+    * Navigate to `Infrastructure > Container Images` in the Practicus AI console.
+    * Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.0` (replace with the latest/appropriate version).
+
+2.  **Create Model Deployment:**
+    * Go to `ML Model Hosting > Model Deployments`.
+    * Create a new deployment, ensuring you allocate necessary GPU resources.
+    * Select the container image you added in the previous step.
+    * In the `Extra configuration` section (or environment variables section), define:
+        * `PRT_SERVE_MODEL`: Set this to the Hugging Face model ID (e.g., `TinyLlama/TinyLlama-1.1B-Chat-v1.0`).
+        * `PRT_SERVE_MODEL_OPTIONS_B64`: (Optional) Provide Base64-encoded JSON containing vLLM options (like `{"dtype": "half"}`).
+
+3.  **Create Model and Version:**
+    * Go to `ML Model Hosting > Models`.
+    * Add a `New Model` (e.g., `my-tiny-llama`).
+    * Add a `New Version` for this model, pointing it to the `Model Deployment` you just created.
+    * Tip: You can create `multiple versions` each pointing to different model deployments, and then perform `A/B testing` comparing LLM model performance.
+
+**Example 1: Serving TinyLlama (default options)**
+
+In Model Deployment `Extra configuration` section, add:
+
+```text
 PRT_SERVE_MODEL=TinyLlama/TinyLlama-1.1B-Chat-v1.0
 ```
 
-**Example 2**: Serving with customized options, e.g. for smaller GPUs like Nvidia T4.
+**Example 2: Serving TinyLlama with Half Precision**
 
-- Create base64 encoded options json, run on your terminal the below:
-```bash
-echo '{"dtype": "half"}' | base64
-# prints eyJkdHlwZSI6ICJoYWxmIn0K
-```
+* Generate Base64 options:
+  
+    ```bash
+    # On your local machine or a terminal:
+    echo '{"dtype": "half"}' | base64
+    # Prints eyJkdHlwZSI6ICJoYWxmIn0K
+    
+    ```
+    
+* In Model Deployment `Extra configuration` section, add:
+  
+    ```text
+    PRT_SERVE_MODEL=TinyLlama/TinyLlama-1.1B-Chat-v1.0
+    PRT_SERVE_MODEL_OPTIONS_B64=eyJkdHlwZSI6ICJoYWxmIn0K
+    ```
 
-- Add the below to model deployment in `Extra configuration` section
-```
-PRT_SERVE_MODEL=TinyLlama/TinyLlama-1.1B-Chat-v1.0
-PRT_SERVE_MODEL_OPTIONS_B64=eyJkdHlwZSI6ICJoYWxmIn0K
-```
+
+### Option 2: Pre-download and Bake Model into Container Image (Recommended for Production)
+
+Build a custom container image that includes the model files. This avoids runtime downloads, leading to faster and more reliable pod startups.
+
+**Pros:** Faster cold starts, improved reliability (no runtime download dependency), enables offline environments.
+**Cons:** Requires building and managing custom container images. Image size will be larger. Longer build times.
+
+**Steps:**
+
+1.  **Create a `Dockerfile`:**
+    * Start from a Practicus AI base vLLM image.
+    * Set environment variables for the model and options.
+    * Use `huggingface-cli download` to download the model during the image build.
+    * (Optional but recommended) Configure vLLM to use the downloaded path and enable offline mode.
+    * (Optional) If you need custom logic, `COPY` your `model.py` (see Option 3).
+
+2.  **Build and Push the Image:** Build the Docker image and push it to a container registry accessible by Practicus AI.
+
+3.  **Configure Practicus AI:**
+    * Add your custom image URL in `Infrastructure > Container Images`.
+    * Create a `Model Deployment` using your custom image. You usually *don't* need to set `PRT_SERVE_MODEL` or `PRT_SERVE_MODEL_OPTIONS_B64` as environment variables here, as they are baked into the image (unless your image startup script specifically reads them).
+    * Create the `Model` and `Version` pointing to this deployment.
 
 
-<!-- #endregion -->
-
-### Option 2: Pre-download model files and save to container image (recommended)
-
-You can bake the model into your image to avoid runtime downloads. This is `strongly recommended` for production models.
+**Example `Dockerfile`:**
 
 ```dockerfile
+# Use a Practicus AI base image that includes GPU support and vLLM
 FROM ghcr.io/practicusai/practicus-modelhost-base-gpu-vllm:25.5.0
 
-# Let's pick a tiny, yet effective model.
+# --- Configuration baked into the image ---
 ENV PRT_SERVE_MODEL="TinyLlama/TinyLlama-1.1B-Chat-v1.0"
-# Let's assume this model runs on small/legacy GPU e.g. Nvidia T4
-# Generated running:
-#   echo '{"dtype": "half"}' | base64
+# Example: Options for smaller GPUs like Nvidia T4 (float16)
+# Generated via: echo '{"dtype": "half"}' | base64
 ENV PRT_SERVE_MODEL_OPTIONS_B64="eyJkdHlwZSI6ICJoYWxmIn0K"
 
-# Change model download path from the default ~/.cache/huggingface since the container image can run
-# with a different user than the one in build time.
+# --- Model Download during Build ---
+# Define a persistent cache location within the image
 ENV HF_HOME="/var/practicus/cache/huggingface"
 
 RUN \
@@ -130,24 +282,37 @@ RUN \
     echo "VLLM redirect JSON content: $REDIRECT_JSON" && \
     echo "$REDIRECT_JSON" > "$REDIRECT_JSON_PATH"
 
-# Use VLLM redirect file for downloaded model
+# --- vLLM Configuration for Baked Model ---
+# Tell vLLM (via our entrypoint) to use the baked model path directly
 ENV VLLM_MODEL_REDIRECT_PATH="/var/practicus/vllm_model_redirect.json"
 
-
-COPY  model.py /var/practicus/model.py
-# (Recommended) Enable Offline mode to prevent accidentally downloading missing models in run-time.
+# (Recommended for baked images) Prevent accidental downloads at runtime
 ENV TRANSFORMERS_OFFLINE=1
 ENV HF_HUB_OFFLINE=1
+
+# --- Custom Logic (Optional - See Option 3) ---
+# If you need custom init/serve logic, uncomment and provide your model.py
+# COPY model.py /var/practicus/model.py
 ```
 
 
+### Option 3: Custom `model.py` Implementation
 
-### Option 3: Custom `model.py` implementation
+If you need to add custom logic before or after the vLLM server handles requests (e.g., complex input validation/transformation, custom readiness checks, integrating external calls), you can provide a `/var/practicus/model.py` file within your custom container image (usually built as described in Option 2).
 
-You can save `/var/practicus/model.py` to your custom container image to customize the init and serving steps.
+**Pros:** Maximum flexibility for custom logic around the vLLM server.
+**Cons:** Requires Python coding; adds complexity compared to standard vLLM usage.
+
+**Steps:**
+
+1.  Create your `model.py` with `init` and `serve` functions.
+2.  Inside `init`, call `prt.models.server.start()` to launch the vLLM process.
+3.  Inside `serve`, you can add pre-processing logic, then call `await prt.models.server.serve()` to forward the request to the underlying vLLM server, and potentially add post-processing logic to the response.
+4.  Build a custom Docker image (as in Option 2), ensuring you `COPY model.py /var/practicus/model.py`.
 
 ```python
-# /var/practicus/model.py
+# Example: /var/practicus/model.py 
+# Customize as required and place  in your project and COPY into the Docker image
 import practicuscore as prt
 
 
@@ -161,77 +326,15 @@ async def serve(http_request, payload: dict, **kwargs):
 
 ```
 
-## Experimenting in Design Time
+## 4. Conclusion
 
-You can interactively start, chat, and stop from within a Practicus AI Worker Jupyter Notebook.
+Practicus AI provides optimized pathways for hosting LLMs using engines like vLLM.
 
-```python
-from openai import OpenAI
-import practicuscore as prt
+* Use the `prt.models.server` utility within notebooks for **interactive experimentation**.
+* For **runtime deployment**, choose between dynamic model downloads (easy start) or baking models into images (recommended for production) via the Practicus AI console.
+* Use a custom `model.py` only when specific pre/post-processing logic around the core LLM inference is required.
 
-# Start and wait until ready
-prt.models.server.start("TinyLlama/TinyLlama-1.1B-Chat-v1.0", options={"dtype": "half"})
-
-base_url = prt.models.server.get_base_url() + "/v1"
-print("Model URL:", base_url)
-# prints http://localhost:8585/v1
-
-# Create OpenAI client
-client = OpenAI(
-    base_url=base_url,
-    # Token not needed for local use
-    api_key="not-needed",
-)
-
-# Send a chat request
-response = client.chat.completions.create(
-    # Select the model you just downloaded.
-    # Tip: To always use the current model you can set model=None
-    model="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    messages=[{"role": "user", "content": "Capital of France?"}],
-    max_tokens=100,
-)
-print(response.choices[0].message.content)
-#  Prints 'Paris'
-```
-
-#### Additional Utilities
-
-- `prt.models.server.get_status()` → check `running`, `error`, etc.
-- `prt.models.server.get_output()` → recent logs
-- `prt.models.server.stop()` → stop the server
-
-
-```python
-print("Status:", prt.models.server.get_status())
-print("Logs:\n", prt.models.server.get_output())
-```
-
-### Testing with a Mock LLM Server on CPU
-Point to a CPU‑only mock server. See the sample file `mock_llm_server.py`
-
-```python
-# Start the mock server
-prt.models.server.start("mock_llm_server.py")
-
-base_url = prt.models.server.get_base_url()
-
-# Send a mock request
-client = OpenAI(base_url=base_url, api_key="not-needed")
-response = client.chat.completions.create(model="mock_llm", messages=[{"role": "user", "content": "Hello mock!"}])
-
-print(response.choices[0].message.content)
-# Prints Hello mock!
-```
-
-#### Cleaning Up
-
-Stop the server when you're done:
-
-
-```python
-prt.models.server.stop()
-```
+Remember to consult the specific documentation for vLLM options and Practicus AI deployment configurations for advanced settings.
 
 
 ## Supplementary Files

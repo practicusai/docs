@@ -3,8 +3,8 @@
 ## Deployment Settings
 
 ### Overview
-Deployment settings in the Practicus AI platform define configurations for deploying applications. These settings include worker types, object stores, scaling parameters, and observability options.
 
+Deployment settings in the Practicus AI platform define configurations for deploying applications. These settings include worker types, object stores, scaling parameters, and observability options.
 
 ### Adding a Deployment Setting
 
@@ -30,6 +30,7 @@ Click **Save** to finalize the configuration.
 ## App Prefixes
 
 ### Overview
+
 App prefixes group applications under a shared path and configuration. These prefixes simplify app management and API accessibility.
 
 ### Adding an App Prefix
@@ -52,6 +53,7 @@ Click **Save** to complete.
 ## Application Versions
 
 ### Overview
+
 Application versions allow users to manage multiple iterations of the same app, ensuring flexibility and version control.
 
 ### Managing Versions
@@ -60,4 +62,4 @@ The **App Versions** page lists all application versions, including their deploy
 
 ---
 
-[< Previous](model-deployment) | [Next >](git-config.md)
+[< Previous](model-deployment.md) | [Next >](git-config.md)

@@ -326,7 +326,7 @@ async def say_hello(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
 
 
 # An API example custom spec (metadata)
-# These get documented in OpenAPI (with a P) format and can be made available dynamically to AI Agents
+# These get documented in OpenAPI (Swagger) format and can be made available dynamically to AI Agents
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.AIAgent,
     read_only=False,

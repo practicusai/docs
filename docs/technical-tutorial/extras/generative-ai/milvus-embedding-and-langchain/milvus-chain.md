@@ -422,4 +422,4 @@ utility.drop_collection("dummy_info")
 
 ---
 
-**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Agentic > Build](../agentic/build.md)
+**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Langflow Apis > Langflow API](../langflow-apis/langflow-api.md)
