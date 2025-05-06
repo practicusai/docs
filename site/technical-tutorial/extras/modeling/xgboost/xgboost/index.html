@@ -1512,11 +1512,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generative-ai/vector-databases/sample-vector-db/" class="md-nav__link">
+      <a href="../../../../generative-ai/vector-databases/qdrant/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Sample Vector Db
+    Qdrant
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../generative-ai/vector-databases/milvus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Milvus
   </span>
   
 
@@ -1705,6 +1726,70 @@
   
     <li class="md-nav__item">
       <a href="../../../../generative-ai/agentic-ai/build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_9" id="__nav_4_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MCP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            MCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../generative-ai/mcp/build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8932,13 +9017,13 @@
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">pred_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </span></code></pre></div>
 <h4 id="deploying-your-model-as-an-api-endpoint">Deploying your model as an API endpoint</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Let&#39;s locate the Kubernetes model deployment to deploy our model</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Let&#39;s locate the model deployment to deploy our model</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">model_deployment_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span><span class="s2">&quot;You do not have any model deployment systems. Please contact your system admin.&quot;</span><span class="p">)</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">model_deployment_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You have more than one model deployment systems. Will use the first one&quot;</span><span class="p">)</span>
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Will deploy &#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&#39; to &#39;</span><span class="si">{</span><span class="n">deployment_key</span><span class="si">}</span><span class="s2">&#39; kubernetes deployment&quot;</span><span class="p">)</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Will deploy &#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&#39; to &#39;</span><span class="si">{</span><span class="n">deployment_key</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="create-modelpy-that-predicts-using-modelpkl">Create model.py that predicts using model.pkl</h4>
 <p><a href="../model.py">View sample model.py code</a></p>

@@ -72,13 +72,16 @@ nav:
       - Streaming: technical-tutorial/generative-ai/langchain/streaming.md
       - Embeddings: technical-tutorial/generative-ai/langchain/embeddings.md
     - Vector Databases:
-      - Sample Vector Db: technical-tutorial/generative-ai/vector-databases/sample-vector-db.md
+      - Qdrant: technical-tutorial/generative-ai/vector-databases/qdrant.md
+      - Milvus: technical-tutorial/generative-ai/vector-databases/milvus.md
     - Relational Databases:
       - Build: technical-tutorial/generative-ai/relational-databases/build.md
     - Message Queues:
       - Build: technical-tutorial/generative-ai/message-queues/build.md
     - Agentic AI:
       - Build: technical-tutorial/generative-ai/agentic-ai/build.md
+    - MCP:
+      - Build: technical-tutorial/generative-ai/mcp/build.md
   - Distributed Computing:
     - Introduction: technical-tutorial/distributed-computing/introduction.md
     - Spark:

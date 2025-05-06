@@ -12,7 +12,6 @@ jupyter:
     name: practicus_genai
 ---
 
-<!-- #region -->
 # Building Agentic AI Solutions with Practicus AI
 
 This example provides a guide to building powerful agentic AI solutions using the Practicus AI platform. We'll cover:
@@ -23,6 +22,7 @@ This example provides a guide to building powerful agentic AI solutions using th
 4.  **Deploying the App:** Deploy the example application containing our APIs.
 5.  **Creating Agent Tools:** See how the SDK automatically turns your deployed APIs into `tools for AI agents`.
 6.  **Agentic Workflow Example:** Run an "Order Processing" example using a Langchain agent connected to the deployed APIs.
+
 
 ## 1. High-Level Overview & Value Proposition
 
@@ -40,6 +40,7 @@ The Practicus AI agentic solution empowers you to connect Large Language Models 
 * **Standardization:** Leverage OpenAPI (Swagger) specifications for clear API documentation and interoperability.
 * **Scalability:** Built on a robust microservices architecture.
 
+<!-- #region -->
 ## 2. Building APIs with Practicus AI Apps
 
 Creating an API endpoint is straightforward. You define the logic in a Python file, use Pydantic models for defining request/response data structures, and the `practicuscore` SDK (`prt`) decorators to define APIs and specs.
@@ -88,6 +89,7 @@ async def run(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
 * **`@prt.api` Decorator:** Registers the function as an API endpoint and links the `APISpec`.
 * **`async def run(...)`:** Contains the core API logic.
 * **Automatic OpenAPI (Swagger):** The platform generates the OpenAPI (Swagger) spec during deployment.
+<!-- #endregion -->
 
 ## 3. Defining API Behavior with `APISpec`
 
@@ -110,15 +112,15 @@ async def run(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
 * `generate_receipt.py` and `process_order.py` are marked `read_only=True`, `risk_profile=Medium`. 
 * `send_confirmation.py` is marked `read_only=False`, `risk_profile=High`, `human_gated=True`, `idempotent=False`.
 
+
 ## 4. Deploying the App
 
 Now, let's deploy the application containing our APIs. This process analyzes the API files, bundles the application, and deploys it to your configured Practicus AI environment, making the APIs available at a specific URL.
 
 First, we set up deployment configuration keys and prefixes. These should match your Practicus AI environment setup.
-<!-- #endregion -->
 
 ```python
-# Replace with your actual deployment key and app prefix
+# Parameters: Replace with your actual deployment key and app prefix
 # These identify where the app should be deployed within your Practicus AI environment.
 app_deployment_key = None
 app_prefix = "apps"
@@ -176,7 +178,9 @@ With the API application successfully deployed, you can now explore its document
 
 This link will take you to the interactive ReDoc UI, which visually presents the API's structure based on its OpenAPI specification. As discussed previously, this detailed view of `endpoints`, `description`, `schemas`, and `sample` create `crucial information for our AI agents`.
 
+
 ![ReDoc UI](img/redoc_ui.png)
+
 
 ## 5. Generating AI Agent Tools from Deployed APIs
 
@@ -275,7 +279,7 @@ def validate_api_spec(api_tool: APITool, strict=False) -> bool:
 def get_tools(endpoint_urls: list[str], validate=True):
     _tools = []
     strict_validation = False # Set to True to enforce stricter rules
-    additional_tool_instructions = "Add Yo! after all of your final responses." # Example instruction
+    additional_instructions = "Add Yo! after all of your final responses." # Example instruction
     
     print(f"\nCreating and validating tools (strict={strict_validation})...")
     for tool_endpoint_url in endpoint_urls:
@@ -283,8 +287,9 @@ def get_tools(endpoint_urls: list[str], validate=True):
         try:
             api_tool = APITool(
                 url=tool_endpoint_url,
-                # token=None, # Uses current user credentials by default
-                additional_instructions=additional_tool_instructions,
+                additional_instructions=additional_instructions,
+                # token=..., # Uses current user credentials by default, set to override
+                # include_resp_schema=True # Response schema (if exists) is not included by default
             )
             
             # Explain the tool (optional, useful for debugging)
@@ -374,6 +379,18 @@ After skipping validation, you should now see the HigRisk profile `send-confirma
 Agent will have access to 6 tools: ['Say-Hello', 'Generate-Receipt', 'Convert-To-Uppercase', 'Process-Order', 'Count-Words', 'Send-Confirmation']
 ```
 
+
+### Explaining tools
+
+You can run `tool.explain()` to view the details of an API tool such as it's URL, name, description, additional instructions.
+
+```python
+# View tool explanation
+
+for tool in tools:
+    tool.explain()
+```
+
 ## 6. Agentic Workflow Example: Order Processing
 
 Now we set up and run the Langchain agent (using LangGraph). The agent will use the LLM and the validated list of `tools` created above to process the user's order request.
@@ -388,7 +405,7 @@ Now we set up and run the Langchain agent (using LangGraph). The agent will use 
 3.  **Run Agent:** We invoke the agent with the user query.
 4.  **Additional Instruction:** Note that we added the below custom instruction for all tools.
     ```python
-    additional_tool_instructions = "Add Yo! after all of your final responses."
+    additional_instructions = "Add Yo! after all of your final responses."
     ```
 
 ```python
@@ -923,7 +940,7 @@ api_spec = prt.APISpec(
 
 @prt.api("/say-hello", spec=api_spec)
 async def run(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
-    """This method is awesome, it does fantastic things"""
+    """Says hello to the selected user with the selected tone."""
 
     if payload.hello_type == HelloType.NORMAL:
         return SayHelloResponse(greeting_message=f"Hello {payload.name}", name=payload.name)
@@ -1012,4 +1029,4 @@ async def run(payload: SendConfirmationRequest, **kwargs) -> SendConfirmationRes
 
 ---
 
-**Previous**: [Build](../message-queues/build.md) | **Next**: [Distributed Computing > Introduction](../../distributed-computing/introduction.md)
+**Previous**: [Build](../message-queues/build.md) | **Next**: [MCP > Build](../mcp/build.md)

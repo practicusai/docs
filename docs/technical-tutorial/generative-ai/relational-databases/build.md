@@ -589,4 +589,4 @@ With this configuration complete, users creating new applications or updating ex
 
 ---
 
-**Previous**: [Sample Vector Db](../vector-databases/sample-vector-db.md) | **Next**: [Message Queues > Build](../message-queues/build.md)
+**Previous**: [Milvus](../vector-databases/milvus.md) | **Next**: [Message Queues > Build](../message-queues/build.md)

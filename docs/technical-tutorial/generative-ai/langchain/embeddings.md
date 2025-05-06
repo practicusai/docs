@@ -139,4 +139,4 @@ print(f"\nEmbedded Query Vector: {embedded_query_vector}")
 
 ---
 
-**Previous**: [Streaming](streaming.md) | **Next**: [Vector Databases > Sample Vector Db](../vector-databases/sample-vector-db.md)
+**Previous**: [Streaming](streaming.md) | **Next**: [Vector Databases > Qdrant](../vector-databases/qdrant.md)

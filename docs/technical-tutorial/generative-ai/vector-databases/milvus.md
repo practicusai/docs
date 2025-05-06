@@ -224,4 +224,4 @@ utility.drop_collection("hello_milvus")
 
 ---
 
-**Previous**: [Embeddings](../langchain/embeddings.md) | **Next**: [Relational Databases > Build](../relational-databases/build.md)
+**Previous**: [Qdrant](qdrant.md) | **Next**: [Relational Databases > Build](../relational-databases/build.md)

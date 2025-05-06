@@ -118,13 +118,13 @@ pred_df.head()
 #### Deploying your model as an API endpoint
 
 ```python
-# Let's locate the Kubernetes model deployment to deploy our model
+# Let's locate the model deployment to deploy our model
 if len(region.model_deployment_list) == 0:
     raise SystemError("You do not have any model deployment systems. Please contact your system admin.")
 elif len(region.model_deployment_list) > 1:
     print("You have more than one model deployment systems. Will use the first one")
 
-print(f"Will deploy '{prefix}/{model_name}' to '{deployment_key}' kubernetes deployment")
+print(f"Will deploy '{prefix}/{model_name}' to '{deployment_key}'")
 ```
 
 #### Create model.py that predicts using model.pkl

@@ -58,7 +58,7 @@ api_spec = prt.APISpec(
 
 @prt.api("/say-hello", spec=api_spec)
 async def run(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
-    """This method is awesome, it does fantastic things"""
+    """Says hello to the selected user with the selected tone."""
 
     if payload.hello_type == HelloType.NORMAL:
         return SayHelloResponse(greeting_message=f"Hello {payload.name}", name=payload.name)
