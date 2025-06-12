@@ -741,12 +741,10 @@ RUN echo "**** Creating Virtual Env ****" && \
 aws ecr get-login-password --region us-east-1 | docker login \
   --username AWS --password-stdin _your_account_id_.dkr.ecr.us-east-1.amazonaws.com
 
-docker build -t practicus-private-test:24.1.0 .
+docker buildx build -t practicus-private-test:24.1.0 --push .
 
 docker tag practicus-private-test:24.1.0 \
   _your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test:24.1.0
-
-docker push _your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test:24.1.0
 ```
 
 After this step, you should see the image in the AWS ECR console.
