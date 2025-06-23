@@ -233,6 +233,11 @@ except:
 ```
 
 
+#### Note on Startup Scripts
+
+You can use the `startup_script` parameter with `prt.apps.deploy` for basic configuration tasks. **Do not** use `startup_script` to install packages, including pip. Application hosting runs in a different security context from Workers (which are designed for design-time and batch tasks). To install packages, create a new container image instead. See the **Unified DevOps** section for instructions on building container images.
+
+
 ## Supplementary Files
 
 ### Home.py

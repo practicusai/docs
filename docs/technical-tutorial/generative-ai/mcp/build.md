@@ -119,7 +119,7 @@ Configuring your `prtcli` MCP server this way allows MCP clients (like LLM agent
 
 ## Example MCP Server Configurations (for MCP Host Applications)
 
-This section shows how an MCP Host application (like Roo Code or Claude Desktop) might be configured to *launch* different MCP servers.
+This section shows how an MCP Host application (like Roo Code or Claude Desktop) might be configured to *launch* different MCP servers. 
 
 The configuration below defines three ways to start an MCP server using `prtcli`:
 
@@ -163,6 +163,7 @@ The configuration below defines three ways to start an MCP server using `prtcli`
 
 *Note: This JSON structure is used within the MCP Host application's settings, not within the `prtcli`'s `config.json`.*
 
+
 ### Example Client Interaction Scenario
 
 Consider a user interacting with an MCP Client (e.g., a chatbot integrated with MCP):
@@ -178,28 +179,29 @@ Can you process this, generate a receipt, and confirm the details?
 **MCP Client Action:**
 
 The MCP Client, guided by the LLM, would likely interact with the MCP Server(s) sequentially:
+1.  Potentially call a `process_order` API tool.
+2.  Call the `generate_receipt` API tool (as defined in the server's config).
+3.  Call a `send_confirmation` API tool (if available).
+4.  Synthesize the results into a response for the user.
 
-1. Potentially call a `process_order` API tool.
-2. Call the `generate_receipt` API tool (as defined in the server's config).
-3. Call a `send_confirmation` API tool (if available).
-4. Synthesize the results into a response for the user.
 
 ### Example 1: Using MCP with Practicus AI Roo Code (VS Code Extension)
 
 This demonstrates setting up MCP servers within the Roo Code extension in VS Code on a Practicus AI Worker:
 
-1. Open VS Code connected to your Practicus AI Worker.
-2. Click the Roo Code icon in the left sidebar.
-3. Enter your LLM API credentials or import saved settings.
-4. Click the `MCP Servers` button in the Roo Code top menu.
-5. Click `Edit Global MCP Configuration`.
-6. Enter the MCP server definitions (similar to the 'Example MCP Server Configurations' JSON shown earlier).
+1.  Open VS Code connected to your Practicus AI Worker.
+2.  Click the Roo Code icon in the left sidebar.
+3.  Enter your LLM API credentials or import saved settings.
+4.  Click the `MCP Servers` button in the Roo Code top menu.
+5.  Click `Edit Global MCP Configuration`.
+6.  Enter the MCP server definitions (similar to the 'Example MCP Server Configurations' JSON shown earlier).
 
-![Roo Config](img/roo-config.png)
+![Roo Config](img/roo-config.png) 
 
-7. Start a chat session and ask a question that requires tool use (e.g., the order scenario). Roo Code will prompt you to allow the use of the configured MCP tools.
+7.  Start a chat session and ask a question that requires tool use (e.g., the order scenario). Roo Code will prompt you to allow the use of the configured MCP tools.
 
 ![Roo Confirmation](img/roo-confirmation.png)
+
 
 ### Example 2: Using MCP with Claude Desktop
 
@@ -208,6 +210,7 @@ Claude Desktop is another application that can act as an MCP Host. When configur
 For configuration details, refer to the official MCP documentation: [MCP Quickstart for Users](https://modelcontextprotocol.io/quickstart/user)
 
 ![Claude Desktop](img/claude-desktop.png)
+
 
 ### Example 3: Programmatic Integration with OpenAI's Agentic Framework
 
@@ -330,17 +333,19 @@ Total: $99.97
 
 This demonstrates the agent receiving the request, identifying the need for a tool (the receipt generator exposed via MCP), calling the tool with the correct parameters, receiving the result, and presenting it to the user.
 
+
 ## Conclusion
 
 In this example, we demonstrated how to leverage Practicus AI APIs as tools for LLMs using the Model Context Protocol (MCP). We covered:
 
-1. **Understanding MCP:** Explained the core concepts and client-server architecture of MCP.
-2. **Running MCP Servers:** Showed how to start an MCP server using the `prtcli` command-line tool, including using default and custom configurations.
-3. **Configuring API Tools:** Illustrated how to define and customize Practicus AI APIs as tools within the MCP server's `config.json` file.
-4. **Client Integration Examples:** Provided conceptual examples of how MCP host applications like Practicus AI Roo Code and Claude Desktop can be configured to launch and utilize these MCP servers.
-5. **Programmatic Integration:** Showcased a Python example using OpenAI's agentic framework (`agents` library) to programmatically start an MCP server (via `MCPServerStdio`) and interact with its tools to fulfill a user request.
+1.  **Understanding MCP:** Explained the core concepts and client-server architecture of MCP.
+2.  **Running MCP Servers:** Showed how to start an MCP server using the `prtcli` command-line tool, including using default and custom configurations.
+3.  **Configuring API Tools:** Illustrated how to define and customize Practicus AI APIs as tools within the MCP server's `config.json` file.
+4.  **Client Integration Examples:** Provided conceptual examples of how MCP host applications like Practicus AI Roo Code and Claude Desktop can be configured to launch and utilize these MCP servers.
+5.  **Programmatic Integration:** Showcased a Python example using OpenAI's agentic framework (`agents` library) to programmatically start an MCP server (via `MCPServerStdio`) and interact with its tools to fulfill a user request.
 
 By following these steps, you can effectively expose your Practicus AI application functionalities as standardized tools for various LLM agents and applications through the Model Context Protocol.
+
 
 ---
 

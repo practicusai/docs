@@ -23,6 +23,7 @@ class ConvertToUppercaseResponse(BaseModel):
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.DirectExecution,
     read_only=True,
+    interactive=True,
     risk_profile=prt.APIRiskProfile.Low,
 )
 

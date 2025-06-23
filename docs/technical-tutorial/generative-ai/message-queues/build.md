@@ -126,7 +126,7 @@ from pydantic import BaseModel
 class MyMsg(BaseModel):
     text: str
 
-    
+
 async def async_publish_example():
     # Connect asynchronously
     conn = await prt.mq.connect(mq_config_basic)
@@ -272,7 +272,7 @@ Note: Since we have two consumers connecting to the same queue, incoming message
 <!-- #endregion -->
 
 ```python
-import practicuscore as prt 
+import practicuscore as prt
 
 # View application deployment settings and application prefixes
 region = prt.get_default_region()
@@ -378,15 +378,18 @@ async def send_request_async():
     token = prt.apps.get_session_token(api_url=api_url)
     publish_api_url = f"{api_url}publish/"
 
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+    }
 
     payload = MyMsg(text="Testing API with an async call")
-    json_data = payload.model_dump_json(indent=2)
+    data_dict = payload.model_dump()
     print(f"Sending (async) the following JSON to: {publish_api_url}")
-    print(json_data)
+    print(data_dict)
 
     async with httpx.AsyncClient() as client:
-        response = await client.post(publish_api_url, data=json_data, headers=headers)
+        response = await client.post(publish_api_url, json=data_dict, headers=headers)
 
     if response.status_code < 300:
         print("Response:")
@@ -430,11 +433,11 @@ mq_vhost = "some-vhost"
 mq_conn_str = f"amqp://{mq_user}:{mq_pwd}@{mq_host}/{mq_vhost}"
 
 new_config = prt.MQConfig(
-    conn_str=mq_conn_str, 
-    exchange="new-exchange", 
+    conn_str=mq_conn_str,
+    exchange="new-exchange",
     routing_key="new-routing-key",
-    queue="new-queue", 
-    exchange_type="direct"
+    queue="new-queue",
+    exchange_type="direct",
 )
 
 prt.mq.export_topology(new_config)

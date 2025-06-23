@@ -80,12 +80,12 @@ else:
     try:
         response = client.chat.completions.create(
             # The 'model' parameter should match the model loaded by the server
-            # You can often use model=None if only one model is served, 
+            # You can often use model=None if only one model is served,
             # or explicitly pass the model_id
-            model=model_id, 
+            model=model_id,
             messages=[{"role": "user", "content": "What is the capital of France?"}],
-            max_tokens=50, # Limit response length
-            temperature=0.7
+            max_tokens=50,  # Limit response length
+            temperature=0.7,
         )
         print("Response received:")
         print(response.choices[0].message.content)
@@ -122,13 +122,13 @@ Create a Python file (view example `mock_llm_server.py` at the bottom of this pa
 # This file would contain a simple Flask/FastAPI app mimicking the OpenAI API structure
 try:
     print("Attempting to stop any existing server...")
-    prt.models.server.stop() # Stop the real LLM server if it's running
+    prt.models.server.stop()  # Stop the real LLM server if it's running
     time.sleep(2)
 
     print("Starting the mock server...")
     # Make sure 'mock_llm_server.py' exists and is runnable
-    prt.models.server.start("mock_llm_server.py") 
-    time.sleep(5) # Give mock server time to start
+    prt.models.server.start("mock_llm_server.py")
+    time.sleep(5)  # Give mock server time to start
 
     mock_base_url = prt.models.server.get_base_url()
     if not mock_base_url:
@@ -143,9 +143,9 @@ try:
 
         # Send a request to the mock server
         mock_response = mock_client.chat.completions.create(
-            model="mock-model", # Model name expected by your mock server
-            messages=[{"role": "user", "content": "Hello mock!"}]
-            )
+            model="mock-model",  # Model name expected by your mock server
+            messages=[{"role": "user", "content": "Hello mock!"}],
+        )
         print("Mock Response:", mock_response.choices[0].message.content)
         # Example mock server might return: 'You said: Hello mock!'
 except FileNotFoundError:
@@ -186,7 +186,7 @@ This is the quickest way to get started. Use a pre-built Practicus AI vLLM image
 
 1.  **Define Container Image in Practicus AI:**
     * Navigate to `Infrastructure > Container Images` in the Practicus AI console.
-    * Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.0` (replace with the latest/appropriate version).
+    * Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.1` (replace with the latest/appropriate version).
 
 2.  **Create Model Deployment:**
     * Go to `ML Model Hosting > Model Deployments`.
@@ -256,8 +256,8 @@ Build a custom container image that includes the model files. This avoids runtim
 **Example `Dockerfile`:**
 
 ```dockerfile
-# Use a Practicus AI base image that includes GPU support and vLLM
-FROM ghcr.io/practicusai/practicus-modelhost-base-gpu-vllm:25.5.0
+# Use a Practicus AI image that includes GPU support and vLLM
+FROM ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.1
 
 # --- Configuration baked into the image ---
 ENV PRT_SERVE_MODEL="TinyLlama/TinyLlama-1.1B-Chat-v1.0"
@@ -311,7 +311,7 @@ If you need to add custom logic before or after the vLLM server handles requests
 4.  Build a custom Docker image (as in Option 2), ensuring you `COPY model.py /var/practicus/model.py`.
 
 ```python
-# Example: /var/practicus/model.py 
+# Example: /var/practicus/model.py
 # Customize as required and place  in your project and COPY into the Docker image
 import practicuscore as prt
 
@@ -321,18 +321,46 @@ async def init(**kwargs):
         prt.models.server.start()
 
 
-async def serve(http_request, payload: dict, **kwargs):
-    return await prt.models.server.serve(http_request=http_request, payload=payload, **kwargs)
-
+async def serve(**kwargs):
+    return await prt.models.server.serve(**kwargs)
 ```
 
-## 4. Conclusion
+## 4. Proxy Mode: Routing Requests to an External Service
+
+Practicus AI’s model server includes a flexible **proxy mode** that you can enable at startup. When proxy mode is active, all incoming inference requests are transparently forwarded to the external endpoint of your choice.
+
+For example, to relay traffic through OpenAI’s API, simply launch your model with proxy mode enabled and point it at `https://api.openai.com`. Your clients continue to call your Practicus endpoint, while under the hood requests—and responses—flow directly to and from OpenAI or another OpenAI compatible service.
+
+```python
+import practicuscore as prt
+
+proxy_base_url = "https://api.openai.com/v1"
+# Use prt.vault or manually enter OpenAI token e.g. sk-..
+proxy_token = None
+
+
+async def init(**kwargs):
+    if not prt.models.server.initialized:
+        prt.models.server.start(proxy_mode=True)
+
+
+async def serve(**kwargs):
+    assert proxy_token, "No proxy_token provided for OpenAI"
+    return await prt.models.server.serve(
+        proxy_base_url=proxy_base_url,
+        proxy_token=proxy_token,
+        **kwargs,
+    )
+```
+
+## 5. Conclusion
 
 Practicus AI provides optimized pathways for hosting LLMs using engines like vLLM.
 
 * Use the `prt.models.server` utility within notebooks for **interactive experimentation**.
 * For **runtime deployment**, choose between dynamic model downloads (easy start) or baking models into images (recommended for production) via the Practicus AI console.
 * Use a custom `model.py` only when specific pre/post-processing logic around the core LLM inference is required.
+* Proxy request to an external service if needed.
 
 Remember to consult the specific documentation for vLLM options and Practicus AI deployment configurations for advanced settings.
 

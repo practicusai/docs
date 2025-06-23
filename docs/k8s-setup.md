@@ -744,7 +744,8 @@ aws ecr get-login-password --region us-east-1 | docker login \
 docker buildx build -t practicus-private-test:24.1.0 --push .
 
 docker tag practicus-private-test:24.1.0 \
-  _your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test:24.1.0
+  _your_account_id_.dkr.ecr.us-east-1.amazonaws.com/practicus-private-test:...
+
 ```
 
 After this step, you should see the image in the AWS ECR console.

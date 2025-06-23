@@ -24,7 +24,7 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#practicus-ai-sdk-v2550">Practicus AI SDK v25.5.0</a>
+  <li><a href="#practicus-ai-sdk-v2551">Practicus AI SDK v25.5.1</a>
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#key-functionality">Key Functionality</a></li>
@@ -925,9 +925,6 @@
                                 <a class="function" href="#Worker.assign_node">assign_node</a>
                         </li>
                         <li>
-                                <a class="function" href="#Worker.local_worker_factory">local_worker_factory</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#Worker.terminate">terminate</a>
                         </li>
                         <li>
@@ -1055,9 +1052,6 @@
                         </li>
                         <li>
                                 <a class="function" href="#Process.show_issues">show_issues</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Process.is_local_practicus_svc_active">is_local_practicus_svc_active</a>
                         </li>
                         <li>
                                 <a class="variable" href="#Process.my_k8s_worker">my_k8s_worker</a>
@@ -1654,6 +1648,9 @@
                                 <a class="variable" href="#APISpec.read_only">read_only</a>
                         </li>
                         <li>
+                                <a class="variable" href="#APISpec.interactive">interactive</a>
+                        </li>
+                        <li>
                                 <a class="variable" href="#APISpec.scope">scope</a>
                         </li>
                         <li>
@@ -1681,6 +1678,9 @@
                                 <a class="variable" href="#APISpec.disable_authentication">disable_authentication</a>
                         </li>
                         <li>
+                                <a class="variable" href="#APISpec.sensitive_data">sensitive_data</a>
+                        </li>
+                        <li>
                                 <a class="variable" href="#APISpec.custom_attributes">custom_attributes</a>
                         </li>
                         <li>
@@ -1688,6 +1688,129 @@
                         </li>
                         <li>
                                 <a class="variable" href="#APISpec.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#GatewayModel">GatewayModel</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#GatewayModel.name">name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.model">model</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.api_key">api_key</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.api_key_os_env">api_key_os_env</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.api_base">api_base</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.pre_guards">pre_guards</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.post_guards">post_guards</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.pre_call">pre_call</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.post_call_success">post_call_success</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.post_call_failure">post_call_failure</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.router">router</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.max_tokens">max_tokens</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.max_input_tokens">max_input_tokens</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.max_output_tokens">max_output_tokens</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.input_cost_per_token">input_cost_per_token</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.output_cost_per_token">output_cost_per_token</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.mode">mode</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#GatewayModel.serialize_callable">serialize_callable</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#GatewayModel.serialize_callable_list">serialize_callable_list</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#GatewayModel.validate_model">validate_model</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayModel.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#GatewayGuardrail">GatewayGuardrail</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#GatewayGuardrail.name">name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayGuardrail.mode">mode</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayGuardrail.guard">guard</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayGuardrail.default_on">default_on</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#GatewayGuardrail.serialize_callable">serialize_callable</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayGuardrail.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#GatewayConfig">GatewayConfig</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#GatewayConfig.models">models</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.guardrails">guardrails</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.custom_conf">custom_conf</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.database_url">database_url</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.module">module</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.strict">strict</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#GatewayConfig.validate_model">validate_model</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -1714,6 +1837,21 @@
                                 <a class="variable" href="#ModelServer.STATUS_STOPPING">STATUS_STOPPING</a>
                         </li>
                         <li>
+                                <a class="variable" href="#ModelServer.IGNORED_REQ_HEADERS">IGNORED_REQ_HEADERS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ModelServer.IGNORED_RESP_HEADERS">IGNORED_RESP_HEADERS</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.deep_merge">deep_merge</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.start_gateway">start_gateway</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.start_serving">start_serving</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#ModelServer.start">start</a>
                         </li>
                         <li>
@@ -1733,6 +1871,12 @@
                         </li>
                         <li>
                                 <a class="function" href="#ModelServer.extract_upstream_path">extract_upstream_path</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.is_streaming_request">is_streaming_request</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.build_forward_headers">build_forward_headers</a>
                         </li>
                         <li>
                                 <a class="function" href="#ModelServer.serve">serve</a>
@@ -1795,7 +1939,7 @@
                     <h1 class="modulename">
 practicuscore    </h1>
 
-                        <div class="docstring"><h1 id="practicus-ai-sdk-v2550">Practicus AI SDK v25.5.0</h1>
+                        <div class="docstring"><h1 id="practicus-ai-sdk-v2551">Practicus AI SDK v25.5.1</h1>
 
 <h2 id="overview">Overview</h2>
 
@@ -2678,7 +2822,7 @@ can be used to route requests to the latest version dynamically.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -3274,7 +3418,7 @@ Only use Free and v5.x icons. To search, please visit <a href="https://fontaweso
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -3523,7 +3667,7 @@ before launching the new one.</li>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">test_api</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">payload</span>,</span><span class="param">	<span class="n">requestor</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">api_folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+        <span class="name">test_api</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">payload</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>,</span><span class="param">	<span class="n">requester</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">api_folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
 
         
     </div>
@@ -3535,7 +3679,7 @@ associated with the given path. Useful for design-time testing of APIs without d
 <p>Args:
     path (str): The API endpoint path.
     payload: The payload to pass to the API handler.
-    requestor (dict | None): Simulates calling the API as a particular requestor.
+    requester (dict | None): Simulates calling the API as a particular requester.
         Expected keys: username (str), email (str), user_id (int), admin (bool).
     api_folder (str | None): Where to find APIs. If empty, uses current working dir.</p>
 
@@ -4732,7 +4876,6 @@ It can also handle cutting part of the source path to simplify the uploaded key 
     <span class="n">folder_path</span><span class="o">=</span><span class="s2">&quot;local_data/&quot;</span><span class="p">,</span>
     <span class="n">aws_access_key_id</span><span class="o">=</span><span class="s2">&quot;AKIA...&quot;</span><span class="p">,</span>
     <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="s2">&quot;secret...&quot;</span><span class="p">,</span>
-    <span class="n">aws_region</span><span class="o">=</span><span class="s2">&quot;us-east-1&quot;</span>
 <span class="p">)</span>
 </code></pre>
 </div>
@@ -7819,7 +7962,7 @@ and configurations do not conflict across environments.</li>
                             <div id="Region.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.region (DEBUG)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.region (INFO)&gt;</span>
 
         
     </div>
@@ -9971,7 +10114,7 @@ like <code>region.create_worker()</code> or <code>region.get_local_worker()</cod
                             <div id="Worker.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.worker (DEBUG)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.worker (INFO)&gt;</span>
 
         
     </div>
@@ -10388,37 +10531,6 @@ like <code>region.create_worker()</code> or <code>region.get_local_worker()</cod
 
 <ul>
 <li>node (CloudNode): The underlying cloud node representing this worker's infrastructure.</li>
-</ul>
-</div>
-
-
-                            </div>
-                            <div id="Worker.local_worker_factory" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">local_worker_factory</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">k8s_region</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">cloud_def</span><span class="o">.</span><span class="n">K8sRegion</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="#Region">Region</a></span></span><span class="return-annotation">) -> <span class="n"><a href="#Worker">Worker</a></span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#Worker.local_worker_factory"></a>
-    
-            <div class="docstring"><p>Creates a Worker instance representing the local environment if the code is running on a Practicus AI Worker.</p>
-
-<p><strong>Note:</strong> This is intended for internal use.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>k8s_region (K8sRegion): The Kubernetes region configuration.</li>
-<li>region (Region): The parent Region instance.</li>
-</ul>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>Worker: A Worker object representing the local worker environment.</li>
 </ul>
 </div>
 
@@ -11055,7 +11167,7 @@ provides methods to terminate, wait until current operations are complete, and m
                             <div id="Process.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.process (DEBUG)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.process (INFO)&gt;</span>
 
         
     </div>
@@ -11413,22 +11525,6 @@ provides methods to terminate, wait until current operations are complete, and m
 <ul>
 <li>raise_error_on_issues (bool): If True, raises an error if issues are present.</li>
 </ul>
-</div>
-
-
-                            </div>
-                            <div id="Process.is_local_practicus_svc_active" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">is_local_practicus_svc_active</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#Process.is_local_practicus_svc_active"></a>
-    
-            <div class="docstring"><p>Checks if the local worker control plane is active</p>
 </div>
 
 
@@ -14339,6 +14435,19 @@ focusing on its execution pattern, operational properties, and context.</p>
 
 
                             </div>
+                            <div id="APISpec.interactive" class="classattr">
+                                <div class="attr variable">
+            <span class="name">interactive</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.interactive"></a>
+    
+            <div class="docstring"><p>Defines if API endpoint is automatically discovered byt interactive AI Assistants through protocols such as MCP.</p>
+</div>
+
+
+                            </div>
                             <div id="APISpec.scope" class="classattr">
                                 <div class="attr variable">
             <span class="name">scope</span><span class="annotation">: <a href="#APIScope">APIScope</a> | None</span>
@@ -14457,6 +14566,19 @@ focusing on its execution pattern, operational properties, and context.</p>
 
 
                             </div>
+                            <div id="APISpec.sensitive_data" class="classattr">
+                                <div class="attr variable">
+            <span class="name">sensitive_data</span><span class="annotation">: bool | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#APISpec.sensitive_data"></a>
+    
+            <div class="docstring"><p>Defines if the API endpoint can return sensitive data such as PII.</p>
+</div>
+
+
+                            </div>
                             <div id="APISpec.custom_attributes" class="classattr">
                                 <div class="attr variable">
             <span class="name">custom_attributes</span><span class="annotation">: dict[str, str | int | float | bool] | None</span>
@@ -14485,7 +14607,7 @@ extensions, automatically prefixed with 'x-prt-'. </p>
                     <div class="decorator decorator-field_validator">@field_validator(&#39;custom_attributes&#39;)</div>
 
         <span class="def">def</span>
-        <span class="name">validate_custom_attributes</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">validate_custom_attributes</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">value</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -14509,6 +14631,562 @@ extensions, automatically prefixed with 'x-prt-'. </p>
 
                             </div>
                 </section>
+                <section id="GatewayModel">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">GatewayModel</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel"></a>
+    
+            <div class="docstring"><p>Configuration for a single model endpoint within the gateway. Each model can
+represent a concrete LLM endpoint or a virtual router that delegates to other models.</p>
+</div>
+
+
+                            <div id="GatewayModel.name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">name</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.name"></a>
+    
+            <div class="docstring"><p>The user-facing name for the model (e.g., 'practicus/medium'). This is the name users will specify in their API calls.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.model" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.model"></a>
+    
+            <div class="docstring"><p>The actual model identifier for LiteLLM (e.g., 'openai/gpt-4o', 'hosted_vllm/my-deployment'). This should be set for concrete models.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.api_key" class="classattr">
+                                <div class="attr variable">
+            <span class="name">api_key</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.api_key"></a>
+    
+            <div class="docstring"><p>Directly provides the API Key for the model. Using <code><a href="#GatewayModel.api_key_os_env">api_key_os_env</a></code> is the recommended and more secure practice.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.api_key_os_env" class="classattr">
+                                <div class="attr variable">
+            <span class="name">api_key_os_env</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.api_key_os_env"></a>
+    
+            <div class="docstring"><p>The OS environment variable from which to read the API Key (e.g., 'OPENAI_API_KEY').</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.api_base" class="classattr">
+                                <div class="attr variable">
+            <span class="name">api_base</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.api_base"></a>
+    
+            <div class="docstring"><p>The API base to use for OpenAI compatible LLM servers such as Practicus AI LLM hosting (with or without vLLM)</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.pre_guards" class="classattr">
+                                <div class="attr variable">
+            <span class="name">pre_guards</span><span class="annotation">: list[typing.Union[typing.Callable[..., typing.Coroutine[typing.Any, typing.Any, dict[str, typing.Any]]], str]] | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.pre_guards"></a>
+    
+            <div class="docstring"><p>A list of async functions (or their name) to use as the pre guard. 
+The async functions can inspect or modify the request payload
+before it is sent to the LLM. It must return the (potentially modified) data dictionary.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.post_guards" class="classattr">
+                                <div class="attr variable">
+            <span class="name">post_guards</span><span class="annotation">: list[typing.Union[typing.Callable[..., typing.Coroutine[typing.Any, typing.Any, typing.Any]], str]] | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.post_guards"></a>
+    
+            <div class="docstring"><p>A list of async functions (or their name) to use as the post guard. 
+The async functions can inspect or modify the response object
+before it is sent to the client. To make changes, it must not return the response, but modify it directly.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.pre_call" class="classattr">
+                                <div class="attr variable">
+            <span class="name">pre_call</span><span class="annotation">: Union[Callable[..., Coroutine[Any, Any, dict[str, Any]]], str, NoneType]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.pre_call"></a>
+    
+            <div class="docstring"><p>A general-purpose async function (or its name) to run before the LLM call, after any routing has occurred.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.post_call_success" class="classattr">
+                                <div class="attr variable">
+            <span class="name">post_call_success</span><span class="annotation">: Union[Callable[..., Coroutine[Any, Any, NoneType]], str, NoneType]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.post_call_success"></a>
+    
+            <div class="docstring"><p>An async function (or its name) to run after a successful LLM call, for additional logging, metrics, or other side effects.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.post_call_failure" class="classattr">
+                                <div class="attr variable">
+            <span class="name">post_call_failure</span><span class="annotation">: Union[Callable[..., Coroutine[Any, Any, NoneType]], str, NoneType]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.post_call_failure"></a>
+    
+            <div class="docstring"><p>An async function (or its name) to run after a failed LLM call, for additional error logging and cleanup.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.router" class="classattr">
+                                <div class="attr variable">
+            <span class="name">router</span><span class="annotation">: Union[Callable[..., Coroutine[Any, Any, Union[<a href="#GatewayModel">GatewayModel</a>, str]]], str, NoneType]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.router"></a>
+    
+            <div class="docstring"><p>A dynamic routing function (or its name) that determines the actual model to use at runtime. If this is set, 'model' should be None.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.max_tokens" class="classattr">
+                                <div class="attr variable">
+            <span class="name">max_tokens</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.max_tokens"></a>
+    
+            <div class="docstring"><p>Maximum total number of tokens (input + output) allowed for a single request. If not set, defaults to the engine’s maximum.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.max_input_tokens" class="classattr">
+                                <div class="attr variable">
+            <span class="name">max_input_tokens</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.max_input_tokens"></a>
+    
+            <div class="docstring"><p>Maximum number of input tokens accepted for a request. If not set, uses the model’s default or unlimited.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.max_output_tokens" class="classattr">
+                                <div class="attr variable">
+            <span class="name">max_output_tokens</span><span class="annotation">: int | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.max_output_tokens"></a>
+    
+            <div class="docstring"><p>Maximum number of output tokens that can be generated in a single response. If not set, uses the model’s default.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.input_cost_per_token" class="classattr">
+                                <div class="attr variable">
+            <span class="name">input_cost_per_token</span><span class="annotation">: float | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.input_cost_per_token"></a>
+    
+            <div class="docstring"><p>Cost per input token, typically in USD but can be other currency or a virtual credit. Used for tracking and estimating prompt costs. Leave unset to ignore.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.output_cost_per_token" class="classattr">
+                                <div class="attr variable">
+            <span class="name">output_cost_per_token</span><span class="annotation">: float | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.output_cost_per_token"></a>
+    
+            <div class="docstring"><p>Cost per output token, typically in USD but can be other currency or a virtual credit. Used for tracking and estimating completion costs. Leave unset to ignore.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.mode" class="classattr">
+                                <div class="attr variable">
+            <span class="name">mode</span><span class="annotation">: Optional[Literal[&#39;embedding&#39;, &#39;chat&#39;, &#39;completion&#39;]]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.mode"></a>
+    
+            <div class="docstring"><p>Type of model operation. 
+    - "embedding": For embedding/vectorization requests.
+    - "chat": For conversational models supporting multi-turn input.
+    - "completion": For standard prompt-to-text completion. 
+If not set, defaults to the model’s primary mode.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.serialize_callable" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_serializer">@field_serializer(&#39;pre_call&#39;, &#39;post_call_success&#39;, &#39;post_call_failure&#39;, &#39;router&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">serialize_callable</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">str</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.serialize_callable"></a>
+    
+            <div class="docstring"><p>Serializes a callable to its name for YAML/JSON output.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.serialize_callable_list" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_serializer">@field_serializer(&#39;pre_guards&#39;, &#39;post_guards&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">serialize_callable_list</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">value</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Coroutine</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]],</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.serialize_callable_list"></a>
+    
+            <div class="docstring"><p>Serializes a callables list to its name for YAML/JSON output.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.validate_model" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;after&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#GatewayModel">GatewayModel</a></span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.validate_model"></a>
+    
+            <div class="docstring"><p>Validate model.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayModel.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayModel.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="GatewayGuardrail">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">GatewayGuardrail</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayGuardrail"></a>
+    
+            <div class="docstring"><p>Defines guardrail hooks at the Gateway level, applying to all models.
+To apply a guardrail to a model only, you can add the guard method directly to the GatewayModel configuration.</p>
+</div>
+
+
+                            <div id="GatewayGuardrail.name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">name</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayGuardrail.name"></a>
+    
+            <div class="docstring"><p>The name of the guardrail. If the guardrail is not default_on, clients must request to use the guardrail(s) 
+with their names by adding to the chat completion <code>extra_body.guardrails</code> list. E.g.</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What year was Alice born?&quot;</span><span class="p">}],</span>
+        <span class="n">extra_body</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;guardrails&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;my-pre-guard&quot;</span><span class="p">,</span> <span class="s2">&quot;my-post-guard&quot;</span><span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+</code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="GatewayGuardrail.mode" class="classattr">
+                                <div class="attr variable">
+            <span class="name">mode</span><span class="annotation">: Literal[&#39;pre_call&#39;, &#39;post_call&#39;]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayGuardrail.mode"></a>
+    
+            <div class="docstring"><p>Whether to call the guard method before or after LLM executes.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayGuardrail.guard" class="classattr">
+                                <div class="attr variable">
+            <span class="name">guard</span><span class="annotation">: Union[Callable[..., Coroutine[Any, Any, Any]], str]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayGuardrail.guard"></a>
+    
+            <div class="docstring"><p>An async function (or its name) to use as the guard. </p>
+
+<p>If mode is 'pre_call', the async function can inspect or modify the request payload
+before it is sent to the LLM. It must return the (potentially modified) data dictionary.</p>
+
+<p>If mode is 'post_call', the async function can inspect or modify the response object
+before it is sent to the client. To make changes, it must not return the response, but modify it directly.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayGuardrail.default_on" class="classattr">
+                                <div class="attr variable">
+            <span class="name">default_on</span><span class="annotation">: bool</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayGuardrail.default_on"></a>
+    
+            <div class="docstring"><p>Whether the guard is active by default, for ALL MODELS. Use with caution. 
+If a guardrail needs to always run for a particular model only (but not all models) 
+you can apply the guardrail directly to the GatewayModel.pre_guards/post_guards fields.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayGuardrail.serialize_callable" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-field_serializer">@field_serializer(&#39;guard&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">serialize_callable</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">str</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayGuardrail.serialize_callable"></a>
+    
+            <div class="docstring"><p>Serializes a callable to its name for YAML/JSON output.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayGuardrail.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayGuardrail.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="GatewayConfig">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">GatewayConfig</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig"></a>
+    
+            <div class="docstring"><p>The main configuration schema for the LLM Gateway, acting as the root object.</p>
+</div>
+
+
+                            <div id="GatewayConfig.models" class="classattr">
+                                <div class="attr variable">
+            <span class="name">models</span><span class="annotation">: list[<a href="#GatewayModel">GatewayModel</a>] | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.models"></a>
+    
+            <div class="docstring"><p>A list of all model configurations available in the gateway.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.guardrails" class="classattr">
+                                <div class="attr variable">
+            <span class="name">guardrails</span><span class="annotation">: list[<a href="#GatewayGuardrail">GatewayGuardrail</a>] | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.guardrails"></a>
+    
+            <div class="docstring"><p>A list of guardrail configurations to make available to the entire gateway, and all models.
+If a guardrail is default_on (use with caution), it wil lbe enforced to all models.
+If a guardrail is not default_on, clients must request to use them in each chat call. 
+See guardrail documentation to learn more.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.custom_conf" class="classattr">
+                                <div class="attr variable">
+            <span class="name">custom_conf</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.custom_conf"></a>
+    
+            <div class="docstring"><p>A path to a custom LiteLLM YAML file or a raw YAML string to use as a base configuration.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.database_url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">database_url</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.database_url"></a>
+    
+            <div class="docstring"><p>Enables logging usage, spend and similar information to a PostgreSQL database. 
+Use a connection string in the following format: 
+postgresql://user:password@db_address:db_port/db_name
+IMPORTANT: The database must be migrated before first use by setting <code>USE_PRISMA_MIGRATE=True</code> OS Env variable
+on a modelhost deployment. You can use Practicus AI management console, modelhost deployment, Extra configuration section.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.module" class="classattr">
+                                <div class="attr variable">
+            <span class="name">module</span><span class="annotation">: str | None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.module"></a>
+    
+            <div class="docstring"><p>The absolute file path to the Python module containing user-defined hook functions (e.g., '/app/src/my_hooks.py').</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.strict" class="classattr">
+                                <div class="attr variable">
+            <span class="name">strict</span><span class="annotation">: bool</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.strict"></a>
+    
+            <div class="docstring"><p>If strict=False (default), gateway configuration errors do not stop the chat flow. 
+For uses cases with strict regulatory requirements, please make strict=True.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.validate_model" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;after&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_model</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#GatewayConfig">GatewayConfig</a></span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.validate_model"></a>
+    
+            <div class="docstring"><p>Validate model.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
                 <section id="ModelServer">
                     <div class="attr class">
             
@@ -14521,8 +15199,8 @@ extensions, automatically prefixed with 'x-prt-'. </p>
     
             <div class="docstring"><p>A static class for managing local LLM serving processes.</p>
 
-<p>This class encapsulates the functionality of launching and managing upstream inference service vLLM processes,
-providing a clean API for starting, monitoring, and shutting down the server.</p>
+<p>This class encapsulates the functionality of launching and managing upstream inference services
+like vLLM and LiteLLM, providing a clean API for starting, monitoring, and shutting down the server.</p>
 
 <p>All methods are static and the class maintains a singleton server instance internally,
 so users can call methods directly on the class without instantiation.</p>
@@ -14601,51 +15279,161 @@ so users can call methods directly on the class without instantiation.</p>
     
 
                             </div>
+                            <div id="ModelServer.IGNORED_REQ_HEADERS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">IGNORED_REQ_HEADERS</span>        =
+<input id="ModelServer.IGNORED_REQ_HEADERS-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;content-length&#39;, &#39;connection&#39;, &#39;keep-alive&#39;, &#39;host&#39;, &#39;upgrade&#39;, &#39;trailers&#39;, &#39;proxy-authenticate&#39;, &#39;te&#39;, &#39;transfer-encoding&#39;, &#39;authorization&#39;, &#39;proxy-authorization&#39;}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.IGNORED_REQ_HEADERS"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.IGNORED_RESP_HEADERS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">IGNORED_RESP_HEADERS</span>        =
+<span class="default_value">{&#39;connection&#39;, &#39;transfer-encoding&#39;, &#39;content-encoding&#39;}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.IGNORED_RESP_HEADERS"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.deep_merge" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">deep_merge</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">base</span><span class="p">:</span> <span class="n">Any</span>, </span><span class="param"><span class="n">new</span><span class="p">:</span> <span class="n">Any</span>, </span><span class="param"><span class="n">list_merge_keys</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.deep_merge"></a>
+    
+            <div class="docstring"><p>Recursively merges 'new' into 'base'.</p>
+
+<p>This function handles nested dictionaries and intelligently merges lists of
+dictionaries based on a unique key, preventing duplicates.</p>
+
+<ul>
+<li>For dictionaries, it merges keys recursively.</li>
+<li>For lists, it attempts to merge dictionaries within them using a
+unique key provided in 'list_merge_keys'. If the parameter is not
+provided, it defaults to checking for 'model_name' or 'guardrail_name'.
+If items are not dictionaries or lack a key, they are treated as
+unmergeable and appended.</li>
+<li>For all other types, the value from 'new' overwrites 'base'.</li>
+</ul>
+
+<p>Args:
+    base: The base object (often a dict or list).
+    new: The new object to merge into the base.
+    list_merge_keys: An optional list of keys to identify unique
+                    items in lists of dictionaries. The first key
+                    found will be used.</p>
+
+<p>Returns:
+    A new object with the merged content.</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.start_gateway" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">start_gateway</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">config</span><span class="p">:</span> <span class="n"><a href="#GatewayConfig">GatewayConfig</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">gateway_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;litellm&#39;</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.start_gateway"></a>
+    
+            <div class="docstring"><p>Configures Gateway and calls start method, defaulting to "litellm" inference engine.</p>
+
+<p>Args:
+    config (GatewayConfig | None, optional): Gateway configuration.
+    gateway_engine (str): The model inference engine to use (e.g. 'litellm').
+        You can also provide the engine using the PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
+    wait_until_ready (bool): If True, blocks until the server is ready. If False, you must manually call <code><a href="#ModelServer.wait_until_ready">wait_until_ready()</a></code>.</p>
+
+<p>Returns:
+    bool: True if server start was initiated, False otherwise.</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.start_serving" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">start_serving</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;vllm&#39;</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">proxy_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.start_serving"></a>
+    
+            <div class="docstring"><p>Alias for start method, defaulting to "vllm" inference engine for private LLM hosting purposes.</p>
+
+<p>Args:
+    inference_engine (str): The model inference engine to use (E.g. 'vllm').
+        You can also provide the engine using the PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
+    model (str | None): Varies based on the engine:
+        - For 'vllm': Name of the model to serve (e.g., "meta-llama/Llama-2-7b-hf").
+        - For local testing: Path to a local python file (e.g., "mock_server.py").
+        Can also be provided via the PRT_SERVE_MODEL OS environment variable.
+    options (str | dict[str, Any] | None): Configuration options.
+        - For 'vllm': Dictionary of command-line arguments.
+        Can also be provided via a base64 encoded in the PRT_SERVE_MODEL_OPTIONS_B64 OS variable.
+    proxy_mode (bool): If True, no local server is started. <code><a href="#ModelServer.serve">serve()</a></code> will require <code>proxy_base_url</code>.
+    wait_until_ready (bool): If True, blocks until the server is ready. If False, you must manually call <code><a href="#ModelServer.wait_until_ready">wait_until_ready()</a></code>.</p>
+
+<p>Returns:
+    bool: True if server start was initiated, False otherwise.</p>
+</div>
+
+
+                            </div>
                             <div id="ModelServer.start" class="classattr">
                                 <div class="attr function">
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">start</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">start</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;vllm&#39;</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">proxy_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
 
         
     </div>
     <a class="headerlink" href="#ModelServer.start"></a>
     
-            <div class="docstring"><p>Start a upstream inference service vLLM process with the specified model and options.</p>
+            <div class="docstring"><p>Start a upstream inference service like vLLM, LiteLLM or a custom python server with the specified model and options.</p>
 
-<p>This method initiates a non-blocking start of upstream inference service vLLM or local mock server.
+<p>This method initiates a non-blocking start of upstream inference service.
 If a server is already running or starting, this method will do nothing and return False.</p>
 
 <p>Args:
-    model: Name of the model to serve (as expected by vLLM) or path to a local python file.
-        You can also provide the model using PRT_SERVE_MODEL OS environment variable.
-    inference_engine: The model inference engine to use. If none, defaults to 'VLLM'.
-        You can also provide the engine using PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
-    options: Dictionary of options to pass to the server command, where:
-             - Keys represent command-line arguments (without leading dashes)
-             - Boolean values determine whether flag arguments are included
-             - Other values are converted to strings and passed as values
-        You can also provide options using PRT_SERVE_MODEL_OPTIONS_B64 OS environment variable.
-        Please note that the string in OS env variable must be a base64 encoded JSON string representing the
-        options dictionary.
-    wait_until_ready: Waits until the server is ready.
-        You can also set false, and manually wait calling wait_until_ready().</p>
+    inference_engine (str): The model inference engine to use ('vllm' or 'litellm').
+        You can also provide the engine using the PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
+    model (str | None): Varies based on the engine:
+        - For 'vllm': Name of the model to serve (e.g., "meta-llama/Llama-2-7b-hf").
+        - For local testing: Path to a local python file (e.g., "mock_server.py").
+        Can also be provided via the PRT_SERVE_MODEL OS environment variable.
+    options (str | dict[str, Any] | None): Configuration options.
+        - For 'vllm': Dictionary of command-line arguments.
+          Can also be provided via a base64 encoded in the PRT_SERVE_MODEL_OPTIONS_B64 OS variable.
+        - For 'litellm': A string containing the configuration YAML or path to the YAML file.
+          Can also be provided via a base64 encoded in the PRT_MODEL_GATEWAY_CONF_B64 OS variable.
+        PRT_MODEL_GATEWAY_CONF_B64
+    proxy_mode (bool): If True, no local server is started. <code><a href="#ModelServer.serve">serve()</a></code> will require <code>proxy_base_url</code>.
+    wait_until_ready (bool): If True, blocks until the server is ready. If False, you must manually call <code><a href="#ModelServer.wait_until_ready">wait_until_ready()</a></code>.</p>
 
 <p>Returns:
-    bool: True if server start was initiated, False otherwise</p>
-
-<p>Example:
-    # Start a vLLM server
-    prt.models.server.start("llama-2-7b", {
-        "tensor-parallel-size": 2,
-        "gpu-memory-utilization": 0.9,
-        "enable-prefix-caching": True
-    })</p>
-
-<pre><code># Or to run a local test server
-prt.models.server.start("mock_server.py")
-</code></pre>
+    bool: True if server start was initiated, False otherwise.</p>
 </div>
 
 
@@ -14673,18 +15461,6 @@ the server enters an error state or if the timeout is reached.</p>
 
 <p>Returns:
     bool: True if the server is ready</p>
-
-<p>Raises:
-    RuntimeError: If the server enters an error state or timeout is reached
-    ValueError: If no server has been started</p>
-
-<p>Example:
-    prt.models.server.start("llama/model")
-    try:
-        prt.models.server.wait_until_ready(timeout=120)
-        print("Server is ready!")
-    except RuntimeError as e:
-        print(f"Server error: {e}")</p>
 </div>
 
 
@@ -14710,6 +15486,7 @@ including its operational status, configured model, port, and any error messages
         - status: Current server status (stopped, starting, running, error, stopping)
         - model: Name of the model being served
         - port: Port the server is configured to run on
+        - inference_engine: The inference engine running. E.g. vllm, litellm
         - error_message: Details if status is 'error'
         - process_id: PID of the server process if running
         - uptime: Server uptime in seconds if running
@@ -14826,7 +15603,7 @@ for line in output['stderr']:
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">extract_upstream_path</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="n">model_meta</span><span class="p">:</span> <span class="nb">dict</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">extract_upstream_path</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="n">model_meta</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -14844,27 +15621,63 @@ for line in output['stderr']:
 
 
                             </div>
+                            <div id="ModelServer.is_streaming_request" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">is_streaming_request</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="n">payload_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.is_streaming_request"></a>
+    
+    
+
+                            </div>
+                            <div id="ModelServer.build_forward_headers" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">build_forward_headers</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.build_forward_headers"></a>
+    
+    
+
+                            </div>
                             <div id="ModelServer.serve" class="classattr">
                                 <div class="attr function">
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">async def</span>
-        <span class="name">serve</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="n">model_meta</span><span class="p">:</span> <span class="nb">dict</span>,</span><span class="param">	<span class="n">payload_dict</span><span class="p">:</span> <span class="nb">dict</span>,</span><span class="param">	<span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">600.0</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">):</span></span>
+        <span class="name">serve</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="n">model_meta</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>,</span><span class="param">	<span class="n">payload_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">requester</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">600.0</span>,</span><span class="param">	<span class="n">proxy_base_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">proxy_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#ModelServer.serve"></a>
     
-            <div class="docstring"><p>Async function to proxy requests to )upstream inference service vLLM running on current pod e.g. <a href="http://localhost:8585">http://localhost:8585</a></p>
+            <div class="docstring"><p>Async function to proxy requests to upstream inference service like vLLM or LiteLLM
+running on current pod e.g. <a href="http://localhost:8585">http://localhost:8585</a> for vLLM or <a href="http://localhost:4000">http://localhost:4000</a> for LiteLLM
+If ModelServer is started in proxy mode, proxy_base_url and optional proxy_token is used to send the request to
+an external service like OpenAI or another Practicus AI ModelServer instance.</p>
 
 <p>Args:
     http_request: The original HTTP request object
-    model_meta: Metadata about the model being served
-    payload_dict: The payload to send to the upstream inference service vLLM
-    timeout: Timeout in seconds to wait for the upstream inference service vLLM</p>
+    model_meta (dict | None): Metadata about the model being served
+    payload_dict (dict | None): The payload to send to the upstream inference service like vLLM
+    timeout (float): Timeout in seconds to wait for the upstream inference service like vLLM
+    proxy_base_url (str | None): if proxy mode is enabled on start() the proxy base URL must be provided
+        This is the URL to proxy (send) requests to.
+    proxy_token (str | None): if proxy mode is enabled on start(), you can provide a bearer token for the external
+        service such as OpenAI. In this case the incoming token can be Practicus AI specific, but the proxy
+        request can have a different token e.g. OpenAI's sk-... tokens.</p>
 
 <p>Returns:
-    Response from the upstream inference service vLLM</p>
+    Response or StreamingResponse from the upstream inference service</p>
 </div>
 
 

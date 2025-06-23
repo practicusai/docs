@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3
+    display_name: Practicus Core
     language: python
-    name: python3
+    name: practicus
 ---
 
 # Starting an auto-scaled Spark Cluster
@@ -33,7 +33,6 @@ jupyter:
 Let's identify a worker size that supports auto-scaling and includes the required privileged capabilities for running batch jobs.
 
 ```python
-auto_distributed = None
 auto_dist_worker_size = None
 initial_count = None
 max_count = None
@@ -53,10 +52,9 @@ display(worker_size_list.to_pandas())  # Check auto_distributed col.
 ```
 
 ```python
-assert auto_distributed, "Please select a auto_distributed (True or false)."
-assert auto_dist_worker_size, "Please select an auto-distributed (privileged) worker sizes."
-assert initial_count, "Please select an initial_count."
-assert max_count, "Please select a max_count."
+assert auto_dist_worker_size, "Please select auto-distributed (privileged) worker size."
+assert initial_count, "Please select initial_count."
+assert max_count, "Please select max_count."
 ```
 
 ```python
@@ -68,14 +66,15 @@ distributed_config = prt.DistJobConfig(
     # Set the initial size.
     # These are 'additional` executors to coordinator,
     # E.g. the below will create a cluster of 2 workers.
-    initial_count=1,
+    initial_count=initial_count,
     # Optional: set a maximum to auto-scale to, if needed.
     # E.g. with the below, the cluster can scale up to 5 workers
-    max_count=4,
+    max_count=max_count,
 )
 
 # Let's define worker features of the cluster
 worker_config = prt.WorkerConfig(
+    worker_image="ghcr.io/practicusai/practicus-spark-worker:25.5.1",
     # Please make sure to use a worker size with
     #   privileged access.
     worker_size=auto_dist_worker_size,

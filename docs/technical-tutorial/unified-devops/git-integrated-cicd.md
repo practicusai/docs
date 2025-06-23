@@ -38,7 +38,7 @@ on:
 
 jobs:
   Sample-Job:
-    runs-on: practicus-25.5.0
+    runs-on: practicus-25.5.1
     steps:
       - name: Say Hello
         run: echo "Hello"
@@ -116,7 +116,7 @@ env:
 
 jobs:
   Explore-PracticusAI-Actions:
-    runs-on: practicus-25.5.0
+    runs-on: practicus-25.5.1
     steps:
       - uses: actions/checkout@v4
 
@@ -181,7 +181,7 @@ env:
 
 jobs:
   Explore-PracticusAI-Actions:
-    runs-on: practicus-25.5.0
+    runs-on: practicus-25.5.1
     steps:
       - uses: actions/checkout@v4
 
@@ -260,7 +260,7 @@ env:
 
 jobs:
   Explore-PracticusAI-Actions:
-    runs-on: practicus-25.5.0
+    runs-on: practicus-25.5.1
     steps:
       - uses: actions/checkout@v4
 

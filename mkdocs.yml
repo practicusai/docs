@@ -184,6 +184,8 @@ nav:
       - Task Runnner App:
         - Build: technical-tutorial/extras/workflows/task-runnner-app/build.md
       - Task Parameters: technical-tutorial/extras/workflows/task-parameters.md
+      - Run Task Safe:
+        - Deploy: technical-tutorial/extras/workflows/run-task-safe/deploy.md
       - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
     - Generative AI:
       - Databases:
@@ -210,6 +212,8 @@ nav:
         - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
       - Ecomm-Sdk:
         - Memory Chabot: technical-tutorial/extras/generative-ai/ecomm-sdk/memory-chabot.md
+      - Growth Strategist AI:
+        - Build: technical-tutorial/extras/generative-ai/growth-strategist-ai/build.md
       - Cv Assistant:
         - Cv Assistant: technical-tutorial/extras/generative-ai/cv-assistant/cv-assistant.md
       - Deploying LLM:
@@ -283,7 +287,7 @@ nav:
   - Enterprise SSO: ops-tutorial/enterprise-sso.md
   - AI Assistants: ops-tutorial/ai_assistants.md
   - MFA (Multi-Factor Authentication): ops-tutorial/mfa.md
-- SDK v25.5.0: sdk/practicuscore.html
+- SDK v25.5.1: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

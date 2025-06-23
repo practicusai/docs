@@ -640,6 +640,7 @@ class ConvertToUppercaseResponse(BaseModel):
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.DirectExecution,
     read_only=True,
+    interactive=True,
     risk_profile=prt.APIRiskProfile.Low,
 )
 
@@ -773,6 +774,7 @@ class GenerateReceiptResponse(BaseModel):
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.DirectExecution,
     read_only=True,
+    interactive=True,
     risk_profile=prt.APIRiskProfile.Medium,
 )
 
@@ -865,6 +867,7 @@ class ProcessOrderResponse(BaseModel):
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.DirectExecution,
     read_only=True,
+    interactive=True,
     risk_profile=prt.APIRiskProfile.Medium,
 )
 
@@ -934,6 +937,7 @@ class SayHelloResponse(BaseModel):
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.DirectExecution,
     read_only=True,
+    interactive=True,
     risk_profile=prt.APIRiskProfile.Low,
 )
 
@@ -1012,6 +1016,7 @@ class SendConfirmationResponse(BaseModel):
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.DirectExecution,
     read_only=False,
+    interactive=True,
     risk_profile=prt.APIRiskProfile.High,
     idempotent=False,
     human_gated=True,

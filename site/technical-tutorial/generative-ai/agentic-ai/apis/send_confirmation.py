@@ -55,6 +55,7 @@ class SendConfirmationResponse(BaseModel):
 api_spec = prt.APISpec(
     execution_target=prt.APIExecutionTarget.DirectExecution,
     read_only=False,
+    interactive=True,
     risk_profile=prt.APIRiskProfile.High,
     idempotent=False,
     human_gated=True,
