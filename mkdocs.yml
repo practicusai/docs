@@ -58,8 +58,10 @@ nav:
     - Apps:
       - Build: technical-tutorial/generative-ai/apps/build.md
     - Model Serving:
-      - Vllm:
-        - Model Serving: technical-tutorial/generative-ai/model-serving/vllm/model-serving.md
+      - LLM:
+        - Model Serving: technical-tutorial/generative-ai/model-serving/llm/model-serving.md
+      - Gateway:
+        - Model Gateway: technical-tutorial/generative-ai/model-serving/gateway/model-gateway.md
       - Custom:
         - Models:
           - Build: technical-tutorial/generative-ai/model-serving/custom/models/build.md
@@ -256,6 +258,9 @@ nav:
         - Insurance With Remote Worker: technical-tutorial/extras/data-processing/process-data/insurance-with-remote-worker.md
         - Spark Custom Config: technical-tutorial/extras/data-processing/process-data/spark-custom-config.md
         - Spark Object Storage: technical-tutorial/extras/data-processing/process-data/spark-object-storage.md
+    - Big Data Analytics:
+      - Trino:
+        - Trino Iceberg API Integration: technical-tutorial/extras/big-data-analytics/trino/trino-iceberg-API-integration.md
 - AI Studio Tutorial:
   - Getting Started: ai-studio-tutorial/start.md
   - Intro to Data Analysis: ai-studio-tutorial/data-analysis-intro.md

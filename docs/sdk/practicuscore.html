@@ -1837,6 +1837,9 @@
                                 <a class="variable" href="#ModelServer.STATUS_STOPPING">STATUS_STOPPING</a>
                         </li>
                         <li>
+                                <a class="variable" href="#ModelServer.GATEWAY_METRIC_CACHE_DURATION_SECONDS">GATEWAY_METRIC_CACHE_DURATION_SECONDS</a>
+                        </li>
+                        <li>
                                 <a class="variable" href="#ModelServer.IGNORED_REQ_HEADERS">IGNORED_REQ_HEADERS</a>
                         </li>
                         <li>
@@ -1880,6 +1883,9 @@
                         </li>
                         <li>
                                 <a class="function" href="#ModelServer.serve">serve</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ModelServer.gateway_stats">gateway_stats</a>
                         </li>
                 </ul>
 
@@ -14680,7 +14686,9 @@ represent a concrete LLM endpoint or a virtual router that delegates to other mo
     </div>
     <a class="headerlink" href="#GatewayModel.api_key"></a>
     
-            <div class="docstring"><p>Directly provides the API Key for the model. Using <code><a href="#GatewayModel.api_key_os_env">api_key_os_env</a></code> is the recommended and more secure practice.</p>
+            <div class="docstring"><p>Static API Key for the model. You can use <code><a href="#GatewayModel.api_key_os_env">api_key_os_env</a></code> to get the token from an OS environment variable.
+For Practicus AI hosted models, you can leave api_key blank if there is an active user (see below), and a dynamic session token is generated with the active user credentials.
+Note: for dynamic tokens to work, an admin must first enable <code>user impersonation</code> for a Practicus AI modelhost deployment, so that a user account is appointed as the <code>active user</code>.</p>
 </div>
 
 
@@ -15279,11 +15287,23 @@ so users can call methods directly on the class without instantiation.</p>
     
 
                             </div>
+                            <div id="ModelServer.GATEWAY_METRIC_CACHE_DURATION_SECONDS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GATEWAY_METRIC_CACHE_DURATION_SECONDS</span>        =
+<span class="default_value">15</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.GATEWAY_METRIC_CACHE_DURATION_SECONDS"></a>
+    
+    
+
+                            </div>
                             <div id="ModelServer.IGNORED_REQ_HEADERS" class="classattr">
                                 <div class="attr variable">
             <span class="name">IGNORED_REQ_HEADERS</span>        =
 <input id="ModelServer.IGNORED_REQ_HEADERS-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;content-length&#39;, &#39;connection&#39;, &#39;keep-alive&#39;, &#39;host&#39;, &#39;upgrade&#39;, &#39;trailers&#39;, &#39;proxy-authenticate&#39;, &#39;te&#39;, &#39;transfer-encoding&#39;, &#39;authorization&#39;, &#39;proxy-authorization&#39;}</span>
+            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;content-length&#39;, &#39;trailers&#39;, &#39;authorization&#39;, &#39;transfer-encoding&#39;, &#39;keep-alive&#39;, &#39;proxy-authorization&#39;, &#39;upgrade&#39;, &#39;proxy-authenticate&#39;, &#39;connection&#39;, &#39;te&#39;, &#39;host&#39;}</span>
 
         
     </div>
@@ -15295,7 +15315,7 @@ so users can call methods directly on the class without instantiation.</p>
                             <div id="ModelServer.IGNORED_RESP_HEADERS" class="classattr">
                                 <div class="attr variable">
             <span class="name">IGNORED_RESP_HEADERS</span>        =
-<span class="default_value">{&#39;connection&#39;, &#39;transfer-encoding&#39;, &#39;content-encoding&#39;}</span>
+<span class="default_value">{&#39;content-encoding&#39;, &#39;transfer-encoding&#39;, &#39;connection&#39;}</span>
 
         
     </div>
@@ -15678,6 +15698,33 @@ an external service like OpenAI or another Practicus AI ModelServer instance.</p
 
 <p>Returns:
     Response or StreamingResponse from the upstream inference service</p>
+</div>
+
+
+                            </div>
+                            <div id="ModelServer.gateway_stats" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">gateway_stats</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="n"><a href="#GatewayModel">GatewayModel</a></span> <span class="o">|</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ModelServer.gateway_stats"></a>
+    
+            <div class="docstring"><p>Fetches gateway stats for a specific model.</p>
+
+<p>Args:
+    model_name (GatewayModel | str): The name of the model to retrieve stats for (e.g., "practicus/small-model").</p>
+
+<p>Returns:
+    A dictionary containing the statistics with the below keys:
+        - input_tokens_per_sec
+        - output_tokens_per_sec
+        - avg_time_to_first_token_sec
+        - avg_latency_sec
+    Values may be None if stats could not be retrieved.</p>
 </div>
 
 

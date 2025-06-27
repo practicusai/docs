@@ -588,4 +588,4 @@ def some_function():
 
 ---
 
-**Previous**: [Introduction](../introduction.md) | **Next**: [Model Serving > Vllm > Model Serving](../model-serving/vllm/model-serving.md)
+**Previous**: [Introduction](../introduction.md) | **Next**: [Model Serving > LLM > Model Serving](../model-serving/llm/model-serving.md)
