@@ -84,6 +84,12 @@ nav:
       - Build: technical-tutorial/generative-ai/agentic-ai/build.md
     - MCP:
       - Build: technical-tutorial/generative-ai/mcp/build.md
+    - Analytics:
+      - Intro: technical-tutorial/generative-ai/analytics/intro.md
+      - Policy Engine:
+        - Build: technical-tutorial/generative-ai/analytics/policy-engine/build.md
+      - Query Engine:
+        - Build: technical-tutorial/generative-ai/analytics/query-engine/build.md
   - Distributed Computing:
     - Introduction: technical-tutorial/distributed-computing/introduction.md
     - Spark:
@@ -141,6 +147,7 @@ nav:
     - Improve Code Quality:
       - Automated Code Quality: technical-tutorial/how-to/improve-code-quality/automated-code-quality.md
     - Work With Connections: technical-tutorial/how-to/work-with-connections.md
+    - Automating Kerberos Ticket Renewal With Cron: technical-tutorial/how-to/automating-kerberos-ticket-renewal-with-cron.md
     - Integrate Git: technical-tutorial/how-to/integrate-git.md
     - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
     - Work With Processes: technical-tutorial/how-to/work-with-processes.md
@@ -210,12 +217,21 @@ nav:
           - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
       - Milvus Embedding And LangChain:
         - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
+      - Agentic Use Cases:
+        - Product Rec:
+          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/product-rec/build.md
+        - Growth Strategist:
+          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/growth-strategist/build.md
+        - Retention Strategist:
+          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/retention-strategist/build.md
+        - Hr:
+          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/hr/build.md
+        - Inventroy:
+          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/inventroy/build.md
       - Langflow Apis:
         - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
       - Ecomm-Sdk:
         - Memory Chabot: technical-tutorial/extras/generative-ai/ecomm-sdk/memory-chabot.md
-      - Growth Strategist AI:
-        - Build: technical-tutorial/extras/generative-ai/growth-strategist-ai/build.md
       - Cv Assistant:
         - Cv Assistant: technical-tutorial/extras/generative-ai/cv-assistant/cv-assistant.md
       - Deploying LLM:
@@ -292,7 +308,7 @@ nav:
   - Enterprise SSO: ops-tutorial/enterprise-sso.md
   - AI Assistants: ops-tutorial/ai_assistants.md
   - MFA (Multi-Factor Authentication): ops-tutorial/mfa.md
-- SDK v25.5.1: sdk/practicuscore.html
+- SDK v25.5.2: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

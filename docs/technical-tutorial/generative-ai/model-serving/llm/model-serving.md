@@ -54,7 +54,7 @@ vllm_options = {"dtype": "half"}
 
 # Start the vLLM server process and wait for it to become ready
 print(f"Starting server for model: {model_id} with options: {vllm_options}...")
-prt.models.server.start(model_id, options=vllm_options)
+prt.models.server.start_serving(model=model_id, options=vllm_options)
 
 # The server might take a moment to initialize, especially on first download
 
@@ -115,7 +115,7 @@ print(logs)
 
 For testing pipelines or developing client code without requiring a GPU or a real LLM, you can run a simple mock server. This mock server just needs to implement the expected API endpoint (e.g., `/v1/chat/completions`).
 
-Create a Python file (view example `mock_llm_server.py` at the bottom of this page) with a basic web server (like Flask or FastAPI) that returns predefined responses. Then, start it using `prt.models.server.start()`.
+Create a Python file (view example `mock_llm_server.py` at the bottom of this page) with a basic web server (like Flask or FastAPI) that returns predefined responses. Then, start it using `prt.models.server.start_serving()`.
 
 ```python
 # Example: Assuming you have 'mock_llm_server.py' in the same directory
@@ -127,7 +127,7 @@ try:
 
     print("Starting the mock server...")
     # Make sure 'mock_llm_server.py' exists and is runnable
-    prt.models.server.start("mock_llm_server.py")
+    prt.models.server.start_serving(model="mock_llm_server.py")
     time.sleep(5)  # Give mock server time to start
 
     mock_base_url = prt.models.server.get_base_url()
@@ -186,7 +186,7 @@ This is the quickest way to get started. Use a pre-built Practicus AI vLLM image
 
 1.  **Define Container Image in Practicus AI:**
     * Navigate to `Infrastructure > Container Images` in the Practicus AI console.
-    * Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.1` (replace with the latest/appropriate version).
+    * Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.2` (replace with the latest/appropriate version).
 
 2.  **Create Model Deployment:**
     * Go to `ML Model Hosting > Model Deployments`.
@@ -257,7 +257,7 @@ Build a custom container image that includes the model files. This avoids runtim
 
 ```dockerfile
 # Use a Practicus AI image that includes GPU support and vLLM
-FROM ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.1
+FROM ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.2
 
 # --- Configuration baked into the image ---
 ENV PRT_SERVE_MODEL="TinyLlama/TinyLlama-1.1B-Chat-v1.0"
@@ -306,7 +306,7 @@ If you need to add custom logic before or after the vLLM server handles requests
 **Steps:**
 
 1.  Create your `model.py` with `init` and `serve` functions.
-2.  Inside `init`, call `prt.models.server.start()` to launch the vLLM process.
+2.  Inside `init`, call `prt.models.server.start_serving()` to launch the vLLM process.
 3.  Inside `serve`, you can add pre-processing logic, then call `await prt.models.server.serve()` to forward the request to the underlying vLLM server, and potentially add post-processing logic to the response.
 4.  Build a custom Docker image (as in Option 2), ensuring you `COPY model.py /var/practicus/model.py`.
 
@@ -318,7 +318,7 @@ import practicuscore as prt
 
 async def init(**kwargs):
     if not prt.models.server.initialized:
-        prt.models.server.start()
+        prt.models.server.start_serving()
 
 
 async def serve(**kwargs):
@@ -341,7 +341,7 @@ proxy_token = None
 
 async def init(**kwargs):
     if not prt.models.server.initialized:
-        prt.models.server.start(proxy_mode=True)
+        prt.models.server.start_serving(proxy_mode=True)
 
 
 async def serve(**kwargs):

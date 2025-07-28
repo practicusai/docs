@@ -146,4 +146,4 @@ prt.connections.upload_to_s3(_upload_conf)
 
 ---
 
-**Previous**: [Automated Code Quality](improve-code-quality/automated-code-quality.md) | **Next**: [Integrate Git](integrate-git.md)
+**Previous**: [Automated Code Quality](improve-code-quality/automated-code-quality.md) | **Next**: [Automating Kerberos Ticket Renewal With Cron](automating-kerberos-ticket-renewal-with-cron.md)

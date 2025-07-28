@@ -1,0 +1,101 @@
+customer_id,date,interaction_type,channel,sentiment,message_text,team
+C004,2024-12-20,feedback,phone,positive,"Quick resolution, thanks!",Support
+C018,2025-01-05,support,social,positive,Very happy with the service.,Support
+C007,2025-02-11,support,app,positive,Impressed by the quick response.,Sales
+C018,2025-03-31,complaint,social,negative,App crashes frequently.,Support
+C006,2025-06-10,cancellation,chat,neutral,It was okay.,Sales
+C011,2025-01-09,inquiry,social,positive,App is easy to use.,Retention
+C020,2025-02-19,inquiry,social,negative,Product arrived damaged.,Tech
+C003,2025-05-04,feedback,app,neutral,Waiting for further instructions.,Sales
+C003,2024-12-25,complaint,chat,positive,"Quick resolution, thanks!",Support
+C013,2025-02-23,cancellation,chat,positive,App is easy to use.,Retention
+C007,2025-06-03,feedback,email,negative,No one responded to my issue.,
+C008,2025-01-24,cancellation,social,neutral,Waiting for further instructions.,Sales
+C011,2024-12-28,complaint,email,neutral,Need clarification on billing.,Retention
+C003,2025-02-06,support,chat,positive,Great support from team.,Tech
+C015,2025-01-19,feedback,phone,positive,Impressed by the quick response.,
+C009,2025-05-12,cancellation,app,neutral,Not sure about the update.,Sales
+C005,2025-04-23,cancellation,email,positive,Very happy with the service.,Sales
+C006,2025-06-06,cancellation,app,positive,Great support from team.,Tech
+C020,2025-04-12,support,chat,negative,Product arrived damaged.,Support
+C018,2025-02-20,feedback,email,neutral,Need clarification on billing.,Sales
+C015,2024-12-14,feedback,app,positive,Impressed by the quick response.,Support
+C010,2025-05-26,support,app,positive,"Quick resolution, thanks!",Retention
+C006,2025-05-01,support,email,negative,App crashes frequently.,Tech
+C001,2025-01-11,feedback,chat,positive,Very happy with the service.,Sales
+C019,2025-01-03,inquiry,social,positive,Impressed by the quick response.,Sales
+C005,2025-05-31,cancellation,app,positive,App is easy to use.,
+C020,2025-04-01,complaint,app,negative,No one responded to my issue.,Retention
+C013,2025-06-03,feedback,social,negative,Very disappointed with the delay.,Support
+C008,2025-02-09,inquiry,chat,positive,Impressed by the quick response.,
+C008,2025-05-13,complaint,email,positive,Very happy with the service.,Sales
+C003,2024-12-22,feedback,email,negative,No one responded to my issue.,Retention
+C016,2025-02-06,support,phone,negative,Service quality has dropped.,
+C016,2025-02-14,cancellation,social,positive,Very happy with the service.,Support
+C014,2025-03-14,cancellation,social,neutral,Looking for more information.,Support
+C002,2025-03-27,feedback,email,positive,"Quick resolution, thanks!",Sales
+C018,2025-04-07,complaint,social,positive,App is easy to use.,Tech
+C008,2025-01-02,cancellation,app,positive,Very happy with the service.,
+C001,2025-01-06,complaint,phone,neutral,Need clarification on billing.,Tech
+C007,2025-03-26,inquiry,phone,neutral,Looking for more information.,Tech
+C009,2025-04-09,feedback,social,negative,Service quality has dropped.,Tech
+C005,2025-01-31,feedback,phone,positive,Impressed by the quick response.,
+C002,2025-03-04,inquiry,email,negative,Very disappointed with the delay.,
+C017,2025-01-23,inquiry,app,positive,"Quick resolution, thanks!",Support
+C020,2024-12-31,complaint,social,positive,Impressed by the quick response.,Sales
+C019,2025-05-15,inquiry,app,positive,Great support from team.,
+C019,2025-04-26,feedback,chat,positive,App is easy to use.,Sales
+C009,2025-03-25,complaint,chat,neutral,Not sure about the update.,Support
+C001,2025-04-10,support,app,positive,Very happy with the service.,
+C007,2025-04-22,feedback,phone,neutral,Looking for more information.,Sales
+C012,2025-02-24,complaint,social,negative,App crashes frequently.,
+C017,2024-12-16,support,chat,negative,Product arrived damaged.,Sales
+C009,2025-01-12,inquiry,app,positive,App is easy to use.,Retention
+C020,2025-02-05,feedback,phone,negative,App crashes frequently.,
+C016,2025-02-16,inquiry,email,negative,Very disappointed with the delay.,Retention
+C002,2024-12-14,feedback,phone,negative,App crashes frequently.,Sales
+C015,2025-05-04,cancellation,app,positive,Very happy with the service.,Support
+C005,2025-05-02,inquiry,chat,negative,Service quality has dropped.,Sales
+C014,2025-01-15,inquiry,chat,neutral,Looking for more information.,Retention
+C007,2025-06-06,complaint,email,neutral,Waiting for further instructions.,Tech
+C020,2025-01-22,complaint,phone,positive,Great support from team.,Support
+C006,2025-03-09,cancellation,phone,neutral,It was okay.,Support
+C013,2024-12-23,cancellation,phone,positive,Great support from team.,Retention
+C010,2025-02-10,complaint,email,negative,No one responded to my issue.,Tech
+C011,2025-02-23,inquiry,chat,neutral,Waiting for further instructions.,Tech
+C018,2025-03-08,inquiry,email,neutral,It was okay.,
+C009,2024-12-23,inquiry,app,neutral,Not sure about the update.,Retention
+C014,2025-05-18,support,email,neutral,Waiting for further instructions.,Sales
+C009,2024-12-25,cancellation,email,negative,Service quality has dropped.,Sales
+C012,2025-04-03,inquiry,chat,negative,App crashes frequently.,Support
+C010,2025-04-22,feedback,social,neutral,Need clarification on billing.,Retention
+C018,2025-01-15,complaint,social,negative,Very disappointed with the delay.,Sales
+C020,2025-05-08,feedback,social,negative,Product arrived damaged.,Retention
+C010,2025-02-05,cancellation,app,negative,App crashes frequently.,Tech
+C015,2025-04-06,complaint,app,neutral,It was okay.,Support
+C010,2025-04-24,support,chat,positive,"Quick resolution, thanks!",Retention
+C008,2025-02-02,complaint,email,positive,"Quick resolution, thanks!",Tech
+C020,2025-01-01,cancellation,social,negative,Service quality has dropped.,Sales
+C013,2025-04-19,cancellation,phone,positive,Very happy with the service.,Support
+C014,2025-02-08,complaint,app,neutral,Looking for more information.,
+C008,2025-01-14,cancellation,phone,neutral,Waiting for further instructions.,
+C020,2025-03-05,cancellation,app,negative,Service quality has dropped.,Tech
+C018,2025-04-07,complaint,social,neutral,Not sure about the update.,Sales
+C009,2025-04-26,cancellation,phone,neutral,Need clarification on billing.,Support
+C010,2025-02-12,feedback,chat,neutral,Waiting for further instructions.,Support
+C005,2025-01-21,complaint,social,negative,No one responded to my issue.,Sales
+C003,2025-03-30,cancellation,chat,negative,Very disappointed with the delay.,Tech
+C002,2025-02-04,cancellation,social,negative,Product arrived damaged.,
+C013,2025-04-15,inquiry,chat,neutral,Need clarification on billing.,Tech
+C018,2025-05-02,support,phone,neutral,It was okay.,Retention
+C014,2025-04-17,inquiry,social,neutral,Need clarification on billing.,Sales
+C015,2025-01-15,support,app,positive,Great support from team.,
+C019,2025-06-01,inquiry,email,negative,Very disappointed with the delay.,Sales
+C015,2025-01-29,inquiry,chat,neutral,Not sure about the update.,Sales
+C015,2025-03-07,feedback,social,neutral,Need clarification on billing.,Retention
+C003,2025-04-13,inquiry,app,positive,App is easy to use.,Sales
+C003,2025-05-29,inquiry,email,positive,"Quick resolution, thanks!",Support
+C020,2025-01-22,complaint,phone,neutral,Looking for more information.,
+C007,2025-04-12,feedback,chat,positive,Impressed by the quick response.,
+C004,2025-01-24,feedback,email,negative,Product arrived damaged.,Retention
+C019,2025-06-05,cancellation,social,negative,No one responded to my issue.,Support

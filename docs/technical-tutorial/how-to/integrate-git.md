@@ -66,4 +66,4 @@ After cloning a git repo and saving credentials, you can use both the terminal a
 
 ---
 
-**Previous**: [Work With Connections](work-with-connections.md) | **Next**: [Use Security Tokens](use-security-tokens.md)
+**Previous**: [Automating Kerberos Ticket Renewal With Cron](automating-kerberos-ticket-renewal-with-cron.md) | **Next**: [Use Security Tokens](use-security-tokens.md)

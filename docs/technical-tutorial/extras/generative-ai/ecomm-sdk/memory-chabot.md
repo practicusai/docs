@@ -282,4 +282,4 @@ if selected_product:
 
 ---
 
-**Previous**: [Langflow API](../langflow-apis/langflow-api.md) | **Next**: [Growth Strategist AI > Build](../growth-strategist-ai/build.md)
+**Previous**: [Langflow API](../langflow-apis/langflow-api.md) | **Next**: [Cv Assistant > Cv Assistant](../cv-assistant/cv-assistant.md)

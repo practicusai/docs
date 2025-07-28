@@ -12,23 +12,35 @@ jupyter:
     name: python3
 ---
 
-# Mastering the Practicus AI Model Gateway  GATEWAY
+# Practicus AI Model Gateway for LLMs
 
-Welcome to the Practicus AI Model Gateway! This powerful feature, built on the robust foundation of **LiteLLM**, acts as a unifying proxy to streamline the management and deployment of Large Language Models (LLMs). 
+This document explains how to leverage the Practicus AI platform’s optimized Large Language Model (LLM) gateway features, powered by high-performance inference engines such as **LiteLLM**, and others. The Practicus AI Model Gateway serves as a unified proxy layer, enabling seamless management and deployment of LLMs—whether hosted on Practicus AI or accessed via third-party services.
 
 Whether you're using **Practicus AI's optimized vLLM hosting**, third-party services like **OpenAI**, or even your own **custom inference code**, the Gateway provides a single, consistent interface. This notebook will guide you through the entire process, from basic configuration to advanced dynamic routing and security guardrails.
 
-We'll cover:
-1.  **Core Concepts:** Understanding the key configuration objects.
-2.  **Configuration Strategies:** Using Python code, YAML files, or a hybrid approach.
-3.  **Logging & Cost Tracking:** Connecting a database to monitor usage and spend.
-4.  **Advanced Customization:** Implementing hooks, guardrails, and dynamic routing.
-5.  **Deployment:** Taking your Gateway configuration live on the Practicus AI platform.
+The following sections will guide you through key aspects of the Model Gateway, including initial setup, configuration, advanced features, and deployment.
+
+## Contents
+
+1. **Core Concepts**
+   Overview of the primary configuration objects used by the Model Gateway.
+
+2. **Configuration Strategies**
+   Options for defining Gateway behavior using Python code, YAML files, or hybrid approaches.
+
+3. **Logging and Cost Tracking**
+   How to connect a database for comprehensive monitoring of usage and spend.
+
+4. **Advanced Customization**
+   Implementation of hooks, security guardrails, and dynamic routing for production workloads.
+
+5. **Deployment**
+   Steps to launch your Gateway configuration on the Practicus AI platform.
 
 
 ## 1. Core Concepts: The Configuration Trio
 
-Your entire Gateway setup is defined by Python objects declared in a single file, typically named `model.py`. Practicus AI automatically handles the complex backend work, like generating the necessary `litellm_config.yaml` and attaching your custom functions.
+Your model Gateway setup is defined by Python (pydantic) objects declared in a single file, typically named `model.py`. Practicus AI automatically handles the complex backend work, like generating the necessary `litellm_config.yaml` and attaching your custom functions.
 
 There are three Pydantic classes you'll use:
 
@@ -69,8 +81,8 @@ model_gpt_4o = prt.GatewayModel(
 model_hosted_vllm = prt.GatewayModel(
     name="practicus/my-hosted-llama",
     model="hosted_vllm/my-llama-3-deployment",
-    api_base="http://local.practicus.io/models/open-ai-proxy/", # The internal URL to the deployment
-    api_key_os_env="MY_VLLM_TOKEN" # The service account token for the deployment
+    api_base="http://local.practicus.io/models/open-ai-proxy/",  # The internal URL to the deployment
+    api_key_os_env="MY_VLLM_TOKEN",  # The service account token for the deployment
 )
 
 # Step 2: Create the main GatewayConfig object
@@ -79,18 +91,19 @@ gateway_conf = prt.GatewayConfig(
         model_gpt_4o,
         model_hosted_vllm,
     ],
-    strict=False, # If True, configuration errors will block requests
+    strict=False,  # If True, configuration errors will block requests
 )
 
 # Step 3: Implement the init and serve functions
 
+
 async def init(**kwargs):
     """Initializes and starts the Gateway server."""
-    
+
     # It's best practice to set secrets from a secure source like Practicus Vault
     os.environ["OPENAI_API_KEY"] = "sk-...."
     os.environ["MY_VLLM_TOKEN"] = "eyJh..."
-    
+
     # Start the gateway with our configuration
     # The `module` path is detected automatically
     prt.models.server.start_gateway(config=gateway_conf)
@@ -103,7 +116,7 @@ async def serve(**kwargs):
 
 ### 2.2. Using an External LiteLLM YAML (`custom_conf`)
 
-If you have an existing `litellm_config.yaml` or prefer a pure YAML setup, you can use the `custom_conf` argument. The Gateway will use this as a base configuration.
+If your model gateway inference engine is LiteLLM (default) and have an existing `litellm_config.yaml` or prefer a pure YAML setup, you can use the `custom_conf` argument. The Gateway will use this as a base configuration.
 
 You can provide it as a raw string or a file path. This can be combined with a Python-based `GatewayConfig` object; settings in the Python object will **override** any conflicting settings in the YAML.
 
@@ -124,8 +137,8 @@ model_gpt_4o_with_cost = prt.GatewayModel(
     name="practicus/gpt-4o",
     model="openai/gpt-4o",
     api_key_os_env="OPENAI_API_KEY",
-    input_cost_per_token=0.000005, # $5 / 1M tokens
-    output_cost_per_token=0.000015, # $15 / 1M tokens
+    input_cost_per_token=0.000005,  # $5 / 1M tokens
+    output_cost_per_token=0.000015,  # $15 / 1M tokens
 )
 
 # The final config merges both. The gateway will serve both
@@ -186,16 +199,17 @@ You can attach callbacks directly to a `GatewayModel` to execute logic only for 
 ```python
 import practicuscore as prt
 
+
 # Example of a pre-guard hook to add metadata to the request
 async def add_custom_metadata(data: dict, requester: dict | None, **kwargs) -> dict:
     """This hook inspects the request and adds metadata."""
     print(f"Executing pre-guard for user: {requester.get('id', 'unknown') if requester else 'unknown'}")
-    
+
     # Add a custom tracking ID to the request payload
     if "metadata" not in data:
         data["metadata"] = {}
     data["metadata"]["gateway_tracking_id"] = "gtw-12345"
-    
+
     # You MUST return the modified data dictionary
     return data
 
@@ -203,7 +217,9 @@ async def add_custom_metadata(data: dict, requester: dict | None, **kwargs) -> d
 # Example of a post-call hook for logging
 async def log_successful_call(requester: dict | None, **kwargs):
     """This hook runs after a successful call."""
-    print(f"Call successful for user: {requester.get('id', 'N/A') if requester else 'N/A'}. Logging to custom system...")
+    print(
+        f"Call successful for user: {requester.get('id', 'N/A') if requester else 'N/A'}. Logging to custom system..."
+    )
     # ... add custom logging logic here ...
 
 
@@ -212,7 +228,7 @@ model_with_hooks = prt.GatewayModel(
     name="practicus/gpt-4o-guarded",
     model="openai/gpt-4o",
     api_key_os_env="OPENAI_API_KEY",
-    pre_guards=[add_custom_metadata], # Can also pass the function name as a string: "add_custom_metadata"
+    pre_guards=[add_custom_metadata],  # Can also pass the function name as a string: "add_custom_metadata"
     post_call_success=log_successful_call,
 )
 ```
@@ -238,26 +254,27 @@ import practicuscore as prt
 # First, define the concrete models that our router can choose from
 model_fast = prt.GatewayModel(
     name="practicus/fast-model",
-    model="groq/llama3-8b-8192", # A known fast model
-    api_key_os_env="GROQ_API_KEY"
+    model="groq/llama3-8b-8192",  # A known fast model
+    api_key_os_env="GROQ_API_KEY",
 )
 
 model_powerful = prt.GatewayModel(
     name="practicus/powerful-model",
-    model="openai/gpt-4o", # A known powerful model
-    api_key_os_env="OPENAI_API_KEY"
+    model="openai/gpt-4o",  # A known powerful model
+    api_key_os_env="OPENAI_API_KEY",
 )
+
 
 # Now, define the router function
 async def intelligent_router(data: dict, **kwargs) -> str:
     """Routes to a fast model for short prompts, and a powerful one for long prompts."""
     user_prompt = data.get("messages", [{}])[-1].get("content", "")
-    
+
     # Simple logic: if prompt is short, use the fast model.
     if len(user_prompt) < 200:
         print("Routing to FAST model")
-        return model_fast.name # Return the name of the target model
-    
+        return model_fast.name  # Return the name of the target model
+
     # Otherwise, use the powerful model
     print("Routing to POWERFUL model")
     return model_powerful.name
@@ -265,8 +282,8 @@ async def intelligent_router(data: dict, **kwargs) -> str:
 
 # Finally, define the virtual model that uses the router
 model_intelligent_router = prt.GatewayModel(
-    name="practicus/intelligent-router", # This is the name clients will call
-    router=intelligent_router, # Assign the router function
+    name="practicus/intelligent-router",  # This is the name clients will call
+    router=intelligent_router,  # Assign the router function
 )
 ```
 
@@ -281,6 +298,7 @@ A `GatewayGuardrail` is a hook that can be applied across the entire gateway. Th
 import practicuscore as prt
 from openai import OpenAI
 
+
 # Define a guardrail function
 async def pii_scrubber(data: dict, **kwargs) -> dict:
     """A simple PII scrubber that replaces email addresses."""
@@ -290,12 +308,13 @@ async def pii_scrubber(data: dict, **kwargs) -> dict:
         message["content"] = content.replace("test@example.com", "[REDACTED_EMAIL]")
     return data
 
+
 # Create a GatewayGuardrail instance for it
 pii_guard = prt.GatewayGuardrail(
     name="pii-scrubber",
-    mode="pre_call", # This runs before the LLM call
+    mode="pre_call",  # This runs before the LLM call
     guard=pii_scrubber,
-    default_on=False, # It is OFF by default
+    default_on=False,  # It is OFF by default
 )
 
 # This guardrail would then be added to the GatewayConfig:
@@ -350,17 +369,18 @@ import practicuscore as prt
 # Ensure your model.py file (containing your GatewayConfig, hooks, init, and serve)
 # is in the project's root directory or a specified subdirectory.
 
-deployment_key = "my-gateway-deployment" # A unique name for the K8s deployment
-prefix = "models" # The API path prefix
-model_name = "llm-gateway" # The name of your model in Practicus AI
+deployment_key = None  # E.g. "my-gateway-deployment" a unique name for the K8s deployment
+prefix = "models"  # The API path prefix
+model_name = "llm-gateway"  # The name of your model in Practicus AI
 
-api_url, api_version_url, api_meta_url = prt.models.deploy(
-    deployment_key=deployment_key,
-    prefix=prefix,
-    model_name=model_name,
-)
+if deployment_key:
+    api_url, api_version_url, api_meta_url = prt.models.deploy(
+        deployment_key=deployment_key,
+        prefix=prefix,
+        model_name=model_name,
+    )
 
-print(f"Deployment initiated. API will be available at: {api_url}")
+    print(f"Deployment initiated. API will be available at: {api_url}")
 ```
 
 ## 7. Conclusion

@@ -24,7 +24,7 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#practicus-ai-sdk-v2551">Practicus AI SDK v25.5.1</a>
+  <li><a href="#practicus-ai-sdk-v2552">Practicus AI SDK v25.5.2</a>
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#key-functionality">Key Functionality</a></li>
@@ -620,6 +620,54 @@
                         </li>
                         <li>
                                 <a class="function" href="#addons.get_list">get_list</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#sql">sql</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#sql.parse">parse</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#sql.add_limit">add_limit</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#sql.execute_sql_async">execute_sql_async</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#sql.find_analytics_database_id_async">find_analytics_database_id_async</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#sql.create_analytics_dataset_async">create_analytics_dataset_async</a>
+                        </li>
+                        <li>
+                                <a class="class" href="#sql.ParseError">sql.ParseError</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#metadata">metadata</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#metadata.logger">logger</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#metadata.get_table_async">get_table_async</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#metadata.get_user_async">get_user_async</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#metadata.initialized">initialized</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#metadata.initialize">initialize</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#metadata.configure_cache">configure_cache</a>
                         </li>
                 </ul>
 
@@ -1227,6 +1275,12 @@
                         <li>
                                 <a class="variable" href="#Log.MCP_SERVER">MCP_SERVER</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#Log.SQL">SQL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Log.METADATA">METADATA</a>
+                        </li>
                 </ul>
 
             </li>
@@ -1816,6 +1870,87 @@
 
             </li>
             <li>
+                    <a class="class" href="#TrinoPolicyRequest">TrinoPolicyRequest</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#TrinoPolicyRequest.model_config">model_config</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoPolicyRequest.context">context</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoPolicyRequest.action">action</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoPolicyRequest.user">user</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoPolicyRequest.operation">operation</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#TrinoPolicyRequest.get_table_to_select">get_table_to_select</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#TrinoPolicyRequest.get_table_to_filter">get_table_to_filter</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#TrinoPolicyRequest.get_columns_to_mask">get_columns_to_mask</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#TrinoPolicyRequest.unwrap_input_layer">unwrap_input_layer</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#TrinoRowFilter">TrinoRowFilter</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#TrinoRowFilter.expressions">expressions</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoRowFilter.result">result</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoRowFilter.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#TrinoColumnMaskRule">TrinoColumnMaskRule</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#TrinoColumnMaskRule.column">column</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoColumnMaskRule.expression">expression</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoColumnMaskRule.index">index</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoColumnMaskRule.viewExpression">viewExpression</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoColumnMaskRule.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#TrinoColumnMask">TrinoColumnMask</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#TrinoColumnMask.result">result</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#TrinoColumnMask.model_config">model_config</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#ModelServer">ModelServer</a>
                             <ul class="memberlist">
                         <li>
@@ -1945,7 +2080,7 @@
                     <h1 class="modulename">
 practicuscore    </h1>
 
-                        <div class="docstring"><h1 id="practicus-ai-sdk-v2551">Practicus AI SDK v25.5.1</h1>
+                        <div class="docstring"><h1 id="practicus-ai-sdk-v2552">Practicus AI SDK v25.5.2</h1>
 
 <h2 id="overview">Overview</h2>
 
@@ -2320,7 +2455,7 @@ or explicitly set using <code><a href="#regions.set_default_region">set_default_
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">current_region</span><span class="signature pdoc-code condensed">(<span class="param"><span class="o">*</span><span class="n">args</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
+        <span class="name">current_region</span><span class="signature pdoc-code condensed">(<span class="param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
 
         
     </div>
@@ -3361,7 +3496,7 @@ __pydantic_private__: Values of private attributes set on the model instance.
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">deploy</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+        <span class="name">deploy</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -7876,6 +8011,305 @@ to improve performance and save a round-trip to security APIs.</li>
 
                             </div>
                 </section>
+                <section id="sql">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">sql</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#sql"></a>
+    
+            <div class="docstring"><p>Helper methods for Practicus AI SQL.</p>
+</div>
+
+
+                            <div id="sql.parse" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">parse</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">sql</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">dialect</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;trino&#39;</span>,</span><span class="param">	<span class="n">select_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">allow_cte</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">SQLMeta</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#sql.parse"></a>
+    
+            <div class="docstring"><p>Parses a SQL query and extracts its metadata into a SQLMeta Pydantic model.
+Args:
+    sql: The SQL query string to parse.
+    dialect: The SQL dialect to use. Defaults to trino.
+      Example dialects: trino, postgres, mysql, oracle, tsql, snowflake, bigquery, duckdb, clickhouse,
+        databricks, hive, redshift, sqlite ..
+    select_only: Only allow SELECT statements (default) and not INSERT, UPDATE, DELETE, CREATE etc.
+    allow_cte: USE WITH CAUTION. Allow Common Table Expressions (CTE). Defaults to False.
+      Please note that CTEs can cause some edge cases where the SQL parser can miss some tables.
+      As a result, permission checks can ignore these tables. Only allow CTEs if the underlying engine level
+      (e.g. Trino) permission checks are sufficient.</p>
+
+<p>Returns:
+    A SQLMeta object containing the extracted limit, tables, and columns.</p>
+</div>
+
+
+                            </div>
+                            <div id="sql.add_limit" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">add_limit</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">sql</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">limit</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#sql.add_limit"></a>
+    
+            <div class="docstring"><p>Adds a LIMIT clause to an SQL query. This is a "best effort" function.</p>
+
+<p>Args:
+    sql: The SQL query string.
+    limit: The number to use for the LIMIT clause.</p>
+
+<p>Returns:
+    The modified SQL query with a LIMIT clause.</p>
+</div>
+
+
+                            </div>
+                            <div id="sql.execute_sql_async" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">execute_sql_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">sql</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">host</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">port</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">db_user</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">db_password</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">verify</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">impersonate_user</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">100</span>,</span><span class="param">	<span class="n">auto_add_limit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">http_scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;https&#39;</span>,</span><span class="param">	<span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;trino&#39;</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#sql.execute_sql_async"></a>
+    
+            <div class="docstring"><p>Executes a SQL query asynchronously against the selected engine (default is Trino).</p>
+
+<p>Args:
+    sql: The SQL query to execute.
+    host: The hostname or IP, e.g. for Trino coordinator.
+    port: The port to connect to (typically 8443 for Trino).
+    db_user: The username. E.g. for Trino authentication.
+    db_password: The password used for authentication.
+    verify: For Trino, path to CA certificate (e.g., 'ca_cert.pem') for SSL verification, or <code>False</code> to disable verification (not recommended).
+    impersonate_user: Optional. If provided, Trino will impersonate this user via <code>X-Trino-User</code> header.
+    limit: If set, the query is parsed and checked to ensure it has an upper bound on rows. Raises if query would exceed this limit.
+    auto_add_limit: If True and the query has no LIMIT clause, a best-effort attempt is made to append one.
+    http_scheme: Either "http" or "https". Default is "https".
+    engine: The target SQL engine name. Default is "trino".
+    **kwargs: Additional keyword arguments passed to the <code>dbapi.connect()</code> method (e.g., session configs, auth configs).</p>
+
+<p>Returns:
+    A csv string containing the raw SQL output.</p>
+
+<p>Notes:
+    - This method parses and may rewrite the SQL before execution for safety (e.g., LIMIT enforcement).
+    - Always validate the use of <code>verify</code> and provide a proper certificate for production environments.</p>
+</div>
+
+
+                            </div>
+                            <div id="sql.find_analytics_database_id_async" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">find_analytics_database_id_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">username</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">password</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">db_name</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#sql.find_analytics_database_id_async"></a>
+    
+            <div class="docstring"><p>Finds the ID of a database in Superset by its name.</p>
+</div>
+
+
+                            </div>
+                            <div id="sql.create_analytics_dataset_async" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">create_analytics_dataset_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">username</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">password</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">db_id</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">sql</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">requesting_username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">owner_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">add_timestamp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1000</span>,</span><span class="param">	<span class="n">auto_add_limit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#sql.create_analytics_dataset_async"></a>
+    
+            <div class="docstring"><p>Creates a virtual dataset in Superset and returns a URL to explore it.</p>
+
+<p>Args:
+    base_url (str): The base URL of the Superset instance.
+    username (str): The API username for authentication.
+    password (str): The API password for authentication.
+    db_id (int): The ID of the database for the dataset.
+    sql (str): The SQL query for the virtual dataset.
+    dataset_name (str): The base name for the dataset (truncated to 25 chars).
+    requesting_username (Optional[str]): Username to include in the dataset name. Defaults to None.
+    owner_id (Optional[int]): The integer ID of the user to own the dataset. Defaults to None.
+    add_timestamp (bool): If True, appends a UTC timestamp to the dataset name. Defaults to False.
+    limit: If set, the query is parsed and checked to ensure it has an upper bound on rows. Raises if query would exceed this limit.
+    auto_add_limit: If True and the query has no LIMIT clause, a best-effort attempt is made to append one.</p>
+
+<p>Returns:
+    Optional[str]: The Superset Explore URL for the dataset, or None on failure.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="sql.ParseError">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">sql.ParseError</span><wbr>(<span class="base">builtins.SyntaxError</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#sql.ParseError"></a>
+    
+            <div class="docstring"><p>Invalid syntax.</p>
+</div>
+
+
+                </section>
+                <section id="metadata">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">metadata</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#metadata"></a>
+    
+            <div class="docstring"><p>Thin alias over internal OpenMetadata SDK helpers.</p>
+
+<p>Provides convenient async access to metadata lookup functions (<code><a href="#metadata.get_table_async">get_table_async</a></code>, <code><a href="#metadata.get_user_async">get_user_async</a></code>),
+and handles initialization of internal configuration and caching behavior.</p>
+</div>
+
+
+                            <div id="metadata.logger" class="classattr">
+                                <div class="attr variable">
+            <span class="name">logger</span>        =
+<span class="default_value">&lt;Logger practicus.core.metadata (INFO)&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#metadata.logger"></a>
+    
+    
+
+                            </div>
+                            <div id="metadata.get_table_async" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">get_table_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">table_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">get_column_meta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">TableMeta</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#metadata.get_table_async"></a>
+    
+            <div class="docstring"><p>Fetches metadata for a table from OpenMetadata.</p>
+
+<p>Args:
+    table_name: Fully qualified name of the table, with or without service name.
+        E.g., 'service.catalog.schema.table', where service is the Service name in Open Metadata and the rest is at the database level.
+        If you use 'catalog.schema.table' without the 'service.', a catalog_service_map must be provided while calling initialize.
+        And catalog_service_map must include catalog -> service mapping. E.g. {"catalog": "service"}
+    get_column_meta: If True (default), includes full column metadata (tags, types, etc.).
+                    If False, only basic column names are returned.</p>
+
+<p>Returns:
+    A <code>TableMeta</code> object containing essential metadata about the table.</p>
+</div>
+
+
+                            </div>
+                            <div id="metadata.get_user_async" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">get_user_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">username</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">UserMeta</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#metadata.get_user_async"></a>
+    
+            <div class="docstring"><p>Fetches metadata for a user from OpenMetadata.</p>
+
+<p>Args:
+    username: The login or ID of the user (typically the SSO username).</p>
+
+<p>Returns:
+    A <code>UserMeta</code> object with user details, including roles and teams.</p>
+</div>
+
+
+                            </div>
+                            <div id="metadata.initialized" class="classattr">
+                                <div class="attr variable">
+            <span class="name">initialized</span><span class="annotation">: bool</span>        =
+<span class="default_value">False</span>
+
+        
+    </div>
+    <a class="headerlink" href="#metadata.initialized"></a>
+    
+    
+
+                            </div>
+                            <div id="metadata.initialize" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">initialize</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">catalog_service_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span>,</span><span class="param">	<span class="n">table_cache_ttl_seconds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span>,</span><span class="param">	<span class="n">table_cache_max_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>,</span><span class="param">	<span class="n">user_cache_ttl_seconds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span>,</span><span class="param">	<span class="n">user_cache_max_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#metadata.initialize"></a>
+    
+            <div class="docstring"><p>Initializes the OpenMetadata connection and in-memory caching layer.</p>
+
+<p>Args:
+    host: The OpenMetadata API host URL (e.g., https://metadata.practicus.mycompany.com).
+    token: Personal access token or bearer token used for authentication.
+    catalog_service_map: Maps catalog/schema/table references to OpenMetadata service names.
+                         Required because OpenMetadata requires a service identifier for lookups.
+    timeout: Timeout (in seconds) for API calls.
+    table_cache_ttl_seconds: How long to cache table metadata (0 = disable).
+    table_cache_max_size: Max number of tables to cache (0 = disable).
+    user_cache_ttl_seconds: How long to cache user metadata (0 = disable).
+    user_cache_max_size: Max number of users to cache (0 = disable).</p>
+</div>
+
+
+                            </div>
+                            <div id="metadata.configure_cache" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">configure_cache</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">target</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">ttl_seconds</span><span class="p">:</span> <span class="nb">int</span>, </span><span class="param"><span class="n">max_size</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#metadata.configure_cache"></a>
+    
+    
+
+                            </div>
+                </section>
                 <section id="Region">
                     <div class="attr class">
             
@@ -10028,7 +10462,7 @@ same refresh_token is returned.</p>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_ai_assistants</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span>:</span></span>
+        <span class="name">get_ai_assistants</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">include_custom_tokens</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span>:</span></span>
 
         
     </div>
@@ -12461,6 +12895,30 @@ configure their levels and outputs independently.</p>
         
     </div>
     <a class="headerlink" href="#Log.MCP_SERVER"></a>
+    
+    
+
+                            </div>
+                            <div id="Log.SQL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SQL</span>        =
+<span class="default_value">&lt;<a href="#Log.SQL">Log.SQL</a>: &#39;practicus.core.sql&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.SQL"></a>
+    
+    
+
+                            </div>
+                            <div id="Log.METADATA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">METADATA</span>        =
+<span class="default_value">&lt;<a href="#Log.METADATA">Log.METADATA</a>: &#39;practicus.core.metadata&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.METADATA"></a>
     
     
 
@@ -15195,6 +15653,387 @@ For uses cases with strict regulatory requirements, please make strict=True.</p>
 
                             </div>
                 </section>
+                <section id="TrinoPolicyRequest">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">TrinoPolicyRequest</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest"></a>
+    
+            <div class="docstring"><p>The core authorization request from Trino.</p>
+</div>
+
+
+                            <div id="TrinoPolicyRequest.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span>        =
+<span class="default_value">{&#39;extra&#39;: &#39;allow&#39;}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.context" class="classattr">
+                                <div class="attr variable">
+            <span class="name">context</span><span class="annotation">: practicuscore.api_base.TrinoPolicyContext</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.context"></a>
+    
+            <div class="docstring"><p>Identity and session metadata (user, impersonation, etc.).</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.action" class="classattr">
+                                <div class="attr variable">
+            <span class="name">action</span><span class="annotation">: practicuscore.api_base.TrinoPolicyAction</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.action"></a>
+    
+            <div class="docstring"><p>The requested action, such as selecting, masking, or filtering data.</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.user" class="classattr">
+                                <div class="attr variable">
+            <span class="name">user</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.user"></a>
+    
+            <div class="docstring"><p>The user that is making the request. If impersonation is active, this will be the impersonated end user.</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.operation" class="classattr">
+                                <div class="attr variable">
+            <span class="name">operation</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.operation"></a>
+    
+            <div class="docstring"><p>The type of operation being evaluated (e.g. SelectFromColumns, GetRowFilters).</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.get_table_to_select" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_table_to_select</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">TrinoPolicyTable</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.get_table_to_select"></a>
+    
+            <div class="docstring"><p>Returns the table being selected from (used for 'SelectFromColumns' only).</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.get_table_to_filter" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_table_to_filter</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">TrinoPolicyTable</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.get_table_to_filter"></a>
+    
+            <div class="docstring"><p>Returns the table being filtered (used for 'GetRowFilters' only).</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.get_columns_to_mask" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">get_columns_to_mask</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_base</span><span class="o">.</span><span class="n">TrinoPolicyColumn</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.get_columns_to_mask"></a>
+    
+            <div class="docstring"><p>Returns the list of columns to be masked (used for 'GetColumnMask' only).</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoPolicyRequest.unwrap_input_layer" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;before&#39;)</div>
+        <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">unwrap_input_layer</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">data</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoPolicyRequest.unwrap_input_layer"></a>
+    
+            <div class="docstring"><p>Intercepts the raw data before validation to unwrap the 'input' key.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="TrinoRowFilter">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">TrinoRowFilter</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoRowFilter"></a>
+    
+            <div class="docstring"><p>Represents the row-level security response for a Trino 'GetRowFilters' policy operation.</p>
+
+<p>The <code><a href="#TrinoRowFilter.expressions">expressions</a></code> field contains one or more SQL-style filter expressions (as strings),
+which will be combined using logical AND (<code>... AND ...</code>) and injected directly into
+the <code>WHERE</code> clause of the final Trino query.</p>
+
+<p>This class converts those expressions into the JSON structure expected by Trino.</p>
+
+<p>Example:
+    If <code>expressions = ["city = 'NY'", "age &gt;= 18"]</code>, the resulting query will effectively become:</p>
+
+<pre><code>    SELECT * FROM some_table
+    WHERE city = 'NY' AND age &gt;= 18
+</code></pre>
+
+<p>These filters are enforced transparently by Trino after policy approval and cannot be bypassed by users.</p>
+</div>
+
+
+                            <div id="TrinoRowFilter.expressions" class="classattr">
+                                <div class="attr variable">
+            <span class="name">expressions</span><span class="annotation">: list[str]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoRowFilter.expressions"></a>
+    
+            <div class="docstring"><p>A list of SQL-compatible expressions (as strings) to apply as row-level filters.
+E.g. ["city = 'NY'", "age &gt;= 18"]</p>
+
+<p>These are inserted directly into the Trino <code>WHERE</code> clause using logical AND.
+This field is excluded from the serialized output to Trino, as only the structured result is returned.</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoRowFilter.result" class="classattr">
+                                <div class="attr variable">
+            <span class="name">result</span><span class="annotation">: list[dict[str, str]]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoRowFilter.result"></a>
+    
+            <div class="docstring"><p>Converts the raw expression strings into the Trino-compatible format:
+a list of {"expression": "<sql>"} dictionaries.</p>
+
+<p>Trino will apply all expressions using <code>AND</code> logic.</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoRowFilter.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoRowFilter.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="TrinoColumnMaskRule">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">TrinoColumnMaskRule</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMaskRule"></a>
+    
+            <div class="docstring"><p>A single column mask rule to be applied in Trino query responses.</p>
+
+<p>This rule defines how a specific column's value should be masked (e.g., redacted or obfuscated)
+when a user does not have full access permissions. It supports both static and dynamic expressions.</p>
+
+<p>The masking behavior is defined using Trino SQL expressions, which may require explicit casting
+depending on the target column type (e.g., <code>CAST('****-1234' AS VARCHAR(9))</code>).</p>
+
+<p>Used as part of Practicus AI SDK's Trino integration for column-level security.</p>
+</div>
+
+
+                            <div id="TrinoColumnMaskRule.column" class="classattr">
+                                <div class="attr variable">
+            <span class="name">column</span><span class="annotation">: practicuscore.api_base.TrinoPolicyColumn</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMaskRule.column"></a>
+    
+            <div class="docstring"><p>The target column that the masking rule applies to.</p>
+
+<p>This field is excluded from serialization as it is typically used internally
+for evaluation or lookup purposes. It contains metadata about the column such
+as its name, type, catalog, schema, and table.</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoColumnMaskRule.expression" class="classattr">
+                                <div class="attr variable">
+            <span class="name">expression</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMaskRule.expression"></a>
+    
+            <div class="docstring"><p>The Trino SQL expression to return in place of the actual column value.</p>
+
+<p>This can be a:</p>
+
+<ul>
+<li><strong>Static replacement</strong>: e.g., <code>'****'</code> for redaction</li>
+<li><strong>Dynamic transformation</strong>: e.g., <code>CONCAT('****-', SUBSTRING(card_number, -4))</code></li>
+</ul>
+
+<p><strong>Important</strong>:</p>
+
+<ul>
+<li>The expression must be enclosed in single quotes when appropriate.</li>
+<li>If the expression produces a shorter or differently typed value than the original column,
+it may require explicit casting to avoid Trino inferring overly broad types (e.g., 
+<code>CAST('****-1234' AS VARCHAR(9))</code> instead of returning a plain string).</li>
+<li>This is critical for fields like <code>VARCHAR(20)</code> credit card numbers to prevent
+unexpected type mismatches or memory overhead from inferred <code>VARCHAR(2^31)</code> types.</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+
+<ul>
+<li><code>'****'</code></li>
+<li><code>CAST(CONCAT('****-', SUBSTRING(card_number, -4)) AS VARCHAR(9))</code></li>
+<li><code>'REDACTED'::VARCHAR</code></li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="TrinoColumnMaskRule.index" class="classattr">
+                                <div class="attr variable">
+            <span class="name">index</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMaskRule.index"></a>
+    
+            <div class="docstring"><p>The zero-based index of the column from the original request list.</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoColumnMaskRule.viewExpression" class="classattr">
+                                <div class="attr variable">
+            <span class="name">viewExpression</span><span class="annotation">: dict[str, str]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMaskRule.viewExpression"></a>
+    
+            <div class="docstring"><p>Creates the nested 'viewExpression' dictionary for the JSON output.</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoColumnMaskRule.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMaskRule.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="TrinoColumnMask">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">TrinoColumnMask</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMask"></a>
+    
+            <div class="docstring"><p>The final response object for a 'GetColumnMask' operation.</p>
+</div>
+
+
+                            <div id="TrinoColumnMask.result" class="classattr">
+                                <div class="attr variable">
+            <span class="name">result</span><span class="annotation">: list[<a href="#TrinoColumnMaskRule">TrinoColumnMaskRule</a>]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMask.result"></a>
+    
+            <div class="docstring"><p>List of column masking rules</p>
+</div>
+
+
+                            </div>
+                            <div id="TrinoColumnMask.model_config" class="classattr">
+                                <div class="attr variable">
+            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
+<span class="default_value">{}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#TrinoColumnMask.model_config"></a>
+    
+            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
+</div>
+
+
+                            </div>
+                </section>
                 <section id="ModelServer">
                     <div class="attr class">
             
@@ -15303,7 +16142,7 @@ so users can call methods directly on the class without instantiation.</p>
                                 <div class="attr variable">
             <span class="name">IGNORED_REQ_HEADERS</span>        =
 <input id="ModelServer.IGNORED_REQ_HEADERS-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;content-length&#39;, &#39;trailers&#39;, &#39;authorization&#39;, &#39;transfer-encoding&#39;, &#39;keep-alive&#39;, &#39;proxy-authorization&#39;, &#39;upgrade&#39;, &#39;proxy-authenticate&#39;, &#39;connection&#39;, &#39;te&#39;, &#39;host&#39;}</span>
+            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;authorization&#39;, &#39;host&#39;, &#39;content-length&#39;, &#39;keep-alive&#39;, &#39;te&#39;, &#39;upgrade&#39;, &#39;transfer-encoding&#39;, &#39;trailers&#39;, &#39;proxy-authorization&#39;, &#39;proxy-authenticate&#39;, &#39;connection&#39;}</span>
 
         
     </div>
@@ -15315,7 +16154,7 @@ so users can call methods directly on the class without instantiation.</p>
                             <div id="ModelServer.IGNORED_RESP_HEADERS" class="classattr">
                                 <div class="attr variable">
             <span class="name">IGNORED_RESP_HEADERS</span>        =
-<span class="default_value">{&#39;content-encoding&#39;, &#39;transfer-encoding&#39;, &#39;connection&#39;}</span>
+<span class="default_value">{&#39;connection&#39;, &#39;transfer-encoding&#39;, &#39;content-encoding&#39;}</span>
 
         
     </div>
@@ -15393,7 +16232,7 @@ unmergeable and appended.</li>
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">start_serving</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;vllm&#39;</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">proxy_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">start_serving</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;vllm&#39;</span>,</span><span class="param">	<span class="n">proxy_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
 
         
     </div>
@@ -15402,8 +16241,6 @@ unmergeable and appended.</li>
             <div class="docstring"><p>Alias for start method, defaulting to "vllm" inference engine for private LLM hosting purposes.</p>
 
 <p>Args:
-    inference_engine (str): The model inference engine to use (E.g. 'vllm').
-        You can also provide the engine using the PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
     model (str | None): Varies based on the engine:
         - For 'vllm': Name of the model to serve (e.g., "meta-llama/Llama-2-7b-hf").
         - For local testing: Path to a local python file (e.g., "mock_server.py").
@@ -15411,6 +16248,8 @@ unmergeable and appended.</li>
     options (str | dict[str, Any] | None): Configuration options.
         - For 'vllm': Dictionary of command-line arguments.
         Can also be provided via a base64 encoded in the PRT_SERVE_MODEL_OPTIONS_B64 OS variable.
+    inference_engine (str): The model inference engine to use (E.g. 'vllm').
+        You can also provide the engine using the PRT_SERVE_MODEL_INF_ENGINE OS environment variable.
     proxy_mode (bool): If True, no local server is started. <code><a href="#ModelServer.serve">serve()</a></code> will require <code>proxy_base_url</code>.
     wait_until_ready (bool): If True, blocks until the server is ready. If False, you must manually call <code><a href="#ModelServer.wait_until_ready">wait_until_ready()</a></code>.</p>
 
@@ -15425,7 +16264,7 @@ unmergeable and appended.</li>
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">start</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;vllm&#39;</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">proxy_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">start</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">options</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">inference_engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;vllm&#39;</span>,</span><span class="param">	<span class="n">proxy_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
 
         
     </div>
@@ -15791,7 +16630,7 @@ a JSON path, a dict, or a <code><a href="#WorkerConfig">WorkerConfig</a></code> 
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">current_region</span><span class="signature pdoc-code condensed">(<span class="param"><span class="o">*</span><span class="n">args</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
+        <span class="name">current_region</span><span class="signature pdoc-code condensed">(<span class="param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span>, </span><span class="param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="n"><a href="#Region">Region</a></span>:</span></span>
 
         
     </div>

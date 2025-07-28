@@ -15,8 +15,12 @@ jupyter:
 ```python
 # Parameters: Replace with your actual deployment key and app prefix
 # These identify where the app should be deployed within your Practicus AI environment.
-app_deployment_key = "appdepl"
+app_deployment_key = None
 app_prefix = "apps"
+```
+
+```python
+assert app_deployment_key, "Please select a deployment key"
 ```
 
 ```python
@@ -28,7 +32,7 @@ prt.apps.analyze()
 ```
 
 ```python
-# --- Deployment --- 
+# --- Deployment ---
 app_name = "agentic-ai-test-sales"
 visible_name = "Agentic AI Test SALES"
 description = "Test Application for Agentic AI Example."
@@ -40,10 +44,10 @@ app_url, api_url = prt.apps.deploy(
     deployment_setting_key=app_deployment_key,
     prefix=app_prefix,
     app_name=app_name,
-    app_dir=None, # Uses current directory
+    app_dir=None,  # Uses current directory
     visible_name=visible_name,
     description=description,
-    icon=icon
+    icon=icon,
 )
 
 print("App deployed successfully!")
@@ -57,7 +61,6 @@ assert api_url, "Deployment failed to return an API URL."
 ```
 
 ```python
-
 tool_endpoint_paths = [
     "bootstrap-data/",
     "analyze-sales-trends/",
@@ -70,7 +73,7 @@ tool_endpoint_paths = [
     "sentiment-test-slogan/",
     "validate-campaign-json/",
     "generate-social-posts/",
-    "generate-strategic-summary/"
+    "generate-strategic-summary/",
 ]
 
 
@@ -81,25 +84,27 @@ print("Will attempt to create tools for the following API endpoints:")
 for url in tool_endpoint_urls:
     print(f" - {url}")
 
-# Tip: If you pass partial API URLs e.g. 'apps/agentic-ai-test/api/v1/generate-receipt/' 
-#  The base URL e.g. 'https://practicus.my-company.com/' will be added to the final URL 
+# Tip: If you pass partial API URLs e.g. 'apps/agentic-ai-test/api/v1/generate-receipt/'
+#  The base URL e.g. 'https://practicus.my-company.com/' will be added to the final URL
 #  using your current Practicus AI region.
 ```
 
 ```python
 import os
-from langchain_openai import ChatOpenAI # Or your preferred ChatModel
+from langchain_openai import ChatOpenAI  # Or your preferred ChatModel
 from langgraph.prebuilt import create_react_agent
 from langchain_practicus import APITool
+
 # Ensure practicuscore is imported for enums
-import practicuscore as prt 
+import practicuscore as prt
+
 
 def validate_api_spec(api_tool: APITool, strict=False) -> bool:
     """Checks the APISpec of a fetched tool against our rules."""
-    
+
     # APITool fetches the spec from OpenAPI (Swagger) during initialization
     spec = api_tool.spec
-    
+
     if not spec:
         # API definition in the source file might be missing the 'spec' object
         warning_msg = f"API '{api_tool.url}' does not have APISpec metadata defined in its OpenAPI spec."
@@ -107,35 +112,33 @@ def validate_api_spec(api_tool: APITool, strict=False) -> bool:
             raise ValueError(f"{warning_msg} Validation is strict.")
         else:
             prt.logger.warning(f"{warning_msg} Allowing since validation is not strict.")
-            return True # Allow if not strict
-            
-    # --- Apply Rules based on fetched spec --- 
-    
+            return True  # Allow if not strict
+
+    # --- Apply Rules based on fetched spec ---
+
     # Rule 1: Check Risk Profile
     if spec.risk_profile and spec.risk_profile == prt.APIRiskProfile.High:
-        err = (
-            f"API '{api_tool.url}' has a risk profile defined as '{spec.risk_profile}'."
-        )
+        err = f"API '{api_tool.url}' has a risk profile defined as '{spec.risk_profile}'."
         if strict:
             err += " Stopping flow since validation is strict."
             raise ValueError(err)
         else:
             # Even if not strict, we might choose to block High risk tools
             prt.logger.warning(f"{err} Blocking High Risk API even though validation is not strict.")
-            return False # Block high risk
-        
+            return False  # Block high risk
+
     # Rule 2: Check Human Gating for non-read-only APIs
     # (Example: Enforce human gating for safety on modifying APIs)
     if not spec.read_only and not spec.human_gated:
-         err = f"API '{api_tool.url}' modifies data (read_only=False) but is not marked as human_gated."
-         if strict:
-             err += " Stopping flow since validation is strict."
-             raise ValueError(err)
-         else:
-             prt.logger.warning(f"{err} Allowing non-gated modifying API since validation is not strict.")
-             # In this non-strict case, we allow it, but a stricter policy might return False here.
-             return True 
-             
+        err = f"API '{api_tool.url}' modifies data (read_only=False) but is not marked as human_gated."
+        if strict:
+            err += " Stopping flow since validation is strict."
+            raise ValueError(err)
+        else:
+            prt.logger.warning(f"{err} Allowing non-gated modifying API since validation is not strict.")
+            # In this non-strict case, we allow it, but a stricter policy might return False here.
+            return True
+
     # Add more complex rules here if needed...
     # E.g., check custom_attributes, scope, etc.
 
@@ -144,12 +147,12 @@ def validate_api_spec(api_tool: APITool, strict=False) -> bool:
     return True
 
 
-# --- Create Tools (optionally applying validation) --- 
+# --- Create Tools (optionally applying validation) ---
 def get_tools(endpoint_urls: list[str], validate=True):
     _tools = []
-    strict_validation = False # Set to True to enforce stricter rules
-    additional_instructions = "Add Yo! after all of your final responses." # Example instruction
-    
+    strict_validation = False  # Set to True to enforce stricter rules
+    additional_instructions = "Add Yo! after all of your final responses."  # Example instruction
+
     print(f"\nCreating and validating tools (strict={strict_validation})...")
     for tool_endpoint_url in endpoint_urls:
         print(f"\nProcessing tool for API: {tool_endpoint_url}")
@@ -160,24 +163,26 @@ def get_tools(endpoint_urls: list[str], validate=True):
                 # token=..., # Uses current user credentials by default, set to override
                 # include_resp_schema=True # Response schema (if exists) is not included by default
             )
-            
+
             # Explain the tool (optional, useful for debugging)
             # api_tool.explain(print_on_screen=True)
-    
+
             # Validate based on fetched APISpec
             if not validate or validate_api_spec(api_tool=api_tool, strict=strict_validation):
-                print(f"--> Adding tool: {api_tool.name} ({api_tool.url}) {'' if validate else ' - skipping validation'}")
-                _tools.append(api_tool) 
+                print(
+                    f"--> Adding tool: {api_tool.name} ({api_tool.url}) {'' if validate else ' - skipping validation'}"
+                )
+                _tools.append(api_tool)
             else:
                 print(f"--> Skipping tool {api_tool.name} due to validation rules.")
         except Exception as e:
             # Catch potential errors during APITool creation (e.g., API not found, spec parsing error)
             print(f"ERROR: Failed to create or validate tool for {tool_endpoint_url}: {e}")
             if strict_validation:
-                raise # Re-raise if strict
+                raise  # Re-raise if strict
             else:
                 print("--> Skipping tool due to error (not strict).")
-        
+
     return _tools
 
 
@@ -207,11 +212,12 @@ assert os.environ["OPENAI_API_KEY"], "OpenAI key is not defined"
 ```
 
 ```python
-# --- Agent Initialization --- 
+# --- Agent Initialization ---
 llm = ChatOpenAI(model="gpt-4o", temperature=0)
 # Create a ReAct agent using LangGraph
 graph = create_react_agent(llm, tools=tools)
 print("Agent initialized.")
+
 
 # Helper function to print the agent's stream output nicely
 def pretty_print_stream_chunk(chunk):
@@ -219,7 +225,7 @@ def pretty_print_stream_chunk(chunk):
     for node, updates in chunk.items():
         print(f"Node: {node}")
         if isinstance(updates, dict) and "messages" in updates:
-             # Print the latest message added by the node
+            # Print the latest message added by the node
             latest_message = updates["messages"][-1]
             latest_message.pretty_print()
         else:
@@ -247,36 +253,33 @@ def pretty_print_stream_chunk2(chunk):
 ```python
 query = """
 Analyze my sales trends and suggest where I should focus to grow. Then create a campaign idea for it.
-
 """
 
-inputs = {
-    "messages": [("user", query)]
-}
+inputs = {"messages": [("user", query)]}
 
 if graph:
     print(f"\nInvoking agent with query: '{query}'")
     print("Streaming agent execution steps:\n")
-    
+
     # Configuration for the stream, e.g., setting user/thread IDs
-    # config = {"configurable": {"user_id": "doc-user-1", "thread_id": "doc-thread-1"}} 
-    config={}
+    # config = {"configurable": {"user_id": "doc-user-1", "thread_id": "doc-thread-1"}}
+    config = {}
     # Use astream to get intermediate steps
     async for chunk in graph.astream(inputs, config=config):
         pretty_print_stream_chunk2(chunk)
-        
+
     print("\nAgent execution finished.")
-    
+
     # Optional: Get the final state if needed
     # final_state = await graph.ainvoke(inputs, config=config)
     # print("\nFinal Agent State:", final_state)
-    
+
 else:
     print("\nAgent execution skipped because the agent graph was not initialized.")
 ```
 
 ```python
-# Cleanup 
+# Cleanup
 prt.apps.delete(prefix=app_prefix, app_name=app_name)
 ```
 
@@ -294,9 +297,7 @@ sales_data = [
 ]
 
 payload = AnalyzeSalesTrendsRequest(
-    sales_data=sales_data,
-    start_date=datetime(2025, 1, 1),
-    end_date=datetime(2025, 1, 3)
+    sales_data=sales_data, start_date=datetime(2025, 1, 1), end_date=datetime(2025, 1, 3)
 )
 
 response: AnalyzeSalesTrendsResponse = prt.apps.test_api("/analyze-sales-trends", payload)
@@ -311,7 +312,13 @@ from pydantic import BaseModel
 import practicuscore as prt
 
 # Prepare payload
-slogans = ["Power Up Your Productivity!", "Nothing beats the classics.","Innovation in Every Click.","Your Tech, Your Edge.", "Be Bold. Be Better.",]
+slogans = [
+    "Power Up Your Productivity!",
+    "Nothing beats the classics.",
+    "Innovation in Every Click.",
+    "Your Tech, Your Edge.",
+    "Be Bold. Be Better.",
+]
 payload = SentimentTestSloganRequest(slogans=slogans)
 
 # Type check (optional)
@@ -345,15 +352,12 @@ sales_data = [
 ]
 
 # Test payload
-payload = TopProductsInsightRequest(
-    sales_data=sales_data,
-    top_n=3
-)
+payload = TopProductsInsightRequest(sales_data=sales_data, top_n=3)
 
 # API test
 try:
     response: TopProductsInsightResponse = prt.apps.test_api("/top-products-insight", payload)
-    
+
     # Sonuçları yazdır
     for product in response.products:
         print(f"Product: {product.product}")
@@ -373,16 +377,9 @@ from practicuscore import apps
 from apis.predict_growth_opportunities import PredictGrowthOpportunitiesRequest
 
 payload = PredictGrowthOpportunitiesRequest(
-    top_products=[
-        {"product": "Tablet", "total_units_sold": 305, "top_region": "Asia"}
-    ],
-    regional_drops=[
-        {"region": "Europe", "product": "Tablet", "drop_percentage": 100.0}
-    ],
-    trend_summary={
-        "trend_direction": "increasing",
-        "peak_day": "2025-01-10"
-    }
+    top_products=[{"product": "Tablet", "total_units_sold": 305, "top_region": "Asia"}],
+    regional_drops=[{"region": "Europe", "product": "Tablet", "drop_percentage": 100.0}],
+    trend_summary={"trend_direction": "increasing", "peak_day": "2025-01-10"},
 )
 
 response = apps.test_api("/predict-growth-opportunities", payload)
@@ -394,16 +391,9 @@ print(response)
 from apis.predict_growth_opportunities import run, PredictGrowthOpportunitiesRequest
 
 payload = PredictGrowthOpportunitiesRequest(
-    top_products=[
-        {"product": "Tablet", "total_units_sold": 305, "top_region": "Asia"}
-    ],
-    regional_drops=[
-        {"region": "Europe", "product": "Tablet", "drop_percentage": 100.0}
-    ],
-    trend_summary={
-        "trend_direction": "increasing",
-        "peak_day": "2025-01-10"
-    }
+    top_products=[{"product": "Tablet", "total_units_sold": 305, "top_region": "Asia"}],
+    regional_drops=[{"region": "Europe", "product": "Tablet", "drop_percentage": 100.0}],
+    trend_summary={"trend_direction": "increasing", "peak_day": "2025-01-10"},
 )
 
 await run(payload)
@@ -2006,4 +1996,4 @@ async def run(payload: CampaignData, **kwargs) -> ValidateCampaignJSONResponse:
 
 ---
 
-**Previous**: [Memory Chabot](../ecomm-sdk/memory-chabot.md) | **Next**: [Cv Assistant > Cv Assistant](../cv-assistant/cv-assistant.md)
+**Previous**: [Build](../product-rec/build.md) | **Next**: [Retention Strategist > Build](../retention-strategist/build.md)
