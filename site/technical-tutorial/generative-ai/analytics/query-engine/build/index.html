@@ -2150,6 +2150,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#access-control-caching-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control &amp; Caching Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#deploying-the-agent-tools-api" class="md-nav__link">
     <span class="md-ellipsis">
       Deploying the Agent Tools API
@@ -9441,6 +9450,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#access-control-caching-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control &amp; Caching Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#deploying-the-agent-tools-api" class="md-nav__link">
     <span class="md-ellipsis">
       Deploying the Agent Tools API
@@ -9529,11 +9547,25 @@
 <p>We will create, <code>api/trino_runner.py</code> and <code>api/superset_manager.py</code>, to house all our LLM-callable tools. The clear Pydantic models and docstrings are essential, as they are automatically converted into a schema that the LLM uses to understand how to call the function.</p>
 <h3 id="tool-breakdown">Tool Breakdown</h3>
 <h4 id="trino-runner-run-sql">Trino Runner (<code>/run-sql</code>)</h4>
-<p>This is the workhorse. It takes a SQL string and executes it. The use of <code>prt.sql.execute_sql_async</code> is key:
-- <strong>Security</strong>: It passes the <code>requester</code>'s username for impersonation in Trino. This means all policies from our Trino Policy Engine are automatically applied.
-- <strong>Safety</strong>: It enforces a <code>limit</code> of 100 rows, preventing the LLM from accidentally running a query that returns millions of rows and overwhelming the system or incurring large costs.</p>
+<p>This is the workhorse. It takes a SQL string and executes it. The use of <code>prt.sql.execute_sql_async</code> is key:</p>
+<ul>
+<li><strong>Security</strong>: It passes the <code>requester</code>'s username for impersonation in Trino. This means all policies from our Trino Policy Engine are automatically applied.</li>
+<li><strong>Safety</strong>: It enforces a <code>limit</code> of 100 rows, preventing the LLM from accidentally running a query that returns millions of rows and overwhelming the system or incurring large costs.</li>
+</ul>
 <h4 id="superset-dataset-creator-create-analytics-dataset">Superset Dataset Creator (<code>/create-analytics-dataset</code>)</h4>
 <p>This tool bridges the gap between raw data and visualization. By taking the same SQL that produced the answer, it creates a persistent, shareable link in Superset. The <code>prt.sql.create_analytics_dataset_async</code> helper abstracts away the complexities of Superset's multi-step API process (authentication, dataset creation, etc.).</p>
+<h3 id="access-control-caching-considerations">Access Control &amp; Caching Considerations</h3>
+<ul>
+<li>
+<p><strong>Superset Trino Impersonation</strong>: This feature should be enabled to ensure that Superset queries are executed on behalf of the user. This allows our Trino engine to apply row-level, column-level, and other policies based on the actual user identity.</p>
+</li>
+<li>
+<p><strong>Caching Impact</strong>: When impersonation is enabled, Superset disables query result caching, since cached results would bypass per-user access controls.</p>
+</li>
+<li>
+<p><strong>Recommendation</strong>: For high-performance shared dashboards, consider maintaining a second Trino connection <strong>without impersonation</strong>. Use this for curated, "golden" dashboards, and control access at the Superset level via its own RBAC system.</p>
+</li>
+</ul>
 <h3 id="deploying-the-agent-tools-api">Deploying the Agent Tools API</h3>
 <p>Similar to the policy engine, we deploy this suite of tools as a single Practicus AI App. The platform exposes them as secure endpoints that the LLM client such as Practicus AI Assistant can be configured to use.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">app_deployment_key</span> <span class="o">=</span> <span class="kc">None</span>
@@ -9575,72 +9607,75 @@
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Stores Superset connection details. Use environment variables or prt.vault in production!&quot;&quot;&quot;</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">superset_base_url</span> <span class="o">=</span> <span class="s2">&quot;https://analytics.practicus.my-company.com&quot;</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">api_username</span> <span class="o">=</span> <span class="s2">&quot;superset_api_user&quot;</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">api_password</span> <span class="o">=</span> <span class="s2">&quot;secure_superset_api_password&quot;</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">db_name</span> <span class="o">=</span> <span class="s2">&quot;Trino&quot;</span>  <span class="c1"># The name of the database connection in Superset</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">database_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Cached DB ID</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">api_spec</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">APISpec</span><span class="p">(</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">execution_target</span><span class="o">=</span><span class="n">prt</span><span class="o">.</span><span class="n">APIExecutionTarget</span><span class="o">.</span><span class="n">DirectExecution</span><span class="p">,</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">interactive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">risk_profile</span><span class="o">=</span><span class="n">prt</span><span class="o">.</span><span class="n">APIRiskProfile</span><span class="o">.</span><span class="n">Low</span><span class="p">,</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">)</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="k">class</span><span class="w"> </span><span class="nc">CreateDatasetRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    <span class="n">sql</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The SQL query used to create the analytics dataset. &quot;</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>        <span class="s2">&quot;It&#39;s best to use the exact same SQL that generated the data for the user&#39;s answer.&quot;</span><span class="p">,</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="p">)</span>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A short, descriptive name for the dataset (max 25 chars).&quot;</span><span class="p">)</span>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
-</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="k">class</span><span class="w"> </span><span class="nc">CreateDatasetResponse</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    <span class="n">dataset_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The URL to explore the newly created dataset in the analytics system.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="c1"># To create new Superset user, you can run the below on a Superset instance:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="c1"># superset fab create-admin --username api_user --firstname API --lastname User --email ..@.. --password ..</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">api_username</span> <span class="o">=</span> <span class="s2">&quot;superset_api_user&quot;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="c1"># For production use prt.vault or other secure method</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">api_password</span> <span class="o">=</span> <span class="s2">&quot;secure_superset_api_password&quot;</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">db_name</span> <span class="o">=</span> <span class="s2">&quot;Trino&quot;</span>  <span class="c1"># The name of the database connection in Superset</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">database_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Cached DB ID</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">api_spec</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">APISpec</span><span class="p">(</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">execution_target</span><span class="o">=</span><span class="n">prt</span><span class="o">.</span><span class="n">APIExecutionTarget</span><span class="o">.</span><span class="n">DirectExecution</span><span class="p">,</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">interactive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="n">risk_profile</span><span class="o">=</span><span class="n">prt</span><span class="o">.</span><span class="n">APIRiskProfile</span><span class="o">.</span><span class="n">Low</span><span class="p">,</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="p">)</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="k">class</span><span class="w"> </span><span class="nc">CreateDatasetRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="n">sql</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The SQL query used to create the analytics dataset. &quot;</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>        <span class="s2">&quot;It&#39;s best to use the exact same SQL that generated the data for the user&#39;s answer.&quot;</span><span class="p">,</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="p">)</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A short, descriptive name for the dataset (max 25 chars).&quot;</span><span class="p">)</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>
 </span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
-</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>
-</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="nd">@prt</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="s2">&quot;/create-analytics-dataset&quot;</span><span class="p">,</span> <span class="n">spec</span><span class="o">=</span><span class="n">api_spec</span><span class="p">)</span>
-</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_analytics_dataset</span><span class="p">(</span><span class="n">payload</span><span class="p">:</span> <span class="n">CreateDatasetRequest</span><span class="p">,</span> <span class="n">requester</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CreateDatasetResponse</span><span class="p">:</span>
-</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="sd">    Creates a virtual dataset in Apache Superset from a SQL query.</span>
-</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="sd">    Returns a URL for the user to visualize the data.</span>
-</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">requester</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)</span>
-</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
-</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>        <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">&quot;Could not identify the requesting user.&quot;</span><span class="p">)</span>
-</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>
-</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    <span class="c1"># Find the Superset Database ID once and cache it</span>
-</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">database_id</span><span class="p">:</span>
-</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>        <span class="n">db_id</span> <span class="o">=</span> <span class="k">await</span> <span class="n">prt</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">find_analytics_database_id_async</span><span class="p">(</span>
-</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>            <span class="n">base_url</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">superset_base_url</span><span class="p">,</span>
-</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>            <span class="n">username</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_username</span><span class="p">,</span>
-</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>            <span class="n">password</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_password</span><span class="p">,</span>
-</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>            <span class="n">db_name</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">db_name</span><span class="p">,</span>
-</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>        <span class="p">)</span>
-</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">db_id</span><span class="p">:</span>
-</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find a database named &#39;</span><span class="si">{</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">db_name</span><span class="si">}</span><span class="s2">&#39; in Superset.&quot;</span><span class="p">)</span>
-</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>        <span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">database_id</span> <span class="o">=</span> <span class="n">db_id</span>
-</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>
-</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>    <span class="n">dataset_url</span> <span class="o">=</span> <span class="k">await</span> <span class="n">prt</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">create_analytics_dataset_async</span><span class="p">(</span>
-</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>        <span class="n">base_url</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">superset_base_url</span><span class="p">,</span>
-</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>        <span class="n">username</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_username</span><span class="p">,</span>
-</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>        <span class="n">password</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_password</span><span class="p">,</span>
-</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>        <span class="n">db_id</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">database_id</span><span class="p">,</span>
-</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>        <span class="n">sql</span><span class="o">=</span><span class="n">payload</span><span class="o">.</span><span class="n">sql</span><span class="p">,</span>
-</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>        <span class="n">dataset_name</span><span class="o">=</span><span class="n">payload</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">,</span>
-</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>        <span class="n">requesting_username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>  <span class="c1"># Adds the user&#39;s name to the dataset title for clarity</span>
-</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>        <span class="n">add_timestamp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Ensures dataset name is unique</span>
-</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>        <span class="n">limit</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>  <span class="c1"># Enforce a reasonable limit for visualization</span>
-</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>        <span class="n">auto_add_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>    <span class="p">)</span>
-</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>
-</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">dataset_url</span><span class="p">:</span>
-</span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="s2">&quot;Failed to create the dataset in the analytics system.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="k">class</span><span class="w"> </span><span class="nc">CreateDatasetResponse</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    <span class="n">dataset_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The URL to explore the newly created dataset in the analytics system.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="nd">@prt</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="s2">&quot;/create-analytics-dataset&quot;</span><span class="p">,</span> <span class="n">spec</span><span class="o">=</span><span class="n">api_spec</span><span class="p">)</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_analytics_dataset</span><span class="p">(</span><span class="n">payload</span><span class="p">:</span> <span class="n">CreateDatasetRequest</span><span class="p">,</span> <span class="n">requester</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CreateDatasetResponse</span><span class="p">:</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="sd">    Creates a virtual dataset in Apache Superset from a SQL query.</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="sd">    Returns a URL for the user to visualize the data.</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">requester</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>        <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">&quot;Could not identify the requesting user.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>    <span class="c1"># Find the Superset Database ID once and cache it</span>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">database_id</span><span class="p">:</span>
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>        <span class="n">db_id</span> <span class="o">=</span> <span class="k">await</span> <span class="n">prt</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">find_analytics_database_id_async</span><span class="p">(</span>
+</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>            <span class="n">base_url</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">superset_base_url</span><span class="p">,</span>
+</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>            <span class="n">username</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_username</span><span class="p">,</span>
+</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>            <span class="n">password</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_password</span><span class="p">,</span>
+</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>            <span class="n">db_name</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">db_name</span><span class="p">,</span>
+</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>        <span class="p">)</span>
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">db_id</span><span class="p">:</span>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>            <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find a database named &#39;</span><span class="si">{</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">db_name</span><span class="si">}</span><span class="s2">&#39; in Superset.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>        <span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">database_id</span> <span class="o">=</span> <span class="n">db_id</span>
+</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>    <span class="n">dataset_url</span> <span class="o">=</span> <span class="k">await</span> <span class="n">prt</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">create_analytics_dataset_async</span><span class="p">(</span>
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>        <span class="n">base_url</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">superset_base_url</span><span class="p">,</span>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>        <span class="n">username</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_username</span><span class="p">,</span>
+</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>        <span class="n">password</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">api_password</span><span class="p">,</span>
+</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>        <span class="n">db_id</span><span class="o">=</span><span class="n">AnalyticsConn</span><span class="o">.</span><span class="n">database_id</span><span class="p">,</span>
+</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>        <span class="n">sql</span><span class="o">=</span><span class="n">payload</span><span class="o">.</span><span class="n">sql</span><span class="p">,</span>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>        <span class="n">dataset_name</span><span class="o">=</span><span class="n">payload</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">,</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>        <span class="n">requesting_username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>  <span class="c1"># Adds the user&#39;s name to the dataset title for clarity</span>
+</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>        <span class="n">add_timestamp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Ensures dataset name is unique</span>
+</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>        <span class="n">limit</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>  <span class="c1"># Enforce a reasonable limit for visualization</span>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>        <span class="n">auto_add_limit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>    <span class="p">)</span>
 </span><span id="__span-4-73"><a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>
-</span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>    <span class="k">return</span> <span class="n">CreateDatasetResponse</span><span class="p">(</span><span class="n">dataset_url</span><span class="o">=</span><span class="n">dataset_url</span><span class="p">)</span>
+</span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">dataset_url</span><span class="p">:</span>
+</span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="s2">&quot;Failed to create the dataset in the analytics system.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>
+</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>    <span class="k">return</span> <span class="n">CreateDatasetResponse</span><span class="p">(</span><span class="n">dataset_url</span><span class="o">=</span><span class="n">dataset_url</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="apitrino_runnerpy">api/trino_runner.py</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>

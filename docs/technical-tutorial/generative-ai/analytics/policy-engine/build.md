@@ -234,6 +234,8 @@ async def mask_columns(payload: prt.TrinoPolicyRequest, **kwargs):
     # first and then checking table/column level tags. E.g. if column has 'HR.Sensitive' tag and the user 
     # is not a 'DataScientist', apply a column mask to return '****' if column is string, Null if it is number ....
 
+    # Note: Please consider adding default policies for system catalog
+    
     if masking_rules:
         return prt.TrinoColumnMask(result=masking_rules)
 
@@ -267,6 +269,8 @@ async def filter_rows(payload: prt.TrinoPolicyRequest, **kwargs):
 
     # Similar to the /validate endpoint, you can implement dynamic policies by pulling metadata of the table
     # first and then checking table level tags.
+
+    # Note: Please consider adding default policies for system catalog
         
     # Default: No filter
     return prt.TrinoRowFilter(expressions=[])

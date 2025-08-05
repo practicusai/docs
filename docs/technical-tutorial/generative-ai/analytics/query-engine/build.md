@@ -50,12 +50,23 @@ We will create, `api/trino_runner.py` and `api/superset_manager.py`, to house al
 ### Tool Breakdown
 
 #### Trino Runner (`/run-sql`)
+
 This is the workhorse. It takes a SQL string and executes it. The use of `prt.sql.execute_sql_async` is key:
-- **Security**: It passes the `requester`'s username for impersonation in Trino. This means all policies from our Trino Policy Engine are automatically applied.
-- **Safety**: It enforces a `limit` of 100 rows, preventing the LLM from accidentally running a query that returns millions of rows and overwhelming the system or incurring large costs.
+
+* **Security**: It passes the `requester`'s username for impersonation in Trino. This means all policies from our Trino Policy Engine are automatically applied.
+* **Safety**: It enforces a `limit` of 100 rows, preventing the LLM from accidentally running a query that returns millions of rows and overwhelming the system or incurring large costs.
 
 #### Superset Dataset Creator (`/create-analytics-dataset`)
+
 This tool bridges the gap between raw data and visualization. By taking the same SQL that produced the answer, it creates a persistent, shareable link in Superset. The `prt.sql.create_analytics_dataset_async` helper abstracts away the complexities of Superset's multi-step API process (authentication, dataset creation, etc.).
+
+### Access Control & Caching Considerations
+
+* **Superset Trino Impersonation**: This feature should be enabled to ensure that Superset queries are executed on behalf of the user. This allows our Trino engine to apply row-level, column-level, and other policies based on the actual user identity.
+
+* **Caching Impact**: When impersonation is enabled, Superset disables query result caching, since cached results would bypass per-user access controls.
+
+* **Recommendation**: For high-performance shared dashboards, consider maintaining a second Trino connection **without impersonation**. Use this for curated, "golden" dashboards, and control access at the Superset level via its own RBAC system.
 
 
 ### Deploying the Agent Tools API
@@ -112,7 +123,10 @@ class AnalyticsConn:
     """Stores Superset connection details. Use environment variables or prt.vault in production!"""
 
     superset_base_url = "https://analytics.practicus.my-company.com"
+    # To create new Superset user, you can run the below on a Superset instance:
+    # superset fab create-admin --username api_user --firstname API --lastname User --email ..@.. --password ..
     api_username = "superset_api_user"
+    # For production use prt.vault or other secure method
     api_password = "secure_superset_api_password"
     db_name = "Trino"  # The name of the database connection in Superset
     database_id: int | None = None  # Cached DB ID

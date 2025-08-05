@@ -6,7 +6,10 @@ class AnalyticsConn:
     """Stores Superset connection details. Use environment variables or prt.vault in production!"""
 
     superset_base_url = "https://analytics.practicus.my-company.com"
+    # To create new Superset user, you can run the below on a Superset instance:
+    # superset fab create-admin --username api_user --firstname API --lastname User --email ..@.. --password ..
     api_username = "superset_api_user"
+    # For production use prt.vault or other secure method
     api_password = "secure_superset_api_password"
     db_name = "Trino"  # The name of the database connection in Superset
     database_id: int | None = None  # Cached DB ID

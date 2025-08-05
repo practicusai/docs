@@ -211,8 +211,27 @@ For configuration details, refer to the official MCP documentation: [MCP Quickst
 
 ![Claude Desktop](img/claude-desktop.png)
 
+<!-- #region -->
+### Example 3: Using MCP Server with n8n
 
-### Example 3: Programmatic Integration with OpenAI's Agentic Framework
+In order to use Practicus AI MCP servers with n8n, you can use MCP HTTP streaming (recommended). First build an app, and make an API endpoint interactive (see below, or the previous section on developing agentic applications) and then point n8n MCP endpoint to `../api/sys/mcp/` E.g. `https://practicus.my-company.com/apps/my-app/api/sys/mcp/`
+
+```python
+# Making an API endpoint MCP Server enabled
+api_spec = prt.APISpec(
+    interactive=True,  # <- This enables MCP Server
+)
+
+@prt.api("/say-hello", spec=api_spec)
+async def run(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
+    """Says hello to the selected user."""
+    # ... implement as usual
+```
+
+![n8n](img/n8n.png)
+<!-- #endregion -->
+
+### Example 4: Programmatic Integration with OpenAI's Agentic Framework
 
 This example demonstrates how to integrate an MCP Server directly into Python code using OpenAI's `agents` library (an agentic framework). This allows programmatic control over agents that utilize MCP tools.
 
