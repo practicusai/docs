@@ -27,13 +27,17 @@ This example demonstrates how to pass custom configuration as OS environment var
 ```python
 worker_size = None
 app_deployment_key = None
-app_prefix = "apps"
+app_prefix = None
+personal_secret_key = None
+shared_secret_key = None
 ```
 
 ```python
 assert worker_size, "Please enter your worker_size."
 assert app_deployment_key, "Please select an app deployment setting."
 assert app_prefix, "Please select an app prefix."
+assert personal_secret_key, "Please enter a personal secret key to test within the app"
+assert shared_secret_key, "Please enter a shared secret key to test within the app"
 ```
 
 ```python
@@ -46,15 +50,19 @@ worker_config = prt.WorkerConfig(
         "MY_FIRST_ENV": "123",  # Standard environment variable as a string
         "MY_SECOND_ENV": 123,  # Standard environment variable as a number
     },
-    personal_secrets=["PERSONAL_SECRET_1"],  # Personal secret (injected as an environment variable)
-    shared_secrets=["SHARED_SECRET_1"],  # Shared secret (injected as an environment variable)
+    personal_secrets=[personal_secret_key],  # Personal secret (injected as an environment variable)
+    shared_secrets=[shared_secret_key],  # Shared secret (injected as an environment variable)
 )
 
 # Create and start the worker
 worker = prt.create_worker(worker_config)
 
 # Open a Jupyter notebook on the newly created worker
-worker.open_notebook()
+notebook_url = worker.open_notebook(get_url_only=True)
+print(f"notebook_url: {notebook_url}")
+
+# Open Jupyter notebook on the new browser tab.
+# worker.open_notebook()
 ```
 
 <!-- #region -->

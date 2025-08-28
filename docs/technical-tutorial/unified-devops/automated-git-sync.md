@@ -34,25 +34,31 @@ Store the new token in the Practicus AI Vault to keep it secure and avoid hardco
 
 ```python
 worker_size = None
+git_secret_name = None
+git_remote_url = None # "https://git.practicus.my-company.com/myuser/myrepo.git"  # Example repository URL
 ```
 
 ```python
 assert worker_size, "Please enter your worker_size."
+assert git_secret_name, "Please enter git secret name."
+assert git_remote_url, "Please enter git remote url."
 ```
 
 ```python
 import practicuscore as prt
-from getpass import getpass
 
-# Define a name for the stored secret
-git_secret_name = "MY_GIT_SECRET"
+if not git_secret_name:
+    from getpass import getpass
 
-# Prompt for your personal access token
-key = getpass("Enter your Git personal access token:")
+    # Define a name for the stored secret
+    git_secret_name = "MY_GIT_SECRET"
 
-# Store or update the token in the Practicus AI Vault
-prt.vault.create_or_update_secret(name=git_secret_name, key=key)
-print(f"Successfully saved secret '{git_secret_name}' in Practicus AI Vault.")
+    # Prompt for your personal access token
+    key = getpass("Enter your Git personal access token:")
+
+    # Store or update the token in the Practicus AI Vault
+    prt.vault.create_or_update_secret(name=git_secret_name, key=key)
+    print(f"Successfully saved secret '{git_secret_name}' in Practicus AI Vault.")
 ```
 
 ### Step 3: Configure Git and Synchronize the Repository
@@ -62,11 +68,9 @@ Specify details such as the repository URL, which secret to use, and optional pa
 ```python
 import os
 
-remote_url = "https://git.practicus.my-company.com/myuser/myrepo.git"  # Example repository URL
-
 # Create a GitConfig object
 git_config = prt.GitConfig(
-    remote_url=remote_url,  # Repository to clone or pull
+    remote_url=git_remote_url,  # Repository to clone or pull
     secret_name=git_secret_name,  # Name of the secret containing the PAT
     # Optional configurations:
     # username="your-username",  # If the Git username differs from your Practicus AI username
@@ -80,6 +84,7 @@ git_config = prt.GitConfig(
 # For demonstration, retrieve the token in this local notebook (avoid printing it!)
 os.environ[git_secret_name], age = prt.vault.get_secret(git_secret_name)
 print(f"Retrieved secret '{git_secret_name}', and it is {age} days old.")
+print(os.environ[git_secret_name])
 
 # Sync the repository locally in this current environment
 prt.git.sync_repo(git_config)
@@ -101,8 +106,12 @@ worker_config = prt.WorkerConfig(
 # Create and start the worker
 worker = prt.create_worker(worker_config)
 
-# Open a notebook on the new worker
-worker.open_notebook()
+# Open a Jupyter notebook on the newly created worker
+notebook_url = worker.open_notebook(get_url_only=True)
+print(f"notebook_url: {notebook_url}")
+
+# Open Jupyter notebook on the new browser tab.
+# worker.open_notebook()
 ```
 
 ## Cleanup

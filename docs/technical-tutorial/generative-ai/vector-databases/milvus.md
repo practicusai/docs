@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Practicus Core
+    display_name: Practicus GenAI
     language: python
-    name: practicus
+    name: practicus_genai
 ---
 
 <!-- #region -->
@@ -26,13 +26,14 @@ Please make sure that you have a running Milvus instance.
 <!-- #endregion -->
 
 ```python
-milvus_host = None
-milvus_port = None
+milvus_host = None  # E.g. practicus-milvus.prt-ns-milvus.svc.cluster.local
+milvus_uri = f"http://{milvus_host}"
+milvus_port = 19530
+milvus_token = "root:Milvus"  # Change this after installation
 ```
 
 ```python
-assert milvus_host, "Please enter your Milvus connection uri."
-assert milvus_port, "Please enter your Milvus port."
+assert milvus_host, "Please enter your Milvus host."
 ```
 
 ## Steps 
@@ -72,7 +73,7 @@ Actually the `default` alias is a building in PyMilvus. If the address of Milvus
 Note: the `using` parameter of the following methods is default to "default".
 
 ```python
-connections.connect("default", host=milvus_host, port=milvus_port)
+connections.connect("default", host=milvus_host, port=milvus_port, token=milvus_token)
 
 has = utility.has_collection("hello_milvus")
 print(f"Does collection hello_milvus exist in Milvus: {has}")
@@ -220,6 +221,39 @@ Finally, drop the hello_milvus collection
 ```python
 utility.drop_collection("hello_milvus")
 ```
+
+<!-- #region -->
+## 8. Creating new users
+
+For production, please create restricted users.
+
+
+Sample code:
+```python
+from pymilvus import MilvusClient
+
+client = MilvusClient(
+    uri=milvus_uri,
+    token=milvus_token
+) 
+
+user_name = "user_1"
+print("Creating user:", user_name)
+client.create_user(
+    user_name=user_name,
+    password="P@ssw0rd",
+)
+
+user = client.describe_user(user_name)
+print("User created:", user)
+# prints {'user_name': 'user_1', 'roles': ()}
+
+client.drop_user(user_name=user_name)
+print("Dropping user:", user_name)
+```
+
+To learn more: https://milvus.io/docs/authenticate.md#Create-a-new-user
+<!-- #endregion -->
 
 
 ---

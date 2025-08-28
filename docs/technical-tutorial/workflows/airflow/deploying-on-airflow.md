@@ -12,6 +12,14 @@ jupyter:
     name: practicus
 ---
 
+```python
+airflow_service_key = None
+```
+
+```python
+assert airflow_service_key, "Please provide airflow service key"
+```
+
 # Workflows with the Practicus AI Airflow Add-on
 
 Practicus AI integrates seamlessly with Airflow to orchestrate workflows. By leveraging Airflow as an add-on, you can:
@@ -148,32 +156,27 @@ for worker in failed_task_workers:
 If you don't know your Airflow service key, you can list available add-ons and identify it. For instructions on add-ons and their usage, see the [Practicus AI documentation](https://docs.practicus.ai).
 
 ```python
-import practicuscore as prt
+# import practicuscore as prt
 
-region = prt.get_default_region()
-addons_df = prt.addons.get_list().to_pandas()
+# region = prt.get_default_region()
+# addons_df = prt.addons.get_list().to_pandas()
 
-print("Add-on services accessible to you:")
-display(addons_df)
+# print("Add-on services accessible to you:")
+# display(addons_df)
 
-airflow_services_df = addons_df[addons_df["service_type"] == "Airflow"]
-print("Airflow services you can access:")
-display(airflow_services_df)
+# airflow_services_df = addons_df[addons_df["service_type"] == "Airflow"]
+# print("Airflow services you can access:")
+# display(airflow_services_df)
 
-if airflow_services_df.empty:
-    raise RuntimeError("No Airflow service access. Contact your admin.")
+# if airflow_services_df.empty:
+#     raise RuntimeError("No Airflow service access. Contact your admin.")
 
-service_key = airflow_services_df.iloc[0]["key"]
-service_url = airflow_services_df.iloc[0]["url"]
+# airflow_service_key = airflow_services_df.iloc[0]["key"]
+# service_url = airflow_services_df.iloc[0]["url"]
 
-print("Selected Airflow Service:")
-print(f"- Service Key: {service_key}")
-print(f"- Service URL: {service_url}")
-```
-
-```python
-# Alternatively, you can set service_key manually if you know it:
-# service_key = 'my-airflow-service-key'
+# print("Selected Airflow Service:")
+# print(f"- Service Key: {airflow_service_key}")
+# print(f"- Service URL: {service_url}")
 ```
 
 ## Deploying the Workflow to Airflow
@@ -182,7 +185,7 @@ Once your tasks, DAG, and configurations are ready and tested, deploy them to Ai
 
 ```python
 prt.workflows.deploy(
-    service_key=service_key,
+    service_key=airflow_service_key,
     dag_key=dag_key,
     files_path=None,  # Current directory
 )

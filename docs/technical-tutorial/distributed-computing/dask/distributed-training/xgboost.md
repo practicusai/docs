@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.6
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
-    name: python3
+    name: practicus
 ---
 
 # Distributed XGBoost with Dask for Scalable Machine Learning
@@ -89,47 +89,47 @@ client = prt.distributed.get_client()
 #### Training with XGBoost on Dask Cluster
 
 ```python
-import xgboost as xgb
+# Check most recent docs:
+# https://xgboost.readthedocs.io/en/stable/tutorials/dask.html
+
+from xgboost import dask as dxgb
+
 import dask.array as da
-from dask_ml.model_selection import train_test_split
-import numpy as np
 import dask.distributed
 
-# Generate some random data (replace with your actual data)
-X = da.random.random((1000, 10), chunks=(100, 10))
-y = da.random.randint(0, 2, size=1000, chunks=100)
+num_obs = 1e5
+num_features = 20
+X = da.random.random(size=(num_obs, num_features), chunks=(1000, num_features))
+y = da.random.random(size=(num_obs, 1), chunks=(1000, 1))
 
-# Split the data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+dtrain = dxgb.DaskDMatrix(client, X, y)
+# or
+# dtrain = dxgb.DaskQuantileDMatrix(client, X, y)
 
-# Convert Dask arrays to DaskDMatrix (XGBoost-compatible format)
-dtrain = xgb.dask.DaskDMatrix(client, X_train, y_train)
-dtest = xgb.dask.DaskDMatrix(client, X_test, y_test)
-
-# Set XGBoost parameters
-params = {"objective": "binary:logistic", "max_depth": 6, "eta": 0.3, "tree_method": "hist"}
-
-# Train the model
-bst = xgb.dask.train(client, params, dtrain, num_boost_round=100)
+output = dxgb.train(
+    client,
+    {"verbosity": 2, "tree_method": "hist", "objective": "reg:squarederror"},
+    dtrain,
+    num_boost_round=4,
+    evals=[(dtrain, "train")],
+)
 print("Model trained successfully")
 
-# Optionally, evaluate the model on test data
-preds = xgb.dask.predict(client, bst, dtest)
+prediction = dxgb.predict(client, output, X)
 print("Predictions made successfully")
 
-model_path = "model.ubj"
-bst["booster"].save_model(model_path)
+prediction = dxgb.inplace_predict(client, output, X)
+print("Predictions made successfully using inplace version")
+
+output["booster"].save_model(model_path)
 print(f"Model saved to {model_path}")
 ```
-
-### Deploying model as an API
-
-Note: If you would like to deploy the XGBoost model as an API, please visit the modeling basics section.
-
 
 ### Load and train with the XGBoost model
 
 ```python
+import xgboost as xgb
+
 print("Loading Model and Predicting")
 
 # Load the saved model
@@ -138,7 +138,7 @@ loaded_bst.load_model(model_path)
 print("Model loaded successfully")
 
 # Generate a *new* random dataset (important: different from training/testing)
-X_new = da.random.random((500, 10), chunks=(100, 10))  # New data!
+X_new = da.random.random(size=(num_obs, num_features), chunks=(1000, num_features))  # New data!
 X_new_computed = client.compute(X_new).result()  # Important to compute before creating DMatrix
 dnew = xgb.DMatrix(X_new_computed)
 
@@ -150,6 +150,10 @@ print("New predictions made successfully")
 print("First 10 New Predictions:")
 print(new_preds[:10])
 ```
+
+### Deploying model as an API
+
+Note: If you would like to deploy the XGBoost model as an API, please visit the modeling basics section.
 
 ```python
 # Cleanup

@@ -24,10 +24,14 @@ This notebook demonstrates how to work with Practicus AI’s built-in Vault to s
 
 
 ```python
-shared_secret_name = None
+personal_secret_name = "PERSONAL_SECRET_1"
+shared_secret_name = "SHARED_SECRET_1"
+automated_test = False
+
 ```
 
 ```python
+assert personal_secret_name, "Please enter your personal_secret_name."
 assert shared_secret_name, "Please enter your shared_secret_name."
 ```
 
@@ -36,8 +40,11 @@ import practicuscore as prt
 from getpass import getpass
 
 # Create or update a personal secret
-personal_secret_name = "PERSONAL_SECRET_1"
-key = getpass(f"Enter key for {personal_secret_name}:")
+if not automated_test:
+    key = getpass(f"Enter key for {personal_secret_name}:")
+else:
+    import secrets
+    key = secrets.token_hex(16)
 
 prt.vault.create_or_update_secret(name=personal_secret_name, key=key)
 ```

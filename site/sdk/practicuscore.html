@@ -1281,6 +1281,9 @@
                         <li>
                                 <a class="variable" href="#Log.METADATA">METADATA</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#Log.USER">USER</a>
+                        </li>
                 </ul>
 
             </li>
@@ -1954,9 +1957,6 @@
                     <a class="class" href="#ModelServer">ModelServer</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="variable" href="#ModelServer.initialized">initialized</a>
-                        </li>
-                        <li>
                                 <a class="variable" href="#ModelServer.STATUS_STOPPED">STATUS_STOPPED</a>
                         </li>
                         <li>
@@ -2003,9 +2003,6 @@
                         </li>
                         <li>
                                 <a class="function" href="#ModelServer.stop">stop</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#ModelServer.get_output">get_output</a>
                         </li>
                         <li>
                                 <a class="function" href="#ModelServer.extract_upstream_path">extract_upstream_path</a>
@@ -12925,6 +12922,18 @@ configure their levels and outputs independently.</p>
     
 
                             </div>
+                            <div id="Log.USER" class="classattr">
+                                <div class="attr variable">
+            <span class="name">USER</span>        =
+<span class="default_value">&lt;<a href="#Log.USER">Log.USER</a>: &#39;practicus.core.user&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.USER"></a>
+    
+    
+
+                            </div>
                 </section>
                 <section id="set_logging_level">
                     <div class="attr function">
@@ -16056,18 +16065,6 @@ so users can call methods directly on the class without instantiation.</p>
 </div>
 
 
-                            <div id="ModelServer.initialized" class="classattr">
-                                <div class="attr variable">
-            <span class="name">initialized</span>        =
-<span class="default_value">False</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ModelServer.initialized"></a>
-    
-    
-
-                            </div>
                             <div id="ModelServer.STATUS_STOPPED" class="classattr">
                                 <div class="attr variable">
             <span class="name">STATUS_STOPPED</span>        =
@@ -16144,7 +16141,7 @@ so users can call methods directly on the class without instantiation.</p>
                                 <div class="attr variable">
             <span class="name">IGNORED_REQ_HEADERS</span>        =
 <input id="ModelServer.IGNORED_REQ_HEADERS-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;upgrade&#39;, &#39;authorization&#39;, &#39;connection&#39;, &#39;transfer-encoding&#39;, &#39;keep-alive&#39;, &#39;host&#39;, &#39;te&#39;, &#39;trailers&#39;, &#39;proxy-authenticate&#39;, &#39;content-length&#39;, &#39;proxy-authorization&#39;}</span>
+            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;upgrade&#39;, &#39;keep-alive&#39;, &#39;te&#39;, &#39;connection&#39;, &#39;proxy-authorization&#39;, &#39;proxy-authenticate&#39;, &#39;trailers&#39;, &#39;transfer-encoding&#39;, &#39;content-length&#39;, &#39;authorization&#39;, &#39;host&#39;}</span>
 
         
     </div>
@@ -16156,7 +16153,7 @@ so users can call methods directly on the class without instantiation.</p>
                             <div id="ModelServer.IGNORED_RESP_HEADERS" class="classattr">
                                 <div class="attr variable">
             <span class="name">IGNORED_RESP_HEADERS</span>        =
-<span class="default_value">{&#39;content-encoding&#39;, &#39;connection&#39;, &#39;transfer-encoding&#39;}</span>
+<span class="default_value">{&#39;connection&#39;, &#39;transfer-encoding&#39;, &#39;content-encoding&#39;}</span>
 
         
     </div>
@@ -16304,7 +16301,7 @@ If a server is already running or starting, this method will do nothing and retu
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">wait_until_ready</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span>, </span><span class="param"><span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">wait_until_ready</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1200</span>, </span><span class="param"><span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
 
         
     </div>
@@ -16317,7 +16314,7 @@ It checks the server status at regular intervals and raises an exception if
 the server enters an error state or if the timeout is reached.</p>
 
 <p>Args:
-    timeout: Maximum time to wait in seconds
+    timeout: Maximum time to wait in seconds. You can override with PRT_MODEL_WAIT_UNTIL_READY_SEC OS env value.
     interval: Time between status checks in seconds</p>
 
 <p>Returns:
@@ -16418,43 +16415,6 @@ the specified timeout.</p>
 <p>Example:
     # Use the server...
     prt.models.server.stop()  # Shutdown when done</p>
-</div>
-
-
-                            </div>
-                            <div id="ModelServer.get_output" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-classmethod">@classmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">get_output</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">stdout</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">stderr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">max_lines</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#ModelServer.get_output"></a>
-    
-            <div class="docstring"><p>Get the captured process output.</p>
-
-<p>Retrieves the stdout and/or stderr output that has been captured from
-the server process.</p>
-
-<p>Args:
-    stdout: Whether to include stdout output
-    stderr: Whether to include stderr output
-    max_lines: Maximum number of lines to retrieve per stream</p>
-
-<p>Returns:
-    Dict with 'stdout' and/or 'stderr' lists of captured lines</p>
-
-<p>Example:
-    # Get last 50 lines from both stdout and stderr
-    output = prt.models.server.get_output(max_lines=50)</p>
-
-<pre><code># Print stderr only
-output = prt.models.server.get_output(stdout=False)
-for line in output['stderr']:
-    print(line)
-</code></pre>
 </div>
 
 

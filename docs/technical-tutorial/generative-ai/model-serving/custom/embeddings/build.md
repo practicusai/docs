@@ -17,6 +17,16 @@ jupyter:
 You can build Practicus AI embedding APIs that are compatible with the OpenAI API embedding endpoints and the SDK.
 
 ```python
+model_deployment_key = None
+model_prefix = None
+```
+
+```python
+assert model_deployment_key, "Please provide model deployment key for embeddigs model modelhost"
+assert model_prefix, "Please provide model prefix for embeddigs model modelhost"
+```
+
+```python
 # Convenience classes, you can also use your own that are compatible with OpenAI APIs.
 from practicuscore.gen_ai import PrtEmbeddingsRequest, PrtEmbeddingObject, PrtEmbeddingUsage, PrtEmbeddingsResponse
 ```
@@ -67,31 +77,32 @@ import practicuscore as prt
 
 region = prt.get_default_region()
 
-# Identify the first available model deployment system
-if len(region.model_deployment_list) == 0:
-    raise SystemError("No model deployment systems are available. Please contact your system administrator.")
-elif len(region.model_deployment_list) > 1:
-    print("Multiple model deployment systems found. Using the first one.")
+if not model_deployment_key:
+    # Identify the first available model deployment system
+    if len(region.model_deployment_list) == 0:
+        raise SystemError("No model deployment systems are available. Please contact your system administrator.")
+    elif len(region.model_deployment_list) > 1:
+        print("Multiple model deployment systems found. Using the first one.")
+    model_deployment = region.model_deployment_list[0]
+    model_deployment_key = model_deployment.key
 
-model_deployment = region.model_deployment_list[0]
-deployment_key = model_deployment.key
+if not model_prefix:
+    # Identify the first available model prefix
+    if len(region.model_prefix_list) == 0:
+        raise SystemError("No model prefixes are available. Please contact your system administrator.")
+    elif len(region.model_prefix_list) > 1:
+        print("Multiple model prefixes found. Using the first one.")
 
-# Identify the first available model prefix
-if len(region.model_prefix_list) == 0:
-    raise SystemError("No model prefixes are available. Please contact your system administrator.")
-elif len(region.model_prefix_list) > 1:
-    print("Multiple model prefixes found. Using the first one.")
-
-prefix = region.model_prefix_list[0].key
+    model_prefix = region.model_prefix_list[0].key
 
 model_name = "openai-embedding-proxy"
 model_dir = None  # Use the current directory by default
 
 # Construct the URL. Ensure it ends with a slash.
-expected_api_url = f"{region.url}/{prefix}/{model_name}/"
+expected_api_url = f"{region.url}/{model_prefix}/{model_name}/"
 
 print("Expected Model REST API URL:", expected_api_url)
-print("Using model deployment:", deployment_key)
+print("Using model deployment:", model_deployment_key)
 ```
 
 ## model.py
@@ -101,7 +112,7 @@ For the sake simplicity, we are deploying a model that sends random embeddings.
 ```python
 # Deploy model.py
 api_url, api_version_url, api_meta_url = prt.models.deploy(
-    deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir
+    deployment_key=model_deployment_key, prefix=model_prefix, model_name=model_name, model_dir=model_dir
 )
 ```
 

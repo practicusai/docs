@@ -70,4 +70,4 @@ In summary:
 
 ---
 
-**Previous**: [Use Polars](use-polars.md) | **Next**: [Extras > Modeling > SparkML > Ice Cream > SparkML Ice Cream](../extras/modeling/sparkml/ice-cream/sparkml-ice-cream.md)
+**Previous**: [Use Polars](use-polars.md) | **Next**: [MCP Langgraph](mcp-langgraph.md)

@@ -35,8 +35,8 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 host = None  # E.g. company.practicus.com'
 embedding_model_path = None
-milvus_uri = None  # E.g. 'company.practicus.milvus.com'
-milvus_port = None  # E.g. '19530'
+milvus_uri = None  # E.g. practicus-milvus.prt-ns-milvus.svc.cluster.local
+milvus_port = 19530
 model_name = None
 model_prefix = None
 ```

@@ -164,6 +164,7 @@ nav:
     - Model Tokens: technical-tutorial/how-to/model-tokens.md
     - Use Polars: technical-tutorial/how-to/use-polars.md
     - Personal Startup Scripts: technical-tutorial/how-to/personal-startup-scripts.md
+    - MCP Langgraph: technical-tutorial/how-to/mcp-langgraph.md
   - Extras:
     - Modeling:
       - SparkML:

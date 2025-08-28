@@ -54,7 +54,7 @@ This sample code serves as a reference for building, testing, and deploying secu
 This section defines key parameters for the notebook. Parameters control the behavior of the code, making it easy to customize without altering the logic. By centralizing parameters at the start, we ensure better readability, maintainability, and adaptability for different use cases.
 
 ```python
-app_deployment_key = None
+app_deployment_key = "appdepl"
 app_prefix = "apps"
 
 test_ui = True

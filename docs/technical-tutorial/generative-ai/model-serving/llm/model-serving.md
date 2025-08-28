@@ -62,8 +62,7 @@ prt.models.server.start_serving(model=model_id, options=vllm_options)
 # Append '/v1' for the OpenAI-compatible API endpoint
 base_url = prt.models.server.get_base_url()
 if not base_url:
-    print("Error: Server failed to start. Check logs:")
-    print(prt.models.server.get_output())
+    print("Error: Server failed to start. Please check logs.")
 else:
     openai_api_base = base_url + "/v1"
     print(f"Server started. OpenAI compatible API Base URL: {openai_api_base}")
@@ -104,11 +103,6 @@ While the server is running in your notebook session, you can monitor it:
 # Check the server's status ('running', 'error', 'stopped', etc.)
 status = prt.models.server.get_status()
 print(f"Server Status: {status}")
-
-# Get recent logs (stdout/stderr) from the server process
-logs = prt.models.server.get_output()
-print("Recent Server Logs:")
-print(logs)
 ```
 
 ### Testing with a Mock LLM Server on CPU
@@ -132,8 +126,7 @@ try:
 
     mock_base_url = prt.models.server.get_base_url()
     if not mock_base_url:
-        print("Error: Mock server failed to start. Check logs:")
-        print(prt.models.server.get_output())
+        print("Error: Mock server failed to start. Please check logs.")
     else:
         mock_api_base = mock_base_url + "/v1"
         print(f"Mock Server Running. API Base: {mock_api_base}")
@@ -423,7 +416,7 @@ async def metrics():
 some_random_metric 1.23""")
 
 
-@app.post("/chat/completions")
+@app.post("/v1/chat/completions")
 async def chat_completions(request: ChatRequest):
     # Log the request
     logger.info(f"Received chat request for model: {request.model}")

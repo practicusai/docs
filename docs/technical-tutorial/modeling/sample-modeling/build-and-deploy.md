@@ -12,6 +12,16 @@ jupyter:
     name: practicus
 ---
 
+```python
+model_deployment_key = None
+model_prefix = None
+```
+
+```python
+assert model_deployment_key, "Please provide model deployment key for classic ML modeling"
+assert model_prefix, "Please provide model prefix for classic ML modeling"
+```
+
 # Building and deploying an XGBoost model
 
 In this example, we will walk through the process of building a simple XGBoost model using a small dataset. We’ll begin by training and saving the model, and then demonstrate how to deploy it as a REST API endpoint. Finally, we’ll make some predictions by calling the deployed API.
@@ -67,35 +77,35 @@ The code below demonstrates how to programmatically identify the first available
 
 ```python
 import practicuscore as prt
-
 region = prt.get_default_region()
 
-# Identify the first available model deployment system
-if len(region.model_deployment_list) == 0:
-    raise SystemError("No model deployment systems are available. Please contact your system administrator.")
-elif len(region.model_deployment_list) > 1:
-    print("Multiple model deployment systems found. Using the first one.")
+if not model_deployment_key:
+    # Identify the first available model deployment system
+    if len(region.model_deployment_list) == 0:
+        raise SystemError("No model deployment systems are available. Please contact your system administrator.")
+    elif len(region.model_deployment_list) > 1:
+        print("Multiple model deployment systems found. Using the first one.")
+    model_deployment = region.model_deployment_list[0]
+    model_deployment_key = model_deployment.key
 
-model_deployment = region.model_deployment_list[0]
-deployment_key = model_deployment.key
+if not model_prefix:
+    # Identify the first available model prefix
+    if len(region.model_prefix_list) == 0:
+        raise SystemError("No model prefixes are available. Please contact your system administrator.")
+    elif len(region.model_prefix_list) > 1:
+        print("Multiple model prefixes found. Using the first one.")
 
-# Identify the first available model prefix
-if len(region.model_prefix_list) == 0:
-    raise SystemError("No model prefixes are available. Please contact your system administrator.")
-elif len(region.model_prefix_list) > 1:
-    print("Multiple model prefixes found. Using the first one.")
-
-prefix = region.model_prefix_list[0].key
+    model_prefix = region.model_prefix_list[0].key
 
 model_name = "my-xgboost-model"
 model_dir = None  # Use the current directory by default
 
 # All Practicus AI model APIs follow this URL convention:
-expected_api_url = f"{region.url}/{prefix}/{model_name}/"
+expected_api_url = f"{region.url}/{model_prefix}/{model_name}/"
 # Note: Ensure the URL ends with a slash (/) to support correct routing.
 
 print("Expected Model REST API URL:", expected_api_url)
-print("Using model deployment:", deployment_key)
+print("Using model deployment:", model_deployment_key)
 ```
 
 ### model.py
@@ -107,7 +117,7 @@ Review the `model.py` file to see how the XGBoost model is integrated and consum
 ```python
 # This function can be called multiple times to deploy additional versions.
 api_url, api_version_url, api_meta_url = prt.models.deploy(
-    deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir
+    deployment_key=model_deployment_key, prefix=model_prefix, model_name=model_name, model_dir=model_dir
 )
 ```
 

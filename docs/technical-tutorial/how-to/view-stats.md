@@ -48,7 +48,7 @@ print("The ephemeral disk capacity that your admin allowed for this Worker can b
 
 try:
     gpu_stats = Stats.get_gpu_stats()
-    for gpu_id, (used, reserved, total) in enumerate(gpu_memory):
+    for gpu_id, (used, reserved, total) in enumerate(gpu_stats):
         print(f"GPU usage for gpu: {gpu_id} used: {used} reserved: {reserved} total: {total}")
 except:
     print("No GPUs detected")

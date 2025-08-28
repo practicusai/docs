@@ -52,7 +52,7 @@ async def metrics():
 some_random_metric 1.23""")
 
 
-@app.post("/chat/completions")
+@app.post("/v1/chat/completions")
 async def chat_completions(request: ChatRequest):
     # Log the request
     logger.info(f"Received chat request for model: {request.model}")
