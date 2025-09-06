@@ -153,9 +153,9 @@ If you need to start over **during development**, you can remove the application
 ```python
 # --- Development Only: Reset Database Schema ---
 # Set this to True only if you understand the consequences and want to delete the schema
-run_db_removal = False
+remove_db = False
 
-if run_db_removal:
+if remove_db:
     print("*** WARNING: Proceeding with database schema removal! ***")
     confirm = input(f"Type 'delete {app_prefix}/{app_name}' to confirm DELETION of schema and data: ")
 
@@ -181,7 +181,7 @@ if run_db_removal:
     else:
         print("Confirmation failed. Database schema not removed.")
 else:
-    print("Database removal step skipped (run_db_removal is False).")
+    print("Database removal step skipped (remove_db is False).")
 ```
 
 ## 2. Core `prt.db` Workflow

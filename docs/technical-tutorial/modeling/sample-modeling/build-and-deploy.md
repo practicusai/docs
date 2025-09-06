@@ -77,6 +77,7 @@ The code below demonstrates how to programmatically identify the first available
 
 ```python
 import practicuscore as prt
+
 region = prt.get_default_region()
 
 if not model_deployment_key:

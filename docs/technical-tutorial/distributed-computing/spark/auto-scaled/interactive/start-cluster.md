@@ -74,7 +74,7 @@ distributed_config = prt.DistJobConfig(
 
 # Let's define worker features of the cluster
 worker_config = prt.WorkerConfig(
-    worker_image="ghcr.io/practicusai/practicus-spark-worker:25.5.2",
+    worker_image="ghcr.io/practicusai/practicus-spark-worker:25.5.3",
     # Please make sure to use a worker size with
     #   privileged access.
     worker_size=auto_dist_worker_size,

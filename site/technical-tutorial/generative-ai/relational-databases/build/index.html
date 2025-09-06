@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Practicus AI developer (SDK), admin, and end user documentation.">
+      
       
       
         <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/generative-ai/relational-databases/build/">
@@ -8806,7 +8808,7 @@
         
   
   <span class="md-ellipsis">
-    SDK v25.5.2
+    SDK v25.5.3
   </span>
   
 
@@ -10040,9 +10042,9 @@
 <p><strong>⚠️ WARNING: This operation is destructive and will delete all data within the application's schema. Use with extreme caution, primarily in development environments.</strong></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># --- Development Only: Reset Database Schema ---</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Set this to True only if you understand the consequences and want to delete the schema</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">run_db_removal</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">remove_db</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">if</span> <span class="n">run_db_removal</span><span class="p">:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">if</span> <span class="n">remove_db</span><span class="p">:</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*** WARNING: Proceeding with database schema removal! ***&quot;</span><span class="p">)</span>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">confirm</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type &#39;delete </span><span class="si">{</span><span class="n">app_prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">app_name</span><span class="si">}</span><span class="s2">&#39; to confirm DELETION of schema and data: &quot;</span><span class="p">)</span>
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
@@ -10068,7 +10070,7 @@
 </span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>    <span class="k">else</span><span class="p">:</span>
 </span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confirmation failed. Database schema not removed.&quot;</span><span class="p">)</span>
 </span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database removal step skipped (run_db_removal is False).&quot;</span><span class="p">)</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database removal step skipped (remove_db is False).&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="2-core-prtdb-workflow">2. Core <code>prt.db</code> Workflow</h2>
 <p>Now that we have a database schema and connection string ready, we can use the <code>prt.db</code> functions to manage the schema structure.</p>

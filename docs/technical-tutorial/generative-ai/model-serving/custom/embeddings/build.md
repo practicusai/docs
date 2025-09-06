@@ -22,8 +22,8 @@ model_prefix = None
 ```
 
 ```python
-assert model_deployment_key, "Please provide model deployment key for embeddigs model modelhost"
-assert model_prefix, "Please provide model prefix for embeddigs model modelhost"
+assert model_deployment_key, "Please provide model deployment key for embeddings model modelhost"
+assert model_prefix, "Please provide model prefix for embeddings model modelhost"
 ```
 
 ```python
