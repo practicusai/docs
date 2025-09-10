@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.6
+      jupytext_version: 1.17.3
   kernelspec:
     display_name: Practicus Core
     language: python
@@ -135,4 +135,4 @@ The rest is the same as NVIDIA MIG, define a new worker size and use the GPU Typ
 
 ---
 
-**Previous**: [Hosting Temporary Apis](hosting-temporary-apis.md) | **Next**: [Configure Workspaces](configure-workspaces.md)
+**Previous**: [Change Vs Code Defaults](change-vs-code-defaults.md) | **Next**: [Configure Workspaces](configure-workspaces.md)

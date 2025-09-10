@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.6
+      jupytext_version: 1.17.3
   kernelspec:
     display_name: Practicus Core
     language: python
@@ -124,4 +124,4 @@ print(resp.text)
 
 ---
 
-**Previous**: [Customize Templates](customize-templates.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)
+**Previous**: [Customize Templates](customize-templates.md) | **Next**: [Change Vs Code Defaults](change-vs-code-defaults.md)

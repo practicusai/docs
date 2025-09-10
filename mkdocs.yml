@@ -157,6 +157,7 @@ nav:
     - Use Custom Metrics: technical-tutorial/how-to/use-custom-metrics.md
     - Customize Templates: technical-tutorial/how-to/customize-templates.md
     - Hosting Temporary Apis: technical-tutorial/how-to/hosting-temporary-apis.md
+    - Change Vs Code Defaults: technical-tutorial/how-to/change-vs-code-defaults.md
     - Configure Advanced Gpu: technical-tutorial/how-to/configure-advanced-gpu.md
     - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md
     - Share Workers: technical-tutorial/how-to/share-workers.md
