@@ -61,4 +61,4 @@ Practicus AI’s distributed computing platform provides the following advantage
 
 ---
 
-**Previous**: [Build](../generative-ai/analytics/query-engine/build.md) | **Next**: [Spark > Interactive > Start Cluster](spark/interactive/start-cluster.md)
+**Previous**: [Build](../generative-ai/mcp/build.md) | **Next**: [Spark > Interactive > Start Cluster](spark/interactive/start-cluster.md)

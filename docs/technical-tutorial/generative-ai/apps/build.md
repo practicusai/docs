@@ -246,6 +246,8 @@ import practicuscore as prt
 import streamlit as st
 
 from shared.helper import some_function
+# If you are using init_app.py, unlike APIs, you must manually load like the below for UI.
+# import init_app  # noqa
 
 # The below will secure the page by authenticating and authorizing users with Single-Sign-On.
 # Please note that security code is only activate when the app is deployed.
@@ -356,10 +358,47 @@ api_spec = prt.APISpec(
 
 @prt.api("/say-hello-with-spec", spec=api_spec)
 async def say_hello_with_spec(request, payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
-    """
-    This API does some pretty cool stuff. I'd like to explain further. But let's park for now.
-    """
+    """This API also sends a greeting message back to the caller, but with additional metadata for governance."""
+
+    # Notes:
+    # - You can add `request` as a param, which will be the FastAPI (Starlette) request object.
+    # - Always add `**kwargs` to your function params since there can be a dynamic number of parameters passed.
+    #   E.g., `requester: dict` includes the requesting user related info.
+    # - You can access shared global state set in `init_app.py` E.g.,
+    #   from shared.helper import AppState
+    #   some_global_state = AppState.shared_variable
+    #   prt.logger.info(f"Current global state: {some_global_state}")
+
     return SayHelloResponse(greeting_message=f"Hello2 {payload.person.name}")
+
+```
+
+### init_app.py
+```python
+# This file is automatically executed when your APIs App starts up.
+# Use it to prepare global state, initialize resources, or connect to services.
+
+# For UI apps, you must manually run `import init_app` in Home.py
+# Please keep in mind that global state is *NOT* shared between the UI and API apps.
+#   Home.py is a Streamlit App, APIs are hosted via FastAPI.
+
+import practicuscore as prt
+from shared.helper import AppState
+
+
+def initialize() -> None:
+    # Log that we are starting initialization
+    prt.logger.info("Starting to initialize app.")
+
+    # Example: change a global variable so all APIs can see the new value
+    AppState.shared_variable = "changed"
+
+    # Log that initialization is done
+    prt.logger.info("Completed initializing app.")
+
+
+# Run the initializer immediately on import
+initialize()
 
 ```
 
@@ -580,6 +619,19 @@ st.write("If you see this, you are an admin, owner of the app, or in development
 
 ### shared/helper.py
 ```python
+# You can hold "global" state that can be shared across your APIs, and UI pages.
+# You might use this for database connections, caches, or config.
+# Keep in mind that global state is simple but also has tradeoffs:
+#   - It is shared by all requests and all APIs
+#   - You must be careful about concurrency and mutability
+
+
+class AppState:
+    # A trivial shared variable (string) with a default value.
+    # Any API or initialization code can read or overwrite this.
+    shared_variable: str = "empty"
+
+
 def some_function():
     return "And, this text is from a shared function."
 

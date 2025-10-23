@@ -48,6 +48,10 @@ prt.notify.send(
     level="info",
     category="sample_notification",
     urgency="normal",
+    # Add email attachments by setting attachment_paths.
+    # Safe file types and max size (default 20MB) are defined by admin.
+    # Zip files if file type is restricted.
+    # attachment_paths=["path/to/file1.txt, path/to/file2.md"]
     # View help for other customizations
 )
 print("Test email sent")
@@ -61,7 +65,7 @@ In this example, we simulate an exception. The notify app captures exception det
 import practicuscore as prt
 
 try:
-    # Let's simulte an exception
+    # Let's simulate an exception
     x = 1 / 0
 except:
     prt.notify.send(exc_info=True)

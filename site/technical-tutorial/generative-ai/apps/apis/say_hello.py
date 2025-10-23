@@ -75,7 +75,15 @@ api_spec = prt.APISpec(
 
 @prt.api("/say-hello-with-spec", spec=api_spec)
 async def say_hello_with_spec(request, payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
-    """
-    This API does some pretty cool stuff. I'd like to explain further. But let's park for now.
-    """
+    """This API also sends a greeting message back to the caller, but with additional metadata for governance."""
+
+    # Notes:
+    # - You can add `request` as a param, which will be the FastAPI (Starlette) request object.
+    # - Always add `**kwargs` to your function params since there can be a dynamic number of parameters passed.
+    #   E.g., `requester: dict` includes the requesting user related info.
+    # - You can access shared global state set in `init_app.py` E.g.,
+    #   from shared.helper import AppState
+    #   some_global_state = AppState.shared_variable
+    #   prt.logger.info(f"Current global state: {some_global_state}")
+
     return SayHelloResponse(greeting_message=f"Hello2 {payload.person.name}")

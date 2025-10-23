@@ -44,6 +44,7 @@ if not automated_test:
     key = getpass(f"Enter key for {personal_secret_name}:")
 else:
     import secrets
+
     key = secrets.token_hex(16)
 
 prt.vault.create_or_update_secret(name=personal_secret_name, key=key)
@@ -129,6 +130,62 @@ fi
 - **Never print secrets:** Avoid printing secret values in production. Use environment variables for internal use only.
 - **Always check for errors:** Validate that each secret is properly retrieved before continuing with your script.
 - **Documentation:** Clearly document your usage of secrets and error handling in your scripts to help with troubleshooting.
+<!-- #endregion -->
+
+<!-- #region -->
+## Big secrets
+
+Max secret key length is 2000 characters after encryption, which will give you around 1000-1250 characters to use as keys. 
+
+For secrets such as SSL keys, this might not be enough. You can split the secret into multiple parts as seen below if you ever hit max secret size limit.
+
+```python
+import practicuscore as prt
+
+long_secret = """-----BEGIN CERTIFICATE-----
+MIIFJzCCAw+gAwIBAgIUyqlBgM2m9t3rfiyEGyuGkx8E4QgwDQYJKoZIhvcNAQEL
+BQAwIzEhMB8GA1UEAwwYUHJhY3RpY3VzIEFJIFNlbGYtU2lnbmVkMB4XDTI0MTAx
+MTIwNTYzNVoXDTM0MTAwOTIwNTYzNVowIzEhMB8GA1UEAwwYUHJhY3RpY3VzIEFJ
+IFNlbGYtU2lnbmVkMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArpGo
+vTOX8jzzuxt7QyycpStU64fe7o6dVMTRR2FVxv4xsnAQ5OmHXSaBhQtz4fTgq2hE
+E9GrzEMBzpaI+zIe3kvxP3Rs/GvPr62x8ne/uaQdH214a+SlyDnn0SDPnF98zhHQ
+Au+RWdCY1f+T0aDaNDI7kyHobJUga+7hGUyskaphR2UekFGsBI/unr/cFTa2LkVN
+eDPTOTgurFpjR+TFe4cJ1nNO4c8ZzUpBkBZQf2kh5SJitniXsSQuD69e/Iajm+Ub
+sCJfRGKhRRUdv06WbGOVNrmaU6MORLlX7lUvWSUKuPJOYXZJpg9qmh0ui3Gkfz9b
+F0LBTzOKl+XEet5HccSWbn4ZnbAOaA/YHG5/FRCRWuMG8qNT2nAqc0HMYUkolN+x
+TagCjcnxT1WqSXzcsAcMYvg7fDRC1spqh6yss+bMrriDKNeDQB8Fp15PaNoxZrrA
+K12M0IUua/AwlKxcM9AqAxOdE2SoxX9xmhim5xbLh1ctkz0DRy4weZz5ta22A6dQ
+vqHKH0uZxtDhAIiw8CqfiIQbBfwFm/xivh170hbVuTqTgoxRpiISB7mgvtuRVHXN
+kJgJDrzQ02k8Ah/KjSWxWKaYq88w7lKv9UQPacD8dqNrthZpDAWpQlu5DBB+9Z/0
+bW8lxZlU8Ct2/NMxyvArMLa4TFYZnbRFKdc9nBsCAwEAAaNTMFEwHQYDVR0OBBYE
+FOjaCjwbTSM6bApDbGmeTh2sZKbjMB8GA1UdIwQYMBaaFOjaCjwbTSM6bApDbGme
+Th2sZKbjMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIBABDDWajB
+WWRi9KijQVHgm1EZPsNwZkeCyslHALd1Fh7eLVth3RyFsyZupWM9eI4ZJnY4Rj02
+VtR2xSlXioubPt5Ply4IHb/ZCaIRj7WnIFMfwyYxA29O2Yqoi6/Z51Of3qJ1qia7
+6ZnDvkf1Ys1pjOVrpvlEL8mYlFYVg+3EC4jy7IljuZ6e24T0HuMoMtelKu7H4SB0
+cNOfOeVOD0SZx30YLm32sy7AIXP6BXXuXcM2l3SAtHZgXdQ9eOcrcROLTtdHzVma
+8rJxyE51HT6paYOxTVKM7kLT+DipuURTZyIC+Mvmqb0SUPstMuYACuYwICMq35YZ
+eXFM2CaU8VkrbaRsDa7OtD2zU/WzHXQn1K5RDd0vw+2IDay3lwTRmJM+/Zp+zxHJ
+XGIrQDKm1IXblpD8gq3QkW6YVQZv9FPsXA2GOqomgFji0wEOGu/28KOZoXoASxJw
+zCPFMOF/rg0un3U7mBzBQHqYNjSqqBFJQJgPDXpa4P4hCj2GTPHB6PepaXG9nJ4P
+17TpNJ3ciwShCVv5u3wAbKVcYhmbOMgEaN4cppHNdzMteOBrQ4k0ZJfO7EBybRjS
+h9AOZ2bQDZ0TE/x134WpbNr7gwmmcL6Bl0e87LXHiKu5/6m1mHJG2RhszOl635gW
+K/7EvAGSXa2GCL6VSiK0oG6RvKHofBk6snne
+-----END CERTIFICATE-----"""
+
+# Save secret by splitting into 2
+half_len = int(len(long_secret) / 2)
+prt.vault.create_or_update_secret("long_secret_part1", long_secret[:half_len])
+prt.vault.create_or_update_secret("long_secret_part2", long_secret[half_len:])
+
+# Load it back
+long_secret_part1, age = prt.vault.get_secret("long_secret_part1")
+long_secret_part2, age = prt.vault.get_secret("long_secret_part2")
+loaded_secret = long_secret_part1 + long_secret_part2
+
+# Confirm they are equal
+print("Secrets are equal" if long_secret == loaded_secret else "not equal..")
+```
 <!-- #endregion -->
 
 

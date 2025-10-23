@@ -222,7 +222,7 @@ PRT_SERVE_MODEL=TinyLlama/TinyLlama-1.1B-Chat-v1.0
     ```
 
 
-### Option 2: Pre-download and Bake Model into Container Image (Recommended for Production)
+### Option 2: Pre-download and Bake Model into Container Image (Recommended for small models)
 
 Build a custom container image that includes the model files. This avoids runtime downloads, leading to faster and more reliable pod startups.
 
@@ -317,6 +317,115 @@ async def init(**kwargs):
 async def serve(**kwargs):
     return await prt.models.server.serve(**kwargs)
 ```
+
+<!-- #region -->
+### Option 4: Host Models from Attached Storage (Recommended for Large Models, Offline Mode)
+
+> **Note:** This step requires **admin access** to the Practicus AI management console.
+
+Use an external **Persistent Volume Claim (PVC)** to pre-download Hugging Face models into a shared path. This avoids runtime downloads, enables offline operation, and is recommended for large models.
+
+**Pros:**
+
+* Models are shared across workers/deployments (no duplicate downloads).
+* Works in offline or air-gapped environments.
+* Easy to update or replace models without rebuilding container images.
+
+**Cons:**
+
+* Requires PVC setup and storage capacity planning.
+* Initial model download must be done manually.
+
+#### Steps
+
+##### 1. Create a Storage Profile (PVC)
+
+1. Go to: **Practicus AI management console > Infrastructure > Storage Profiles**
+
+2. Create a new storage profile with the following settings:
+
+   * **Key:** e.g. `hf-models`
+   * **Volume Type:** `PersistentVolumeClaim (new)`
+   * **Mount path:** e.g. `/var/practicus/hf`
+   * **FS Group:** `1000` (recommended)
+   * **Storage Class Name:** choose a `ReadWriteMany (RWM)` capable storage class if possible. Otherwise, only one pod can use the volume at a time.
+   * **Access Mode:** RWM (ideal) or RWO
+   * **Storage Size:** e.g. `100Gi`
+
+3. Create a new **GPU Workload Type**: **Infrastructure > Workload Types**
+
+   * Use the node selector for GPU workloads (e.g. `my-gpu`).
+   * Attach the storage profile you just created (e.g. `hf-models`).
+
+##### 2. Validate PVC Write Access
+
+1. Create a **design-time worker** using the workload type (e.g. `my-gpu`).
+2. This mounts the PVC at `/var/practicus/hf`.
+3. Validate writability:
+
+   ```bash
+   cd /var/practicus/hf
+   touch write-test
+   rm write-test
+   ```
+
+##### 3. Download the Model (One-Time Preload)
+
+Run inside the design-time worker, using the workload type you just created (e.g. my-gpu):
+
+```python
+import os
+import practicuscore as prt
+
+os.environ["HF_HOME"] = "/var/practicus/hf"  # The PVC storage we created
+
+model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+vllm_options = {"dtype": "half"}
+
+print(f"Starting server for model: {model_id} with options: {vllm_options}...")
+prt.models.server.start_serving(model=model_id, options=vllm_options)
+```
+
+✅ Confirm the model server loads successfully (weights are downloaded into PVC).
+✅ Run a quick chat test.
+
+##### 4. Host the Model with PVC in Offline Mode
+
+1. Go to: **Practicus AI management console > ML Model Hosting > Model Deployments**
+
+2. Create a new **model deployment** using a vLLM-enabled image.
+
+   * Select the same workload type (e.g. `my-gpu`).
+   * If you created a new workload type, attach the same storage profile (PVC).
+
+3. Add the following environment variables to the deployment:
+
+   ```bash
+   HF_HOME=/var/practicus/hf
+   TRANSFORMERS_OFFLINE=1
+   HF_DATASETS_OFFLINE=1
+   PRT_SERVE_MODEL=TinyLlama/TinyLlama-1.1B-Chat-v1.0
+   PRT_SERVE_MODEL_OPTIONS_B64=eyJkdHlwZSI6ICJoYWxmIn0K
+   ```
+
+   * `TRANSFORMERS_OFFLINE` and `HF_DATASETS_OFFLINE` ensure vLLM **never downloads models at runtime** and only uses the files in `HF_HOME`.
+   * `PRT_SERVE_MODEL_OPTIONS_B64` can be generated with:
+
+     ```bash
+     echo '{"dtype": "half"}' | base64
+     ```
+
+4. Create a **Model Endpoint**:
+
+   * Go to **Practicus AI management console > ML Model Hosting > Models**.
+
+   * Create a new model (e.g. `/models/tiny-llama`).
+
+   * Create a new version (e.g. `1`) and select the deployment created above.
+
+   > With this approach, you can host models **without deploying a `model.py` file first**.
+
+<!-- #endregion -->
 
 ## 4. Proxy Mode: Routing Requests to an External Service
 
