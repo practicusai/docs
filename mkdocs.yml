@@ -305,7 +305,7 @@ nav:
   - Enterprise SSO: ops-tutorial/enterprise-sso.md
   - AI Assistants: ops-tutorial/ai_assistants.md
   - MFA (Multi-Factor Authentication): ops-tutorial/mfa.md
-- SDK v25.5.3: sdk/practicuscore.html
+- SDK v25.5.4: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
   - Open MLOps:

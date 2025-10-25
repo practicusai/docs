@@ -9186,7 +9186,7 @@
   
   
   <span class="md-ellipsis">
-    SDK v25.5.3
+    SDK v25.5.4
     
   </span>
   
@@ -10404,7 +10404,7 @@
 <p><strong>Define Container Image in Practicus AI:</strong></p>
 <ul>
 <li>Navigate to <code>Infrastructure &gt; Container Images</code> in the Practicus AI console.</li>
-<li>Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: <code>ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.3</code> (replace with the latest/appropriate version).</li>
+<li>Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: <code>ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.4</code> (replace with the latest/appropriate version).</li>
 </ul>
 </li>
 <li>
@@ -10480,7 +10480,7 @@
 </ol>
 <p><strong>Example <code>Dockerfile</code>:</strong></p>
 <div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c"># Use a Practicus AI image that includes GPU support and vLLM</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.3</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.4</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c"># --- Configuration baked into the image ---</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PRT_SERVE_MODEL</span><span class="o">=</span><span class="s2">&quot;TinyLlama/TinyLlama-1.1B-Chat-v1.0&quot;</span>

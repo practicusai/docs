@@ -179,7 +179,7 @@ This is the quickest way to get started. Use a pre-built Practicus AI vLLM image
 
 1.  **Define Container Image in Practicus AI:**
     * Navigate to `Infrastructure > Container Images` in the Practicus AI console.
-    * Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.3` (replace with the latest/appropriate version).
+    * Add a new image. Use a vLLM-enabled image provided by Practicus AI, for example: `ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.4` (replace with the latest/appropriate version).
 
 2.  **Create Model Deployment:**
     * Go to `ML Model Hosting > Model Deployments`.
@@ -250,7 +250,7 @@ Build a custom container image that includes the model files. This avoids runtim
 
 ```dockerfile
 # Use a Practicus AI image that includes GPU support and vLLM
-FROM ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.3
+FROM ghcr.io/practicusai/practicus-modelhost-gpu-vllm:25.5.4
 
 # --- Configuration baked into the image ---
 ENV PRT_SERVE_MODEL="TinyLlama/TinyLlama-1.1B-Chat-v1.0"

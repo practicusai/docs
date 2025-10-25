@@ -9119,7 +9119,7 @@
   
   
   <span class="md-ellipsis">
-    SDK v25.5.3
+    SDK v25.5.4
     
   </span>
   
@@ -10191,7 +10191,7 @@
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create a Dockerfile in ~/build</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">dockerfile_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2"># Use a base image from your private registry or a public source</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">FROM my-registry.practicus.my-company.com/practicusai/practicus-minimal:25.5.3</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">FROM my-registry.practicus.my-company.com/practicusai/practicus-minimal:25.5.4</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s2"># Copy in our text file</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s2">COPY hello.txt /home/ubuntu/hello.txt</span>
@@ -10212,7 +10212,7 @@
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">success</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">containers</span><span class="o">.</span><span class="n">build_image</span><span class="p">(</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-registry.practicus.my-company.com/demo/practicus-minimal-my&quot;</span><span class="p">,</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;25.5.3&quot;</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;25.5.4&quot;</span><span class="p">,</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">push_image</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">registry_credentials</span><span class="o">=</span><span class="p">[</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="p">(</span><span class="s2">&quot;my-registry.practicus.my-company.com&quot;</span><span class="p">,</span> <span class="n">repo_username</span><span class="p">,</span> <span class="n">repo_password</span><span class="p">),</span>
@@ -10224,7 +10224,7 @@
 </span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successful!&quot;</span> <span class="k">if</span> <span class="n">success</span> <span class="k">else</span> <span class="s2">&quot;Failed..&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Once your image is successfully pushed, you can reference it in any future Practicus AI Worker by its full name, for example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>my-registry.practicus.my-company.com/demo/practicus-minimal-my:25.5.3
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>my-registry.practicus.my-company.com/demo/practicus-minimal-my:25.5.4
 </span></code></pre></div>
 <h2 id="step-3-use-the-custom-image-you-just-built">Step 3: Use the Custom Image you just built</h2>
 <p>Switch back to your original environment (the one where you created <code>builder_worker</code>). Now you can create a new Worker that runs on your freshly built image. Make sure your user or group has permissions to use custom container images. If you're an admin, you can grant this permission in the Practicus AI admin console under <strong>Infrastructure</strong> &gt; <strong>Container Images</strong>.</p>
@@ -10235,7 +10235,7 @@
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">worker_config</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">WorkerConfig</span><span class="p">(</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="c1"># If desired, specify a tag explicitly,</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="c1"># worker_image=&quot;my-registry.practicus.my-company.com/demo/practicus-minimal-my:25.5.3&quot;,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="c1"># worker_image=&quot;my-registry.practicus.my-company.com/demo/practicus-minimal-my:25.5.4&quot;,</span>
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="c1"># or else, the current Practicus AI platform version is used if the tag is omitted.</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">worker_image</span><span class="o">=</span><span class="s2">&quot;my-registry.practicus.my-company.com/demo/practicus-minimal-my&quot;</span><span class="p">,</span>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">worker_size</span><span class="o">=</span><span class="s2">&quot;Medium&quot;</span><span class="p">,</span>
@@ -10321,7 +10321,7 @@
 <p>Example CLI command:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>prtcli<span class="w"> </span>build-container-image<span class="w"> </span>-p<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;my-registry.practicus.my-company.com/my-project/my-image&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;25.5.3&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;25.5.4&quot;</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nv">build_args</span><span class="o">=</span><span class="s2">&quot;{\&quot;ENV_VAR\&quot;: \&quot;value\&quot;}&quot;</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nv">registry_credentials</span><span class="o">=</span><span class="s2">&quot;[(\&quot;my-registry.practicus.my-company.com\&quot;, \&quot;my-robot-user\&quot;, \&quot;token\&quot;)]&quot;</span>
 </span></code></pre></div></p>
