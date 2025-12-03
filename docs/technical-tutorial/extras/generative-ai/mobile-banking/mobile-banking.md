@@ -372,4 +372,4 @@ print(answer)
 
 ---
 
-**Previous**: [Bleu](../llm-evaluation/BLEU.md) | **Next**: [LLM Apps > API LLM Apphost > Build](../llm-apps/api-llm-apphost/build.md)
+**Previous**: [Bertscore](../llm-evaluation/BERTScore.md) | **Next**: [LLM Apps > API LLM Apphost > Build](../llm-apps/api-llm-apphost/build.md)

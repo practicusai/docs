@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/extras/generative-ai/llm-evaluation/BLEU/">
       
       
-        <link rel="prev" href="../BERTScore/">
+        <link rel="prev" href="../ROGUE/">
       
       
-        <link rel="next" href="../../mobile-banking/mobile-banking/">
+        <link rel="next" href="../BLEURT/">
       
       
       <link rel="icon" href="../../../../../img/practicus50.png">
@@ -6034,29 +6034,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../BLEURT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Bleurt
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../METEOR/" class="md-nav__link">
         
   
@@ -6086,29 +6063,6 @@
   
   <span class="md-ellipsis">
     Rogue
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BERTScore/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Bertscore
     
   </span>
   
@@ -6176,54 +6130,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-libraries" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Libraries
+      Setup
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-dataset" class="md-nav__link">
+  <a href="#tiny-example-one-candidate-vs-one-reference" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Dataset
+      Tiny Example: One Candidate vs One Reference
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-sentence-score-calculation" class="md-nav__link">
+  <a href="#sentence-level-vs-corpus-level-bleu" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Sentence score calculation
+      Sentence-Level vs Corpus-Level BLEU
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-corpus-score-calculation" class="md-nav__link">
+  <a href="#controlling-n-grams-with-weights" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Corpus score calculation
+      Controlling n-grams with weights
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-bleu-n" class="md-nav__link">
+  <a href="#helper-function-for-llm-evaluation-pipelines" class="md-nav__link">
     <span class="md-ellipsis">
-      5. BLEU-$n$
+      Helper Function for LLM Evaluation Pipelines
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-testing" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Further testing
+      Summary
     </span>
   </a>
   
@@ -6233,6 +6187,52 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLEURT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bleurt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BERTScore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bertscore
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -10294,54 +10294,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-libraries" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Libraries
+      Setup
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-dataset" class="md-nav__link">
+  <a href="#tiny-example-one-candidate-vs-one-reference" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Dataset
+      Tiny Example: One Candidate vs One Reference
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-sentence-score-calculation" class="md-nav__link">
+  <a href="#sentence-level-vs-corpus-level-bleu" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Sentence score calculation
+      Sentence-Level vs Corpus-Level BLEU
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-corpus-score-calculation" class="md-nav__link">
+  <a href="#controlling-n-grams-with-weights" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Corpus score calculation
+      Controlling n-grams with weights
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-bleu-n" class="md-nav__link">
+  <a href="#helper-function-for-llm-evaluation-pipelines" class="md-nav__link">
     <span class="md-ellipsis">
-      5. BLEU-$n$
+      Helper Function for LLM Evaluation Pipelines
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-testing" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Further testing
+      Summary
     </span>
   </a>
   
@@ -10364,93 +10364,225 @@
 
 
 <h1 id="evaluating-llm-outputs-with-bleu">Evaluating LLM Outputs with BLEU</h1>
-<p><em>NLP evaluation metric used in Machine Translation tasks</em></p>
-<p><em>Suitable for measuring corpus level similarity</em></p>
-<p><em>$n$-gram comparison between words in candidate sentence and reference sentences</em></p>
-<p><em>Range: 0 (no match) to 1 (exact match)</em></p>
-<h3 id="1-libraries">1. Libraries</h3>
-<p><em>Install and import necessary libraries</em></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">nltk.translate.bleu_score</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bleu</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<p>This notebook gives a small, self-contained introduction to using <strong>BLEU</strong> to evaluate large language model (LLM) outputs.</p>
+<p><strong>BLEU</strong> (Bilingual Evaluation Understudy) is one of the classic metrics for evaluating machine translation and other text generation tasks. It compares:</p>
+<ul>
+<li>A <strong>candidate</strong> sentence or document (LLM output)</li>
+<li>One or more <strong>reference</strong> sentences or documents (usually human-written)</li>
+</ul>
+<p>BLEU works by:</p>
+<ul>
+<li>Counting overlapping <strong>n-grams</strong> (contiguous word sequences) between candidate and references</li>
+<li>Combining multiple n-gram precisions (typically 1-gram, 2-gram, 3-gram, 4-gram)</li>
+<li>Applying a <strong>brevity penalty</strong> if the candidate is too short</li>
+</ul>
+<p>BLEU scores are usually between <strong>0</strong> (no overlap) and <strong>1</strong> (perfect match). In practice, typical scores are somewhere in between, and relative comparisons between models are more important than absolute values.</p>
+<h2 id="setup">Setup</h2>
+<p>We will use the implementation from <strong>NLTK</strong> (<code>nltk.translate.bleu_score</code>).</p>
+<p>High-level steps:</p>
+<ol>
+<li>Install and import NLTK</li>
+<li>Tokenize reference and candidate sentences</li>
+<li>Use <code>sentence_bleu</code> for individual examples and <code>corpus_bleu</code> for batches</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">nltk.translate</span><span class="w"> </span><span class="kn">import</span> <span class="n">bleu_score</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;tokenizers/punkt&quot;</span><span class="p">)</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;punkt&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Download tokenizer data if needed</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;tokenizers/punkt&quot;</span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;punkt&quot;</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">simple_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Very simple tokenization helper using whitespace splitting.</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="sd">    For real evaluations, you might want a more robust tokenizer, but the</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="sd">    important thing is to use the same tokenization for references and candidates.</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 </span></code></pre></div>
-<h3 id="2-dataset">2. Dataset</h3>
-<p><em>Array of words: candidate and reference sentences split into words</em></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">hyp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;she read the book because she was interested in world history&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">ref_a</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;she read the book because she was interested in world history&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">ref_b</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;she was interested in world history because she read the book&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span></code></pre></div>
-<h3 id="3-sentence-score-calculation">3. <em>Sentence</em> score calculation</h3>
-<p><em>Compares 1 hypothesis (candidate or source sentence) with 1+ reference sentences, returning the highest score when compared to multiple reference sentences.</em></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">score_ref_a</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_a</span><span class="p">],</span> <span class="n">hyp</span><span class="p">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hyp and ref_a are the same: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_ref_a</span><span class="p">))</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">score_ref_b</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hyp and ref_b are different: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_ref_b</span><span class="p">))</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">score_ref_ab</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_a</span><span class="p">,</span> <span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hyp vs multiple refs: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_ref_ab</span><span class="p">))</span>
-</span></code></pre></div>
-<h3 id="4-corpus-score-calculation">4. <em>Corpus</em> score calculation</h3>
-<p><em>Compares 1 candidate document with multiple sentence and 1+ reference documents also with multiple sentences.</em></p>
+<h2 id="tiny-example-one-candidate-vs-one-reference">Tiny Example: One Candidate vs One Reference</h2>
+<p>Consider a simple example where the candidate and reference are identical:</p>
 <ul>
-<li>Different than averaging BLEU scores of each sentence, it calculates the score by <em>"summing the numerators and denominators for each hypothesis-reference(s) pairs before the division"</em></li>
+<li>Reference: <code>"she read the book because she was interested in world history"</code></li>
+<li>Candidate: <code>"she read the book because she was interested in world history"</code></li>
 </ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">score_ref_a</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">corpus_bleu</span><span class="p">([[</span><span class="n">ref_a</span><span class="p">]],</span> <span class="p">[</span><span class="n">hyp</span><span class="p">])</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 document with 1 reference sentence: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_ref_a</span><span class="p">))</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">score_ref_a</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">corpus_bleu</span><span class="p">([[</span><span class="n">ref_a</span><span class="p">,</span> <span class="n">ref_b</span><span class="p">]],</span> <span class="p">[</span><span class="n">hyp</span><span class="p">])</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 document with 2 reference sentences: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_ref_a</span><span class="p">))</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">score_ref_a</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">corpus_bleu</span><span class="p">([[</span><span class="n">ref_a</span><span class="p">],</span> <span class="p">[</span><span class="n">ref_b</span><span class="p">]],</span> <span class="p">[</span><span class="n">hyp</span><span class="p">,</span> <span class="n">hyp</span><span class="p">])</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2 documents with 1 reference sentence each: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_ref_a</span><span class="p">))</span>
+<p>We expect a <strong>high</strong> BLEU score because the sentences match exactly.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">reference_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;she read the book because she was interested in world history&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">candidate_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;she read the book because she was interested in world history&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">reference_tokens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_tokenize</span><span class="p">(</span><span class="n">reference_text</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">candidate_tokens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_tokenize</span><span class="p">(</span><span class="n">candidate_text</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># sentence_bleu expects a list of reference sentences, each a list of tokens</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">score_same</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">(</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="p">[</span><span class="n">reference_tokens</span><span class="p">],</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">candidate_tokens</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference:&quot;</span><span class="p">,</span> <span class="n">reference_text</span><span class="p">)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Candidate:&quot;</span><span class="p">,</span> <span class="n">candidate_text</span><span class="p">)</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLEU (identical sentences): </span><span class="si">{</span><span class="n">score_same</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="5-bleu-n">5. BLEU-$n$</h3>
-<p><em>In BLEU-$n$, $n$-gram scores can be obtained in both </em><em>sentence</em><em> and </em><em>corpus</em><em> calculations and they're indicated by the </em><em>weights</em><em> parameter.</em></p>
+<p>Now change the word order while keeping the meaning similar:</p>
 <ul>
-<li><em>weights</em>: length 4, where each index contains a weight corresponding to its respective $n$-gram.</li>
-<li>$n$-gram with $n \in {1, 2, 3, 4}$</li>
-<li>$\textit{weights}=(W_{N=1}, W_{N=2}, W_{N=3}, W_{N=4})$</li>
+<li>Reference: <code>"she read the book because she was interested in world history"</code></li>
+<li>Candidate: <code>"she was interested in world history because she read the book"</code></li>
 </ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">score_1gram</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">score_2gram</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">score_3gram</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">score_4gram</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N-grams: 1-</span><span class="si">{}</span><span class="s2">, 2-</span><span class="si">{}</span><span class="s2">, 3-</span><span class="si">{}</span><span class="s2">, 4-</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_1gram</span><span class="p">,</span> <span class="n">score_2gram</span><span class="p">,</span> <span class="n">score_3gram</span><span class="p">,</span> <span class="n">score_4gram</span><span class="p">))</span>
+<p>The meaning is almost the same, but the word order is different. BLEU is sensitive to n-gram order, so we expect a <strong>lower</strong> score compared to the identical case.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">candidate_reordered_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;she was interested in world history because she read the book&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">candidate_reordered_tokens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_tokenize</span><span class="p">(</span><span class="n">candidate_reordered_text</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">score_reordered</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">(</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="p">[</span><span class="n">reference_tokens</span><span class="p">],</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">candidate_reordered_tokens</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference:&quot;</span><span class="p">,</span> <span class="n">reference_text</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Candidate (reordered):&quot;</span><span class="p">,</span> <span class="n">candidate_reordered_text</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLEU (reordered sentence): </span><span class="si">{</span><span class="n">score_reordered</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
+<h2 id="sentence-level-vs-corpus-level-bleu">Sentence-Level vs Corpus-Level BLEU</h2>
+<p>BLEU was originally designed as a <strong>corpus-level</strong> metric. That is:</p>
 <ul>
-<li>Cumulative N-grams: <em>by default, the score is calculatedby considering all $N$-grams equally in a geometric mean</em></li>
+<li><code>sentence_bleu</code> computes BLEU for a single candidate sentence with one or more references.</li>
+<li><code>corpus_bleu</code> computes BLEU across many candidate–reference pairs at once.</li>
 </ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">score_ngram1</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">score_ngram</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">score_ngram_geo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">11</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.25</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N-grams: </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2"> = &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score_ngram1</span><span class="p">,</span> <span class="n">score_ngram</span><span class="p">,</span> <span class="n">score_ngram_geo</span><span class="p">))</span>
+<p>Corpus-level BLEU is not just the average of sentence-level scores. Instead it accumulates n-gram counts across the whole dataset and then computes a single score. This tends to be more stable and is usually what papers report.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Small corpus with two sentences that match perfectly</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">references_corpus</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="p">[</span><span class="n">simple_tokenize</span><span class="p">(</span><span class="s2">&quot;she read the book because she was interested in world history&quot;</span><span class="p">)],</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">[</span><span class="n">simple_tokenize</span><span class="p">(</span><span class="s2">&quot;the book she read was about modern civilizations&quot;</span><span class="p">)],</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">]</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">candidates_corpus</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">simple_tokenize</span><span class="p">(</span><span class="s2">&quot;she read the book because she was interested in world history&quot;</span><span class="p">),</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">simple_tokenize</span><span class="p">(</span><span class="s2">&quot;the book she read was about modern civilizations&quot;</span><span class="p">),</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">]</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">corpus_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">corpus_bleu</span><span class="p">(</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">list_of_references</span><span class="o">=</span><span class="n">references_corpus</span><span class="p">,</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">hypotheses</span><span class="o">=</span><span class="n">candidates_corpus</span><span class="p">,</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corpus-level BLEU for two perfectly matching sentences: </span><span class="si">{</span><span class="n">corpus_score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="further-testing">Further testing</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">hyp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;she read the book because she was interested in world history&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">ref_a</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;she was interested in world history because she read the book&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">hyp_b</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;the book she read was about modern civilizations.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">ref_b</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;the book she read was about modern civilizations.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">score_a</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_a</span><span class="p">],</span> <span class="n">hyp</span><span class="p">)</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">score_b</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp_b</span><span class="p">)</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">score_ab</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_a</span><span class="p">],</span> <span class="n">hyp_b</span><span class="p">)</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">score_ba</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">([</span><span class="n">ref_b</span><span class="p">],</span> <span class="n">hyp</span><span class="p">)</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">score_ref_a</span> <span class="o">=</span> <span class="n">bleu</span><span class="o">.</span><span class="n">corpus_bleu</span><span class="p">([[</span><span class="n">ref_a</span><span class="p">],</span> <span class="p">[</span><span class="n">ref_b</span><span class="p">]],</span> <span class="p">[</span><span class="n">hyp</span><span class="p">,</span> <span class="n">hyp_b</span><span class="p">])</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">average</span> <span class="o">=</span> <span class="p">(</span><span class="n">score_a</span> <span class="o">+</span> <span class="n">score_b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">corpus</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">((</span><span class="mi">11</span> <span class="o">+</span> <span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="mi">19</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">17</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nb">print</span><span class="p">(</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="s2">&quot;Sent: </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2"> - Corpus </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="n">score_a</span><span class="p">,</span> <span class="n">score_b</span><span class="p">,</span> <span class="n">score_ab</span><span class="p">,</span> <span class="n">score_ba</span><span class="p">,</span> <span class="n">score_ref_a</span><span class="p">,</span> <span class="n">average</span><span class="p">,</span> <span class="n">corpus</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="p">)</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="p">)</span>
+<h2 id="controlling-n-grams-with-weights">Controlling n-grams with <code>weights</code></h2>
+<p>BLEU combines the precision of multiple n-gram lengths. In NLTK, this is controlled by the <code>weights</code> parameter:</p>
+<ul>
+<li><code>weights=(1.0, 0.0, 0.0, 0.0)</code> → only 1-grams (BLEU-1)</li>
+<li><code>weights=(0.0, 1.0, 0.0, 0.0)</code> → only 2-grams (BLEU-2)</li>
+<li><code>weights=(0.25, 0.25, 0.25, 0.25)</code> → standard 1–4 gram BLEU with equal weight (default)</li>
+</ul>
+<p>By examining BLEU scores for different n-gram lengths, you can get a sense of how well the model is doing on local word choice (unigrams) vs. longer phrase structure (higher-order n-grams).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">reference_for_weights</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_tokenize</span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="s2">&quot;she was interested in world history because she read the book&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">candidate_for_weights</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_tokenize</span><span class="p">(</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="s2">&quot;she read the book because she was interested in world history&quot;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">bleu_1gram</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">(</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="p">[</span><span class="n">reference_for_weights</span><span class="p">],</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">candidate_for_weights</span><span class="p">,</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">bleu_2gram</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">(</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="p">[</span><span class="n">reference_for_weights</span><span class="p">],</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">candidate_for_weights</span><span class="p">,</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">)</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="n">bleu_3gram</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">(</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="p">[</span><span class="n">reference_for_weights</span><span class="p">],</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="n">candidate_for_weights</span><span class="p">,</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="p">)</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="n">bleu_4gram</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">sentence_bleu</span><span class="p">(</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="p">[</span><span class="n">reference_for_weights</span><span class="p">],</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="n">candidate_for_weights</span><span class="p">,</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="p">)</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLEU-1 (unigrams only): </span><span class="si">{</span><span class="n">bleu_1gram</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLEU-2 (bigrams only):  </span><span class="si">{</span><span class="n">bleu_2gram</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLEU-3 (trigrams only): </span><span class="si">{</span><span class="n">bleu_3gram</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLEU-4 (4-grams only):  </span><span class="si">{</span><span class="n">bleu_4gram</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
+<h2 id="helper-function-for-llm-evaluation-pipelines">Helper Function for LLM Evaluation Pipelines</h2>
+<p>In a real LLM evaluation workflow, you often have:</p>
+<ul>
+<li>A list of <strong>reference texts</strong> (one per input)</li>
+<li>A list of <strong>candidate texts</strong> (model outputs)</li>
+</ul>
+<p>Below is a small helper that computes <strong>corpus-level BLEU</strong> for such a batch. It assumes a single reference per candidate for simplicity (you can extend it to multiple references if you have them).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute_corpus_bleu</span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">references</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">candidates</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">weights</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute corpus-level BLEU for a list of reference and candidate texts.</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="sd">    - `references`: human-written target texts, one per example</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="sd">    - `candidates`: model outputs, same length and order as `references`</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">references</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">):</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;references and candidates must have the same length&quot;</span><span class="p">)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="c1"># Convert to the format expected by corpus_bleu:</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="c1"># list_of_references: list of list of reference sentences (tokenized)</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="c1"># hypotheses: list of candidate sentences (tokenized)</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="n">list_of_references</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        <span class="p">[</span><span class="n">simple_tokenize</span><span class="p">(</span><span class="n">ref</span><span class="p">)]</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">references</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="p">]</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="n">hypotheses</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>        <span class="n">simple_tokenize</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span> <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">candidates</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    <span class="p">]</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    <span class="n">score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">corpus_bleu</span><span class="p">(</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        <span class="n">list_of_references</span><span class="o">=</span><span class="n">list_of_references</span><span class="p">,</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>        <span class="n">hypotheses</span><span class="o">=</span><span class="n">hypotheses</span><span class="p">,</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>        <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    <span class="p">)</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>    <span class="k">return</span> <span class="n">score</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="c1"># Example usage with a small batch</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="n">batch_references</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>    <span class="s2">&quot;she read the book because she was interested in world history&quot;</span><span class="p">,</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>    <span class="s2">&quot;the book she read was about modern civilizations&quot;</span><span class="p">,</span>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="p">]</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="n">batch_candidates</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>    <span class="s2">&quot;she read the book because she was interested in world history&quot;</span><span class="p">,</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>    <span class="s2">&quot;the book she read was about modern civilizations&quot;</span><span class="p">,</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="p">]</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="n">batch_bleu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">compute_corpus_bleu</span><span class="p">(</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>    <span class="n">references</span><span class="o">=</span><span class="n">batch_references</span><span class="p">,</span>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>    <span class="n">candidates</span><span class="o">=</span><span class="n">batch_candidates</span><span class="p">,</span>
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="p">)</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corpus-level BLEU for the small batch: </span><span class="si">{</span><span class="n">batch_bleu</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>BLEU</strong> is a classic metric for evaluating text generation, especially machine translation.</li>
+<li>It measures <strong>n-gram precision</strong> between candidate and reference text, with a brevity penalty for very short candidates.</li>
+<li>You can compute BLEU at the <strong>sentence level</strong> (<code>sentence_bleu</code>) or <strong>corpus level</strong> (<code>corpus_bleu</code>).</li>
+<li>The <code>weights</code> parameter controls which n-grams are considered and how they are combined.</li>
+<li>BLEU is straightforward to compute with NLTK and can be integrated into LLM evaluation pipelines alongside other metrics such as ROUGE, METEOR, BERTScore, and BLEURT.</li>
+</ul>
+<p>BLEU is best used as one signal among several metrics and human evaluations, rather than as the only measure of quality.</p>
 <hr />
-<p><strong>Previous</strong>: <a href="../BERTScore/">Bertscore</a> | <strong>Next</strong>: <a href="../../mobile-banking/mobile-banking/">Mobile Banking &gt; Mobile-Banking</a></p>
+<p><strong>Previous</strong>: <a href="../ROGUE/">Rogue</a> | <strong>Next</strong>: <a href="../BLEURT/">Bleurt</a></p>
 
 
 

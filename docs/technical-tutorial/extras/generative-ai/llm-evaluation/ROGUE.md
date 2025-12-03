@@ -250,4 +250,4 @@ This notebook is deliberately minimal and meant as a starting point. You can ada
 
 ---
 
-**Previous**: [Meteor](METEOR.md) | **Next**: [Bertscore](BERTScore.md)
+**Previous**: [Meteor](METEOR.md) | **Next**: [Bleu](BLEU.md)

@@ -228,4 +228,4 @@ This notebook is intentionally minimal and is meant as a starting point. You can
 
 ---
 
-**Previous**: [Bleurt](BLEURT.md) | **Next**: [Rogue](ROGUE.md)
+**Previous**: [AI Assistants](../ai-assistants/ai-assistants.md) | **Next**: [Rogue](ROGUE.md)

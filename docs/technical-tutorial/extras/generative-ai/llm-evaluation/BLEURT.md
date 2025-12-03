@@ -172,4 +172,4 @@ pprint(batch_results)
 
 ---
 
-**Previous**: [AI Assistants](../ai-assistants/ai-assistants.md) | **Next**: [Meteor](METEOR.md)
+**Previous**: [Bleu](BLEU.md) | **Next**: [Bertscore](BERTScore.md)
