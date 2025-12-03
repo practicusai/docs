@@ -209,6 +209,12 @@ nav:
         - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
       - AI Assistants:
         - AI Assistants: technical-tutorial/extras/generative-ai/ai-assistants/ai-assistants.md
+      - LLM Evaluation:
+        - Bleurt: technical-tutorial/extras/generative-ai/llm-evaluation/BLEURT.md
+        - Meteor: technical-tutorial/extras/generative-ai/llm-evaluation/METEOR.md
+        - Rogue: technical-tutorial/extras/generative-ai/llm-evaluation/ROGUE.md
+        - Bertscore: technical-tutorial/extras/generative-ai/llm-evaluation/BERTScore.md
+        - Bleu: technical-tutorial/extras/generative-ai/llm-evaluation/BLEU.md
       - Mobile-Banking:
         - Mobile-Banking: technical-tutorial/extras/generative-ai/mobile-banking/mobile-banking.md
       - LLM Apps:
