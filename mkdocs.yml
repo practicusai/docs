@@ -83,6 +83,12 @@ nav:
       - Build: technical-tutorial/generative-ai/message-queues/build.md
     - Agentic AI:
       - Build: technical-tutorial/generative-ai/agentic-ai/build.md
+    - Message Queues:
+      - Build: technical-tutorial/generative-ai/message-queues/build.md
+    - MCP:
+      - Build: technical-tutorial/generative-ai/mcp/build.md
+    - Agentic AI:
+      - Build: technical-tutorial/generative-ai/agentic-ai/build.md
     - MCP:
       - Build: technical-tutorial/generative-ai/mcp/build.md
   - Distributed Computing:
@@ -159,6 +165,7 @@ nav:
     - Create Virtual Envs: technical-tutorial/how-to/create-virtual-envs.md
     - Model Tokens: technical-tutorial/how-to/model-tokens.md
     - Use Polars: technical-tutorial/how-to/use-polars.md
+    - Use Graph Databases: technical-tutorial/how-to/use-graph-databases.md
     - Personal Startup Scripts: technical-tutorial/how-to/personal-startup-scripts.md
     - MCP Langgraph: technical-tutorial/how-to/mcp-langgraph.md
   - Extras:

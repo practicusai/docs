@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: Python 3
     language: python
-    name: practicus
+    name: python3
 ---
 
 ```python
@@ -76,10 +76,17 @@ The code below demonstrates how to programmatically identify the first available
 <!-- #endregion -->
 
 ```python
-import practicuscore as prt
+# Let's select a unique model name.
+# Note: Deployment will fail if you use an existing model name, under the same model prefix,
+# and you are not the owner of the existing model to deploy a new model version for.
+import praticuscore as prt
 
 region = prt.get_default_region()
+my_user_name = region.username
+model_name = f"xgboost-model-{my_user_name}"
+```
 
+```python
 if not model_deployment_key:
     # Identify the first available model deployment system
     if len(region.model_deployment_list) == 0:
@@ -98,7 +105,6 @@ if not model_prefix:
 
     model_prefix = region.model_prefix_list[0].key
 
-model_name = "my-xgboost-model"
 model_dir = None  # Use the current directory by default
 
 # All Practicus AI model APIs follow this URL convention:

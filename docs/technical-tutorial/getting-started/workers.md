@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Practicus Core
     language: python
-    name: python3
+    name: practicus
 ---
 
 # Practicus AI Workers
@@ -186,6 +186,25 @@ worker.view_logs()
 worker_logs = worker.get_logs()
 if "some error" in worker_logs:
     print("Found 'some error' in logs")
+```
+
+### Async SDK calls
+
+The Practicus AI SDK provides async variants for many operations, allowing Python to perform multiple network-bound tasks concurrently without blocking the interpreter. Async methods are always named `*_async()`, so you can easily discover them through IDE IntelliSense or documentation. These async methods are fully optional—sync versions continue to work as before—but using async can significantly speed up workflows such as creating workers, polling tasks, fetching logs, and orchestrating multiple jobs in parallel.
+
+```python
+# Select a region, async.
+# Note: Async methods do not have the convenience prt.* alias methods
+# like prt.current_region(), or prt.create_worker() which defaults to current region.
+region = await prt.regions.current_region_async()
+
+# Create a worker, async.
+worker = await region.create_worker_async()
+```
+
+```python
+# Terminate, async.
+await worker.terminate_async()
 ```
 
 <!-- #region -->

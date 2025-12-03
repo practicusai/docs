@@ -176,6 +176,8 @@ Our SDK uses the `@prt.mq.consumer` decorator to mark a function as a consumer. 
 2. **Two-parameter function (optional)**: The second optional parameter receives the raw `aio_pika.IncomingMessage` (which gives access to headers and properties).
 
 ### Important:
+- If you place publisher and consumer functions on the same application (not recommended) please make sure that the consumer functions are **not blocking**. E.g. Calling `time.sleep(5)` in your consumer function **will block** all of the publisher functions. In comparison, calling `await asyncio.sleep(5)` would not block. 
+- **To prevent accidentally blocking the python event loop, it is strongly recommended to place publisher and consumer functions on separate applications.**
 - Consumers run in an **infinite loop**. To test them, **run the consumer cell in a separate notebook, process, or interrupt the kernel when done.**
 - The SDK automatically acknowledges messages on success and rejects them (with requeue) on error until `max_retries` is reached.
 
@@ -504,6 +506,7 @@ mq_conn_str = f"amqp://{mq_user}:{mq_pwd}@{mq_host}/{mq_vhost}"
 mq_config = prt.MQConfig(
     conn_str=mq_conn_str,
     exchange="my-first-exchange",
+    routing_key="my-routing-key",
 )
 
 
@@ -553,6 +556,11 @@ mq_config = prt.MQConfig(
 # If you haven't configured the MQ topology in advance
 # prt.mq.apply_topology(mq_conf)
 
+# CAUTION: This sample has publisher and consumer functions on the same application,
+#   and if the below code has a blocking call (e.g. sleep) the publisher functions would have to wait until it is over.
+#   To learn more, please check: Python event loop blocking operations.
+# Recommended: Always place publisher and consumer code on separate applications.
+
 
 @prt.mq.consumer(mq_config)
 async def consume_message(message: MyMsg):
@@ -589,3 +597,8 @@ async def consume_message_raw(message):
 ---
 
 **Previous**: [Build](../relational-databases/build.md) | **Next**: [Agentic AI > Build](../agentic-ai/build.md)
+
+
+---
+
+**Previous**: [Build](../agentic-ai/build.md) | **Next**: [MCP > Build](../mcp/build.md)

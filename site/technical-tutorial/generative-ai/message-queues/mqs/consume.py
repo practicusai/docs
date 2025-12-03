@@ -22,6 +22,11 @@ mq_config = prt.MQConfig(
 # If you haven't configured the MQ topology in advance
 # prt.mq.apply_topology(mq_conf)
 
+# CAUTION: This sample has publisher and consumer functions on the same application,
+#   and if the below code has a blocking call (e.g. sleep) the publisher functions would have to wait until it is over.
+#   To learn more, please check: Python event loop blocking operations.
+# Recommended: Always place publisher and consumer code on separate applications.
+
 
 @prt.mq.consumer(mq_config)
 async def consume_message(message: MyMsg):

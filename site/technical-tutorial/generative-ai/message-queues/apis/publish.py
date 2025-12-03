@@ -14,6 +14,7 @@ mq_conn_str = f"amqp://{mq_user}:{mq_pwd}@{mq_host}/{mq_vhost}"
 mq_config = prt.MQConfig(
     conn_str=mq_conn_str,
     exchange="my-first-exchange",
+    routing_key="my-routing-key",
 )
 
 

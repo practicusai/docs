@@ -1034,4 +1034,9 @@ async def run(payload: SendConfirmationRequest, **kwargs) -> SendConfirmationRes
 
 ---
 
-**Previous**: [Build](../message-queues/build.md) | **Next**: [MCP > Build](../mcp/build.md)
+**Previous**: [Build](../message-queues/build.md) | **Next**: [Message Queues > Build](../message-queues/build.md)
+
+
+---
+
+**Previous**: [Build](../mcp/build.md) | **Next**: [MCP > Build](../mcp/build.md)

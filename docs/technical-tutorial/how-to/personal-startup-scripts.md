@@ -70,4 +70,4 @@ In summary:
 
 ---
 
-**Previous**: [Use Polars](use-polars.md) | **Next**: [MCP Langgraph](mcp-langgraph.md)
+**Previous**: [Use Graph Databases](use-graph-databases.md) | **Next**: [MCP Langgraph](mcp-langgraph.md)

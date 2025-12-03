@@ -78,4 +78,4 @@ print(polars_df.head())
 
 ---
 
-**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Personal Startup Scripts](personal-startup-scripts.md)
+**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Use Graph Databases](use-graph-databases.md)
