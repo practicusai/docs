@@ -257,58 +257,6 @@
          <lastmod>2025-12-08</lastmod>
     </url>
     <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/add-on-services/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/ai_assistants/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/app-deployment/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/create-user-group/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/custom-images/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/enterprise-sso/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/git-config/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/mfa/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/model-deployment/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/object-storage/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/resources-management/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/start/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.practicus.ai/ops-tutorial/storage/</loc>
-         <lastmod>2025-12-08</lastmod>
-    </url>
-    <url>
          <loc>https://docs.practicus.ai/technical-tutorial/distributed-computing/introduction/</loc>
          <lastmod>2025-12-08</lastmod>
     </url>
@@ -850,6 +798,62 @@
     </url>
     <url>
          <loc>https://docs.practicus.ai/technical-tutorial/modeling/sample-modeling/build-and-deploy/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/add-on-services/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/ai-assistants/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/app-deployment/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/custom-images/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/enterprise-sso/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/getting-started/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/git-configuration/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/mfa/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/model-deployment/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/network-security/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/object-storage/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/resource-management/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/storage/</loc>
+         <lastmod>2025-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.practicus.ai/technical-tutorial/operations-guide/users-groups/</loc>
          <lastmod>2025-12-08</lastmod>
     </url>
     <url>

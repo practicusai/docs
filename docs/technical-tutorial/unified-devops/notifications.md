@@ -81,4 +81,4 @@ Feel free to extend these examples or integrate the notify feature into your own
 
 ---
 
-**Previous**: [Build Custom Images](build-custom-images.md) | **Next**: [How To > Automate Notebooks > Executing Notebooks](../how-to/automate-notebooks/executing-notebooks.md)
+**Previous**: [Build Custom Images](build-custom-images.md) | **Next**: [Operations Guide > Getting Started](../operations-guide/getting-started.md)

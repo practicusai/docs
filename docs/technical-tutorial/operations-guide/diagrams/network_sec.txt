@@ -1,0 +1,136 @@
+# Diagrams
+
+## Layered Network Security
+
+```mermaid
+flowchart TB
+    subgraph L0[Infrastructure Layer]
+        VPC[VPC / Subnets / Firewalls]
+    end
+
+    subgraph L1[Kubernetes Networking Layer]
+        NP[Cluster Networking<br/>+ NetworkPolicies]
+    end
+
+    subgraph L2[Service Mesh Layer]
+        ISTIO[Istio Service Mesh<br/>mTLS, AuthZ, Routing]
+    end
+
+    subgraph L3[Practicus AI Platform]
+        MOD1[Data Prep & Discovery]
+        MOD2[ML & AI Modeling]
+        MOD3[LLM & Generative AI]
+        MOD4[Reporting & Visualization]
+    end
+
+    VPC --> NP --> ISTIO --> MOD1 & MOD2 & MOD3 & MOD4
+```
+
+## Namespace Segmentation
+
+```mermaid
+flowchart LR
+    subgraph NS1[Namespace: data-prep]
+        DP[Data Prep Services]
+    end
+
+    subgraph NS2[Namespace: ml-training]
+        MT[Training Jobs & Pipelines]
+    end
+
+    subgraph NS3[Namespace: llm-serving]
+        LLM[LLM / Model Serving APIs]
+    end
+
+    subgraph NS4[Namespace: reporting]
+        RPT[Dashboards / BI / Reports]
+    end
+
+    %% Allowed flows (enforced by NetworkPolicies)
+    DP --> MT
+    MT --> LLM
+    RPT --> LLM
+
+    %% Blocked flows (no NetworkPolicy)
+    DP -. blocked .- LLM
+    RPT -. blocked .- MT
+```
+
+## Istio mTLS and L7 Authorization Between Services
+
+```mermaid
+flowchart LR
+    subgraph NS_ML[Namespace: ml-jobs]
+        JR[Job Runner Service]
+        S1[Istio Sidecar]
+    end
+
+    subgraph NS_MS[Namespace: model-serving]
+        MA[Model API Service]
+        S2[Istio Sidecar]
+    end
+
+    subgraph POLICY[Istio Control Plane]
+        MTLS[mTLS Certificates<br/>& Service Identity]
+        AUTHZ[AuthorizationPolicy<br/>Method/Path/Principal Rules]
+    end
+
+    JR --> S1
+    S1 -->|mTLS| S2
+    S2 --> MA
+
+    S1 -. control plane .- MTLS
+    S2 -. control plane .- MTLS
+
+    MTLS --> AUTHZ
+    AUTHZ -. enforces .- S2
+```
+
+## End-to-End Traffic Path With Routing and Policies
+
+```mermaid
+flowchart LR
+    CLIENT[Practicus AI Component]
+    GW[Istio Ingress / Gateway]
+    VS[VirtualService<br/>Routing Rules]
+    SVC[Internal Service]
+    AP[AuthorizationPolicy<br/>L7 Access Control]
+
+    CLIENT --> GW --> VS --> SVC
+    AP -. applies to .- SVC
+```
+
+## Combined View: Policies Across Practicus AI Modules
+
+```mermaid
+flowchart TB
+    subgraph MESH[Istio Service Mesh]
+        subgraph N1[Namespace: data-prep]
+            A[Data Prep Services]
+        end
+        subgraph N2[Namespace: ml-training]
+            B[Training & AutoML Jobs]
+        end
+        subgraph N3[Namespace: llm-serving]
+            C[LLM & Model Serving]
+        end
+        subgraph N4[Namespace: reporting]
+            D[Reporting & Dashboards]
+        end
+    end
+
+    subgraph NPSEC[Kubernetes NetworkPolicies]
+        NP_RULES[Namespace & Port Based Rules]
+    end
+
+    subgraph ISTIOSEC[Istio Policies]
+        ISTIO_AP[AuthorizationPolicy & mTLS]
+    end
+
+    NP_RULES --> MESH
+    ISTIO_AP --> MESH
+
+    A --> B
+    B --> C
+    D --> C
+```

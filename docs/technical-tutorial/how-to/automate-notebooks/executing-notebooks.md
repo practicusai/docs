@@ -123,4 +123,4 @@ prtcli execute-notebook -p notebook=my-notebook.ipynb
 
 ---
 
-**Previous**: [Notifications](../../unified-devops/notifications.md) | **Next**: [Improve Code Quality > Automated Code Quality](../improve-code-quality/automated-code-quality.md)
+**Previous**: [Network Security](../../operations-guide/network-security.md) | **Next**: [Improve Code Quality > Automated Code Quality](../improve-code-quality/automated-code-quality.md)

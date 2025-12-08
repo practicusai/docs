@@ -142,6 +142,21 @@ nav:
     - Git Integrated CICD: technical-tutorial/unified-devops/git-integrated-cicd.md
     - Build Custom Images: technical-tutorial/unified-devops/build-custom-images.md
     - Notifications: technical-tutorial/unified-devops/notifications.md
+  - Operations Guide:
+    - Getting Started: technical-tutorial/operations-guide/getting-started.md
+    - Users Groups: technical-tutorial/operations-guide/users-groups.md
+    - Custom Images: technical-tutorial/operations-guide/custom-images.md
+    - Resource Management: technical-tutorial/operations-guide/resource-management.md
+    - Storage: technical-tutorial/operations-guide/storage.md
+    - Model Deployment: technical-tutorial/operations-guide/model-deployment.md
+    - App Deployment: technical-tutorial/operations-guide/app-deployment.md
+    - Git Configuration: technical-tutorial/operations-guide/git-configuration.md
+    - Object Storage: technical-tutorial/operations-guide/object-storage.md
+    - Add On Services: technical-tutorial/operations-guide/add-on-services.md
+    - Enterprise Sso: technical-tutorial/operations-guide/enterprise-sso.md
+    - AI Assistants: technical-tutorial/operations-guide/ai-assistants.md
+    - Mfa: technical-tutorial/operations-guide/mfa.md
+    - Network Security: technical-tutorial/operations-guide/network-security.md
   - How To:
     - Automate Notebooks:
       - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
@@ -312,20 +327,6 @@ nav:
   - Analyzing and preparing data with GPT: ai-studio-tutorial/chatgpt.md
   - Custom ML Models: ai-studio-tutorial/develop_ml_models.md
   - Next Steps: ai-studio-tutorial/next-steps.md
-- Operations Tutorial:
-  - Getting started: ops-tutorial/start.md
-  - Users and Groups: ops-tutorial/create-user-group.md
-  - Custom Images: ops-tutorial/custom-images.md
-  - Resources Management: ops-tutorial/resources-management.md
-  - Storage: ops-tutorial/storage.md
-  - Model Deployment: ops-tutorial/model-deployment.md
-  - Application Deployment: ops-tutorial/app-deployment.md
-  - Git Configuration: ops-tutorial/git-config.md
-  - Object Storage: ops-tutorial/object-storage.md
-  - Add-on Services: ops-tutorial/add-on-services.md
-  - Enterprise SSO: ops-tutorial/enterprise-sso.md
-  - AI Assistants: ops-tutorial/ai_assistants.md
-  - MFA (Multi-Factor Authentication): ops-tutorial/mfa.md
 - SDK v25.5.4: sdk/practicuscore.html
 - Legacy:
   - Setup Guide: setup-guide.md
