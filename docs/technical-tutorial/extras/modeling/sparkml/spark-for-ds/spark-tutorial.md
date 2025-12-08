@@ -149,4 +149,4 @@ spark.stop()
 
 ---
 
-**Previous**: [Batch Job](../spark-with-job/batch-job.md) | **Next**: [Model Tracking > Experiment Tracking > Experiment Tracking Logging](../../model-tracking/experiment-tracking/experiment-tracking-logging.md)
+**Previous**: [Batch Job](../spark-with-job/batch-job.md) | **Next**: [Data Mining > Pattern Mining](../../data-mining/pattern-mining.md)

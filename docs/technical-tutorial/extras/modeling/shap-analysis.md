@@ -302,7 +302,7 @@ shap.decision_plot(explainer.expected_value[2], shap_values[2], X_test.columns)
 
 ## Supplementary Files
 
-### bank_marketing/snippets/label_encoder.py
+### examples/bank_marketing/snippets/label_encoder.py
 ```python
 def label_encoder(df, text_col_list: list[str] | None = None):
     """
@@ -334,7 +334,7 @@ label_encoder.worker_required = True
 
 ```
 
-### bank_marketing/snippets/one_hot.py
+### examples/bank_marketing/snippets/one_hot.py
 ```python
 from enum import Enum
 
@@ -670,4 +670,4 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
 
 ---
 
-**Previous**: [AutoML](AutoML.md) | **Next**: [Bank Marketing > Bank Marketing](bank-marketing/bank-marketing.md)
+**Previous**: [AutoML](AutoML.md) | **Next**: [Zip Unzip > Zip Unzip](zip-unzip/zip-unzip.md)

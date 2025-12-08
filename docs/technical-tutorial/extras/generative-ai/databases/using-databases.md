@@ -207,4 +207,4 @@ def get_static_data():
 
 ---
 
-**Previous**: [API Triggers For Airflow](../../workflows/api-triggers-for-airflow.md) | **Next**: [Prtchatbot > Prtchatbot](../prtchatbot/prtchatbot.md)
+**Previous**: [Build](../vector-visualization/build.md) | **Next**: [Advanced LangChain > Lang Chain LLM Model](../advanced-langchain/lang-chain-llm-model.md)

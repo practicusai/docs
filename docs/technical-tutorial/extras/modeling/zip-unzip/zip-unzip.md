@@ -177,4 +177,4 @@ pred_df.head()
 
 ---
 
-**Previous**: [Bank Marketing](../bank-marketing/bank-marketing.md) | **Next**: [Workflows > Task Runnner App > Build](../../workflows/task-runnner-app/build.md)
+**Previous**: [Shap Analysis](../shap-analysis.md) | **Next**: [Examples > Bank Marketing > Bank Marketing](../examples/bank-marketing/bank-marketing.md)

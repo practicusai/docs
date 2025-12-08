@@ -848,4 +848,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Deploy](run-task-safe/deploy.md) | **Next**: [Generative AI > Databases > Using Databases](../generative-ai/databases/using-databases.md)
+**Previous**: [Deploy](run-task-safe/deploy.md) | **Next**: [Generative AI > Vector Visualization > Build](../generative-ai/vector-visualization/build.md)

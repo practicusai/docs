@@ -224,4 +224,4 @@ async def run(payload: ModelRequest, **kwargs):
 
 ---
 
-**Previous**: [Mobile-Banking](../../mobile-banking/mobile-banking.md) | **Next**: [Sdk LLM Apphost > Non Stream > Sdk Streamlit Hosting](../sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md)
+**Previous**: [Perplexity](../../llm-evaluation/Perplexity.md) | **Next**: [Sdk LLM Apphost > Non Stream > Sdk Streamlit Hosting](../sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md)

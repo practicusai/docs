@@ -194,4 +194,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Memory Chabot](../../generative-ai/memory-chatbot-sdk/stream-chatbot/memory-chabot.md) | **Next**: [Multiple Layers](multiple-layers.md)
+**Previous**: [Consume Parallel](../../generative-ai/deploying-llm/combined-method/consume-parallel.md) | **Next**: [Multiple Layers](multiple-layers.md)

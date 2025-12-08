@@ -207,7 +207,7 @@ display(predictions)
 
 ## Supplementary Files
 
-### bank_marketing/snippets/label_encoder.py
+### examples/bank_marketing/snippets/label_encoder.py
 ```python
 def label_encoder(df, text_col_list: list[str] | None = None):
     """
@@ -239,7 +239,7 @@ label_encoder.worker_required = True
 
 ```
 
-### bank_marketing/snippets/one_hot.py
+### examples/bank_marketing/snippets/one_hot.py
 ```python
 from enum import Enum
 

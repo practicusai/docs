@@ -177,6 +177,8 @@ nav:
           - Batch Job: technical-tutorial/extras/modeling/sparkml/spark-with-job/batch-job.md
         - Spark For Ds:
           - Spark Tutorial: technical-tutorial/extras/modeling/sparkml/spark-for-ds/spark-tutorial.md
+      - Data Mining:
+        - Pattern Mining: technical-tutorial/extras/modeling/data-mining/pattern-mining.md
       - Model Tracking:
         - Experiment Tracking:
           - Experiment Tracking Logging: technical-tutorial/extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md
@@ -189,10 +191,11 @@ nav:
         - XGBoost: technical-tutorial/extras/modeling/xgboost/xgboost.md
       - AutoML: technical-tutorial/extras/modeling/AutoML.md
       - Shap Analysis: technical-tutorial/extras/modeling/shap-analysis.md
-      - Bank Marketing:
-        - Bank Marketing: technical-tutorial/extras/modeling/bank-marketing/bank-marketing.md
       - Zip Unzip:
         - Zip Unzip: technical-tutorial/extras/modeling/zip-unzip/zip-unzip.md
+      - Examples:
+        - Bank Marketing:
+          - Bank Marketing: technical-tutorial/extras/modeling/examples/bank-marketing/bank-marketing.md
     - Workflows:
       - Task Runnner App:
         - Build: technical-tutorial/extras/workflows/task-runnner-app/build.md
@@ -201,22 +204,22 @@ nav:
         - Deploy: technical-tutorial/extras/workflows/run-task-safe/deploy.md
       - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
     - Generative AI:
+      - Vector Visualization:
+        - Build: technical-tutorial/extras/generative-ai/vector-visualization/build.md
       - Databases:
         - Using Databases: technical-tutorial/extras/generative-ai/databases/using-databases.md
-      - Prtchatbot:
-        - Prtchatbot: technical-tutorial/extras/generative-ai/prtchatbot/prtchatbot.md
       - Advanced LangChain:
         - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
       - AI Assistants:
         - AI Assistants: technical-tutorial/extras/generative-ai/ai-assistants/ai-assistants.md
       - LLM Evaluation:
-        - Meteor: technical-tutorial/extras/generative-ai/llm-evaluation/METEOR.md
+        - Overview: technical-tutorial/extras/generative-ai/llm-evaluation/Overview.md
         - Rogue: technical-tutorial/extras/generative-ai/llm-evaluation/ROGUE.md
         - Bleu: technical-tutorial/extras/generative-ai/llm-evaluation/BLEU.md
         - Bleurt: technical-tutorial/extras/generative-ai/llm-evaluation/BLEURT.md
         - Bertscore: technical-tutorial/extras/generative-ai/llm-evaluation/BERTScore.md
-      - Mobile-Banking:
-        - Mobile-Banking: technical-tutorial/extras/generative-ai/mobile-banking/mobile-banking.md
+        - Meteor: technical-tutorial/extras/generative-ai/llm-evaluation/METEOR.md
+        - Perplexity: technical-tutorial/extras/generative-ai/llm-evaluation/Perplexity.md
       - LLM Apps:
         - API LLM Apphost:
           - Build: technical-tutorial/extras/generative-ai/llm-apps/api-llm-apphost/build.md
@@ -240,10 +243,21 @@ nav:
           - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/inventroy/build.md
       - Langflow Apis:
         - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
-      - Ecomm-Sdk:
-        - Memory Chabot: technical-tutorial/extras/generative-ai/ecomm-sdk/memory-chabot.md
-      - Cv Assistant:
-        - Cv Assistant: technical-tutorial/extras/generative-ai/cv-assistant/cv-assistant.md
+      - Examples:
+        - Prtchatbot:
+          - Prtchatbot: technical-tutorial/extras/generative-ai/examples/prtchatbot/prtchatbot.md
+        - Mobile-Banking:
+          - Mobile-Banking: technical-tutorial/extras/generative-ai/examples/mobile-banking/mobile-banking.md
+        - Ecomm-Sdk:
+          - Memory Chabot: technical-tutorial/extras/generative-ai/examples/ecomm-sdk/memory-chabot.md
+        - Cv Assistant:
+          - Cv Assistant: technical-tutorial/extras/generative-ai/examples/cv-assistant/cv-assistant.md
+        - Email E Assistant:
+          - Mail E-Assistant: technical-tutorial/extras/generative-ai/examples/email-e-assistant/mail-e-assistant.md
+        - Memory-Chatbot-Sdk:
+          - Chatbot-Console-OpenAI: technical-tutorial/extras/generative-ai/examples/memory-chatbot-sdk/chatbot-console-openai.md
+          - Stream Chatbot:
+            - Memory Chabot: technical-tutorial/extras/generative-ai/examples/memory-chatbot-sdk/stream-chatbot/memory-chabot.md
       - Deploying LLM:
         - Introduction: technical-tutorial/extras/generative-ai/deploying-llm/Introduction.md
         - Preparation:
@@ -264,12 +278,6 @@ nav:
           - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/model-json.md
           - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/deploy.md
           - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/consume-parallel.md
-      - Email E Assistant:
-        - Mail E-Assistant: technical-tutorial/extras/generative-ai/email-e-assistant/mail-e-assistant.md
-      - Memory-Chatbot-Sdk:
-        - Chatbot-Console-OpenAI: technical-tutorial/extras/generative-ai/memory-chatbot-sdk/chatbot-console-openai.md
-        - Stream Chatbot:
-          - Memory Chabot: technical-tutorial/extras/generative-ai/memory-chatbot-sdk/stream-chatbot/memory-chabot.md
     - Data Analysis:
       - Plot:
         - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md

@@ -614,4 +614,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Zip Unzip](../../modeling/zip-unzip/zip-unzip.md) | **Next**: [Task Parameters](../task-parameters.md)
+**Previous**: [Bank Marketing](../../modeling/examples/bank-marketing/bank-marketing.md) | **Next**: [Task Parameters](../task-parameters.md)
