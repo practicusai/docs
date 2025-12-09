@@ -1474,4 +1474,4 @@ async def run(payload: SummarizeTeamStatusRequest, **kwargs) -> SummarizeTeamSta
 
 ---
 
-**Previous**: [Build](../retention-strategist/build.md) | **Next**: [Inventroy > Build](../inventroy/build.md)
+**Previous**: [Build](../growth-strategist/build.md) | **Next**: [Inventroy > Build](../inventroy/build.md)

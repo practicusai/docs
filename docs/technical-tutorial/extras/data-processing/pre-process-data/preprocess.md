@@ -91,13 +91,13 @@ proc.handle_missing(technique="custom", column_list=["native-country"], custom_v
 
 #### 3.2: Suppressing of outliers by using snippets
 
-Snippets are built-in python functions prepared by Practicus AI but, also you can build your own snippets for your company (for more information please visit https://docs.practicus.ai/tutorial)
+Snippets are built-in python functions prepared by Practicus AI but, also you can build your own snippets for your company (for more information please visit https://docs.practicus.ai)
 
 To utilize snippets effectively, ensure that you create and open a folder named 'snippets' within your working directory. Then, place the snippet files into this designated folder.
 
 Every snippets has parameters which are optional or mandatory to run. You can checkout the parameters within the snippet code.
 
-E.g. the paramaters within 'suppress_outliers' can be listed as:
+E.g. the parameters within 'suppress_outliers' can be listed as:
 - outlier_float_col_list: list[str] | None (List of numeric columns to check for outliers. If left empty, applies to all numeric columns.),
 - q1_percentile: float = 0.25 (Custom percentile for Q1, takes 0.25 as default value),
 - q3_percentile: float = 0.75 (Custom percentile for Q3, takes 0.75 as default value),
@@ -375,4 +375,4 @@ def suppress_outliers(
 
 ---
 
-**Previous**: [Analyze](../../data-analysis/eda/analyze.md) | **Next**: [Process Data > Insurance](../process-data/insurance.md)
+**Previous**: [Analyze](../../data-analysis/drill-down/analyze.md) | **Next**: [Process Data > Insurance](../process-data/insurance.md)

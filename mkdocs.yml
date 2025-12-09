@@ -63,6 +63,7 @@ nav:
         - Model Serving: technical-tutorial/generative-ai/model-serving/llm/model-serving.md
       - Gateway:
         - Model Gateway: technical-tutorial/generative-ai/model-serving/gateway/model-gateway.md
+        - Guardrails And Policies: technical-tutorial/generative-ai/model-serving/gateway/guardrails-and-policies.md
       - Custom:
         - Models:
           - Build: technical-tutorial/generative-ai/model-serving/custom/models/build.md
@@ -81,12 +82,6 @@ nav:
       - Build: technical-tutorial/generative-ai/relational-databases/build.md
     - Message Queues:
       - Build: technical-tutorial/generative-ai/message-queues/build.md
-    - Agentic AI:
-      - Build: technical-tutorial/generative-ai/agentic-ai/build.md
-    - Message Queues:
-      - Build: technical-tutorial/generative-ai/message-queues/build.md
-    - MCP:
-      - Build: technical-tutorial/generative-ai/mcp/build.md
     - Agentic AI:
       - Build: technical-tutorial/generative-ai/agentic-ai/build.md
     - MCP:
@@ -153,126 +148,91 @@ nav:
     - Git Configuration: technical-tutorial/operations-guide/git-configuration.md
     - Object Storage: technical-tutorial/operations-guide/object-storage.md
     - Add On Services: technical-tutorial/operations-guide/add-on-services.md
-    - Enterprise Sso: technical-tutorial/operations-guide/enterprise-sso.md
+    - Enterprise SSO: technical-tutorial/operations-guide/enterprise-sso.md
     - AI Assistants: technical-tutorial/operations-guide/ai-assistants.md
-    - Mfa: technical-tutorial/operations-guide/mfa.md
+    - MFA: technical-tutorial/operations-guide/mfa.md
     - Network Security: technical-tutorial/operations-guide/network-security.md
   - How To:
     - Automate Notebooks:
       - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
     - Improve Code Quality:
       - Automated Code Quality: technical-tutorial/how-to/improve-code-quality/automated-code-quality.md
-    - Work With Connections: technical-tutorial/how-to/work-with-connections.md
-    - Automating Kerberos Ticket Renewal With Cron: technical-tutorial/how-to/automating-kerberos-ticket-renewal-with-cron.md
-    - Integrate Git: technical-tutorial/how-to/integrate-git.md
-    - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
-    - Work With Processes: technical-tutorial/how-to/work-with-processes.md
-    - Work With Data Catalog: technical-tutorial/how-to/work-with-data-catalog.md
+    - Manage Prompts:
+      - Prompt Management: technical-tutorial/how-to/manage-prompts/prompt-management.md
+    - Automate Kerberos Tickets: technical-tutorial/how-to/automate-kerberos-tickets.md
     - Caching Large Model Files: technical-tutorial/how-to/caching-large-model-files.md
-    - Use Custom Metrics: technical-tutorial/how-to/use-custom-metrics.md
-    - Customize Templates: technical-tutorial/how-to/customize-templates.md
-    - Hosting Temporary Apis: technical-tutorial/how-to/hosting-temporary-apis.md
     - Change Vs Code Defaults: technical-tutorial/how-to/change-vs-code-defaults.md
     - Configure Advanced Gpu: technical-tutorial/how-to/configure-advanced-gpu.md
     - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md
-    - Share Workers: technical-tutorial/how-to/share-workers.md
-    - View Stats: technical-tutorial/how-to/view-stats.md
     - Create Virtual Envs: technical-tutorial/how-to/create-virtual-envs.md
-    - Model Tokens: technical-tutorial/how-to/model-tokens.md
-    - Use Polars: technical-tutorial/how-to/use-polars.md
-    - Use Graph Databases: technical-tutorial/how-to/use-graph-databases.md
-    - Personal Startup Scripts: technical-tutorial/how-to/personal-startup-scripts.md
+    - Customize Templates: technical-tutorial/how-to/customize-templates.md
+    - Hosting Temporary Apis: technical-tutorial/how-to/hosting-temporary-apis.md
+    - Integrate Git: technical-tutorial/how-to/integrate-git.md
     - MCP Langgraph: technical-tutorial/how-to/mcp-langgraph.md
+    - Model Tokens: technical-tutorial/how-to/model-tokens.md
+    - Personal Startup Scripts: technical-tutorial/how-to/personal-startup-scripts.md
+    - Share Workers: technical-tutorial/how-to/share-workers.md
+    - Use Custom Metrics: technical-tutorial/how-to/use-custom-metrics.md
+    - Use Graph Databases: technical-tutorial/how-to/use-graph-databases.md
+    - Use Polars: technical-tutorial/how-to/use-polars.md
+    - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
+    - View Stats: technical-tutorial/how-to/view-stats.md
+    - Work With Connections: technical-tutorial/how-to/work-with-connections.md
+    - Work With Data Catalog: technical-tutorial/how-to/work-with-data-catalog.md
+    - Work With Processes: technical-tutorial/how-to/work-with-processes.md
   - Extras:
     - Modeling:
-      - SparkML:
-        - Ice Cream:
-          - SparkML Ice Cream: technical-tutorial/extras/modeling/sparkml/ice-cream/sparkml-ice-cream.md
-        - Spark With Job:
-          - Batch Job: technical-tutorial/extras/modeling/sparkml/spark-with-job/batch-job.md
-        - Spark For Ds:
-          - Spark Tutorial: technical-tutorial/extras/modeling/sparkml/spark-for-ds/spark-tutorial.md
+      - AutoML: technical-tutorial/extras/modeling/AutoML.md
       - Data Mining:
         - Pattern Mining: technical-tutorial/extras/modeling/data-mining/pattern-mining.md
+      - Examples:
+        - Bank Marketing:
+          - Bank Marketing: technical-tutorial/extras/modeling/examples/bank-marketing/bank-marketing.md
+      - Model Observability:
+        - Model Observability: technical-tutorial/extras/modeling/model-observability/model-observability.md
       - Model Tracking:
         - Experiment Tracking:
           - Experiment Tracking Logging: technical-tutorial/extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging.md
           - Experiment Tracking Model Training: technical-tutorial/extras/modeling/model-tracking/experiment-tracking/experiment-tracking-model-training.md
         - Model Drift:
           - Model Drift: technical-tutorial/extras/modeling/model-tracking/model-drift/model-drift.md
-      - Model Observability:
-        - Model Observability: technical-tutorial/extras/modeling/model-observability/model-observability.md
+      - Shap Analysis: technical-tutorial/extras/modeling/shap-analysis.md
+      - SparkML:
+        - Ice Cream:
+          - SparkML Ice Cream: technical-tutorial/extras/modeling/sparkml/ice-cream/sparkml-ice-cream.md
+        - Spark For Ds:
+          - Spark Tutorial: technical-tutorial/extras/modeling/sparkml/spark-for-ds/spark-tutorial.md
+        - Spark With Job:
+          - Batch Job: technical-tutorial/extras/modeling/sparkml/spark-with-job/batch-job.md
       - XGBoost:
         - XGBoost: technical-tutorial/extras/modeling/xgboost/xgboost.md
-      - AutoML: technical-tutorial/extras/modeling/AutoML.md
-      - Shap Analysis: technical-tutorial/extras/modeling/shap-analysis.md
       - Zip Unzip:
         - Zip Unzip: technical-tutorial/extras/modeling/zip-unzip/zip-unzip.md
-      - Examples:
-        - Bank Marketing:
-          - Bank Marketing: technical-tutorial/extras/modeling/examples/bank-marketing/bank-marketing.md
     - Workflows:
-      - Task Runnner App:
-        - Build: technical-tutorial/extras/workflows/task-runnner-app/build.md
-      - Task Parameters: technical-tutorial/extras/workflows/task-parameters.md
+      - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
       - Run Task Safe:
         - Deploy: technical-tutorial/extras/workflows/run-task-safe/deploy.md
-      - API Triggers For Airflow: technical-tutorial/extras/workflows/api-triggers-for-airflow.md
+      - Task Parameters: technical-tutorial/extras/workflows/task-parameters.md
+      - Task Runnner App:
+        - Build: technical-tutorial/extras/workflows/task-runnner-app/build.md
     - Generative AI:
-      - Vector Visualization:
-        - Build: technical-tutorial/extras/generative-ai/vector-visualization/build.md
-      - Databases:
-        - Using Databases: technical-tutorial/extras/generative-ai/databases/using-databases.md
       - Advanced LangChain:
         - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
-      - AI Assistants:
-        - AI Assistants: technical-tutorial/extras/generative-ai/ai-assistants/ai-assistants.md
-      - LLM Evaluation:
-        - Overview: technical-tutorial/extras/generative-ai/llm-evaluation/Overview.md
-        - Rogue: technical-tutorial/extras/generative-ai/llm-evaluation/ROGUE.md
-        - Bleu: technical-tutorial/extras/generative-ai/llm-evaluation/BLEU.md
-        - Bleurt: technical-tutorial/extras/generative-ai/llm-evaluation/BLEURT.md
-        - Bertscore: technical-tutorial/extras/generative-ai/llm-evaluation/BERTScore.md
-        - Meteor: technical-tutorial/extras/generative-ai/llm-evaluation/METEOR.md
-        - Perplexity: technical-tutorial/extras/generative-ai/llm-evaluation/Perplexity.md
-      - LLM Apps:
-        - API LLM Apphost:
-          - Build: technical-tutorial/extras/generative-ai/llm-apps/api-llm-apphost/build.md
-        - Sdk LLM Apphost:
-          - Non-Stream:
-            - Sdk Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md
-        - Langflow LLM Apphost:
-          - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
-      - Milvus Embedding And LangChain:
-        - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
       - Agentic Use Cases:
-        - Product Rec:
-          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/product-rec/build.md
         - Growth Strategist:
           - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/growth-strategist/build.md
-        - Retention Strategist:
-          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/retention-strategist/build.md
         - Hr:
           - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/hr/build.md
         - Inventroy:
           - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/inventroy/build.md
-      - Langflow Apis:
-        - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
-      - Examples:
-        - Prtchatbot:
-          - Prtchatbot: technical-tutorial/extras/generative-ai/examples/prtchatbot/prtchatbot.md
-        - Mobile-Banking:
-          - Mobile-Banking: technical-tutorial/extras/generative-ai/examples/mobile-banking/mobile-banking.md
-        - Ecomm-Sdk:
-          - Memory Chabot: technical-tutorial/extras/generative-ai/examples/ecomm-sdk/memory-chabot.md
-        - Cv Assistant:
-          - Cv Assistant: technical-tutorial/extras/generative-ai/examples/cv-assistant/cv-assistant.md
-        - Email E Assistant:
-          - Mail E-Assistant: technical-tutorial/extras/generative-ai/examples/email-e-assistant/mail-e-assistant.md
-        - Memory-Chatbot-Sdk:
-          - Chatbot-Console-OpenAI: technical-tutorial/extras/generative-ai/examples/memory-chatbot-sdk/chatbot-console-openai.md
-          - Stream Chatbot:
-            - Memory Chabot: technical-tutorial/extras/generative-ai/examples/memory-chatbot-sdk/stream-chatbot/memory-chabot.md
+        - Product Rec:
+          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/product-rec/build.md
+        - Retention Strategist:
+          - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/retention-strategist/build.md
+      - AI Assistants:
+        - AI Assistants: technical-tutorial/extras/generative-ai/ai-assistants/ai-assistants.md
+      - Databases:
+        - Using Databases: technical-tutorial/extras/generative-ai/databases/using-databases.md
       - Deploying LLM:
         - Introduction: technical-tutorial/extras/generative-ai/deploying-llm/Introduction.md
         - Preparation:
@@ -293,12 +253,51 @@ nav:
           - Model Json: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/model-json.md
           - Deploy: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/deploy.md
           - Consume Parallel: technical-tutorial/extras/generative-ai/deploying-llm/combined-method/consume-parallel.md
+      - Examples:
+        - Cv Assistant:
+          - Cv Assistant: technical-tutorial/extras/generative-ai/examples/cv-assistant/cv-assistant.md
+        - Ecomm-Sdk:
+          - Memory Chabot: technical-tutorial/extras/generative-ai/examples/ecomm-sdk/memory-chabot.md
+        - Email E Assistant:
+          - Mail E-Assistant: technical-tutorial/extras/generative-ai/examples/email-e-assistant/mail-e-assistant.md
+        - Memory-Chatbot-Sdk:
+          - Chatbot-Console-OpenAI: technical-tutorial/extras/generative-ai/examples/memory-chatbot-sdk/chatbot-console-openai.md
+          - Stream Chatbot:
+            - Memory Chabot: technical-tutorial/extras/generative-ai/examples/memory-chatbot-sdk/stream-chatbot/memory-chabot.md
+        - Mobile-Banking:
+          - Mobile-Banking: technical-tutorial/extras/generative-ai/examples/mobile-banking/mobile-banking.md
+        - Prtchatbot:
+          - Prtchatbot: technical-tutorial/extras/generative-ai/examples/prtchatbot/prtchatbot.md
+      - Langflow Apis:
+        - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
+      - LLM Apps:
+        - API LLM Apphost:
+          - Build: technical-tutorial/extras/generative-ai/llm-apps/api-llm-apphost/build.md
+        - Sdk LLM Apphost:
+          - Non-Stream:
+            - Sdk Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md
+        - Langflow LLM Apphost:
+          - Langflow Streamlit Hosting: technical-tutorial/extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md
+      - LLM Evaluation:
+        - Overview: technical-tutorial/extras/generative-ai/llm-evaluation/Overview.md
+        - Rogue: technical-tutorial/extras/generative-ai/llm-evaluation/ROGUE.md
+        - Bleu: technical-tutorial/extras/generative-ai/llm-evaluation/BLEU.md
+        - Bleurt: technical-tutorial/extras/generative-ai/llm-evaluation/BLEURT.md
+        - Bertscore: technical-tutorial/extras/generative-ai/llm-evaluation/BERTScore.md
+        - Meteor: technical-tutorial/extras/generative-ai/llm-evaluation/METEOR.md
+        - Perplexity: technical-tutorial/extras/generative-ai/llm-evaluation/Perplexity.md
+      - Milvus Embedding And LangChain:
+        - Milvus Chain: technical-tutorial/extras/generative-ai/milvus-embedding-and-langchain/milvus-chain.md
+      - Vector Visualization:
+        - Build: technical-tutorial/extras/generative-ai/vector-visualization/build.md
     - Data Analysis:
       - Plot:
         - Introduction: technical-tutorial/extras/data-analysis/plot/introduction.md
         - Multiple Layers: technical-tutorial/extras/data-analysis/plot/multiple-layers.md
       - Eda:
         - Analyze: technical-tutorial/extras/data-analysis/eda/analyze.md
+      - Drill Down:
+        - Analyze: technical-tutorial/extras/data-analysis/drill-down/analyze.md
     - Data Processing:
       - Pre Process Data:
         - Preprocess: technical-tutorial/extras/data-processing/pre-process-data/preprocess.md

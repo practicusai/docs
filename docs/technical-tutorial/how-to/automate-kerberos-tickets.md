@@ -1,4 +1,4 @@
-# Automating Kerberos Ticket Renewal with Cron
+# Automated Kerberos Ticket Renewal with Cron
 
 ## Introduction
 
@@ -26,7 +26,6 @@ The shell script content was converted into the long `base64` string you'll use 
 **The Original Script Content**
 
 This is the multi-line shell script designed to create your keytab, get an initial Kerberos ticket, and set up the `cron` job. Each line performs a specific action:
-
 
 ```bash
 {
@@ -78,11 +77,11 @@ Running this command outputs the `base64` encoded string you'll use. This method
 
 In this step, we'll use the provided `base64` encoded command to create and run a startup script. This script will create the keytab file, obtain your initial Kerberos TGT (Ticket Granting Ticket), and set up the cron job automatically.
 
-**Critical Security Warning** 
+**Critical Security Warning**
 
 The `base64` encoded string you'll use contains your Kerberos password in plain text within the script it decodes. This is a significant security risk. You should only use this method for testing or in highly controlled, secure environments. Never pass passwords in this manner in production environments or when dealing with sensitive data. The preferred and secure method is always to use a keytab securely generated and distributed by a Kerberos administrator.
 
-Now, execute the following command in your terminal. Before running, replace the placeholders `{{USER_NAME}}`, `{{REALM_NAME}}`, and `{{PASSWORD}}` in the `base64` string with your actual Kerberos username, realm name, and password, respectively. 
+Now, execute the following command in your terminal. Before running, replace the placeholders `{{USER_NAME}}`, `{{REALM_NAME}}`, and `{{PASSWORD}}` in the `base64` string with your actual Kerberos username, realm name, and password, respectively.
 
 ```bash
 base64 --decode <<< "...add your base64 encoded script here..." > /var/practicus/lib-install.sh && chmod +x /var/practicus/lib-install.sh && sh /var/practicus/lib-install.sh
@@ -92,15 +91,14 @@ base64 --decode <<< "...add your base64 encoded script here..." > /var/practicus
 
 This single command line performs a sequence of operations:
 
-1.  `base64 --decode <<< "..."`: This part decodes the provided `base64` encoded string. The decoded string is actually a multi-line shell script containing all the setup steps.
-2.  `> /var/practicus/lib-install.sh`: The output from the `base64 --decode` command (which is our decoded shell script) is then redirected and written into a file named `/var/practicus/lib-install.sh`.
-3.  `&& chmod +x /var/practicus/lib-install.sh`: The `&&` operator ensures that this command runs *only if* the previous command (writing the script to the file) was successful. `chmod +x` then grants executable permissions to the newly created script file, making it runnable.
-4.  `&& sh /var/practicus/lib-install.sh`: Again, using `&&`, this command runs the script we just created and made executable. The `sh` command executes the script using the system's default shell.
-
+1. `base64 --decode <<< "..."`: This part decodes the provided `base64` encoded string. The decoded string is actually a multi-line shell script containing all the setup steps.
+2. `> /var/practicus/lib-install.sh`: The output from the `base64 --decode` command (which is our decoded shell script) is then redirected and written into a file named `/var/practicus/lib-install.sh`.
+3. `&& chmod +x /var/practicus/lib-install.sh`: The `&&` operator ensures that this command runs *only if* the previous command (writing the script to the file) was successful. `chmod +x` then grants executable permissions to the newly created script file, making it runnable.
+4. `&& sh /var/practicus/lib-install.sh`: Again, using `&&`, this command runs the script we just created and made executable. The `sh` command executes the script using the system's default shell.
 
 ## Monitoring and Verification
 
-After the setup is complete, it's crucial to verify that everything is working as expected. These verification steps should be performed directly within the relevant Kubernetes pod (e.g., apphost, modelhost, or worker pod) where your application or process requiring Kerberos authentication is running. 
+After the setup is complete, it's crucial to verify that everything is working as expected. These verification steps should be performed directly within the relevant Kubernetes pod (e.g., apphost, modelhost, or worker pod) where your application or process requiring Kerberos authentication is running.
 
 **Checking Kerberos Ticket Status**
 
@@ -126,6 +124,7 @@ You should see a line similar to `0 */11 * * * kinit -kt /var/practicus/{{USER_N
 
 By following these straightforward steps, you've successfully automated the process of creating a Kerberos keytab file, obtaining an initial ticket, and setting up `cron` to automatically renew your Kerberos tickets. This setup ensures continuous access to your Kerberos-authenticated services, significantly enhancing the reliability of your automated processes and reducing the need for manual intervention.
 
+
 ---
 
-**Previous**: [Work With Connections](work-with-connections.md) | **Next**: [Integrate Git](integrate-git.md)
+**Previous**: [Prompt Management](manage-prompts/prompt-management.md) | **Next**: [Caching Large Model Files](caching-large-model-files.md)

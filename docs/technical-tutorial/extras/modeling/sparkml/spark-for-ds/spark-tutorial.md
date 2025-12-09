@@ -149,4 +149,4 @@ spark.stop()
 
 ---
 
-**Previous**: [Batch Job](../spark-with-job/batch-job.md) | **Next**: [Data Mining > Pattern Mining](../../data-mining/pattern-mining.md)
+**Previous**: [SparkML Ice Cream](../ice-cream/sparkml-ice-cream.md) | **Next**: [Spark With Job > Batch Job](../spark-with-job/batch-job.md)

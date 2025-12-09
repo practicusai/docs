@@ -67,4 +67,4 @@ print("Too many blank lines, which is a code formatting issue.")
 
 ---
 
-**Previous**: [Executing Notebooks](../automate-notebooks/executing-notebooks.md) | **Next**: [Work With Connections](../work-with-connections.md)
+**Previous**: [Executing Notebooks](../automate-notebooks/executing-notebooks.md) | **Next**: [Manage Prompts > Prompt Management](../manage-prompts/prompt-management.md)

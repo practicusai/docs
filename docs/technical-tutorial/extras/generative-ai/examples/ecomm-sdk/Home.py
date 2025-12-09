@@ -67,7 +67,7 @@ def analyze_sentiment(reviews):
     if reviews.empty:
         return ["No reviews available."]
 
-    api_url = f"https://dev.practicus.io/models/llm-proxy/"
+    api_url = f"https://practicus.company.com/models/llm-proxy/"
     token = prt.models.get_session_token(api_url=api_url)
 
     context = f"You are an expert product assistant providing details about e-commerce products based on available data.\nReviews: {', '.join(reviews['review'].tolist())}"
@@ -100,7 +100,7 @@ def analyze_sentiment2(reviews):
     if reviews.empty:
         return ["No reviews available."]
 
-    api_url = f"https://dev.practicus.io/models/llm-proxy/"
+    api_url = f"https://practicus.company.com/models/llm-proxy/"
     token = prt.models.get_session_token(api_url=api_url)
 
     context = f"Based on the response above, which specific parts of the reviews contributed to the answer? Please extract relevant quotes.\nReviews: {', '.join(product_reviews['review'].tolist()[:10])}"

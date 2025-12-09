@@ -104,4 +104,4 @@ print("Access token:", access_token)
 
 ---
 
-**Previous**: [Integrate Git](integrate-git.md) | **Next**: [Work With Processes](work-with-processes.md)
+**Previous**: [Use Polars](use-polars.md) | **Next**: [View Stats](view-stats.md)

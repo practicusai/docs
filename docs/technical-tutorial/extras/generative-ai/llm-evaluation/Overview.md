@@ -184,4 +184,4 @@ This closes the loop from **local experimentation** to **production monitoring**
 
 ---
 
-**Previous**: [AI Assistants](../ai-assistants/ai-assistants.md) | **Next**: [Rogue](ROGUE.md)
+**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Rogue](ROGUE.md)

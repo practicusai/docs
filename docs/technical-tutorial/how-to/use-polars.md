@@ -78,4 +78,4 @@ print(polars_df.head())
 
 ---
 
-**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Use Graph Databases](use-graph-databases.md)
+**Previous**: [Use Graph Databases](use-graph-databases.md) | **Next**: [Use Security Tokens](use-security-tokens.md)

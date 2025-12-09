@@ -194,4 +194,4 @@ proc.kill()
 
 ---
 
-**Previous**: [Consume Parallel](../../generative-ai/deploying-llm/combined-method/consume-parallel.md) | **Next**: [Multiple Layers](multiple-layers.md)
+**Previous**: [Build](../../generative-ai/vector-visualization/build.md) | **Next**: [Multiple Layers](multiple-layers.md)

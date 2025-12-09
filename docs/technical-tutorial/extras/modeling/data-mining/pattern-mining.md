@@ -256,4 +256,4 @@ The platform can expose these parameters in the UI and run the corresponding sni
 
 ---
 
-**Previous**: [Spark Tutorial](../sparkml/spark-for-ds/spark-tutorial.md) | **Next**: [Model Tracking > Experiment Tracking > Experiment Tracking Logging](../model-tracking/experiment-tracking/experiment-tracking-logging.md)
+**Previous**: [AutoML](../AutoML.md) | **Next**: [Examples > Bank Marketing > Bank Marketing](../examples/bank-marketing/bank-marketing.md)

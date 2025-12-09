@@ -109,4 +109,4 @@ At the bottom of the form, you have several options:
 
 ---
 
-**Previous**: [Enterprise Sso](enterprise-sso.md) | **Next**: [Mfa](mfa.md)
+**Previous**: [Enterprise SSO](enterprise-sso.md) | **Next**: [MFA](mfa.md)

@@ -290,4 +290,4 @@ async def predict(df: pd.DataFrame | None = None, *args, **kwargs) -> pd.DataFra
 
 ---
 
-**Previous**: [MCP Langgraph](../../../../how-to/mcp-langgraph.md) | **Next**: [Spark With Job > Batch Job](../spark-with-job/batch-job.md)
+**Previous**: [Shap Analysis](../../shap-analysis.md) | **Next**: [Spark For Ds > Spark Tutorial](../spark-for-ds/spark-tutorial.md)

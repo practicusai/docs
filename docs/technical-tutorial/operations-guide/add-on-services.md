@@ -49,4 +49,4 @@ To define a new service type, follow these steps:
 
 ---
 
-**Previous**: [Object Storage](object-storage.md) | **Next**: [Enterprise Sso](enterprise-sso.md)
+**Previous**: [Object Storage](object-storage.md) | **Next**: [Enterprise SSO](enterprise-sso.md)

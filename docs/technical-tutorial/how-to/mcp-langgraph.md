@@ -89,4 +89,4 @@ print(test_response)
 
 ---
 
-**Previous**: [Personal Startup Scripts](personal-startup-scripts.md) | **Next**: [Extras > Modeling > SparkML > Ice Cream > SparkML Ice Cream](../extras/modeling/sparkml/ice-cream/sparkml-ice-cream.md)
+**Previous**: [Integrate Git](integrate-git.md) | **Next**: [Model Tokens](model-tokens.md)

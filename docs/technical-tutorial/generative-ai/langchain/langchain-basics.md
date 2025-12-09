@@ -27,7 +27,7 @@ Once these parameters are set, you can define a `chat` instance using `ChatPract
 ```python
 model_name = None
 model_prefix = None
-host = None  # e.g. 'company.practicus.io'
+host = None  # e.g. 'practicus.company.com'
 ```
 
 ```python

@@ -316,4 +316,4 @@ async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwar
 
 ---
 
-**Previous**: [Model Drift](../model-tracking/model-drift/model-drift.md) | **Next**: [XGBoost > XGBoost](../xgboost/xgboost.md)
+**Previous**: [Bank Marketing](../examples/bank-marketing/bank-marketing.md) | **Next**: [Model Tracking > Experiment Tracking > Experiment Tracking Logging](../model-tracking/experiment-tracking/experiment-tracking-logging.md)

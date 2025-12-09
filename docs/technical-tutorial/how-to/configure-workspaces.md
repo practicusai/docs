@@ -81,4 +81,4 @@ sudo chown ubuntu:ubuntu some_file.txt
 
 ---
 
-**Previous**: [Configure Advanced Gpu](configure-advanced-gpu.md) | **Next**: [Share Workers](share-workers.md)
+**Previous**: [Configure Advanced Gpu](configure-advanced-gpu.md) | **Next**: [Create Virtual Envs](create-virtual-envs.md)

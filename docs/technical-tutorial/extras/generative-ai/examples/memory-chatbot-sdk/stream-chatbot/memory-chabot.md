@@ -351,4 +351,4 @@ with st.sidebar:
 
 ---
 
-**Previous**: [Chatbot-Console-OpenAI](../chatbot-console-openai.md) | **Next**: [Deploying LLM > Introduction](../../../deploying-llm/Introduction.md)
+**Previous**: [Chatbot-Console-OpenAI](../chatbot-console-openai.md) | **Next**: [Mobile Banking > Mobile-Banking](../../mobile-banking/mobile-banking.md)

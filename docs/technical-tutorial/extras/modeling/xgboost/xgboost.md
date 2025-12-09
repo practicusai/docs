@@ -401,4 +401,4 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
 
 ---
 
-**Previous**: [Model Observability](../model-observability/model-observability.md) | **Next**: [AutoML](../AutoML.md)
+**Previous**: [Batch Job](../sparkml/spark-with-job/batch-job.md) | **Next**: [Zip Unzip > Zip Unzip](../zip-unzip/zip-unzip.md)

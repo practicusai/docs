@@ -164,4 +164,4 @@ Because we clean up at the end, you can safely re-run the notebook multiple time
 
 ---
 
-**Previous**: [Use Polars](use-polars.md) | **Next**: [Personal Startup Scripts](personal-startup-scripts.md)
+**Previous**: [Use Custom Metrics](use-custom-metrics.md) | **Next**: [Use Polars](use-polars.md)

@@ -207,4 +207,4 @@ def get_static_data():
 
 ---
 
-**Previous**: [Build](../vector-visualization/build.md) | **Next**: [Advanced LangChain > Lang Chain LLM Model](../advanced-langchain/lang-chain-llm-model.md)
+**Previous**: [AI Assistants](../ai-assistants/ai-assistants.md) | **Next**: [Deploying LLM > Introduction](../deploying-llm/Introduction.md)

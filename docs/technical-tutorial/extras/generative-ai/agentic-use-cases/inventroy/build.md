@@ -1579,4 +1579,4 @@ async def run(request: SummaryRequest) -> StockHealthSummary:
 
 ---
 
-**Previous**: [Build](../hr/build.md) | **Next**: [Langflow Apis > Langflow API](../../langflow-apis/langflow-api.md)
+**Previous**: [Build](../hr/build.md) | **Next**: [Product Rec > Build](../product-rec/build.md)

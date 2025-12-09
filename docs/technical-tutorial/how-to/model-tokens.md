@@ -21,8 +21,8 @@ jupyter:
 - Practicus services follow this pattern:
     - [ primary service url ] / [ model prefix ] / [ model name ] / < optional version > /
 - Sample model addresses:
-    - https://service.practicus.io/models/practicus/diamond-price/
-    - https://service.practicus.io/models/practicus/diamond-price/v3/
+    - https://practicus.company.com/models/practicus/diamond-price/
+    - https://practicus.company.com/models/practicus/diamond-price/v3/
 - Please note that Practicus AI model urls always end with a "/" 
 
 
@@ -154,4 +154,4 @@ except:
 
 ---
 
-**Previous**: [Create Virtual Envs](create-virtual-envs.md) | **Next**: [Use Polars](use-polars.md)
+**Previous**: [MCP Langgraph](mcp-langgraph.md) | **Next**: [Personal Startup Scripts](personal-startup-scripts.md)

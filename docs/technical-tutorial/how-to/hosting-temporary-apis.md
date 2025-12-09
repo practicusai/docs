@@ -124,4 +124,4 @@ print(resp.text)
 
 ---
 
-**Previous**: [Customize Templates](customize-templates.md) | **Next**: [Change Vs Code Defaults](change-vs-code-defaults.md)
+**Previous**: [Customize Templates](customize-templates.md) | **Next**: [Integrate Git](integrate-git.md)

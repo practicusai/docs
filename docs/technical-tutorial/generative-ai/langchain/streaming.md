@@ -58,7 +58,7 @@ elif method == "llm_app":
     app_name = None
     app_prefix = None
 
-host = None  # e.g. 'company.practicus.io'
+host = None  # e.g. 'practicus.company.com'
 ```
 
 If you don't know your prefixes and models or apps you can check them out by using the SDK like down below:

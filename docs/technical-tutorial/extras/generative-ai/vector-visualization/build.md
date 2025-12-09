@@ -282,4 +282,4 @@ else:
 
 ---
 
-**Previous**: [API Triggers For Airflow](../../workflows/api-triggers-for-airflow.md) | **Next**: [Databases > Using Databases](../databases/using-databases.md)
+**Previous**: [Milvus Chain](../milvus-embedding-and-langchain/milvus-chain.md) | **Next**: [Data Analysis > Plot > Introduction](../../data-analysis/plot/introduction.md)

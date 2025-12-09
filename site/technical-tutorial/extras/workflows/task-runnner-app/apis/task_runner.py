@@ -203,7 +203,7 @@ def get_execution_path() -> str:
 #         task_file_name="deployer_task.py",
 #         task_id="task-1",
 #         worker_config=worker_config,
-#         callback_url="https://dev.practicus.io/apps/task-runner-app/api/task-runner-callback",
+#         callback_url="https://practicus.company.com/apps/task-runner-app/api/task-runner-callback",
 #         terminate_on_completion=True,
 #     )
 #     await task_runner(payload)
@@ -221,7 +221,7 @@ def get_execution_path() -> str:
 #         task_file_name="deployer_task.py",
 #         task_id="task-1",
 #         worker_config=worker_config,
-#         callback_url="https://dev.practicus.io/apps/task-runner-app/api/task-runner-callback",
+#         callback_url="https://practicus.company.com/apps/task-runner-app/api/task-runner-callback",
 #         terminate_on_completion=True,
 #     )
 

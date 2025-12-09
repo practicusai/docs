@@ -597,8 +597,3 @@ async def consume_message_raw(message):
 ---
 
 **Previous**: [Build](../relational-databases/build.md) | **Next**: [Agentic AI > Build](../agentic-ai/build.md)
-
-
----
-
-**Previous**: [Build](../agentic-ai/build.md) | **Next**: [MCP > Build](../mcp/build.md)

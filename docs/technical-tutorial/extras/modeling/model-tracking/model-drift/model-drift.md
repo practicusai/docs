@@ -263,4 +263,4 @@ async def predict(http_request, df: Optional[pd.DataFrame] = None, *args, **kwar
 
 ---
 
-**Previous**: [Experiment Tracking Model Training](../experiment-tracking/experiment-tracking-model-training.md) | **Next**: [Model Observability > Model Observability](../../model-observability/model-observability.md)
+**Previous**: [Experiment Tracking Model Training](../experiment-tracking/experiment-tracking-model-training.md) | **Next**: [Shap Analysis](../../shap-analysis.md)

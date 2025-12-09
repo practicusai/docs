@@ -535,4 +535,4 @@ print(answer)
 
 ---
 
-**Previous**: [Memory Chabot](../ecomm-sdk/memory-chabot.md) | **Next**: [Email E Assistant > Mail E-Assistant](../email-e-assistant/mail-e-assistant.md)
+**Previous**: [Consume Parallel](../../deploying-llm/combined-method/consume-parallel.md) | **Next**: [Ecomm Sdk > Memory Chabot](../ecomm-sdk/memory-chabot.md)

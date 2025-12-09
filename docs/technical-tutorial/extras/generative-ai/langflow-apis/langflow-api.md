@@ -23,7 +23,7 @@ jupyter:
 - Make API calls
 
 ```python
-service_url = "https://langflow.dev.practicus.io"
+service_url = "https://langflow.practicus.company.com"
 # The below is defined in Langflow UI.
 # Open a flow, click on flow name > Edit Details > Endpoint Name
 endpoint_name = "my-api-endpoint"
@@ -35,7 +35,7 @@ assert endpoint_name, "Please define endpoint_name"
 
 api_url = f"{service_url}/api/v1/run/{endpoint_name}?stream=false"
 print("API url:", api_url)
-# e.g. https://langflow.dev.practicus.io/api/v1/run/api-test1?stream=false
+# e.g. https://langflow.practicus.company.com/api/v1/run/api-test1?stream=false
 ```
 
 ```python
@@ -82,4 +82,4 @@ print(result)
 
 ---
 
-**Previous**: [Build](../agentic-use-cases/inventroy/build.md) | **Next**: [Examples > Prtchatbot > Prtchatbot](../examples/prtchatbot/prtchatbot.md)
+**Previous**: [Prtchatbot](../examples/prtchatbot/prtchatbot.md) | **Next**: [LLM Apps > API LLM Apphost > Build](../llm-apps/api-llm-apphost/build.md)

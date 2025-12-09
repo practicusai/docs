@@ -1670,4 +1670,4 @@ async def run(payload: VisualizeCustomerJourneyRequest) -> VisualizeCustomerJour
 
 ---
 
-**Previous**: [Build](../growth-strategist/build.md) | **Next**: [Hr > Build](../hr/build.md)
+**Previous**: [Build](../product-rec/build.md) | **Next**: [AI Assistants > AI Assistants](../../ai-assistants/ai-assistants.md)

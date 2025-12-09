@@ -60,10 +60,6 @@ Application versions allow users to manage multiple iterations of the same app, 
 
 The **App Versions** page lists all application versions, including their deployment configurations. You can edit or remove versions as needed.
 
----
-
-[< Previous](model-deployment.md) | [Next >](git-config.md)
-
 
 ---
 

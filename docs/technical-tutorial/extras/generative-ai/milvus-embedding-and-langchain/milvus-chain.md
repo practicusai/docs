@@ -422,4 +422,4 @@ utility.drop_collection("dummy_info")
 
 ---
 
-**Previous**: [Langflow Streamlit Hosting](../llm-apps/langflow-llm-apphost/langflow-streamlit-hosting.md) | **Next**: [Agentic Use Cases > Product Rec > Build](../agentic-use-cases/product-rec/build.md)
+**Previous**: [Perplexity](../llm-evaluation/Perplexity.md) | **Next**: [Vector Visualization > Build](../vector-visualization/build.md)

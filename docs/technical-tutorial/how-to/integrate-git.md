@@ -66,4 +66,4 @@ After cloning a git repo and saving credentials, you can use both the terminal a
 
 ---
 
-**Previous**: [Automating Kerberos Ticket Renewal With Cron](automating-kerberos-ticket-renewal-with-cron.md) | **Next**: [Use Security Tokens](use-security-tokens.md)
+**Previous**: [Hosting Temporary Apis](hosting-temporary-apis.md) | **Next**: [MCP Langgraph](mcp-langgraph.md)

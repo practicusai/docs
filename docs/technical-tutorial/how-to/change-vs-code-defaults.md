@@ -37,4 +37,4 @@ Sample `~/my/settings/vscode.json` settings file that:
 
 ---
 
-**Previous**: [Hosting Temporary Apis](hosting-temporary-apis.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)
+**Previous**: [Caching Large Model Files](caching-large-model-files.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)

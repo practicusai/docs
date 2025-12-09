@@ -575,4 +575,4 @@ async def predict(http_request, *args, **kwargs) -> pd.DataFrame:
 
 ---
 
-**Previous**: [XGBoost](xgboost/xgboost.md) | **Next**: [Shap Analysis](shap-analysis.md)
+**Previous**: [Work With Processes](../../how-to/work-with-processes.md) | **Next**: [Data Mining > Pattern Mining](data-mining/pattern-mining.md)

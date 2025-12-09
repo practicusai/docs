@@ -1034,4 +1034,4 @@ async def run(payload: SuggestBundleRequest, **kwargs) -> SuggestBundleResponse:
 
 ---
 
-**Previous**: [Milvus Chain](../../milvus-embedding-and-langchain/milvus-chain.md) | **Next**: [Growth Strategist > Build](../growth-strategist/build.md)
+**Previous**: [Build](../inventroy/build.md) | **Next**: [Retention Strategist > Build](../retention-strategist/build.md)

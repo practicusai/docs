@@ -109,7 +109,7 @@ prt.apps.deploy(
 )
 ```
 
-After the deployment process completed we could enter UI url (e.g. https://dev.practicus.io/apps/langflow-json-test/v1/) to show-case our app.
+After the deployment process completed we could enter UI url (e.g. https://practicus.company.com/apps/langflow-json-test/v1/) to show-case our app.
 
 
 ## Supplementary Files
@@ -198,4 +198,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Sdk Streamlit Hosting](../sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md) | **Next**: [Milvus Embedding And LangChain > Milvus Chain](../../milvus-embedding-and-langchain/milvus-chain.md)
+**Previous**: [Sdk Streamlit Hosting](../sdk-llm-apphost/non-stream/sdk-streamlit-hosting.md) | **Next**: [LLM Evaluation > Overview](../../llm-evaluation/Overview.md)

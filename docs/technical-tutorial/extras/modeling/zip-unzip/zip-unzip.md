@@ -177,4 +177,4 @@ pred_df.head()
 
 ---
 
-**Previous**: [Shap Analysis](../shap-analysis.md) | **Next**: [Examples > Bank Marketing > Bank Marketing](../examples/bank-marketing/bank-marketing.md)
+**Previous**: [XGBoost](../xgboost/xgboost.md) | **Next**: [Workflows > API Triggers For Airflow](../../workflows/api-triggers-for-airflow.md)

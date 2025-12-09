@@ -331,7 +331,7 @@ import practicuscore as prt
 ```
 
 ```python
-api_url = f"https://dev.practicus.io/models/llm-proxy/"
+api_url = f"https://practicus.company.com/models/llm-proxy/"
 token = None  # Get a new token, or reuse existing if not expired.
 token = prt.models.get_session_token(api_url=api_url, token=token)
 ```
@@ -372,4 +372,4 @@ print(answer)
 
 ---
 
-**Previous**: [Prtchatbot](../prtchatbot/prtchatbot.md) | **Next**: [Ecomm Sdk > Memory Chabot](../ecomm-sdk/memory-chabot.md)
+**Previous**: [Memory Chabot](../memory-chatbot-sdk/stream-chatbot/memory-chabot.md) | **Next**: [Prtchatbot > Prtchatbot](../prtchatbot/prtchatbot.md)

@@ -110,4 +110,4 @@ worker.kill_all_procs()
 
 ---
 
-**Previous**: [Use Security Tokens](use-security-tokens.md) | **Next**: [Work With Data Catalog](work-with-data-catalog.md)
+**Previous**: [Work With Data Catalog](work-with-data-catalog.md) | **Next**: [Extras > Modeling > AutoML](../extras/modeling/AutoML.md)

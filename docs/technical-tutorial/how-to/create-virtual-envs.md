@@ -88,4 +88,4 @@ uv pip install pandas
 
 ---
 
-**Previous**: [View Stats](view-stats.md) | **Next**: [Model Tokens](model-tokens.md)
+**Previous**: [Configure Workspaces](configure-workspaces.md) | **Next**: [Customize Templates](customize-templates.md)

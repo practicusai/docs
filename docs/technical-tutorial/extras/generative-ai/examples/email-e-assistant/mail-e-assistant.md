@@ -613,4 +613,4 @@ print(answer)
 
 ---
 
-**Previous**: [Cv Assistant](../cv-assistant/cv-assistant.md) | **Next**: [Memory Chatbot Sdk > Chatbot-Console-OpenAI](../memory-chatbot-sdk/chatbot-console-openai.md)
+**Previous**: [Memory Chabot](../ecomm-sdk/memory-chabot.md) | **Next**: [Memory Chatbot Sdk > Chatbot-Console-OpenAI](../memory-chatbot-sdk/chatbot-console-openai.md)

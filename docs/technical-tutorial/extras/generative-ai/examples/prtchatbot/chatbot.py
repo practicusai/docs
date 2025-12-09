@@ -27,20 +27,20 @@ def get_jwt_expiry(token: str) -> Optional[datetime]:
 
     return datetime.utcfromtimestamp(expiry_timestamp)
 
+
 def get_response_from_model(model_name, user_input):
     return call_practicus_model(user_input, model_name)
+
 
 def get_token_for_model(model_name):
     token_data = st.session_state.get(f"token_{model_name}", None)
 
-
     if not token_data or token_data["expires_at"] < time.time():
-        api_url = f"https://dev.practicus.io/models/{model_name}/"
+        api_url = f"https://practicus.company.com/models/{model_name}/"
         token = prt.models.get_session_token(api_url=api_url)
 
         expires_at = time.time() + 3 * 60 * 60
         st.session_state[f"token_{model_name}"] = {"token": token, "expires_at": expires_at}
-
 
         return token
     else:
@@ -64,7 +64,7 @@ def call_practicus_model(user_input, model_name):
     chat_request = ChatCompletionRequest(model=model_name, messages=messages, temperature=0.7, max_tokens=512)
 
     payload = chat_request.model_dump()
-    response = requests.post(f"https://dev.practicus.io/models/{model_name}/", headers=headers, json=payload)
+    response = requests.post(f"https://practicus.company.com/models/{model_name}/", headers=headers, json=payload)
 
     try:
         data = response.json()

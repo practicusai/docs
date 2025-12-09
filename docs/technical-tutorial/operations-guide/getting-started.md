@@ -1,6 +1,6 @@
 # Practicus AI Operations Tutorial
 
-In this demo we will focus on the **operational** side of Practicus AI. This tutorial will guide you through how to manage, monitor, and maintain the platform in production at scale. Whether you're running Practicus AI on a public cloud Kubernetes environment such as AWS EKS, Azure AKS, Google GKE, or on-premises solutions like Red Hat OpenShift or Rancher, understanding these operational best practices ensures a stable, scalable system.
+In this section, we will focus on the **operational** side of Practicus AI. This tutorial will guide you through how to manage, monitor, and maintain the platform in production at scale. Whether you're running Practicus AI on a public cloud Kubernetes environment such as AWS EKS, Azure AKS, Google GKE, or on-premises solutions like Red Hat OpenShift or Rancher, understanding these operational best practices ensures a stable, scalable system.
 
 ## Overview
 

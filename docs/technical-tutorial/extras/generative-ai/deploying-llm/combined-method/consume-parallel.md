@@ -243,4 +243,4 @@ async def predict(payload_dict: dict, **kwargs):
 
 ---
 
-**Previous**: [Deploy](deploy.md) | **Next**: [Data Analysis > Plot > Introduction](../../../data-analysis/plot/introduction.md)
+**Previous**: [Deploy](deploy.md) | **Next**: [Examples > Cv Assistant > Cv Assistant](../../examples/cv-assistant/cv-assistant.md)

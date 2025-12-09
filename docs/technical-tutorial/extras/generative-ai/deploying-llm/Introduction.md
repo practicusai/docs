@@ -52,4 +52,4 @@
 
 ---
 
-**Previous**: [Memory Chabot](../examples/memory-chatbot-sdk/stream-chatbot/memory-chabot.md) | **Next**: [Preparation > Model Download](Preparation/Model-Download.md)
+**Previous**: [Using Databases](../databases/using-databases.md) | **Next**: [Preparation > Model Download](Preparation/Model-Download.md)

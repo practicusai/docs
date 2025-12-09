@@ -398,4 +398,4 @@ def one_hot(
 
 ---
 
-**Previous**: [Zip Unzip](../../zip-unzip/zip-unzip.md) | **Next**: [Workflows > Task Runnner App > Build](../../../workflows/task-runnner-app/build.md)
+**Previous**: [Pattern Mining](../../data-mining/pattern-mining.md) | **Next**: [Model Observability > Model Observability](../../model-observability/model-observability.md)

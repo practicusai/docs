@@ -769,7 +769,7 @@ def get_execution_path() -> str:
 #         task_file_name="deployer_task.py",
 #         task_id="task-1",
 #         worker_config=worker_config,
-#         callback_url="https://dev.practicus.io/apps/task-runner-app/api/task-runner-callback",
+#         callback_url="https://practicus.company.com/apps/task-runner-app/api/task-runner-callback",
 #         terminate_on_completion=True,
 #     )
 #     await task_runner(payload)
@@ -787,7 +787,7 @@ def get_execution_path() -> str:
 #         task_file_name="deployer_task.py",
 #         task_id="task-1",
 #         worker_config=worker_config,
-#         callback_url="https://dev.practicus.io/apps/task-runner-app/api/task-runner-callback",
+#         callback_url="https://practicus.company.com/apps/task-runner-app/api/task-runner-callback",
 #         terminate_on_completion=True,
 #     )
 
@@ -848,4 +848,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Deploy](run-task-safe/deploy.md) | **Next**: [Generative AI > Vector Visualization > Build](../generative-ai/vector-visualization/build.md)
+**Previous**: [Zip Unzip](../modeling/zip-unzip/zip-unzip.md) | **Next**: [Run Task Safe > Deploy](run-task-safe/deploy.md)

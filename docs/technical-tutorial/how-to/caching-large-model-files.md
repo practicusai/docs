@@ -100,4 +100,4 @@ This approach optimizes both rapid development and efficient production deployme
 
 ---
 
-**Previous**: [Work With Data Catalog](work-with-data-catalog.md) | **Next**: [Use Custom Metrics](use-custom-metrics.md)
+**Previous**: [Automate Kerberos Tickets](automate-kerberos-tickets.md) | **Next**: [Change Vs Code Defaults](change-vs-code-defaults.md)

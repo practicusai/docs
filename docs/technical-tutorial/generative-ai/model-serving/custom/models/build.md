@@ -271,4 +271,4 @@ async def predict(payload_dict: dict, **kwargs):
 
 ---
 
-**Previous**: [Model Gateway](../../gateway/model-gateway.md) | **Next**: [Embeddings > Build](../embeddings/build.md)
+**Previous**: [Guardrails And Policies](../../gateway/guardrails-and-policies.md) | **Next**: [Embeddings > Build](../embeddings/build.md)

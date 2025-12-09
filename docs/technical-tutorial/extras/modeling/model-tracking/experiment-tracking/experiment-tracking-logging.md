@@ -86,4 +86,4 @@ with mlflow.start_run(run_name=run_name):
 
 ---
 
-**Previous**: [Pattern Mining](../../data-mining/pattern-mining.md) | **Next**: [Experiment Tracking Model Training](experiment-tracking-model-training.md)
+**Previous**: [Model Observability](../../model-observability/model-observability.md) | **Next**: [Experiment Tracking Model Training](experiment-tracking-model-training.md)

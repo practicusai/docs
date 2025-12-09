@@ -53,4 +53,4 @@ if remote_worker:
 
 ---
 
-**Previous**: [Configure Workspaces](configure-workspaces.md) | **Next**: [View Stats](view-stats.md)
+**Previous**: [Personal Startup Scripts](personal-startup-scripts.md) | **Next**: [Use Custom Metrics](use-custom-metrics.md)

@@ -21,7 +21,7 @@ _This section provides guidance on managing and inserting container images into 
 
 - Click the **+ (Add Container Image)** button in the top-right corner.
 - Fill out the required fields in the **Add Container Image** form:
-  - **Image:** Provide the full image address (e.g., `registry.practicus.io/practicus/llm-cpu`).
+  - **Image:** Provide the full image address (e.g., `registry.practicus.company.com/my-team/llm-cpu`).
   - **Service Type:** Select the applicable service type (e.g., Cloud Worker, App Hosting).
   - **Version:** Specify the version of the container image.
   - **Name and Description:** Provide a short name and optional description for easy identification.

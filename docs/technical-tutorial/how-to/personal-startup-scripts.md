@@ -70,4 +70,4 @@ In summary:
 
 ---
 
-**Previous**: [Use Graph Databases](use-graph-databases.md) | **Next**: [MCP Langgraph](mcp-langgraph.md)
+**Previous**: [Model Tokens](model-tokens.md) | **Next**: [Share Workers](share-workers.md)
