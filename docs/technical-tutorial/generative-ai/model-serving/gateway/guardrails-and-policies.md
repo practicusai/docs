@@ -246,7 +246,9 @@ output_moderation_guard = prt.GatewayGuardrail(
 )
 
 # As with input guardrails, you register this in the gateway configuration:
-#
+# Optional: you can pass the path of the python file that has the guardrail function, e.g. moderate_output
+#   If left empty, .py file location is auto detected.
+# module_path = str(Path(__file__).resolve())
 # gateway_conf = prt.GatewayConfig(
 #     models=[...],
 #     guardrails=[
@@ -384,15 +386,16 @@ async def high_sensitivity_pre_guard(data: dict, requester: dict | None = None, 
                 "reason": "missing_role",
             }
             return data
+    # Note: kwargs can have other relevant info
 
     return data
 
 
-async def log_high_sensitivity_usage(requester: dict | None = None, **kwargs) -> None:
+async def log_high_sensitivity_usage(data, response, requester: dict | None = None, **kwargs) -> None:
     """Post-call hook that can send usage to a dedicated audit system."""
-    user_id: str = requester.get("id", "anonymous") if requester else "anonymous"
-    print(f"[AUDIT] High-sensitivity model used by user={user_id}")
     # Integrate here with your SIEM / logging platform if needed.
+    # Note: kwargs can have other relevant info
+    print("Handling hook ..")
 
 
 model_high_sensitivity = prt.GatewayModel(
@@ -526,17 +529,16 @@ A simple audit logging hook might look like this:
 
 
 ```python
-async def audit_policy_decisions(data: dict, requester: dict | None = None, **kwargs) -> None:
+async def audit_policy_decisions(data: dict, response, requester: dict | None = None, **kwargs) -> None:
     """Post-call hook that prints or forwards policy decisions for auditing.
 
     In a real deployment, replace the print() calls with structured logging or
     integration to your observability platform.
     """
-    user_id: str = requester.get("id", "anonymous") if requester else "anonymous"
     policy_decision: dict | None = data.get("policy_decision")
     moderation_info: dict | None = data.get("moderation")
 
-    print(f"[AUDIT] user={user_id} policy_decision={policy_decision} moderation={moderation_info}")
+    print(f"[AUDIT] policy_decision={policy_decision} moderation={moderation_info}")
 
 
 model_with_audit = prt.GatewayModel(
@@ -701,6 +703,9 @@ presidio_pii_guardrail = prt.GatewayGuardrail(
 )
 
 # Example: add to your gateway configuration
+# Optional: you can pass the path of the python file that has the guardrail function, e.g. prompt_policy_guard, output_moderation_guard ..
+#   If left empty, .py file location is auto detected.
+# module_path = str(Path(__file__).resolve())
 # gateway_conf = prt.GatewayConfig(
 #     models=[...],
 #     guardrails=[
@@ -708,6 +713,7 @@ presidio_pii_guardrail = prt.GatewayGuardrail(
 #         output_moderation_guard,
 #         presidio_pii_guardrail,
 #     ],
+#     module=module_path,
 # )
 ```
 

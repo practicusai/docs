@@ -1,8 +1,9 @@
 import practicuscore as prt
 from pydantic import BaseModel
-
+import asyncio
 
 mq_conn = None
+mq_conn_lock = asyncio.Lock()
 
 mq_user = "guest"
 mq_pwd = "guest"
@@ -24,14 +25,22 @@ class MyMsg(BaseModel):
 
 async def connect_mq():
     global mq_conn
-    mq_conn = await prt.mq.connect(mq_config)
+
+    if mq_conn is not None:
+        return
+
+    # (Recommended) using mq_conn_lock prevents potential thundering-herd reconnects
+    async with mq_conn_lock:
+        if mq_conn is not None:
+            return
+        mq_conn = await prt.mq.connect(mq_config)
 
 
 @prt.apps.api("/publish")
 async def publish(payload: MyMsg, **kwargs):
-    if mq_conn is None:
-        await connect_mq()
+    await connect_mq()
 
+    assert mq_conn, "MQ connection is not initialized"
     await prt.mq.publish(conn=mq_conn, msg=payload)
 
     return {"ok": True}

@@ -37,4 +37,4 @@ Sample `~/my/settings/vscode.json` settings file that:
 
 ---
 
-**Previous**: [Caching Large Model Files](caching-large-model-files.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)
+**Previous**: [Cache Large Model Files](cache-large-model-files.md) | **Next**: [Configure Advanced Gpu](configure-advanced-gpu.md)

@@ -201,26 +201,27 @@ import practicuscore as prt
 
 
 # Example of a pre-guard hook to add metadata to the request
-async def add_custom_metadata(data: dict, requester: dict | None, **kwargs) -> dict:
+async def add_custom_metadata(data: dict, requester: dict | None = None, **kwargs) -> dict:
     """This hook inspects the request and adds metadata."""
-    print(f"Executing pre-guard for user: {requester.get('id', 'unknown') if requester else 'unknown'}")
-
     # Add a custom tracking ID to the request payload
     if "metadata" not in data:
         data["metadata"] = {}
     data["metadata"]["gateway_tracking_id"] = "gtw-12345"
+
+    # Note: kwargs can have other relevant info
 
     # You MUST return the modified data dictionary
     return data
 
 
 # Example of a post-call hook for logging
-async def log_successful_call(requester: dict | None, **kwargs):
+async def log_successful_call(data: dict, response, requester: dict | None = None, **kwargs):
     """This hook runs after a successful call."""
-    print(
-        f"Call successful for user: {requester.get('id', 'N/A') if requester else 'N/A'}. Logging to custom system..."
-    )
+    print(f"Responding: {response}")
     # ... add custom logging logic here ...
+    # 'data' has user request.
+    # 'response' has llm response, including token usage.
+    # Note: kwargs can have other relevant info
 
 
 # Apply the hooks to a GatewayModel
@@ -296,6 +297,7 @@ A `GatewayGuardrail` is a hook that can be applied across the entire gateway. Th
 
 ```python
 import practicuscore as prt
+from pathlib import Path
 from openai import OpenAI
 
 
@@ -318,7 +320,14 @@ pii_guard = prt.GatewayGuardrail(
 )
 
 # This guardrail would then be added to the GatewayConfig:
-# gateway_conf = prt.GatewayConfig(models=[...], guardrails=[pii_guard])
+# Optional: you can pass the path of the python file that has the guardrail function, e.g. pii_scrubber
+#   If left empty, .py file location is auto detected.
+# module_path = str(Path(__file__).resolve())
+# gateway_conf = prt.GatewayConfig(
+#     models=[...],
+#     guardrails=[pii_guard],
+#     module=module_path,
+# )
 
 # --- Client-Side Usage ---
 # To activate the guardrail, a client would make a call like this:

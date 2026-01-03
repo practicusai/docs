@@ -127,4 +127,4 @@ By following these straightforward steps, you've successfully automated the proc
 
 ---
 
-**Previous**: [Prompt Management](manage-prompts/prompt-management.md) | **Next**: [Caching Large Model Files](caching-large-model-files.md)
+**Previous**: [Prompt Management](manage-prompts/prompt-management.md) | **Next**: [Cache Large Model Files](cache-large-model-files.md)

@@ -114,7 +114,7 @@ The Practicus Spark image is designed for large-scale data processing and analyt
 
 | Package  | Version |
 |----------|---------|
-| pyspark  | 3.5.6   |
+| pyspark  | 3.5.7   |
 | numpy    | -       |
 </details>
 ---

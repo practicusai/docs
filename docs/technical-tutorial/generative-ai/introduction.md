@@ -63,4 +63,4 @@ Practicus AI enables you to deploy custom fine-tuned LLMs tailored to your speci
 
 ---
 
-**Previous**: [Insurance Mlflow](../workflows/mlflow/insurance-mlflow.md) | **Next**: [Apps > Build](apps/build.md)
+**Previous**: [Add-Ons](../getting-started/add-ons.md) | **Next**: [Apps > Build](apps/build.md)

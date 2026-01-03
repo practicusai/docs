@@ -201,4 +201,4 @@ pred_df.head()
 
 ---
 
-**Previous**: [Generating Wokflows](../AI-Studio/generating-wokflows.md) | **Next**: [Generative AI > Introduction](../../generative-ai/introduction.md)
+**Previous**: [Generating Wokflows](../AI-Studio/generating-wokflows.md) | **Next**: [Modeling > Introduction](../../modeling/introduction.md)

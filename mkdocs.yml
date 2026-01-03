@@ -40,20 +40,6 @@ nav:
     - Workers: technical-tutorial/getting-started/workers.md
     - Workspaces: technical-tutorial/getting-started/workspaces.md
     - Add-Ons: technical-tutorial/getting-started/add-ons.md
-  - Modeling:
-    - Introduction: technical-tutorial/modeling/introduction.md
-    - Sample Modeling:
-      - Build And Deploy: technical-tutorial/modeling/sample-modeling/build-and-deploy.md
-  - Workflows:
-    - Introduction: technical-tutorial/workflows/introduction.md
-    - Tasks:
-      - Task Basics: technical-tutorial/workflows/tasks/task-basics.md
-    - Airflow:
-      - Deploying On Airflow: technical-tutorial/workflows/airflow/deploying-on-airflow.md
-    - AI Studio:
-      - Generating Wokflows: technical-tutorial/workflows/AI-Studio/generating-wokflows.md
-    - Mlflow:
-      - Insurance Mlflow: technical-tutorial/workflows/mlflow/insurance-mlflow.md
   - Generative AI:
     - Introduction: technical-tutorial/generative-ai/introduction.md
     - Apps:
@@ -86,6 +72,20 @@ nav:
       - Build: technical-tutorial/generative-ai/agentic-ai/build.md
     - MCP:
       - Build: technical-tutorial/generative-ai/mcp/build.md
+  - Workflows:
+    - Introduction: technical-tutorial/workflows/introduction.md
+    - Tasks:
+      - Task Basics: technical-tutorial/workflows/tasks/task-basics.md
+    - Airflow:
+      - Deploying On Airflow: technical-tutorial/workflows/airflow/deploying-on-airflow.md
+    - AI Studio:
+      - Generating Wokflows: technical-tutorial/workflows/AI-Studio/generating-wokflows.md
+    - Mlflow:
+      - Insurance Mlflow: technical-tutorial/workflows/mlflow/insurance-mlflow.md
+  - Modeling:
+    - Introduction: technical-tutorial/modeling/introduction.md
+    - Sample Modeling:
+      - Build And Deploy: technical-tutorial/modeling/sample-modeling/build-and-deploy.md
   - Distributed Computing:
     - Introduction: technical-tutorial/distributed-computing/introduction.md
     - Spark:
@@ -160,7 +160,7 @@ nav:
     - Manage Prompts:
       - Prompt Management: technical-tutorial/how-to/manage-prompts/prompt-management.md
     - Automate Kerberos Tickets: technical-tutorial/how-to/automate-kerberos-tickets.md
-    - Caching Large Model Files: technical-tutorial/how-to/caching-large-model-files.md
+    - Cache Large Model Files: technical-tutorial/how-to/cache-large-model-files.md
     - Change Vs Code Defaults: technical-tutorial/how-to/change-vs-code-defaults.md
     - Configure Advanced Gpu: technical-tutorial/how-to/configure-advanced-gpu.md
     - Configure Workspaces: technical-tutorial/how-to/configure-workspaces.md

@@ -66,6 +66,7 @@ The `MQConfig` object holds all the connection and topology parameters:
 
 ```python
 # Parameters - Adjust As Needed
+
 mq_user = "guest"
 mq_pwd = "guest"
 mq_host = "prt-mq-default"
@@ -82,6 +83,7 @@ test_api = True
 
 ```python
 # RabbitMQ connection string
+
 mq_conn_str = f"amqp://{mq_user}:{mq_pwd}@{mq_host}/{mq_vhost}"
 ```
 
@@ -148,6 +150,7 @@ This approach is simpler but less flexible, as it does not allow for custom rout
 
 ```python
 # Direct-to-Queue Publishing Example
+
 mq_config_direct = prt.MQConfig(
     conn_str=mq_conn_str,
     queue="my-direct-queue",
@@ -175,14 +178,48 @@ Our SDK uses the `@prt.mq.consumer` decorator to mark a function as a consumer. 
 1. **Single-parameter function**: The SDK automatically decodes the message (or deserializes it into a Pydantic model if annotated).
 2. **Two-parameter function (optional)**: The second optional parameter receives the raw `aio_pika.IncomingMessage` (which gives access to headers and properties).
 
-### Important:
-- If you place publisher and consumer functions on the same application (not recommended) please make sure that the consumer functions are **not blocking**. E.g. Calling `time.sleep(5)` in your consumer function **will block** all of the publisher functions. In comparison, calling `await asyncio.sleep(5)` would not block. 
-- **To prevent accidentally blocking the python event loop, it is strongly recommended to place publisher and consumer functions on separate applications.**
-- Consumers run in an **infinite loop**. To test them, **run the consumer cell in a separate notebook, process, or interrupt the kernel when done.**
-- The SDK automatically acknowledges messages on success and rejects them (with requeue) on error until `max_retries` is reached.
+## Concurrency and Execution Modes (Important)
+
+Our SDK supports **concurrent message processing** and two **execution modes** for consumer handlers.
+
+### 1) Concurrency (How many messages run in parallel?)
+
+Concurrency is controlled primarily by:
+
+- **`MQConfig.prefetch_count`**: maximum number of in-flight (un-acked) messages delivered to a consumer.
+  - If `prefetch_count=1`, your consumer processes messages one-at-a-time.
+  - If `prefetch_count=8`, your consumer can process up to 8 messages concurrently.
+- **Number of registered consumers**: each decorated function registered becomes its own consumer task.
+  - If you register 2 consumers with `prefetch_count=8`, you can process ~16 messages concurrently (subject to broker delivery, CPU, I/O, etc.).
+
+**Rule of thumb for novices:** start with `prefetch_count=1` or `prefetch_count=4`, then increase gradually.
+
+### 2) Execution Mode: `execution="thread"` vs `execution="event_loop"`
+
+Consumer functions must be `async def`, but handlers can accidentally include blocking operations (e.g., `requests`, CPU-heavy Pandas).
+
+#### ✅ `execution="thread"` (default, recommended)
+- The handler runs in a **worker thread** with its own asyncio event loop.
+- Protects the app’s main event loop from blocking code.
+- Best for novice teams and mixed sync/async libraries.
+
+**Potential issues / gotchas**
+- Global state is still accessible, but must be **thread-safe** if mutated.
+- Do **not** reuse async clients created on the main event loop (e.g. a global `ClientSession` created elsewhere). Create async clients inside the handler if needed.
+
+#### ⚡ `execution="event_loop"` (advanced, highest throughput)
+- The handler is awaited directly on the app’s main event loop.
+- Fastest option, but **any blocking call stalls the whole app**:
+  - `requests`, `time.sleep`, heavy CPU loops, large dataframe ops, etc.
+
+**Use event_loop mode only if**
+- all I/O uses async libraries (e.g., `httpx.AsyncClient`, async DB drivers),
+- CPU-heavy work is explicitly offloaded (`asyncio.to_thread` / process pool),
+- you’ve tested under load.
 
 ```python
 # Example of a Basic Consumer (Single Parameter)
+
 subscriber_config = prt.MQConfig(
     conn_str=mq_conn_str,
     exchange="my-first-exchange",
@@ -260,14 +297,15 @@ mq_config = prt.MQConfig(
     queue="my-first-queue",
 )
 
-@prt.mq.consumer(mq_config)
+@prt.mq.consumer(mq_config)  # defaults to execution="thread"
 async def consume_message(message: MyMsg):
-    print(f"Received message: {message.text}")
+    print(f"Received: {message.text}")
 
-@prt.mq.consumer(mq_config)
-async def consume_message_raw(message):
-    # For raw message processing
-    print(f"Received raw message: {message}")
+# Advanced: execution="event_loop"
+@prt.mq.consumer(mq_config, execution="event_loop")
+async def consume_message_fast(message: MyMsg):
+    # Only safe if ALL calls are **strictly non-blocking**.
+    print(f"[fast] {message.text}")
 ```
 
 Note: Since we have two consumers connecting to the same queue, incoming messages will be distributed "round-robin". E.g. first message will be handled by consume_message(), second one by consume_message_raw(), third one by consume_message() again ...
@@ -492,9 +530,10 @@ In this example we have:
 ```python
 import practicuscore as prt
 from pydantic import BaseModel
-
+import asyncio
 
 mq_conn = None
+mq_conn_lock = asyncio.Lock()
 
 mq_user = "guest"
 mq_pwd = "guest"
@@ -516,14 +555,22 @@ class MyMsg(BaseModel):
 
 async def connect_mq():
     global mq_conn
-    mq_conn = await prt.mq.connect(mq_config)
+
+    if mq_conn is not None:
+        return
+
+    # (Recommended) using mq_conn_lock prevents potential thundering-herd reconnects
+    async with mq_conn_lock:
+        if mq_conn is not None:
+            return
+        mq_conn = await prt.mq.connect(mq_config)
 
 
 @prt.apps.api("/publish")
 async def publish(payload: MyMsg, **kwargs):
-    if mq_conn is None:
-        await connect_mq()
+    await connect_mq()
 
+    assert mq_conn, "MQ connection is not initialized"
     await prt.mq.publish(conn=mq_conn, msg=payload)
 
     return {"ok": True}
@@ -551,15 +598,11 @@ mq_conn_str = f"amqp://{mq_user}:{mq_pwd}@{mq_host}/{mq_vhost}"
 mq_config = prt.MQConfig(
     conn_str=mq_conn_str,
     queue="my-first-queue",
+    # prefetch_count=8,   # Higher throughput example: process up to 8 messages concurrently per registered consumer. (Defaults to 1)
 )
 
 # If you haven't configured the MQ topology in advance
 # prt.mq.apply_topology(mq_conf)
-
-# CAUTION: This sample has publisher and consumer functions on the same application,
-#   and if the below code has a blocking call (e.g. sleep) the publisher functions would have to wait until it is over.
-#   To learn more, please check: Python event loop blocking operations.
-# Recommended: Always place publisher and consumer code on separate applications.
 
 
 @prt.mq.consumer(mq_config)
@@ -590,6 +633,16 @@ async def consume_message_raw(message):
     - None
     """
     print(f"Received raw message: {message}")
+
+
+# Advanced: high-throughput mode uses -> execution="event_loop"
+@prt.mq.consumer(mq_config, execution="event_loop")
+async def consume_message_fast(message: MyMsg):
+    """
+    Advanced: runs directly on the main event loop instead of a thread.
+    Only use if ALL code here is **strictly non-blocking** (async libraries, no CPU-heavy work).
+    """
+    print(f"[fast] {message.text}")
 
 ```
 
