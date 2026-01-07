@@ -62,4 +62,4 @@ By following these steps, you can effectively manage user creation and permissio
 
 ---
 
-**Previous**: [Getting Started](getting-started.md) | **Next**: [Custom Images](custom-images.md)
+**Previous**: [Custom Images](custom-images.md) | **Next**: [Resource Management](resource-management.md)

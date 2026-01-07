@@ -84,4 +84,4 @@ The **User Limits** section allows you to define individual resource usage caps 
 
 ---
 
-**Previous**: [Custom Images](custom-images.md) | **Next**: [Storage](storage.md)
+**Previous**: [Users Groups](users-groups.md) | **Next**: [Storage](storage.md)

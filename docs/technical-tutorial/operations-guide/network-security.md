@@ -233,4 +233,4 @@ This layered design enables organizations to define and manage strict network po
 
 ---
 
-**Previous**: [MFA](mfa.md) | **Next**: [How To > Automate Notebooks > Executing Notebooks](../how-to/automate-notebooks/executing-notebooks.md)
+**Previous**: [MFA](mfa.md) | **Next**: [Admin Pod For User Folder Inspection](admin-pod-for-user-folder-inspection.md)

@@ -8,7 +8,7 @@ Some Practicus AI features such as **AutoML**, making **AI Predictions**, **Adva
 
 ## Setup Cloud Worker
 
-Please check the [Setup Guide](../setup-guide.md) to learn how to configure Practicus AI Cloud Workers.
+Please check the [Setup Guide](../legacy/setup-guide.md) to learn how to configure Practicus AI Cloud Workers.
 
 You can use the free cloud tier for this tutorial, or use containers on your computer as well.
 

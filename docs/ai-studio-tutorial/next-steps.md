@@ -12,7 +12,7 @@ Some topics we haven't covered are:
 
 ## Advanced Data Preparation
 
-- Joins: You can join any data, from **different data sources.** E.g. You can join data on S3 to data on a relational database. Please view the [join help page](../join.md) in our documentation to learn more. 
+- Joins: You can join any data, from **different data sources.** E.g. You can join data on S3 to data on a relational database. Please view the [join help page](../legacy/join.md) in our documentation to learn more. 
 - Handling missing values
 - Machine learning related tasks
 
@@ -20,7 +20,7 @@ Some topics we haven't covered are:
 
 If you work with someone who doesn't use Practicus AI, you can share any data over Excel / Google Sheets with them, so they can make changes and send back to you. You can then detect their changes and apply as steps to _any_ data.
 
-Please view [Excel prep help page](../excel-prep.md) to learn more
+Please view [Excel prep help page](../legacy/excel-prep.md) to learn more
 
 ## Python Coding
 
@@ -32,13 +32,13 @@ Once you finish preparing your data, building models, making predictions, and ot
 
 Please view the following pages to learn more:
 
-- [Code Export (Deploy)](../code-export.md)
-- [Airflow Integration](../airflow.md)
-- [Modern Data Pipelines](../modern-data-pipelines.md)
+- [Code Export (Deploy)](../legacy/code-export.md)
+- [Airflow Integration](../legacy/airflow.md)
+- [Modern Data Pipelines](../legacy/modern-data-pipelines.md)
 
 ## Observability
 
-Please view [logging help page](../logging.md) to learn more.
+Please view [logging help page](../legacy/logging.md) to learn more.
 
 ## GPU Acceleration
 

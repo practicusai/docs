@@ -46,4 +46,4 @@ _This section provides guidance on managing and inserting container images into 
 
 ---
 
-**Previous**: [Users Groups](users-groups.md) | **Next**: [Resource Management](resource-management.md)
+**Previous**: [K8S-Setup](k8s-setup.md) | **Next**: [Users Groups](users-groups.md)

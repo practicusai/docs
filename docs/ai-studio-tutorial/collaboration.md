@@ -1,3 +1,0 @@
-# Collaboration
-
-[< Previous]() | [Next >]()

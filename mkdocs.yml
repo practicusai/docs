@@ -139,8 +139,9 @@ nav:
     - Notifications: technical-tutorial/unified-devops/notifications.md
   - Operations Guide:
     - Getting Started: technical-tutorial/operations-guide/getting-started.md
-    - Users Groups: technical-tutorial/operations-guide/users-groups.md
+    - K8S-Setup: technical-tutorial/operations-guide/k8s-setup.md
     - Custom Images: technical-tutorial/operations-guide/custom-images.md
+    - Users Groups: technical-tutorial/operations-guide/users-groups.md
     - Resource Management: technical-tutorial/operations-guide/resource-management.md
     - Storage: technical-tutorial/operations-guide/storage.md
     - Model Deployment: technical-tutorial/operations-guide/model-deployment.md
@@ -152,6 +153,11 @@ nav:
     - AI Assistants: technical-tutorial/operations-guide/ai-assistants.md
     - MFA: technical-tutorial/operations-guide/mfa.md
     - Network Security: technical-tutorial/operations-guide/network-security.md
+    - Admin Pod For User Folder Inspection: technical-tutorial/operations-guide/admin-pod-for-user-folder-inspection.md
+    - Automating Kerberos Ticket Renewal With Cron: technical-tutorial/operations-guide/automating-kerberos-ticket-renewal-with-cron.md
+    - Delete Specific Trash Folders: technical-tutorial/operations-guide/delete-specific-trash-folders.md
+    - Trino API Guide: technical-tutorial/operations-guide/trino-api-guide.md
+    - Container Images: technical-tutorial/operations-guide/container-images.md
   - How To:
     - Automate Notebooks:
       - Executing Notebooks: technical-tutorial/how-to/automate-notebooks/executing-notebooks.md
@@ -328,32 +334,39 @@ nav:
   - Next Steps: ai-studio-tutorial/next-steps.md
 - SDK v25.5.4: sdk/practicuscore.html
 - Legacy:
-  - Setup Guide: setup-guide.md
+  - Setup Guide: legacy/setup-guide.md
   - Open MLOps:
-    - Home: mlops.md
-    - For developers: model-api.md
+    - Home: legacy/mlops.md
+    - For developers: legacy/model-api.md
   - Open DataOps:
-    - Modern Data Pipelines: modern-data-pipelines.md
-    - Code Export: code-export.md
-    - Airflow integration: airflow.md
-  - Explore: explore.md
-  - Cloud: cloud.md
-  - Analyze: analyze.md
-  - Model: model.md
+    - Modern Data Pipelines: legacy/modern-data-pipelines.md
+    - Code Export: legacy/code-export.md
+    - Airflow integration: legacy/airflow.md
+  - Explore: legacy/explore.md
+  - Cloud: legacy/cloud.md
+  - Analyze: legacy/analyze.md
+  - Model: legacy/model.md
   - Prepare:
-    - Prepare with App: prepare.md
-    - Prepare with Excel: excel-prep.md
-    - Join: join.md
+    - Prepare with App: legacy/prepare.md
+    - Prepare with Excel: legacy/excel-prep.md
+    - Join: legacy/join.md
   - Predict:
-    - Predict with App: predict.md
-    - Predict with Excel: excel-predict.md
-  - AWS IAM policies: aws-iam.md
-  - Logging: logging.md
+    - Predict with App: legacy/predict.md
+    - Predict with Excel: legacy/excel-predict.md
+  - AWS IAM policies: legacy/aws-iam.md
+  - Logging: legacy/logging.md
   - Spreadsheets SDK:
-    - Home: sdk-start.md
-    - Data Preparation use case: data-prep.md
-    - Sharing AI Models use case: share-models.md
-    - API Reference: api-reference.md
-    - Advanced Features: advanced.md
+    - Home: legacy/sdk-start.md
+    - Data Preparation use case: legacy/data-prep.md
+    - Sharing AI Models use case: legacy/share-models.md
+    - API Reference: legacy/api-reference.md
+    - Advanced Features: legacy/advanced.md
   - Demo Videos: https://practicus.ai/demo
-  - Feedback: feedback.md
+  - Feedback: legacy/feedback.md
+plugins:
+- search
+- pdf-export:
+    verbose: true
+    combined: true
+    media_type: print
+    enabled_if_env: ENABLE_PDF_EXPORT

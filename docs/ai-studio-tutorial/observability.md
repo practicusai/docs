@@ -1,4 +1,0 @@
-# Observability
-
-
-[< Previous]() | [Next >]()
