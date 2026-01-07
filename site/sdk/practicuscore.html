@@ -19,6 +19,8 @@
         <div>
             <img src="practicus_logo.png" class="logo" alt="project logo"/>
 
+            <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
+                   pattern=".+" required>
 
             <h2>Contents</h2>
             <ul>
@@ -279,6 +281,27 @@
                         </li>
                         <li>
                                 <a class="function" href="#apps.get_user_groups_async">get_user_groups_async</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.bootstrap">bootstrap</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.generate_ts_api_client">generate_ts_api_client</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.start_backend">start_backend</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.stop_backend">stop_backend</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.start_frontend">start_frontend</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.stop_frontend">stop_frontend</a>
+                        </li>
+                        <li>
+                                <a class="class" href="#apps.st">apps.st</a>
                         </li>
                         <li>
                                 <a class="function" href="#apps.secure_page">secure_page</a>
@@ -4939,463 +4962,306 @@ IMPORTANT: requesting another users groups is logged and audited. Please only us
 
 
                             </div>
-                            <div id="apps.secure_page" class="classattr">
+                            <div id="apps.bootstrap" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+                    <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">secure_page</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">page_title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">layout</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;centered&#39;</span><span class="p">,</span> <span class="s1">&#39;wide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;centered&#39;</span>,</span><span class="param">	<span class="n">initial_sidebar_state</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;expanded&#39;</span><span class="p">,</span> <span class="s1">&#39;collapsed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span>,</span><span class="param">	<span class="n">menu_items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;Get help&#39;</span><span class="p">,</span> <span class="s1">&#39;Get Help&#39;</span><span class="p">,</span> <span class="s1">&#39;get help&#39;</span><span class="p">,</span> <span class="s1">&#39;Report a bug&#39;</span><span class="p">,</span> <span class="s1">&#39;report a bug&#39;</span><span class="p">,</span> <span class="s1">&#39;About&#39;</span><span class="p">,</span> <span class="s1">&#39;about&#39;</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">disable_authentication</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">must_be_admin</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">):</span></span>
+        <span class="name">bootstrap</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>,</span><span class="param">	<span class="n">frontend_dir_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;frontend&#39;</span>,</span><span class="param">	<span class="n">templates_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">npm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;npm&#39;</span>,</span><span class="param">	<span class="n">no_interactive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">install</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">overwrite_templates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">extra_deps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">extra_dev_deps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">app_builder</span><span class="o">.</span><span class="n">_ReactAppPaths</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.bootstrap"></a>
+    
+            <div class="docstring"><p>Frontend-only bootstrap:
+1) scaffold Vite React TS
+2) install baseline deps:
+    - ?
+3) copy templates into frontend/</p>
+</div>
+
+
+                            </div>
+                            <div id="apps.generate_ts_api_client" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">generate_ts_api_client</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">openapi_json_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">out_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">frontend_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">http_client</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;@hey-api/client-fetch&#39;</span>,</span><span class="param">	<span class="n">silent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">npm_exec</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;npx&#39;</span>,</span><span class="param">	<span class="n">extra_args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.generate_ts_api_client"></a>
+    
+            <div class="docstring"><p>Generates TS client using Hey API openapi-ts.</p>
+
+<p>Example (from Hey API docs) shows specifying fetch client via -c:
+npx @hey-api/openapi-ts -i ... -o ... -c @hey-api/client-fetch :contentReference[oaicite:1]{index=1}</p>
+</div>
+
+
+                            </div>
+                            <div id="apps.start_backend" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">start_backend</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">app_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8000</span>,</span><span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">watch_enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">watch_folders</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">exclude_folders</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">debounce_ms</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.start_backend"></a>
+    
+            <div class="docstring"><p>Starts backend (Jupyter-safe) + optional watcher that restarts on .py changes.</p>
+
+<ul>
+<li>watch_folders: folders to watch (defaults to [app_path or "."])</li>
+<li>exclude_folders: folders to ignore (merged with safe defaults)</li>
+<li>debounce_ms: change burst debounce</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="apps.stop_backend" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">stop_backend</span><span class="signature pdoc-code condensed">(<span class="return-annotation">):</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.stop_backend"></a>
+    
+    
+
+                            </div>
+                            <div id="apps.start_frontend" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">start_frontend</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">frontend_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">npm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;npm&#39;</span>,</span><span class="param">	<span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50005</span>,</span><span class="param">	<span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;0.0.0.0&#39;</span>,</span><span class="param">	<span class="n">extra_env</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">ready_timeout_sec</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">20.0</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.start_frontend"></a>
+    
+    
+
+                            </div>
+                            <div id="apps.stop_frontend" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">stop_frontend</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.stop_frontend"></a>
+    
+    
+
+                            </div>
+                            <div id="apps.secure_page" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">secure_page</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.secure_page"></a>
     
-            <div class="docstring"><p>Secures the current Streamlit page by enforcing user authentication and permissions.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>page_title (str | None): The title to display on the browser tab. If None, uses default.</li>
-<li>layout ('Layout'): The page layout, e.g., "centered" or "wide".</li>
-<li>initial_sidebar_state ('InitialSideBarState'): The initial state of the sidebar, e.g., "auto", "expanded", "collapsed".</li>
-<li>menu_items (MenuItems | None): Optional custom menu items for the Streamlit menu.</li>
-<li>disable_authentication (bool): If True, disables authentication checks (useful in development mode).</li>
-<li>must_be_admin (bool): If True, requires the user to have admin privileges to access this page.</li>
-</ul>
-
-<p><strong>Behavior:</strong></p>
-
-<ul>
-<li>In production mode, checks the Practicus AI session to ensure the user is authenticated.</li>
-<li>If <code>must_be_admin</code> is True, verifies that the authenticated user is an admin.</li>
-<li>Optionally configures page layout and sidebar.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">secure_page</span><span class="p">(</span><span class="n">page_title</span><span class="o">=</span><span class="s2">&quot;Admin Dashboard&quot;</span><span class="p">,</span> <span class="n">must_be_admin</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_user_id" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_user_id</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_user_id</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_user_id"></a>
     
-            <div class="docstring"><p>Retrieves the current user's unique identifier.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>int | None: The user’s ID if available, None otherwise.</li>
-</ul>
-
-<p><strong>Behavior:</strong></p>
-
-<ul>
-<li>In development mode, returns the user_id from the global context.</li>
-<li>In production mode, retrieves the user_id from the <code>Streamlit</code> session state if <code>prt_session</code> is present.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">user_id</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_user_id</span><span class="p">()</span>
-<span class="k">if</span> <span class="n">user_id</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;No user logged in.&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_username" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_username</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_username</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_username"></a>
     
-            <div class="docstring"><p>Retrieves the current user's username (the part of their email before '@', or a configured username).</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str: The username as a string. Returns an empty string if not found.</li>
-</ul>
-
-<p><strong>Behavior:</strong></p>
-
-<ul>
-<li>In development mode, returns the username from global context.</li>
-<li>In production mode, returns the username from the <code>Streamlit</code> session state if <code>prt_session</code> is available.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">username</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_username</span><span class="p">()</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_user_email" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_user_email</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_user_email</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_user_email"></a>
     
-            <div class="docstring"><p>Retrieves the current user's email address.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str: The user’s email if available, or an empty string if not found.</li>
-</ul>
-
-<p><strong>Behavior:</strong></p>
-
-<ul>
-<li>In development mode, returns the user_email from global context.</li>
-<li>In production mode, returns the email from the <code>Streamlit</code> session state if <code>prt_session</code> is available.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">email</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_user_email</span><span class="p">()</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Your email: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.user_is_admin" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">user_is_admin</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">user_is_admin</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.user_is_admin"></a>
     
-            <div class="docstring"><p>Checks if the current logged-in user is an admin.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>bool: True if the user is an admin, False otherwise.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="k">if</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">user_is_admin</span><span class="p">():</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Welcome, Admin!&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;You do not have admin privileges.&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_app_id" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_app_id</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_app_id</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_app_id"></a>
     
-            <div class="docstring"><p>Retrieves the ID of the current app.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>int | None: The app ID if available, otherwise None.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">app_id</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_app_id</span><span class="p">()</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current App ID: </span><span class="si">{</span><span class="n">app_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_app_prefix" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_app_prefix</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_app_prefix</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_app_prefix"></a>
     
-            <div class="docstring"><p>Retrieves the prefix of the current app.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str: The app prefix.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prefix</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_app_prefix</span><span class="p">()</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;App Prefix: </span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_app_name" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_app_name</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_app_name</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_app_name"></a>
     
-            <div class="docstring"><p>Retrieves the name of the current app.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str: The app name.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_app_name</span><span class="p">()</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;App Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_app_version" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_app_version</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_app_version</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_app_version"></a>
     
-            <div class="docstring"><p>Retrieves the version of the current app.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str: The app version.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">version</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_app_version</span><span class="p">()</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;App Version: </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.development_mode" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">development_mode</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">development_mode</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.development_mode"></a>
     
-            <div class="docstring"><p>Indicates whether the app is running in development mode or in production (AppHost) mode.</p>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>bool: True if running in development mode; False if running in production mode.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="k">if</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">development_mode</span><span class="p">():</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Running in development mode.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Running in production mode.&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.set_cookie" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">set_cookie</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">value</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">max_age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">2592000</span>,</span><span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span></span><span class="return-annotation">):</span></span>
+        <span class="name">set_cookie</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.set_cookie"></a>
     
-            <div class="docstring"><p>Sets an HTTP cookie in the user's browser.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>name (str): The cookie’s name.</li>
-<li>value (str): The cookie’s value.</li>
-<li>max_age (int | None): The cookie’s lifespan in seconds. Default is 30 days (2,592,000 seconds).</li>
-<li>path (str | None): The path for which the cookie is valid. Defaults to '/'.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s2">&quot;theme&quot;</span><span class="p">,</span> <span class="s2">&quot;dark&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.get_cookie" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">get_cookie</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">name</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_cookie</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.get_cookie"></a>
     
-            <div class="docstring"><p>Retrieves the value of a specified HTTP cookie.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>name (str): The name of the cookie.</li>
-</ul>
-
-<p><strong>Returns:</strong></p>
-
-<ul>
-<li>str | None: The cookie’s value if found, None otherwise.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">theme</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">get_cookie</span><span class="p">(</span><span class="s2">&quot;theme&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">theme</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current theme: </span><span class="si">{</span><span class="n">theme</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;No theme cookie set.&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.delete_cookie" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">delete_cookie</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">name</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+        <span class="name">delete_cookie</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.delete_cookie"></a>
     
-            <div class="docstring"><p>Deletes an existing HTTP cookie by setting its max age to 0.</p>
-
-<p><strong>Parameters:</strong></p>
-
-<ul>
-<li>name (str): The name of the cookie to delete.</li>
-</ul>
-
-<p><strong>Example:</strong></p>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">delete_cookie</span><span class="p">(</span><span class="s2">&quot;theme&quot;</span><span class="p">)</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Theme cookie deleted.&quot;</span><span class="p">)</span>
-</code></pre>
-</div>
-</div>
-
+    
 
                             </div>
                             <div id="apps.is_streamlit_app" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-classmethod">@classmethod</div>
-
+            
         <span class="def">def</span>
-        <span class="name">is_streamlit_app</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">is_streamlit_app</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">unknown</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.is_streamlit_app"></a>
     
-            <div class="docstring"><p>Returns True if the current code is running inside a Streamlit App</p>
+    
+
+                            </div>
+                </section>
+                <section id="apps.st">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">apps.st</span>:
+
+        
+    </div>
+    <a class="headerlink" href="#apps.st"></a>
+    
+            <div class="docstring"><p>Streamlit UI helper methods</p>
 </div>
 
 
-                            </div>
                 </section>
                 <section id="workflows">
                     <div class="attr class">
@@ -9434,7 +9300,7 @@ and handles initialization of internal configuration and caching behavior.</p>
                             <div id="metadata.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.metadata (INFO)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.metadata (DEBUG)&gt;</span>
 
         
     </div>
@@ -9744,7 +9610,7 @@ and configurations do not conflict across environments.</li>
                             <div id="Region.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.region (INFO)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.region (DEBUG)&gt;</span>
 
         
     </div>
@@ -12609,7 +12475,7 @@ and an integer representing age in days.</li>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_access_token</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_access_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">explicit_refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -12622,6 +12488,8 @@ and an integer representing age in days.</li>
 <ul>
 <li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
 to improve performance and save a round-trip to security APIs.</li>
+<li>explicit_refresh_token (str | None): Explicitly provided refresh token to get access token.If none is
+provided (default) saved refresh token is used.</li>
 </ul>
 
 <p><strong>Returns:</strong></p>
@@ -12637,7 +12505,7 @@ to improve performance and save a round-trip to security APIs.</li>
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">get_access_token_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_access_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">explicit_refresh_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -12650,6 +12518,8 @@ to improve performance and save a round-trip to security APIs.</li>
 <ul>
 <li>token: (str | None): Existing token. If the token is valid for another 30 seconds, the same token is returned
 to improve performance and save a round-trip to security APIs.</li>
+<li>explicit_refresh_token (str | None): Explicitly provided refresh token to get access token.If none is
+provided (default) saved refresh token is used.</li>
 </ul>
 
 <p><strong>Returns:</strong></p>
@@ -13057,7 +12927,7 @@ like <code>region.create_worker()</code> or <code>region.get_local_worker()</cod
                             <div id="Worker.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.worker (INFO)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.worker (DEBUG)&gt;</span>
 
         
     </div>
@@ -14124,7 +13994,7 @@ provides methods to terminate, wait until current operations are complete, and m
                             <div id="Process.logger" class="classattr">
                                 <div class="attr variable">
             <span class="name">logger</span>        =
-<span class="default_value">&lt;Logger practicus.core.process (INFO)&gt;</span>
+<span class="default_value">&lt;Logger practicus.core.process (DEBUG)&gt;</span>
 
         
     </div>
@@ -18577,7 +18447,7 @@ so users can call methods directly on the class without instantiation.</p>
                                 <div class="attr variable">
             <span class="name">IGNORED_REQ_HEADERS</span>        =
 <input id="ModelServer.IGNORED_REQ_HEADERS-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;authorization&#39;, &#39;host&#39;, &#39;te&#39;, &#39;keep-alive&#39;, &#39;connection&#39;, &#39;content-length&#39;, &#39;upgrade&#39;, &#39;proxy-authenticate&#39;, &#39;trailers&#39;, &#39;proxy-authorization&#39;, &#39;transfer-encoding&#39;}</span>
+            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;transfer-encoding&#39;, &#39;proxy-authenticate&#39;, &#39;content-length&#39;, &#39;authorization&#39;, &#39;upgrade&#39;, &#39;connection&#39;, &#39;trailers&#39;, &#39;te&#39;, &#39;keep-alive&#39;, &#39;proxy-authorization&#39;, &#39;host&#39;}</span>
 
         
     </div>
@@ -18589,7 +18459,7 @@ so users can call methods directly on the class without instantiation.</p>
                             <div id="ModelServer.IGNORED_RESP_HEADERS" class="classattr">
                                 <div class="attr variable">
             <span class="name">IGNORED_RESP_HEADERS</span>        =
-<span class="default_value">{&#39;content-encoding&#39;, &#39;transfer-encoding&#39;, &#39;connection&#39;}</span>
+<span class="default_value">{&#39;transfer-encoding&#39;, &#39;connection&#39;, &#39;content-encoding&#39;}</span>
 
         
     </div>
@@ -19336,5 +19206,186 @@ This file must already be present on the Worker e.g. by using automated git sync
 
                 </section>
     </main>
-</body>
+<script>
+    function escapeHTML(html) {
+        return document.createElement('div').appendChild(document.createTextNode(html)).parentNode.innerHTML;
+    }
+
+    const originalContent = document.querySelector("main.pdoc");
+    let currentContent = originalContent;
+
+    function setContent(innerHTML) {
+        let elem;
+        if (innerHTML) {
+            elem = document.createElement("main");
+            elem.classList.add("pdoc");
+            elem.innerHTML = innerHTML;
+        } else {
+            elem = originalContent;
+        }
+        if (currentContent !== elem) {
+            currentContent.replaceWith(elem);
+            currentContent = elem;
+        }
+    }
+
+    function getSearchTerm() {
+        return (new URL(window.location)).searchParams.get("search");
+    }
+
+    const searchBox = document.querySelector(".pdoc input[type=search]");
+    searchBox.addEventListener("input", function () {
+        let url = new URL(window.location);
+        if (searchBox.value.trim()) {
+            url.hash = "";
+            url.searchParams.set("search", searchBox.value);
+        } else {
+            url.searchParams.delete("search");
+        }
+        history.replaceState("", "", url.toString());
+        onInput();
+    });
+    window.addEventListener("popstate", onInput);
+
+
+    let search, searchErr;
+
+    async function initialize() {
+        try {
+            search = await new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.type = "text/javascript";
+                script.async = true;
+                script.onload = () => resolve(window.pdocSearch);
+                script.onerror = (e) => reject(e);
+                script.src = "search.js";
+                document.getElementsByTagName("head")[0].appendChild(script);
+            });
+        } catch (e) {
+            console.error("Cannot fetch pdoc search index");
+            searchErr = "Cannot fetch search index.";
+        }
+        onInput();
+
+        document.querySelector("nav.pdoc").addEventListener("click", e => {
+            if (e.target.hash) {
+                searchBox.value = "";
+                searchBox.dispatchEvent(new Event("input"));
+            }
+        });
+    }
+
+    function onInput() {
+        setContent((() => {
+            const term = getSearchTerm();
+            if (!term) {
+                return null
+            }
+            if (searchErr) {
+                return `<h3>Error: ${searchErr}</h3>`
+            }
+            if (!search) {
+                return "<h3>Searching...</h3>"
+            }
+
+            window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+
+            const results = search(term);
+
+            let html;
+            if (results.length === 0) {
+                html = `No search results for '${escapeHTML(term)}'.`
+            } else {
+                html = `<h4>${results.length} search result${results.length > 1 ? "s" : ""} for '${escapeHTML(term)}'.</h4>`;
+            }
+            for (let result of results.slice(0, 10)) {
+                let doc = result.doc;
+                let url = `${doc.modulename.replaceAll(".", "/")}.html`;
+                if (doc.qualname) {
+                    url += `#${doc.qualname}`;
+                }
+
+                let heading;
+                switch (result.doc.kind) {
+                    case "function":
+                        if (doc.fullname.endsWith(".__init__")) {
+                            heading = `<span class="name">${doc.fullname.replace(/\.__init__$/, "")}</span>${doc.signature}`;
+                        } else {
+                            heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span>${doc.signature}`;
+                        }
+                        break;
+                    case "class":
+                        heading = `<span class="def">class</span> <span class="name">${doc.fullname}</span>`;
+                        if (doc.bases)
+                            heading += `<wbr>(<span class="base">${doc.bases}</span>)`;
+                        heading += `:`;
+                        break;
+                    case "variable":
+                        heading = `<span class="name">${doc.fullname}</span>`;
+                        if (doc.annotation)
+                            heading += `<span class="annotation">${doc.annotation}</span>`;
+                        if (doc.default_value)
+                            heading += `<span class="default_value"> = ${doc.default_value}</span>`;
+                        break;
+                    default:
+                        heading = `<span class="name">${doc.fullname}</span>`;
+                        break;
+                }
+                html += `
+                        <section class="search-result">
+                        <a href="${url}" class="attr ${doc.kind}">${heading}</a>
+                        <div class="docstring">${doc.doc}</div>
+                        </section>
+                    `;
+
+            }
+            return html;
+        })());
+    }
+
+    if (getSearchTerm()) {
+        initialize();
+        searchBox.value = getSearchTerm();
+        onInput();
+    } else {
+        searchBox.addEventListener("focus", initialize, {once: true});
+    }
+
+    searchBox.addEventListener("keydown", e => {
+        if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) {
+            let focused = currentContent.querySelector(".search-result.focused");
+            if (!focused) {
+                currentContent.querySelector(".search-result").classList.add("focused");
+            } else if (
+                e.key === "ArrowDown"
+                && focused.nextElementSibling
+                && focused.nextElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.nextElementSibling.classList.add("focused");
+                focused.nextElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "ArrowUp"
+                && focused.previousElementSibling
+                && focused.previousElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.previousElementSibling.classList.add("focused");
+                focused.previousElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "Enter"
+            ) {
+                focused.querySelector("a").click();
+            }
+        }
+    });
+</script></body>
 </html>

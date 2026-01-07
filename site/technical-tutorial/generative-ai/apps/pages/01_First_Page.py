@@ -6,7 +6,7 @@ from shared.helper import some_function
 # Child pages must also request to be secured.
 # Or else, they will be accessible by everyone after deployment.
 
-prt.apps.secure_page(
+prt.apps.st.secure_page(
     page_title="My first child page",
 )
 

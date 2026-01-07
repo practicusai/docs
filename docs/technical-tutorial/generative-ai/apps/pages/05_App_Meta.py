@@ -1,11 +1,11 @@
 import practicuscore as prt
 import streamlit as st
 
-prt.apps.secure_page(page_title="Application Metadata")
+prt.apps.st.secure_page(page_title="Application Metadata")
 
 st.title("Application Metadata")
 
-if prt.apps.development_mode():
+if prt.apps.st.development_mode():
     st.subheader("Development Mode")
     st.markdown(
         """
@@ -16,9 +16,9 @@ if prt.apps.development_mode():
     )
     st.write(
         {
-            "Email": prt.apps.get_user_email(),
-            "Username": prt.apps.get_username(),
-            "User ID": prt.apps.get_user_id(),
+            "Email": prt.apps.st.get_user_email(),
+            "Username": prt.apps.st.get_username(),
+            "User ID": prt.apps.st.get_user_id(),
         }
     )
 else:
@@ -29,10 +29,10 @@ else:
         st.markdown("**Application Details**")
         st.write(
             {
-                "Name": prt.apps.get_app_name(),
-                "Prefix": prt.apps.get_app_prefix(),
-                "Version": prt.apps.get_app_version(),
-                "App ID": prt.apps.get_app_id(),
+                "Name": prt.apps.st.get_app_name(),
+                "Prefix": prt.apps.st.get_app_prefix(),
+                "Version": prt.apps.st.get_app_version(),
+                "App ID": prt.apps.st.get_app_id(),
             }
         )
 
@@ -40,9 +40,9 @@ else:
         st.markdown("**User Information**")
         st.write(
             {
-                "Email": prt.apps.get_user_email(),
-                "Username": prt.apps.get_username(),
-                "User ID": prt.apps.get_user_id(),
+                "Email": prt.apps.st.get_user_email(),
+                "Username": prt.apps.st.get_username(),
+                "User ID": prt.apps.st.get_user_id(),
             }
         )
 

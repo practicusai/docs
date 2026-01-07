@@ -2,7 +2,7 @@ import practicuscore as prt
 import streamlit as st
 
 # User must have admin privileges to view this page (must_be_admin=True)
-prt.apps.secure_page(
+prt.apps.st.secure_page(
     page_title="Settings Page",
     must_be_admin=True,
 )

@@ -84,7 +84,7 @@ import practicuscore as prt
 
 from langchain_practicus import ChatPracticus
 
-prt.apps.secure_page(
+prt.apps.st.secure_page(
     page_title="🦜🔗 Quickstart App"  # Give page title
 )
 

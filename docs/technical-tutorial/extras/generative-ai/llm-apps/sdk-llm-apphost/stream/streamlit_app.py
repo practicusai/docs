@@ -6,7 +6,7 @@ from practicuscore.gen_ai import PrtLangMessage, PrtLangRequest
 import requests
 
 
-prt.apps.secure_page(
+prt.apps.st.secure_page(
     page_title="🦜🔗 Quickstart App"  # Give page title
 )
 

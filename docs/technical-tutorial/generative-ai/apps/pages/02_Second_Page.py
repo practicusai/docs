@@ -6,7 +6,7 @@ from shared.helper import some_function
 # Since this page is not secured, it will be public after deployment.
 # During development, it is still only accessible to the owner, and only from Practicus AI Studio.
 # If the home page is secured, a public child page will only be accessible if directly requested.
-# prt.apps.secure_page(
+# prt.apps.st.secure_page(
 #     page_title="My second child page"
 # )
 

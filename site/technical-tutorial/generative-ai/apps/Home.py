@@ -8,7 +8,7 @@ from shared.helper import some_function
 # The below will secure the page by authenticating and authorizing users with Single-Sign-On.
 # Please note that security code is only activate when the app is deployed.
 # Pages are always secure, even without the below, during development and only the owner can access them.
-prt.apps.secure_page(
+prt.apps.st.secure_page(
     page_title="Hello World App",
     must_be_admin=False,
 )
