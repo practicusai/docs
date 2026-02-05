@@ -9,7 +9,7 @@ jupyter:
   kernelspec:
     display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Distributed XGBoost with Dask for Scalable Machine Learning

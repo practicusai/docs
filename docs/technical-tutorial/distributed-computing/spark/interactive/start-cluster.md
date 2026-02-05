@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -20,6 +20,7 @@ jupyter:
 
 - Practicus AI distributed clusters require a shared drive accessible by multiple workers, such as Practicus AI `~/my` or `~/shared` folders.
 - If you do not have access to ~/my or ~/shared folders, please check the auto-scaled examples which does not need such drives, but are limited in functionality.
+
 
 ```python
 worker_size = None
@@ -64,7 +65,9 @@ print("Page did not open? You can open this url manually:", notebook_url)
 ```
 
 ### Please continue experimenting on the new browser tab
+
 by opening the next notebook in this directory
+
 
 ```python
 # Done experimenting? Let's terminate the coordinator

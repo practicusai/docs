@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus GenAI
+    display_name: practicus
     language: python
-    name: practicus_genai
+    name: python3
 ---
 
 # Using Practicus AI MCP Servers with LangGraph
@@ -48,7 +48,7 @@ llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
 ```python
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langgraph.prebuilt import create_react_agent
+from langgraph.agents import create_react_agent
 
 client = MultiServerMCPClient(
     {

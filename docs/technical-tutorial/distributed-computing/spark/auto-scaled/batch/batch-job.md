@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 <!-- #region -->
@@ -42,7 +42,11 @@ region = prt.get_default_region()
 ```
 
 ```python
-auto_dist_worker_size = None
+auto_dist_worker_size = None  # E.g. "Small-Cluster"
+```
+
+```python
+assert auto_dist_worker_size, "Please enter your distributed worker size"
 ```
 
 If you don't know your auto-distributed (privileged) workers you can check them out by using the SDK like down below:
@@ -53,7 +57,9 @@ display(worker_size_list.to_pandas())  # Check auto_distributed col.
 ```
 
 ```python
-assert auto_dist_worker_size, "Please select an auto-distributed (privileged) worker sizes."
+assert auto_dist_worker_size, (
+    "Please select an auto-distributed (privileged) worker sizes."
+)
 ```
 
 ```python

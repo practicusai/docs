@@ -838,28 +838,6 @@ Please follow the below steps to troubleshoot some common issues with Kubernetes
 * If the logs do not show any errors, Istio sidecar proxy might not be running. Click on the pod name, scroll down to containers and verify there are 2 containers running, prt-cnt-console and istio-proxy.
 * Analyze istio to see if there are any proxy issues detected **istioctl analyze -n prt-ns**
 
-### No enterprise key?
-
-This step is mandatory if you do not have your Enterprise license key.
-
-By installing Practicus AI app you will be able to test connectivity to your newly created Kubernetes cluster. You will also have access to your Enterprise license key.
-
-* [Install the app](https://practicus.ai/get-started/)
-* Go to settings > container section
-* Enter your email to activate your enterprise license
-* [View Practicus AI local docker setup guide](trial-ent.md) if you need any help
-
-Once your enterprise license is activated, please open ~/.practicus/core.conf file on your computer, locate the **license** section, and copy **license_key** info.
-
-Sample license_key inside ~/.practicus/core.conf :
-
-```
-[license]
-email = your_email@your_company.com
-license_key = abc12345-1234-1234-12ab-123456789012
-valid_until = Wed, 01 Jan 2022 00:00:00 GMT
-```
-
 ### No Connectivity?
 
 Most connectivity issues will be a result of mis-configured Istio.

@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Using Langflow APIs
@@ -26,16 +26,16 @@ jupyter:
 service_url = "https://langflow.practicus.company.com"
 # The below is defined in Langflow UI.
 # Open a flow, click on flow name > Edit Details > Endpoint Name
-endpoint_name = "my-api-endpoint"
+run_id = None  # E.g. 861ef993-e360-4af8-b71d-a1494843d0a3
 ```
 
 ```python
 assert service_url, "Please define service_url"
-assert endpoint_name, "Please define endpoint_name"
+assert run_id, "Please define run_id"
 
-api_url = f"{service_url}/api/v1/run/{endpoint_name}?stream=false"
+api_url = f"{service_url}/api/v1/run/{run_id}?stream=false"
 print("API url:", api_url)
-# e.g. https://langflow.practicus.company.com/api/v1/run/api-test1?stream=false
+# e.g. https://langflow.practicus.company.com/api/v1/run/861ef993-e360-4af8-b71d-a1494843d0a3
 ```
 
 ```python
@@ -58,18 +58,15 @@ assert open_ai_token, "Please define open_ai_token"
 ```python
 import requests
 
-headers = {"Content-Type": "application/json", f"Authorization": f"Bearer {access_token}"}
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {access_token}",
+}
 
 payload = {
-    "input_value": "message",
-    "output_type": "chat",
     "input_type": "chat",
-    "tweaks": {
-        "ChatInput-MRIWj": {},
-        "Prompt-KvhR7": {},
-        "ChatOutput-CuWil": {},
-        "OpenAIModel-dmT1W": {"api_key": open_ai_token},
-    },
+    "output_type": "chat",
+    "input_value": "Convert pineapple to uppercase using tools",
 }
 
 response = requests.post(api_url, headers=headers, json=payload)
@@ -82,4 +79,4 @@ print(result)
 
 ---
 
-**Previous**: [Prtchatbot](../examples/prtchatbot/prtchatbot.md) | **Next**: [LLM Apps > API LLM Apphost > Build](../llm-apps/api-llm-apphost/build.md)
+**Previous**: [Build](../langchain-legacy/langchain-serving/build.md) | **Next**: [LLM Apps > API LLM Apphost > Build](../llm-apps/api-llm-apphost/build.md)

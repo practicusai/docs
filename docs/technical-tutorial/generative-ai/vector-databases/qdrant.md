@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -21,14 +21,54 @@ This example demonstrates the basic operations using `qdrant-client`, the Python
 Please make sure that you have access to a running Qdrant instance and have installed the `qdrant-client` library (`pip install qdrant-client`).
 
 ```python
+SHOULD_INSTALL_QDRANT = False
 # Qdrant connection details (replace with your actual endpoint and key if needed)
 # Ensure the Qdrant instance is running and accessible from this notebook environment.
 QDRANT_URL = "http://practicus-qdrant.prt-ns-qdrant.svc.cluster.local:6333"  # Example URL from request
-QDRANT_API_KEY = "my-api-key"  # Example API Key from request (use None if no key is required)
+QDRANT_API_KEY = (
+    "my-api-key"  # Example API Key from request (use None if no key is required)
+)
 ```
 
 ```python
 assert QDRANT_URL, "Please enter your Qdrant connection URL in the cell above."
+assert QDRANT_API_KEY, "Please enter your Qdrant API KEY in the cell above."
+assert SHOULD_INSTALL_QDRANT, "Please select condition for  installation of QDRANT library."
+```
+
+```python
+if SHOULD_INSTALL_QDRANT:
+    !pip install qdrant-client
+```
+
+```python
+import sys
+import subprocess
+from importlib.metadata import distribution, PackageNotFoundError
+
+
+def install_package(package_name):
+    """
+    Ensures a PyPI package is installed using the current kernel's python executable.
+    """
+    try:
+        # Check if the package metadata exists
+        distribution(package_name)
+        print(f"✅ {package_name} is already installed.")
+    except PackageNotFoundError:
+        print(f"⬇️ Installing {package_name}...")
+        try:
+            # Install using the current python interpreter to avoid environment mismatch
+            subprocess.check_call(
+                [sys.executable, "-m", "pip", "install", package_name, "-q"]
+            )
+            print(f"✅ {package_name} installed successfully.")
+        except subprocess.CalledProcessError as e:
+            print(f"❌ Failed to install {package_name}. Error: {e}")
+
+
+if SHOULD_INSTALL_QDRANT:
+    install_package("qdrant-client")
 ```
 
 ## Steps 
@@ -46,7 +86,15 @@ import time
 import uuid
 
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import Distance, VectorParams, PointStruct, Filter, FieldCondition, Range, PointIdsList
+from qdrant_client.http.models import (
+    Distance,
+    VectorParams,
+    PointStruct,
+    Filter,
+    FieldCondition,
+    Range,
+    PointIdsList,
+)
 
 fmt = "\n=== {:30} ===\n"
 search_latency_fmt = "search latency = {:.4f}s"
@@ -140,7 +188,9 @@ Each point requires:
 print(fmt.format("Prepare Data"))
 rng = np.random.default_rng(seed=19530)
 random_payload_data = rng.random(NUM_ENTITIES).tolist()  # field 'random'
-embedding_vectors = rng.random((NUM_ENTITIES, DIM)).astype("float32")  # field 'embeddings'
+embedding_vectors = rng.random((NUM_ENTITIES, DIM)).astype(
+    "float32"
+)  # field 'embeddings'
 
 # Generate simple integer IDs
 point_ids = list(range(NUM_ENTITIES))
@@ -171,7 +221,9 @@ try:
     #    print(f"Upserted batch {i//batch_size + 1}, status: {op_info.status}")
 
     # Insert all at once for smaller datasets
-    op_info = client.upsert(collection_name=COLLECTION_NAME, points=points_to_insert, wait=True)
+    op_info = client.upsert(
+        collection_name=COLLECTION_NAME, points=points_to_insert, wait=True
+    )
     print(f"Upsert operation completed with status: {op_info.status}")
 
 except Exception as e:
@@ -269,7 +321,9 @@ except Exception as e:
 # Verify deletion (optional)
 try:
     points_after = client.retrieve(collection_name=COLLECTION_NAME, ids=ids_to_delete)
-    print(f"Points found after deletion for IDs {ids_to_delete}: {len(points_after)}")  # Should be 0
+    print(
+        f"Points found after deletion for IDs {ids_to_delete}: {len(points_after)}"
+    )  # Should be 0
 
     count_after_delete = client.count(collection_name=COLLECTION_NAME, exact=True)
     print(
@@ -295,7 +349,9 @@ except Exception as e:
 # Verify deletion
 try:
     exists_after_drop = client.collection_exists(collection_name=COLLECTION_NAME)
-    print(f"Does collection '{COLLECTION_NAME}' exist after drop? {exists_after_drop}")  # Should be False
+    print(
+        f"Does collection '{COLLECTION_NAME}' exist after drop? {exists_after_drop}"
+    )  # Should be False
 except Exception as e:
     print(f"Error checking collection existence after drop: {e}")
 ```
@@ -309,4 +365,4 @@ If your Qdrant instance has the Web UI enabled (which is common), you might be a
 
 ---
 
-**Previous**: [Embeddings](../langchain/embeddings.md) | **Next**: [Milvus](milvus.md)
+**Previous**: [Build](../model-serving/custom/langchain/build.md) | **Next**: [Milvus](milvus.md)

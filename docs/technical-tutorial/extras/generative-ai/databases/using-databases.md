@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus GenAI
+    display_name: practicus
     language: python
-    name: practicus_genai
+    name: python3
 ---
 
 ```python

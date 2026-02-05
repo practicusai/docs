@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Practicus AI Connections
@@ -146,4 +146,4 @@ prt.connections.upload_to_s3(_upload_conf)
 
 ---
 
-**Previous**: [View Stats](view-stats.md) | **Next**: [Work With Data Catalog](work-with-data-catalog.md)
+**Previous**: [Vs Code Extensions](vs-code-extensions.md) | **Next**: [Work With Data Catalog](work-with-data-catalog.md)

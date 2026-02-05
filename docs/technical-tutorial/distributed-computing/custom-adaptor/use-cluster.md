@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 <!-- #region -->
@@ -56,7 +56,9 @@ import base64
 import json
 
 distributed_conf_dict_b64 = os.getenv("PRT_DISTRIBUTED_CONF", None)
-distributed_conf_str = base64.b64decode(distributed_conf_dict_b64.encode("utf-8")).decode("utf-8")
+distributed_conf_str = base64.b64decode(
+    distributed_conf_dict_b64.encode("utf-8")
+).decode("utf-8")
 distributed_conf = json.loads(distributed_conf_str)
 
 print("Current distributed job configuration:")
@@ -69,7 +71,9 @@ print("Patched distributed job configuration:")
 print(distributed_conf)
 
 distributed_conf_str = json.dumps(distributed_conf)
-distributed_conf_dict_b64 = base64.b64encode(distributed_conf_str.encode("utf-8")).decode("utf-8")
+distributed_conf_dict_b64 = base64.b64encode(
+    distributed_conf_str.encode("utf-8")
+).decode("utf-8")
 
 # And save it back to OS environment temporarily
 os.environ["PRT_DISTRIBUTED_CONF"] = distributed_conf_dict_b64

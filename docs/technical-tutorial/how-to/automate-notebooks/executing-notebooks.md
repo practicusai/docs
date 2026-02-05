@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 <!-- #region -->
@@ -65,16 +65,20 @@ Once you’ve set up the notebook and its parameters, you can execute it using P
 <!-- #endregion -->
 
 ```python
+notebook_path = "sample_notebook"
+```
+
+```python
 import practicuscore as prt
 
 # This will run just fine,
 # and save the resulting output to sample_notebook_output.ipynb
-prt.notebooks.execute_notebook("sample_notebook")
+prt.notebooks.execute_notebook(notebook_path)
 ```
 
 ```python
 # The below *will FAIL* since some_param cannot be 0
-prt.notebooks.execute_notebook("sample_notebook", parameters={"some_param": 0})
+prt.notebooks.execute_notebook(notebook_path, parameters={"some_param": 0})
 ```
 
 ## Advanced features

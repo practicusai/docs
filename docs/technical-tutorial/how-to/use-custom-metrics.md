@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Using Custom Observability Metrics
@@ -171,4 +171,4 @@ If you do not see your metric in the monitoring system, check the following:
 
 ---
 
-**Previous**: [Share Workers](share-workers.md) | **Next**: [Use Graph Databases](use-graph-databases.md)
+**Previous**: [Upload Files With Apphost](upload-files-with-apphost.md) | **Next**: [Use Graph Databases](use-graph-databases.md)

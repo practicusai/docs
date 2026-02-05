@@ -505,4 +505,4 @@ The Practicus App Hosting Langflow Base image is tailored for building and runni
 
 ---
 
-**Previous**: [Trino API Guide](trino-api-guide.md) | **Next**: [How To > Automate Notebooks > Executing Notebooks](../how-to/automate-notebooks/executing-notebooks.md)
+**Previous**: [Autoscaling With Keda](autoscaling-with-keda.md) | **Next**: [How To > Automate Notebooks > Executing Notebooks](../how-to/automate-notebooks/executing-notebooks.md)

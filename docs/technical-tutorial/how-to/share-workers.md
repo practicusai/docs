@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Sharing Workers
@@ -53,4 +53,4 @@ if remote_worker:
 
 ---
 
-**Previous**: [Personal Startup Scripts](personal-startup-scripts.md) | **Next**: [Use Custom Metrics](use-custom-metrics.md)
+**Previous**: [Personal Startup Scripts](personal-startup-scripts.md) | **Next**: [Upload Files With Apphost](upload-files-with-apphost.md)

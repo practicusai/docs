@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: practicus_genai
+    display_name: practicus
     language: python
-    name: practicus_genai
+    name: python3
 ---
 
 # Building Agentic AI Solutions with Practicus AI
@@ -24,21 +24,23 @@ This example provides a guide to building powerful agentic AI solutions using th
 6.  **Agentic Workflow Example:** Run an "Order Processing" example using a Langchain agent connected to the deployed APIs.
 
 
+
 ## 1. High-Level Overview & Value Proposition
 
 The Practicus AI agentic solution empowers you to connect Large Language Models (LLMs) to your existing systems and workflows securely and efficiently. It consists of three main parts:
 
-* **Practicus AI Apps:** A platform for rapidly building and deploying microservice-based APIs. You define your API logic in Python, and the platform handles deployment, scaling, and generating an OpenAPI (Swagger) specification automatically. You can enrich this specification with custom metadata (`APISpec`) to describe the API's behavior and potential risks.
-* **Practicus AI SDK:** A Python library (`practicuscore` and `langchain_practicus`) that simplifies interacting with the platform. It allows you to deploy Apps, and crucially, it can parse the OpenAPI (Swagger) specifications (including the custom `APISpec` metadata) of your deployed APIs.
-* **Langchain Integration:** The SDK provides components (like `langchain_practicus.APITool`) that automatically convert your Practicus AI App APIs into Langchain-compatible tools. This allows AI agents (built with frameworks like Langchain or LangGraph) to intelligently select and use your APIs as tools to accomplish complex tasks. You can implement rules within your agent logic to control tool usage based on the `APISpec` metadata (e.g., "only use read-only tools" or "require human approval for high-risk tools").
+- **Practicus AI Apps:** A platform for rapidly building and deploying microservice-based APIs. You define your API logic in Python, and the platform handles deployment, scaling, and generating an OpenAPI (Swagger) specification automatically. You can enrich this specification with custom metadata (`APISpec`) to describe the API's behavior and potential risks.
+- **Practicus AI SDK:** A Python library (`practicuscore` and `langchain_practicus`) that simplifies interacting with the platform. It allows you to deploy Apps, and crucially, it can parse the OpenAPI (Swagger) specifications (including the custom `APISpec` metadata) of your deployed APIs.
+- **Langchain Integration:** The SDK provides components (like `langchain_practicus.APITool`) that automatically convert your Practicus AI App APIs into Langchain-compatible tools. This allows AI agents (built with frameworks like Langchain or LangGraph) to intelligently select and use your APIs as tools to accomplish complex tasks. You can implement rules within your agent logic to control tool usage based on the `APISpec` metadata (e.g., "only use read-only tools" or "require human approval for high-risk tools").
 
 **Value Proposition:**
 
-* **Rapid Development:** Quickly build and deploy APIs for agent tools without boilerplate code.
-* **Automatic Tool Creation:** Seamlessly integrate your APIs with Langchain agents.
-* **Enhanced Safety & Governance:** Use `APISpec` metadata to govern how agents use your tools, preventing unintended actions and managing risk.
-* **Standardization:** Leverage OpenAPI (Swagger) specifications for clear API documentation and interoperability.
-* **Scalability:** Built on a robust microservices architecture.
+- **Rapid Development:** Quickly build and deploy APIs for agent tools without boilerplate code.
+- **Automatic Tool Creation:** Seamlessly integrate your APIs with Langchain agents.
+- **Enhanced Safety & Governance:** Use `APISpec` metadata to govern how agents use your tools, preventing unintended actions and managing risk.
+- **Standardization:** Leverage OpenAPI (Swagger) specifications for clear API documentation and interoperability.
+- **Scalability:** Built on a robust microservices architecture.
+
 
 <!-- #region -->
 ## 2. Building APIs with Practicus AI Apps
@@ -48,6 +50,7 @@ Creating an API endpoint is straightforward. You define the logic in a Python fi
 **Example Structure: A Simple `say-hello` API**
 
 Consider an API file like `apis/say_hello.py` (full content available in Appendix):
+
 - It imports `practicuscore` and `pydantic`.
 - It defines Pydantic models (`SayHelloRequest`, `SayHelloResponse`) for input and output, using docstrings for descriptions.
 - It defines an `APISpec` object specifying metadata like `read_only=True` and `risk_profile=Low`.
@@ -58,6 +61,7 @@ This cell is just for illustration - the actual code resides in the python files
 See Appendix for the full content of files like 'say_hello.py', 'process_order.py', 'generate_receipt.py', 'send_confirmation.py' etc.
 
 Example Snippet from apis/say_hello.py:
+
 ```python
 import practicuscore as prt
 from pydantic import BaseModel
@@ -85,32 +89,35 @@ async def run(payload: SayHelloRequest, **kwargs) -> SayHelloResponse:
 
 **Key Points:**
 
-* **Pydantic Models:** Define data structures. Docstrings become OpenAPI (Swagger) descriptions, crucial for agent understanding.
-* **`@prt.api` Decorator:** Registers the function as an API endpoint and links the `APISpec`.
-* **`async def run(...)`:** Contains the core API logic.
-* **Automatic OpenAPI (Swagger):** The platform generates the OpenAPI (Swagger) spec during deployment.
+- **Pydantic Models:** Define data structures. Docstrings become OpenAPI (Swagger) descriptions, crucial for agent understanding.
+- **`@prt.api` Decorator:** Registers the function as an API endpoint and links the `APISpec`.
+- **`async def run(...)`:** Contains the core API logic.
+- **Automatic OpenAPI (Swagger):** The platform generates the OpenAPI (Swagger) spec during deployment.
+
 <!-- #endregion -->
 
 ## 3. Defining API Behavior with `APISpec`
 
-`APISpec` attaches metadata to your API endpoints, describing operational characteristics and risks. 
+`APISpec` attaches metadata to your API endpoints, describing operational characteristics and risks.
 
 **Why is `APISpec` important?** It provides context beyond standard OpenAPI (Swagger), enabling safer AI agent behavior by allowing rules based on risk, read-only status, human gating, etc.
 
 **Key `APISpec` Fields:**
 
-* `execution_target`: Where work happens. E.g., `DirectExecution` is a standard API flow, and `AIAgent` is when the API we plan to use is an AI agent too (multi-Agent design).
-* `read_only` (bool): `True` for informational APIs, `False` for APIs that change state.
-* `risk_profile` (Enum: `Low`, `Medium`, `High`): Potential impact of misuse/failure.
-* `human_gated` (bool): `True` if human approval will be required before final execution.
-* `idempotent` (bool): Relevant for non-read-only APIs; is it safe to retry?
-* `scope`: API reach (e.g., `AppOnly`, `TeamWide` or `CompanyWide`).
-* `custom_attributes` (dict): Your own metadata.
+- `execution_target`: Where work happens. E.g., `DirectExecution` is a standard API flow, and `AIAgent` is when the API we plan to use is an AI agent too (multi-Agent design).
+- `read_only` (bool): `True` for informational APIs, `False` for APIs that change state.
+- `risk_profile` (Enum: `Low`, `Medium`, `High`): Potential impact of misuse/failure.
+- `human_gated` (bool): `True` if human approval will be required before final execution.
+- `idempotent` (bool): Relevant for non-read-only APIs; is it safe to retry?
+- `scope`: API reach (e.g., `AppOnly`, `TeamWide` or `CompanyWide`).
+- `custom_attributes` (dict): Your own metadata.
 
 **Examples in our API files (see Appendix):**
-* `convert_to_uppercase.py` and `say_hello.py` are marked `read_only=True`, `risk_profile=Low`.
-* `generate_receipt.py` and `process_order.py` are marked `read_only=True`, `risk_profile=Medium`. 
-* `send_confirmation.py` is marked `read_only=False`, `risk_profile=High`, `human_gated=True`, `idempotent=False`.
+
+- `convert_to_uppercase.py` and `say_hello.py` are marked `read_only=True`, `risk_profile=Low`.
+- `generate_receipt.py` and `process_order.py` are marked `read_only=True`, `risk_profile=Medium`.
+- `send_confirmation.py` is marked `read_only=False`, `risk_profile=High`, `human_gated=True`, `idempotent=False`.
+
 
 
 ## 4. Deploying the App
@@ -119,19 +126,32 @@ Now, let's deploy the application containing our APIs. This process analyzes the
 
 First, we set up deployment configuration keys and prefixes. These should match your Practicus AI environment setup.
 
+
 ```python
 # Parameters: Replace with your actual deployment key and app prefix
 # These identify where the app should be deployed within your Practicus AI environment.
-app_deployment_key = None
+app_deployment_key = None  # E.g. "appdepl"
 app_prefix = "apps"
+app_name = "agentic-ai-test"
+
+# Enter key for OpenAI or an OpenAI compatible Practicus AI LLM
+openai_key = None
+onprem_model_base_url = None  # E.g. "https://your-practicus-gateway.example.com/models"
+model_id = None
 ```
 
 ```python
 assert app_deployment_key, "Please provide your app deployment setting key."
 assert app_prefix, "Please provide your app prefix."
+assert app_name, "Please provide your app name."
+assert model_id, "Please enter your model id"
+assert onprem_model_base_url or openai_key, (
+    "You must provide either 'onprem_model_base_url' OR 'openai_key'."
+)
 ```
 
 Next, we analyze the application to ensure the APIs are correctly detected.
+
 
 ```python
 import practicuscore as prt
@@ -143,9 +163,9 @@ prt.apps.analyze()
 
 Finally, we deploy the application. We provide metadata like the application name, description, and icon.
 
+
 ```python
-# --- Deployment --- 
-app_name = "agentic-ai-test"
+# --- Deployment ---
 visible_name = "Agentic AI Test"
 description = "Test Application for Agentic AI Example."
 icon = "fa-robot"
@@ -156,7 +176,7 @@ app_url, api_url = prt.apps.deploy(
     deployment_setting_key=app_deployment_key,
     prefix=app_prefix,
     app_name=app_name,
-    app_dir=None, # Uses current directory
+    app_dir=None,  # Uses current directory
     visible_name=visible_name,
     description=description,
     icon=icon,
@@ -179,7 +199,9 @@ With the API application successfully deployed, you can now explore its document
 This link will take you to the interactive ReDoc UI, which visually presents the API's structure based on its OpenAPI specification. As discussed previously, this detailed view of `endpoints`, `description`, `schemas`, and `sample` create `crucial information for our AI agents`.
 
 
+
 ![ReDoc UI](img/redoc_ui.png)
+
 
 
 ## 5. Generating AI Agent Tools from Deployed APIs
@@ -188,19 +210,20 @@ With the App deployed and `api_url` obtained, we can now create Langchain-compat
 
 We will define a list of API endpoint paths relative to the `api_url` that we want to expose as tools to our agent.
 
+
 ```python
 # Define the specific API endpoints we want to use as tools
-# We will use the 'api_url' obtained from the deployment step 
+# We will use the 'api_url' obtained from the deployment step
 # but can statically define API URLs as well.
 
 tool_endpoint_paths = [
     # Some potentially useful, some not, for the order task:
     "say-hello/",  # Useless
     "generate-receipt/",  # Useful
-    "convert-to-uppercase/", # Useless
-    "process-order/", # Useful
-    "count-words/", # Useless 
-    "send-confirmation/", # Useful
+    "convert-to-uppercase/",  # Useless
+    "process-order/",  # Useful
+    "count-words/",  # Useless
+    "send-confirmation/",  # Useful
 ]
 
 # Construct full URLs
@@ -210,38 +233,43 @@ print("Will attempt to create tools for the following API endpoints:")
 for url in tool_endpoint_urls:
     print(f" - {url}")
 
-# Tip: If you pass partial API URLs e.g. 'apps/agentic-ai-test/api/v1/generate-receipt/' 
-#  The base URL e.g. 'https://practicus.my-company.com/' will be added to the final URL 
+# Tip: If you pass partial API URLs e.g. 'apps/agentic-ai-test/api/v1/generate-receipt/'
+#  The base URL e.g. 'https://practicus.my-company.com/' will be added to the final URL
 #  using your current Practicus AI region.
 ```
 
 Next, we define the validation logic. This function checks the `APISpec` metadata fetched by `APITool` and decides whether the tool should be `allowed based on our rules` (e.g., risk level).
 
+
 ```python
 import os
-from langchain_openai import ChatOpenAI # Or your preferred ChatModel
-from langgraph.prebuilt import create_react_agent
+from langchain_openai import ChatOpenAI  # Or your preferred ChatModel
+from langchain.agents import create_agent
 from langchain_practicus import APITool
+
 # Ensure practicuscore is imported for enums
-import practicuscore as prt 
+import practicuscore as prt
+
 
 def validate_api_spec(api_tool: APITool, strict=False) -> bool:
     """Checks the APISpec of a fetched tool against our rules."""
-    
+
     # APITool fetches the spec from OpenAPI (Swagger) during initialization
     spec = api_tool.spec
-    
+
     if not spec:
         # API definition in the source file might be missing the 'spec' object
         warning_msg = f"API '{api_tool.url}' does not have APISpec metadata defined in its OpenAPI spec."
         if strict:
             raise ValueError(f"{warning_msg} Validation is strict.")
         else:
-            prt.logger.warning(f"{warning_msg} Allowing since validation is not strict.")
-            return True # Allow if not strict
-            
-    # --- Apply Rules based on fetched spec --- 
-    
+            prt.logger.warning(
+                f"{warning_msg} Allowing since validation is not strict."
+            )
+            return True  # Allow if not strict
+
+    # --- Apply Rules based on fetched spec ---
+
     # Rule 1: Check Risk Profile
     if spec.risk_profile and spec.risk_profile == prt.APIRiskProfile.High:
         err = (
@@ -252,35 +280,43 @@ def validate_api_spec(api_tool: APITool, strict=False) -> bool:
             raise ValueError(err)
         else:
             # Even if not strict, we might choose to block High risk tools
-            prt.logger.warning(f"{err} Blocking High Risk API even though validation is not strict.")
-            return False # Block high risk
-        
+            prt.logger.warning(
+                f"{err} Blocking High Risk API even though validation is not strict."
+            )
+            return False  # Block high risk
+
     # Rule 2: Check Human Gating for non-read-only APIs
     # (Example: Enforce human gating for safety on modifying APIs)
     if not spec.read_only and not spec.human_gated:
-         err = f"API '{api_tool.url}' modifies data (read_only=False) but is not marked as human_gated."
-         if strict:
-             err += " Stopping flow since validation is strict."
-             raise ValueError(err)
-         else:
-             prt.logger.warning(f"{err} Allowing non-gated modifying API since validation is not strict.")
-             # In this non-strict case, we allow it, but a stricter policy might return False here.
-             return True 
-             
+        err = f"API '{api_tool.url}' modifies data (read_only=False) but is not marked as human_gated."
+        if strict:
+            err += " Stopping flow since validation is strict."
+            raise ValueError(err)
+        else:
+            prt.logger.warning(
+                f"{err} Allowing non-gated modifying API since validation is not strict."
+            )
+            # In this non-strict case, we allow it, but a stricter policy might return False here.
+            return True
+
     # Add more complex rules here if needed...
     # E.g., check custom_attributes, scope, etc.
 
     # If no rules were violated (or violations were allowed because not strict)
-    prt.logger.info(f"API '{api_tool.url}' passed validation (strict={strict}). Spec: {spec}")
+    prt.logger.info(
+        f"API '{api_tool.url}' passed validation (strict={strict}). Spec: {spec}"
+    )
     return True
 
 
-# --- Create Tools (optionally applying validation) --- 
+# --- Create Tools (optionally applying validation) ---
 def get_tools(endpoint_urls: list[str], validate=True):
     _tools = []
-    strict_validation = False # Set to True to enforce stricter rules
-    additional_instructions = "Add Yo! after all of your final responses." # Example instruction
-    
+    strict_validation = False  # Set to True to enforce stricter rules
+    additional_instructions = (
+        "Add Yo! after all of your final responses."  # Example instruction
+    )
+
     print(f"\nCreating and validating tools (strict={strict_validation})...")
     for tool_endpoint_url in endpoint_urls:
         print(f"\nProcessing tool for API: {tool_endpoint_url}")
@@ -291,24 +327,30 @@ def get_tools(endpoint_urls: list[str], validate=True):
                 # token=..., # Uses current user credentials by default, set to override
                 # include_resp_schema=True # Response schema (if exists) is not included by default
             )
-            
+
             # Explain the tool (optional, useful for debugging)
             # api_tool.explain(print_on_screen=True)
-    
+
             # Validate based on fetched APISpec
-            if not validate or validate_api_spec(api_tool=api_tool, strict=strict_validation):
-                print(f"--> Adding tool: {api_tool.name} ({api_tool.url}) {'' if validate else ' - skipping validation'}")
-                _tools.append(api_tool) 
+            if not validate or validate_api_spec(
+                api_tool=api_tool, strict=strict_validation
+            ):
+                print(
+                    f"--> Adding tool: {api_tool.name} ({api_tool.url}) {'' if validate else ' - skipping validation'}"
+                )
+                _tools.append(api_tool)
             else:
                 print(f"--> Skipping tool {api_tool.name} due to validation rules.")
         except Exception as e:
             # Catch potential errors during APITool creation (e.g., API not found, spec parsing error)
-            print(f"ERROR: Failed to create or validate tool for {tool_endpoint_url}: {e}")
+            print(
+                f"ERROR: Failed to create or validate tool for {tool_endpoint_url}: {e}"
+            )
             if strict_validation:
-                raise # Re-raise if strict
+                raise  # Re-raise if strict
             else:
                 print("--> Skipping tool due to error (not strict).")
-        
+
     return _tools
 
 
@@ -364,6 +406,7 @@ async def run(payload: SendConfirmationRequest, **kwargs) -> SendConfirmationRes
 ```
 
 In a production environment, automatically blocking operations like this acts as a safety measure. Such operations often require careful consideration and potentially human gating (a human-in-the-loop step). For example, this ensures that critical actions, like sending final confirmations to customers, might require explicit human review and approval before execution by an automated agent.
+
 <!-- #endregion -->
 
 ```python
@@ -380,9 +423,11 @@ Agent will have access to 6 tools: ['Say-Hello', 'Generate-Receipt', 'Convert-To
 ```
 
 
+
 ### Explaining tools
 
 You can run `tool.explain()` to view the details of an API tool such as it's URL, name, description, additional instructions.
+
 
 ```python
 # View tool explanation
@@ -400,29 +445,39 @@ Now we set up and run the Langchain agent (using LangGraph). The agent will use 
 **User Query:** "Hi, I'd like to place an order. I'm ordering 2 Widgets priced at $19.99 each and 1 Gadget priced at $29.99. Could you please process my order, generate a detailed receipt, and then send me a confirmation message with the receipt details?"
 
 **Setup:**
+
 1.  **Initialize LLM:** We need a chat model instance (e.g., from OpenAI, or a private Practicus AI LLM).
-2.  **Create Agent:** We use `create_react_agent` from LangGraph, providing the LLM and the `tools` list.
+2.  **Create Agent:** We use `create_agent` from LangGraph, providing the LLM and the `tools` list.
 3.  **Run Agent:** We invoke the agent with the user query.
 4.  **Additional Instruction:** Note that we added the below custom instruction for all tools.
     ```python
     additional_instructions = "Add Yo! after all of your final responses."
     ```
 
+
 ```python
-import getpass
-
-key = getpass.getpass("Enter key for OpenAI or an OpenAI compatible Practicus AI LLM: ")
-os.environ["OPENAI_API_KEY"] = key
-
-assert os.environ["OPENAI_API_KEY"], "OpenAI key is not defined"
+if openai_key is None:
+    token = prt.models.get_session_token(api_url=onprem_model_base_url)
+else:
+    os.environ["OPENAI_API_KEY"] = openai_key
+    assert os.environ["OPENAI_API_KEY"], "OpenAI key is not defined"
 ```
 
 ```python
-# --- Agent Initialization --- 
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+# --- Agent Initialization ---
+if openai_key is None:
+    llm = ChatOpenAI(
+        model=model_id, api_key=token, base_url=onprem_model_base_url, temperature=0
+    )
+else:
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+```
+
+```python
 # Create a ReAct agent using LangGraph
-graph = create_react_agent(llm, tools=tools)
+graph = create_agent(llm, tools=tools)
 print("Agent initialized.")
+
 
 # Helper function to print the agent's stream output nicely
 def pretty_print_stream_chunk(chunk):
@@ -430,7 +485,7 @@ def pretty_print_stream_chunk(chunk):
     for node, updates in chunk.items():
         print(f"Node: {node}")
         if isinstance(updates, dict) and "messages" in updates:
-             # Print the latest message added by the node
+            # Print the latest message added by the node
             latest_message = updates["messages"][-1]
             latest_message.pretty_print()
         else:
@@ -440,7 +495,7 @@ def pretty_print_stream_chunk(chunk):
 ```
 
 ```python
-# --- Run Agent --- 
+# --- Run Agent ---
 
 query = """
 Hi, I'd like to place an order. 
@@ -454,21 +509,21 @@ inputs = {"messages": [("user", query)]}
 if graph:
     print(f"\nInvoking agent with query: '{query}'")
     print("Streaming agent execution steps:\n")
-    
+
     # Configuration for the stream, e.g., setting user/thread IDs
-    # config = {"configurable": {"user_id": "doc-user-1", "thread_id": "doc-thread-1"}} 
-    config = {} # Use empty config for simplicity
-    
+    # config = {"configurable": {"user_id": "doc-user-1", "thread_id": "doc-thread-1"}}
+    config = {}  # Use empty config for simplicity
+
     # Use astream to get intermediate steps
     async for chunk in graph.astream(inputs, config=config):
         pretty_print_stream_chunk(chunk)
-        
+
     print("\nAgent execution finished.")
-    
+
     # Optional: Get the final state if needed
     # final_state = await graph.ainvoke(inputs, config=config)
     # print("\nFinal Agent State:", final_state)
-    
+
 else:
     print("\nAgent execution skipped because the agent graph was not initialized.")
 ```
@@ -482,8 +537,8 @@ When you run the cell above, you should observe the agent taking the following s
 3.  **Tool Response (Process Order):** The API returns the calculated total, summary, and item list.
 4.  **Tool Call (Generate Receipt):** The agent uses the processed order details to call the `Generate-Receipt` tool.
 5.  **Tool Response (Generate Receipt):** The API returns the formatted receipt text.
-6.  **Tool Call (Send Confirmation):** The agent uses the receipt text to call the `Send-Confirmation` tool. 
-    * *(Validation Check):* If `strict_validation` was `False` and our `validate_api_spec` function didn't explicitly block high-risk tools (like in the original `build.ipynb`), this call will proceed. If validation blocked it (like in our modified `validate_api_spec` example), the agent might stop here or try to respond without confirmation.*
+6.  **Tool Call (Send Confirmation):** The agent uses the receipt text to call the `Send-Confirmation` tool.
+    - _(Validation Check):_ If `strict_validation` was `False` and our `validate_api_spec` function didn't explicitly block high-risk tools (like in the original `build.ipynb`), this call will proceed. If validation blocked it (like in our modified `validate_api_spec` example), the agent might stop here or try to respond without confirmation.\*
 7.  **Tool Response (Send Confirmation):** If the call proceeded, the API returns the confirmation message.
 8.  **Final Response:** The agent synthesizes the results and provides a final answer to the user, likely including the receipt details and confirmation status (potentially with the added "Yo!" from `additional_instructions`).
 
@@ -493,9 +548,9 @@ When you run the cell above, you should observe the agent taking the following s
 
 ```text
 Invoking agent with query: '
-Hi, I'd like to place an order. 
-I'm ordering 2 Widgets priced at $19.99 each and 1 Gadget priced at $29.99. 
-Could you please process my order, generate a detailed receipt, 
+Hi, I'd like to place an order.
+I'm ordering 2 Widgets priced at $19.99 each and 1 Gadget priced at $29.99.
+Could you please process my order, generate a detailed receipt,
 and then send me a confirmation message with the receipt details?
 '
 Streaming agent execution steps:
@@ -577,7 +632,7 @@ Gadget: 1 x $29.99 = $29.99
 Total: $69.97
 -------------------
 
-A confirmation message has been sent to you with the receipt details. 
+A confirmation message has been sent to you with the receipt details.
 
 Yo!
 --------------------
@@ -586,8 +641,9 @@ Yo!
 Agent execution finished.
 ```
 
+
 ```python
-# Cleanup 
+# Cleanup
 prt.apps.delete(prefix=app_prefix, app_name=app_name)
 ```
 
@@ -606,9 +662,10 @@ This approach allows for rapid development, seamless integration, and enhanced c
 
 **Next Steps:**
 
-* Review the full API code in the Appendix.
-* Experiment with different `APISpec` settings and `strict_validation` values.
-* Modify the agent query or add more complex validation rules.
+- Review the full API code in the Appendix.
+- Experiment with different `APISpec` settings and `strict_validation` values.
+- Modify the agent query or add more complex validation rules.
+
 
 
 ## Supplementary Files

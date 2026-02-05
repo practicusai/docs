@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -350,4 +350,4 @@ print(answer)
 
 ---
 
-**Previous**: [Build](../../workflows/task-runnner-app/build.md) | **Next**: [Agentic Use Cases > Growth Strategist > Build](../agentic-use-cases/growth-strategist/build.md)
+**Previous**: [Prtchatbot](../examples/prtchatbot/prtchatbot.md) | **Next**: [LangChain Legacy > LangChain Basics](../langchain-legacy/langchain-basics.md)

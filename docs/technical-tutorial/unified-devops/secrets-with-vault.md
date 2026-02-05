@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -27,7 +27,6 @@ This notebook demonstrates how to work with Practicus AI’s built-in Vault to s
 personal_secret_name = "PERSONAL_SECRET_1"
 shared_secret_name = "SHARED_SECRET_1"
 automated_test = False
-
 ```
 
 ```python

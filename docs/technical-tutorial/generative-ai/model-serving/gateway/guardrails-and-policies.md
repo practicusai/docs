@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -72,7 +72,9 @@ DISALLOWED_KEYWORDS: list[str] = [
 ]
 
 
-async def block_disallowed_topics(data: dict, requester: dict | None = None, **kwargs) -> dict:
+async def block_disallowed_topics(
+    data: dict, requester: dict | None = None, **kwargs
+) -> dict:
     """Input guardrail that blocks clearly disallowed topics at prompt time.
 
     - Inspects the full prompt transcript.
@@ -95,9 +97,7 @@ async def block_disallowed_topics(data: dict, requester: dict | None = None, **k
 
     # Violation detected: do NOT send the original prompt to any model.
     # Instead, replace the prompt with a safe, explanatory message.
-    safe_message: str = (
-        "Your request cannot be processed because it violates the organization's safety and acceptable-use policies."
-    )
+    safe_message: str = "Your request cannot be processed because it violates the organization's safety and acceptable-use policies."
 
     data["messages"] = [
         {
@@ -214,8 +214,12 @@ async def moderate_output(data: dict, requester: dict | None = None, **kwargs) -
     generated_text: str = _extract_text_from_llm_response(data)
     lower_text: str = generated_text.lower()
 
-    sensitive_match: bool = any(p.search(generated_text) for p in SENSITIVE_OUTPUT_PATTERNS)
-    banned_match: bool = any(fragment in lower_text for fragment in BANNED_OUTPUT_FRAGMENTS)
+    sensitive_match: bool = any(
+        p.search(generated_text) for p in SENSITIVE_OUTPUT_PATTERNS
+    )
+    banned_match: bool = any(
+        fragment in lower_text for fragment in BANNED_OUTPUT_FRAGMENTS
+    )
 
     if not (sensitive_match or banned_match):
         # No violation detected, return the original response.
@@ -320,13 +324,23 @@ Clients can explicitly opt in to non-default guardrails (like `"pii-scrubber"`) 
 
 
 ```python
+openai_base_url = None  # E.g. "https://your-practicus-gateway.example.com/models"
+openai_api_key = None  # E.g. ""TOKEN_FROM_PRACTICUS""
+```
+
+```python
+assert openai_base_url, "Please enter your openai_base_url"
+assert openai_api_key, "Please enter your openai_api_key"
+```
+
+```python
 # Example client usage (Python, OpenAI-style client)
 #
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://your-practicus-gateway.example.com/models",
-    api_key="TOKEN_FROM_PRACTICUS",
+    base_url=openai_base_url,  # E.g. "https://your-practicus-gateway.example.com/models",
+    api_key=openai_api_key,  # E.g. "TOKEN_FROM_PRACTICUS",
 )
 
 response = client.chat.completions.create(
@@ -363,7 +377,9 @@ This allows you to apply stricter rules to specific endpoints (for example, proj
 # Example: a model for highly confidential workloads with extra checks.
 
 
-async def high_sensitivity_pre_guard(data: dict, requester: dict | None = None, **kwargs) -> dict:
+async def high_sensitivity_pre_guard(
+    data: dict, requester: dict | None = None, **kwargs
+) -> dict:
     """Extra checks for a high-sensitivity project.
 
     Here you can:
@@ -391,7 +407,9 @@ async def high_sensitivity_pre_guard(data: dict, requester: dict | None = None, 
     return data
 
 
-async def log_high_sensitivity_usage(data, response, requester: dict | None = None, **kwargs) -> None:
+async def log_high_sensitivity_usage(
+    data, response, requester: dict | None = None, **kwargs
+) -> None:
     """Post-call hook that can send usage to a dedicated audit system."""
     # Integrate here with your SIEM / logging platform if needed.
     # Note: kwargs can have other relevant info
@@ -441,7 +459,9 @@ In this pattern:
 # Replace the commented section with a real client for your moderation model.
 
 
-async def classify_and_enforce(data: dict, requester: dict | None = None, **kwargs) -> dict:
+async def classify_and_enforce(
+    data: dict, requester: dict | None = None, **kwargs
+) -> dict:
     """Guardrail that delegates the decision to a separate classification model.
 
     The model can return labels like:
@@ -529,7 +549,9 @@ A simple audit logging hook might look like this:
 
 
 ```python
-async def audit_policy_decisions(data: dict, response, requester: dict | None = None, **kwargs) -> None:
+async def audit_policy_decisions(
+    data: dict, response, requester: dict | None = None, **kwargs
+) -> None:
     """Post-call hook that prints or forwards policy decisions for auditing.
 
     In a real deployment, replace the print() calls with structured logging or
@@ -565,10 +587,11 @@ Together with the gateway's built-in database logging, this enables:
 Static keyword lists are useful as a baseline, but they are hard to maintain at scale and easy to bypass.
 In the Practicus AI Gateway, guardrails can also be powered by **machine learning models** and **LLMs**:
 
-* **ML-based guardrails**: use traditional NLP models (e.g., PII detection, classification) to scan prompts and outputs.
-* **LLM-based guardrails**: use an LLM specialized for safety or moderation (e.g., Llama Guard) to make context-aware decisions.
+- **ML-based guardrails**: use traditional NLP models (e.g., PII detection, classification) to scan prompts and outputs.
+- **LLM-based guardrails**: use an LLM specialized for safety or moderation (e.g., Llama Guard) to make context-aware decisions.
 
 This lets policies evolve over time without changing application code: you can improve the underlying models, retrain them, or tune configuration while keeping the gateway integration stable.
+
 
 <!-- #region -->
 ## 9. Machine-Learning–Based Guardrails (Example: Microsoft Presidio)
@@ -580,8 +603,8 @@ You can integrate Presidio directly into a `GatewayGuardrail` to dynamically det
 
 Presidio typically consists of two main components:
 
-* `AnalyzerEngine` – detects entities such as names, email addresses, phone numbers.
-* `AnonymizerEngine` – redacts or masks the detected entities.
+- `AnalyzerEngine` – detects entities such as names, email addresses, phone numbers.
+- `AnonymizerEngine` – redacts or masks the detected entities.
 
 Install (example):
 
@@ -719,9 +742,9 @@ presidio_pii_guardrail = prt.GatewayGuardrail(
 
 **Key points:**
 
-* The **policy logic** is encoded in Presidio configuration and models, not in hard-coded regexes.
-* Updating entity types, thresholds, or recognizers immediately changes protection behavior.
-* You can apply the same pattern to **output-side** guards (using `mode="post_call"`) if you want to scan and redact responses.
+- The **policy logic** is encoded in Presidio configuration and models, not in hard-coded regexes.
+- Updating entity types, thresholds, or recognizers immediately changes protection behavior.
+- You can apply the same pattern to **output-side** guards (using `mode="post_call"`) if you want to scan and redact responses.
 
 
 
@@ -730,9 +753,9 @@ presidio_pii_guardrail = prt.GatewayGuardrail(
 Instead of rule-based or classical ML, you can also use **LLMs** as guardrails.
 A specialized safety model like **Llama Guard** can evaluate prompts and responses using rich context:
 
-* Understanding nuanced intent (sarcasm, indirect instructions).
-* Considering multi-turn conversation history.
-* Applying complex policy descriptions written in natural language.
+- Understanding nuanced intent (sarcasm, indirect instructions).
+- Considering multi-turn conversation history.
+- Applying complex policy descriptions written in natural language.
 
 In this pattern, the gateway:
 
@@ -745,6 +768,7 @@ In this pattern, the gateway:
 
 Below is an example of a **pre-call** guardrail that calls a Llama Guard endpoint exposed through the same gateway. The Llama Guard model is treated like any other `GatewayModel` (e.g., `practicus/llamaguard`).
 
+
 ```python
 import os
 from openai import OpenAI
@@ -753,7 +777,9 @@ import practicuscore as prt
 # Client configured to talk to the Practicus gateway itself,
 # where a `practicus/llamaguard` model is deployed.
 llamaguard_client = OpenAI(
-    base_url=os.environ.get("PRT_GATEWAY_BASE_URL"),  # e.g. https://gateway.example.com/models
+    base_url=os.environ.get(
+        "PRT_GATEWAY_BASE_URL"
+    ),  # e.g. https://gateway.example.com/models
     api_key=os.environ.get("PRT_GATEWAY_API_KEY"),  # token issued by Practicus AI
 )
 
@@ -872,15 +898,15 @@ llamaguard_guardrail = prt.GatewayGuardrail(
 
 Compared to static rules, LLM-based guardrails:
 
-* **Understand context**: multi-turn, subtle phrasing, indirect hints.
-* **Adapt via prompts**: changing the system prompt adjusts policy behavior without code changes.
-* **Handle complex categories**: legal, ethical, domain-specific rules written in natural language.
+- **Understand context**: multi-turn, subtle phrasing, indirect hints.
+- **Adapt via prompts**: changing the system prompt adjusts policy behavior without code changes.
+- **Handle complex categories**: legal, ethical, domain-specific rules written in natural language.
 
 You can also:
 
-* run Llama Guard (or similar) on **outputs** by using `mode="post_call"`,
-* chain multiple guard models (e.g., first PII/Presidio, then safety/LLM),
-* or use one LLM guard to implement a “second opinion” for specific high-risk models.
+- run Llama Guard (or similar) on **outputs** by using `mode="post_call"`,
+- chain multiple guard models (e.g., first PII/Presidio, then safety/LLM),
+- or use one LLM guard to implement a “second opinion” for specific high-risk models.
 
 
 
@@ -888,13 +914,14 @@ You can also:
 
 By combining ML- and LLM-based guardrails:
 
-* **Policies become dynamic**: updating the Presidio configuration, retraining a classifier, or revising the Llama Guard prompt changes behavior without touching application code.
-* **Different projects can opt into different profiles**:
+- **Policies become dynamic**: updating the Presidio configuration, retraining a classifier, or revising the Llama Guard prompt changes behavior without touching application code.
+- **Different projects can opt into different profiles**:
 
-  * strict PII + safety for healthcare or finance workloads,
-  * lighter checks for internal experimentation,
-  * custom categories for specific departments.
-* **Auditability is built in**: both Presidio findings (`data["pii_scan"]`) and Llama Guard decisions (`data["llm_guard"]`) can be logged, queried, and visualized in your existing observability stack.
+  - strict PII + safety for healthcare or finance workloads,
+  - lighter checks for internal experimentation,
+  - custom categories for specific departments.
+
+- **Auditability is built in**: both Presidio findings (`data["pii_scan"]`) and Llama Guard decisions (`data["llm_guard"]`) can be logged, queried, and visualized in your existing observability stack.
 
 This turns the gateway into a **policy engine** that can evolve with organizational requirements, rather than a static set of hard-coded filters.
 
@@ -917,4 +944,4 @@ All of this is defined in Python in your `model.py`, leveraging `GatewayModel`, 
 
 ---
 
-**Previous**: [Model Gateway](model-gateway.md) | **Next**: [Custom > Models > Build](../custom/models/build.md)
+**Previous**: [Model Gateway](model-gateway.md) | **Next**: [MCP Gateway](mcp-gateway.md)

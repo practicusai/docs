@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Starting an auto-scaled Spark Cluster
@@ -33,9 +33,15 @@ jupyter:
 Let's identify a worker size that supports auto-scaling and includes the required privileged capabilities for running batch jobs.
 
 ```python
-auto_dist_worker_size = None
-initial_count = None
-max_count = None
+auto_dist_worker_size = None  # E.g. "Small-Cluster"
+initial_count = None  # E.g. 2
+max_count = None  # E.g. 4
+```
+
+```python
+assert auto_dist_worker_size, "Please type your distributed worker size"
+assert initial_count, "Please enter your initial count number"
+assert max_count, "Please enter your max count number"
 ```
 
 ```python

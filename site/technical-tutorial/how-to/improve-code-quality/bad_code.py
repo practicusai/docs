@@ -1,5 +1,3 @@
-import pandas
-
 # this is an error
 print(undefined_var)
 

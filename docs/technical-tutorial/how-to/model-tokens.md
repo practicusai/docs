@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Using model access tokens
@@ -92,63 +92,75 @@ If your end users do not have access to Practicus AI SDK, they can simply make t
 ```python
 # "No Practicus SDK" sample to get a session token
 
+from requests.models import Response
 import requests
 
+# Option 1 - Use password auth every time you need tokens
+console_api_url = "http://local.practicus.io/console/api/"
+email = "admin@admin.com"
+password = "admin"
+
+data = {"email": email, "password": password}
+console_login_api_url = f"{console_api_url}auth/"
+
 try:
-    console_api_url = "http://local.practicus.io/console/api/"
+    r: Response = requests.post(console_login_api_url, json=data)
+    r.raise_for_status() # HATA 3: HTTP hatalarını yakalamak için en Pythonic yöntem budur.
+except requests.exceptions.RequestException as e:
+    print(f"Login Failed: {e}")
+    # Login başarısızsa devam etmenin anlamı yok
+    exit(1)
 
-    # Option 1 - Use password auth every time you need tokens
-    print("[Not Recommended] Getting console API access token using password.")
-    email = "admin@admin.com"
-    password = "admin"
+body = r.json()
+refresh_token = body["refresh"]
+console_access_token = body["access"]
 
-    data = {"email": email, "password": password}
-    console_login_api_url = f"{console_api_url}auth/"
-    r = requests.post(console_login_api_url, headers=headers, json=data)
-    if not r.ok:
-        raise ConnectionError(r.status_code)
-    body = r.json()
-    refresh_token = body["refresh"]  # Keep refresh tokens safe!
-    console_access_token = body["access"]
+# Option 2 - Get a refresh token once
+print("[Recommended] Getting console API access token using refresh token")
+console_access_api_url = f"{console_api_url}auth/refresh/"
 
-    # Option 2 - Get a refresh token once, and only use that until it expires in ~3 months
-    print("[Recommended] Getting console API access token using refresh token")
-    console_access_api_url = f"{console_api_url}auth/refresh/"
-    headers = {"authorization": f"Bearer {refresh_token}"}
-    data = {"refresh": refresh_token}
+# Headers
+headers = {"authorization": f"Bearer {refresh_token}"}
+data = {"refresh": refresh_token}
+
+try:
     r = requests.post(console_access_api_url, headers=headers, json=data)
-    if not r.ok:
-        raise ConnectionError(r.status_code)
+    r.raise_for_status()
     body = r.json()
     console_access_token = body["access"]
+    
+    # Update access token
     headers = {"authorization": f"Bearer {console_access_token}"}
-
-    # Console API access tokens expire in ~30 minutes
     print("Console API access token:", console_access_token)
 
     # Locating model id
-    print("Getting model id.")
-    print(
-        "Note: you can also view model id using Open API documentation (E.g. https://../models/redoc/), or using Practicus AI App."
-    )
-    r = requests.get(api_url + "?get_meta=true", headers=headers, data=data)
-    if not r.ok:
-        raise ConnectionError(r.status_code)
-    model_id = int(r.headers["x-prt-model-id"])
+    print("Getting model id from metadata...")
+    r = requests.get(f"{api_url}?get_meta=true", headers=headers)
+    r.raise_for_status()
+
+    model_id = int(r.headers.get("x-prt-model-id", 0))
+    
+    if model_id == 0:
+        raise ValueError("Model ID could not be found in headers.")
+        
     print("Model id:", model_id)
 
-    # Getting model access token, expires in ~4 hours
+    # Getting model access token
     print("Getting a model API session token using the console API access token")
     console_model_token_api_url = f"{console_api_url}modelhost/model-auth/"
-    data = {"model_id": model_id}
-    r = requests.get(console_model_token_api_url, headers=headers, data=data)
-    if not r.ok:
-        raise ConnectionError(r.status_code)
+    
+    auth_data = {"model_id": model_id}
+    r = requests.get(console_model_token_api_url, headers=headers, json=auth_data)
+    r.raise_for_status()
+    
     body = r.json()
-    model_api_token = body["token"]
-    print("Model API session token:", model_api_token)
-except:
-    pass
+    model_api_token = body.get("token")
+    print("✅ Model API session token:", model_api_token)
+
+except requests.exceptions.RequestException as e:
+    print(f"❌ Connection or API Error: {e}")
+except Exception as e:
+    print(f"❌ An unexpected error occurred: {e}")
 ```
 
 

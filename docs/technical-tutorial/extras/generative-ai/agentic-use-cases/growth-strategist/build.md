@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: practicus_genai
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -1996,4 +1996,4 @@ async def run(payload: CampaignData, **kwargs) -> ValidateCampaignJSONResponse:
 
 ---
 
-**Previous**: [Lang Chain LLM Model](../../advanced-langchain/lang-chain-llm-model.md) | **Next**: [Hr > Build](../hr/build.md)
+**Previous**: [Build](../../../workflows/task-runnner-app/build.md) | **Next**: [Hr > Build](../hr/build.md)

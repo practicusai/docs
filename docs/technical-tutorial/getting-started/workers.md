@@ -7,16 +7,16 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Practicus AI Workers
 
 This example demonstrates a typical workflow for using Practicus AI Workers:
 
-**Create a Worker**:  
+**Create a Worker**:
 
 Request a new worker with the required resources (CPU, RAM, GPU) from Practicus AI. This usually takes a few seconds.
 
@@ -28,11 +28,11 @@ Once the worker is ready, launch JupyterLab or VS Code directly on it. Within th
 - Explore and process data
 - Train and evaluate machine learning models
 
-**Perform Tasks**:  
+**Perform Tasks**:
 
 Inside JupyterLab or VS Code, run Python notebooks, scripts, or leverage integrated libraries and frameworks.
 
-**Terminate the Worker**:  
+**Terminate the Worker**:
 
 After finishing your tasks, stop or delete the worker. You can always start a new one later, ensuring a clean environment each time.
 
@@ -43,7 +43,9 @@ This approach provides an isolated, on-demand environment for efficient developm
 Let's start by creating a worker with the default configuration.
 
 
+
 #### Define Parameters
+
 
 ```python
 worker_image = "practicus-genai"
@@ -88,6 +90,7 @@ worker.terminate()
 
 Now let's create a worker with a custom configuration, specifying a custom image, size, and a startup script.
 
+
 ```python
 # Define a custom worker configuration
 worker_config = prt.WorkerConfig(
@@ -114,6 +117,7 @@ worker.terminate()
 - You can interact with multiple regions and perform most operations by using the [Region](https://docs.practicus.ai/sdk/practicuscore.html#Region) class.
 - If running inside a worker, you can easily access the current region and perform actions directly.
 
+
 ```python
 # Get the current region
 region = prt.current_region()
@@ -138,9 +142,11 @@ is_default: True
 ```
 
 
+
 ### Worker Sizes
 
 Worker sizes define the CPU, RAM, GPU, and other resources allocated to a worker.
+
 
 ```python
 # List available worker sizes
@@ -152,6 +158,7 @@ for worker_size in region.worker_size_list:
 
 [PrtList](https://docs.practicus.ai/sdk/practicuscore.html#PrtList) is a specialized list type that can be toggled as read-only and easily converted to CSV, DataFrame, or JSON. Many results returned by the SDK are `PrtList` objects.
 
+
 ```python
 # Convert worker sizes to a pandas DataFrame
 df = region.worker_size_list.to_pandas()
@@ -162,6 +169,7 @@ display(df)
 
 Worker images define the base container image and features available on the worker.
 
+
 ```python
 df = region.worker_image_list.to_pandas()
 print("Available worker images:")
@@ -171,6 +179,7 @@ display(df)
 ### Worker Logs
 
 You can view the logs of a worker to debug issues or review activities.
+
 
 ```python
 if prt.running_on_a_worker():
@@ -192,6 +201,7 @@ if "some error" in worker_logs:
 
 The Practicus AI SDK provides async variants for many operations, allowing Python to perform multiple network-bound tasks concurrently without blocking the interpreter. Async methods are always named `*_async()`, so you can easily discover them through IDE IntelliSense or documentation. These async methods are fully optional—sync versions continue to work as before—but using async can significantly speed up workflows such as creating workers, polling tasks, fetching logs, and orchestrating multiple jobs in parallel.
 
+
 ```python
 # Select a region, async.
 # Note: Async methods do not have the convenience prt.* alias methods
@@ -212,8 +222,8 @@ await worker.terminate_async()
 
 In advanced scenarios, you might need more granular control over a worker's startup and readiness. This is particularly useful for:
 
-* **Extended Wait Times:** Allowing more time for workers to become ready, especially when using large container images (e.g., GPU-enabled images) that can take a significant time to download and initialize, especially on their first use on a node.
-* **Proactive Termination:** Automatically terminating a worker if it fails to become ready within a specified timeframe, which can occur due to issues like resource capacity constraints or prolonged provisioning.
+- **Extended Wait Times:** Allowing more time for workers to become ready, especially when using large container images (e.g., GPU-enabled images) that can take a significant time to download and initialize, especially on their first use on a node.
+- **Proactive Termination:** Automatically terminating a worker if it fails to become ready within a specified timeframe, which can occur due to issues like resource capacity constraints or prolonged provisioning.
 
 To enable this custom lifecycle management, you can disable the default readiness check behavior. This is achieved by setting the `wait_until_ready=False` parameter in the `prt.create_worker()` function call. You can then implement your own logic to define how long to wait for the worker and what action to take if it doesn't become ready within your defined timeout.
 
@@ -252,7 +262,7 @@ except TimeoutError:
     # For Kubernetes admins: you will see the Worker pod is stuck in `pending` state due to capacity issues.
     print(f"Error: Worker '{worker.name}' did not become ready within {timeout_seconds} seconds.")
     print(f"Terminating worker '{worker.name}' due to readiness timeout.")
-    # For Kubernetes admins: the below will remove the Worker pod, preventing auto-provisioning 
+    # For Kubernetes admins: the below will remove the Worker pod, preventing auto-provisioning
     #   if capacity becomes available later..
     worker.terminate()
 except Exception as e:
@@ -283,6 +293,7 @@ for worker in region.worker_list:
         print(f"-> Terminating {worker.name} — stuck in 'Provisioning' for more than {timeout_seconds} seconds.")
         worker.terminate()
 ```
+
 <!-- #endregion -->
 
 

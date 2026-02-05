@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # System Resource Usage
@@ -19,6 +19,7 @@ Below is a sample code snippet that retrieves and displays system resource usage
 - **Memory**: Reports total, free, and percentage of free memory.
 - **Disk**: Reports total, free, and percentage of free disk space.
 - **GPU**: Shows detailed GPU memory usage (used, reserved, total).
+
 
 ```python
 from practicuscore.util import Stats
@@ -44,12 +45,16 @@ print(f"Worker Disk : {total_disk_gb} GB")
 print(f"Free Disk : {free_disk_gb} GB ({free_disk_percent}%)")
 
 print("Note: The above views the physical disk capacity of the node.")
-print("The ephemeral disk capacity that your admin allowed for this Worker can be lower.\n")
+print(
+    "The ephemeral disk capacity that your admin allowed for this Worker can be lower.\n"
+)
 
 try:
     gpu_stats = Stats.get_gpu_stats()
     for gpu_id, (used, reserved, total) in enumerate(gpu_stats):
-        print(f"GPU usage for gpu: {gpu_id} used: {used} reserved: {reserved} total: {total}")
+        print(
+            f"GPU usage for gpu: {gpu_id} used: {used} reserved: {reserved} total: {total}"
+        )
 except:
     print("No GPUs detected")
 ```
@@ -57,4 +62,4 @@ except:
 
 ---
 
-**Previous**: [Use Security Tokens](use-security-tokens.md) | **Next**: [Work With Connections](work-with-connections.md)
+**Previous**: [Use Security Tokens](use-security-tokens.md) | **Next**: [Vs Code Extensions](vs-code-extensions.md)

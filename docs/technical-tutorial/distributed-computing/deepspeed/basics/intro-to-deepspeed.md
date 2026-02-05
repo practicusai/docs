@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -43,6 +43,7 @@ worker_count = None
 log_level = "DEBUG"
 worker_image = "ghcr.io/practicusai/practicus-gpu-deepspeed"
 terminate_on_completion = False
+create_deepspeed_folder = False
 ```
 
 ```python
@@ -50,14 +51,46 @@ assert worker_size, "Please enter your worker_size."
 assert worker_count, "Please enter your worker_count."
 assert log_level, "Please enter your log_level."
 assert worker_image, "Please enter your worker_image."
-assert terminate_on_completion, "Please enter your terminate_on_completion (True or False)."
+assert terminate_on_completion, (
+    "Please enter your terminate_on_completion (True or False)."
+)
+assert create_deepspeed_folder, "Please enter your create_spark_folder (True or False)."
+```
+
+```python
+import os
+import shutil
+
+if create_deepspeed_folder:
+    # Define source and destination
+    source_dir = "samples/notebooks/05_distributed_computing/04_deepspeed/01_basics"
+    train_file = f"{source_dir}/train.py"
+    config_file = f"{source_dir}/ds_config.json"
+
+    # Move it to '~/my', which is your persistent home directory.
+    job_dir = os.path.expanduser("~/my/deepspeed")
+    train_dest_file = f"{job_dir}/train.py"
+    config_dest_file = f"{job_dir}/ds_config.json"
+
+    # Copy the job file to the shared location
+    if not os.path.exists(job_dir):
+        os.makedirs(job_dir)
+
+    print(f"Copying file from '{train_file}' to '{train_dest_file}'...")
+    print(f"Copying file from '{config_file}' to '{config_dest_file}'...")
+    try:
+        shutil.copy(train_file, train_dest_file)
+        shutil.copy(config_file, config_dest_file)
+        print("✅ Copy successful.")
+    except FileNotFoundError:
+        print(f"❌ Error: Could not find source file at {train_file} or {config_file}")
+else:
+    # DeepSpeed job directory must have default files ds_config.json and train.py (can be renamed)
+    job_dir = "~/my/deepspeed"
 ```
 
 ```python
 import practicuscore as prt
-
-# DeepSpeed job directory must have default files ds_config.json and train.py (can be renamed)
-job_dir = "~/my/deepspeed"
 
 distributed_config = prt.DistJobConfig(
     job_type=prt.DistJobType.deepspeed,
@@ -67,7 +100,10 @@ distributed_config = prt.DistJobConfig(
 )
 
 worker_config = prt.WorkerConfig(
-    worker_image=worker_image, worker_size=worker_size, log_level=log_level, distributed_config=distributed_config
+    worker_image=worker_image,
+    worker_size=worker_size,
+    log_level=log_level,
+    distributed_config=distributed_config,
 )
 
 coordinator_worker = prt.create_worker(worker_config)

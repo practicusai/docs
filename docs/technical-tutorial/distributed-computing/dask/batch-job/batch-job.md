@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Executing batch jobs in Dask Cluster
@@ -27,18 +27,45 @@ In this example we will:
 worker_size = None
 worker_count = None
 log_level = "DEBUG"
+create_dask_folder = False
 ```
 
 ```python
 assert worker_size, "Please enter your worker_size."
 assert worker_count, "Please enter your worker_count."
 assert log_level, "Please enter your log_level."
+assert create_dask_folder, "Please enter your create_dask_folder."
+```
+
+```python
+import os
+import shutil
+
+if create_dask_folder:
+    # Define source and destination
+    source_dir = "samples/notebooks/05_distributed_computing/03_dask/02_batch_job"
+    source_file = f"{source_dir}/job.py"
+
+    # Move it to '~/my', which is your persistent home directory.
+    job_dir = os.path.expanduser("~/my/dask")
+    dest_file = f"{job_dir}/job.py"
+
+    # Copy the job file to the shared location
+    if not os.path.exists(job_dir):
+        os.makedirs(job_dir)
+
+    print(f"Copying job file from '{source_file}' to '{dest_file}'...")
+    try:
+        shutil.copy(source_file, dest_file)
+        print("✅ Copy successful.")
+    except FileNotFoundError:
+        print(f"❌ Error: Could not find source file at {source_file}")
+else:
+    job_dir = "~/my/dask"
 ```
 
 ```python
 import practicuscore as prt
-
-job_dir = "~/my/dask"
 
 distributed_config = prt.DistJobConfig(
     job_type=prt.DistJobType.dask,

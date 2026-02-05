@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: practicus_ml
+    display_name: practicus
     language: python
     name: python3
 ---

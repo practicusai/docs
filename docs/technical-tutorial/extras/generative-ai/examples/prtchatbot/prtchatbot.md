@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: practicus_genai
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -509,4 +509,4 @@ def update_message_in_db(session_id, old_content, new_content):
 
 ---
 
-**Previous**: [Mobile-Banking](../mobile-banking/mobile-banking.md) | **Next**: [Langflow Apis > Langflow API](../../langflow-apis/langflow-api.md)
+**Previous**: [Mobile-Banking](../mobile-banking/mobile-banking.md) | **Next**: [LangChain > Lang Chain LLM Model](../../langchain/lang-chain-llm-model.md)

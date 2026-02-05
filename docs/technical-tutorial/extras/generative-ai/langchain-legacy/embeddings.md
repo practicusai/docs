@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus GenAI
+    display_name: practicus
     language: python
-    name: practicus_genai
+    name: python3
 ---
 
 # Using embeddings with Langchain
@@ -31,11 +31,12 @@ assert embedding_api_url, "Please select the embedding API url"
 import practicuscore as prt
 
 # Get a new token, or reuse existing, if not expired
-model_api_token = None
-embedding_api_token = None
-
-model_api_token = prt.models.get_session_token(model_api_url, token=model_api_token)
-embedding_api_token = prt.models.get_session_token(embedding_api_url, token=embedding_api_token)
+try:
+    model_api_token = prt.models.get_session_token(api_url=model_api_url)
+    embedding_api_token = prt.models.get_session_token(api_url=embedding_api_url)
+except:
+    model_api_token = None
+    embedding_api_token = None
 ```
 
 ```python
@@ -79,8 +80,12 @@ embeddings = PracticusEmbeddings()
 
 # 2. Create sample documents
 documents = [
-    Document(page_content="LangChain Practicus is a library for building applications with private models."),
-    Document(page_content="It provides tools for working with embeddings and chat models."),
+    Document(
+        page_content="LangChain Practicus is a library for building applications with private models."
+    ),
+    Document(
+        page_content="It provides tools for working with embeddings and chat models."
+    ),
     Document(page_content="You can use it to create powerful AI-powered applications."),
 ]
 
@@ -97,7 +102,9 @@ prompt_template = """Use the following pieces of context to answer the question 
 
 Question: {question}
 Answer:"""
-PROMPT = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
+PROMPT = PromptTemplate(
+    template=prompt_template, input_variables=["context", "question"]
+)
 
 qa_chain = RetrievalQA.from_chain_type(
     llm=llm,
@@ -137,6 +144,58 @@ print(f"\nEmbedded Query Vector: {embedded_query_vector}")
 ```
 
 
+## Supplementary Files
+
+### langchain_serving/model.py
+```python
+from practicuscore.gen_ai import PrtLangRequest, PrtLangResponse
+import json
+
+model = None
+
+
+async def init(model_meta=None, *args, **kwargs):
+    print("Initializing model")
+    global model
+    # Initialize your LLM model as usual
+
+
+async def cleanup(model_meta=None, *args, **kwargs):
+    print("Cleaning up memory")
+    # Add your clean-up code here
+
+
+async def predict(payload_dict: dict, **kwargs):
+    try:
+        req = PrtLangRequest.model_validate(payload_dict)
+    except Exception as ex:
+        raise ValueError(f"Invalid PrtLangRequest request. {ex}") from ex
+
+    # Converts the validated request object to a dictionary.
+    data_js = req.model_dump_json(indent=2, exclude_unset=True)
+    payload = json.loads(data_js)
+
+    # Joins the content field from all messages in the payload to form the prompt string.
+    prompt = " ".join([item["content"] for item in payload["messages"]])
+
+    answer = f"You asked:\n{prompt}\nAnd I don't know how to respond yet."
+
+    resp = PrtLangResponse(
+        content=answer,
+        lang_model=payload["lang_model"],
+        input_tokens=0,
+        output_tokens=0,
+        total_tokens=0,
+        # additional_kwargs={
+        #     "some_additional_info": "test 123",
+        # },
+    )
+
+    return resp
+
+```
+
+
 ---
 
-**Previous**: [Streaming](streaming.md) | **Next**: [Vector Databases > Qdrant](../vector-databases/qdrant.md)
+**Previous**: [Streaming](streaming.md) | **Next**: [LangChain Serving > Build](langchain-serving/build.md)

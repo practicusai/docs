@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus Core
+    display_name: practicus
     language: python
-    name: practicus
+    name: python3
 ---
 
 # Practicus AI Processes
@@ -36,7 +36,10 @@ worker_config = {
 
 ```python
 # Processes start by loading some data.
-worker_file_conn = {"connection_type": "WORKER_FILE", "file_path": "/home/ubuntu/samples/data/ice_cream.csv"}
+worker_file_conn = {
+    "connection_type": "WORKER_FILE",
+    "file_path": "/home/ubuntu/samples/data/ice_cream.csv",
+}
 
 proc_1 = worker.load(worker_file_conn)
 proc_1.show_head()

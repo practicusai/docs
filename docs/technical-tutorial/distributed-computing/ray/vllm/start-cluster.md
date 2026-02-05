@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -23,9 +23,9 @@ jupyter:
 - If you do not have access to ~/my or ~/shared folders, please check the auto-scaled examples which does not need such drives, but are limited in functionality.
 
 ```python
-worker_size = None
-worker_count = None
-worker_image = "practicus-gpu-ray"
+worker_size = "X-Small"
+worker_count = 2
+worker_image = "practicus-gpu-vllm"
 ```
 
 ```python

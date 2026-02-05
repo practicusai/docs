@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -41,14 +41,26 @@ In local development, you can either export environment variables in your shell 
 
 
 ```python
+langfuse_secret_key = "sk-lf-..."
+langfuse_public_key = "pk-lf-..."
+langfuse_base_url = "https://langfuse.practicus.company.com"
+```
+
+```python
+assert langfuse_secret_key, "Please enter your langfuse_secret_key"
+assert langfuse_public_key, "Please enter your langfuse_public_key"
+assert langfuse_base_url, "Please enter your langfuse_base_url"
+```
+
+```python
 # Configure Langfuse credentials (development example)
 # In production, set these as real environment variables (e.g. Kubernetes secrets).
 
 import os
 
-os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-..."  # replace with your secret key
-os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-..."  # replace with your public key
-os.environ["LANGFUSE_BASE_URL"] = "https://langfuse.practicus.company.com"  # replace with your URL
+os.environ["LANGFUSE_SECRET_KEY"] = langfuse_secret_key  # replace with your secret key
+os.environ["LANGFUSE_PUBLIC_KEY"] = langfuse_public_key  # replace with your public key
+os.environ["LANGFUSE_BASE_URL"] = langfuse_base_url  # replace with your URL
 
 ```
 

@@ -10,28 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/generative-ai/langchain/langchain-basics/">
+        <link rel="canonical" href="https://docs.practicus.ai/technical-tutorial/generative-ai/model-serving/gateway/mcp-gateway/">
       
       
-        <link rel="prev" href="../../model-serving/custom/langchain/build/">
+        <link rel="prev" href="../guardrails-and-policies/">
       
       
-        <link rel="next" href="../streaming/">
+        <link rel="next" href="../../custom/models/build/">
       
       
-      <link rel="icon" href="../../../../img/practicus50.png">
+      <link rel="icon" href="../../../../../img/practicus.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>LangChain Basics - Docs | Practicus AI</title>
+        <title>MCP Gateway - Docs | Practicus AI</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#langchain-pipeline-development" class="md-skip">
+        <a href="#practicus-ai-mcp-gateway" class="md-skip">
           Skip to content
         </a>
       
@@ -102,9 +102,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Docs | Practicus AI" class="md-header__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../../../.." title="Docs | Practicus AI" class="md-header__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
       
-  <img src="../../../../img/practicus50.png" alt="logo">
+  <img src="../../../../../img/practicus.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LangChain Basics
+              MCP Gateway
             
           </span>
         </div>
@@ -225,9 +225,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Docs | Practicus AI" class="md-nav__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
+    <a href="../../../../.." title="Docs | Practicus AI" class="md-nav__button md-logo" aria-label="Docs | Practicus AI" data-md-component="logo">
       
-  <img src="../../../../img/practicus50.png" alt="logo">
+  <img src="../../../../../img/practicus.png" alt="logo">
 
     </a>
     Docs | Practicus AI
@@ -242,7 +242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/" class="md-nav__link">
+      <a href="../../../../../getting-started/" class="md-nav__link">
         
   
   
@@ -286,7 +286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/" class="md-nav__link">
+      <a href="../../../../../tutorials/" class="md-nav__link">
         
   
   
@@ -386,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/introduction/" class="md-nav__link">
+      <a href="../../../../getting-started/introduction/" class="md-nav__link">
         
   
   
@@ -409,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/workers/" class="md-nav__link">
+      <a href="../../../../getting-started/workers/" class="md-nav__link">
         
   
   
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/workspaces/" class="md-nav__link">
+      <a href="../../../../getting-started/workspaces/" class="md-nav__link">
         
   
   
@@ -455,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/add-ons/" class="md-nav__link">
+      <a href="../../../../getting-started/add-ons/" class="md-nav__link">
         
   
   
@@ -526,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/" class="md-nav__link">
+      <a href="../../../introduction/" class="md-nav__link">
         
   
   
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apps/build/" class="md-nav__link">
+      <a href="../../../apps/build/" class="md-nav__link">
         
   
   
@@ -615,18 +615,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
@@ -642,7 +644,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2_3">
             <span class="md-nav__icon md-icon"></span>
             Model Serving
@@ -694,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-serving/llm/model-serving/" class="md-nav__link">
+      <a href="../../llm/model-serving/" class="md-nav__link">
         
   
   
@@ -722,18 +724,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2_3_2" id="__nav_4_2_3_2_label" tabindex="0">
@@ -749,7 +753,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2_3_2">
             <span class="md-nav__icon md-icon"></span>
             Gateway
@@ -763,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-serving/gateway/model-gateway/" class="md-nav__link">
+      <a href="../model-gateway/" class="md-nav__link">
         
   
   
@@ -786,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-serving/gateway/guardrails-and-policies/" class="md-nav__link">
+      <a href="../guardrails-and-policies/" class="md-nav__link">
         
   
   
@@ -797,6 +801,98 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    MCP Gateway
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Gateway
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you get
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-gatewayconfig-with-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a GatewayConfig with MCP servers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-your-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use your MCP servers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -893,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-serving/custom/models/build/" class="md-nav__link">
+      <a href="../../custom/models/build/" class="md-nav__link">
         
   
   
@@ -962,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-serving/custom/embeddings/build/" class="md-nav__link">
+      <a href="../../custom/embeddings/build/" class="md-nav__link">
         
   
   
@@ -1031,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../model-serving/custom/langchain/build/" class="md-nav__link">
+      <a href="../../custom/langchain/build/" class="md-nav__link">
         
   
   
@@ -1075,20 +1171,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4" >
         
           
           <label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
@@ -1096,7 +1190,7 @@
   
   
   <span class="md-ellipsis">
-    LangChain
+    Vector Databases
     
   </span>
   
@@ -1104,10 +1198,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2_4">
             <span class="md-nav__icon md-icon"></span>
-            LangChain
+            Vector Databases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1115,89 +1209,15 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    LangChain Basics
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    LangChain Basics
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#received-json-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Received json response:
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../streaming/" class="md-nav__link">
+      <a href="../../../vector-databases/qdrant/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Streaming
+    Qdrant
     
   </span>
   
@@ -1215,12 +1235,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../embeddings/" class="md-nav__link">
+      <a href="../../../vector-databases/milvus/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Embeddings
+    Milvus
     
   </span>
   
@@ -1262,7 +1282,7 @@
   
   
   <span class="md-ellipsis">
-    Vector Databases
+    Relational Databases
     
   </span>
   
@@ -1273,7 +1293,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2_5">
             <span class="md-nav__icon md-icon"></span>
-            Vector Databases
+            Relational Databases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1284,35 +1304,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vector-databases/qdrant/" class="md-nav__link">
+      <a href="../../../relational-databases/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Qdrant
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../vector-databases/milvus/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Milvus
+    Build
     
   </span>
   
@@ -1354,7 +1351,7 @@
   
   
   <span class="md-ellipsis">
-    Relational Databases
+    Message Queues
     
   </span>
   
@@ -1365,7 +1362,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2_6">
             <span class="md-nav__icon md-icon"></span>
-            Relational Databases
+            Message Queues
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1376,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../relational-databases/build/" class="md-nav__link">
+      <a href="../../../message-queues/build/" class="md-nav__link">
         
   
   
@@ -1423,7 +1420,7 @@
   
   
   <span class="md-ellipsis">
-    Message Queues
+    Agentic AI
     
   </span>
   
@@ -1434,7 +1431,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2_7">
             <span class="md-nav__icon md-icon"></span>
-            Message Queues
+            Agentic AI
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1445,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../message-queues/build/" class="md-nav__link">
+      <a href="../../../agentic-ai/build/" class="md-nav__link">
         
   
   
@@ -1492,7 +1489,7 @@
   
   
   <span class="md-ellipsis">
-    Agentic AI
+    MCP
     
   </span>
   
@@ -1502,75 +1499,6 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2_8">
-            <span class="md-nav__icon md-icon"></span>
-            Agentic AI
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../agentic-ai/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Build
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_2_9" id="__nav_4_2_9_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    MCP
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2_9">
             <span class="md-nav__icon md-icon"></span>
             MCP
           </label>
@@ -1583,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/build/" class="md-nav__link">
+      <a href="../../../mcp/build/" class="md-nav__link">
         
   
   
@@ -1660,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../workflows/introduction/" class="md-nav__link">
+      <a href="../../../../workflows/introduction/" class="md-nav__link">
         
   
   
@@ -1721,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../workflows/tasks/task-basics/" class="md-nav__link">
+      <a href="../../../../workflows/tasks/task-basics/" class="md-nav__link">
         
   
   
@@ -1790,7 +1718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../workflows/airflow/deploying-on-airflow/" class="md-nav__link">
+      <a href="../../../../workflows/airflow/deploying-on-airflow/" class="md-nav__link">
         
   
   
@@ -1859,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../workflows/AI-Studio/generating-wokflows/" class="md-nav__link">
+      <a href="../../../../workflows/AI-Studio/generating-wokflows/" class="md-nav__link">
         
   
   
@@ -1928,7 +1856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../workflows/mlflow/insurance-mlflow/" class="md-nav__link">
+      <a href="../../../../workflows/mlflow/insurance-mlflow/" class="md-nav__link">
         
   
   
@@ -2005,7 +1933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../modeling/introduction/" class="md-nav__link">
+      <a href="../../../../modeling/introduction/" class="md-nav__link">
         
   
   
@@ -2066,7 +1994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../modeling/sample-modeling/build-and-deploy/" class="md-nav__link">
+      <a href="../../../../modeling/sample-modeling/build-and-deploy/" class="md-nav__link">
         
   
   
@@ -2143,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/introduction/" class="md-nav__link">
+      <a href="../../../../distributed-computing/introduction/" class="md-nav__link">
         
   
   
@@ -2242,7 +2170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/spark/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/spark/interactive/start-cluster/" class="md-nav__link">
         
   
   
@@ -2265,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/spark/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/spark/interactive/use-cluster/" class="md-nav__link">
         
   
   
@@ -2334,7 +2262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/spark/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../distributed-computing/spark/batch-job/batch-job/" class="md-nav__link">
         
   
   
@@ -2441,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/spark/auto-scaled/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/spark/auto-scaled/interactive/start-cluster/" class="md-nav__link">
         
   
   
@@ -2464,7 +2392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/spark/auto-scaled/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/spark/auto-scaled/interactive/use-cluster/" class="md-nav__link">
         
   
   
@@ -2533,7 +2461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/spark/auto-scaled/batch/batch-job/" class="md-nav__link">
+      <a href="../../../../distributed-computing/spark/auto-scaled/batch/batch-job/" class="md-nav__link">
         
   
   
@@ -2656,7 +2584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/dask/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/dask/interactive/start-cluster/" class="md-nav__link">
         
   
   
@@ -2679,7 +2607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/dask/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/dask/interactive/use-cluster/" class="md-nav__link">
         
   
   
@@ -2748,7 +2676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/dask/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../distributed-computing/dask/batch-job/batch-job/" class="md-nav__link">
         
   
   
@@ -2817,7 +2745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/dask/distributed-training/xgboost/" class="md-nav__link">
+      <a href="../../../../distributed-computing/dask/distributed-training/xgboost/" class="md-nav__link">
         
   
   
@@ -2932,7 +2860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/deepspeed/basics/intro-to-deepspeed/" class="md-nav__link">
+      <a href="../../../../distributed-computing/deepspeed/basics/intro-to-deepspeed/" class="md-nav__link">
         
   
   
@@ -3001,7 +2929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed/" class="md-nav__link">
+      <a href="../../../../distributed-computing/deepspeed/llm-fine-tuning/llms-with-deepspeed/" class="md-nav__link">
         
   
   
@@ -3116,7 +3044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/ray/interactive/start-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/ray/interactive/start-cluster/" class="md-nav__link">
         
   
   
@@ -3139,7 +3067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/ray/interactive/use-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/ray/interactive/use-cluster/" class="md-nav__link">
         
   
   
@@ -3208,7 +3136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/ray/batch-job/batch-job/" class="md-nav__link">
+      <a href="../../../../distributed-computing/ray/batch-job/batch-job/" class="md-nav__link">
         
   
   
@@ -3277,7 +3205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/ray/modin/start-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/ray/modin/start-cluster/" class="md-nav__link">
         
   
   
@@ -3300,7 +3228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/ray/modin/use-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/ray/modin/use-cluster/" class="md-nav__link">
         
   
   
@@ -3369,7 +3297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/ray/vllm/start-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/ray/vllm/start-cluster/" class="md-nav__link">
         
   
   
@@ -3392,7 +3320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/ray/vllm/use-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/ray/vllm/use-cluster/" class="md-nav__link">
         
   
   
@@ -3469,7 +3397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/custom-adaptor/start-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/custom-adaptor/start-cluster/" class="md-nav__link">
         
   
   
@@ -3492,7 +3420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed-computing/custom-adaptor/use-cluster/" class="md-nav__link">
+      <a href="../../../../distributed-computing/custom-adaptor/use-cluster/" class="md-nav__link">
         
   
   
@@ -3569,7 +3497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../unified-devops/introduction/" class="md-nav__link">
+      <a href="../../../../unified-devops/introduction/" class="md-nav__link">
         
   
   
@@ -3592,7 +3520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../unified-devops/secrets-with-vault/" class="md-nav__link">
+      <a href="../../../../unified-devops/secrets-with-vault/" class="md-nav__link">
         
   
   
@@ -3653,7 +3581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../unified-devops/automated-init/build/" class="md-nav__link">
+      <a href="../../../../unified-devops/automated-init/build/" class="md-nav__link">
         
   
   
@@ -3684,7 +3612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../unified-devops/automated-git-sync/" class="md-nav__link">
+      <a href="../../../../unified-devops/automated-git-sync/" class="md-nav__link">
         
   
   
@@ -3707,7 +3635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../unified-devops/git-integrated-cicd/" class="md-nav__link">
+      <a href="../../../../unified-devops/git-integrated-cicd/" class="md-nav__link">
         
   
   
@@ -3730,7 +3658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../unified-devops/build-custom-images/" class="md-nav__link">
+      <a href="../../../../unified-devops/build-custom-images/" class="md-nav__link">
         
   
   
@@ -3753,7 +3681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../unified-devops/notifications/" class="md-nav__link">
+      <a href="../../../../unified-devops/notifications/" class="md-nav__link">
         
   
   
@@ -3822,7 +3750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/getting-started/" class="md-nav__link">
+      <a href="../../../../operations-guide/getting-started/" class="md-nav__link">
         
   
   
@@ -3845,12 +3773,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/k8s-setup/" class="md-nav__link">
+      <a href="../../../../operations-guide/k8s-setup/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    K8S-Setup
+    K8s-Setup
     
   </span>
   
@@ -3868,7 +3796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/custom-images/" class="md-nav__link">
+      <a href="../../../../operations-guide/custom-images/" class="md-nav__link">
         
   
   
@@ -3891,7 +3819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/users-groups/" class="md-nav__link">
+      <a href="../../../../operations-guide/users-groups/" class="md-nav__link">
         
   
   
@@ -3914,7 +3842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/resource-management/" class="md-nav__link">
+      <a href="../../../../operations-guide/resource-management/" class="md-nav__link">
         
   
   
@@ -3937,7 +3865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/storage/" class="md-nav__link">
+      <a href="../../../../operations-guide/storage/" class="md-nav__link">
         
   
   
@@ -3960,7 +3888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/model-deployment/" class="md-nav__link">
+      <a href="../../../../operations-guide/model-deployment/" class="md-nav__link">
         
   
   
@@ -3983,7 +3911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/app-deployment/" class="md-nav__link">
+      <a href="../../../../operations-guide/app-deployment/" class="md-nav__link">
         
   
   
@@ -4006,7 +3934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/git-configuration/" class="md-nav__link">
+      <a href="../../../../operations-guide/git-configuration/" class="md-nav__link">
         
   
   
@@ -4029,7 +3957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/object-storage/" class="md-nav__link">
+      <a href="../../../../operations-guide/object-storage/" class="md-nav__link">
         
   
   
@@ -4052,7 +3980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/add-on-services/" class="md-nav__link">
+      <a href="../../../../operations-guide/add-on-services/" class="md-nav__link">
         
   
   
@@ -4075,7 +4003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/enterprise-sso/" class="md-nav__link">
+      <a href="../../../../operations-guide/enterprise-sso/" class="md-nav__link">
         
   
   
@@ -4098,7 +4026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/ai-assistants/" class="md-nav__link">
+      <a href="../../../../operations-guide/ai-assistants/" class="md-nav__link">
         
   
   
@@ -4121,7 +4049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/mfa/" class="md-nav__link">
+      <a href="../../../../operations-guide/mfa/" class="md-nav__link">
         
   
   
@@ -4144,7 +4072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/network-security/" class="md-nav__link">
+      <a href="../../../../operations-guide/network-security/" class="md-nav__link">
         
   
   
@@ -4167,7 +4095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/admin-pod-for-user-folder-inspection/" class="md-nav__link">
+      <a href="../../../../operations-guide/admin-pod-for-user-folder-inspection/" class="md-nav__link">
         
   
   
@@ -4190,7 +4118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/automating-kerberos-ticket-renewal-with-cron/" class="md-nav__link">
+      <a href="../../../../operations-guide/automating-kerberos-ticket-renewal-with-cron/" class="md-nav__link">
         
   
   
@@ -4213,7 +4141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/delete-specific-trash-folders/" class="md-nav__link">
+      <a href="../../../../operations-guide/delete-specific-trash-folders/" class="md-nav__link">
         
   
   
@@ -4236,7 +4164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/trino-api-guide/" class="md-nav__link">
+      <a href="../../../../operations-guide/trino-api-guide/" class="md-nav__link">
         
   
   
@@ -4259,7 +4187,30 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../operations-guide/container-images/" class="md-nav__link">
+      <a href="../../../../operations-guide/autoscaling-with-keda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autoscaling With Keda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../operations-guide/container-images/" class="md-nav__link">
         
   
   
@@ -4366,7 +4317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/automate-notebooks/executing-notebooks/" class="md-nav__link">
+      <a href="../../../../how-to/automate-notebooks/executing-notebooks/" class="md-nav__link">
         
   
   
@@ -4435,7 +4386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/improve-code-quality/automated-code-quality/" class="md-nav__link">
+      <a href="../../../../how-to/improve-code-quality/automated-code-quality/" class="md-nav__link">
         
   
   
@@ -4504,7 +4455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/manage-prompts/prompt-management/" class="md-nav__link">
+      <a href="../../../../how-to/manage-prompts/prompt-management/" class="md-nav__link">
         
   
   
@@ -4535,7 +4486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/automate-kerberos-tickets/" class="md-nav__link">
+      <a href="../../../../how-to/automate-kerberos-tickets/" class="md-nav__link">
         
   
   
@@ -4558,7 +4509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/cache-large-model-files/" class="md-nav__link">
+      <a href="../../../../how-to/cache-large-model-files/" class="md-nav__link">
         
   
   
@@ -4581,7 +4532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/change-vs-code-defaults/" class="md-nav__link">
+      <a href="../../../../how-to/change-vs-code-defaults/" class="md-nav__link">
         
   
   
@@ -4604,7 +4555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/configure-advanced-gpu/" class="md-nav__link">
+      <a href="../../../../how-to/configure-advanced-gpu/" class="md-nav__link">
         
   
   
@@ -4627,7 +4578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/configure-workspaces/" class="md-nav__link">
+      <a href="../../../../how-to/configure-workspaces/" class="md-nav__link">
         
   
   
@@ -4650,7 +4601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/create-virtual-envs/" class="md-nav__link">
+      <a href="../../../../how-to/create-virtual-envs/" class="md-nav__link">
         
   
   
@@ -4673,7 +4624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/customize-templates/" class="md-nav__link">
+      <a href="../../../../how-to/customize-templates/" class="md-nav__link">
         
   
   
@@ -4696,7 +4647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/hosting-temporary-apis/" class="md-nav__link">
+      <a href="../../../../how-to/hosting-temporary-apis/" class="md-nav__link">
         
   
   
@@ -4719,7 +4670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/integrate-git/" class="md-nav__link">
+      <a href="../../../../how-to/integrate-git/" class="md-nav__link">
         
   
   
@@ -4742,7 +4693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/mcp-langgraph/" class="md-nav__link">
+      <a href="../../../../how-to/mcp-langgraph/" class="md-nav__link">
         
   
   
@@ -4765,7 +4716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/model-tokens/" class="md-nav__link">
+      <a href="../../../../how-to/model-tokens/" class="md-nav__link">
         
   
   
@@ -4788,7 +4739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/personal-startup-scripts/" class="md-nav__link">
+      <a href="../../../../how-to/personal-startup-scripts/" class="md-nav__link">
         
   
   
@@ -4811,7 +4762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/share-workers/" class="md-nav__link">
+      <a href="../../../../how-to/share-workers/" class="md-nav__link">
         
   
   
@@ -4834,7 +4785,30 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/use-custom-metrics/" class="md-nav__link">
+      <a href="../../../../how-to/upload-files-with-apphost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upload Files With Apphost
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to/use-custom-metrics/" class="md-nav__link">
         
   
   
@@ -4857,7 +4831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/use-graph-databases/" class="md-nav__link">
+      <a href="../../../../how-to/use-graph-databases/" class="md-nav__link">
         
   
   
@@ -4880,7 +4854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/use-polars/" class="md-nav__link">
+      <a href="../../../../how-to/use-polars/" class="md-nav__link">
         
   
   
@@ -4903,7 +4877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/use-security-tokens/" class="md-nav__link">
+      <a href="../../../../how-to/use-security-tokens/" class="md-nav__link">
         
   
   
@@ -4926,7 +4900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/view-stats/" class="md-nav__link">
+      <a href="../../../../how-to/view-stats/" class="md-nav__link">
         
   
   
@@ -4949,7 +4923,30 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/work-with-connections/" class="md-nav__link">
+      <a href="../../../../how-to/vs-code-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vs Code Extensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to/work-with-connections/" class="md-nav__link">
         
   
   
@@ -4972,7 +4969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/work-with-data-catalog/" class="md-nav__link">
+      <a href="../../../../how-to/work-with-data-catalog/" class="md-nav__link">
         
   
   
@@ -4995,7 +4992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to/work-with-processes/" class="md-nav__link">
+      <a href="../../../../how-to/work-with-processes/" class="md-nav__link">
         
   
   
@@ -5102,7 +5099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/AutoML/" class="md-nav__link">
+      <a href="../../../../extras/modeling/AutoML/" class="md-nav__link">
         
   
   
@@ -5163,7 +5160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/data-mining/pattern-mining/" class="md-nav__link">
+      <a href="../../../../extras/modeling/data-mining/pattern-mining/" class="md-nav__link">
         
   
   
@@ -5270,7 +5267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/examples/bank-marketing/bank-marketing/" class="md-nav__link">
+      <a href="../../../../extras/modeling/examples/bank-marketing/bank-marketing/" class="md-nav__link">
         
   
   
@@ -5347,7 +5344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/model-observability/model-observability/" class="md-nav__link">
+      <a href="../../../../extras/modeling/model-observability/model-observability/" class="md-nav__link">
         
   
   
@@ -5454,7 +5451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging/" class="md-nav__link">
+      <a href="../../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-logging/" class="md-nav__link">
         
   
   
@@ -5477,7 +5474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-model-training/" class="md-nav__link">
+      <a href="../../../../extras/modeling/model-tracking/experiment-tracking/experiment-tracking-model-training/" class="md-nav__link">
         
   
   
@@ -5546,7 +5543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/model-tracking/model-drift/model-drift/" class="md-nav__link">
+      <a href="../../../../extras/modeling/model-tracking/model-drift/model-drift/" class="md-nav__link">
         
   
   
@@ -5585,7 +5582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/shap-analysis/" class="md-nav__link">
+      <a href="../../../../extras/modeling/shap-analysis/" class="md-nav__link">
         
   
   
@@ -5684,7 +5681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/sparkml/ice-cream/sparkml-ice-cream/" class="md-nav__link">
+      <a href="../../../../extras/modeling/sparkml/ice-cream/sparkml-ice-cream/" class="md-nav__link">
         
   
   
@@ -5753,7 +5750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/sparkml/spark-for-ds/spark-tutorial/" class="md-nav__link">
+      <a href="../../../../extras/modeling/sparkml/spark-for-ds/spark-tutorial/" class="md-nav__link">
         
   
   
@@ -5822,7 +5819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/sparkml/spark-with-job/batch-job/" class="md-nav__link">
+      <a href="../../../../extras/modeling/sparkml/spark-with-job/batch-job/" class="md-nav__link">
         
   
   
@@ -5899,7 +5896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/xgboost/xgboost/" class="md-nav__link">
+      <a href="../../../../extras/modeling/xgboost/xgboost/" class="md-nav__link">
         
   
   
@@ -5968,7 +5965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/modeling/zip-unzip/zip-unzip/" class="md-nav__link">
+      <a href="../../../../extras/modeling/zip-unzip/zip-unzip/" class="md-nav__link">
         
   
   
@@ -6045,7 +6042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/workflows/api-triggers-for-airflow/" class="md-nav__link">
+      <a href="../../../../extras/workflows/api-triggers-for-airflow/" class="md-nav__link">
         
   
   
@@ -6106,7 +6103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/workflows/run-task-safe/deploy/" class="md-nav__link">
+      <a href="../../../../extras/workflows/run-task-safe/deploy/" class="md-nav__link">
         
   
   
@@ -6137,7 +6134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/workflows/task-parameters/" class="md-nav__link">
+      <a href="../../../../extras/workflows/task-parameters/" class="md-nav__link">
         
   
   
@@ -6198,7 +6195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/workflows/task-runnner-app/build/" class="md-nav__link">
+      <a href="../../../../extras/workflows/task-runnner-app/build/" class="md-nav__link">
         
   
   
@@ -6291,7 +6288,7 @@
   
   
   <span class="md-ellipsis">
-    Advanced LangChain
+    Agentic Use Cases
     
   </span>
   
@@ -6302,7 +6299,45 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_1">
             <span class="md-nav__icon md-icon"></span>
-            Advanced LangChain
+            Agentic Use Cases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_1_1" id="__nav_4_9_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Growth Strategist
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Growth Strategist
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6313,17 +6348,301 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/advanced-langchain/lang-chain-llm-model/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/agentic-use-cases/growth-strategist/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Lang Chain LLM Model
+    Build
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_1_2" id="__nav_4_9_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hr
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hr
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/agentic-use-cases/hr/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_1_3" id="__nav_4_9_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Inventroy
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Inventroy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/agentic-use-cases/inventroy/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_1_4" id="__nav_4_9_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Product Rec
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Product Rec
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/agentic-use-cases/product-rec/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_1_5" id="__nav_4_9_3_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Retention Strategist
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Retention Strategist
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/agentic-use-cases/retention-strategist/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -6360,7 +6679,7 @@
   
   
   <span class="md-ellipsis">
-    Agentic Use Cases
+    AI Assistants
     
   </span>
   
@@ -6371,45 +6690,7 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_2">
             <span class="md-nav__icon md-icon"></span>
-            Agentic Use Cases
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_2_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_2_1" id="__nav_4_9_3_2_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Growth Strategist
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            Growth Strategist
+            AI Assistants
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6420,301 +6701,17 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/agentic-use-cases/growth-strategist/build/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/ai-assistants/ai-assistants/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Build
+    AI Assistants
     
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_2_2" id="__nav_4_9_3_2_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Hr
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            Hr
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/agentic-use-cases/hr/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Build
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_2_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_2_3" id="__nav_4_9_3_2_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Inventroy
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            Inventroy
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/agentic-use-cases/inventroy/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Build
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_2_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_2_4" id="__nav_4_9_3_2_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Product Rec
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_2_4">
-            <span class="md-nav__icon md-icon"></span>
-            Product Rec
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/agentic-use-cases/product-rec/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Build
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_2_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_2_5" id="__nav_4_9_3_2_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Retention Strategist
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_2_5">
-            <span class="md-nav__icon md-icon"></span>
-            Retention Strategist
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/agentic-use-cases/retention-strategist/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Build
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -6751,7 +6748,7 @@
   
   
   <span class="md-ellipsis">
-    AI Assistants
+    Databases
     
   </span>
   
@@ -6762,7 +6759,7 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_3">
             <span class="md-nav__icon md-icon"></span>
-            AI Assistants
+            Databases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6773,12 +6770,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/ai-assistants/ai-assistants/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/databases/using-databases/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    AI Assistants
+    Using Databases
     
   </span>
   
@@ -6820,7 +6817,7 @@
   
   
   <span class="md-ellipsis">
-    Databases
+    Deploying LLM
     
   </span>
   
@@ -6831,7 +6828,7 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_4">
             <span class="md-nav__icon md-icon"></span>
-            Databases
+            Deploying LLM
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6842,17 +6839,523 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/databases/using-databases/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/deploying-llm/Introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Using Databases
+    Introduction
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_4_2" id="__nav_4_9_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Preparation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Preparation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/Preparation/Model-Download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/Preparation/Upload-LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upload LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_4_3" id="__nav_4_9_3_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Basic Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Basic Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/model-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Json
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/basic-deployment/consume-parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consume Parallel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_4_4" id="__nav_4_9_3_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LangChain Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            LangChain Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/model-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Json
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/langchain-deployment/consume-parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consume Parallel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_4_5" id="__nav_4_9_3_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Combined Method
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Combined Method
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/model-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Json
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/deploying-llm/combined-method/consume-parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consume Parallel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -6889,7 +7392,7 @@
   
   
   <span class="md-ellipsis">
-    Deploying LLM
+    Examples
     
   </span>
   
@@ -6900,7 +7403,45 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_5">
             <span class="md-nav__icon md-icon"></span>
-            Deploying LLM
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_5_1" id="__nav_4_9_3_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cv Assistant
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cv Assistant
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6911,17 +7452,25 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/Introduction/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/examples/cv-assistant/cv-assistant/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Introduction
+    Cv Assistant
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -6950,7 +7499,7 @@
   
   
   <span class="md-ellipsis">
-    Preparation
+    Ecomm-Sdk
     
   </span>
   
@@ -6961,7 +7510,7 @@
         <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_5_2">
             <span class="md-nav__icon md-icon"></span>
-            Preparation
+            Ecomm-Sdk
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6972,35 +7521,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/Preparation/Model-Download/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/examples/ecomm-sdk/memory-chabot/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Model Download
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/Preparation/Upload-LLM/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Upload LLM
+    Memory Chabot
     
   </span>
   
@@ -7042,7 +7568,7 @@
   
   
   <span class="md-ellipsis">
-    Basic Deployment
+    Email E Assistant
     
   </span>
   
@@ -7053,7 +7579,7 @@
         <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_5_3">
             <span class="md-nav__icon md-icon"></span>
-            Basic Deployment
+            Email E Assistant
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -7064,81 +7590,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/basic-deployment/model/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/examples/email-e-assistant/mail-e-assistant/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Model
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/basic-deployment/model-json/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Model Json
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/basic-deployment/deploy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Deploy
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/basic-deployment/consume-parallel/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Consume Parallel
+    Mail E-Assistant
     
   </span>
   
@@ -7180,7 +7637,7 @@
   
   
   <span class="md-ellipsis">
-    LangChain Deployment
+    Memory-Chatbot-Sdk
     
   </span>
   
@@ -7191,7 +7648,7 @@
         <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_5_4">
             <span class="md-nav__icon md-icon"></span>
-            LangChain Deployment
+            Memory-Chatbot-Sdk
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -7202,12 +7659,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/langchain-deployment/model/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/examples/memory-chatbot-sdk/chatbot-console-openai/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Model
+    Chatbot-Console-OpenAI
     
   </span>
   
@@ -7224,13 +7681,51 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_5_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_5_4_2" id="__nav_4_9_3_5_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stream Chatbot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_9_3_5_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_5_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stream Chatbot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/langchain-deployment/model-json/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/examples/memory-chatbot-sdk/stream-chatbot/memory-chabot/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Model Json
+    Memory Chabot
     
   </span>
   
@@ -7241,47 +7736,9 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/langchain-deployment/deploy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Deploy
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/langchain-deployment/consume-parallel/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Consume Parallel
-    
-  </span>
-  
-
-      </a>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -7318,7 +7775,7 @@
   
   
   <span class="md-ellipsis">
-    Combined Method
+    Mobile-Banking
     
   </span>
   
@@ -7329,7 +7786,7 @@
         <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_5_5">
             <span class="md-nav__icon md-icon"></span>
-            Combined Method
+            Mobile-Banking
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -7340,17 +7797,25 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/combined-method/model/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/examples/mobile-banking/mobile-banking/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Model
+    Mobile-Banking
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -7362,22 +7827,37 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/combined-method/model-json/" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_5_6" id="__nav_4_9_3_5_6_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
-    Model Json
+    Prtchatbot
     
   </span>
   
 
-      </a>
-    </li>
-  
-
-              
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Prtchatbot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -7386,35 +7866,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/combined-method/deploy/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/examples/prtchatbot/prtchatbot/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Deploy
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/deploying-llm/combined-method/consume-parallel/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Consume Parallel
+    Prtchatbot
     
   </span>
   
@@ -7464,7 +7921,7 @@
   
   
   <span class="md-ellipsis">
-    Examples
+    LangChain
     
   </span>
   
@@ -7475,45 +7932,7 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_6">
             <span class="md-nav__icon md-icon"></span>
-            Examples
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_6_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_6_1" id="__nav_4_9_3_6_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Cv Assistant
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_6_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_6_1">
-            <span class="md-nav__icon md-icon"></span>
-            Cv Assistant
+            LangChain
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -7524,439 +7943,17 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/examples/cv-assistant/cv-assistant/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/langchain/lang-chain-llm-model/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Cv Assistant
+    Lang Chain LLM Model
     
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_6_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_6_2" id="__nav_4_9_3_6_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Ecomm-Sdk
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_6_2">
-            <span class="md-nav__icon md-icon"></span>
-            Ecomm-Sdk
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/examples/ecomm-sdk/memory-chabot/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Memory Chabot
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_6_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_6_3" id="__nav_4_9_3_6_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Email E Assistant
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_6_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_6_3">
-            <span class="md-nav__icon md-icon"></span>
-            Email E Assistant
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/examples/email-e-assistant/mail-e-assistant/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mail E-Assistant
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_6_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_6_4" id="__nav_4_9_3_6_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Memory-Chatbot-Sdk
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_6_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_6_4">
-            <span class="md-nav__icon md-icon"></span>
-            Memory-Chatbot-Sdk
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/examples/memory-chatbot-sdk/chatbot-console-openai/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Chatbot-Console-OpenAI
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_6_4_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_6_4_2" id="__nav_4_9_3_6_4_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Stream Chatbot
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_9_3_6_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_6_4_2">
-            <span class="md-nav__icon md-icon"></span>
-            Stream Chatbot
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/examples/memory-chatbot-sdk/stream-chatbot/memory-chabot/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Memory Chabot
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_6_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_6_5" id="__nav_4_9_3_6_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Mobile-Banking
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_6_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_6_5">
-            <span class="md-nav__icon md-icon"></span>
-            Mobile-Banking
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/examples/mobile-banking/mobile-banking/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mobile-Banking
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_6_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_6_6" id="__nav_4_9_3_6_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Prtchatbot
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_6_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_6_6">
-            <span class="md-nav__icon md-icon"></span>
-            Prtchatbot
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/examples/prtchatbot/prtchatbot/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Prtchatbot
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -7993,7 +7990,7 @@
   
   
   <span class="md-ellipsis">
-    Langflow Apis
+    LangChain Legacy
     
   </span>
   
@@ -8003,6 +8000,190 @@
         
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            LangChain Legacy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/langchain-legacy/langchain-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LangChain Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/langchain-legacy/streaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/langchain-legacy/embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Embeddings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_7_4" id="__nav_4_9_3_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LangChain Serving
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            LangChain Serving
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/langchain-legacy/langchain-serving/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_8" id="__nav_4_9_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Langflow Apis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_8">
             <span class="md-nav__icon md-icon"></span>
             Langflow Apis
           </label>
@@ -8015,7 +8196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/langflow-apis/langflow-api/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/langflow-apis/langflow-api/" class="md-nav__link">
         
   
   
@@ -8054,10 +8235,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_9" >
         
           
-          <label class="md-nav__link" for="__nav_4_9_3_8" id="__nav_4_9_3_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_9_3_9" id="__nav_4_9_3_9_label" tabindex="0">
             
   
   
@@ -8070,8 +8251,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_8">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_9">
             <span class="md-nav__icon md-icon"></span>
             LLM Apps
           </label>
@@ -8092,10 +8273,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_8_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_9_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_9_3_8_1" id="__nav_4_9_3_8_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_9_3_9_1" id="__nav_4_9_3_9_1_label" tabindex="0">
             
   
   
@@ -8108,8 +8289,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_8_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_8_1">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_9_1">
             <span class="md-nav__icon md-icon"></span>
             API LLM Apphost
           </label>
@@ -8122,7 +8303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-apps/api-llm-apphost/build/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-apps/api-llm-apphost/build/" class="md-nav__link">
         
   
   
@@ -8161,10 +8342,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_8_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_9_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_9_3_8_2" id="__nav_4_9_3_8_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_9_3_9_2" id="__nav_4_9_3_9_2_label" tabindex="0">
             
   
   
@@ -8177,8 +8358,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_8_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_8_2">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_9_2">
             <span class="md-nav__icon md-icon"></span>
             Sdk LLM Apphost
           </label>
@@ -8199,10 +8380,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_8_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_9_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_9_3_8_2_1" id="__nav_4_9_3_8_2_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_9_3_9_2_1" id="__nav_4_9_3_9_2_1_label" tabindex="0">
             
   
   
@@ -8215,8 +8396,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_9_3_8_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_8_2_1">
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_4_9_3_9_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_9_2_1">
             <span class="md-nav__icon md-icon"></span>
             Non-Stream
           </label>
@@ -8229,7 +8410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-apps/sdk-llm-apphost/non-stream/sdk-streamlit-hosting/" class="md-nav__link">
         
   
   
@@ -8276,10 +8457,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_9_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_9_3_8_3" id="__nav_4_9_3_8_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_9_3_9_3" id="__nav_4_9_3_9_3_label" tabindex="0">
             
   
   
@@ -8292,8 +8473,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_8_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_8_3">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_9_3_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_9_3">
             <span class="md-nav__icon md-icon"></span>
             Langflow LLM Apphost
           </label>
@@ -8306,7 +8487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-apps/langflow-llm-apphost/langflow-streamlit-hosting/" class="md-nav__link">
         
   
   
@@ -8353,10 +8534,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_10" >
         
           
-          <label class="md-nav__link" for="__nav_4_9_3_9" id="__nav_4_9_3_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_9_3_10" id="__nav_4_9_3_10_label" tabindex="0">
             
   
   
@@ -8369,8 +8550,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_9">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_10">
             <span class="md-nav__icon md-icon"></span>
             LLM Evaluation
           </label>
@@ -8383,7 +8564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-evaluation/Overview/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-evaluation/Overview/" class="md-nav__link">
         
   
   
@@ -8406,7 +8587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-evaluation/ROGUE/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-evaluation/ROGUE/" class="md-nav__link">
         
   
   
@@ -8429,7 +8610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-evaluation/BLEU/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-evaluation/BLEU/" class="md-nav__link">
         
   
   
@@ -8452,7 +8633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-evaluation/BLEURT/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-evaluation/BLEURT/" class="md-nav__link">
         
   
   
@@ -8475,7 +8656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-evaluation/BERTScore/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-evaluation/BERTScore/" class="md-nav__link">
         
   
   
@@ -8498,7 +8679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-evaluation/METEOR/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-evaluation/METEOR/" class="md-nav__link">
         
   
   
@@ -8521,81 +8702,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/llm-evaluation/Perplexity/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/llm-evaluation/Perplexity/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Perplexity
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_9_3_10" id="__nav_4_9_3_10_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Milvus Embedding And LangChain
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9_3_10">
-            <span class="md-nav__icon md-icon"></span>
-            Milvus Embedding And LangChain
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/milvus-embedding-and-langchain/milvus-chain/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Milvus Chain
     
   </span>
   
@@ -8637,7 +8749,7 @@
   
   
   <span class="md-ellipsis">
-    Vector Visualization
+    Milvus Embedding And LangChain
     
   </span>
   
@@ -8647,6 +8759,75 @@
         
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_9_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            Milvus Embedding And LangChain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../extras/generative-ai/milvus-embedding-and-langchain/milvus-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Milvus Chain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_12" id="__nav_4_9_3_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vector Visualization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_12">
             <span class="md-nav__icon md-icon"></span>
             Vector Visualization
           </label>
@@ -8659,7 +8840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/generative-ai/vector-visualization/build/" class="md-nav__link">
+      <a href="../../../../extras/generative-ai/vector-visualization/build/" class="md-nav__link">
         
   
   
@@ -8774,7 +8955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-analysis/plot/introduction/" class="md-nav__link">
+      <a href="../../../../extras/data-analysis/plot/introduction/" class="md-nav__link">
         
   
   
@@ -8797,7 +8978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-analysis/plot/multiple-layers/" class="md-nav__link">
+      <a href="../../../../extras/data-analysis/plot/multiple-layers/" class="md-nav__link">
         
   
   
@@ -8866,7 +9047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-analysis/eda/analyze/" class="md-nav__link">
+      <a href="../../../../extras/data-analysis/eda/analyze/" class="md-nav__link">
         
   
   
@@ -8935,7 +9116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-analysis/drill-down/analyze/" class="md-nav__link">
+      <a href="../../../../extras/data-analysis/drill-down/analyze/" class="md-nav__link">
         
   
   
@@ -9050,7 +9231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-processing/pre-process-data/preprocess/" class="md-nav__link">
+      <a href="../../../../extras/data-processing/pre-process-data/preprocess/" class="md-nav__link">
         
   
   
@@ -9119,7 +9300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-processing/process-data/insurance/" class="md-nav__link">
+      <a href="../../../../extras/data-processing/process-data/insurance/" class="md-nav__link">
         
   
   
@@ -9142,7 +9323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-processing/process-data/insurance-with-remote-worker/" class="md-nav__link">
+      <a href="../../../../extras/data-processing/process-data/insurance-with-remote-worker/" class="md-nav__link">
         
   
   
@@ -9165,7 +9346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-processing/process-data/spark-custom-config/" class="md-nav__link">
+      <a href="../../../../extras/data-processing/process-data/spark-custom-config/" class="md-nav__link">
         
   
   
@@ -9188,7 +9369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/data-processing/process-data/spark-object-storage/" class="md-nav__link">
+      <a href="../../../../extras/data-processing/process-data/spark-object-storage/" class="md-nav__link">
         
   
   
@@ -9303,7 +9484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../extras/big-data-analytics/trino/trino-iceberg-API-integration/" class="md-nav__link">
+      <a href="../../../../extras/big-data-analytics/trino/trino-iceberg-API-integration/" class="md-nav__link">
         
   
   
@@ -9395,7 +9576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/start/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/start/" class="md-nav__link">
         
   
   
@@ -9418,7 +9599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/data-analysis-intro/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/data-analysis-intro/" class="md-nav__link">
         
   
   
@@ -9441,7 +9622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/plot/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/plot/" class="md-nav__link">
         
   
   
@@ -9464,7 +9645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/data-prep-intro/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/data-prep-intro/" class="md-nav__link">
         
   
   
@@ -9487,7 +9668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/snippets/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/snippets/" class="md-nav__link">
         
   
   
@@ -9510,7 +9691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/Workflow/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/Workflow/" class="md-nav__link">
         
   
   
@@ -9533,7 +9714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/worker-node-intro/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/worker-node-intro/" class="md-nav__link">
         
   
   
@@ -9556,7 +9737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/explore/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/explore/" class="md-nav__link">
         
   
   
@@ -9579,7 +9760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/data-profiling/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/data-profiling/" class="md-nav__link">
         
   
   
@@ -9602,7 +9783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/model/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/model/" class="md-nav__link">
         
   
   
@@ -9625,7 +9806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/Experiment-Service/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/Experiment-Service/" class="md-nav__link">
         
   
   
@@ -9648,7 +9829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/predict/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/predict/" class="md-nav__link">
         
   
   
@@ -9671,7 +9852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/sql/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/sql/" class="md-nav__link">
         
   
   
@@ -9694,7 +9875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/chatgpt/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/chatgpt/" class="md-nav__link">
         
   
   
@@ -9717,7 +9898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/develop_ml_models/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/develop_ml_models/" class="md-nav__link">
         
   
   
@@ -9740,7 +9921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ai-studio-tutorial/next-steps/" class="md-nav__link">
+      <a href="../../../../../ai-studio-tutorial/next-steps/" class="md-nav__link">
         
   
   
@@ -9770,7 +9951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../sdk/practicuscore.html" class="md-nav__link">
+      <a href="../../../../../sdk/practicuscore.html" class="md-nav__link">
         
   
   
@@ -9830,7 +10011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/setup-guide/" class="md-nav__link">
+      <a href="../../../../../legacy/setup-guide/" class="md-nav__link">
         
   
   
@@ -9891,7 +10072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/mlops/" class="md-nav__link">
+      <a href="../../../../../legacy/mlops/" class="md-nav__link">
         
   
   
@@ -9914,7 +10095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/model-api/" class="md-nav__link">
+      <a href="../../../../../legacy/model-api/" class="md-nav__link">
         
   
   
@@ -9983,7 +10164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/modern-data-pipelines/" class="md-nav__link">
+      <a href="../../../../../legacy/modern-data-pipelines/" class="md-nav__link">
         
   
   
@@ -10006,7 +10187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/code-export/" class="md-nav__link">
+      <a href="../../../../../legacy/code-export/" class="md-nav__link">
         
   
   
@@ -10029,7 +10210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/airflow/" class="md-nav__link">
+      <a href="../../../../../legacy/airflow/" class="md-nav__link">
         
   
   
@@ -10060,7 +10241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/explore/" class="md-nav__link">
+      <a href="../../../../../legacy/explore/" class="md-nav__link">
         
   
   
@@ -10083,7 +10264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/cloud/" class="md-nav__link">
+      <a href="../../../../../legacy/cloud/" class="md-nav__link">
         
   
   
@@ -10106,7 +10287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/analyze/" class="md-nav__link">
+      <a href="../../../../../legacy/analyze/" class="md-nav__link">
         
   
   
@@ -10129,7 +10310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/model/" class="md-nav__link">
+      <a href="../../../../../legacy/model/" class="md-nav__link">
         
   
   
@@ -10190,7 +10371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/prepare/" class="md-nav__link">
+      <a href="../../../../../legacy/prepare/" class="md-nav__link">
         
   
   
@@ -10213,7 +10394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/excel-prep/" class="md-nav__link">
+      <a href="../../../../../legacy/excel-prep/" class="md-nav__link">
         
   
   
@@ -10236,7 +10417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/join/" class="md-nav__link">
+      <a href="../../../../../legacy/join/" class="md-nav__link">
         
   
   
@@ -10305,7 +10486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/predict/" class="md-nav__link">
+      <a href="../../../../../legacy/predict/" class="md-nav__link">
         
   
   
@@ -10328,7 +10509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/excel-predict/" class="md-nav__link">
+      <a href="../../../../../legacy/excel-predict/" class="md-nav__link">
         
   
   
@@ -10359,7 +10540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/aws-iam/" class="md-nav__link">
+      <a href="../../../../../legacy/aws-iam/" class="md-nav__link">
         
   
   
@@ -10382,7 +10563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/logging/" class="md-nav__link">
+      <a href="../../../../../legacy/logging/" class="md-nav__link">
         
   
   
@@ -10443,7 +10624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/sdk-start/" class="md-nav__link">
+      <a href="../../../../../legacy/sdk-start/" class="md-nav__link">
         
   
   
@@ -10466,7 +10647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/data-prep/" class="md-nav__link">
+      <a href="../../../../../legacy/data-prep/" class="md-nav__link">
         
   
   
@@ -10489,7 +10670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/share-models/" class="md-nav__link">
+      <a href="../../../../../legacy/share-models/" class="md-nav__link">
         
   
   
@@ -10512,7 +10693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/api-reference/" class="md-nav__link">
+      <a href="../../../../../legacy/api-reference/" class="md-nav__link">
         
   
   
@@ -10535,7 +10716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/advanced/" class="md-nav__link">
+      <a href="../../../../../legacy/advanced/" class="md-nav__link">
         
   
   
@@ -10589,7 +10770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../legacy/feedback/" class="md-nav__link">
+      <a href="../../../../../legacy/feedback/" class="md-nav__link">
         
   
   
@@ -10639,9 +10820,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#received-json-response" class="md-nav__link">
+  <a href="#what-you-get" class="md-nav__link">
     <span class="md-ellipsis">
-      Received json response:
+      What you get
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-gatewayconfig-with-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a GatewayConfig with MCP servers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-your-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use your MCP servers
     </span>
   </a>
   
@@ -10663,83 +10862,100 @@
 
 
 
-<h1 id="langchain-pipeline-development">LangChain Pipeline Development</h1>
-<p>The <code>ChatPracticus</code> library seamlessly integrates Practicus AI’s hosted private LLM models into the <a href="https://github.com/langchain-ai/langchain">LangChain</a> framework. This allows you to easily interact with language models that are privately hosted and secured within the Practicus AI environment.</p>
-<p>To get started with <code>ChatPracticus</code>, you will need the following parameters:</p>
+<h1 id="practicus-ai-mcp-gateway">Practicus AI MCP Gateway</h1>
+<p>This example shows how to configure LiteLLM's MCP Gateway features using in Practicus AI,</p>
+<h2 id="what-you-get">What you get</h2>
 <ul>
-<li><strong>endpoint_url:</strong> The API endpoint for the LLM model host.</li>
-<li><strong>api_token:</strong> A secret key required to authenticate with the model host API.</li>
-<li><strong>model_id:</strong> The identifier of the target LLM model.</li>
+<li>Define MCP servers in Python (<code>GatewayMcpServer</code>)</li>
+<li>Attach them to <code>GatewayConfig</code></li>
+<li>Start gateway with <code>ModelServer.start_gateway(config=...)</code></li>
+<li>LiteLLM runs with a generated YAML</li>
+<li>For more information on MCP gateway configuration, please visit <a href="https://docs.litellm.ai/docs/mcp">https://docs.litellm.ai/docs/mcp</a></li>
 </ul>
-<p>Once these parameters are set, you can define a <code>chat</code> instance using <code>ChatPracticus</code> and invoke it with any prompt of your choice.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">model_name</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">model_prefix</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">host</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># e.g. &#39;practicus.company.com&#39;</span>
+<h2 id="build-a-gatewayconfig-with-mcp-servers">Build a GatewayConfig with MCP servers</h2>
+<p>Below is the minimal shape:
+- <code>models</code>: your normal LiteLLM model list (can be empty if you only want MCP, if your validator allows)
+- <code>mcp_servers</code>: list of MCP servers
+- <code>mcp_aliases</code>: optional alias mapping for client headers
+- <code>enable_mcp_registry</code>: optional to serve a registry endpoint</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Sample model.py</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Example token (do NOT hardcode in production)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">demo_token</span> <span class="o">=</span> <span class="s2">&quot;demo_bearer_token_value&quot;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">mcp_server</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">GatewayMcpServer</span><span class="p">(</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-mcp&quot;</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;sse&quot;</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://mcp.example.com/mcp&quot;</span><span class="p">,</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">auth_type</span><span class="o">=</span><span class="s2">&quot;bearer_token&quot;</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">auth_value</span><span class="o">=</span><span class="n">demo_token</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c1"># Optional filtering</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">allowed_tools</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="s2">&quot;lookup&quot;</span><span class="p">],</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Token from OS env</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;MY_MCP_TOKEN&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;demo_token_from_env&quot;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">mcp_server_env</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">GatewayMcpServer</span><span class="p">(</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my-mcp-env&quot;</span><span class="p">,</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;sse&quot;</span><span class="p">,</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://mcp.example.com/mcp&quot;</span><span class="p">,</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="n">auth_type</span><span class="o">=</span><span class="s2">&quot;bearer_token&quot;</span><span class="p">,</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="n">auth_value_os_env</span><span class="o">=</span><span class="s2">&quot;MY_MCP_TOKEN&quot;</span><span class="p">,</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="p">)</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1"># Minimal example model (adjust to your real models)</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1"># model = GatewayModel(</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="c1">#     name=&quot;practicus/demo&quot;,</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1">#     model=&quot;openai/gpt-4o-mini&quot;,</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="c1">#     api_key_os_env=&quot;OPENAI_API_KEY&quot;,</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="c1"># )</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="n">gateway_conf</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">GatewayConfig</span><span class="p">(</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    <span class="n">models</span><span class="o">=</span><span class="p">[],</span>  <span class="c1"># replace with [model] in real usage</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    <span class="n">mcp_servers</span><span class="o">=</span><span class="p">[</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>        <span class="n">mcp_server</span><span class="p">,</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>        <span class="n">mcp_server_env</span><span class="p">,</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    <span class="p">],</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    <span class="n">mcp_aliases</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        <span class="c1"># Client may send x-mcp-servers: alias1,alias2</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>        <span class="c1"># and LiteLLM maps alias -&gt; server name</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>        <span class="s2">&quot;alias_my&quot;</span><span class="p">:</span> <span class="s2">&quot;my-mcp-env&quot;</span><span class="p">,</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>    <span class="p">},</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="p">)</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>    <span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">start_gateway</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">gateway_conf</span><span class="p">)</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">serve</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    <span class="k">return</span> <span class="k">await</span> <span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span></code></pre></div>
+<h2 id="how-to-use-your-mcp-servers">How to use your MCP servers</h2>
+<p>Once the configuration is completed, deploy your model as usual.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">practicuscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">prt</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">region</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">get_region</span><span class="p">()</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">deployment_key</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># E.g. &quot;my-model-depl-for-litellm&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;models&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;litellm-proxy&quot;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">assert</span> <span class="n">deployment_key</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">api_url</span><span class="p">,</span> <span class="n">api_version_url</span><span class="p">,</span> <span class="n">api_meta_url</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">deployment_key</span><span class="o">=</span><span class="n">deployment_key</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>If you don't know your prefixes and models you can check them out by using the SDK like down below:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">my_model_list</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">model_list</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">display</span><span class="p">(</span><span class="n">my_model_list</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">my_model_prefixes</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">model_prefix_list</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">display</span><span class="p">(</span><span class="n">my_model_prefixes</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">())</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">assert</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;Please select an LLM model.&quot;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">assert</span> <span class="n">model_prefix</span><span class="p">,</span> <span class="s2">&quot;Please select the prefix LLM deployed.&quot;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">assert</span> <span class="n">host</span><span class="p">,</span> <span class="s2">&quot;Please enter your host&quot;</span>
-</span></code></pre></div>
-<p>Now we can define our API url and it's token.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">model_prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">/&quot;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">token</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Get a new token, or reuse existing, if not expired</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">token</span> <span class="o">=</span> <span class="n">prt</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get_session_token</span><span class="p">(</span><span class="n">api_url</span><span class="o">=</span><span class="n">api_url</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Below is an example of how to create and use a <code>ChatPracticus</code> instance in your code.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">SystemMessage</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_practicus</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatPracticus</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_langchain_practicus</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">chat</span> <span class="o">=</span> <span class="n">ChatPracticus</span><span class="p">(</span><span class="n">endpoint_url</span><span class="o">=</span><span class="n">api_url</span><span class="p">,</span> <span class="n">api_token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span> <span class="n">model_id</span><span class="o">=</span><span class="s2">&quot;some models will ignore this&quot;</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">chat</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Received response:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Received Content:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-</span></code></pre></div>
-<!-- #region -->
-<p>Async calls also work using the below (but not on jupyter)</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">llm</span><span class="o">.</span><span class="n">ainvoke</span><span class="p">([</span><span class="n">sys_input</span><span class="p">,</span> <span class="n">human_input1</span><span class="p">,</span> <span class="n">human_input2</span><span class="p">]))</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</span></code></pre></div>
-<!-- #endregion -->
-
-<p>After defining your token and API URL, you can easily incorporate prompts into your workflow. By using the <code>langchain</code> library, you can structure your messages as follows:</p>
-<ul>
-<li><strong>System Messages:</strong> Use <code>SystemMessage</code> to provide overarching instructions or context that guide the LLM’s behavior.</li>
-<li><strong>Human Messages:</strong> Wrap user prompts and queries with <code>HumanMessage</code> to represent the user’s input.</li>
-</ul>
-<p>This structured approach ensures that the model receives clear, role-specific instructions, enhancing the quality and relevance of its responses.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">human_input1</span> <span class="o">=</span> <span class="n">HumanMessage</span><span class="p">(</span><span class="s2">&quot;Capital of United Kingdom?&quot;</span><span class="p">)</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">human_input2</span> <span class="o">=</span> <span class="n">HumanMessage</span><span class="p">(</span><span class="s2">&quot;And things to do there?&quot;</span><span class="p">)</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">system_message</span> <span class="o">=</span> <span class="n">SystemMessage</span><span class="p">(</span><span class="s2">&quot;Less 50 words.&quot;</span><span class="p">)</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">human_input1</span><span class="p">,</span> <span class="n">human_input2</span><span class="p">,</span> <span class="n">system_message</span><span class="p">]</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">test_langchain_practicus</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;who is einstein&quot;</span><span class="p">])</span>
-</span></code></pre></div>
-<h4 id="received-json-response">Received json response:</h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>{
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    content=&quot;Albert Einstein was a theoretical physicist born on March 14, 1879, in Ulm, in the Kingdom of Württemberg in the German Empire. He is best known for developing the theory of relativity, which revolutionized the understanding of space, time, and energy. His most famous equation, E=mc², expresses the equivalence of mass and energy.\n\nEinstein&#39;s work laid the foundation for much of modern physics and he received the Nobel Prize in Physics in 1921 for his explanation of the photoelectric effect, which was pivotal in the development of quantum theory. Beyond his scientific contributions, Einstein was also known for his philosophical views, advocacy for civil rights, and his involvement in political and humanitarian causes. He passed away on April 18, 1955, in Princeton, New Jersey, USA.&quot; 
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    ... with additional metadata 
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>}       
-</span></code></pre></div>
+<p>And your mcp server(s) should be accessible from a URL like <code>https://practicus.company.com/models/litellm-proxy/mcp/</code></p>
+<p>You can also use a specific version. E.g <code>http://local.practicus.io/models/litellm-proxy/v3/mcp/</code> or standard version tags <code>latest</code> <code>prod</code> <code>staging</code> like <code>http://local.practicus.io/models/litellm-proxy/prod/mcp/</code>. </p>
+<p>Please note that version tags must come before the <code>/mcp/</code> part</p>
 <hr />
-<p><strong>Previous</strong>: <a href="../../model-serving/custom/langchain/build/">Build</a> | <strong>Next</strong>: <a href="../streaming/">Streaming</a></p>
+<p><strong>Previous</strong>: <a href="../guardrails-and-policies/">Guardrails And Policies</a> | <strong>Next</strong>: <a href="../../custom/models/build/">Custom &gt; Models &gt; Build</a></p>
 
 
 
@@ -10777,10 +10993,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

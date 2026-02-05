@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -21,9 +21,10 @@ This example demonstrates how to customize Practicus AI distributed cluster or j
 - Practicus AI distributed clusters require a shared drive accessible by multiple workers, such as Practicus AI `~/my` or `~/shared` folders.
 - If you do not have access to ~/my or ~/shared folders, please check the auto-scaled examples which does not need such drives, but are limited in functionality.
 
+
 ```python
-worker_size = None
-worker_count = None
+worker_size = "X-Small"
+worker_count = 2
 ```
 
 ```python
@@ -33,9 +34,33 @@ assert worker_count, "Please enter your worker_count."
 
 ### Copy the contents of this folder to ~/my/custom_adaptor
 
+
 ```python
 import os
+import shutil
 
+# Define source and destination
+source_dir = "/home/ubuntu/samples/notebooks/05_distributed_computing/06_custom_adaptor"
+source_file = f"{source_dir}/my_adaptor.py"
+
+# Move it to '~/my', which is your persistent home directory.
+job_dir = os.path.expanduser("~/my/custom_adaptor")
+dest_file = f"{job_dir}/my_adaptor.py"
+
+# Copy the job file to the shared location
+if not os.path.exists(job_dir):
+    os.makedirs(job_dir)
+
+print(f"Copying job file from '{source_file}' to '{dest_file}'...")
+try:
+    shutil.copy(source_file, dest_file)
+    print("✅ Copy successful.")
+except FileNotFoundError:
+    print(f"❌ Error: Could not find source file at {source_file}")
+
+```
+
+```python
 assert os.path.exists("/home/ubuntu/my/custom_adaptor/my_adaptor.py"), (
     "Please copy the contents of this folder to ~/my/custom_adaptor"
 )
@@ -82,6 +107,10 @@ coordinator_worker = prt.create_worker(
 ```
 
 ```python
+
+```
+
+```python
 # Since this is an interactive Spark cluster,
 #  let's login to execute some code.
 
@@ -91,7 +120,9 @@ print("Page did not open? You can open this url manually:", notebook_url)
 ```
 
 ### Please continue experimenting on the new browser tab
+
 by opening the next notebook in this directory
+
 
 ```python
 # Done experimenting? Let's terminate the coordinator

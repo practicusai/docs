@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -56,6 +56,7 @@ This section defines key parameters for the notebook. Parameters control the beh
 ```python
 app_deployment_key = "appdepl"
 app_prefix = "apps"
+app_name = "my-first-app"
 
 test_ui = True
 test_api = True
@@ -80,11 +81,12 @@ display(my_app_prefixes.to_pandas())
 ```python
 assert app_deployment_key, "Please select an app deployment setting."
 assert app_prefix, "Please select an app prefix."
+assert app_name, "Please select an app name."
 ```
 
 ### Before You Continue
 
-To ensure proper execution, run the code below on a Practicus AI GenAI or a compatible container image. Make sure to use the GenAI Jupyter kernel (the `practicus_genai` virtual environment).
+To ensure proper execution, run the code below on a Practicus AI GenAI or a compatible container image.
 
 ### (Recommended) Testing Application UIs in Design Time
 
@@ -130,7 +132,6 @@ prt.apps.analyze()
 Once our development and tests are over, we can deploy the app as a new version.
 
 ```python
-app_name = "my-first-app"
 visible_name = "My First App"
 description = "A very useful app.."
 icon = "fa-rocket"
@@ -379,14 +380,13 @@ async def say_hello_with_spec(request, payload: SayHelloRequest, **kwargs) -> Sa
 # Use it to prepare global state, initialize resources, or connect to services.
 
 # For UI apps, you must manually run `import init_app` in Home.py
-# Please keep in mind that global state is *NOT* shared between the UI and API apps.
-#   Home.py is a Streamlit App, APIs are hosted via FastAPI.
+# Please keep in mind that global state is *NOT* shared between the Streamlit UI Home.py) and API apps.
 
 import practicuscore as prt
 from shared.helper import AppState
 
 
-def initialize() -> None:
+def init_app() -> None:
     # Log that we are starting initialization
     prt.logger.info("Starting to initialize app.")
 
@@ -395,10 +395,6 @@ def initialize() -> None:
 
     # Log that initialization is done
     prt.logger.info("Completed initializing app.")
-
-
-# Run the initializer immediately on import
-initialize()
 
 ```
 
@@ -412,7 +408,7 @@ from shared.helper import some_function
 # Child pages must also request to be secured.
 # Or else, they will be accessible by everyone after deployment.
 
-prt.apps.st.secure_page(
+prt.apps.secure_page(
     page_title="My first child page",
 )
 
@@ -443,7 +439,7 @@ from shared.helper import some_function
 # Since this page is not secured, it will be public after deployment.
 # During development, it is still only accessible to the owner, and only from Practicus AI Studio.
 # If the home page is secured, a public child page will only be accessible if directly requested.
-# prt.apps.st.secure_page(
+# prt.apps.secure_page(
 #     page_title="My second child page"
 # )
 
@@ -470,7 +466,7 @@ st.write("Counter = ", st.session_state.page_2_counter)
 import practicuscore as prt
 import streamlit as st
 
-prt.apps.st.secure_page(
+prt.apps.secure_page(
     page_title="Mixed content page",
 )
 
@@ -481,7 +477,7 @@ st.write("If you see nothing below, you are not an admin.")
 
 
 # Only admins will see this
-if prt.apps.st.user_is_admin():
+if prt.apps.user_is_admin():
     st.subheader("Admin Section")
     st.write("If you see this part, you are an admin, owner of the app, or in development mode.")
 
@@ -501,7 +497,7 @@ import practicuscore as prt
 import streamlit as st
 
 # Secure the page using the provided SDK
-prt.apps.st.secure_page(page_title="Using Cookies")
+prt.apps.secure_page(page_title="Using Cookies")
 
 st.title("Cookies Management")
 
@@ -516,7 +512,7 @@ path = st.text_input("Cookie path", placeholder="Leave empty for /")
 # Add Cookie
 if st.button("Add Cookie"):
     if cookie_name and cookie_value:
-        prt.apps.st.set_cookie(name=cookie_name, value=cookie_value, max_age=max_age, path=path)
+        prt.apps.set_cookie(name=cookie_name, value=cookie_value, max_age=max_age, path=path)
         st.success(f"Cookie '{cookie_name}' has been set!")
     else:
         st.error("Please provide both a cookie name and value.")
@@ -524,7 +520,7 @@ if st.button("Add Cookie"):
 # Get Cookie Value
 if st.button("Get Cookie Value"):
     if cookie_name:
-        cookie_value = prt.apps.st.get_cookie(name=cookie_name)
+        cookie_value = prt.apps.get_cookie(name=cookie_name)
         if cookie_value:
             st.success(f"The value of cookie '{cookie_name}' is: {cookie_value}")
         else:
@@ -535,7 +531,7 @@ if st.button("Get Cookie Value"):
 # Delete Cookie
 if st.button("Delete Cookie"):
     if cookie_name:
-        prt.apps.st.delete_cookie(name=cookie_name)
+        prt.apps.delete_cookie(name=cookie_name)
         st.success(f"Cookie '{cookie_name}' has been deleted!")
     else:
         st.error("Please provide a cookie name to delete.")
@@ -547,11 +543,11 @@ if st.button("Delete Cookie"):
 import practicuscore as prt
 import streamlit as st
 
-prt.apps.st.secure_page(page_title="Application Metadata")
+prt.apps.secure_page(page_title="Application Metadata")
 
 st.title("Application Metadata")
 
-if prt.apps.st.development_mode():
+if prt.apps.development_mode():
     st.subheader("Development Mode")
     st.markdown(
         """
@@ -562,9 +558,9 @@ if prt.apps.st.development_mode():
     )
     st.write(
         {
-            "Email": prt.apps.st.get_user_email(),
-            "Username": prt.apps.st.get_username(),
-            "User ID": prt.apps.st.get_user_id(),
+            "Email": prt.apps.get_user_email(),
+            "Username": prt.apps.get_username(),
+            "User ID": prt.apps.get_user_id(),
         }
     )
 else:
@@ -575,10 +571,10 @@ else:
         st.markdown("**Application Details**")
         st.write(
             {
-                "Name": prt.apps.st.get_app_name(),
-                "Prefix": prt.apps.st.get_app_prefix(),
-                "Version": prt.apps.st.get_app_version(),
-                "App ID": prt.apps.st.get_app_id(),
+                "Name": prt.apps.get_app_name(),
+                "Prefix": prt.apps.get_app_prefix(),
+                "Version": prt.apps.get_app_version(),
+                "App ID": prt.apps.get_app_id(),
             }
         )
 
@@ -586,9 +582,9 @@ else:
         st.markdown("**User Information**")
         st.write(
             {
-                "Email": prt.apps.st.get_user_email(),
-                "Username": prt.apps.st.get_username(),
-                "User ID": prt.apps.st.get_user_id(),
+                "Email": prt.apps.get_user_email(),
+                "Username": prt.apps.get_username(),
+                "User ID": prt.apps.get_user_id(),
             }
         )
 
@@ -606,7 +602,7 @@ import practicuscore as prt
 import streamlit as st
 
 # User must have admin privileges to view this page (must_be_admin=True)
-prt.apps.st.secure_page(
+prt.apps.secure_page(
     page_title="Settings Page",
     must_be_admin=True,
 )

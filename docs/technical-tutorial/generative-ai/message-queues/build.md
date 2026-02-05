@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -66,10 +66,9 @@ The `MQConfig` object holds all the connection and topology parameters:
 
 ```python
 # Parameters - Adjust As Needed
-
-mq_user = "guest"
-mq_pwd = "guest"
-mq_host = "prt-mq-default"
+mq_user = None  # E.g. "guest"
+mq_pwd = None  # E.g. "guest"
+mq_host = None  # E.g. "prt-mq-default"
 mq_vhost = ""  # Recommended for fine-grained security ("/" is default if empty)
 
 # If True, run consumer (background task) code in this notebook
@@ -82,8 +81,14 @@ test_api = True
 ```
 
 ```python
-# RabbitMQ connection string
+assert mq_user, "Please type your RabbitMQ user"
+assert mq_pwd, "Please type your RabbitMQ password"
+assert mq_host, "Please type your RabbitMQ host"
+assert app_deployment_key, "Please enter your app deployment key"
+```
 
+```python
+# RabbitMQ connection string
 mq_conn_str = f"amqp://{mq_user}:{mq_pwd}@{mq_host}/{mq_vhost}"
 ```
 
@@ -245,7 +250,9 @@ You can test a single consumer using `prt.mq.test_consumer(...)`. **Note:** This
 
 ```python
 if test_consumer:
-    print("Starting consumer. This cell will block until notebook kernel is interrupted or restarted.")
+    print(
+        "Starting consumer. This cell will block until notebook kernel is interrupted or restarted."
+    )
     await prt.mq.test_consumer(process_message)
 ```
 
@@ -253,7 +260,9 @@ if test_consumer:
 import practicuscore as prt
 
 # Example of a Consumer with Two Parameters
-subscriber_config_two_params = prt.MQConfig(conn_str=mq_conn_str, queue="my-direct-queue")
+subscriber_config_two_params = prt.MQConfig(
+    conn_str=mq_conn_str, queue="my-direct-queue"
+)
 
 
 @prt.mq.consumer(subscriber_config_two_params)
@@ -270,7 +279,9 @@ async def process_message_twoparams(body, incoming_msg):
 
 ```python
 if test_consumer:
-    print("Starting consumer. This cell will block until notebook kernel is interrupted or restarted.")
+    print(
+        "Starting consumer. This cell will block until notebook kernel is interrupted or restarted."
+    )
     await prt.mq.test_consumer(process_message_twoparams)
 ```
 

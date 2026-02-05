@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Practicus AutoML
+    display_name: practicus
     language: python
-    name: practicus_ml
+    name: python3
 ---
 
 ## End-to-end custom XGBoost Model development and deployment

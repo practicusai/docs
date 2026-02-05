@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -42,12 +42,19 @@ from neo4j import GraphDatabase
 uri: str = "bolt://practicus-neo4j.prt-ns-neo4j.svc.cluster.local:7687"
 user: str = "neo4j"
 password: str = "prt-neo4j"
+```
 
+```python
+assert uri, "Please enter your uri"
+assert user, "Please enter your user"
+assert password, "Please enter your password"
+```
+
+```python
 # Create a driver instance. This does not open a session yet.
 driver = GraphDatabase.driver(uri, auth=(user, password))
 
 print("Neo4j driver created. Ready to open a session.")
-
 ```
 
 ## 2. Define a write transaction function

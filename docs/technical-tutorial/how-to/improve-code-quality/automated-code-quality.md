@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -54,8 +54,6 @@ import numpy  # noqa
 
 ### bad_code.py
 ```python
-import pandas
-
 # this is an error
 print(undefined_var)
 

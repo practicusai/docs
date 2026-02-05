@@ -19,4 +19,4 @@ In this section, we will focus on the **operational** side of Practicus AI. This
 
 ---
 
-**Previous**: [Notifications](../unified-devops/notifications.md) | **Next**: [K8S-Setup](k8s-setup.md)
+**Previous**: [Notifications](../unified-devops/notifications.md) | **Next**: [K8s-Setup](k8s-setup.md)

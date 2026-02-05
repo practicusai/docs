@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: practicus_ml
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -152,15 +152,23 @@ df.head()
 
 ```python
 deployment_key = "automl-depl"
-assert deployment_key, "Please select a deployment key"
 prefix = "models"
 model_name = "insurance-mlflow-test"
 model_dir = None
 ```
 
 ```python
+assert deployment_key, "Please select a deployment key"
+```
+
+```python
 # Deploy to current Practicus AI region
-prt.models.deploy(deployment_key=deployment_key, prefix=prefix, model_name=model_name, model_dir=model_dir)
+prt.models.deploy(
+    deployment_key=deployment_key,
+    prefix=prefix,
+    model_name=model_name,
+    model_dir=model_dir,
+)
 ```
 
 ```python

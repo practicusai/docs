@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -614,4 +614,4 @@ if __name__ == "__main__":
 
 ---
 
-**Previous**: [Task Parameters](../task-parameters.md) | **Next**: [Generative AI > Advanced LangChain > Lang Chain LLM Model](../../generative-ai/advanced-langchain/lang-chain-llm-model.md)
+**Previous**: [Task Parameters](../task-parameters.md) | **Next**: [Generative AI > Agentic Use Cases > Growth Strategist > Build](../../generative-ai/agentic-use-cases/growth-strategist/build.md)

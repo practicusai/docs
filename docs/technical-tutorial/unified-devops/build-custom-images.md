@@ -7,7 +7,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.17.3
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: practicus
     language: python
     name: python3
 ---
@@ -66,6 +66,27 @@ Within the `builder_worker` notebook, you'll have access to the `~/build` direct
 3. Optionally push the image to your registry.
 
 Below, we create a small text file and a simple Dockerfile, then build and push the image.
+
+```python
+create_folder = False
+```
+
+```python
+from pathlib import Path
+
+# Configuration
+BUILD_DIR = Path.home() / "build"
+
+if create_folder:
+    try:
+        # mkdir(parents=True) creates intermediate folders if needed
+        # exist_ok=True prevents errors if the folder already exists
+        BUILD_DIR.mkdir(parents=True, exist_ok=False)
+        print(f"✅ Build folder created (or already exists) at: {BUILD_DIR}")
+
+    except PermissionError:
+        print(f"❌ Permission denied: You don't have access to write to {BUILD_DIR}")
+```
 
 ```python
 # Create a text file in ~/build

@@ -253,4 +253,4 @@ except Exception as e:
 
 ---
 
-**Previous**: [Delete Specific Trash Folders](delete-specific-trash-folders.md) | **Next**: [Container Images](container-images.md)
+**Previous**: [Delete Specific Trash Folders](delete-specific-trash-folders.md) | **Next**: [Autoscaling With Keda](autoscaling-with-keda.md)

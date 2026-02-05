@@ -15,8 +15,8 @@ theme:
     toggle:
       icon: material/weather-night
       name: Switch to dark mode
-  logo: img/practicus50.png
-  favicon: img/practicus50.png
+  logo: img/practicus.png
+  favicon: img/practicus.png
   language: en
 markdown_extensions:
 - pymdownx.highlight:
@@ -50,6 +50,7 @@ nav:
       - Gateway:
         - Model Gateway: technical-tutorial/generative-ai/model-serving/gateway/model-gateway.md
         - Guardrails And Policies: technical-tutorial/generative-ai/model-serving/gateway/guardrails-and-policies.md
+        - MCP Gateway: technical-tutorial/generative-ai/model-serving/gateway/mcp-gateway.md
       - Custom:
         - Models:
           - Build: technical-tutorial/generative-ai/model-serving/custom/models/build.md
@@ -57,10 +58,6 @@ nav:
           - Build: technical-tutorial/generative-ai/model-serving/custom/embeddings/build.md
         - LangChain:
           - Build: technical-tutorial/generative-ai/model-serving/custom/langchain/build.md
-    - LangChain:
-      - LangChain Basics: technical-tutorial/generative-ai/langchain/langchain-basics.md
-      - Streaming: technical-tutorial/generative-ai/langchain/streaming.md
-      - Embeddings: technical-tutorial/generative-ai/langchain/embeddings.md
     - Vector Databases:
       - Qdrant: technical-tutorial/generative-ai/vector-databases/qdrant.md
       - Milvus: technical-tutorial/generative-ai/vector-databases/milvus.md
@@ -139,7 +136,7 @@ nav:
     - Notifications: technical-tutorial/unified-devops/notifications.md
   - Operations Guide:
     - Getting Started: technical-tutorial/operations-guide/getting-started.md
-    - K8S-Setup: technical-tutorial/operations-guide/k8s-setup.md
+    - K8s-Setup: technical-tutorial/operations-guide/k8s-setup.md
     - Custom Images: technical-tutorial/operations-guide/custom-images.md
     - Users Groups: technical-tutorial/operations-guide/users-groups.md
     - Resource Management: technical-tutorial/operations-guide/resource-management.md
@@ -157,6 +154,7 @@ nav:
     - Automating Kerberos Ticket Renewal With Cron: technical-tutorial/operations-guide/automating-kerberos-ticket-renewal-with-cron.md
     - Delete Specific Trash Folders: technical-tutorial/operations-guide/delete-specific-trash-folders.md
     - Trino API Guide: technical-tutorial/operations-guide/trino-api-guide.md
+    - Autoscaling With Keda: technical-tutorial/operations-guide/autoscaling-with-keda.md
     - Container Images: technical-tutorial/operations-guide/container-images.md
   - How To:
     - Automate Notebooks:
@@ -178,11 +176,13 @@ nav:
     - Model Tokens: technical-tutorial/how-to/model-tokens.md
     - Personal Startup Scripts: technical-tutorial/how-to/personal-startup-scripts.md
     - Share Workers: technical-tutorial/how-to/share-workers.md
+    - Upload Files With Apphost: technical-tutorial/how-to/upload-files-with-apphost.md
     - Use Custom Metrics: technical-tutorial/how-to/use-custom-metrics.md
     - Use Graph Databases: technical-tutorial/how-to/use-graph-databases.md
     - Use Polars: technical-tutorial/how-to/use-polars.md
     - Use Security Tokens: technical-tutorial/how-to/use-security-tokens.md
     - View Stats: technical-tutorial/how-to/view-stats.md
+    - Vs Code Extensions: technical-tutorial/how-to/vs-code-extensions.md
     - Work With Connections: technical-tutorial/how-to/work-with-connections.md
     - Work With Data Catalog: technical-tutorial/how-to/work-with-data-catalog.md
     - Work With Processes: technical-tutorial/how-to/work-with-processes.md
@@ -222,8 +222,6 @@ nav:
       - Task Runnner App:
         - Build: technical-tutorial/extras/workflows/task-runnner-app/build.md
     - Generative AI:
-      - Advanced LangChain:
-        - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/advanced-langchain/lang-chain-llm-model.md
       - Agentic Use Cases:
         - Growth Strategist:
           - Build: technical-tutorial/extras/generative-ai/agentic-use-cases/growth-strategist/build.md
@@ -274,6 +272,14 @@ nav:
           - Mobile-Banking: technical-tutorial/extras/generative-ai/examples/mobile-banking/mobile-banking.md
         - Prtchatbot:
           - Prtchatbot: technical-tutorial/extras/generative-ai/examples/prtchatbot/prtchatbot.md
+      - LangChain:
+        - Lang Chain LLM Model: technical-tutorial/extras/generative-ai/langchain/lang-chain-llm-model.md
+      - LangChain Legacy:
+        - LangChain Basics: technical-tutorial/extras/generative-ai/langchain-legacy/langchain-basics.md
+        - Streaming: technical-tutorial/extras/generative-ai/langchain-legacy/streaming.md
+        - Embeddings: technical-tutorial/extras/generative-ai/langchain-legacy/embeddings.md
+        - LangChain Serving:
+          - Build: technical-tutorial/extras/generative-ai/langchain-legacy/langchain-serving/build.md
       - Langflow Apis:
         - Langflow API: technical-tutorial/extras/generative-ai/langflow-apis/langflow-api.md
       - LLM Apps:
@@ -363,10 +369,3 @@ nav:
     - Advanced Features: legacy/advanced.md
   - Demo Videos: https://practicus.ai/demo
   - Feedback: legacy/feedback.md
-plugins:
-- search
-- pdf-export:
-    verbose: true
-    combined: true
-    media_type: print
-    enabled_if_env: ENABLE_PDF_EXPORT

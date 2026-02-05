@@ -283,16 +283,13 @@
                                 <a class="function" href="#apps.get_user_groups_async">get_user_groups_async</a>
                         </li>
                         <li>
+                                <a class="function" href="#apps.chdir_to_project_root">chdir_to_project_root</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#apps.bootstrap">bootstrap</a>
                         </li>
                         <li>
                                 <a class="function" href="#apps.generate_ts_api_client">generate_ts_api_client</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.start_backend">start_backend</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#apps.stop_backend">stop_backend</a>
                         </li>
                         <li>
                                 <a class="function" href="#apps.start_frontend">start_frontend</a>
@@ -344,6 +341,12 @@
                         </li>
                         <li>
                                 <a class="function" href="#apps.is_streamlit_app">is_streamlit_app</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.integrate">integrate</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#apps.call_external_endpoint">call_external_endpoint</a>
                         </li>
                 </ul>
 
@@ -644,6 +647,9 @@
                         </li>
                         <li>
                                 <a class="function" href="#quality.format">format</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#quality.security_review">security_review</a>
                         </li>
                 </ul>
 
@@ -1641,6 +1647,9 @@
                         <li>
                                 <a class="variable" href="#Log.USER">USER</a>
                         </li>
+                        <li>
+                                <a class="variable" href="#Log.MCP">MCP</a>
+                        </li>
                 </ul>
 
             </li>
@@ -2173,6 +2182,105 @@
 
             </li>
             <li>
+                    <a class="class" href="#GatewayMcpServer">GatewayMcpServer</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.name">name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.url">url</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.transport">transport</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.description">description</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.spec_path">spec_path</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.spec_version">spec_version</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.command">command</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.args">args</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.env">env</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.env_os_env">env_os_env</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.auth_type">auth_type</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.auth_value">auth_value</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.auth_value_os_env">auth_value_os_env</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.authorization_url">authorization_url</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.token_url">token_url</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.registration_url">registration_url</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.client_id">client_id</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.client_id_os_env">client_id_os_env</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.client_secret">client_secret</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.client_secret_os_env">client_secret_os_env</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.scopes">scopes</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.extra_headers">extra_headers</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.static_headers">static_headers</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.static_headers_os_env">static_headers_os_env</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.access_groups">access_groups</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.allow_all_keys">allow_all_keys</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.allowed_tools">allowed_tools</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.disallowed_tools">disallowed_tools</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayMcpServer.allowed_params">allowed_params</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#GatewayMcpServer.to_litellm_yaml_value">to_litellm_yaml_value</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#GatewayMcpServer.validate_server">validate_server</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#GatewayConfig">GatewayConfig</a>
                             <ul class="memberlist">
                         <li>
@@ -2189,6 +2297,21 @@
                         </li>
                         <li>
                                 <a class="variable" href="#GatewayConfig.module">module</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.mcp_servers">mcp_servers</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.mcp_aliases">mcp_aliases</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.mcp_client_side_auth_header_name">mcp_client_side_auth_header_name</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.user_mcp_management_mode">user_mcp_management_mode</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayConfig.enable_mcp_registry">enable_mcp_registry</a>
                         </li>
                         <li>
                                 <a class="variable" href="#GatewayConfig.strict">strict</a>
@@ -2264,6 +2387,81 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="variable" href="#TrinoColumnMask.result">result</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#ExtSvcContext">ExtSvcContext</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.server_url">server_url</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.endpoint">endpoint</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.server_type">server_type</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.payload">payload</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.timeout_s">timeout_s</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.verify_tls">verify_tls</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.follow_redirects">follow_redirects</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.headers">headers</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.auth">auth</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.response">response</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.request_kwargs">request_kwargs</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.request">request</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.requester">requester</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.api_path">api_path</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.api_spec">api_spec</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.parent_headers">parent_headers</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ExtSvcContext.header_overrides">header_overrides</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#ExtSvcContext.merged_out_headers">merged_out_headers</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#GatewayError">GatewayError</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#GatewayError.__init__">GatewayError</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayError.detail">detail</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#GatewayError.http_status_code">http_status_code</a>
                         </li>
                 </ul>
 
@@ -4310,7 +4508,7 @@ __pydantic_private__: Values of private attributes set on the model instance.
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">deploy</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">include_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">include_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+        <span class="name">deploy</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">include_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">include_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">max_upload_size_mb</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">25</span>,</span><span class="param">	<span class="n">build_frontend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -4339,8 +4537,14 @@ You can use PERSONAL_SECRET_1:NEW_OS_ENV format to rename the OS environment var
 You can use SHARED_SECRET_1:NEW_OS_ENV format to rename the OS environment variable.</li>
 <li>icon (str | None): A Font Awesome icon name (e.g., "fa:rocket") to represent the app.
 Only use Free and v5.x icons. To search, please visit <a href="https://fontawesome.com/v5/search?ic=free">https://fontawesome.com/v5/search?ic=free</a></li>
+<li>build_frontend (bool): If True (default) and there is an SPA frontend, builds UI elements for deployment.</li>
+<li>include_dirs (list[str] | None): List of directories to use while uploading, e.g.  "apis", "schemas", "services"</li>
+<li>include_files (list[str] | None): List of files to use while  uploading, e.g.  "requirements.txt", "Home.py"</li>
 <li>ignore_dirs (list[str] | None): List of directories to ignore uploading, e.g.  "./exclude", "<em>/tmp/</em>", "<em>__build__</em>"</li>
 <li>ignore_files (list[str] | None): List of file patterns to ignore uploading, e.g.  "<em>.secret", "</em>.log"</li>
+<li>max_upload_size_mb (int | float) = The maximum size in MB of total files, default is 25 MB.
+Important: Please increase carefully since every app version is archived for compliance reasons.
+Prefer building custom container images for large library installations.</li>
 </ul>
 
 <p><strong>Returns:</strong></p>
@@ -4729,7 +4933,7 @@ before launching the new one.</li>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">test_api</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">payload</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">BaseModel</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>,</span><span class="param">	<span class="n">requester</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+        <span class="name">test_api</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">payload</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">BaseModel</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>,</span><span class="param">	<span class="n">requester</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">reload_apis</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
 
         
     </div>
@@ -4757,10 +4961,10 @@ associated with the given path. Useful for design-time testing of APIs without d
                             </div>
                             <div id="apps.analyze" class="classattr">
                                 <div class="attr function">
-                    <div class="decorator decorator-staticmethod">@staticmethod</div>
+                    <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">analyze</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+        <span class="name">analyze</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">include_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">log_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -4769,7 +4973,8 @@ associated with the given path. Useful for design-time testing of APIs without d
             <div class="docstring"><p>Analyzes the app folder to report on APIs, Pages, MQ handlers and other artifacts.</p>
 
 <p>Args:
-    app_dir (str | None): Where to find APIs. If empty, uses current working dir.</p>
+    app_dir (str | None): Where to find APIs. If empty, uses current working dir.
+    include_dirs (list[str] | None): If defined, only analyzes files in the selected directories.</p>
 </div>
 
 
@@ -4962,24 +5167,43 @@ IMPORTANT: requesting another users groups is logged and audited. Please only us
 
 
                             </div>
+                            <div id="apps.chdir_to_project_root" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">chdir_to_project_root</span><span class="signature pdoc-code condensed">(<span class="param"><span class="o">*</span>, </span><span class="param"><span class="n">marker_file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;pyproject.toml&#39;</span></span><span class="return-annotation">) -> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.chdir_to_project_root"></a>
+    
+            <div class="docstring"><p>Changes the OS current directory to project root in design-time.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li>marker_file_name (str): A file to look for marking the project root. Default is <code>pyproject.toml</code>.</li>
+</ul>
+
+<p><strong>Returns:</strong>
+The project directory that was changed to.</p>
+</div>
+
+
+                            </div>
                             <div id="apps.bootstrap" class="classattr">
                                 <div class="attr function">
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">bootstrap</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>,</span><span class="param">	<span class="n">frontend_dir_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;frontend&#39;</span>,</span><span class="param">	<span class="n">templates_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">npm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;npm&#39;</span>,</span><span class="param">	<span class="n">no_interactive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">install</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">overwrite_templates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">extra_deps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">extra_dev_deps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="n">practicuscore</span><span class="o">.</span><span class="n">app_builder</span><span class="o">.</span><span class="n">_ReactAppPaths</span>:</span></span>
+        <span class="name">bootstrap</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">app_conf</span><span class="p">:</span> <span class="n">pydantic</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">BaseModel</span> <span class="o">|</span> <span class="nb">dict</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>,</span><span class="param">	<span class="n">frontend_dir_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;frontend&#39;</span>,</span><span class="param">	<span class="n">templates_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">npm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bun&#39;</span>,</span><span class="param">	<span class="n">no_interactive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">install_ui_deps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">overwrite_templates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">extra_deps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">extra_dev_deps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
     <a class="headerlink" href="#apps.bootstrap"></a>
     
-            <div class="docstring"><p>Frontend-only bootstrap:
-1) scaffold Vite React TS
-2) install baseline deps:
-    - ?
-3) copy templates into frontend/</p>
-</div>
-
+    
 
                             </div>
                             <div id="apps.generate_ts_api_client" class="classattr">
@@ -4987,7 +5211,7 @@ IMPORTANT: requesting another users groups is logged and audited. Please only us
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">generate_ts_api_client</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">openapi_json_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">out_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">frontend_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">http_client</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;@hey-api/client-fetch&#39;</span>,</span><span class="param">	<span class="n">silent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">npm_exec</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;npx&#39;</span>,</span><span class="param">	<span class="n">extra_args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+        <span class="name">generate_ts_api_client</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">api_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">generate_openapi</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">openapi_json_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">out_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">frontend_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">http_client</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;@hey-api/client-fetch&#39;</span>,</span><span class="param">	<span class="n">silent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">npm_exec</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bunx&#39;</span>,</span><span class="param">	<span class="n">extra_args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -4996,45 +5220,9 @@ IMPORTANT: requesting another users groups is logged and audited. Please only us
             <div class="docstring"><p>Generates TS client using Hey API openapi-ts.</p>
 
 <p>Example (from Hey API docs) shows specifying fetch client via -c:
-npx @hey-api/openapi-ts -i ... -o ... -c @hey-api/client-fetch :contentReference[oaicite:1]{index=1}</p>
+bunx @hey-api/openapi-ts -i ... -o ... -c @hey-api/client-fetch :contentReference[oaicite:1]{index=1}</p>
 </div>
 
-
-                            </div>
-                            <div id="apps.start_backend" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-classmethod">@classmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">start_backend</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">app_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8000</span>,</span><span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">watch_enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">watch_folders</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">exclude_folders</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">debounce_ms</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.start_backend"></a>
-    
-            <div class="docstring"><p>Starts backend (Jupyter-safe) + optional watcher that restarts on .py changes.</p>
-
-<ul>
-<li>watch_folders: folders to watch (defaults to [app_path or "."])</li>
-<li>exclude_folders: folders to ignore (merged with safe defaults)</li>
-<li>debounce_ms: change burst debounce</li>
-</ul>
-</div>
-
-
-                            </div>
-                            <div id="apps.stop_backend" class="classattr">
-                                <div class="attr function">
-                    <div class="decorator decorator-classmethod">@classmethod</div>
-
-        <span class="def">def</span>
-        <span class="name">stop_backend</span><span class="signature pdoc-code condensed">(<span class="return-annotation">):</span></span>
-
-        
-    </div>
-    <a class="headerlink" href="#apps.stop_backend"></a>
-    
-    
 
                             </div>
                             <div id="apps.start_frontend" class="classattr">
@@ -5042,7 +5230,7 @@ npx @hey-api/openapi-ts -i ... -o ... -c @hey-api/client-fetch :contentReference
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">start_frontend</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">frontend_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">npm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;npm&#39;</span>,</span><span class="param">	<span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50005</span>,</span><span class="param">	<span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;0.0.0.0&#39;</span>,</span><span class="param">	<span class="n">extra_env</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">ready_timeout_sec</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">20.0</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+        <span class="name">start_frontend</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">frontend_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="s1">&#39;./frontend&#39;</span>,</span><span class="param">	<span class="n">npm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bun&#39;</span>,</span><span class="param">	<span class="n">extra_env</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">wait_until_ready</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">ready_timeout_sec</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">20.0</span>,</span><span class="param">	<span class="n">open_in_browser</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">run_forever</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -5245,6 +5433,43 @@ npx @hey-api/openapi-ts -i ... -o ... -c @hey-api/client-fetch :contentReference
     <a class="headerlink" href="#apps.is_streamlit_app"></a>
     
     
+
+                            </div>
+                            <div id="apps.integrate" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">integrate</span><span class="signature pdoc-code condensed">(<span class="param"><span class="o">*</span>, </span><span class="param"><span class="n">yaml_path</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.integrate"></a>
+    
+    
+
+                            </div>
+                            <div id="apps.call_external_endpoint" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">async def</span>
+        <span class="name">call_external_endpoint</span><span class="signature pdoc-code condensed">(<span class="param"><span class="o">*</span>, </span><span class="param"><span class="n">ctx</span><span class="p">:</span> <span class="n"><a href="#ExtSvcContext">ExtSvcContext</a></span>, </span><span class="param"><span class="o">**</span><span class="n">_</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#apps.call_external_endpoint"></a>
+    
+            <div class="docstring"><p>Makes a call (integrates) to an external MCP/API system.
+If ctx has a response, e.g. injected by a hook, short-circuits and uses that response.</p>
+
+<p>Args:
+    ctx (ExtSvcContext): Context passed through MCP and API gateway guards/hooks/services or generate new to call external services</p>
+
+<p>Returns:
+    Response from external MCP/API system.</p>
+</div>
+
 
                             </div>
                 </section>
@@ -5466,7 +5691,7 @@ when calling from inside the DAG file.</li>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">generate_files</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">dag_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">dag_flow</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">files_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">default_worker_config</span><span class="p">:</span> <span class="n"><a href="#WorkerConfig">WorkerConfig</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">custom_worker_configs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n"><a href="#WorkerConfig">WorkerConfig</a></span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_credentials</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">overwrite_existing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">schedule_interval</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start_date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>,</span><span class="param">	<span class="n">dag_template</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;airflow_dag.py.j2&#39;</span>,</span><span class="param">	<span class="n">task_template</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;python_task.py.j2&#39;</span></span><span class="return-annotation">):</span></span>
+        <span class="name">generate_files</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">dag_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">dag_flow</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">files_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">default_worker_config</span><span class="p">:</span> <span class="n"><a href="#WorkerConfig">WorkerConfig</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">custom_worker_configs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n"><a href="#WorkerConfig">WorkerConfig</a></span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">save_credentials</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>,</span><span class="param">	<span class="n">overwrite_existing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="n">schedule_interval</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start_date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>,</span><span class="param">	<span class="n">dag_template</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ai_studio/airflow_dag.py.j2&#39;</span>,</span><span class="param">	<span class="n">task_template</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ai_studio/python_task.py.j2&#39;</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -6504,7 +6729,7 @@ coordination, while agent workers (rank ≥ 1) carry out the bulk of the workloa
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_job_id</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_job_id</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -7787,7 +8012,7 @@ If True, clears the record of previously executed notebooks, resetting <code><a 
 <p><strong>Example:</strong></p>
 
 <div class="pdoc-code codehilite">
-<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">notebooks</span><span class="o">.</span><span class="n">validate_venv</span><span class="p">(</span><span class="s2">&quot;practicus_genai&quot;</span><span class="p">)</span>
+<pre><span></span><code><span class="n">prt</span><span class="o">.</span><span class="n">notebooks</span><span class="o">.</span><span class="n">validate_venv</span><span class="p">(</span><span class="s2">&quot;my_virtual_env&quot;</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -7799,7 +8024,7 @@ If True, clears the record of previously executed notebooks, resetting <code><a 
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">execute_notebook</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">input_path</span>,</span><span class="param">	<span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">kernel_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">failed_output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
+        <span class="name">execute_notebook</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">input_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>,</span><span class="param">	<span class="n">parameters</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">kernel_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">failed_output_path</span><span class="o">=</span><span class="kc">None</span>,</span><span class="param">	<span class="n">raise_on_failure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">bool</span>:</span></span>
 
         
     </div>
@@ -7810,7 +8035,7 @@ If True, clears the record of previously executed notebooks, resetting <code><a 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li>input_path (str): The path to the input <code>.ipynb</code> notebook file. <code>~</code> will be expanded to home dir. If no <code>.ipynb</code> suffix, it is appended.</li>
+<li>input_path (str | Path): The path to the input <code>.ipynb</code> notebook file. <code>~</code> will be expanded to home dir. If no <code>.ipynb</code> suffix, it is appended.</li>
 <li>parameters (dict | None): A dictionary of parameters to pass to the notebook.</li>
 <li>cwd: (str | Path | None) Working directory to use when executing the notebook, if none defaults to the directory of the notebook.</li>
 <li>kernel_name (str | None): Name of kernel to execute the notebook against</li>
@@ -7891,7 +8116,7 @@ A list of patterns to exclude. For example:
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">execute_notebooks</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">start_path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">exclude</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">notebook_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
+        <span class="name">execute_notebooks</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">start_path</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">exclude</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">notebook_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>:</span></span>
 
         
     </div>
@@ -7949,7 +8174,8 @@ Examples:</li>
 <p><strong>Returns:</strong></p>
 
 <ul>
-<li>None</li>
+<li>Tuple[list of successful notebooks, list of failed notebooks].
+Also saved in prt.notebooks.successful_notebooks, prt.notebooks.failed_notebooks</li>
 </ul>
 
 <p>Upon completion, logs how many notebooks succeeded or failed.</p>
@@ -8076,6 +8302,40 @@ It does not fix all issues but can apply automatic formatting improvements.</p>
 <span class="n"><a href="#quality.format">quality.format</a></span><span class="p">(</span><span class="n">paths</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;src/&quot;</span><span class="p">])</span>
 </code></pre>
 </div>
+</div>
+
+
+                            </div>
+                            <div id="quality.security_review" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-classmethod">@classmethod</div>
+
+        <span class="def">def</span>
+        <span class="name">security_review</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">target_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">output_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">use_pty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></span><span class="return-annotation">) -> <span class="nb">int</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#quality.security_review"></a>
+    
+            <div class="docstring"><p>Scans code for security issues.</p>
+
+<ul>
+<li>If pyproject.toml is found (walking up from cwd), settings are used</li>
+<li>If target_dirs is not provided, scans ".".</li>
+<li>If output_format is provided, it is passed as <code>-f &lt;format&gt;</code>.</li>
+<li>If output_file is provided, it is passed as <code>-o &lt;file&gt;</code>.</li>
+</ul>
+
+<p>Args:
+    target_dirs: Directories to scan. Defaults to ["."].
+    output_format: Output format. Common values: "txt", "json", "yaml",
+        "csv", "html", "screen".
+    output_file: Path to write results to (e.g. "security_review.json"). If None, results
+        go to stdout (or default behavior for the chosen format).
+    use_pty: If True, ANSI colors are displayed. Set False for CI / structured output.</p>
+
+<p>Returns:
+    Bandit's process exit code.</p>
 </div>
 
 
@@ -8888,7 +9148,7 @@ c. Imports db and SQLModel, setting target_metadata = SQLModel.metadata.</li>
     </div>
     <a class="headerlink" href="#db.revision"></a>
     
-            <div class="docstring"><p>Generate a new Alembic revision with autogeneration using PRT_DB_CONN_STR OS env variable as connection string.</p>
+            <div class="docstring"><p>Generate a new Alembic revision with auto generation using PRT_DB_CONN_STR OS env variable as connection string.</p>
 
 <p>The revision message must be 75 characters or fewer. After the revision is
 generated, review the migration script under db/migrations/versions and adjust
@@ -8992,7 +9252,7 @@ Without static primary keys, you will insert new data on each run.</p>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">def</span>
-        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -9028,7 +9288,7 @@ to improve performance and save a round-trip to security APIs.</li>
                     <div class="decorator decorator-staticmethod">@staticmethod</div>
 
         <span class="def">async def</span>
-        <span class="name">get_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -10236,7 +10496,7 @@ If None, default settings are used.</li>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_model_prefix_list</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelPrefix</span><span class="p">]</span>:</span></span>
+        <span class="name">get_model_prefix_list</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prefix_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelPrefix</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -10260,7 +10520,7 @@ deployments under a logical namespace.</p>
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">get_model_prefix_list_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelPrefix</span><span class="p">]</span>:</span></span>
+        <span class="name">get_model_prefix_list_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prefix_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelPrefix</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -10329,7 +10589,7 @@ deployments under a logical namespace.</p>
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">get_model_list_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelMeta</span><span class="p">]</span>:</span></span>
+        <span class="name">get_model_list_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prefix_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="n"><a href="#PrtList">PrtList</a></span><span class="p">[</span><span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">ModelMeta</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -10507,7 +10767,7 @@ deployments under a logical namespace.</p>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">reload_model_prefix_list</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">reload_model_prefix_list</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">prefix_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>, </span><span class="param"><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -10524,7 +10784,7 @@ deployments under a logical namespace.</p>
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">reload_model_prefix_list_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">reload_model_prefix_list_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">prefix_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>, </span><span class="param"><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -10558,7 +10818,7 @@ deployments under a logical namespace.</p>
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">reload_model_list_async</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">reload_model_list_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">prefix_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">):</span></span>
 
         
     </div>
@@ -10870,7 +11130,7 @@ deployments under a logical namespace.</p>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">deploy_app</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+        <span class="name">deploy_app</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">deployment_setting_key</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">app_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">visible_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">startup_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">env_variables</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">personal_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">shared_secrets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">include_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">include_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">ignore_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">max_upload_size_mb</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">25</span></span><span class="return-annotation">) -> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
 
         
     </div>
@@ -10895,8 +11155,13 @@ You can use PERSONAL_SECRET_1:NEW_OS_ENV format to rename the OS environment var
 <li>shared_secrets (list[str] | None): Shared secrets saved by the admin in the vault.
 You can use SHARED_SECRET_1:NEW_OS_ENV format to rename the OS environment variable.</li>
 <li>icon (str | None): Font Awesome icon name.</li>
+<li>include_dirs (list[str] | None): List of directories to use while uploading, e.g.  "apis", "schemas", "services"</li>
+<li>include_files (list[str] | None): List of files to use while  uploading, e.g.  "requirements.txt", "Home.py"</li>
 <li>ignore_dirs (list[str] | None): List of directories to ignore uploading, e.g.  "./exclude", "<em>/tmp/</em>", "<em>__build__</em>"</li>
 <li>ignore_files (list[str] | None): List of file patterns to ignore uploading, e.g.  "<em>.secret", "</em>.log"</li>
+<li>max_upload_size_mb (int | float) = The maximum size in MB of total files, default is 25 MB.
+Important: Please increase carefully since every app version is archived for compliance reasons.
+Prefer building custom container images for large library installations.</li>
 </ul>
 
 <p><strong>Returns:</strong></p>
@@ -11242,7 +11507,7 @@ e.g. by using automated git sync, or a file already in ~/my or ~/shared folders.
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_model_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_model_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -11273,7 +11538,7 @@ returned to improve performance, and save a round-trip to security APIs. (Highly
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">get_model_api_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_model_api_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -11304,7 +11569,7 @@ returned to improve performance, and save a round-trip to security APIs. (Highly
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_app_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_app_api_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -11336,7 +11601,7 @@ to improve performance and save a round-trip to security APIs.</li>
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">get_app_api_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
+        <span class="name">get_app_api_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">api_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">app_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">for_upload</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">retry</span><span class="o">=</span><span class="mi">3</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>:</span></span>
 
         
     </div>
@@ -11551,7 +11816,7 @@ to improve performance and save a round-trip to security APIs.</li>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">get_addon_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_addon_session_token</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -11580,7 +11845,7 @@ to improve performance and save a round-trip to security APIs.</li>
                                 <div class="attr function">
             
         <span class="def">async def</span>
-        <span class="name">get_addon_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">get_addon_session_token_async</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">addon</span><span class="p">:</span> <span class="n">practicuscore</span><span class="o">.</span><span class="n">api_k8s</span><span class="o">.</span><span class="n">AddOn</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="o">**</span><span class="n">kwargs</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
         
     </div>
@@ -15322,6 +15587,18 @@ configure their levels and outputs independently.</p>
     
 
                             </div>
+                            <div id="Log.MCP" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MCP</span>        =
+<span class="default_value">&lt;<a href="#Log.MCP">Log.MCP</a>: &#39;practicus.core.mcp&#39;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Log.MCP"></a>
+    
+    
+
+                            </div>
                 </section>
                 <section id="set_logging_level">
                     <div class="attr function">
@@ -17405,7 +17682,11 @@ focusing on its execution pattern, operational properties, and context.</p>
     <a class="headerlink" href="#APISpec.maturity_level"></a>
     
             <div class="docstring"><p>Represents the intrinsic stability and readiness of the API. Default Categories are:
-1: POC, 2: Experimental, 3: Beta, 4: Stable, 5: Critical/Foundational.</p>
+1: POC – Idea validation, disposable
+2: Beta – Early access, evolving, suitable for non-critical use
+3: Production – Used in prod, monitored, changes possible
+4: Mature – Backward-compat expected, limited breaking changes
+5: Foundational – Contract-level stability, core platform dependency</p>
 </div>
 
 
@@ -17832,14 +18113,14 @@ with their names by adding to the chat completion <code>extra_body.guardrails</c
                             </div>
                             <div id="GatewayGuardrail.mode" class="classattr">
                                 <div class="attr variable">
-            <span class="name">mode</span><span class="annotation">: Literal[&#39;pre_call&#39;, &#39;post_call&#39;]</span>        =
+            <span class="name">mode</span><span class="annotation">: Literal[&#39;pre_call&#39;, &#39;post_call&#39;, &#39;pre_mcp_call&#39;, &#39;during_mcp_call&#39;]</span>        =
 <span class="default_value">PydanticUndefined</span>
 
         
     </div>
     <a class="headerlink" href="#GatewayGuardrail.mode"></a>
     
-            <div class="docstring"><p>Whether to call the guard method before or after LLM executes.</p>
+            <div class="docstring"><p>Whether to call the guard method before or after LLM executes, or MCP server calls.</p>
 </div>
 
 
@@ -17894,6 +18175,492 @@ you can apply the guardrail directly to the GatewayModel.pre_guards/post_guards 
             <div class="docstring"><p>Serializes a callable to its name for YAML/JSON output.</p>
 </div>
 
+
+                            </div>
+                </section>
+                <section id="GatewayMcpServer">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">GatewayMcpServer</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer"></a>
+    
+            <div class="docstring"><p>MCP Gateway configuration
+Notes:</p>
+
+<ul>
+<li>For <code><a href="#GatewayMcpServer.auth_value_os_env">auth_value_os_env</a></code>, <code><a href="#GatewayMcpServer.client_secret_os_env">client_secret_os_env</a></code>, etc. we convert to <code>os.environ/&lt;ENV_NAME&gt;</code> in YAML.</li>
+<li><code><a href="#GatewayMcpServer.transport">transport</a></code> defaults to LiteLLM's default (commonly sse) if you omit it. Prefer setting it explicitly.</li>
+</ul>
+</div>
+
+
+                            <div id="GatewayMcpServer.name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">name</span><span class="annotation">: str</span>        =
+<span class="default_value">PydanticUndefined</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.name"></a>
+    
+            <div class="docstring"><p>Unique server name used as the key in YAML under <code>mcp_servers:</code>.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">url</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.url"></a>
+    
+            <div class="docstring"><p>Base URL of the MCP server for network transports (e.g. 'https://api.example.com/mcp/'). Required for http/sse.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.transport" class="classattr">
+                                <div class="attr variable">
+            <span class="name">transport</span><span class="annotation">: Optional[Literal[&#39;sse&#39;, &#39;http&#39;, &#39;stdio&#39;]]</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.transport"></a>
+    
+            <div class="docstring"><p>Transport type. Use:</p>
+
+<ul>
+<li>'sse' for Server-Sent Events MCP servers</li>
+<li>'http' for plain HTTP MCP servers</li>
+<li>'stdio' for local process MCP servers (spawned by the gateway)</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.description" class="classattr">
+                                <div class="attr variable">
+            <span class="name">description</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.description"></a>
+    
+            <div class="docstring"><p>Optional human-readable description (useful for registry / UI / debugging).</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.spec_path" class="classattr">
+                                <div class="attr variable">
+            <span class="name">spec_path</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.spec_path"></a>
+    
+            <div class="docstring"><p>Optional path to an OpenAPI spec to wrap as MCP tools.
+Example: '/path/to/openapi.yaml' or a URL (depending on gateway/LiteLLM support).</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.spec_version" class="classattr">
+                                <div class="attr variable">
+            <span class="name">spec_version</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.spec_version"></a>
+    
+            <div class="docstring"><p>Optional spec version tag used by the gateway when interpreting the OpenAPI spec.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.command" class="classattr">
+                                <div class="attr variable">
+            <span class="name">command</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.command"></a>
+    
+            <div class="docstring"><p>For transport='stdio': the executable/command to run.
+Example: 'npx' or 'uvx' or '/usr/local/bin/my_mcp_server'</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.args" class="classattr">
+                                <div class="attr variable">
+            <span class="name">args</span><span class="annotation">: list[str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.args"></a>
+    
+            <div class="docstring"><p>For transport='stdio': command arguments.
+Example: ['-y', '@my-org/mcp-server', '--port', '9999']</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.env" class="classattr">
+                                <div class="attr variable">
+            <span class="name">env</span><span class="annotation">: dict[str, str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.env"></a>
+    
+            <div class="docstring"><p>For transport='stdio': environment variables passed to the child process as literal values.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.env_os_env" class="classattr">
+                                <div class="attr variable">
+            <span class="name">env_os_env</span><span class="annotation">: dict[str, str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.env_os_env"></a>
+    
+            <div class="docstring"><p>For transport='stdio': environment variables passed to the child process, sourced from the gateway OS env.
+Mapping is: { child_env_name: os_env_name }
+Example: { 'OPENAI_API_KEY': 'OPENAI_API_KEY' }</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.auth_type" class="classattr">
+                                <div class="attr variable">
+            <span class="name">auth_type</span><span class="annotation">: Optional[Literal[&#39;none&#39;, &#39;api_key&#39;, &#39;bearer_token&#39;, &#39;basic&#39;, &#39;authorization&#39;, &#39;oauth2&#39;]]</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.auth_type"></a>
+    
+            <div class="docstring"><p>Auth mode used by LiteLLM when calling the MCP server.
+Common cases:</p>
+
+<ul>
+<li>'bearer_token' with auth_value='...'</li>
+<li>'api_key'</li>
+<li>'oauth2'</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.auth_value" class="classattr">
+                                <div class="attr variable">
+            <span class="name">auth_value</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.auth_value"></a>
+    
+            <div class="docstring"><p>Static auth value (literal) used per <code><a href="#GatewayMcpServer.auth_type">auth_type</a></code>.
+For 'bearer_token' this would typically be the raw token (without 'Bearer '), depending on LiteLLM behavior.
+Prefer <code><a href="#GatewayMcpServer.auth_value_os_env">auth_value_os_env</a></code> for secrets.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.auth_value_os_env" class="classattr">
+                                <div class="attr variable">
+            <span class="name">auth_value_os_env</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.auth_value_os_env"></a>
+    
+            <div class="docstring"><p>OS environment variable name that contains the auth value.
+Serialized into YAML as: 'os.environ/<ENV_NAME>'</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.authorization_url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">authorization_url</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.authorization_url"></a>
+    
+            <div class="docstring"><p>Optional OAuth2 authorization URL override (if the MCP server provides metadata but you must pin values).</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.token_url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">token_url</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.token_url"></a>
+    
+            <div class="docstring"><p>Optional OAuth2 token URL override.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.registration_url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">registration_url</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.registration_url"></a>
+    
+            <div class="docstring"><p>Optional OAuth2 dynamic client registration URL override.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.client_id" class="classattr">
+                                <div class="attr variable">
+            <span class="name">client_id</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.client_id"></a>
+    
+            <div class="docstring"><p>Optional OAuth2 client id as a literal string (prefer *_os_env for secrets).</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.client_id_os_env" class="classattr">
+                                <div class="attr variable">
+            <span class="name">client_id_os_env</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.client_id_os_env"></a>
+    
+            <div class="docstring"><p>OS env var name containing OAuth2 client id; serialized into YAML as 'os.environ/<ENV_NAME>'.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.client_secret" class="classattr">
+                                <div class="attr variable">
+            <span class="name">client_secret</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.client_secret"></a>
+    
+            <div class="docstring"><p>Optional OAuth2 client secret literal (prefer *_os_env).</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.client_secret_os_env" class="classattr">
+                                <div class="attr variable">
+            <span class="name">client_secret_os_env</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.client_secret_os_env"></a>
+    
+            <div class="docstring"><p>OS env var name containing OAuth2 client secret; serialized into YAML as 'os.environ/<ENV_NAME>'.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.scopes" class="classattr">
+                                <div class="attr variable">
+            <span class="name">scopes</span><span class="annotation">: list[str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.scopes"></a>
+    
+            <div class="docstring"><p>Optional OAuth2 scopes list.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.extra_headers" class="classattr">
+                                <div class="attr variable">
+            <span class="name">extra_headers</span><span class="annotation">: list[str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.extra_headers"></a>
+    
+            <div class="docstring"><p>List of inbound header names to forward from client -> MCP server.
+Example: ['x-my-tenant', 'x-request-id']</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.static_headers" class="classattr">
+                                <div class="attr variable">
+            <span class="name">static_headers</span><span class="annotation">: dict[str, str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.static_headers"></a>
+    
+            <div class="docstring"><p>Static headers always attached when calling the MCP server.
+Values are literal strings (use *_os_env for secrets).
+Example: { 'x-foo': 'bar' }</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.static_headers_os_env" class="classattr">
+                                <div class="attr variable">
+            <span class="name">static_headers_os_env</span><span class="annotation">: dict[str, str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.static_headers_os_env"></a>
+    
+            <div class="docstring"><p>Static headers whose values are sourced from the gateway OS env.
+Mapping is: { header_name: os_env_name }
+Example: { 'x-api-key': 'INTERNAL_API_KEY' }
+Serialized into YAML values as: 'os.environ/<ENV_NAME>'</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.access_groups" class="classattr">
+                                <div class="attr variable">
+            <span class="name">access_groups</span><span class="annotation">: list[str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.access_groups"></a>
+    
+            <div class="docstring"><p>Access groups allowed to use this MCP server (LiteLLM-side authorization concept).</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.allow_all_keys" class="classattr">
+                                <div class="attr variable">
+            <span class="name">allow_all_keys</span><span class="annotation">: bool | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.allow_all_keys"></a>
+    
+            <div class="docstring"><p>If True, this MCP server can be used by any key (public server semantics). Use with caution.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.allowed_tools" class="classattr">
+                                <div class="attr variable">
+            <span class="name">allowed_tools</span><span class="annotation">: list[str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.allowed_tools"></a>
+    
+            <div class="docstring"><p>If set, only these tool names may be invoked from this MCP server.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.disallowed_tools" class="classattr">
+                                <div class="attr variable">
+            <span class="name">disallowed_tools</span><span class="annotation">: list[str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.disallowed_tools"></a>
+    
+            <div class="docstring"><p>If set, these tool names are blocked from being invoked.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.allowed_params" class="classattr">
+                                <div class="attr variable">
+            <span class="name">allowed_params</span><span class="annotation">: dict[str, list[str]] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.allowed_params"></a>
+    
+            <div class="docstring"><p>Parameter allowlist per tool. Keys are tool names, values are allowed parameter names.
+Example: { 'search': ['query', 'top_k'] }</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.to_litellm_yaml_value" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">to_litellm_yaml_value</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.to_litellm_yaml_value"></a>
+    
+            <div class="docstring"><p>Returns the dict that goes under:
+    mcp_servers:
+      <name>: <this dict></p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayMcpServer.validate_server" class="classattr">
+                                <div class="attr function">
+                    <div class="decorator decorator-model_validator">@model_validator(mode=&#39;after&#39;)</div>
+
+        <span class="def">def</span>
+        <span class="name">validate_server</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#GatewayMcpServer">GatewayMcpServer</a></span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayMcpServer.validate_server"></a>
+    
+    
 
                             </div>
                 </section>
@@ -17984,6 +18751,76 @@ on a modelhost deployment. You can use Practicus AI management console, modelhos
     <a class="headerlink" href="#GatewayConfig.module"></a>
     
             <div class="docstring"><p>The absolute file path to the Python module containing user-defined hook functions (e.g., '/app/src/my_hooks.py').</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.mcp_servers" class="classattr">
+                                <div class="attr variable">
+            <span class="name">mcp_servers</span><span class="annotation">: list[<a href="#GatewayMcpServer">GatewayMcpServer</a>] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.mcp_servers"></a>
+    
+            <div class="docstring"><p>MCP servers to be added under <code>mcp_servers:</code> in LiteLLM YAML.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.mcp_aliases" class="classattr">
+                                <div class="attr variable">
+            <span class="name">mcp_aliases</span><span class="annotation">: dict[str, str] | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.mcp_aliases"></a>
+    
+            <div class="docstring"><p>Alias -> server-name mapping.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.mcp_client_side_auth_header_name" class="classattr">
+                                <div class="attr variable">
+            <span class="name">mcp_client_side_auth_header_name</span><span class="annotation">: str | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.mcp_client_side_auth_header_name"></a>
+    
+            <div class="docstring"><p>MCP client side auth header name.</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.user_mcp_management_mode" class="classattr">
+                                <div class="attr variable">
+            <span class="name">user_mcp_management_mode</span><span class="annotation">: Optional[Literal[&#39;restricted&#39;, &#39;view_all&#39;]]</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.user_mcp_management_mode"></a>
+    
+            <div class="docstring"><p>MCP management mode</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayConfig.enable_mcp_registry" class="classattr">
+                                <div class="attr variable">
+            <span class="name">enable_mcp_registry</span><span class="annotation">: bool | None</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayConfig.enable_mcp_registry"></a>
+    
+            <div class="docstring"><p>Enable MCP registry</p>
 </div>
 
 
@@ -18351,6 +19188,338 @@ unexpected type mismatches or memory overhead from inferred <code>VARCHAR(2^31)<
 
                             </div>
                 </section>
+                <section id="ExtSvcContext">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">ExtSvcContext</span><wbr>(<span class="base">pydantic.main.BaseModel</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext"></a>
+    
+            <div class="docstring"><p>Context passed through MCP and API gateway guards/hooks/services or generate new to call external services</p>
+</div>
+
+
+                            <div id="ExtSvcContext.server_url" class="classattr">
+                                <div class="attr variable">
+            <span class="name">server_url</span><span class="annotation">: str</span>        =
+<span class="default_value">PydanticUndefined</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.server_url"></a>
+    
+            <div class="docstring"><p>Remote Server URL</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.endpoint" class="classattr">
+                                <div class="attr variable">
+            <span class="name">endpoint</span><span class="annotation">: str</span>        =
+<span class="default_value">PydanticUndefined</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.endpoint"></a>
+    
+            <div class="docstring"><p>Remote endpoint. E.g. API endpoint name or MCP tool name.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.server_type" class="classattr">
+                                <div class="attr variable">
+            <span class="name">server_type</span><span class="annotation">: Literal[&#39;API&#39;, &#39;MCP&#39;]</span>        =
+<span class="default_value">&#39;MCP&#39;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.server_type"></a>
+    
+            <div class="docstring"><p>The outbound server type. e.g. API or MCP</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.payload" class="classattr">
+                                <div class="attr variable">
+            <span class="name">payload</span><span class="annotation">: Any</span>        =
+<span class="default_value">PydanticUndefined</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.payload"></a>
+    
+            <div class="docstring"><p>Request payload</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.timeout_s" class="classattr">
+                                <div class="attr variable">
+            <span class="name">timeout_s</span><span class="annotation">: float</span>        =
+<span class="default_value">30.0</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.timeout_s"></a>
+    
+            <div class="docstring"><p>Outbound request timeout. Hooks can mutate.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.verify_tls" class="classattr">
+                                <div class="attr variable">
+            <span class="name">verify_tls</span><span class="annotation">: bool</span>        =
+<span class="default_value">True</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.verify_tls"></a>
+    
+            <div class="docstring"><p>Outbound request verify TLS. Hooks can mutate.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.follow_redirects" class="classattr">
+                                <div class="attr variable">
+            <span class="name">follow_redirects</span><span class="annotation">: bool</span>        =
+<span class="default_value">True</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.follow_redirects"></a>
+    
+            <div class="docstring"><p>Outbound request follow redirects. Hooks can mutate.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.headers" class="classattr">
+                                <div class="attr variable">
+            <span class="name">headers</span><span class="annotation">: dict[str, str]</span>        =
+<span class="default_value">PydanticUndefined</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.headers"></a>
+    
+            <div class="docstring"><p>Outbound HTTP headers. Hooks can mutate</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.auth" class="classattr">
+                                <div class="attr variable">
+            <span class="name">auth</span><span class="annotation">: dict[str, typing.Any]</span>        =
+<span class="default_value">PydanticUndefined</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.auth"></a>
+    
+            <div class="docstring"><p>Auth details</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.response" class="classattr">
+                                <div class="attr variable">
+            <span class="name">response</span><span class="annotation">: Any</span>        =
+<span class="default_value">None</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.response"></a>
+    
+            <div class="docstring"><p>String, dictionary or Pydantic Response. Other response types are experimental.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.request_kwargs" class="classattr">
+                                <div class="attr variable">
+            <span class="name">request_kwargs</span><span class="annotation">: dict[str, typing.Any]</span>        =
+<span class="default_value">PydanticUndefined</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.request_kwargs"></a>
+    
+            <div class="docstring"><p>Request kwargs such as StarletteRequest, requester, etc. 
+You can use convenience properties such as <code><a href="#ExtSvcContext.request">request</a></code> or <code><a href="#ExtSvcContext.requester">requester</a></code> for easy access.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.request" class="classattr">
+                                <div class="attr variable">
+            <span class="name">request</span><span class="annotation">: starlette.requests.Request</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.request"></a>
+    
+            <div class="docstring"><p>The original StarletteRequest that arrived the gateway</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.requester" class="classattr">
+                                <div class="attr variable">
+            <span class="name">requester</span><span class="annotation">: dict[str, typing.Any]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.requester"></a>
+    
+            <div class="docstring"><p>Requester dictionary. E.g.
+{
+    "username": ..,
+    "email": ...,
+    "user_id": ..,
+    "admin": False,
+    "is_impersonated": False,
+    # Optional fields:
+    # "app_token_id": None,
+    # "original_requester": {...} - Only used if request is impersonated.
+}</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.api_path" class="classattr">
+                                <div class="attr variable">
+            <span class="name">api_path</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.api_path"></a>
+    
+            <div class="docstring"><p>Incoming POST http request path.
+E.g. 'say-hello' part of <a href="https://practicus.company.com/apps/my-app/say-hello/">https://practicus.company.com/apps/my-app/say-hello/</a></p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.api_spec" class="classattr">
+                                <div class="attr variable">
+            <span class="name">api_spec</span><span class="annotation">: <a href="#APISpec">APISpec</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.api_spec"></a>
+    
+            <div class="docstring"><p>API Spec including risk profile and features.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.parent_headers" class="classattr">
+                                <div class="attr variable">
+            <span class="name">parent_headers</span><span class="annotation">: dict[str, str]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.parent_headers"></a>
+    
+            <div class="docstring"><p>Headers from parent Starlette request (if any).
+Read-only. Useful for logging / routing decisions.</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.header_overrides" class="classattr">
+                                <div class="attr variable">
+            <span class="name">header_overrides</span><span class="annotation">: dict[str, str]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.header_overrides"></a>
+    
+            <div class="docstring"><p>Optional overrides provided by hooks via request_kwargs (if you want that pattern),
+e.g. kwargs["headers"] or kwargs["header_overrides"].</p>
+</div>
+
+
+                            </div>
+                            <div id="ExtSvcContext.merged_out_headers" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">merged_out_headers</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ExtSvcContext.merged_out_headers"></a>
+    
+            <div class="docstring"><p>Merge ctx.headers (explicit outbound headers) with request_kwargs overrides.
+Overrides win. Returned headers are normalized to lowercase.</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="GatewayError">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">GatewayError</span><wbr>(<span class="base">builtins.Exception</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayError"></a>
+    
+            <div class="docstring"><p>Common base class for all non-exit exceptions.</p>
+</div>
+
+
+                            <div id="GatewayError.__init__" class="classattr">
+                                <div class="attr function">
+            
+        <span class="name">GatewayError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">detail</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="o">*</span>, </span><span class="param"><span class="n">http_status_code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">403</span></span>)</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayError.__init__"></a>
+    
+            <div class="docstring"><p>Gateway Exception.</p>
+
+<p>Args:
+    detail (str): Http response
+    http_status_code (int | None): HTTP error code (defaults to 403)</p>
+</div>
+
+
+                            </div>
+                            <div id="GatewayError.detail" class="classattr">
+                                <div class="attr variable">
+            <span class="name">detail</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayError.detail"></a>
+    
+    
+
+                            </div>
+                            <div id="GatewayError.http_status_code" class="classattr">
+                                <div class="attr variable">
+            <span class="name">http_status_code</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#GatewayError.http_status_code"></a>
+    
+    
+
+                            </div>
+                </section>
                 <section id="ModelServer">
                     <div class="attr class">
             
@@ -18447,7 +19616,7 @@ so users can call methods directly on the class without instantiation.</p>
                                 <div class="attr variable">
             <span class="name">IGNORED_REQ_HEADERS</span>        =
 <input id="ModelServer.IGNORED_REQ_HEADERS-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;proxy-authorization&#39;, &#39;te&#39;, &#39;transfer-encoding&#39;, &#39;authorization&#39;, &#39;upgrade&#39;, &#39;trailers&#39;, &#39;host&#39;, &#39;proxy-authenticate&#39;, &#39;content-length&#39;, &#39;keep-alive&#39;, &#39;connection&#39;}</span>
+            <label class="view-value-button pdoc-button" for="ModelServer.IGNORED_REQ_HEADERS-view-value"></label><span class="default_value">{&#39;authorization&#39;, &#39;content-length&#39;, &#39;transfer-encoding&#39;, &#39;host&#39;, &#39;connection&#39;, &#39;upgrade&#39;, &#39;trailers&#39;, &#39;proxy-authenticate&#39;, &#39;keep-alive&#39;, &#39;proxy-authorization&#39;, &#39;te&#39;}</span>
 
         
     </div>
@@ -18459,7 +19628,7 @@ so users can call methods directly on the class without instantiation.</p>
                             <div id="ModelServer.IGNORED_RESP_HEADERS" class="classattr">
                                 <div class="attr variable">
             <span class="name">IGNORED_RESP_HEADERS</span>        =
-<span class="default_value">{&#39;transfer-encoding&#39;, &#39;connection&#39;, &#39;content-encoding&#39;}</span>
+<span class="default_value">{&#39;content-encoding&#39;, &#39;connection&#39;, &#39;transfer-encoding&#39;}</span>
 
         
     </div>
@@ -18770,7 +19939,7 @@ the specified timeout.</p>
                     <div class="decorator decorator-classmethod">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">build_forward_headers</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
+        <span class="name">build_forward_headers</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">cls</span>,</span><span class="param">	<span class="n">http_request</span><span class="p">:</span> <span class="n">starlette</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">Request</span>,</span><span class="param">	<span class="o">*</span>,</span><span class="param">	<span class="n">is_mcp_request</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>:</span></span>
 
         
     </div>
