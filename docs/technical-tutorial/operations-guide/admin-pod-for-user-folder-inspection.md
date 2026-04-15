@@ -26,7 +26,7 @@ spec:
         claimName: prt-pvc-my-{{TARGET_USERNAME}}
   containers:
     - name: ubuntu
-      image: ubuntu:22.04
+      image: ubuntu:24.04
       command: ["/bin/bash", "-c", "sleep infinity"] 
       volumeMounts:
         # Mount the volume defined above. Replace {{TARGET_USERNAME}} with the actual username.
