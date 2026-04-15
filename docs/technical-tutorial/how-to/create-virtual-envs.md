@@ -62,14 +62,14 @@ Practicus AI may not fully support older, deprecated Python versions. While you 
 Since `uv` is already installed, you can use it to install an alternate Python version. For example, to install Python 3.7:
 
 ```shell
-uv python install 3.7
+uv python install 3.12
 ```
 
 #### Creating a Virtual Environment
 Use the newly installed Python version to create a virtual environment:
 
 ```shell
-uv venv ~/.venv/test --python 3.7
+uv venv ~/.venv/test --python 3.12
 ```
 
 Activate the virtual environment:

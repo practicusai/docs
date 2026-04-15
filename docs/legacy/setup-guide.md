@@ -355,13 +355,13 @@ Please check the quick start guide below to see how you can install and run Prac
 
 ### Python Setup Guide
 
-You can run **pip install practicus** (Windows/macOS/Linux: Python 3.10+) and then run **practicus** from the terminal. Or run, python -c “import practicus; practicus.run()”  (python3 for macOS or Linux).
+You can run **pip install practicus** (Windows/macOS/Linux: Python 3.12+) and then run **practicus** from the terminal. Or run, python -c “import practicus; practicus.run()”  (python3 for macOS or Linux).
 
 Installing using pip will give you the exact same end-to-end GUI application experience. Similarly, if you download the packaged app you can still code freely when you want to. So, please select any method of installation as you prefer.
 
 As for any Python application, we strongly recommend you to use a virtual environment such as venv or conda. Please check the recommended QuickStart scripts on this page to create a virtual env, install Practicus AI and run with peace of mind and in one go.  
 
-For server environments or API only usage, you can **pip install practicuscore** to install the core library by itself without the GUI elements. (Windows/macOS/Linux: Python 3.10+)
+For server environments or API only usage, you can **pip install practicuscore** to install the core library by itself without the GUI elements. (Windows/macOS/Linux: Python 3.12+)
 
 This is a small library with fewer requirements and no version enforcement for any of its dependencies. It’s designed to run in existing virtual environments without overriding the version requirements of other libraries. Please check the documentation for more details.
 
