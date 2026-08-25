@@ -1,0 +1,9 @@
+site_name: Practicus AI Documentation
+site_description: How to access Practicus AI documentation inside your private environment.
+site_url: https://docs.practicus.ai
+
+theme:
+  name: mkdocs
+
+nav:
+  - Documentation access: index.md
